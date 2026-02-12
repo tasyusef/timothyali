@@ -42,18 +42,20 @@ export default function Footer() {
         <div className="md:hidden flex flex-col gap-4">
           <div className="flex items-center justify-between">
             <p className="label-swiss text-[var(--color-foreground)]">Timothy Ali</p>
-            <span className="label-swiss">&copy; {new Date().getFullYear()}</span>
+            <div className="flex items-center gap-6">
+              {links.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="label-swiss hover-swiss"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </div>
-          <div className="flex items-center gap-6">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="label-swiss hover-swiss"
-              >
-                {link.label}
-              </Link>
-            ))}
+          <div className="flex justify-end">
+            <span className="label-swiss">&copy; {new Date().getFullYear()}</span>
           </div>
         </div>
       </div>
