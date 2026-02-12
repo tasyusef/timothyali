@@ -100,21 +100,21 @@ export default function CaseStudyLayout({
           className="px-swiss py-[8vh] md:py-[12vh]"
         >
           {header.heroVideo && header.heroImage ? (
-            <div className="grid grid-cols-[1fr_3fr] gap-[2px] w-full">
+            <div className="grid grid-cols-12 gap-[2px] w-full">
               <video
                 src={header.heroVideo}
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-cover"
+                className="col-span-3 w-full h-full object-cover"
               />
               <Image
                 src={header.heroImage}
                 alt={header.heroAlt ?? ""}
                 width={1920}
                 height={1080}
-                className="w-full h-full object-cover"
+                className="col-span-9 w-full h-full object-cover"
                 sizes="75vw"
                 priority
               />

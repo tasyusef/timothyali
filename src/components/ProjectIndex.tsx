@@ -56,7 +56,7 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
               >
                 {project.title}
               </span>
-              <span className="md:col-span-3 md:col-start-7 label-swiss hidden sm:block relative overflow-hidden">
+              <span className="md:col-span-3 md:col-start-7 label-swiss hidden md:block relative overflow-hidden">
                 <span
                   className="block transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
                   style={{
@@ -76,7 +76,7 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
                   View case study &rarr;
                 </span>
               </span>
-              <span className="col-span-6 sm:col-span-2 sm:col-start-11 label-swiss text-right">
+              <span className="col-span-6 md:col-span-2 md:col-start-11 label-swiss text-right">
                 {project.year}
               </span>
             </div>

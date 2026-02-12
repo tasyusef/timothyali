@@ -9,6 +9,13 @@
   --font-body: 'Satoshi', sans-serif;
 }
 
+[data-theme="light"] {
+  --color-background: #f5f5f5;
+  --color-foreground: #0a0a0a;
+  --color-muted: #666666;
+  --color-border: #e0e0e0;
+}
+
 /* Fluid Typography Scale */
 :root {
   --text-display: clamp(3rem, 1.5rem + 10vw, 11rem);

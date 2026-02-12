@@ -145,23 +145,47 @@ export default function AboutPage() {
         </div>
       </ScrollReveal>
 
-      {/* CTA */}
+      {/* Timeline */}
       <ScrollReveal>
-        <div className="mt-[8vh] md:mt-[12vh]">
-          <h2
-            className="heading-swiss"
-            style={{ fontSize: "var(--text-headline)" }}
-          >
-            Let&apos;s work together
-          </h2>
-          <Link
-            href="/contact"
-            className="label-swiss hover-swiss underline underline-offset-4 inline-block mt-6"
-          >
-            Get in touch
-          </Link>
+        <div className="border-t border-[var(--color-border)] py-row">
+          <p className="label-swiss mb-8">Experience</p>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-[var(--color-border)]">
+            <div className="flex flex-col gap-3 bg-[var(--color-background)] md:pr-6 py-4 md:py-0">
+              <p className="label-swiss">2019 — Now</p>
+              <p className="leading-[1.6]" style={{ fontSize: "var(--text-subhead)" }}>Freelance</p>
+              <p className="label-swiss">Graphic Designer</p>
+              <p className="leading-[1.6] mt-auto" style={{ fontSize: "var(--text-caption)" }}>
+                Created brand identities, miscellaneous graphics, and designed apps and websites for startups and local businesses including med-spas, gyms, and online communities.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 bg-[var(--color-background)] md:px-6 py-4 md:py-0">
+              <p className="label-swiss">2021 — Now</p>
+              <p className="leading-[1.6]" style={{ fontSize: "var(--text-subhead)" }}>xrp.cafe</p>
+              <p className="label-swiss">Founding Graphic Designer</p>
+              <p className="leading-[1.6] mt-auto" style={{ fontSize: "var(--text-caption)" }}>
+                Led the development of XRP.CAFE&apos;s brand identity and design system, producing website wireframes, event collateral, motion graphics, and 10+ social campaigns that grew the community to 29,000+ members, helped raise $32K for St. Jude&apos;s, and over $5 million USD in revenue.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 bg-[var(--color-background)] md:px-6 py-4 md:py-0">
+              <p className="label-swiss">2024 — 2025</p>
+              <p className="leading-[1.6]" style={{ fontSize: "var(--text-subhead)" }}>firstledger.net</p>
+              <p className="label-swiss">Senior Brand Designer</p>
+              <p className="leading-[1.6] mt-auto" style={{ fontSize: "var(--text-caption)" }}>
+                Designed and led the visual identity system for First Ledger, delivering animated promotional campaigns and social content that grew the audience to 42,000+ followers while supporting a platform that has surpassed $1B in trading volume.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 bg-[var(--color-background)] md:pl-6 py-4 md:py-0">
+              <p className="label-swiss">2025 — Now</p>
+              <p className="leading-[1.6]" style={{ fontSize: "var(--text-subhead)" }}>firststrike research</p>
+              <p className="label-swiss">Brand Designer</p>
+              <p className="leading-[1.6] mt-auto" style={{ fontSize: "var(--text-caption)" }}>
+                Developed a high-contrast brand identity and product design for FirstStrike Research, a veteran-owned financial platform. Designed a responsive web application featuring real-time market dashboards, AI-driven analysis, portfolio tracking with P&amp;L visualization, and prediction market trading—empowering everyday investors with institutional-grade research tools.
+              </p>
+            </div>
+          </div>
         </div>
       </ScrollReveal>
+
     </section>
   );
 }

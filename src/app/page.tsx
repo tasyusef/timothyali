@@ -1,11 +1,12 @@
 "use client";
 
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useState, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 import { transition } from "@/lib/motion";
 import ProjectIndex from "@/components/ProjectIndex";
 import ScrollReveal from "@/components/ScrollReveal";
 import { projects } from "@/lib/projects";
+import Image from "next/image";
 import Link from "next/link";
 
 function FitText({ children, className, as: Tag = "div" }: { children: string; className?: string; as?: "h1" | "div" | "span" | "p" }) {
@@ -53,29 +54,78 @@ function FitText({ children, className, as: Tag = "div" }: { children: string; c
   );
 }
 
+function useDenverTime() {
+  const fmt = useMemo(
+    () =>
+      new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Denver",
+        hour: "numeric",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true,
+      }),
+    []
+  );
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    setTime(fmt.format(new Date()));
+    const id = setInterval(() => setTime(fmt.format(new Date())), 1000);
+    return () => clearInterval(id);
+  }, [fmt]);
+
+  return time;
+}
+
 export default function Home() {
+  const denverTime = useDenverTime();
+
   return (
     <>
       {/* Hero Section */}
-      <section className="px-swiss pt-2 md:pt-4 pb-[4vh] md:pb-[6vh]">
+      <section className="px-swiss pt-[4vh] md:pt-[6vh] pb-[8vh] md:pb-[14vh]">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={transition.normal}
-          className="mb-1"
+          transition={transition.slow}
+          className="grid grid-cols-1 md:grid-cols-12 gap-y-6 border-t border-[var(--color-border)] pt-6"
         >
-          <span className="label-swiss">
-            Product design, brand identity & motion for startups and tech companies
-          </span>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ ...transition.slow, delay: 0.2 }}
-        >
-          <FitText as="h1" className="font-[var(--font-sans)] font-light tracking-[-0.03em] leading-[0.9]">
-            Timothy Ali
-          </FitText>
+          <div className="md:col-span-3">
+            <Image
+              src="/images/about/headshot.jpg"
+              alt="Timothy Ali"
+              width={400}
+              height={400}
+              className="w-full h-auto"
+              sizes="(max-width: 768px) 100vw, 25vw"
+              priority
+            />
+          </div>
+          <div className="md:col-span-8 md:col-start-5">
+            <div className="grid grid-cols-2 md:grid-rows-2 md:h-full gap-x-8 gap-y-6">
+              <div>
+                <p className="label-swiss mb-2">Discipline</p>
+                <p className="leading-[1.6]">Product, Brand & Motion</p>
+              </div>
+              <div>
+                <p className="label-swiss mb-2">Experience</p>
+                <p className="leading-[1.6]">Since 2019</p>
+              </div>
+              <div>
+                <p className="label-swiss mb-2">Location / Time</p>
+                <p className="leading-[1.6]">Denver, CO — {denverTime}</p>
+              </div>
+              <div>
+                <p className="label-swiss mb-2">Connect</p>
+                <div className="flex flex-col gap-1">
+                  <Link href="mailto:tas.yusef@gmail.com" className="group/link leading-[1.6] hover-swiss flex items-center gap-2">Email <span className="inline-block translate-x-[-8px] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/link:translate-x-0 group-hover/link:opacity-100">&rarr;</span></Link>
+                  <Link href="https://github.com/tasyusef" target="_blank" rel="noopener noreferrer" className="group/link leading-[1.6] hover-swiss flex items-center gap-2">GitHub <span className="inline-block translate-x-[-8px] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/link:translate-x-0 group-hover/link:opacity-100">&rarr;</span></Link>
+                  <Link href="https://linkedin.com/in/timothyali" target="_blank" rel="noopener noreferrer" className="group/link leading-[1.6] hover-swiss flex items-center gap-2">LinkedIn <span className="inline-block translate-x-[-8px] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/link:translate-x-0 group-hover/link:opacity-100">&rarr;</span></Link>
+                  <Link href="/SMITHYUSEF_RESUME.PDF" target="_blank" rel="noopener noreferrer" className="group/link leading-[1.6] hover-swiss flex items-center gap-2">Resume <span className="inline-block translate-x-[-8px] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/link:translate-x-0 group-hover/link:opacity-100">&rarr;</span></Link>
+                </div>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </section>
 
@@ -90,55 +140,47 @@ export default function Home() {
       </section>
 
       {/* About / Writing / Contact */}
-      <section className="px-swiss">
+      <section className="px-swiss border-t border-[var(--color-border)]">
         <ScrollReveal>
-          <Link href="/about" className="group grid grid-cols-1 md:grid-cols-12 border-t border-[var(--color-border)] py-row gap-4 md:gap-0">
-            <p className="label-swiss md:col-span-3">About</p>
-            <p
-              className="md:col-span-5 md:col-start-7 leading-[1.6]"
-            >
-              I&apos;m a designer who works across product, brand, and motion
-              for startups and tech companies. I bring a modernist,
-              &ldquo;less noise&rdquo; approach to everything I make.
-            </p>
-            <span className="hidden md:flex md:col-span-1 md:col-start-12 items-center justify-end overflow-hidden">
-              <span className="inline-block translate-x-[-20px] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-0 group-hover:opacity-100">
-                &rarr;
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-border)]">
+            <Link href="/about" className="group flex flex-col gap-4 bg-[var(--color-background)] py-row md:pr-8">
+              <p className="label-swiss">About</p>
+              <p className="leading-[1.6]">
+                I&apos;m a designer who works across product, brand, and motion
+                for startups and tech companies. I bring a modernist,
+                &ldquo;less noise&rdquo; approach to everything I make.
+              </p>
+              <span className="label-swiss hover-swiss mt-auto overflow-hidden">
+                <span className="inline-block translate-x-[-20px] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-0 group-hover:opacity-100">
+                  &rarr;
+                </span>
               </span>
-            </span>
-          </Link>
-        </ScrollReveal>
+            </Link>
 
-        <ScrollReveal>
-          <Link href="/blog/starting-with-less" className="group grid grid-cols-1 md:grid-cols-12 border-t border-[var(--color-border)] py-row gap-4 md:gap-0">
-            <p className="label-swiss md:col-span-3">Latest Writing</p>
-            <p
-              className="md:col-span-5 md:col-start-7 leading-[1.6]"
-            >
-              Starting With Less: A Foundation-First Approach to Design
-            </p>
-            <span className="hidden md:flex md:col-span-1 md:col-start-12 items-center justify-end overflow-hidden">
-              <span className="inline-block translate-x-[-20px] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-0 group-hover:opacity-100">
-                &rarr;
+            <Link href="/blog/starting-with-less" className="group flex flex-col gap-4 bg-[var(--color-background)] border-t md:border-t-0 border-[var(--color-border)] py-row md:px-8">
+              <p className="label-swiss">Latest Writing</p>
+              <p className="leading-[1.6]">
+                Starting With Less: A Foundation-First Approach to Design
+              </p>
+              <span className="label-swiss hover-swiss mt-auto overflow-hidden">
+                <span className="inline-block translate-x-[-20px] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-0 group-hover:opacity-100">
+                  &rarr;
+                </span>
               </span>
-            </span>
-          </Link>
-        </ScrollReveal>
+            </Link>
 
-        <ScrollReveal>
-          <Link href="/contact" className="group grid grid-cols-1 md:grid-cols-12 border-t border-[var(--color-border)] py-row gap-4 md:gap-0">
-            <p className="label-swiss md:col-span-3">Contact</p>
-            <p
-              className="md:col-span-5 md:col-start-7 leading-[1.6]"
-            >
-              I&apos;m open to full-time opportunities and freelance projects. Let&apos;s talk.
-            </p>
-            <span className="hidden md:flex md:col-span-1 md:col-start-12 items-center justify-end overflow-hidden">
-              <span className="inline-block translate-x-[-20px] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-0 group-hover:opacity-100">
-                &rarr;
+            <Link href="/contact" className="group flex flex-col gap-4 bg-[var(--color-background)] border-t md:border-t-0 border-[var(--color-border)] py-row md:pl-8">
+              <p className="label-swiss">Contact</p>
+              <p className="leading-[1.6]">
+                I&apos;m open to full-time opportunities and freelance projects. Let&apos;s talk.
+              </p>
+              <span className="label-swiss hover-swiss mt-auto overflow-hidden">
+                <span className="inline-block translate-x-[-20px] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-0 group-hover:opacity-100">
+                  &rarr;
+                </span>
               </span>
-            </span>
-          </Link>
+            </Link>
+          </div>
         </ScrollReveal>
       </section>
     </>
