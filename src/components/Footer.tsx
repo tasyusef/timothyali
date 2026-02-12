@@ -11,7 +11,8 @@ export default function Footer() {
   return (
     <footer className="px-swiss pb-8">
       <div className="border-t border-[var(--color-border)] py-8">
-        <div className="grid grid-cols-2 md:grid-cols-12 items-center gap-y-4">
+        {/* Desktop */}
+        <div className="hidden md:grid md:grid-cols-12 items-center">
           <div className="md:col-span-3">
             <p className="label-swiss text-[var(--color-foreground)]">Timothy Ali</p>
           </div>
@@ -26,17 +27,24 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`hidden md:inline-flex label-swiss hover-swiss ${colClass} md:col-span-1`}
+                className={`label-swiss hover-swiss ${colClass} md:col-span-1`}
               >
                 {link.label}
               </Link>
             );
           })}
-          <div className="hidden md:flex md:col-start-12 md:col-span-1 justify-end">
+          <div className="md:col-start-12 md:col-span-1 flex justify-end">
             <span className="label-swiss">&copy; {new Date().getFullYear()}</span>
           </div>
-          {/* Mobile links */}
-          <div className="md:hidden flex items-center gap-6">
+        </div>
+
+        {/* Mobile */}
+        <div className="md:hidden flex flex-col gap-4">
+          <div className="flex items-center justify-between">
+            <p className="label-swiss text-[var(--color-foreground)]">Timothy Ali</p>
+            <span className="label-swiss">&copy; {new Date().getFullYear()}</span>
+          </div>
+          <div className="flex items-center gap-6">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -46,9 +54,6 @@ export default function Footer() {
                 {link.label}
               </Link>
             ))}
-          </div>
-          <div className="md:hidden">
-            <span className="label-swiss">&copy; {new Date().getFullYear()}</span>
           </div>
         </div>
       </div>
