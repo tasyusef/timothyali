@@ -1,12 +1,13 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import { TextSection } from "@/components/CaseStudySection";
 import CaseStudyGallery from "@/components/CaseStudyGallery";
 
 export const metadata: Metadata = {
-  title: "FirstStrike Research — Brand Identity & Web Design",
+  title: "FirstStrike Research — Brand Identity & Product Design",
   description:
-    "Brand identity, guidelines, and website for a veteran-owned financial research publication.",
+    "Brand identity and prediction market research platform for a veteran-owned financial research company.",
 };
 
 export default function FirstStrikePage() {
@@ -14,13 +15,13 @@ export default function FirstStrikePage() {
     <CaseStudyLayout
       header={{
         title: "FirstStrike Research",
-        category: "Brand Identity & Web Design",
+        category: "Brand Identity & Product Design",
         year: "2025",
         role: "Lead Designer (sole designer)",
-        timeline: "~1 month",
+        timeline: "~3 months",
         tools: "Illustrator, Figma",
         overview:
-          "FirstStrike Research is a veteran-owned financial research blog covering American markets. The founders came with a rough vision and mood board — I built the entire brand from scratch in about a month: logo, color system, typography, brand guidelines, and a live website. The core challenge was making the brand credible enough for finance but personal enough to reflect its founders' directness.",
+          "FirstStrike Research is a veteran-owned financial research company covering American markets. The first month was brand — logo, color system, typography, and guidelines built from a rough mood board. The following two months were product — designing a prediction market research platform with real-time dashboards, AI-driven analysis, portfolio tracking, and market trading. The core challenge was making the brand credible enough for finance while building a product that gives everyday investors institutional-grade tools.",
         heroImage: "/images/firststrike/hero.png",
         heroAlt: "FirstStrike Research brand identity",
       }}
@@ -61,23 +62,57 @@ export default function FirstStrikePage() {
         </p>
       </TextSection>
 
-      <TextSection title="Website">
+      <TextSection title="Research Platform">
         <p>
-          The website serves casual readers scanning headlines and serious
-          investors reading research reports. A content-first layout leads with
-          writing, supported by bold category banners using the brand&apos;s
-          gradient and halftone patterns for visual hierarchy. Every design
-          decision prioritized readability and speed.
+          After the brand shipped, the scope expanded into a full product —
+          a prediction market research tool built for retail investors.
+          I designed the entire application: real-time market dashboards
+          with live price feeds, AI-driven analysis summaries, portfolio
+          tracking with P&amp;L visualization, and prediction market
+          trading interfaces. The challenge was density — packing
+          institutional-grade data into layouts that feel approachable
+          rather than overwhelming.
         </p>
       </TextSection>
 
+      {/* Live Platform Embed */}
+      <div className="my-[8vh] md:my-[12vh]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-0 mb-8">
+          <p className="label-swiss md:col-span-3">Live Platform</p>
+          <div className="md:col-span-5 md:col-start-7">
+            <p className="leading-[1.6]">
+              Interactive prototype of the FirstStrike research platform.
+              Explore the dashboards, market data, and trading interfaces.
+            </p>
+            <Link
+              href="https://effervescent-semifreddo-de1ae5.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="label-swiss hover-swiss underline underline-offset-4 inline-block mt-4"
+            >
+              Open full site &rarr;
+            </Link>
+          </div>
+        </div>
+        <div className="border border-[var(--color-border)] overflow-hidden">
+          <iframe
+            src="https://effervescent-semifreddo-de1ae5.netlify.app/"
+            title="FirstStrike Research Platform"
+            className="w-full bg-white"
+            style={{ height: "80vh" }}
+            loading="lazy"
+            allow="clipboard-read; clipboard-write"
+          />
+        </div>
+      </div>
+
       <TextSection title="Outcome">
         <p>
-          FirstStrike launched with a cohesive identity spanning every
-          touchpoint — from website to social media to internal documents. The
-          brand system gives the founders flexibility to produce content quickly
-          while maintaining a professional presence that stands apart from typical
-          financial media.
+          What started as a one-month brand project became a three-month
+          engagement spanning identity and product. FirstStrike launched
+          with a cohesive system across every touchpoint — from the brand
+          guidelines to a fully designed research platform — giving everyday
+          investors tools that were previously only available to professionals.
         </p>
       </TextSection>
 

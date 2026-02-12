@@ -59,16 +59,15 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
       {/* Thumbnail grid */}
       <ScrollReveal>
         <div
-          className="columns-2 md:columns-4"
-          style={{ columnGap: "var(--gap-gallery)" }}
+          className="grid grid-cols-2 md:block md:columns-4"
+          style={{ columnGap: "var(--gap-gallery)", rowGap: "var(--gap-gallery)" }}
         >
           {items.map((item, i) => (
             <button
               key={i}
               type="button"
               onClick={() => setActiveIndex(i)}
-              className="relative block w-full overflow-hidden cursor-pointer bg-transparent border-0 p-0 break-inside-avoid"
-              style={{ marginBottom: "var(--gap-gallery)" }}
+              className="relative block w-full overflow-hidden cursor-pointer bg-transparent border-0 p-0 self-start break-inside-avoid md:mb-[var(--gap-gallery)]"
             >
               {item.type === "image" ? (
                 <Image
@@ -110,7 +109,7 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
             <button
               type="button"
               onClick={close}
-              className="absolute top-6 right-6 label-swiss hover-swiss text-[var(--color-foreground)] z-10 bg-transparent border-0 cursor-pointer"
+              className="absolute top-4 right-4 md:top-6 md:right-6 label-swiss hover-swiss text-[var(--color-foreground)] z-10 bg-transparent border-0 cursor-pointer p-2"
             >
               Close
             </button>
@@ -123,7 +122,7 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
                   e.stopPropagation();
                   prev();
                 }}
-                className="absolute left-6 top-1/2 -translate-y-1/2 label-swiss hover-swiss text-[var(--color-foreground)] z-10 bg-transparent border-0 cursor-pointer"
+                className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 label-swiss hover-swiss text-[var(--color-foreground)] z-10 bg-transparent border-0 cursor-pointer p-2"
               >
                 &larr;
               </button>
@@ -137,7 +136,7 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
                   e.stopPropagation();
                   next();
                 }}
-                className="absolute right-6 top-1/2 -translate-y-1/2 label-swiss hover-swiss text-[var(--color-foreground)] z-10 bg-transparent border-0 cursor-pointer"
+                className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 label-swiss hover-swiss text-[var(--color-foreground)] z-10 bg-transparent border-0 cursor-pointer p-2"
               >
                 &rarr;
               </button>
@@ -145,7 +144,7 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
 
             {/* Media */}
             <div
-              className="w-full h-full p-12 md:p-20 flex items-center justify-center"
+              className="w-full h-full p-4 md:p-20 flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               {items[activeIndex].type === "image" ? (

@@ -3,11 +3,36 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Starting With Less: A Foundation-First Approach to Design",
+  description:
+    "Effective design must originate from structural and conceptual rigor — visual expression is not the origin of meaning but the manifestation of prior analytical decisions.",
+  openGraph: {
+    title: "Starting With Less: A Foundation-First Approach to Design — Timothy Ali",
+    description:
+      "Effective design must originate from structural and conceptual rigor — visual expression is not the origin of meaning but the manifestation of prior analytical decisions.",
+    url: "https://www.timothyali.com/blog/starting-with-less",
+    type: "article",
+    publishedTime: "2026-01-27",
+    authors: ["Timothy Ali"],
+  },
 };
 
 export default function BlogPostPage() {
   return (
     <article className="page-wrapper">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: "Starting With Less: A Foundation-First Approach to Design",
+            author: { "@type": "Person", name: "Timothy Ali", url: "https://www.timothyali.com" },
+            datePublished: "2026-01-27",
+            url: "https://www.timothyali.com/blog/starting-with-less",
+            publisher: { "@type": "Person", name: "Timothy Ali" },
+          }),
+        }}
+      />
       {/* Header row */}
       <div className="grid grid-cols-1 md:grid-cols-12 border-b border-[var(--color-border)] pb-row mb-section">
         <div className="md:col-span-3">

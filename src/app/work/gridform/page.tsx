@@ -30,8 +30,9 @@ export default function GridformPage() {
         <p>
           I began with only the most essential forms, searching for a
           relationship between proportion and negative space. The &ldquo;G&rdquo;
-          developed a geometric precision, and the subtle dotted pattern in the
-          top right corner of the mark added structure without disrupting balance.
+          developed a geometric precision, with the grid element in the top
+          right corner completing the lettermark — merging the &ldquo;G&rdquo;
+          with a structural motif that reinforces the studio&apos;s identity.
         </p>
         <p>
           It felt Swiss — clarity, order, and purpose. Gibson SemiBold proved the

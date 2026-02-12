@@ -16,10 +16,10 @@ export default function XrpCafePage() {
         title: "xrp.cafe",
         category: "Brand Identity & Motion Design",
         year: "2022–present",
-        role: "Cofounder / Creative Lead",
+        role: "Cofounder / Designer",
         tools: "Illustrator, After Effects",
         overview:
-          "xrp.cafe is the #1 NFT marketplace on the XRP Ledger. I cofounded the company and owned the entire creative output — from the brand's visual identity and mascot system to every social post, video, event graphic, and conference booth we shipped. In a space dominated by dark, aggressive crypto aesthetics, I positioned xrp.cafe as warm, friendly, and approachable — a cozy place for NFTs.",
+          "xrp.cafe is the #1 NFT marketplace on the XRP Ledger. As cofounder and one of the designers on the team, I led the brand's implementation across marketing, events, and content — taking the visual identity and extending it into social campaigns, motion graphics, event booths, and community touchpoints. In a space dominated by dark, aggressive crypto aesthetics, we positioned xrp.cafe as warm, friendly, and approachable — a cozy place for NFTs.",
         heroImage: "/images/xrpcafe/logo_16x9.png",
         heroVideo: "/videos/CAFE_EXPLORE_CREATE_TRADE.mp4",
         heroAlt: "xrp.cafe Explore Create Trade motion graphic",
@@ -36,9 +36,9 @@ export default function XrpCafePage() {
           every touchpoint.
         </p>
         <p>
-          This wasn&apos;t just illustration — it was world-building. The mascot
-          system gave xrp.cafe a visual personality that no competitor could
-          replicate.
+          I extended the mascot system into marketing and event materials,
+          creating new character variations and scenes tailored to campaigns,
+          seasonal moments, and community milestones.
         </p>
       </TextSection>
 
@@ -50,25 +50,43 @@ export default function XrpCafePage() {
           signature blue palette throughout. Designed for social media: vertical
           format, instantly legible on a phone screen while scrolling.
         </p>
+        <p>
+          Beyond the hero promo, I produced animated content across product
+          launches, feature announcements, and event recaps — building a library
+          of motion assets that gave the brand a consistent, energetic presence
+          in feeds. Each piece balanced speed with clarity, communicating complex
+          platform features in seconds.
+        </p>
       </TextSection>
 
       <TextSection title="Social Media & Community">
         <p>
-          As the sole designer, I created a continuous stream of social content
-          for Twitter/X, Instagram, and Discord — product announcements, feature
-          launches, community events, seasonal posts, partnerships, and
-          milestone celebrations.
+          I produced a continuous stream of social content for Twitter/X,
+          Instagram, and Discord — product announcements, feature launches,
+          community events, seasonal posts, partnerships, and milestone
+          celebrations. The cadence was relentless: multiple posts per week,
+          each requiring custom graphics, copy, and an understanding of what
+          the community actually cared about.
+        </p>
+        <p>
+          Beyond scheduled content, I designed assets for real-time moments —
+          partnership announcements, trending conversations, and community
+          milestones — keeping the brand visible and responsive in a market
+          that moves around the clock.
         </p>
       </TextSection>
 
       <ResultsList
         items={[
-          "#1 NFT marketplace on the XRP Ledger by volume and user adoption",
-          "100,000+ secondary sales — 47% of all NFT secondary sales on the XRPL",
-          "Ranked #19 NFT marketplace globally on DappRadar at peak",
+          "#1 NFT marketplace on the XRP Ledger by secondary sales volume",
+          "11,800+ secondary sales in a single 30-day period at peak (Nov 2023)",
+          "Top 3 XRPL NFT marketplaces controlled 80%+ of all on-chain NFT volume",
           "Featured on the official XRPL developer blog",
-          "ETH Denver 2024 booth — physical brand presence at a major conference",
+          "Profiled by Messari as one of the most established touchpoints on XRPL",
           "XRPL Accelerator backed — institutional support from the network",
+          "Consensus 2023 & 2024 — booth presence at the largest crypto conference",
+          "Permissionless 2024 — booth within the Ripple X section",
+          "ETH Denver — attended annually since 2022",
         ]}
       />
 
