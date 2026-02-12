@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
-import { TextSection } from "@/components/CaseStudySection";
+import { TextSection, ResultsList } from "@/components/CaseStudySection";
 import CaseStudyGallery from "@/components/CaseStudyGallery";
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function FirstLedgerPage() {
         timeline: "~1 year",
         tools: "Illustrator",
         overview:
-          "First Ledger is a token trading platform on the XRP Ledger. I designed the complete visual identity over a year-long engagement — from logo concept through full brand guidelines with co-branding specifications. The result is a comprehensive brand system the team can apply independently across every touchpoint.",
+          "First Ledger is a token trading platform on the XRP Ledger — offering a Telegram bot and a full web trading interface at firstledger.net for fast, self-custody access to the XRPL's native DEX and AMM pools. Built by the same team behind xrp.cafe, it has grown into one of the top 2–3 DEX gateways on the network by trading volume. I designed the complete visual identity over a year-long engagement — from logo concept through full brand guidelines with co-branding specifications — giving the platform a brand system that could scale alongside the product.",
         heroImage: "/images/firstledger/FL2_FOLIO_HERO.png",
         heroAlt: "First Ledger billboard mockup — The fastest way to trade",
       }}
@@ -37,7 +37,9 @@ export default function FirstLedgerPage() {
         <p>
           Two shapes, one idea, no decoration. The mark works at any scale — from
           a 16px favicon to a billboard — because there&apos;s nothing extraneous
-          to lose at small sizes.
+          to lose at small sizes. For a product that spans Telegram chats, a
+          full web trading interface, and compact mobile UIs, that scalability
+          was a hard requirement from day one.
         </p>
       </TextSection>
 
@@ -49,6 +51,12 @@ export default function FirstLedgerPage() {
           contexts. Both are specified with clear-space rules measured in multiples
           of the icon&apos;s own width.
         </p>
+        <p>
+          The extended letterforms were a deliberate choice to differentiate from
+          the condensed, aggressive type that dominates crypto branding. Width
+          signals confidence and stability — qualities that matter when you&apos;re
+          asking people to trade real money through your platform.
+        </p>
       </TextSection>
 
       <TextSection title="Brand Pillars">
@@ -57,6 +65,13 @@ export default function FirstLedgerPage() {
           and years of experience.&rdquo; Fast — &ldquo;we&apos;re first for a
           reason.&rdquo; The identity threads the needle between trader credibility
           and community personality.
+        </p>
+        <p>
+          These pillars directly informed every visual decision. The playful
+          tone kept the brand approachable in a space full of overly serious
+          competitors, while the emphasis on speed and reliability ensured
+          the identity could hold up in professional contexts — exchange
+          listings, partnership materials, and ecosystem reports.
         </p>
       </TextSection>
 
@@ -76,7 +91,23 @@ export default function FirstLedgerPage() {
           relationships for how the two logos sit together. Pre-built co-branding
           rules mean every collaboration looks intentional rather than improvised.
         </p>
+        <p>
+          As the platform grew into partnerships and ecosystem integrations,
+          these guidelines became essential — ensuring the brand appeared
+          consistently across CoinGecko listings, DappRadar profiles, Messari
+          reports, and co-marketing materials with other XRPL projects.
+        </p>
       </TextSection>
+
+      <ResultsList
+        items={[
+          "First Telegram-based trading bot on the XRP Ledger",
+          "Consistently ranked top 2\u20133 DEX gateway on XRPL by trading volume (Messari)",
+          "Credited by Ripple for driving Q4 2024 XRPL growth \u2014 daily CLOB volume surged 1,140% QoQ",
+          "Listed on CoinGecko, DappRadar, and GeckoTerminal as a tracked exchange",
+          "Featured in every Messari \u201CState of XRP Ledger\u201D report since Q2 2024",
+        ]}
+      />
 
       {/* Gallery */}
       <CaseStudyGallery
