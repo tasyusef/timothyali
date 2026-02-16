@@ -146,8 +146,8 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
             key={project.slug}
             href={`/work/${project.slug}`}
             className="group block border-b border-[var(--color-border)]"
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
+            onPointerEnter={(e) => { if (e.pointerType === "mouse") setHoveredIndex(index); }}
+            onPointerLeave={(e) => { if (e.pointerType === "mouse") setHoveredIndex(null); }}
             onTouchEnd={() => { wasTouchRef.current = true; }}
             onClick={(e) => handleRowClick(e, index, project.slug)}
           >
