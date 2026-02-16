@@ -198,6 +198,16 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
                   className="overflow-hidden relative"
                 >
                   <ImageStrip project={project} />
+                  {/* Mobile-only "View case study" prompt */}
+                  <motion.span
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ ...transition.fast, delay: 0.2 }}
+                    className="absolute bottom-5 right-0 label-swiss bg-black/30 px-3 py-2 md:hidden flex items-center gap-1.5"
+                    style={{ color: "#fff" }}
+                  >
+                    View case study &rarr;
+                  </motion.span>
                 </motion.div>
               )}
             </AnimatePresence>
