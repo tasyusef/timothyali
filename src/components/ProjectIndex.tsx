@@ -112,32 +112,22 @@ function ImageStrip({ project }: { project: Project }) {
 
 export default function ProjectIndex({ projects }: ProjectIndexProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const isTouchRef = useRef(false);
+  const wasTouchRef = useRef(false);
   const router = useRouter();
-
-  // Track whether the current interaction is touch-based
-  useEffect(() => {
-    const onTouch = () => { isTouchRef.current = true; };
-    const onMouse = () => { isTouchRef.current = false; };
-    window.addEventListener("touchstart", onTouch, { passive: true });
-    window.addEventListener("mousemove", onMouse, { passive: true });
-    return () => {
-      window.removeEventListener("touchstart", onTouch);
-      window.removeEventListener("mousemove", onMouse);
-    };
-  }, []);
 
   const handleRowClick = useCallback(
     (e: React.MouseEvent, index: number, slug: string) => {
+      // Read and reset the touch flag — set by onTouchEnd on the same element
+      const isTouch = wasTouchRef.current;
+      wasTouchRef.current = false;
+
       // Desktop: always navigate (hover already handles expand)
-      if (!isTouchRef.current) return;
+      if (!isTouch) return;
 
       // Mobile: first tap expands, second tap navigates
       if (hoveredIndex === index) {
-        // Already expanded — navigate
         router.push(`/work/${slug}`);
       } else {
-        // Not expanded — expand and prevent navigation
         e.preventDefault();
         setHoveredIndex(index);
       }
@@ -158,6 +148,7 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
             className="group block border-b border-[var(--color-border)]"
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
+            onTouchEnd={() => { wasTouchRef.current = true; }}
             onClick={(e) => handleRowClick(e, index, project.slug)}
           >
             <div
