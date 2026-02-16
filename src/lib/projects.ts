@@ -46,6 +46,27 @@ export const projects: Project[] = [
       "Visual identity, motion design, and marketing for the #1 NFT marketplace on the XRP Ledger.",
   },
   {
+    slug: "firststrike",
+    title: "FirstStrike Research",
+    category: "Product Design & Brand Identity",
+    year: "2025",
+    heroImage: "/images/firststrike/hero.png",
+    images: [
+      { src: "/images/firststrike/hero.png", aspect: 16 / 9 },
+      { src: "/images/firststrike/firststrike_pres-02.png", aspect: 16 / 9 },
+      { src: "/images/firststrike/firststrike_pres-03.png", aspect: 3376 / 2250 },
+      { src: "/images/firststrike/firststrike_pres-04.png", aspect: 16 / 9 },
+      { src: "/images/firststrike/firststrike_pres-05.png", aspect: 16 / 9 },
+      { src: "/images/firststrike/firststrike_pres-06.png", aspect: 16 / 9 },
+      { src: "/images/firststrike/firststrike_pres-07.png", aspect: 16 / 9 },
+      { src: "/images/firststrike/firststrike_pres-08.png", aspect: 16 / 9 },
+      { src: "/images/firststrike/firststrike_pres-09.png", aspect: 4 / 3 },
+      { src: "/images/firststrike/firststrike_pres-10.png", aspect: 16 / 9 },
+    ],
+    description:
+      "Brand identity, website design, and development for a veteran-owned financial research publication.",
+  },
+  {
     slug: "firstledger",
     title: "First Ledger",
     category: "Brand Identity System",
@@ -78,27 +99,6 @@ export const projects: Project[] = [
     ],
     description:
       "A bold, two-color title sequence for Philip K. Dick's sci-fi landmark — Saul Bass meets Blade Runner.",
-  },
-  {
-    slug: "firststrike",
-    title: "FirstStrike Research",
-    category: "Product Design & Brand Identity",
-    year: "2025",
-    heroImage: "/images/firststrike/hero.png",
-    images: [
-      { src: "/images/firststrike/hero.png", aspect: 16 / 9 },
-      { src: "/images/firststrike/firststrike_pres-02.png", aspect: 16 / 9 },
-      { src: "/images/firststrike/firststrike_pres-03.png", aspect: 3376 / 2250 },
-      { src: "/images/firststrike/firststrike_pres-04.png", aspect: 16 / 9 },
-      { src: "/images/firststrike/firststrike_pres-05.png", aspect: 16 / 9 },
-      { src: "/images/firststrike/firststrike_pres-06.png", aspect: 16 / 9 },
-      { src: "/images/firststrike/firststrike_pres-07.png", aspect: 16 / 9 },
-      { src: "/images/firststrike/firststrike_pres-08.png", aspect: 16 / 9 },
-      { src: "/images/firststrike/firststrike_pres-09.png", aspect: 4 / 3 },
-      { src: "/images/firststrike/firststrike_pres-10.png", aspect: 16 / 9 },
-    ],
-    description:
-      "Brand identity, website design, and development for a veteran-owned financial research publication.",
   },
   {
     slug: "gridform",
