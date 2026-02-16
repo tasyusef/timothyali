@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { transition } from "@/lib/motion";
+import { transition, delay } from "@/lib/motion";
 
 const posts = [
   {
@@ -33,7 +33,7 @@ export default function BlogPage() {
           key={post.slug}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ ...transition.normal, delay: 0.1 * (index + 1) }}
+          transition={{ ...transition.normal, delay: delay.stagger * (index + 1) }}
         >
           <Link
             href={`/blog/${post.slug}`}
@@ -51,7 +51,7 @@ export default function BlogPage() {
                   {post.title}
                 </h2>
                 <p
-                  className="mt-3 leading-[1.6]"
+                  className="mt-3 leading-body"
                   style={{ fontSize: "var(--text-caption)" }}
                 >
                   {post.excerpt}

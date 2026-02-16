@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import type { Project } from "@/lib/projects";
-import { ease, duration } from "@/lib/motion";
+import { ease, duration, delay, viewport } from "@/lib/motion";
 
 interface ProjectCardProps {
   project: Project;
@@ -16,14 +16,14 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={viewport.card}
       transition={{
         duration: duration.entrance,
-        delay: index * 0.1,
+        delay: index * delay.stagger,
         ease: ease.swiss,
       }}
     >
-      <Link href={`/work/${project.slug}`} className="group block hover:opacity-70 transition-opacity duration-300">
+      <Link href={`/work/${project.slug}`} className="group block hover:opacity-muted transition-opacity duration-fast ease-swiss">
         <div className="overflow-hidden">
           {project.heroVideo ? (
             <video

@@ -105,23 +105,23 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-rows-2 md:h-full gap-x-8 gap-y-6">
               <div>
                 <p className="label-swiss mb-2">Discipline</p>
-                <p className="leading-[1.6]">Product, Brand & Motion</p>
+                <p className="leading-body">Product, Brand & Motion</p>
               </div>
               <div>
                 <p className="label-swiss mb-2">Experience</p>
-                <p className="leading-[1.6]">Since 2019</p>
+                <p className="leading-body">Since 2019</p>
               </div>
               <div>
                 <p className="label-swiss mb-2">Location / Time</p>
-                <p className="leading-[1.6]">Denver, CO — {denverTime}</p>
+                <p className="leading-body">Denver, CO — {denverTime}</p>
               </div>
               <div>
                 <p className="label-swiss mb-2">Connect</p>
                 <div className="flex flex-col gap-1">
-                  <Link href="mailto:tas.yusef@gmail.com" className="group/link leading-[1.6] hover-swiss flex items-center gap-2">Email <span className="inline-block translate-x-[-8px] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/link:translate-x-0 group-hover/link:opacity-100">&rarr;</span></Link>
-                  <Link href="https://github.com/tasyusef" target="_blank" rel="noopener noreferrer" className="group/link leading-[1.6] hover-swiss flex items-center gap-2">GitHub <span className="inline-block translate-x-[-8px] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/link:translate-x-0 group-hover/link:opacity-100">&rarr;</span></Link>
-                  <Link href="https://linkedin.com/in/timothyali" target="_blank" rel="noopener noreferrer" className="group/link leading-[1.6] hover-swiss flex items-center gap-2">LinkedIn <span className="inline-block translate-x-[-8px] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/link:translate-x-0 group-hover/link:opacity-100">&rarr;</span></Link>
-                  <Link href="/SMITHYUSEF_RESUME.PDF" target="_blank" rel="noopener noreferrer" className="group/link leading-[1.6] hover-swiss flex items-center gap-2">Resume <span className="inline-block translate-x-[-8px] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/link:translate-x-0 group-hover/link:opacity-100">&rarr;</span></Link>
+                  <Link href="mailto:tas.yusef@gmail.com" className="group/link leading-body hover-swiss flex items-center gap-2">Email <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
+                  <Link href="https://github.com/tasyusef" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">GitHub <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
+                  <Link href="https://linkedin.com/in/timothyali" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">LinkedIn <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
+                  <Link href="/SMITHYUSEF_RESUME.PDF" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">Resume <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
                 </div>
               </div>
             </div>
@@ -145,13 +145,13 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-border)]">
             <Link href="/about" className="group flex flex-col gap-4 bg-[var(--color-background)] py-row md:pr-8">
               <p className="label-swiss">About</p>
-              <p className="leading-[1.6]">
+              <p className="leading-body">
                 I&apos;m a designer who works across product, brand, and motion
                 for startups and tech companies. I bring a modernist,
                 &ldquo;less noise&rdquo; approach to everything I make.
               </p>
               <span className="label-swiss hover-swiss mt-auto overflow-hidden">
-                <span className="inline-block translate-x-[-20px] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-0 group-hover:opacity-100">
+                <span className="arrow-reveal arrow-reveal-lg">
                   &rarr;
                 </span>
               </span>
@@ -159,11 +159,11 @@ export default function Home() {
 
             <Link href="/blog/starting-with-less" className="group flex flex-col gap-4 bg-[var(--color-background)] border-t md:border-t-0 border-[var(--color-border)] py-row md:px-8">
               <p className="label-swiss">Latest Writing</p>
-              <p className="leading-[1.6]">
+              <p className="leading-body">
                 Starting With Less: A Foundation-First Approach to Design
               </p>
               <span className="label-swiss hover-swiss mt-auto overflow-hidden">
-                <span className="inline-block translate-x-[-20px] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-0 group-hover:opacity-100">
+                <span className="arrow-reveal arrow-reveal-lg">
                   &rarr;
                 </span>
               </span>
@@ -171,11 +171,11 @@ export default function Home() {
 
             <Link href="/contact" className="group flex flex-col gap-4 bg-[var(--color-background)] border-t md:border-t-0 border-[var(--color-border)] py-row md:pl-8">
               <p className="label-swiss">Contact</p>
-              <p className="leading-[1.6]">
+              <p className="leading-body">
                 I&apos;m open to full-time opportunities and freelance projects. Let&apos;s talk.
               </p>
               <span className="label-swiss hover-swiss mt-auto overflow-hidden">
-                <span className="inline-block translate-x-[-20px] opacity-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:translate-x-0 group-hover:opacity-100">
+                <span className="arrow-reveal arrow-reveal-lg">
                   &rarr;
                 </span>
               </span>

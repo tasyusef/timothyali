@@ -4,14 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { transition } from "@/lib/motion";
-
-const links = [
-  { href: "/", label: "Work" },
-  { href: "/about", label: "About" },
-  { href: "/blog", label: "Writing" },
-  { href: "/contact", label: "Contact" },
-];
+import { transition, spring } from "@/lib/motion";
+import { NAV_LINKS, NAV_LINK_COLUMNS } from "@/lib/layout";
 
 function ThemeToggle({
   theme,
@@ -88,7 +82,7 @@ export default function Navigation() {
   }
 
   return (
-    <nav className="relative z-50 py-6 md:py-8 px-swiss">
+    <nav className="relative z-nav py-6 md:py-8 px-swiss">
       <div className="flex md:grid md:grid-cols-12 items-center justify-between">
         <Link
           href="/"
@@ -98,22 +92,16 @@ export default function Navigation() {
         </Link>
 
         {/* Desktop nav */}
-        {links.map((link, i) => {
+        {NAV_LINKS.map((link, i) => {
           const isActive =
             link.href === "/"
               ? pathname === "/" || pathname.startsWith("/work")
               : pathname.startsWith(link.href);
-          const colClass = [
-            "md:col-start-5",
-            "md:col-start-7",
-            "md:col-start-9",
-            "md:col-start-11",
-          ][i];
           return (
             <Link
               key={link.href}
               href={link.href}
-              className={`hidden md:inline-flex label-swiss hover-swiss relative px-3 py-1 ${colClass} md:col-span-1 ${
+              className={`hidden md:inline-flex label-swiss hover-swiss relative px-3 py-1 ${NAV_LINK_COLUMNS[i]} md:col-span-1 ${
                 isActive
                   ? "text-[var(--color-foreground)]"
                   : ""
@@ -123,15 +111,10 @@ export default function Navigation() {
                 <motion.span
                   layoutId="nav-underline"
                   className="absolute bottom-0 left-3 right-3 h-px bg-[var(--color-foreground)]"
-                  transition={{
-                    type: "spring",
-                    stiffness: 500,
-                    damping: 25,
-                    mass: 0.8,
-                  }}
+                  transition={spring.nav}
                 />
               )}
-              <span className="relative z-10">{link.label}</span>
+              <span className="relative z-dropdown">{link.label}</span>
             </Link>
           );
         })}
@@ -169,7 +152,7 @@ export default function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={transition.fast}
-            className="fixed inset-0 z-40 bg-[var(--color-background)] flex flex-col justify-center px-swiss"
+            className="fixed inset-0 z-overlay bg-[var(--color-background)] flex flex-col justify-center px-swiss"
           >
             <button
               className="absolute top-6 right-[var(--spacing-section)] flex flex-col gap-1.5 p-2"
@@ -186,7 +169,7 @@ export default function Navigation() {
               />
             </button>
             <div className="flex flex-col gap-6">
-              {links.map((link) => {
+              {NAV_LINKS.map((link) => {
                 const isActive =
                   link.href === "/"
                     ? pathname === "/" || pathname.startsWith("/work")

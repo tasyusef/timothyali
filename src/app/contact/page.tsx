@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { transition } from "@/lib/motion";
+import { transition, delay } from "@/lib/motion";
 
 export default function ContactPage() {
   return (
@@ -21,7 +21,7 @@ export default function ContactPage() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ ...transition.normal, delay: 0.1 }}
+        transition={{ ...transition.normal, delay: delay.stagger }}
         className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-0 mb-section"
       >
         <div className="md:col-span-5 md:col-start-1">
@@ -33,7 +33,7 @@ export default function ContactPage() {
           </h1>
         </div>
         <div className="md:col-span-5 md:col-start-7">
-          <p className="leading-[1.6]">
+          <p className="leading-body">
             I&apos;m open to full-time product and brand design roles, as well as
             freelance projects. Let&apos;s talk.
           </p>
@@ -44,7 +44,7 @@ export default function ContactPage() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ ...transition.normal, delay: 0.2 }}
+        transition={{ ...transition.normal, delay: delay.section }}
       >
         <a
           href="mailto:tas.yusef@gmail.com"
@@ -63,7 +63,7 @@ export default function ContactPage() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ ...transition.normal, delay: 0.25 }}
+        transition={{ ...transition.normal, delay: delay.hero }}
       >
         <Link
           href="https://github.com/tasyusef"
@@ -84,7 +84,7 @@ export default function ContactPage() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ ...transition.normal, delay: 0.25 }}
+        transition={{ ...transition.normal, delay: delay.hero }}
       >
         <Link
           href="https://linkedin.com/in/timothyali"
@@ -105,7 +105,7 @@ export default function ContactPage() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ ...transition.normal, delay: 0.3 }}
+        transition={{ ...transition.normal, delay: delay.stagger * 3 }}
       >
         <div className="grid grid-cols-1 md:grid-cols-12 border-t border-b border-[var(--color-border)] py-row gap-2 md:gap-0">
           <p className="label-swiss md:col-span-3">Availability</p>

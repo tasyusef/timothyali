@@ -60,7 +60,7 @@ export default function BlogPostPage() {
         </div>
         <div className="md:col-span-5 md:col-start-7">
           <div
-            className="space-y-6 leading-[1.6]"
+            className="space-y-6 leading-body"
           >
             <h2 className="heading-swiss mt-4" style={{ fontSize: "var(--text-subhead)" }}>Introduction</h2>
             <p>

@@ -1,5 +1,27 @@
 @import "tailwindcss";
 
+/*
+ * Animation Strategy
+ * ──────────────────
+ * CSS transitions  — simple interactions: hover, opacity, arrow reveals, color changes.
+ *                    Use the .hover-swiss / .arrow-reveal utility classes, or
+ *                    Tailwind's transition-* + duration-fast + ease-swiss.
+ *
+ * framer-motion    — complex/orchestrated animations: page transitions, layoutId,
+ *                    AnimatePresence, whileInView entrance reveals, spring physics.
+ *                    Import tokens from @/lib/motion (ease, duration, delay, spring, viewport, transition).
+ *
+ * Token Reference
+ * ──────────────────
+ * Opacity:   --opacity-dim (0.35)  --opacity-hover (0.5)  --opacity-muted (0.7)
+ * Z-index:   --z-base (1)  --z-dropdown (10)  --z-overlay (40)  --z-nav (50)
+ * Duration:  --duration-fast (0.3s)  --duration-normal (0.6s)  --duration-slow (0.8s)
+ * Easing:    --ease-swiss (cubic-bezier(0.4, 0, 0.2, 1))
+ * Gaps:      --gap-gallery (4px)  --gap-gallery-tight (2px)
+ * Leading:   --leading-body (1.6)
+ * Spacing:   --spacing-section (8/12/20px responsive)
+ */
+
 @theme inline {
   --color-background: #0a0a0a;
   --color-foreground: #ededed;
@@ -7,6 +29,31 @@
   --color-border: #1a1a1a;
   --font-sans: var(--font-space-grotesk);
   --font-body: 'Satoshi', sans-serif;
+
+  /* Easing & Duration */
+  --ease-swiss: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 0.3s;
+  --duration-normal: 0.6s;
+  --duration-slow: 0.8s;
+
+  /* Spacing */
+  --spacing-section: 8px;
+  --gap-gallery: 4px;
+  --gap-gallery-tight: 2px;
+
+  /* Opacity */
+  --opacity-dim: 0.35;
+  --opacity-hover: 0.5;
+  --opacity-muted: 0.7;
+
+  /* Z-index */
+  --z-base: 1;
+  --z-dropdown: 10;
+  --z-overlay: 40;
+  --z-nav: 50;
+
+  /* Line height */
+  --leading-body: 1.6;
 }
 
 [data-theme="light"] {
@@ -16,21 +63,13 @@
   --color-border: #e0e0e0;
 }
 
-/* Fluid Typography Scale */
+/* Fluid Typography Scale (consumed via style={}) */
 :root {
   --text-display: clamp(3rem, 1.5rem + 10vw, 11rem);
   --text-headline: clamp(2rem, 1rem + 4vw, 5rem);
   --text-subhead: clamp(1.25rem, 0.9rem + 1.5vw, 2.5rem);
   --text-body: clamp(1rem, 0.925rem + 0.35vw, 1.25rem);
   --text-caption: clamp(0.6875rem, 0.625rem + 0.25vw, 0.875rem);
-  --spacing-section: 8px;
-  --gap-gallery: 4px;
-  --ease-swiss: cubic-bezier(0.4, 0, 0.2, 1);
-
-  /* Standardized animation durations */
-  --duration-fast: 0.3s;
-  --duration-normal: 0.6s;
-  --duration-slow: 0.8s;
 }
 
 @media (min-width: 768px) {
@@ -74,11 +113,11 @@ html {
 }
 
 .hover-swiss {
-  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--duration-fast) var(--ease-swiss);
 }
 
 .hover-swiss:hover {
-  opacity: 0.5;
+  opacity: var(--opacity-hover);
 }
 
 .px-swiss {
@@ -100,6 +139,27 @@ html {
   background: var(--color-muted);
   margin-top: 0.625rem;
   flex-shrink: 0;
+}
+
+/* Arrow reveal utilities — replaces repeated arrow-on-hover patterns */
+.arrow-reveal {
+  display: inline-block;
+  opacity: 0;
+  transition: all var(--duration-fast) var(--ease-swiss);
+}
+
+.arrow-reveal-sm {
+  transform: translateX(-8px);
+}
+
+.arrow-reveal-lg {
+  transform: translateX(-20px);
+}
+
+.group\/link:hover .arrow-reveal.arrow-reveal-sm,
+.group:hover .arrow-reveal.arrow-reveal-lg {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 /* Section spacing */

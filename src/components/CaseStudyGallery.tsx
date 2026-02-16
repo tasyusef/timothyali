@@ -102,14 +102,14 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={transition.fast}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+            className="fixed inset-0 z-nav flex items-center justify-center bg-black/90"
             onClick={close}
           >
             {/* Close button */}
             <button
               type="button"
               onClick={close}
-              className="absolute top-4 right-4 md:top-6 md:right-6 label-swiss hover-swiss text-[var(--color-foreground)] z-10 bg-transparent border-0 cursor-pointer p-2"
+              className="absolute top-4 right-4 md:top-6 md:right-6 label-swiss hover-swiss text-[var(--color-foreground)] z-dropdown bg-transparent border-0 cursor-pointer p-2"
             >
               Close
             </button>
@@ -122,7 +122,7 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
                   e.stopPropagation();
                   prev();
                 }}
-                className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 label-swiss hover-swiss text-[var(--color-foreground)] z-10 bg-transparent border-0 cursor-pointer p-2"
+                className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 label-swiss hover-swiss text-[var(--color-foreground)] z-dropdown bg-transparent border-0 cursor-pointer p-2"
               >
                 &larr;
               </button>
@@ -136,7 +136,7 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
                   e.stopPropagation();
                   next();
                 }}
-                className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 label-swiss hover-swiss text-[var(--color-foreground)] z-10 bg-transparent border-0 cursor-pointer p-2"
+                className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 label-swiss hover-swiss text-[var(--color-foreground)] z-dropdown bg-transparent border-0 cursor-pointer p-2"
               >
                 &rarr;
               </button>

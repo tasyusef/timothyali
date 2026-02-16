@@ -16,7 +16,7 @@ export function TextSection({ title, children }: TextSectionProps) {
           <p className="label-swiss md:col-span-3">{title}</p>
         )}
         <div
-          className="md:col-span-5 md:col-start-7 leading-[1.6] space-y-4"
+          className="md:col-span-5 md:col-start-7 leading-body space-y-4"
         >
           {children}
         </div>
@@ -93,7 +93,7 @@ export function ImageRow({ images }: ImageRowProps) {
 
   return (
     <ScrollReveal className="mb-section">
-      <div className="flex gap-[2px]">
+      <div className="flex gap-gallery-tight">
         {images.map((img, i) => (
           <div
             key={i}

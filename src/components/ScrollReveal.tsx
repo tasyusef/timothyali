@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
-import { ease, duration } from "@/lib/motion";
+import { ease, duration, viewport } from "@/lib/motion";
 
 interface ScrollRevealProps {
   children: ReactNode;
@@ -36,7 +36,7 @@ export default function ScrollReveal({
         x: 0,
         y: 0,
       }}
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={viewport.default}
       transition={{
         duration: duration.slow,
         delay,

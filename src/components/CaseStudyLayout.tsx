@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "./ScrollReveal";
 import { ReactNode } from "react";
-import { transition } from "@/lib/motion";
+import { transition, delay } from "@/lib/motion";
 
 interface CaseStudyHeader {
   title: string;
@@ -69,7 +69,7 @@ export default function CaseStudyLayout({
               </h1>
             </div>
             <div className="md:col-span-5 md:col-start-7">
-              <p className="leading-[1.6]">
+              <p className="leading-body">
                 {header.overview}
               </p>
             </div>
@@ -96,11 +96,11 @@ export default function CaseStudyLayout({
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ ...transition.slow, delay: 0.25 }}
+          transition={{ ...transition.slow, delay: delay.hero }}
           className="px-swiss py-[8vh] md:py-[12vh]"
         >
           {header.heroVideo && header.heroImage ? (
-            <div className="grid grid-cols-12 gap-[2px] w-full">
+            <div className="grid grid-cols-12 gap-gallery-tight w-full">
               <video
                 src={header.heroVideo}
                 autoPlay
