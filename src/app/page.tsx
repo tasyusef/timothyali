@@ -88,41 +88,41 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={transition.slow}
-          className="grid grid-cols-1 md:grid-cols-12 gap-y-6 border-t border-[var(--color-border)] pt-6"
+          className="border-t border-[var(--color-border)] pt-6"
         >
-          <div className="md:col-span-3">
-            <Image
-              src="/images/about/headshot.jpg"
-              alt="Timothy Ali"
-              width={400}
-              height={400}
-              className="w-full h-auto"
-              sizes="(max-width: 768px) 100vw, 25vw"
-              priority
-            />
-          </div>
-          <div className="md:col-span-8 md:col-start-5">
-            <div className="grid grid-cols-2 md:grid-rows-2 md:h-full gap-x-8 gap-y-6">
-              <div>
-                <p className="label-swiss mb-2">Discipline</p>
-                <p className="leading-body">Product, Brand & Motion</p>
-              </div>
-              <div>
-                <p className="label-swiss mb-2">Experience</p>
-                <p className="leading-body">Since 2019</p>
-              </div>
-              <div>
-                <p className="label-swiss mb-2">Location / Time</p>
-                <p className="leading-body">Denver, CO — {denverTime}</p>
-              </div>
-              <div>
-                <p className="label-swiss mb-2">Connect</p>
-                <div className="flex flex-col gap-1">
-                  <Link href="mailto:tas.yusef@gmail.com" className="group/link leading-body hover-swiss flex items-center gap-2">Email <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
-                  <Link href="https://github.com/tasyusef" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">GitHub <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
-                  <Link href="https://linkedin.com/in/timothyali" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">LinkedIn <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
-                  <Link href="/SMITHYUSEF_RESUME.PDF" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">Resume <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
-                </div>
+          {/* Mobile: headshot + key info side-by-side, then details below */}
+          {/* Desktop: 12-col grid as before */}
+          <div className="grid grid-cols-2 md:grid-cols-12 gap-x-8 gap-y-6">
+            <div className="hidden md:block md:col-span-2">
+              <Image
+                src="/images/about/headshot.jpg"
+                alt="Timothy Ali"
+                width={400}
+                height={400}
+                className="w-full h-auto"
+                sizes="16vw"
+                priority
+              />
+            </div>
+            <div className="md:col-span-2 md:col-start-4">
+              <p className="label-swiss mb-2">Discipline</p>
+              <p className="leading-body">Product, Brand & Motion</p>
+            </div>
+            <div className="md:col-span-2 md:col-start-6">
+              <p className="label-swiss mb-2">Experience</p>
+              <p className="leading-body">Since 2019</p>
+            </div>
+            <div className="md:col-span-2 md:col-start-8">
+              <p className="label-swiss mb-2">Location / Time</p>
+              <p className="leading-body">Denver, CO — {denverTime}</p>
+            </div>
+            <div className="md:col-span-2 md:col-start-10">
+              <p className="label-swiss mb-2">Connect</p>
+              <div className="flex flex-col gap-1">
+                <Link href="mailto:tas.yusef@gmail.com" className="group/link leading-body hover-swiss flex items-center gap-2">Email <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
+                <Link href="https://github.com/tasyusef" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">GitHub <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
+                <Link href="https://linkedin.com/in/timothyali" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">LinkedIn <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
+                <Link href="/SMITHYUSEF_RESUME.PDF" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">Resume <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
               </div>
             </div>
           </div>
