@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   title: "xrp.cafe — Brand Identity & Motion Design",
   description:
     "Visual identity, mascot system, and marketing design for the #1 NFT marketplace on the XRP Ledger.",
+  openGraph: {
+    title: "xrp.cafe — Brand Identity & Motion Design — Timothy Ali",
+    description:
+      "Visual identity, mascot system, and marketing design for the #1 NFT marketplace on the XRP Ledger.",
+    url: "https://www.timothyali.com/work/xrpcafe",
+    images: [{ url: "/images/xrpcafe/logo_16x9.png", width: 1200, height: 675 }],
+  },
 };
 
 export default function XrpCafePage() {
@@ -103,6 +110,12 @@ export default function XrpCafePage() {
           { type: "image", src: "/images/xrpcafe/4.png", alt: "Jeopardy event" },
           { type: "image", src: "/images/xrpcafe/5.png", alt: "VeSea charity event" },
           { type: "image", src: "/images/xrpcafe/XLS20_1Y-04.png", alt: "XLS-20 one year anniversary" },
+          { type: "image", src: "/images/xrpcafe/booth_team.jpg", alt: "xrp.cafe team at Consensus booth" },
+          { type: "image", src: "/images/xrpcafe/booth_setup.jpg", alt: "xrp.cafe booth setup at Permissionless" },
+          { type: "image", src: "/images/xrpcafe/booth_table.jpg", alt: "xrp.cafe booth table with stickers and merch" },
+          { type: "image", src: "/images/xrpcafe/booth_tablet.jpg", alt: "xrp.cafe website demo at Consensus 2023" },
+          { type: "image", src: "/images/xrpcafe/event_nft_display.jpg", alt: "Team at NFT event with display wall" },
+          { type: "image", src: "/images/xrpcafe/xrpl_group.jpg", alt: "XRP Ledger community group photo at Consensus" },
         ]}
       />
     </CaseStudyLayout>

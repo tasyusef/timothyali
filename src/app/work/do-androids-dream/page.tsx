@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   title: "Do Androids Dream — Motion Design",
   description:
     'A bold, two-color title sequence for Philip K. Dick\'s "Do Androids Dream of Electric Sheep?"',
+  openGraph: {
+    title: "Do Androids Dream — Motion Design — Timothy Ali",
+    description:
+      'A bold, two-color title sequence for Philip K. Dick\'s "Do Androids Dream of Electric Sheep?"',
+    url: "https://www.timothyali.com/work/do-androids-dream",
+  },
 };
 
 export default function DoAndroidsDreamPage() {

@@ -76,6 +76,11 @@ export default function RootLayout({
             __html: `(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t})()`,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.addEventListener('contextmenu',function(e){if(e.target.tagName==='IMG'||e.target.tagName==='VIDEO')e.preventDefault()});document.addEventListener('dragstart',function(e){if(e.target.tagName==='IMG'||e.target.tagName==='VIDEO')e.preventDefault()})`,
+          }}
+        />
         <link
           href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap"
           rel="stylesheet"

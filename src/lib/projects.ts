@@ -35,6 +35,12 @@ export const projects: Project[] = [
       { src: "/images/xrpcafe/7.png", aspect: 16 / 9 },
       { src: "/images/xrpcafe/logo_16x9.png", aspect: 16 / 9 },
       { src: "/images/xrpcafe/XLS20_1Y-04.png", aspect: 1 },
+      { src: "/images/xrpcafe/booth_team.jpg", aspect: 1536 / 2048 },
+      { src: "/images/xrpcafe/booth_setup.jpg", aspect: 4032 / 3024 },
+      { src: "/images/xrpcafe/booth_table.jpg", aspect: 3024 / 4032 },
+      { src: "/images/xrpcafe/booth_tablet.jpg", aspect: 3024 / 4032 },
+      { src: "/images/xrpcafe/event_nft_display.jpg", aspect: 2197 / 3905 },
+      { src: "/images/xrpcafe/xrpl_group.jpg", aspect: 1 },
     ],
     description:
       "Visual identity, motion design, and marketing for the #1 NFT marketplace on the XRP Ledger.",

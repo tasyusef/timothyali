@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   title: "FirstStrike Research — Brand Identity & Product Design",
   description:
     "Brand identity and prediction market research platform for a veteran-owned financial research company.",
+  openGraph: {
+    title: "FirstStrike Research — Brand Identity & Product Design — Timothy Ali",
+    description:
+      "Brand identity and prediction market research platform for a veteran-owned financial research company.",
+    url: "https://www.timothyali.com/work/firststrike",
+    images: [{ url: "/images/firststrike/hero.png", width: 1200, height: 675 }],
+  },
 };
 
 export default function FirstStrikePage() {

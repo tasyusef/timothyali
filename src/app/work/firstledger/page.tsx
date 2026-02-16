@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   title: "First Ledger — Brand Identity System",
   description:
     "Complete visual identity system for a token trading platform on the XRP Ledger.",
+  openGraph: {
+    title: "First Ledger — Brand Identity System — Timothy Ali",
+    description:
+      "Complete visual identity system for a token trading platform on the XRP Ledger.",
+    url: "https://www.timothyali.com/work/firstledger",
+    images: [{ url: "/images/firstledger/FL2_FOLIO_HERO.png", width: 1200, height: 900 }],
+  },
 };
 
 export default function FirstLedgerPage() {
