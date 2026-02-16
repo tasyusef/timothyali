@@ -168,7 +168,7 @@ export default function Navigation() {
                 animate={{ rotate: -45, y: -3.5 }}
               />
             </button>
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 items-end text-right">
               {NAV_LINKS.map((link) => {
                 const isActive =
                   link.href === "/"
@@ -179,12 +179,18 @@ export default function Navigation() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`heading-swiss hover-swiss ${
+                    className={`heading-swiss hover-swiss inline-block ${
                       isActive
                         ? "text-[var(--color-foreground)]"
                         : "text-[var(--color-muted)]"
                     }`}
-                    style={{ fontSize: "var(--text-headline)" }}
+                    style={{
+                      fontSize: "var(--text-headline)",
+                      borderBottom: isActive
+                        ? "1px solid var(--color-foreground)"
+                        : "1px solid transparent",
+                      paddingBottom: "0.1em",
+                    }}
                   >
                     {link.label}
                   </Link>

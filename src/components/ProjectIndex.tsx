@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -111,6 +112,38 @@ function ImageStrip({ project }: { project: Project }) {
 
 export default function ProjectIndex({ projects }: ProjectIndexProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const isTouchRef = useRef(false);
+  const router = useRouter();
+
+  // Track whether the current interaction is touch-based
+  useEffect(() => {
+    const onTouch = () => { isTouchRef.current = true; };
+    const onMouse = () => { isTouchRef.current = false; };
+    window.addEventListener("touchstart", onTouch, { passive: true });
+    window.addEventListener("mousemove", onMouse, { passive: true });
+    return () => {
+      window.removeEventListener("touchstart", onTouch);
+      window.removeEventListener("mousemove", onMouse);
+    };
+  }, []);
+
+  const handleRowClick = useCallback(
+    (e: React.MouseEvent, index: number, slug: string) => {
+      // Desktop: always navigate (hover already handles expand)
+      if (!isTouchRef.current) return;
+
+      // Mobile: first tap expands, second tap navigates
+      if (hoveredIndex === index) {
+        // Already expanded — navigate
+        router.push(`/work/${slug}`);
+      } else {
+        // Not expanded — expand and prevent navigation
+        e.preventDefault();
+        setHoveredIndex(index);
+      }
+    },
+    [hoveredIndex, router],
+  );
 
   return (
     <div className="border-t border-[var(--color-border)]">
@@ -125,6 +158,7 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
             className="group block border-b border-[var(--color-border)]"
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
+            onClick={(e) => handleRowClick(e, index, project.slug)}
           >
             <div
               className="grid grid-cols-12 items-center py-4 md:py-5 transition-opacity duration-fast ease-swiss"
@@ -162,7 +196,7 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
               </span>
             </div>
 
-            {/* Inline image strip on hover */}
+            {/* Inline image strip — hover on desktop, tap-to-expand on mobile */}
             <AnimatePresence initial={false}>
               {isHovered && (
                 <motion.div
