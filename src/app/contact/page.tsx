@@ -101,6 +101,48 @@ export default function ContactPage() {
         </Link>
       </motion.div>
 
+      {/* X */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ ...transition.normal, delay: delay.hero }}
+      >
+        <Link
+          href="https://x.com/twocakeS__"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="grid grid-cols-1 md:grid-cols-12 border-t border-[var(--color-border)] py-row hover-swiss gap-2 md:gap-0"
+        >
+          <p className="label-swiss md:col-span-3">X</p>
+          <p
+            className="md:col-span-5 md:col-start-7"
+          >
+            x.com/twocakeS__
+          </p>
+        </Link>
+      </motion.div>
+
+      {/* Substack */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ ...transition.normal, delay: delay.hero }}
+      >
+        <Link
+          href="https://substack.com/@timothyali"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="grid grid-cols-1 md:grid-cols-12 border-t border-[var(--color-border)] py-row hover-swiss gap-2 md:gap-0"
+        >
+          <p className="label-swiss md:col-span-3">Substack</p>
+          <p
+            className="md:col-span-5 md:col-start-7"
+          >
+            substack.com/@timothyali
+          </p>
+        </Link>
+      </motion.div>
+
       {/* Availability */}
       <motion.div
         initial={{ opacity: 0 }}

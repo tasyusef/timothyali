@@ -6,6 +6,7 @@ import { transition } from "@/lib/motion";
 import ProjectIndex from "@/components/ProjectIndex";
 import ScrollReveal from "@/components/ScrollReveal";
 import { projects } from "@/lib/projects";
+import { posts } from "@/lib/posts";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -92,36 +93,40 @@ export default function Home() {
         >
           {/* Mobile: headshot + key info side-by-side, then details below */}
           {/* Desktop: 12-col grid as before */}
-          <div className="grid grid-cols-2 md:grid-cols-12 gap-x-8 gap-y-6">
-            <div className="hidden md:block md:col-span-2">
-              <Image
-                src="/images/about/headshot.jpg"
-                alt="Timothy Ali"
-                width={400}
-                height={400}
-                className="w-full h-auto"
-                sizes="16vw"
-                priority
-              />
+          <div className="grid grid-cols-2 md:grid-cols-12 gap-y-6">
+            <div className="hidden md:block md:col-span-3">
+              <div className="w-1/2 aspect-[3/4] overflow-hidden">
+                <Image
+                  src="/images/about/headshot.jpg"
+                  alt="Timothy Ali"
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover object-[center_80%]"
+                  sizes="8vw"
+                  priority
+                />
+              </div>
             </div>
-            <div className="md:col-span-2 md:col-start-4">
+            <div className="md:col-span-2 md:col-start-5">
               <p className="label-swiss mb-2">Discipline</p>
               <p className="leading-body">Product, Brand & Motion</p>
             </div>
-            <div className="md:col-span-2 md:col-start-6">
+            <div className="md:col-span-2 md:col-start-7">
               <p className="label-swiss mb-2">Experience</p>
               <p className="leading-body">Since 2019</p>
             </div>
-            <div className="md:col-span-2 md:col-start-8">
+            <div className="md:col-span-2 md:col-start-9">
               <p className="label-swiss mb-2">Location / Time</p>
               <p className="leading-body">Denver, CO — {denverTime}</p>
             </div>
-            <div className="md:col-span-2 md:col-start-10">
+            <div className="md:col-span-2 md:col-start-11">
               <p className="label-swiss mb-2">Connect</p>
               <div className="flex flex-col gap-1">
                 <Link href="mailto:tas.yusef@gmail.com" className="group/link leading-body hover-swiss flex items-center gap-2">Email <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
                 <Link href="https://github.com/tasyusef" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">GitHub <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
                 <Link href="https://linkedin.com/in/timothyali" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">LinkedIn <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
+                <Link href="https://substack.com/@timothyali" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">Substack <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
+                <Link href="https://x.com/twocakeS__" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">X <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
                 <Link href="/SMITHYUSEF_RESUME.PDF" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">Resume <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
               </div>
             </div>
@@ -157,14 +162,14 @@ export default function Home() {
               </span>
             </Link>
 
-            <Link href="/blog/starting-with-less" className="group flex flex-col gap-4 bg-[var(--color-background)] border-t md:border-t-0 border-[var(--color-border)] py-row md:px-8">
+            <Link href={`/blog/${posts[0].slug}`} className="group flex flex-col gap-4 bg-[var(--color-background)] border-t md:border-t-0 border-[var(--color-border)] py-row md:px-8">
               <p className="label-swiss">Latest Writing</p>
               <p className="leading-body">
-                Starting With Less: A Foundation-First Approach to Design
+                {posts[0].title}
               </p>
               <span className="label-swiss hover-swiss mt-auto overflow-hidden">
                 <span className="arrow-reveal arrow-reveal-lg">
-                  &rarr;
+                  Read full article &rarr;
                 </span>
               </span>
             </Link>
@@ -176,7 +181,7 @@ export default function Home() {
               </p>
               <span className="label-swiss hover-swiss mt-auto overflow-hidden">
                 <span className="arrow-reveal arrow-reveal-lg">
-                  &rarr;
+                  Reach out &rarr;
                 </span>
               </span>
             </Link>

@@ -26,7 +26,7 @@ export default function AboutPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={transition.normal}
-        className="grid grid-cols-1 md:grid-cols-12 border-b border-[var(--color-border)] pb-row mb-section"
+        className="grid grid-cols-1 md:grid-cols-12 border-b border-[var(--color-border)] pb-row"
       >
         <p className="label-swiss md:col-span-3">About</p>
       </motion.div>
@@ -36,18 +36,20 @@ export default function AboutPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ ...transition.normal, delay: delay.stagger }}
-        className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-0 mb-section"
+        className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-0 pt-[4vh] md:pt-[6vh] pb-[8vh] md:pb-[14vh]"
       >
         <div className="md:col-span-5 md:col-start-1">
-          <Image
-            src="/images/about/headshot.jpg"
-            alt="Timothy Ali Yusef"
-            width={800}
-            height={1200}
-            className="w-full h-auto"
-            sizes="(max-width: 768px) 100vw, 40vw"
-            priority
-          />
+          <div className="w-1/2 aspect-[3/4] overflow-hidden">
+            <Image
+              src="/images/about/headshot.jpg"
+              alt="Timothy Ali Yusef"
+              width={400}
+              height={400}
+              className="w-full h-full object-cover object-[center_80%]"
+              sizes="8vw"
+              priority
+            />
+          </div>
         </div>
         <div className="md:col-span-5 md:col-start-7">
           <div className="space-y-6 leading-body" >
@@ -74,12 +76,36 @@ export default function AboutPage() {
           </div>
           <div className="flex gap-6 mt-8">
             <Link
+              href="https://github.com/tasyusef"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="label-swiss hover-swiss underline underline-offset-4"
+            >
+              GitHub
+            </Link>
+            <Link
               href="https://linkedin.com/in/timothyali"
               target="_blank"
               rel="noopener noreferrer"
               className="label-swiss hover-swiss underline underline-offset-4"
             >
               LinkedIn
+            </Link>
+            <Link
+              href="https://substack.com/@timothyali"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="label-swiss hover-swiss underline underline-offset-4"
+            >
+              Substack
+            </Link>
+            <Link
+              href="https://x.com/twocakeS__"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="label-swiss hover-swiss underline underline-offset-4"
+            >
+              X
             </Link>
             <Link
               href="/SMITHYUSEF_RESUME.PDF"
