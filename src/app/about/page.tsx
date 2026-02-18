@@ -108,7 +108,7 @@ export default function AboutPage() {
               X
             </Link>
             <Link
-              href="/SMITHYUSEF_RESUME.PDF"
+              href="/timothyali-resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="label-swiss hover-swiss underline underline-offset-4"
