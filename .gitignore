@@ -40,6 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# personal files (resumes contain private info)
+public/resume.pdf
+public/timothyali-resume.pdf
+public/SMITHYUSEF_RESUME.PDF
+
 # OS files
 Thumbs.db
 ehthumbs.db
