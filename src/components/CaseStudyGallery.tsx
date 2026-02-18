@@ -85,6 +85,7 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
                   loop
                   muted
                   playsInline
+                  aria-label={item.alt}
                   className="w-full h-auto block"
                 />
               )}
@@ -164,6 +165,7 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
                   controls
                   autoPlay
                   playsInline
+                  aria-label={items[activeIndex].alt}
                   className="max-w-full max-h-full object-contain"
                 />
               )}

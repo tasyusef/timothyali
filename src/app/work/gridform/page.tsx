@@ -12,13 +12,23 @@ export const metadata: Metadata = {
     description:
       "A complete brand system, poster series, and design philosophy book built around one idea: less noise.",
     url: "https://www.timothyali.com/work/gridform",
-    images: [{ url: "/images/gridform/Poster_Frame_Mockup_2.png", width: 1200, height: 900 }],
   },
 };
 
 export default function GridformPage() {
   return (
     <CaseStudyLayout
+      jsonLd={{
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        name: 'Studio Gridform — "Less Noise."',
+        description:
+          "A complete brand system, poster series, and design philosophy book built around one idea: less noise.",
+        author: { "@type": "Person", name: "Timothy Ali", url: "https://www.timothyali.com" },
+        dateCreated: "2023",
+        url: "https://www.timothyali.com/work/gridform",
+        image: "https://www.timothyali.com/images/gridform/Poster_Frame_Mockup_2.png",
+      }}
       header={{
         title: 'Studio Gridform — "Less Noise."',
         category: "Personal Brand & Design Philosophy",

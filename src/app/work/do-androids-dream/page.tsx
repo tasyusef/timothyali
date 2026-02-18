@@ -18,6 +18,17 @@ export const metadata: Metadata = {
 export default function DoAndroidsDreamPage() {
   return (
     <CaseStudyLayout
+      jsonLd={{
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        name: "Do Androids Dream — Motion Design",
+        description:
+          'A bold, two-color title sequence for Philip K. Dick\'s "Do Androids Dream of Electric Sheep?"',
+        author: { "@type": "Person", name: "Timothy Ali", url: "https://www.timothyali.com" },
+        dateCreated: "2023",
+        url: "https://www.timothyali.com/work/do-androids-dream",
+        image: "https://www.timothyali.com/images/do-androids-dream/hero.jpg",
+      }}
       header={{
         title: "Do Androids Dream?",
         category: "Motion Design",

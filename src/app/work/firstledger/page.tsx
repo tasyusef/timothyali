@@ -12,13 +12,23 @@ export const metadata: Metadata = {
     description:
       "Complete visual identity system for a token trading platform on the XRP Ledger.",
     url: "https://www.timothyali.com/work/firstledger",
-    images: [{ url: "/images/firstledger/FL2_FOLIO_HERO.png", width: 1200, height: 900 }],
   },
 };
 
 export default function FirstLedgerPage() {
   return (
     <CaseStudyLayout
+      jsonLd={{
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        name: "First Ledger — Brand Identity System",
+        description:
+          "Complete visual identity system for a token trading platform on the XRP Ledger.",
+        author: { "@type": "Person", name: "Timothy Ali", url: "https://www.timothyali.com" },
+        dateCreated: "2024",
+        url: "https://www.timothyali.com/work/firstledger",
+        image: "https://www.timothyali.com/images/firstledger/FL2_FOLIO_HERO.png",
+      }}
       header={{
         title: "First Ledger",
         category: "Brand Identity System",

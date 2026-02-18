@@ -23,6 +23,7 @@ interface CaseStudyHeader {
 interface CaseStudyLayoutProps {
   header: CaseStudyHeader;
   children: ReactNode;
+  jsonLd?: Record<string, unknown>;
   nextProject?: {
     title: string;
     slug: string;
@@ -32,6 +33,7 @@ interface CaseStudyLayoutProps {
 export default function CaseStudyLayout({
   header,
   children,
+  jsonLd,
   nextProject,
 }: CaseStudyLayoutProps) {
   const metaItems: { label: string; value: string }[] = [
@@ -44,6 +46,12 @@ export default function CaseStudyLayout({
 
   return (
     <article>
+      {jsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      )}
       {/* Header */}
       <section className="px-swiss pt-6 md:pt-10">
         <motion.div
@@ -107,6 +115,7 @@ export default function CaseStudyLayout({
                 loop
                 muted
                 playsInline
+                aria-label={header.heroAlt ?? header.title}
                 className="col-span-3 w-full h-full object-cover"
               />
               <Image

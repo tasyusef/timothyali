@@ -13,13 +13,23 @@ export const metadata: Metadata = {
     description:
       "Brand identity and prediction market research platform for a veteran-owned financial research company.",
     url: "https://www.timothyali.com/work/firststrike",
-    images: [{ url: "/images/firststrike/hero.png", width: 1200, height: 675 }],
   },
 };
 
 export default function FirstStrikePage() {
   return (
     <CaseStudyLayout
+      jsonLd={{
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        name: "FirstStrike Research — Brand Identity & Product Design",
+        description:
+          "Brand identity and prediction market research platform for a veteran-owned financial research company.",
+        author: { "@type": "Person", name: "Timothy Ali", url: "https://www.timothyali.com" },
+        dateCreated: "2025",
+        url: "https://www.timothyali.com/work/firststrike",
+        image: "https://www.timothyali.com/images/firststrike/hero.png",
+      }}
       header={{
         title: "FirstStrike Research",
         category: "Brand Identity & Product Design",

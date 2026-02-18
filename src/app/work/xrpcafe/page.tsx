@@ -12,13 +12,23 @@ export const metadata: Metadata = {
     description:
       "Visual identity, mascot system, and marketing design for the #1 NFT marketplace on the XRP Ledger.",
     url: "https://www.timothyali.com/work/xrpcafe",
-    images: [{ url: "/images/xrpcafe/logo_16x9.png", width: 1200, height: 675 }],
   },
 };
 
 export default function XrpCafePage() {
   return (
     <CaseStudyLayout
+      jsonLd={{
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        name: "xrp.cafe — Brand Identity & Motion Design",
+        description:
+          "Visual identity, mascot system, and marketing design for the #1 NFT marketplace on the XRP Ledger.",
+        author: { "@type": "Person", name: "Timothy Ali", url: "https://www.timothyali.com" },
+        dateCreated: "2022",
+        url: "https://www.timothyali.com/work/xrpcafe",
+        image: "https://www.timothyali.com/images/xrpcafe/logo_16x9.png",
+      }}
       header={{
         title: "xrp.cafe",
         category: "Brand Identity & Motion Design",
