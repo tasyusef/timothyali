@@ -101,7 +101,7 @@ export default function Navigation() {
             <Link
               key={link.href}
               href={link.href}
-              className={`hidden md:inline-flex label-swiss hover-swiss relative px-3 py-1 ${NAV_LINK_COLUMNS[i]} md:col-span-1 ${
+              className={`hidden md:inline-flex label-swiss hover-swiss relative ${NAV_LINK_COLUMNS[i]} md:col-span-1 ${
                 isActive
                   ? "text-[var(--color-foreground)]"
                   : ""
@@ -110,7 +110,7 @@ export default function Navigation() {
               {isActive && (
                 <motion.span
                   layoutId="nav-underline"
-                  className="absolute bottom-0 left-3 right-3 h-px bg-[var(--color-foreground)]"
+                  className="absolute bottom-0 left-0 right-0 h-px bg-[var(--color-foreground)]"
                   transition={spring.nav}
                 />
               )}

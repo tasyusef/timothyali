@@ -46,7 +46,7 @@ export default function AboutPage() {
               width={400}
               height={400}
               className="w-full h-full object-cover object-[center_80%]"
-              sizes="8vw"
+              sizes="(max-width: 768px) 50vw, 20vw"
               priority
             />
           </div>
@@ -59,10 +59,11 @@ export default function AboutPage() {
               startups and tech companies — from early-stage to growth.
             </p>
             <p>
-              Most recently I cofounded xrp.cafe, where I owned the entire
-              creative output — product design, visual identity, motion, and
-              marketing. Before that I worked across fintech, SaaS, and
-              consumer products.
+              Most I&apos;ve worked with FirstStrike Research, where I owned the
+              entire creative output — product design, visual identity, motion,
+              and marketing. Before that I worked primarily in the crypto
+              industry and freelance work spanning from local businesses like
+              luxury med spas and gyms to online communities and esports teams.
             </p>
             <p>
               I bring a modernist, &ldquo;less noise&rdquo; approach to
@@ -72,6 +73,9 @@ export default function AboutPage() {
             <p>
               Based in Denver, Colorado. Open to full-time
               opportunities and freelance projects.
+            </p>
+            <p>
+              Website: timothyali.com
             </p>
           </div>
           <div className="flex gap-6 mt-8">
