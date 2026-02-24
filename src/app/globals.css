@@ -14,7 +14,7 @@
  * Token Reference
  * ──────────────────
  * Opacity:   --opacity-dim (0.35)  --opacity-hover (0.5)  --opacity-muted (0.7)
- * Z-index:   --z-base (1)  --z-dropdown (10)  --z-overlay (40)  --z-nav (50)
+ * Z-index:   --z-base (1)  --z-dropdown (10)  --z-overlay (40)  --z-nav (50)  --z-lightbox (60)
  * Duration:  --duration-fast (0.3s)  --duration-normal (0.6s)  --duration-slow (0.8s)
  * Easing:    --ease-swiss (cubic-bezier(0.4, 0, 0.2, 1))
  * Gaps:      --gap-gallery (4px)  --gap-gallery-tight (2px)
@@ -51,6 +51,7 @@
   --z-dropdown: 10;
   --z-overlay: 40;
   --z-nav: 50;
+  --z-lightbox: 60;
 
   /* Line height */
   --leading-body: 1.6;
@@ -169,13 +170,25 @@ img, video {
   opacity: 1;
 }
 
+/* Focus visible — global keyboard focus indicator */
+:focus-visible {
+  outline: 2px solid var(--color-foreground);
+  outline-offset: 3px;
+}
+
 /* Section spacing */
 .mb-section {
   margin-bottom: 8vh;
 }
+.mt-section {
+  margin-top: 8vh;
+}
 @media (min-width: 768px) {
   .mb-section {
     margin-bottom: 12vh;
+  }
+  .mt-section {
+    margin-top: 12vh;
   }
 }
 

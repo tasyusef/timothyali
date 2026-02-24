@@ -13,7 +13,7 @@ export function TextSection({ title, children }: TextSectionProps) {
     <ScrollReveal className="mb-section">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-0">
         {title && (
-          <p className="label-swiss md:col-span-3">{title}</p>
+          <h2 className="label-swiss md:col-span-3">{title}</h2>
         )}
         <div
           className="md:col-span-5 md:col-start-7 leading-body space-y-4"
@@ -144,11 +144,11 @@ export function ResultsList({ items }: ResultItemProps) {
   return (
     <ScrollReveal className="mb-section">
       <div className="grid grid-cols-1 md:grid-cols-12 border-t border-[var(--color-border)] pt-6 gap-4 md:gap-0">
-        <p className="label-swiss md:col-span-3">Results</p>
+        <h2 className="label-swiss md:col-span-3">Results</h2>
         <ul className="md:col-span-5 md:col-start-7 space-y-3">
           {items.map((item, i) => (
             <li key={i} className="flex items-start gap-3">
-              <span className="bullet-swiss" />
+              <span className="bullet-swiss" aria-hidden="true" />
               <span>{item}</span>
             </li>
           ))}

@@ -25,7 +25,7 @@ export default function GridformPage() {
         description:
           "A complete brand system, poster series, and design philosophy book built around one idea: less noise.",
         author: { "@type": "Person", name: "Timothy Ali", url: "https://www.timothyali.com" },
-        dateCreated: "2023",
+        dateCreated: "2023-01-01",
         url: "https://www.timothyali.com/work/gridform",
         image: "https://www.timothyali.com/images/gridform/Poster_Frame_Mockup_2.png",
       }}
@@ -40,7 +40,7 @@ export default function GridformPage() {
         heroImage: "/images/gridform/Poster_Frame_Mockup_2.png",
         heroAlt: "Less Noise poster series displayed on outdoor wall",
       }}
-      nextProject={{ title: "xrp.cafe", slug: "xrpcafe" }}
+      nextProject={{ title: "Jade Aesthetics", slug: "jade-aesthetics" }}
     >
       {/* Copy */}
       <TextSection title="Logo & Icon Mark">

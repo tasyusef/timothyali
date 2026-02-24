@@ -25,7 +25,7 @@ export default function DoAndroidsDreamPage() {
         description:
           'A bold, two-color title sequence for Philip K. Dick\'s "Do Androids Dream of Electric Sheep?"',
         author: { "@type": "Person", name: "Timothy Ali", url: "https://www.timothyali.com" },
-        dateCreated: "2023",
+        dateCreated: "2023-01-01",
         url: "https://www.timothyali.com/work/do-androids-dream",
         image: "https://www.timothyali.com/images/do-androids-dream/hero.jpg",
       }}

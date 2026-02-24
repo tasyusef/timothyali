@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState, useCallback, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { transition } from "@/lib/motion";
 import ProjectIndex from "@/components/ProjectIndex";
@@ -9,51 +9,6 @@ import { projects } from "@/lib/projects";
 import { posts } from "@/lib/posts";
 import Image from "next/image";
 import Link from "next/link";
-
-function FitText({ children, className, as: Tag = "div" }: { children: string; className?: string; as?: "h1" | "div" | "span" | "p" }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLElement>(null);
-  const [fontSize, setFontSize] = useState(10);
-
-  const fit = useCallback(() => {
-    const container = containerRef.current;
-    const text = textRef.current;
-    if (!container || !text) return;
-
-    const containerWidth = container.clientWidth;
-    let low = 10;
-    let high = 1000;
-    while (high - low > 1) {
-      const mid = Math.floor((low + high) / 2);
-      text.style.fontSize = `${mid}px`;
-      if (text.scrollWidth > containerWidth) {
-        high = mid;
-      } else {
-        low = mid;
-      }
-    }
-    setFontSize(low);
-  }, []);
-
-  useEffect(() => {
-    fit();
-    const ro = new ResizeObserver(fit);
-    if (containerRef.current) ro.observe(containerRef.current);
-    return () => ro.disconnect();
-  }, [fit]);
-
-  return (
-    <div ref={containerRef} className="w-full overflow-hidden">
-      <Tag
-        ref={textRef as React.RefObject<never>}
-        className={`whitespace-nowrap ${className ?? ""}`}
-        style={{ fontSize: `${fontSize}px` }}
-      >
-        {children}
-      </Tag>
-    </div>
-  );
-}
 
 function useDenverTime() {
   const fmt = useMemo(
@@ -70,6 +25,7 @@ function useDenverTime() {
   const [time, setTime] = useState("");
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTime(fmt.format(new Date()));
     const id = setInterval(() => setTime(fmt.format(new Date())), 1000);
     return () => clearInterval(id);
@@ -84,7 +40,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="px-swiss pt-[4vh] md:pt-[6vh] pb-[8vh] md:pb-[14vh]">
+      <section aria-label="Introduction" className="px-swiss pt-[4vh] md:pt-[6vh] pb-[8vh] md:pb-[14vh]">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -135,7 +91,7 @@ export default function Home() {
       </section>
 
       {/* Selected Work */}
-      <section className="px-swiss">
+      <section aria-label="Selected Work" className="px-swiss">
         <ScrollReveal>
           <p className="label-swiss mb-8">Selected Work</p>
         </ScrollReveal>
@@ -145,7 +101,7 @@ export default function Home() {
       </section>
 
       {/* About / Writing / Contact */}
-      <section className="px-swiss border-t border-[var(--color-border)]">
+      <section aria-label="Quick Links" className="px-swiss border-t border-[var(--color-border)]">
         <ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-border)]">
             <Link href="/about" className="group flex flex-col gap-4 bg-[var(--color-background)] py-row md:pr-8">

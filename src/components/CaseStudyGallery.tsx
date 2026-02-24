@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, useCallback } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
 import { transition } from "@/lib/motion";
 
@@ -16,8 +16,69 @@ interface CaseStudyGalleryProps {
   items: GalleryItem[];
 }
 
+const DESKTOP_COLS = 4;
+
+function GalleryThumb({
+  item,
+  index,
+  onOpen,
+}: {
+  item: GalleryItem;
+  index: number;
+  onOpen: (i: number) => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={() => onOpen(index)}
+      aria-label={
+        item.alt
+          ? `Open ${item.type} ${index + 1}: ${item.alt}`
+          : `Open ${item.type} ${index + 1}`
+      }
+      className="relative block w-full overflow-hidden cursor-pointer bg-transparent border-0 p-0 focus-visible:ring-2 focus-visible:ring-[var(--color-foreground)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-background)]"
+    >
+      {item.type === "image" ? (
+        <Image
+          src={item.src}
+          alt={item.alt ?? ""}
+          width={1920}
+          height={1080}
+          className="w-full h-auto block"
+          sizes="(max-width: 768px) 50vw, 25vw"
+        />
+      ) : (
+        <video
+          src={item.src}
+          autoPlay
+          loop
+          muted
+          playsInline
+          tabIndex={-1}
+          className="w-full h-auto block"
+        />
+      )}
+    </button>
+  );
+}
+
 export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+
+  // Distribute items round-robin into columns for desktop masonry
+  const columns = useMemo(() => {
+    const cols: { item: GalleryItem; index: number }[][] = Array.from(
+      { length: DESKTOP_COLS },
+      () => [],
+    );
+    items.forEach((item, i) => {
+      cols[i % DESKTOP_COLS].push({ item, index: i });
+    });
+    return cols;
+  }, [items]);
 
   const close = useCallback(() => setActiveIndex(null), []);
 
@@ -35,61 +96,95 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
     [items.length],
   );
 
-  /* keyboard & scroll-lock */
+  /* Scroll lock — only toggles on open/close */
   useEffect(() => {
     if (activeIndex === null) return;
-
     document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeIndex !== null]);
+
+  /* Focus management — move to close button on open */
+  useEffect(() => {
+    if (activeIndex === null) return;
+    closeButtonRef.current?.focus();
+  }, [activeIndex]);
+
+  /* Keyboard — arrows, escape, and focus trap */
+  useEffect(() => {
+    if (activeIndex === null) return;
 
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") close();
       if (e.key === "ArrowLeft") prev();
       if (e.key === "ArrowRight") next();
+
+      // Focus trap: keep Tab within the dialog
+      if (e.key === "Tab" && dialogRef.current) {
+        const focusable = dialogRef.current.querySelectorAll<HTMLElement>(
+          "button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])",
+        );
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      }
     }
 
     window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", onKey);
-    };
+    return () => window.removeEventListener("keydown", onKey);
   }, [activeIndex, close, prev, next]);
+
+  const lightboxLabel =
+    activeIndex !== null
+      ? items[activeIndex].alt
+        ? `${items[activeIndex].type === "video" ? "Video" : "Image"} lightbox: ${items[activeIndex].alt}`
+        : `${items[activeIndex].type === "video" ? "Video" : "Image"} lightbox`
+      : "Lightbox";
 
   return (
     <>
-      {/* Thumbnail grid */}
+      {/* Thumbnail grid — mobile: 2-col flat grid */}
       <ScrollReveal>
-        <div
-          className="grid grid-cols-2 md:block md:columns-4"
-          style={{ columnGap: "var(--gap-gallery)", rowGap: "var(--gap-gallery)" }}
-        >
+        <div className="grid grid-cols-2 gap-gallery md:hidden">
           {items.map((item, i) => (
-            <button
+            <GalleryThumb
               key={i}
-              type="button"
-              onClick={() => setActiveIndex(i)}
-              className="relative block w-full overflow-hidden cursor-pointer bg-transparent border-0 p-0 self-start break-inside-avoid md:mb-[var(--gap-gallery)]"
-            >
-              {item.type === "image" ? (
-                <Image
-                  src={item.src}
-                  alt={item.alt ?? ""}
-                  width={1920}
-                  height={1080}
-                  className="w-full h-auto block"
-                  sizes="(max-width: 768px) 50vw, 25vw"
+              item={item}
+              index={i}
+              onOpen={setActiveIndex}
+            />
+          ))}
+        </div>
+      </ScrollReveal>
+
+      {/* Thumbnail grid — desktop: JS-distributed masonry columns */}
+      <ScrollReveal>
+        <div className="hidden md:grid md:grid-cols-4 gap-gallery items-start">
+          {columns.map((col, colIdx) => (
+            <div key={colIdx} className="flex flex-col gap-gallery">
+              {col.map(({ item, index }) => (
+                <GalleryThumb
+                  key={index}
+                  item={item}
+                  index={index}
+                  onOpen={setActiveIndex}
                 />
-              ) : (
-                <video
-                  src={item.src}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  aria-label={item.alt}
-                  className="w-full h-auto block"
-                />
-              )}
-            </button>
+              ))}
+            </div>
           ))}
         </div>
       </ScrollReveal>
@@ -98,19 +193,30 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
       <AnimatePresence>
         {activeIndex !== null && (
           <motion.div
+            ref={dialogRef}
             key="lightbox"
-            initial={{ opacity: 0 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label={lightboxLabel}
+            initial={prefersReducedMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={transition.fast}
-            className="fixed inset-0 z-nav flex items-center justify-center bg-black/90"
+            className="fixed inset-0 z-lightbox flex items-center justify-center bg-black/90"
             onClick={close}
           >
+            {/* Screen reader position */}
+            <span className="sr-only" aria-live="polite">
+              {`${items[activeIndex].type === "video" ? "Video" : "Image"} ${activeIndex + 1} of ${items.length}${items[activeIndex].alt ? `: ${items[activeIndex].alt}` : ""}`}
+            </span>
+
             {/* Close button */}
             <button
+              ref={closeButtonRef}
               type="button"
               onClick={close}
-              className="absolute top-4 right-4 md:top-6 md:right-6 label-swiss hover-swiss text-[var(--color-foreground)] z-dropdown bg-transparent border-0 cursor-pointer p-2"
+              aria-label="Close lightbox"
+              className="absolute top-4 right-4 md:top-6 md:right-6 label-swiss hover-swiss active:opacity-50 text-[var(--color-foreground)] z-[1] bg-transparent border-0 cursor-pointer p-2"
             >
               Close
             </button>
@@ -123,7 +229,8 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
                   e.stopPropagation();
                   prev();
                 }}
-                className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 label-swiss hover-swiss text-[var(--color-foreground)] z-dropdown bg-transparent border-0 cursor-pointer p-2"
+                aria-label="Previous image"
+                className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 label-swiss hover-swiss active:opacity-50 text-[var(--color-foreground)] z-[1] bg-transparent border-0 cursor-pointer p-2"
               >
                 &larr;
               </button>
@@ -137,7 +244,8 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
                   e.stopPropagation();
                   next();
                 }}
-                className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 label-swiss hover-swiss text-[var(--color-foreground)] z-dropdown bg-transparent border-0 cursor-pointer p-2"
+                aria-label="Next image"
+                className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 label-swiss hover-swiss active:opacity-50 text-[var(--color-foreground)] z-[1] bg-transparent border-0 cursor-pointer p-2"
               >
                 &rarr;
               </button>
@@ -145,7 +253,7 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
 
             {/* Media */}
             <div
-              className="w-full h-full p-4 md:p-20 flex items-center justify-center"
+              className="w-full h-full p-4 md:p-10 lg:p-20 flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               {items[activeIndex].type === "image" ? (

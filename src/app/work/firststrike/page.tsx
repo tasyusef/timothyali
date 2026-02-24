@@ -26,7 +26,7 @@ export default function FirstStrikePage() {
         description:
           "Brand identity and prediction market research platform for a veteran-owned financial research company.",
         author: { "@type": "Person", name: "Timothy Ali", url: "https://www.timothyali.com" },
-        dateCreated: "2025",
+        dateCreated: "2025-01-01",
         url: "https://www.timothyali.com/work/firststrike",
         image: "https://www.timothyali.com/images/firststrike/hero.png",
       }}
@@ -93,7 +93,7 @@ export default function FirstStrikePage() {
       </TextSection>
 
       {/* Live Platform Embed */}
-      <div className="my-[8vh] md:my-[12vh]">
+      <div className="mb-section mt-section">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-0 mb-8">
           <p className="label-swiss md:col-span-3">Live Platform</p>
           <div className="md:col-span-5 md:col-start-7">
@@ -115,10 +115,9 @@ export default function FirstStrikePage() {
           <iframe
             src="https://effervescent-semifreddo-de1ae5.netlify.app/"
             title="FirstStrike Research Platform"
-            className="w-full bg-white"
-            style={{ height: "80vh" }}
+            className="w-full bg-white h-[50vh] md:h-[80vh]"
             loading="lazy"
-            allow="clipboard-read; clipboard-write"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
           />
         </div>
       </div>

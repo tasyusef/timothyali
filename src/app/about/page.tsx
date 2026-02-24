@@ -20,7 +20,7 @@ const tools = ["Figma", "Adobe Creative Suite", "Framer", "Claude Code", "Cursor
 
 export default function AboutPage() {
   return (
-    <section className="page-wrapper">
+    <div className="page-wrapper">
       {/* Header row */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -42,7 +42,7 @@ export default function AboutPage() {
           <div className="w-1/2 aspect-[3/4] overflow-hidden">
             <Image
               src="/images/about/headshot.jpg"
-              alt="Timothy Ali Yusef"
+              alt="Timothy Ali"
               width={400}
               height={400}
               className="w-full h-full object-cover object-[center_80%]"
@@ -73,9 +73,6 @@ export default function AboutPage() {
             <p>
               Based in Denver, Colorado. Open to full-time
               opportunities and freelance projects.
-            </p>
-            <p>
-              Website: timothyali.com
             </p>
           </div>
           <div className="flex gap-6 mt-8">
@@ -179,43 +176,43 @@ export default function AboutPage() {
       <ScrollReveal>
         <div className="border-t border-[var(--color-border)] py-row">
           <p className="label-swiss mb-8">Experience</p>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-[var(--color-border)]">
+          <dl className="grid grid-cols-1 md:grid-cols-4 gap-px bg-[var(--color-border)]">
             <div className="flex flex-col gap-3 bg-[var(--color-background)] md:pr-6 py-4 md:py-0">
-              <p className="label-swiss">2019 — Now</p>
-              <p className="leading-body" style={{ fontSize: "var(--text-subhead)" }}>Freelance</p>
-              <p className="label-swiss">Graphic Designer</p>
-              <p className="leading-body mt-auto" style={{ fontSize: "var(--text-caption)" }}>
+              <dt className="label-swiss">2019 — Now</dt>
+              <dd className="leading-body" style={{ fontSize: "var(--text-subhead)" }}>Freelance</dd>
+              <dd className="label-swiss">Graphic Designer</dd>
+              <dd className="leading-body mt-auto" style={{ fontSize: "var(--text-caption)" }}>
                 Created brand identities, miscellaneous graphics, and designed apps and websites for startups and local businesses including med-spas, gyms, and online communities.
-              </p>
+              </dd>
             </div>
             <div className="flex flex-col gap-3 bg-[var(--color-background)] md:px-6 py-4 md:py-0">
-              <p className="label-swiss">2021 — Now</p>
-              <p className="leading-body" style={{ fontSize: "var(--text-subhead)" }}>xrp.cafe</p>
-              <p className="label-swiss">Founding Graphic Designer</p>
-              <p className="leading-body mt-auto" style={{ fontSize: "var(--text-caption)" }}>
+              <dt className="label-swiss">2021 — Now</dt>
+              <dd className="leading-body" style={{ fontSize: "var(--text-subhead)" }}>xrp.cafe</dd>
+              <dd className="label-swiss">Founding Graphic Designer</dd>
+              <dd className="leading-body mt-auto" style={{ fontSize: "var(--text-caption)" }}>
                 Led the development of XRP.CAFE&apos;s brand identity and design system, producing website wireframes, event collateral, motion graphics, and 10+ social campaigns that grew the community to 29,000+ members, helped raise $32K for St. Jude&apos;s, and over $5 million USD in revenue.
-              </p>
+              </dd>
             </div>
             <div className="flex flex-col gap-3 bg-[var(--color-background)] md:px-6 py-4 md:py-0">
-              <p className="label-swiss">2024 — 2025</p>
-              <p className="leading-body" style={{ fontSize: "var(--text-subhead)" }}>firstledger.net</p>
-              <p className="label-swiss">Senior Brand Designer</p>
-              <p className="leading-body mt-auto" style={{ fontSize: "var(--text-caption)" }}>
+              <dt className="label-swiss">2024 — 2025</dt>
+              <dd className="leading-body" style={{ fontSize: "var(--text-subhead)" }}>firstledger.net</dd>
+              <dd className="label-swiss">Senior Brand Designer</dd>
+              <dd className="leading-body mt-auto" style={{ fontSize: "var(--text-caption)" }}>
                 Designed and led the visual identity system for First Ledger, delivering animated promotional campaigns and social content that grew the audience to 42,000+ followers while supporting a platform that has surpassed $1B in trading volume.
-              </p>
+              </dd>
             </div>
             <div className="flex flex-col gap-3 bg-[var(--color-background)] md:pl-6 py-4 md:py-0">
-              <p className="label-swiss">2025 — Now</p>
-              <p className="leading-body" style={{ fontSize: "var(--text-subhead)" }}>firststrike research</p>
-              <p className="label-swiss">Brand Designer</p>
-              <p className="leading-body mt-auto" style={{ fontSize: "var(--text-caption)" }}>
+              <dt className="label-swiss">2025 — Now</dt>
+              <dd className="leading-body" style={{ fontSize: "var(--text-subhead)" }}>firststrike research</dd>
+              <dd className="label-swiss">Brand Designer</dd>
+              <dd className="leading-body mt-auto" style={{ fontSize: "var(--text-caption)" }}>
                 Developed a high-contrast brand identity and product design for FirstStrike Research, a veteran-owned financial platform. Designed a responsive web application featuring real-time market dashboards, AI-driven analysis, portfolio tracking with P&amp;L visualization, and prediction market trading—empowering everyday investors with institutional-grade research tools.
-              </p>
+              </dd>
             </div>
-          </div>
+          </dl>
         </div>
       </ScrollReveal>
 
-    </section>
+    </div>
   );
 }

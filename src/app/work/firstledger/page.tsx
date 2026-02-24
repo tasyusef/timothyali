@@ -25,7 +25,7 @@ export default function FirstLedgerPage() {
         description:
           "Complete visual identity system for a token trading platform on the XRP Ledger.",
         author: { "@type": "Person", name: "Timothy Ali", url: "https://www.timothyali.com" },
-        dateCreated: "2024",
+        dateCreated: "2024-01-01",
         url: "https://www.timothyali.com/work/firstledger",
         image: "https://www.timothyali.com/images/firstledger/FL2_FOLIO_HERO.png",
       }}

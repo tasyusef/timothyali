@@ -53,7 +53,7 @@ function ImageStrip({ project }: { project: Project }) {
       <div
         ref={stripRef}
         onScroll={updateScrollState}
-        className="flex gap-gallery-tight h-[40vh] pb-4 md:pb-5 overflow-x-auto scrollbar-hide"
+        className="flex gap-gallery-tight h-[30vh] md:h-[40vh] pb-4 md:pb-5 overflow-x-auto scrollbar-hide"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {project.videos?.map((src, i) => (
@@ -85,8 +85,10 @@ function ImageStrip({ project }: { project: Project }) {
 
       {/* Scroll arrows — always mounted, visibility controlled via opacity/pointer-events */}
       <button
+        type="button"
+        aria-label="Scroll left"
         onClick={(e) => { e.preventDefault(); e.stopPropagation(); scroll("left"); }}
-        className="absolute left-2 top-1/2 -translate-y-1/2 z-dropdown cursor-pointer border-0 flex items-center justify-center w-8 h-8 bg-black/30 text-white text-sm hover:bg-black/50 transition-all duration-fast ease-swiss"
+        className="absolute left-2 top-1/2 -translate-y-1/2 z-dropdown cursor-pointer border-0 flex items-center justify-center w-11 h-11 bg-[var(--color-background)]/60 text-[var(--color-foreground)] text-sm hover:bg-[var(--color-background)]/80 transition-all duration-fast ease-swiss"
         style={{
           opacity: canScrollLeft ? 1 : 0,
           transform: `translateY(-50%) translateX(${canScrollLeft ? "0px" : "20px"})`,
@@ -96,8 +98,10 @@ function ImageStrip({ project }: { project: Project }) {
         &larr;
       </button>
       <button
+        type="button"
+        aria-label="Scroll right"
         onClick={(e) => { e.preventDefault(); e.stopPropagation(); scroll("right"); }}
-        className="absolute right-2 top-1/2 -translate-y-1/2 z-dropdown cursor-pointer border-0 flex items-center justify-center w-8 h-8 bg-black/30 text-white text-sm hover:bg-black/50 transition-all duration-fast ease-swiss"
+        className="absolute right-2 top-1/2 -translate-y-1/2 z-dropdown cursor-pointer border-0 flex items-center justify-center w-11 h-11 bg-[var(--color-background)]/60 text-[var(--color-foreground)] text-sm hover:bg-[var(--color-background)]/80 transition-all duration-fast ease-swiss"
         style={{
           opacity: canScrollRight ? 1 : 0,
           transform: `translateY(-50%) translateX(${canScrollRight ? "0px" : "-20px"})`,
@@ -203,8 +207,7 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
                     initial={{ opacity: 0, x: -12 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ ...transition.fast, delay: 0.2 }}
-                    className="absolute bottom-5 right-0 label-swiss bg-black/30 px-3 py-2 md:hidden flex items-center gap-1.5"
-                    style={{ color: "#fff" }}
+                    className="absolute bottom-5 right-0 label-swiss bg-[var(--color-background)]/60 text-[var(--color-foreground)] px-3 py-2 md:hidden flex items-center gap-1.5"
                   >
                     View case study &rarr;
                   </motion.span>

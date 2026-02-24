@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ReactNode } from "react";
 import { ease, duration, viewport } from "@/lib/motion";
 
@@ -17,6 +17,8 @@ export default function ScrollReveal({
   delay = 0,
   direction = "none",
 }: ScrollRevealProps) {
+  const prefersReducedMotion = useReducedMotion();
+
   const directionOffset = {
     up: { y: 12, x: 0 },
     down: { y: -12, x: 0 },
@@ -24,6 +26,10 @@ export default function ScrollReveal({
     right: { x: -12, y: 0 },
     none: { x: 0, y: 0 },
   };
+
+  if (prefersReducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div

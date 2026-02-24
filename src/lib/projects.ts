@@ -118,4 +118,27 @@ export const projects: Project[] = [
     description:
       "A complete brand system, poster series, and 28-page design philosophy book built around one idea: less noise.",
   },
+  {
+    slug: "jade-aesthetics",
+    title: "Jade Aesthetics",
+    category: "Web Design & Development",
+    year: "2025–2026",
+    heroImage: "/images/jade-aesthetics/desktop-homepage-fold.jpg",
+    images: [
+      { src: "/images/jade-aesthetics/desktop-homepage-fold.jpg", aspect: 1920 / 1200 },
+      { src: "/images/jade-aesthetics/desktop-services-face-fold.jpg", aspect: 1920 / 1200 },
+      { src: "/images/jade-aesthetics/desktop-service-botox-fold.jpg", aspect: 1920 / 1200 },
+      { src: "/images/jade-aesthetics/desktop-about-fold.jpg", aspect: 1920 / 1200 },
+      { src: "/images/jade-aesthetics/desktop-products-fold.jpg", aspect: 1920 / 1200 },
+      { src: "/images/jade-aesthetics/desktop-faq-fold.jpg", aspect: 1920 / 1200 },
+      { src: "/images/jade-aesthetics/desktop-nav-services-dropdown.jpg", aspect: 1920 / 1080 },
+      { src: "/images/jade-aesthetics/mobile-homepage-fold.jpg", aspect: 780 / 1688 },
+      { src: "/images/jade-aesthetics/mobile-services-face-fold.jpg", aspect: 780 / 1688 },
+      { src: "/images/jade-aesthetics/mobile-service-botox-fold.jpg", aspect: 780 / 1688 },
+      { src: "/images/jade-aesthetics/mobile-about-fold.jpg", aspect: 780 / 1688 },
+      { src: "/images/jade-aesthetics/mobile-nav-open.jpg", aspect: 780 / 1688 },
+    ],
+    description:
+      "Two complete websites designed and built from scratch for a premium medical spa — from Framer launch to SEO-architected Next.js application.",
+  },
 ];

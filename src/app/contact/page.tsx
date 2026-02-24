@@ -6,7 +6,7 @@ import { transition, delay } from "@/lib/motion";
 
 export default function ContactPage() {
   return (
-    <section className="page-wrapper">
+    <div className="page-wrapper">
       {/* Header row */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -51,9 +51,7 @@ export default function ContactPage() {
           className="grid grid-cols-1 md:grid-cols-12 border-t border-[var(--color-border)] py-row hover-swiss gap-2 md:gap-0"
         >
           <p className="label-swiss md:col-span-3">Email</p>
-          <p
-            className="md:col-span-5 md:col-start-7"
-          >
+          <p className="md:col-span-5 md:col-start-7">
             tas.yusef@gmail.com
           </p>
         </a>
@@ -72,9 +70,7 @@ export default function ContactPage() {
           className="grid grid-cols-1 md:grid-cols-12 border-t border-[var(--color-border)] py-row hover-swiss gap-2 md:gap-0"
         >
           <p className="label-swiss md:col-span-3">GitHub</p>
-          <p
-            className="md:col-span-5 md:col-start-7"
-          >
+          <p className="md:col-span-5 md:col-start-7">
             github.com/tasyusef
           </p>
         </Link>
@@ -84,7 +80,7 @@ export default function ContactPage() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ ...transition.normal, delay: delay.hero }}
+        transition={{ ...transition.normal, delay: delay.hero + delay.stagger }}
       >
         <Link
           href="https://linkedin.com/in/timothyali"
@@ -93,9 +89,7 @@ export default function ContactPage() {
           className="grid grid-cols-1 md:grid-cols-12 border-t border-[var(--color-border)] py-row hover-swiss gap-2 md:gap-0"
         >
           <p className="label-swiss md:col-span-3">LinkedIn</p>
-          <p
-            className="md:col-span-5 md:col-start-7"
-          >
+          <p className="md:col-span-5 md:col-start-7">
             linkedin.com/in/timothyali
           </p>
         </Link>
@@ -105,7 +99,7 @@ export default function ContactPage() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ ...transition.normal, delay: delay.hero }}
+        transition={{ ...transition.normal, delay: delay.hero + delay.stagger * 2 }}
       >
         <Link
           href="https://x.com/twocakeS__"
@@ -114,9 +108,7 @@ export default function ContactPage() {
           className="grid grid-cols-1 md:grid-cols-12 border-t border-[var(--color-border)] py-row hover-swiss gap-2 md:gap-0"
         >
           <p className="label-swiss md:col-span-3">X</p>
-          <p
-            className="md:col-span-5 md:col-start-7"
-          >
+          <p className="md:col-span-5 md:col-start-7">
             x.com/twocakeS__
           </p>
         </Link>
@@ -126,7 +118,7 @@ export default function ContactPage() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ ...transition.normal, delay: delay.hero }}
+        transition={{ ...transition.normal, delay: delay.hero + delay.stagger * 3 }}
       >
         <Link
           href="https://substack.com/@timothyali"
@@ -135,9 +127,7 @@ export default function ContactPage() {
           className="grid grid-cols-1 md:grid-cols-12 border-t border-[var(--color-border)] py-row hover-swiss gap-2 md:gap-0"
         >
           <p className="label-swiss md:col-span-3">Substack</p>
-          <p
-            className="md:col-span-5 md:col-start-7"
-          >
+          <p className="md:col-span-5 md:col-start-7">
             substack.com/@timothyali
           </p>
         </Link>
@@ -147,17 +137,15 @@ export default function ContactPage() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ ...transition.normal, delay: delay.stagger * 3 }}
+        transition={{ ...transition.normal, delay: delay.hero + delay.stagger * 4 }}
       >
         <div className="grid grid-cols-1 md:grid-cols-12 border-t border-b border-[var(--color-border)] py-row gap-2 md:gap-0">
           <p className="label-swiss md:col-span-3">Availability</p>
-          <p
-            className="md:col-span-5 md:col-start-7"
-          >
+          <p className="md:col-span-5 md:col-start-7">
             Open to new projects
           </p>
         </div>
       </motion.div>
-    </section>
+    </div>
   );
 }

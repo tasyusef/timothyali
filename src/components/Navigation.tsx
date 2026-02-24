@@ -16,6 +16,7 @@ function ThemeToggle({
 }) {
   return (
     <button
+      type="button"
       onClick={toggle}
       aria-label="Toggle theme"
       className="label-swiss hover-swiss p-2"
@@ -70,6 +71,7 @@ export default function Navigation() {
       | "light"
       | null;
     const initial = stored || "dark";
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(initial);
     document.documentElement.dataset.theme = initial;
   }, []);
@@ -101,6 +103,7 @@ export default function Navigation() {
             <Link
               key={link.href}
               href={link.href}
+              aria-current={isActive ? "page" : undefined}
               className={`hidden md:inline-flex label-swiss hover-swiss relative ${NAV_LINK_COLUMNS[i]} md:col-span-1 ${
                 isActive
                   ? "text-[var(--color-foreground)]"
@@ -126,6 +129,7 @@ export default function Navigation() {
         <div className="md:hidden flex items-center gap-2">
           <ThemeToggle theme={theme} toggle={toggleTheme} />
           <button
+            type="button"
             className="flex flex-col gap-1.5 p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
@@ -152,9 +156,10 @@ export default function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={transition.fast}
-            className="fixed inset-0 z-overlay bg-[var(--color-background)] flex flex-col justify-center px-swiss"
+            className="fixed inset-0 z-nav bg-[var(--color-background)] flex flex-col justify-center px-swiss"
           >
             <button
+              type="button"
               className="absolute top-6 right-[var(--spacing-section)] flex flex-col gap-1.5 p-2"
               onClick={() => setMobileOpen(false)}
               aria-label="Close menu"
@@ -179,6 +184,7 @@ export default function Navigation() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
+                    aria-current={isActive ? "page" : undefined}
                     className={`heading-swiss hover-swiss inline-block ${
                       isActive
                         ? "text-[var(--color-foreground)]"

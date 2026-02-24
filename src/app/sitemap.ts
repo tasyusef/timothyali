@@ -15,5 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/work/firststrike`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.8 },
     { url: `${base}/work/gridform`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.8 },
     { url: `${base}/work/do-androids-dream`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.8 },
+    { url: `${base}/work/jade-aesthetics`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.8 },
   ];
 }

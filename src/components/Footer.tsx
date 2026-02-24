@@ -28,7 +28,7 @@ export default function Footer() {
         <div className="md:hidden flex flex-col gap-4">
           <div className="flex items-center justify-between">
             <p className="label-swiss text-[var(--color-foreground)]">Timothy Ali</p>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4 flex-wrap">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}

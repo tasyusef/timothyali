@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:www.biologique-recherche.com)",
+      "WebFetch(domain:www.skinmedica.com)",
+      "WebFetch(domain:unsplash.com)",
+      "WebFetch(domain:www.pexels.com)",
+      "Bash(gh pr create:*)",
+      "WebFetch(domain:jadenew-opal.vercel.app)",
+      "Bash(node -e:*)",
+      "Bash(npx next build)",
+      "Bash(node scripts/capture-screenshots.mjs:*)"
+    ]
+  }
+}
