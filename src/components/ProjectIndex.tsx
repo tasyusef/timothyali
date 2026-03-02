@@ -73,7 +73,7 @@ function ImageStrip({ project }: { project: Project }) {
       <div
         ref={stripRef}
         onScroll={updateScrollState}
-        className="flex gap-gallery-tight h-[30vh] md:h-[40vh] pb-4 md:pb-5 overflow-x-auto scrollbar-hide"
+        className="flex gap-gallery-tight h-[30vh] md:h-[40vh] min-h-[180px] pb-4 md:pb-5 overflow-x-auto scrollbar-hide"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {project.stats && <StatsCard stats={project.stats} />}
@@ -85,6 +85,7 @@ function ImageStrip({ project }: { project: Project }) {
               loop
               muted
               playsInline
+              aria-hidden="true"
               className="h-full w-auto"
             />
           </div>
@@ -93,11 +94,11 @@ function ImageStrip({ project }: { project: Project }) {
           <div key={`i-${i}`} className="h-full shrink-0">
             <Image
               src={img.src}
-              alt={`${project.title} ${i + 1}`}
+              alt={img.alt ?? `${project.title} – image ${i + 1}`}
               width={Math.round(1200 * img.aspect)}
               height={1200}
               className="h-full w-auto block"
-              sizes="auto"
+              sizes="(max-width: 768px) 80vw, 40vw"
               onLoad={updateScrollState}
             />
           </div>
@@ -108,8 +109,10 @@ function ImageStrip({ project }: { project: Project }) {
       <button
         type="button"
         aria-label="Scroll left"
+        aria-hidden={!canScrollLeft}
+        tabIndex={canScrollLeft ? 0 : -1}
         onClick={(e) => { e.preventDefault(); e.stopPropagation(); scroll("left"); }}
-        className="absolute left-2 top-1/2 -translate-y-1/2 z-dropdown cursor-pointer border-0 flex items-center justify-center w-11 h-11 bg-[var(--color-background)]/60 text-[var(--color-foreground)] text-sm hover:bg-[var(--color-background)]/80 transition-all duration-fast ease-swiss"
+        className="absolute left-2 top-1/2 z-dropdown cursor-pointer border-0 flex items-center justify-center w-11 h-11 bg-[var(--color-background)]/60 text-[var(--color-foreground)] text-sm hover:bg-[var(--color-background)]/80 transition-all duration-fast ease-swiss"
         style={{
           opacity: canScrollLeft ? 1 : 0,
           transform: `translateY(-50%) translateX(${canScrollLeft ? "0px" : "20px"})`,
@@ -121,8 +124,10 @@ function ImageStrip({ project }: { project: Project }) {
       <button
         type="button"
         aria-label="Scroll right"
+        aria-hidden={!canScrollRight}
+        tabIndex={canScrollRight ? 0 : -1}
         onClick={(e) => { e.preventDefault(); e.stopPropagation(); scroll("right"); }}
-        className="absolute right-2 top-1/2 -translate-y-1/2 z-dropdown cursor-pointer border-0 flex items-center justify-center w-11 h-11 bg-[var(--color-background)]/60 text-[var(--color-foreground)] text-sm hover:bg-[var(--color-background)]/80 transition-all duration-fast ease-swiss"
+        className="absolute right-2 top-1/2 z-dropdown cursor-pointer border-0 flex items-center justify-center w-11 h-11 bg-[var(--color-background)]/60 text-[var(--color-foreground)] text-sm hover:bg-[var(--color-background)]/80 transition-all duration-fast ease-swiss"
         style={{
           opacity: canScrollRight ? 1 : 0,
           transform: `translateY(-50%) translateX(${canScrollRight ? "0px" : "-20px"})`,
@@ -178,7 +183,7 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
           >
             <div
               className="grid grid-cols-12 items-center py-4 md:py-5 transition-opacity duration-fast ease-swiss"
-              style={{ opacity: hoveredIndex !== null && !isHovered ? "var(--opacity-dim)" : 1 }}
+              style={{ opacity: hoveredIndex !== null && !isHovered ? "var(--opacity-dim)" : undefined }}
             >
               <span className="col-span-1 label-swiss">{num}</span>
               <span
@@ -216,7 +221,7 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
               {isHovered && (
                 <motion.div
                   initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "40vh", opacity: 1 }}
+                  animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={transition.page}
                   className="overflow-hidden relative"

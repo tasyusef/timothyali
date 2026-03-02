@@ -53,7 +53,7 @@ export default function CaseStudyLayout({
         />
       )}
       {/* Header */}
-      <section className="px-swiss pt-6 md:pt-10">
+      <div className="px-swiss pt-6 md:pt-10">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -96,7 +96,7 @@ export default function CaseStudyLayout({
           ))}
           <div className="border-b border-[var(--color-border)]" />
         </motion.div>
-      </section>
+      </div>
 
       {/* Hero */}
       {(header.heroImage || header.heroVideo) && (
@@ -104,7 +104,7 @@ export default function CaseStudyLayout({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ ...transition.slow, delay: delay.hero }}
-          className="px-swiss py-[8vh] md:py-[12vh]"
+          className="px-swiss py-section"
         >
           {header.heroVideo && header.heroImage ? (
             <div className="grid grid-cols-12 gap-gallery-tight w-full">
@@ -119,7 +119,7 @@ export default function CaseStudyLayout({
               />
               <Image
                 src={header.heroImage}
-                alt={header.heroAlt ?? ""}
+                alt={header.heroAlt ?? header.title}
                 width={1920}
                 height={1080}
                 className="col-span-9 w-full h-full object-cover"
@@ -130,7 +130,7 @@ export default function CaseStudyLayout({
           ) : header.heroImage ? (
             <Image
               src={header.heroImage}
-              alt={header.heroAlt ?? ""}
+              alt={header.heroAlt ?? header.title}
               width={1920}
               height={1080}
               className="w-full h-auto"
@@ -146,7 +146,7 @@ export default function CaseStudyLayout({
 
       {/* Next Project */}
       {nextProject && (
-        <section className="px-swiss mt-[8vh] md:mb-[12vh] pb-8">
+        <section aria-label="Next project" className="px-swiss mt-section pb-row">
           <ScrollReveal>
             <Link
               href={`/work/${nextProject.slug}`}

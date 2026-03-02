@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import { TextSection } from "@/components/CaseStudySection";
 import CaseStudyGallery from "@/components/CaseStudyGallery";
+import { getNextProject } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Do Androids Dream — Motion Design",
@@ -39,7 +40,7 @@ export default function DoAndroidsDreamPage() {
         overview:
           'A title sequence for Philip K. Dick\'s "Do Androids Dream of Electric Sheep?" — the book that inspired Blade Runner. Rather than recreating the dark, rain-soaked aesthetic everyone expects, I went in the opposite direction: a stark, high-contrast yellow-and-black graphic style that feels closer to Saul Bass than Ridley Scott.',
       }}
-      nextProject={{ title: "FirstStrike Research", slug: "firststrike" }}
+      nextProject={getNextProject("do-androids-dream")}
     >
       {/* Copy */}
       <TextSection title="The Concept">

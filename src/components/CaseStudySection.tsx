@@ -64,8 +64,7 @@ export function ImageGrid({ images, columns = 2 }: ImageGridProps) {
   return (
     <ScrollReveal className="mb-section">
       <div
-        className={`grid ${gridCols[columns]} items-start`}
-        style={{ gap: "var(--spacing-section)" }}
+        className={`grid ${gridCols[columns]} items-start gap-section`}
       >
         {images.map((img, i) => (
           <Image
@@ -151,7 +150,7 @@ export function LiveEmbed({
   href,
   src,
   title,
-  iframeBg = "bg-white",
+  iframeBg = "bg-page",
 }: LiveEmbedProps) {
   return (
     <ScrollReveal className="mb-section mt-section">

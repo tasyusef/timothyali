@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import { TextSection, LiveEmbed } from "@/components/CaseStudySection";
 import CaseStudyGallery from "@/components/CaseStudyGallery";
+import { getNextProject } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "FirstStrike Research — Brand Identity & Product Design",
@@ -41,7 +42,7 @@ export default function FirstStrikePage() {
         heroImage: "/images/firststrike/hero.png",
         heroAlt: "FirstStrike Research brand identity",
       }}
-      nextProject={{ title: "Sonde", slug: "sonde" }}
+      nextProject={getNextProject("firststrike")}
     >
       <TextSection title="Logo & Wordmark">
         <p>
@@ -99,16 +100,6 @@ export default function FirstStrikePage() {
         title="FirstStrike Research Platform"
       />
 
-      <TextSection title="Outcome">
-        <p>
-          What started as a one-month brand project became a three-month
-          engagement spanning identity and product. FirstStrike launched
-          with a cohesive system across every touchpoint — from the brand
-          guidelines to a fully designed research platform — giving everyday
-          investors tools that were previously only available to professionals.
-        </p>
-      </TextSection>
-
       {/* Gallery */}
       <CaseStudyGallery
         items={[
@@ -124,6 +115,16 @@ export default function FirstStrikePage() {
           { type: "image", src: "/images/firststrike/firststrike_pres-10.png", alt: "Typography system — Helvetica Heavy and Medium" },
         ]}
       />
+
+      <TextSection title="Outcome">
+        <p>
+          What started as a one-month brand project became a three-month
+          engagement spanning identity and product. FirstStrike launched
+          with a cohesive system across every touchpoint — from the brand
+          guidelines to a fully designed research platform — giving everyday
+          investors tools that were previously only available to professionals.
+        </p>
+      </TextSection>
     </CaseStudyLayout>
   );
 }

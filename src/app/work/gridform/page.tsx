@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import { TextSection } from "@/components/CaseStudySection";
 import CaseStudyGallery from "@/components/CaseStudyGallery";
+import { getNextProject } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: 'Studio Gridform — "Less Noise."',
@@ -40,7 +41,7 @@ export default function GridformPage() {
         heroImage: "/images/gridform/Poster_Frame_Mockup_2.png",
         heroAlt: "Less Noise poster series displayed on outdoor wall",
       }}
-      nextProject={{ title: "Jade Aesthetics", slug: "jade-aesthetics" }}
+      nextProject={getNextProject("gridform")}
     >
       {/* Copy */}
       <TextSection title="Logo & Icon Mark">

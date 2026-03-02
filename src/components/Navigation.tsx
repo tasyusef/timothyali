@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { transition, spring } from "@/lib/motion";
 import { NAV_LINKS, NAV_LINK_COLUMNS } from "@/lib/layout";
@@ -18,7 +18,7 @@ function ThemeToggle({
     <button
       type="button"
       onClick={toggle}
-      aria-label="Toggle theme"
+      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
       className="label-swiss hover-swiss p-2"
     >
       {theme === "dark" ? (
@@ -64,6 +64,7 @@ export default function Navigation() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const mobileNavRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const stored = localStorage.getItem("theme") as
@@ -76,6 +77,42 @@ export default function Navigation() {
     document.documentElement.dataset.theme = initial;
   }, []);
 
+  // Close mobile nav on Escape + trap focus within overlay
+  const handleEscape = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Escape") setMobileOpen(false);
+  }, []);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+    document.addEventListener("keydown", handleEscape);
+    // Trap focus within overlay
+    const overlay = mobileNavRef.current;
+    if (overlay) {
+      const focusable = overlay.querySelectorAll<HTMLElement>(
+        'a[href], button, [tabindex]:not([tabindex="-1"])',
+      );
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      first?.focus();
+      const trapFocus = (e: KeyboardEvent) => {
+        if (e.key !== "Tab") return;
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      };
+      document.addEventListener("keydown", trapFocus);
+      return () => {
+        document.removeEventListener("keydown", handleEscape);
+        document.removeEventListener("keydown", trapFocus);
+      };
+    }
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [mobileOpen, handleEscape]);
+
   function toggleTheme() {
     const next = theme === "dark" ? "light" : "dark";
     setTheme(next);
@@ -84,7 +121,7 @@ export default function Navigation() {
   }
 
   return (
-    <nav className="relative z-nav py-6 md:py-8 px-swiss">
+    <nav aria-label="Main navigation" className="relative z-nav py-6 md:py-8 px-swiss">
       <div className="flex md:grid md:grid-cols-12 items-center justify-between">
         <Link
           href="/"
@@ -133,6 +170,8 @@ export default function Navigation() {
             className="flex flex-col gap-1.5 p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav"
           >
             <motion.span
               className="block w-5 h-px bg-[var(--color-foreground)]"
@@ -152,6 +191,11 @@ export default function Navigation() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
+            id="mobile-nav"
+            ref={mobileNavRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

@@ -52,7 +52,7 @@ export default function BlogPostPage() {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-0">
         <div className="md:col-span-5 md:col-start-1">
           <h1
-            className="heading-swiss leading-tight text-subhead"
+            className="heading-swiss leading-tight text-headline"
           >
             Starting With Less: A Foundation-First Approach to Design
           </h1>

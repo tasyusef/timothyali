@@ -8,6 +8,7 @@ import { posts } from "@/lib/posts";
 export default function BlogPage() {
   return (
     <section className="page-wrapper">
+      <h1 className="sr-only">Writing</h1>
       {/* Header row */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -15,7 +16,7 @@ export default function BlogPage() {
         transition={transition.normal}
         className="grid grid-cols-1 md:grid-cols-12 border-b border-[var(--color-border)] pb-row"
       >
-        <p className="label-swiss md:col-span-3">Writing</p>
+        <p className="label-swiss md:col-span-3" aria-hidden="true">Writing</p>
       </motion.div>
 
       {/* Posts */}

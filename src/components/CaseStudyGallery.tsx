@@ -9,7 +9,7 @@ import { transition } from "@/lib/motion";
 interface GalleryItem {
   type: "image" | "video";
   src: string;
-  alt?: string;
+  alt: string;
 }
 
 interface CaseStudyGalleryProps {
@@ -156,7 +156,8 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
       : "Lightbox";
 
   return (
-    <>
+    <section aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading" className="sr-only">Gallery</h2>
       {/* Thumbnail grid — mobile: 2-col flat grid */}
       <ScrollReveal>
         <div className="grid grid-cols-2 gap-gallery md:hidden">
@@ -273,7 +274,7 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
                   controls
                   autoPlay
                   playsInline
-                  aria-label={items[activeIndex].alt}
+                  aria-label={items[activeIndex].alt ?? `Video ${activeIndex + 1}`}
                   className="max-w-full max-h-full object-contain"
                 />
               )}
@@ -281,6 +282,6 @@ export default function CaseStudyGallery({ items }: CaseStudyGalleryProps) {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </section>
   );
 }

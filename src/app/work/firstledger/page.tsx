@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import { TextSection, ResultsList } from "@/components/CaseStudySection";
 import CaseStudyGallery from "@/components/CaseStudyGallery";
+import { getNextProject } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "First Ledger — Brand Identity System",
@@ -41,7 +42,7 @@ export default function FirstLedgerPage() {
         heroImage: "/images/firstledger/FL2_FOLIO_HERO.png",
         heroAlt: "First Ledger billboard mockup — The fastest way to trade",
       }}
-      nextProject={{ title: "Do Androids Dream", slug: "do-androids-dream" }}
+      nextProject={getNextProject("firstledger")}
     >
       {/* Copy */}
       <TextSection title="Pencil + Paper = Ledger">

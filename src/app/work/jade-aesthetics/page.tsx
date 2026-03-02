@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import { TextSection, ResultsList, LiveEmbed } from "@/components/CaseStudySection";
+import { getNextProject } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Jade Aesthetics — Web Design & Development",
@@ -41,7 +42,7 @@ export default function JadeAestheticsPage() {
         overview:
           "Jade Aesthetics is a premium medical spa in Wheaton, Illinois offering facials, injectables, body contouring, and wellness treatments. I designed and built their entire web presence from scratch — twice. The first version was a Framer site I created to launch the brand online, developing the full visual identity from only an existing logo. When the business outgrew the platform, I rebuilt everything as a server-rendered Next.js application with 30+ pages, structured data on every route, and a content architecture designed for long-term SEO growth. Two complete builds, one continuous design vision.",
       }}
-      nextProject={{ title: "Sonde", slug: "sonde" }}
+      nextProject={getNextProject("jade-aesthetics")}
     >
       <TextSection title="Version One">
         <p>

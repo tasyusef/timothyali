@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import { TextSection, ResultsList } from "@/components/CaseStudySection";
 import CaseStudyGallery from "@/components/CaseStudyGallery";
+import { getNextProject } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "xrp.cafe — Brand Identity & Motion Design",
@@ -41,7 +42,7 @@ export default function XrpCafePage() {
         heroVideo: "/videos/CAFE_EXPLORE_CREATE_TRADE.mp4",
         heroAlt: "xrp.cafe Explore Create Trade motion graphic",
       }}
-      nextProject={{ title: "First Ledger", slug: "firstledger" }}
+      nextProject={getNextProject("xrpcafe")}
     >
       {/* Copy */}
       <TextSection title="The Mascot System">

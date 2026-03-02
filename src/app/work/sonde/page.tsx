@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import { TextSection, LiveEmbed } from "@/components/CaseStudySection";
 import CaseStudyGallery from "@/components/CaseStudyGallery";
+import { getNextProject } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Sonde — Product Design & Development",
@@ -41,7 +42,7 @@ export default function SondePage() {
         heroImage: "/images/sonde/hero.png",
         heroAlt: "Sonde XRPL block explorer — dashboard with real-time price chart and network stats",
       }}
-      nextProject={{ title: "xrp.cafe", slug: "xrpcafe" }}
+      nextProject={getNextProject("sonde")}
     >
       <TextSection title="Brand Identity">
         <p>
@@ -124,7 +125,7 @@ export default function SondePage() {
         href="https://sonde-production.up.railway.app/"
         src="https://sonde-production.up.railway.app/"
         title="Sonde XRPL Block Explorer"
-        iframeBg="bg-[var(--color-background)]"
+        iframeBg="bg-page"
       />
 
       <TextSection title="Outcome">

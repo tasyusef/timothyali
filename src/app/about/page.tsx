@@ -21,6 +21,7 @@ const tools = ["Figma", "Adobe Creative Suite", "Framer", "Claude Code", "Cursor
 export default function AboutPage() {
   return (
     <div className="page-wrapper">
+      <h1 className="sr-only">About</h1>
       {/* Header row */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -28,7 +29,7 @@ export default function AboutPage() {
         transition={transition.normal}
         className="grid grid-cols-1 md:grid-cols-12 border-b border-[var(--color-border)] pb-row"
       >
-        <p className="label-swiss md:col-span-3">About</p>
+        <p className="label-swiss md:col-span-3" aria-hidden="true">About</p>
       </motion.div>
 
       {/* Bio + Photo */}
@@ -39,7 +40,7 @@ export default function AboutPage() {
         className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-0 pt-[4vh] md:pt-[6vh] pb-[8vh] md:pb-[14vh]"
       >
         <div className="md:col-span-5 md:col-start-1">
-          <div className="w-1/2 aspect-[3/4] overflow-hidden">
+          <div className="w-2/3 sm:w-1/2 aspect-[3/4] overflow-hidden">
             <Image
               src="/images/about/headshot.jpg"
               alt="Timothy Ali"
@@ -88,7 +89,7 @@ export default function AboutPage() {
               href="https://github.com/tasyusef"
               target="_blank"
               rel="noopener noreferrer"
-              className="label-swiss hover-swiss underline underline-offset-4"
+              className="label-swiss underline underline-offset-4 hover:text-[var(--color-foreground)] transition-colors duration-fast ease-swiss"
             >
               GitHub
             </Link>
@@ -96,7 +97,7 @@ export default function AboutPage() {
               href="https://linkedin.com/in/timothyali"
               target="_blank"
               rel="noopener noreferrer"
-              className="label-swiss hover-swiss underline underline-offset-4"
+              className="label-swiss underline underline-offset-4 hover:text-[var(--color-foreground)] transition-colors duration-fast ease-swiss"
             >
               LinkedIn
             </Link>
@@ -104,7 +105,7 @@ export default function AboutPage() {
               href="https://substack.com/@timothyali"
               target="_blank"
               rel="noopener noreferrer"
-              className="label-swiss hover-swiss underline underline-offset-4"
+              className="label-swiss underline underline-offset-4 hover:text-[var(--color-foreground)] transition-colors duration-fast ease-swiss"
             >
               Substack
             </Link>
@@ -112,7 +113,7 @@ export default function AboutPage() {
               href="https://x.com/twocakeS__"
               target="_blank"
               rel="noopener noreferrer"
-              className="label-swiss hover-swiss underline underline-offset-4"
+              className="label-swiss underline underline-offset-4 hover:text-[var(--color-foreground)] transition-colors duration-fast ease-swiss"
             >
               X
             </Link>
@@ -120,7 +121,7 @@ export default function AboutPage() {
               href="/timothyali-resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="label-swiss hover-swiss underline underline-offset-4"
+              className="label-swiss underline underline-offset-4 hover:text-[var(--color-foreground)] transition-colors duration-fast ease-swiss"
             >
               Resume
             </Link>
@@ -183,7 +184,7 @@ export default function AboutPage() {
       {/* Timeline */}
       <ScrollReveal>
         <div className="border-t border-[var(--color-border)] py-row">
-          <p id="experience-heading" className="label-swiss mb-8">Experience</p>
+          <h2 id="experience-heading" className="label-swiss mb-8">Experience</h2>
           <dl aria-labelledby="experience-heading" className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-border)]">
             <div className="flex flex-col gap-3 bg-[var(--color-background)] md:pr-6 py-4 md:py-6">
               <dt className="label-swiss">2019 — Now</dt>
