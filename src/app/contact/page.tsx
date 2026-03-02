@@ -26,8 +26,7 @@ export default function ContactPage() {
       >
         <div className="md:col-span-5 md:col-start-1">
           <h1
-            className="heading-swiss"
-            style={{ fontSize: "var(--text-headline)" }}
+            className="heading-swiss text-headline"
           >
             Get in touch
           </h1>

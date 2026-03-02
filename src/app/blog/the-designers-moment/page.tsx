@@ -52,8 +52,7 @@ export default function BlogPostPage() {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-0">
         <div className="md:col-span-5 md:col-start-1">
           <h1
-            className="heading-swiss leading-tight"
-            style={{ fontSize: "var(--text-subhead)" }}
+            className="heading-swiss leading-tight text-subhead"
           >
             Systems Thinking in the Age of AI-Assisted Design
           </h1>
@@ -87,7 +86,7 @@ export default function BlogPostPage() {
               actually matter.
             </p>
 
-            <h2 className="heading-swiss mt-4" style={{ fontSize: "var(--text-subhead)" }}>The Translation Layer Is Being Compressed</h2>
+            <h2 className="heading-swiss mt-4 text-subhead">The Translation Layer Is Being Compressed</h2>
             <p>
               Front&#8209;end development has long occupied a valuable space between visual
               intent and executable logic. Designers spoke in hierarchy and
@@ -116,7 +115,7 @@ export default function BlogPostPage() {
               The handoff does not disappear. It evolves.
             </p>
 
-            <h2 className="heading-swiss mt-4" style={{ fontSize: "var(--text-subhead)" }}>Agency Increases {"\u2014"} So Does Responsibility</h2>
+            <h2 className="heading-swiss mt-4 text-subhead">Agency Increases {"\u2014"} So Does Responsibility</h2>
             <p>
               When implementation friction decreases, agency expands. But expanded
               agency also increases responsibility.
@@ -143,7 +142,7 @@ export default function BlogPostPage() {
               everyone.
             </p>
 
-            <h2 className="heading-swiss mt-4" style={{ fontSize: "var(--text-subhead)" }}>Why Designers Should Be Excited</h2>
+            <h2 className="heading-swiss mt-4 text-subhead">Why Designers Should Be Excited</h2>
             <p>
               Whenever AI enters a creative workflow, anxiety follows. The question is
               predictable: <em>Am I next?</em>
@@ -178,7 +177,7 @@ export default function BlogPostPage() {
               evolve.
             </p>
 
-            <h2 className="heading-swiss mt-4" style={{ fontSize: "var(--text-subhead)" }}>The Real Shift: The Minimum Competence Is Rising</h2>
+            <h2 className="heading-swiss mt-4 text-subhead">The Real Shift: The Minimum Competence Is Rising</h2>
             <p>
               The most important consequence of AI in interface work is not
               elimination. It is elevation.
@@ -209,7 +208,7 @@ export default function BlogPostPage() {
               understanding adjacent ones.
             </p>
 
-            <h2 className="heading-swiss mt-4" style={{ fontSize: "var(--text-subhead)" }}>The Economic Consequence</h2>
+            <h2 className="heading-swiss mt-4 text-subhead">The Economic Consequence</h2>
             <p>
               The implications are not merely creative {"\u2014"} they are economic.
             </p>
@@ -228,7 +227,7 @@ export default function BlogPostPage() {
               habit.
             </p>
 
-            <h2 className="heading-swiss mt-4" style={{ fontSize: "var(--text-subhead)" }}>The Bottom Line</h2>
+            <h2 className="heading-swiss mt-4 text-subhead">The Bottom Line</h2>
             <p>
               If you are a designer, this is not a moment for fear. It is a moment for
               maturity.

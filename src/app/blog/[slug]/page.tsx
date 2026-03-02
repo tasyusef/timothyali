@@ -52,8 +52,7 @@ export default function BlogPostPage() {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-0">
         <div className="md:col-span-5 md:col-start-1">
           <h1
-            className="heading-swiss leading-tight"
-            style={{ fontSize: "var(--text-subhead)" }}
+            className="heading-swiss leading-tight text-subhead"
           >
             Starting With Less: A Foundation-First Approach to Design
           </h1>
@@ -62,7 +61,8 @@ export default function BlogPostPage() {
           <div
             className="space-y-6 leading-body"
           >
-            <h2 className="heading-swiss mt-4" style={{ fontSize: "var(--text-subhead)" }}>Introduction</h2>
+            <h2 className="heading-swiss mt-4 text-subhead"
+              >Introduction</h2>
             <p>
               The democratization of design tools and platforms has significantly
               altered professional practice. Designers are now capable of producing
@@ -84,7 +84,8 @@ export default function BlogPostPage() {
               of prior analytical decisions.
             </p>
 
-            <h2 className="heading-swiss mt-4" style={{ fontSize: "var(--text-subhead)" }}>Theoretical Orientation: Design as System</h2>
+            <h2 className="heading-swiss mt-4 text-subhead"
+              >Theoretical Orientation: Design as System</h2>
             <p>
               Design, particularly within branding and digital environments,
               functions as a system rather than a singular artifact. Influences
@@ -133,7 +134,8 @@ export default function BlogPostPage() {
               aesthetic language emerges.
             </p>
 
-            <h2 className="heading-swiss mt-4" style={{ fontSize: "var(--text-subhead)" }}>Structural Deficiency and Market Volatility</h2>
+            <h2 className="heading-swiss mt-4 text-subhead"
+              >Structural Deficiency and Market Volatility</h2>
             <p>
               Industries characterized by rapid growth cycles — including
               technology, finance, and emerging digital markets — often reward
@@ -155,7 +157,8 @@ export default function BlogPostPage() {
               is a strategic safeguard.
             </p>
 
-            <h2 className="heading-swiss mt-4" style={{ fontSize: "var(--text-subhead)" }}>Methodological Implications</h2>
+            <h2 className="heading-swiss mt-4 text-subhead"
+              >Methodological Implications</h2>
             <p>
               Adopting a Foundation First approach alters the sequence and emphasis
               of the design process. Rather than initiating development with
@@ -191,7 +194,8 @@ export default function BlogPostPage() {
               effective.
             </p>
 
-            <h2 className="heading-swiss mt-4" style={{ fontSize: "var(--text-subhead)" }}>Discussion: Infrastructure Over Ornament</h2>
+            <h2 className="heading-swiss mt-4 text-subhead"
+              >Discussion: Infrastructure Over Ornament</h2>
             <p>
               The distinction between infrastructure and ornament is central to
               this philosophy. Ornament operates at the level of embellishment;
@@ -212,7 +216,8 @@ export default function BlogPostPage() {
               ethos while remaining adaptable to contemporary digital contexts.
             </p>
 
-            <h2 className="heading-swiss mt-4" style={{ fontSize: "var(--text-subhead)" }}>Conclusion</h2>
+            <h2 className="heading-swiss mt-4 text-subhead"
+              >Conclusion</h2>
             <p>
               The Foundation First philosophy proposes a recalibration of
               priorities within contemporary design practice. In environments

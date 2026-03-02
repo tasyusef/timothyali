@@ -185,18 +185,11 @@ export default function Navigation() {
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
                     aria-current={isActive ? "page" : undefined}
-                    className={`heading-swiss hover-swiss inline-block ${
+                    className={`heading-swiss hover-swiss inline-block text-headline pb-[0.1em] ${
                       isActive
-                        ? "text-[var(--color-foreground)]"
-                        : "text-[var(--color-muted)]"
+                        ? "text-[var(--color-foreground)] border-b border-[var(--color-foreground)]"
+                        : "text-[var(--color-muted)] border-b border-transparent"
                     }`}
-                    style={{
-                      fontSize: "var(--text-headline)",
-                      borderBottom: isActive
-                        ? "1px solid var(--color-foreground)"
-                        : "1px solid transparent",
-                      paddingBottom: "0.1em",
-                    }}
                   >
                     {link.label}
                   </Link>

@@ -47,14 +47,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         </div>
         <div className="pt-3 flex items-baseline justify-between gap-4">
           <h3
-            className="heading-swiss"
-            style={{ fontSize: "var(--text-subhead)" }}
+            className="heading-swiss text-subhead"
           >
             {project.title}
           </h3>
           <span
-            className="shrink-0"
-            style={{ fontSize: "var(--text-caption)", color: "var(--color-muted)" }}
+            className="shrink-0 text-caption-size text-[var(--color-muted)]"
           >
             {project.category} — {project.year}
           </span>

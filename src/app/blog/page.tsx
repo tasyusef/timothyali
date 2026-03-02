@@ -36,14 +36,12 @@ export default function BlogPage() {
               </div>
               <div className="md:col-span-5 md:col-start-7">
                 <h2
-                  className="heading-swiss"
-                  style={{ fontSize: "var(--text-subhead)" }}
+                  className="heading-swiss text-subhead"
                 >
                   {post.title}
                 </h2>
                 <p
-                  className="mt-3 leading-body"
-                  style={{ fontSize: "var(--text-caption)" }}
+                  className="mt-3 leading-body text-caption-size"
                 >
                   {post.excerpt}
                 </p>

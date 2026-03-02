@@ -3,6 +3,11 @@ export interface ProjectImage {
   aspect: number; // width / height
 }
 
+export interface ProjectStat {
+  label: string;
+  value: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -12,15 +17,86 @@ export interface Project {
   heroVideo?: string;
   videos?: string[];
   images: ProjectImage[];
+  stats?: ProjectStat[];
   description: string;
 }
 
 export const projects: Project[] = [
   {
+    slug: "sonde",
+    title: "Sonde",
+    category: "Product Design & Development",
+    year: "2026",
+    heroImage: "/images/sonde/hero.png",
+    images: [
+      { src: "/images/sonde/hero.png", aspect: 16 / 9 },
+      { src: "/images/sonde/landing.png", aspect: 16 / 9 },
+      { src: "/images/sonde/account.png", aspect: 16 / 9 },
+      { src: "/images/sonde/tokens.png", aspect: 16 / 9 },
+      { src: "/images/sonde/nfts.png", aspect: 16 / 9 },
+      { src: "/images/sonde/network.png", aspect: 16 / 9 },
+    ],
+    stats: [
+      { label: "Pages", value: "10+" },
+      { label: "Data", value: "Real-time" },
+      { label: "Stack", value: "Next.js 16" },
+      { label: "Role", value: "Sole Creator" },
+    ],
+    description:
+      "A real-time XRPL block explorer with live WebSocket data, account exploration, and a typographically driven dark-mode interface.",
+  },
+  {
+    slug: "firststrike",
+    title: "FirstStrike Research",
+    category: "Product Design & Brand Identity",
+    year: "2025",
+    heroImage: "/images/firststrike/hero.png",
+    images: [
+      { src: "/images/firststrike/hero.png", aspect: 16 / 9 },
+      { src: "/images/firststrike/app-portfolio.png", aspect: 1919 / 911 },
+      { src: "/images/firststrike/app-company.png", aspect: 1919 / 912 },
+      { src: "/images/firststrike/firststrike_pres-02.png", aspect: 16 / 9 },
+      { src: "/images/firststrike/firststrike_pres-03.png", aspect: 3376 / 2250 },
+      { src: "/images/firststrike/firststrike_pres-04.png", aspect: 16 / 9 },
+      { src: "/images/firststrike/firststrike_pres-05.png", aspect: 16 / 9 },
+      { src: "/images/firststrike/firststrike_pres-06.png", aspect: 16 / 9 },
+      { src: "/images/firststrike/firststrike_pres-07.png", aspect: 16 / 9 },
+      { src: "/images/firststrike/firststrike_pres-08.png", aspect: 16 / 9 },
+      { src: "/images/firststrike/firststrike_pres-09.png", aspect: 4 / 3 },
+      { src: "/images/firststrike/firststrike_pres-10.png", aspect: 16 / 9 },
+    ],
+    stats: [
+      { label: "Timeline", value: "~3 Mo" },
+      { label: "Scope", value: "Brand + Product" },
+      { label: "Platform", value: "Live Prototype" },
+      { label: "Role", value: "Sole Designer" },
+    ],
+    description:
+      "Brand identity, website design, and development for a veteran-owned financial research publication.",
+  },
+  {
+    slug: "jade-aesthetics",
+    title: "Jade Aesthetics",
+    category: "Web Design & Development",
+    year: "2025–2026",
+    heroImage: "/images/jade-aesthetics/desktop-homepage-fold.jpg",
+    images: [
+      { src: "/images/jade-aesthetics/desktop-homepage-fold.jpg", aspect: 1920 / 1200 },
+    ],
+    stats: [
+      { label: "Pages", value: "30+" },
+      { label: "Lighthouse A11y", value: "100" },
+      { label: "Architecture", value: "SEO-First" },
+      { label: "Rendering", value: "Server-Side" },
+    ],
+    description:
+      "Two complete websites designed and built from scratch for a premium medical spa — from Framer launch to SEO-architected Next.js application.",
+  },
+  {
     slug: "xrpcafe",
     title: "xrp.cafe",
     category: "Brand Identity & Motion Design",
-    year: "2022",
+    year: "2021",
     heroImage: "/images/xrpcafe/logo_16x9.png",
     heroVideo: "/videos/CAFE_EXPLORE_CREATE_TRADE.mp4",
     videos: ["/videos/CAFE_EXPLORE_CREATE_TRADE.mp4"],
@@ -42,29 +118,14 @@ export const projects: Project[] = [
       { src: "/images/xrpcafe/event_nft_display.jpg", aspect: 2197 / 3905 },
       { src: "/images/xrpcafe/xrpl_group.jpg", aspect: 1 },
     ],
-    description:
-      "Visual identity, motion design, and marketing for the #1 NFT marketplace on the XRP Ledger.",
-  },
-  {
-    slug: "firststrike",
-    title: "FirstStrike Research",
-    category: "Product Design & Brand Identity",
-    year: "2025",
-    heroImage: "/images/firststrike/hero.png",
-    images: [
-      { src: "/images/firststrike/hero.png", aspect: 16 / 9 },
-      { src: "/images/firststrike/firststrike_pres-02.png", aspect: 16 / 9 },
-      { src: "/images/firststrike/firststrike_pres-03.png", aspect: 3376 / 2250 },
-      { src: "/images/firststrike/firststrike_pres-04.png", aspect: 16 / 9 },
-      { src: "/images/firststrike/firststrike_pres-05.png", aspect: 16 / 9 },
-      { src: "/images/firststrike/firststrike_pres-06.png", aspect: 16 / 9 },
-      { src: "/images/firststrike/firststrike_pres-07.png", aspect: 16 / 9 },
-      { src: "/images/firststrike/firststrike_pres-08.png", aspect: 16 / 9 },
-      { src: "/images/firststrike/firststrike_pres-09.png", aspect: 4 / 3 },
-      { src: "/images/firststrike/firststrike_pres-10.png", aspect: 16 / 9 },
+    stats: [
+      { label: "Community", value: "29K+" },
+      { label: "Revenue", value: "$5M+" },
+      { label: "Campaigns", value: "10+" },
+      { label: "Role", value: "Cofounder" },
     ],
     description:
-      "Brand identity, website design, and development for a veteran-owned financial research publication.",
+      "Visual identity, motion design, and marketing for the #1 NFT marketplace on the XRP Ledger.",
   },
   {
     slug: "firstledger",
@@ -84,6 +145,12 @@ export const projects: Project[] = [
       { src: "/images/firstledger/FL2_BRAND_GUIDELINES-08.png", aspect: 16 / 9 },
       { src: "/images/firstledger/FL2_BRAND_GUIDELINES-10.png", aspect: 16 / 9 },
     ],
+    stats: [
+      { label: "Followers", value: "42K+" },
+      { label: "Volume", value: "$1B+" },
+      { label: "Scope", value: "Full Identity" },
+      { label: "Role", value: "Senior Designer" },
+    ],
     description:
       "Complete visual identity system for a token trading platform on the XRP Ledger.",
   },
@@ -96,6 +163,12 @@ export const projects: Project[] = [
     videos: ["/videos/DO_ANDROIDS_DREAM_-_Title_Sequence.mp4"],
     images: [
       { src: "/images/do-androids-dream/hero.jpg", aspect: 16 / 9 },
+    ],
+    stats: [
+      { label: "Duration", value: "~2 Min" },
+      { label: "Palette", value: "Two-Color" },
+      { label: "Medium", value: "Title Sequence" },
+      { label: "Role", value: "Solo Project" },
     ],
     description:
       "A bold, two-color title sequence for Philip K. Dick's sci-fi landmark — Saul Bass meets Blade Runner.",
@@ -115,30 +188,13 @@ export const projects: Project[] = [
       { src: "/images/gridform/GRIDFORM_PRINT.png", aspect: 4 / 3 },
       { src: "/images/gridform/GRIDFORM_SIGNBOARD.png", aspect: 4 / 3 },
     ],
-    description:
-      "A complete brand system, poster series, and 28-page design philosophy book built around one idea: less noise.",
-  },
-  {
-    slug: "jade-aesthetics",
-    title: "Jade Aesthetics",
-    category: "Web Design & Development",
-    year: "2025–2026",
-    heroImage: "/images/jade-aesthetics/desktop-homepage-fold.jpg",
-    images: [
-      { src: "/images/jade-aesthetics/desktop-homepage-fold.jpg", aspect: 1920 / 1200 },
-      { src: "/images/jade-aesthetics/desktop-services-face-fold.jpg", aspect: 1920 / 1200 },
-      { src: "/images/jade-aesthetics/desktop-service-botox-fold.jpg", aspect: 1920 / 1200 },
-      { src: "/images/jade-aesthetics/desktop-about-fold.jpg", aspect: 1920 / 1200 },
-      { src: "/images/jade-aesthetics/desktop-products-fold.jpg", aspect: 1920 / 1200 },
-      { src: "/images/jade-aesthetics/desktop-faq-fold.jpg", aspect: 1920 / 1200 },
-      { src: "/images/jade-aesthetics/desktop-nav-services-dropdown.jpg", aspect: 1920 / 1080 },
-      { src: "/images/jade-aesthetics/mobile-homepage-fold.jpg", aspect: 780 / 1688 },
-      { src: "/images/jade-aesthetics/mobile-services-face-fold.jpg", aspect: 780 / 1688 },
-      { src: "/images/jade-aesthetics/mobile-service-botox-fold.jpg", aspect: 780 / 1688 },
-      { src: "/images/jade-aesthetics/mobile-about-fold.jpg", aspect: 780 / 1688 },
-      { src: "/images/jade-aesthetics/mobile-nav-open.jpg", aspect: 780 / 1688 },
+    stats: [
+      { label: "Book", value: "28 Pages" },
+      { label: "Series", value: "Poster + Print" },
+      { label: "Philosophy", value: "Less Noise" },
+      { label: "Role", value: "Sole Creator" },
     ],
     description:
-      "Two complete websites designed and built from scratch for a premium medical spa — from Framer launch to SEO-architected Next.js application.",
+      "A complete brand system, poster series, and 28-page design philosophy book built around one idea: less noise.",
   },
 ];

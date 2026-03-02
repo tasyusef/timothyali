@@ -12,6 +12,26 @@ interface ProjectIndexProps {
   projects: Project[];
 }
 
+function StatsCard({ stats }: { stats: NonNullable<Project["stats"]> }) {
+  return (
+    <div className="h-full shrink-0 flex items-stretch" role="group" aria-label="Key metrics">
+      <div className="h-full aspect-[3/4] border border-[var(--color-border)] flex flex-col justify-between px-6 py-5 md:px-8 md:py-6">
+        <p className="label-swiss">Key Metrics</p>
+        <dl className="flex flex-col gap-4">
+          {stats.map((stat) => (
+            <div key={stat.label}>
+              <dt className="label-swiss">{stat.label}</dt>
+              <dd className="heading-swiss">
+                {stat.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  );
+}
+
 function ImageStrip({ project }: { project: Project }) {
   const stripRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -56,6 +76,7 @@ function ImageStrip({ project }: { project: Project }) {
         className="flex gap-gallery-tight h-[30vh] md:h-[40vh] pb-4 md:pb-5 overflow-x-auto scrollbar-hide"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
+        {project.stats && <StatsCard stats={project.stats} />}
         {project.videos?.map((src, i) => (
           <div key={`v-${i}`} className="h-full shrink-0">
             <video
@@ -95,7 +116,7 @@ function ImageStrip({ project }: { project: Project }) {
           pointerEvents: canScrollLeft ? "auto" : "none",
         }}
       >
-        &larr;
+        <span aria-hidden="true">&larr;</span>
       </button>
       <button
         type="button"
@@ -108,7 +129,7 @@ function ImageStrip({ project }: { project: Project }) {
           pointerEvents: canScrollRight ? "auto" : "none",
         }}
       >
-        &rarr;
+        <span aria-hidden="true">&rarr;</span>
       </button>
     </>
   );
@@ -161,8 +182,7 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
             >
               <span className="col-span-1 label-swiss">{num}</span>
               <span
-                className="col-span-5 heading-swiss"
-                style={{ fontSize: "var(--text-subhead)" }}
+                className="col-span-5 heading-swiss text-subhead"
               >
                 {project.title}
               </span>

@@ -1,7 +1,6 @@
 import { Metadata } from "next";
-import Link from "next/link";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
-import { TextSection } from "@/components/CaseStudySection";
+import { TextSection, LiveEmbed } from "@/components/CaseStudySection";
 import CaseStudyGallery from "@/components/CaseStudyGallery";
 
 export const metadata: Metadata = {
@@ -42,7 +41,7 @@ export default function FirstStrikePage() {
         heroImage: "/images/firststrike/hero.png",
         heroAlt: "FirstStrike Research brand identity",
       }}
-      nextProject={{ title: "Studio Gridform", slug: "gridform" }}
+      nextProject={{ title: "Sonde", slug: "sonde" }}
     >
       <TextSection title="Logo & Wordmark">
         <p>
@@ -92,35 +91,13 @@ export default function FirstStrikePage() {
         </p>
       </TextSection>
 
-      {/* Live Platform Embed */}
-      <div className="mb-section mt-section">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-0 mb-8">
-          <p className="label-swiss md:col-span-3">Live Platform</p>
-          <div className="md:col-span-5 md:col-start-7">
-            <p className="leading-body">
-              Interactive prototype of the FirstStrike research platform.
-              Explore the dashboards, market data, and trading interfaces.
-            </p>
-            <Link
-              href="https://effervescent-semifreddo-de1ae5.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="label-swiss hover-swiss underline underline-offset-4 inline-block mt-4"
-            >
-              Open full site &rarr;
-            </Link>
-          </div>
-        </div>
-        <div className="border border-[var(--color-border)] overflow-hidden">
-          <iframe
-            src="https://effervescent-semifreddo-de1ae5.netlify.app/"
-            title="FirstStrike Research Platform"
-            className="w-full bg-white h-[50vh] md:h-[80vh]"
-            loading="lazy"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-          />
-        </div>
-      </div>
+      <LiveEmbed
+        label="Live Platform"
+        description="Interactive prototype of the FirstStrike research platform. Explore the dashboards, market data, and trading interfaces."
+        href="https://effervescent-semifreddo-de1ae5.netlify.app/"
+        src="https://effervescent-semifreddo-de1ae5.netlify.app/"
+        title="FirstStrike Research Platform"
+      />
 
       <TextSection title="Outcome">
         <p>

@@ -70,8 +70,7 @@ export default function CaseStudyLayout({
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-0 mb-section">
             <div className="md:col-span-5 md:col-start-1">
               <h1
-                className="heading-swiss"
-                style={{ fontSize: "var(--text-headline)" }}
+                className="heading-swiss text-headline"
               >
                 {header.title}
               </h1>
@@ -155,8 +154,7 @@ export default function CaseStudyLayout({
             >
               <p className="label-swiss md:col-span-3">Next Project</p>
               <span
-                className="md:col-span-5 md:col-start-7 heading-swiss"
-                style={{ fontSize: "var(--text-subhead)" }}
+                className="md:col-span-5 md:col-start-7 heading-swiss text-subhead"
               >
                 {nextProject.title}
               </span>

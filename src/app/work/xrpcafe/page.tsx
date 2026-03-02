@@ -25,14 +25,14 @@ export default function XrpCafePage() {
         description:
           "Visual identity, mascot system, and marketing design for the #1 NFT marketplace on the XRP Ledger.",
         author: { "@type": "Person", name: "Timothy Ali", url: "https://www.timothyali.com" },
-        dateCreated: "2022-01-01",
+        dateCreated: "2021-01-01",
         url: "https://www.timothyali.com/work/xrpcafe",
         image: "https://www.timothyali.com/images/xrpcafe/logo_16x9.png",
       }}
       header={{
         title: "xrp.cafe",
         category: "Brand Identity & Motion Design",
-        year: "2022–present",
+        year: "2021–present",
         role: "Cofounder / Designer",
         tools: "Illustrator, After Effects",
         overview:

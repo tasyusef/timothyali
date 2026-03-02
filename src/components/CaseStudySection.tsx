@@ -136,6 +136,52 @@ export function VideoEmbed({ src, poster }: VideoEmbedProps) {
   );
 }
 
+interface LiveEmbedProps {
+  label: string;
+  description: string;
+  href: string;
+  src: string;
+  title: string;
+  iframeBg?: string;
+}
+
+export function LiveEmbed({
+  label,
+  description,
+  href,
+  src,
+  title,
+  iframeBg = "bg-white",
+}: LiveEmbedProps) {
+  return (
+    <ScrollReveal className="mb-section mt-section">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-0 mb-8">
+        <p className="label-swiss md:col-span-3">{label}</p>
+        <div className="md:col-span-5 md:col-start-7">
+          <p className="leading-body">{description}</p>
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="label-swiss hover-swiss underline underline-offset-4 inline-block mt-4"
+          >
+            Open full site &rarr;
+          </a>
+        </div>
+      </div>
+      <div className="border border-[var(--color-border)] overflow-hidden">
+        <iframe
+          src={src}
+          title={title}
+          className={`w-full ${iframeBg} h-[70vh] md:h-[90vh]`}
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+        />
+      </div>
+    </ScrollReveal>
+  );
+}
+
 interface ResultItemProps {
   items: string[];
 }

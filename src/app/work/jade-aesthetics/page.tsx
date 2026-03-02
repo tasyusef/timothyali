@@ -1,8 +1,6 @@
 import { Metadata } from "next";
-import Link from "next/link";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
-import { TextSection, ResultsList } from "@/components/CaseStudySection";
-import CaseStudyGallery from "@/components/CaseStudyGallery";
+import { TextSection, ResultsList, LiveEmbed } from "@/components/CaseStudySection";
 
 export const metadata: Metadata = {
   title: "Jade Aesthetics — Web Design & Development",
@@ -32,8 +30,6 @@ export default function JadeAestheticsPage() {
         },
         dateCreated: "2025-01-01",
         url: "https://www.timothyali.com/work/jade-aesthetics",
-        image:
-          "https://www.timothyali.com/images/jade-aesthetics/desktop-homepage-fold.jpg",
       }}
       header={{
         title: "Jade Aesthetics",
@@ -44,11 +40,8 @@ export default function JadeAestheticsPage() {
         tools: "Framer (V1), Next.js, Tailwind CSS, Vercel, Claude Code (V2)",
         overview:
           "Jade Aesthetics is a premium medical spa in Wheaton, Illinois offering facials, injectables, body contouring, and wellness treatments. I designed and built their entire web presence from scratch — twice. The first version was a Framer site I created to launch the brand online, developing the full visual identity from only an existing logo. When the business outgrew the platform, I rebuilt everything as a server-rendered Next.js application with 30+ pages, structured data on every route, and a content architecture designed for long-term SEO growth. Two complete builds, one continuous design vision.",
-        heroImage: "/images/jade-aesthetics/desktop-homepage-fold.jpg",
-        heroAlt:
-          "Jade Aesthetics homepage — Naturally Elevated, Timeless Beauty",
       }}
-      nextProject={{ title: "xrp.cafe", slug: "xrpcafe" }}
+      nextProject={{ title: "Sonde", slug: "sonde" }}
     >
       <TextSection title="Version One">
         <p>
@@ -145,36 +138,13 @@ export default function JadeAestheticsPage() {
         </p>
       </TextSection>
 
-      {/* Live Site Embed */}
-      <div className="mb-section mt-section">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-0 mb-8">
-          <p className="label-swiss md:col-span-3">Live Site</p>
-          <div className="md:col-span-5 md:col-start-7">
-            <p className="leading-body">
-              The current Jade Aesthetics website — V2, built on Next.js.
-              Browse the full service catalog, team page, and SEO-optimized
-              content architecture.
-            </p>
-            <Link
-              href="https://jadenew-opal.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="label-swiss hover-swiss underline underline-offset-4 inline-block mt-4"
-            >
-              Open full site &rarr;
-            </Link>
-          </div>
-        </div>
-        <div className="border border-[var(--color-border)] overflow-hidden">
-          <iframe
-            src="https://jadenew-opal.vercel.app/"
-            title="Jade Aesthetics Website — Version Two"
-            className="w-full bg-white h-[50vh] md:h-[80vh]"
-            loading="lazy"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-          />
-        </div>
-      </div>
+      <LiveEmbed
+        label="Live Site"
+        description="The current Jade Aesthetics website — V2, built on Next.js. Browse the full service catalog, team page, and SEO-optimized content architecture."
+        href="https://www.jadeaesthetics.co/"
+        src="https://www.jadeaesthetics.co/"
+        title="Jade Aesthetics Website — Version Two"
+      />
 
       <ResultsList
         items={[
@@ -201,72 +171,6 @@ export default function JadeAestheticsPage() {
           one vision, zero compromises.
         </p>
       </TextSection>
-
-      {/* Gallery — Desktop & Mobile Screenshots */}
-      <CaseStudyGallery
-        items={[
-          {
-            type: "image",
-            src: "/images/jade-aesthetics/desktop-homepage-fold.jpg",
-            alt: "Jade Aesthetics homepage — hero section with navigation, tagline, and interior photography",
-          },
-          {
-            type: "image",
-            src: "/images/jade-aesthetics/desktop-services-face-fold.jpg",
-            alt: "Face Treatments category page — service overview with hero image and breadcrumb navigation",
-          },
-          {
-            type: "image",
-            src: "/images/jade-aesthetics/desktop-service-botox-fold.jpg",
-            alt: "Botox service page — individual treatment page with structured content and booking CTA",
-          },
-          {
-            type: "image",
-            src: "/images/jade-aesthetics/desktop-about-fold.jpg",
-            alt: "About page — team philosophy, credentials, and practice overview",
-          },
-          {
-            type: "image",
-            src: "/images/jade-aesthetics/desktop-products-fold.jpg",
-            alt: "Products page — Biologique Recherche skincare product catalog",
-          },
-          {
-            type: "image",
-            src: "/images/jade-aesthetics/desktop-faq-fold.jpg",
-            alt: "FAQ page — expandable accordion with structured data markup",
-          },
-          {
-            type: "image",
-            src: "/images/jade-aesthetics/desktop-nav-services-dropdown.jpg",
-            alt: "Desktop navigation — services mega-dropdown with four treatment categories, hero images, and individual service links",
-          },
-          {
-            type: "image",
-            src: "/images/jade-aesthetics/mobile-homepage-fold.jpg",
-            alt: "Mobile homepage — responsive hero with stacked navigation and booking buttons",
-          },
-          {
-            type: "image",
-            src: "/images/jade-aesthetics/mobile-services-face-fold.jpg",
-            alt: "Mobile face treatments page — responsive service category layout",
-          },
-          {
-            type: "image",
-            src: "/images/jade-aesthetics/mobile-service-botox-fold.jpg",
-            alt: "Mobile Botox page — responsive individual service page",
-          },
-          {
-            type: "image",
-            src: "/images/jade-aesthetics/mobile-about-fold.jpg",
-            alt: "Mobile about page — responsive team and philosophy section",
-          },
-          {
-            type: "image",
-            src: "/images/jade-aesthetics/mobile-nav-open.jpg",
-            alt: "Mobile navigation — full-screen menu with service and product accordions, booking and call-to-action buttons",
-          },
-        ]}
-      />
     </CaseStudyLayout>
   );
 }
