@@ -65,7 +65,9 @@ export default function Home() {
             </div>
             <div className="md:col-span-2 md:col-start-5">
               <p className="label-swiss mb-2">Discipline</p>
-              <p className="leading-body">Product, Brand & Motion</p>
+              <p className="leading-body">Product</p>
+              <p className="leading-body">Brand</p>
+              <p className="leading-body">Motion</p>
             </div>
             <div className="md:col-span-2 md:col-start-7">
               <p className="label-swiss mb-2">Experience</p>
@@ -73,12 +75,13 @@ export default function Home() {
             </div>
             <div className="md:col-span-2 md:col-start-9">
               <p className="label-swiss mb-2">Location / Time</p>
-              <p className="leading-body">Denver, CO — {denverTime}</p>
+              <p className="leading-body">Denver, CO</p>
+              <p className="leading-body">{denverTime}</p>
             </div>
             <div className="md:col-span-2 md:col-start-11">
               <p className="label-swiss mb-2">Connect</p>
               <div className="flex flex-col gap-1">
-                <Link href="mailto:tas.yusef@gmail.com" className="group/link leading-body hover-swiss flex items-center gap-2">Email <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
+                <Link href="mailto:studio@timothyali.com" className="group/link leading-body hover-swiss flex items-center gap-2">Email <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
                 <Link href="https://github.com/tasyusef" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">GitHub <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
                 <Link href="https://linkedin.com/in/timothyali" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">LinkedIn <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
                 <Link href="https://substack.com/@timothyali" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">Substack <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>

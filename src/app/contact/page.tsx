@@ -46,12 +46,12 @@ export default function ContactPage() {
         transition={{ ...transition.normal, delay: delay.section }}
       >
         <a
-          href="mailto:tas.yusef@gmail.com"
+          href="mailto:studio@timothyali.com"
           className="grid grid-cols-1 md:grid-cols-12 border-t border-[var(--color-border)] py-row hover-swiss gap-2 md:gap-0"
         >
           <p className="label-swiss md:col-span-3">Email</p>
           <p className="md:col-span-5 md:col-start-7">
-            tas.yusef@gmail.com
+            studio@timothyali.com
           </p>
         </a>
       </motion.div>

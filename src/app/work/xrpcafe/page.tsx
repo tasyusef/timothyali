@@ -127,6 +127,8 @@ export default function XrpCafePage() {
           { type: "image", src: "/images/xrpcafe/booth_tablet.jpg", alt: "xrp.cafe website demo at Consensus 2023" },
           { type: "image", src: "/images/xrpcafe/event_nft_display.jpg", alt: "Team at NFT event with display wall" },
           { type: "image", src: "/images/xrpcafe/xrpl_group.jpg", alt: "XRP Ledger community group photo at Consensus" },
+          { type: "image", src: "/images/xrpcafe/backdrop_mockup.png", alt: "xrp.cafe event backdrop mockup" },
+          { type: "image", src: "/images/xrpcafe/banner_mockup.png", alt: "xrp.cafe retractable banner mockups" },
         ]}
       />
     </CaseStudyLayout>
