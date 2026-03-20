@@ -39,22 +39,6 @@ export default function ContactPage() {
         </div>
       </motion.div>
 
-      {/* Email */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ ...transition.normal, delay: delay.section }}
-      >
-        <a
-          href="mailto:studio@timothyali.com"
-          className="grid grid-cols-1 md:grid-cols-12 border-t border-[var(--color-border)] py-row hover-swiss gap-2 md:gap-0"
-        >
-          <p className="label-swiss md:col-span-3">Email</p>
-          <p className="md:col-span-5 md:col-start-7">
-            studio@timothyali.com
-          </p>
-        </a>
-      </motion.div>
 
       {/* GitHub */}
       <motion.div

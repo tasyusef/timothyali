@@ -16,7 +16,7 @@ const capabilities = [
   "Interaction Design",
 ];
 
-const tools = ["Figma", "Adobe Creative Suite", "Framer", "Claude Code", "Cursor"];
+const tools = ["Figma", "Adobe Creative Suite", "Framer", "Claude Code"];
 
 export default function AboutPage() {
   return (
@@ -60,11 +60,12 @@ export default function AboutPage() {
               startups and tech companies — from early-stage to growth.
             </p>
             <p>
-              Most recently I&apos;ve worked with FirstStrike Research, where I owned the
-              entire creative output — product design, visual identity, motion,
-              and marketing. Before that I worked primarily in the crypto
-              industry and freelance work spanning from local businesses like
-              luxury med spas and gyms to online communities and esports teams.
+              Most recently I designed and built Sonde, a real-time XRPL block
+              explorer — handling everything from brand identity through
+              full-stack development. Before that I worked with FirstStrike
+              Research, crypto projects like xrp.cafe and First Ledger, and
+              freelance work spanning luxury med spas, gyms, online communities,
+              and esports teams.
             </p>
             <p>
               I bring a modernist, &ldquo;less noise&rdquo; approach to
@@ -73,11 +74,11 @@ export default function AboutPage() {
             </p>
             <p>
               I&apos;m fascinated by AI and how it&apos;s reshaping creative
-              work. I use tools like Claude Code and Cursor every day — not as
-              shortcuts, but as ways to close the gap between idea and
-              execution. Whether it&apos;s accelerating a prototype, writing
-              production code, or pressure-testing a design decision, I&apos;m
-              always exploring new ways to integrate AI into my process.
+              work. I use Claude Code every day — not as a shortcut, but as a
+              way to close the gap between idea and execution. Whether
+              it&apos;s accelerating a prototype, writing production code, or
+              pressure-testing a design decision, I&apos;m always exploring new
+              ways to integrate AI into my process.
             </p>
             <p>
               Based in Denver, Colorado. Open to full-time
@@ -116,14 +117,6 @@ export default function AboutPage() {
               className="label-swiss underline underline-offset-4 hover:text-[var(--color-foreground)] transition-colors duration-fast ease-swiss"
             >
               X
-            </Link>
-            <Link
-              href="/timothyali-resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="label-swiss underline underline-offset-4 hover:text-[var(--color-foreground)] transition-colors duration-fast ease-swiss"
-            >
-              Resume
             </Link>
           </div>
         </div>

@@ -81,12 +81,10 @@ export default function Home() {
             <div className="md:col-span-2 md:col-start-11">
               <p className="label-swiss mb-2">Connect</p>
               <div className="flex flex-col gap-1">
-                <Link href="mailto:studio@timothyali.com" className="group/link leading-body hover-swiss flex items-center gap-2">Email <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
                 <Link href="https://github.com/tasyusef" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">GitHub <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
                 <Link href="https://linkedin.com/in/timothyali" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">LinkedIn <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
                 <Link href="https://substack.com/@timothyali" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">Substack <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
                 <Link href="https://x.com/twocakeS__" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">X <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
-                <Link href="/timothyali-resume.pdf" target="_blank" rel="noopener noreferrer" className="group/link leading-body hover-swiss flex items-center gap-2">Resume <span className="arrow-reveal arrow-reveal-sm">&rarr;</span></Link>
               </div>
             </div>
           </div>
