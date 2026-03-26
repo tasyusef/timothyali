@@ -30,21 +30,16 @@ export const projects: Project[] = [
     year: "2026",
     heroImage: "/images/sonde/hero.png",
     images: [
-      { src: "/images/sonde/hero.png", aspect: 16 / 9, alt: "Sonde dashboard with real-time XRP price chart and network stats" },
-      { src: "/images/sonde/landing.png", aspect: 16 / 9, alt: "Sonde landing page" },
-      { src: "/images/sonde/account.png", aspect: 16 / 9, alt: "Account explorer with balance and transaction history" },
-      { src: "/images/sonde/tokens.png", aspect: 16 / 9, alt: "Token explorer with market cap rankings" },
-      { src: "/images/sonde/nfts.png", aspect: 16 / 9, alt: "NFT explorer with collections and recent mints" },
-      { src: "/images/sonde/network.png", aspect: 16 / 9, alt: "Network health dashboard with fee monitoring" },
+      { src: "/images/sonde/hero.png", aspect: 16 / 9, alt: "Sonde — real-time XRPL analytics platform" },
     ],
     stats: [
-      { label: "Pages", value: "10+" },
+      { label: "Features", value: "9" },
       { label: "Data", value: "Real-time" },
-      { label: "Stack", value: "Next.js 16" },
+      { label: "Stack", value: "Next.js + PostgreSQL" },
       { label: "Role", value: "Sole Creator" },
     ],
     description:
-      "A real-time XRPL block explorer with live WebSocket data, account exploration, and a typographically driven dark-mode interface.",
+      "A real-time XRPL analytics platform — network insights, DEX analytics, portfolio tracking, OHLCV price charts, and live on-chain data.",
   },
   {
     slug: "firststrike",

@@ -1,17 +1,16 @@
 import { Metadata } from "next";
 import CaseStudyLayout from "@/components/CaseStudyLayout";
 import { TextSection, LiveEmbed } from "@/components/CaseStudySection";
-import CaseStudyGallery from "@/components/CaseStudyGallery";
 import { getNextProject } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Sonde — Product Design & Development",
   description:
-    "A real-time XRPL block explorer designed and built from scratch — live WebSocket data, account exploration, and a typographically driven dark-mode interface.",
+    "A real-time XRPL block explorer and analytics platform — network insights, DEX analytics, portfolio tracking, OHLCV price charts, and live on-chain data, designed and built from scratch.",
   openGraph: {
     title: "Sonde — Product Design & Development — Timothy Ali",
     description:
-      "A real-time XRPL block explorer designed and built from scratch — live WebSocket data, account exploration, and a typographically driven dark-mode interface.",
+      "A real-time XRPL block explorer and analytics platform — network insights, DEX analytics, portfolio tracking, OHLCV price charts, and live on-chain data, designed and built from scratch.",
     url: "https://www.timothyali.com/work/sonde",
   },
 };
@@ -24,7 +23,7 @@ export default function SondePage() {
         "@type": "CreativeWork",
         name: "Sonde — Product Design & Development",
         description:
-          "A real-time XRPL block explorer designed and built from scratch — live WebSocket data, account exploration, and a typographically driven dark-mode interface.",
+          "A real-time XRPL block explorer and analytics platform — network insights, DEX analytics, portfolio tracking, OHLCV price charts, and live on-chain data, designed and built from scratch.",
         author: { "@type": "Person", name: "Timothy Ali", url: "https://www.timothyali.com" },
         dateCreated: "2026-01-01",
         url: "https://www.timothyali.com/work/sonde",
@@ -36,11 +35,9 @@ export default function SondePage() {
         year: "2026",
         role: "Designer & Developer (sole creator)",
         timeline: "Ongoing",
-        tools: "Figma, Next.js, TypeScript, Tailwind CSS",
+        tools: "Figma, Next.js, TypeScript, Tailwind CSS, Recharts, PostgreSQL, WebSockets, SSE",
         overview:
-          "Sonde is a real-time block explorer for the XRP Ledger — a self-initiated product designed and built from scratch. The core challenge was making dense, fast-moving blockchain data feel clear and navigable. Every design decision, from the three-font type system to the transaction-type color coding, was made to turn raw ledger data into something you can actually read. The stack is Next.js 16 with live WebSocket connections and Server-Sent Events for real-time data streaming.",
-        heroImage: "/images/sonde/hero.png",
-        heroAlt: "Sonde XRPL block explorer — dashboard with real-time price chart and network stats",
+          "Sonde is a real-time block explorer and analytics platform for the XRP Ledger — a self-initiated product designed and built from scratch. What started as a block explorer grew into a full analytics suite: network insights with OHLCV price charting, DEX volume and AMM liquidity tracking, a token directory with 1,000+ assets, wallet-connected portfolio tracking, payment corridor analysis, and deep account exploration — all powered by live WebSocket connections, Server-Sent Events, and a PostgreSQL database. Every design decision was made to turn dense, fast-moving blockchain data into something clear and navigable.",
       }}
       nextProject={getNextProject("sonde")}
     >
@@ -54,7 +51,7 @@ export default function SondePage() {
         </p>
         <p>
           The type system uses three fonts with distinct roles. Satoshi handles
-          display and headings — geometric and confident. DM Sans covers body
+          display headings — geometric and confident. DM Sans covers body
           text and navigation — clean and readable at any size. IBM Plex Mono
           renders every address, hash, and amount — because blockchain data
           needs to be monospaced or it&apos;s unreadable. Every transaction type
@@ -68,88 +65,104 @@ export default function SondePage() {
           The XRP Ledger produces a ledger every 3–5 seconds, each containing
           hundreds of transactions across dozens of types. The architecture
           challenge was organizing this into pages that feel browsable rather
-          than overwhelming. The dashboard serves as the entry point — live
-          price, network stats, recent ledgers, and trending tokens all visible
-          without scrolling.
+          than overwhelming. The primary navigation covers eight sections:
+          Search, Portfolio, Network, DEX, Tokens, NFTs, Docs, and About —
+          each serving a distinct analytical purpose.
         </p>
         <p>
-          From there, a universal search bar handles any input: paste an address,
-          a transaction hash, a ledger index, or a token name — it detects the
-          type and routes you to the right page. Account pages use progressive
-          disclosure through tabs: holdings first (what most people want), then
-          transactions, trust lines, NFTs, offers, and escrows. React Suspense
-          streams each section independently so the page is usable before all
-          data loads.
+          A universal search bar handles any input: paste an address,
+          a transaction hash, a CTID, a ledger index, or a token name — it
+          detects the type and routes you to the right page. Account pages use
+          progressive disclosure through twelve tabs: transactions, holdings,
+          trust lines, NFTs, AMM pools, offers, escrows, channels, MPTokens,
+          objects, settings, activations, and ancestry. React Suspense streams
+          each section independently so the page is usable before all data loads.
         </p>
       </TextSection>
 
-      <TextSection title="Data Visualization">
+      <TextSection title="Network Analytics & Data Visualization">
         <p>
-          The network health dashboard is the most data-dense page — 30-day
-          price history with OHLCV candlestick data, live fee monitoring, server
-          health indicators, transaction type distribution, and ledger
+          The network insights page is the most data-dense view — a full OHLCV
+          candlestick chart powered by TradingView with multi-timeframe support
+          (1m to All), live XRP price and market cap, 24-hour activity metrics,
+          circulating supply data, a fee monitor, live transaction type
+          distribution, and an amendment voting tracker. Three sub-tabs —
+          Overview, Analytics, and Amendment Voting — organize the depth.
+        </p>
+        <p>
+          The analytics tab goes deeper with configurable time-series charts:
+          fee burn tracking, transaction volume by type, payment corridor flows
+          showing cross-currency throughput ranked by XRP volume, and ledger
           performance metrics. All rendered with Recharts and updating in
-          real time via Server-Sent Events.
-        </p>
-        <p>
-          Token detail pages show orderbook depth charts and live market data.
-          The challenge was density without clutter — every chart earns its
-          space by answering a specific question. What&apos;s the price doing?
-          Where&apos;s the liquidity? How active is this market? No decorative
-          elements, no chartjunk.
+          real time via Server-Sent Events, with 7-day, 30-day, 90-day, and
+          all-time period selectors on every chart.
         </p>
       </TextSection>
 
-      <TextSection title="Real-time Engineering">
+      <TextSection title="DEX & Portfolio">
+        <p>
+          The DEX analytics page tracks the XRP Ledger&apos;s built-in
+          decentralized exchange — trade volume over time, AMM liquidity with
+          total value locked across 60+ pools, fee revenue estimates broken
+          down by pool, and market movers. The data refreshes every 30 seconds
+          with time-period filtering (7D, 30D, 90D, All) and pool-level
+          granularity.
+        </p>
+        <p>
+          The portfolio tracker lets users connect their XRPL wallet — via
+          Joey or Xaman — to view holdings and track historical performance.
+          The token directory catalogs over 1,000 XRPL-issued assets with
+          price, market cap, 24-hour volume, holder count, and trust line data,
+          all sortable and filterable with a dedicated analytics sub-tab for
+          deeper token-level exploration.
+        </p>
+      </TextSection>
+
+      <TextSection title="Real-time Engineering & Data Layer">
         <p>
           Sonde maintains a persistent WebSocket connection to the XRP Ledger
-          mainnet with automatic failover across three nodes. A singleton client
-          pattern ensures one connection serves the entire application. On the
-          server side, a Live Data Manager broadcasts real-time events — new
-          ledgers, fee updates, price changes — to all connected clients via
-          Server-Sent Events.
+          mainnet via Honeycluster infrastructure with automatic failover. A
+          singleton client pattern ensures one connection serves the entire
+          application. On the server side, a Live Data Manager broadcasts
+          real-time events — new ledgers, fee updates, price changes — to all
+          connected clients via Server-Sent Events.
         </p>
         <p>
-          Every API response is cached with an LRU strategy: immutable data like
+          A PostgreSQL database handles persistent storage — historical
+          analytics, aggregated DEX metrics, fee burn data, and token snapshots
+          that would be too expensive to compute on every request. Every API
+          response is cached with an LRU strategy: immutable data like
           completed transactions and closed ledgers are cached indefinitely,
-          while mutable data like account balances expire after 10 seconds.
-          Account history pages fully paginate through XRPL markers with
-          per-loop error handling, ensuring no transactions are missed even for
-          accounts with thousands of entries.
+          while mutable data like account balances and market prices expire
+          after short intervals. Account history pages fully paginate through
+          XRPL markers with per-loop error handling, ensuring no transactions
+          are missed even for accounts with thousands of entries.
         </p>
       </TextSection>
 
       <LiveEmbed
         label="Live Explorer"
-        description="Explore the live Sonde block explorer. Browse accounts, tokens, NFTs, and real-time network data directly."
-        href="https://sonde-production.up.railway.app/"
-        src="https://sonde-production.up.railway.app/"
+        description="Explore the live Sonde block explorer. Browse accounts, tokens, DEX analytics, network insights, and real-time on-chain data directly."
+        href="https://sondelab.com/"
+        src="https://sondelab.com/"
         title="Sonde XRPL Block Explorer"
         iframeBg="bg-page"
       />
 
       <TextSection title="Outcome">
         <p>
-          Sonde is a fully functional block explorer covering accounts,
-          transactions, tokens, NFTs, and network health — all with real-time
-          data. What started as a design exercise in information density became
-          a complete product: a modern, typographically driven interface for
-          the XRP Ledger that treats blockchain data with the same clarity and
-          structure as any well-designed financial tool.
+          Sonde is a fully functional analytics platform covering nine feature
+          areas — network insights, DEX analytics, price charting, payment
+          corridors, live ledger feeds, account exploration, transaction
+          decoding, token analytics, and portfolio tracking — all with
+          real-time data. What started as a design exercise in information
+          density became a complete product at sondelab.com: a modern,
+          typographically driven interface for the XRP Ledger that treats
+          blockchain data with the same clarity and structure as any
+          well-designed financial tool.
         </p>
       </TextSection>
 
-      {/* Gallery */}
-      <CaseStudyGallery
-        items={[
-          { type: "image", src: "/images/sonde/hero.png", alt: "Sonde dashboard — real-time XRP price chart with network stats and live ledger feed" },
-          { type: "image", src: "/images/sonde/landing.png", alt: "Sonde landing page — Built for power users" },
-          { type: "image", src: "/images/sonde/account.png", alt: "Account explorer — balance, holdings, and transaction history with tabbed navigation" },
-          { type: "image", src: "/images/sonde/tokens.png", alt: "Token explorer — top XRPL tokens by market cap with price, volume, and holder data" },
-          { type: "image", src: "/images/sonde/nfts.png", alt: "NFT explorer — top marketplaces, collections, and recent mints with image previews" },
-          { type: "image", src: "/images/sonde/network.png", alt: "Network health dashboard — 30-day price history, fee monitoring, and transaction distribution" },
-        ]}
-      />
     </CaseStudyLayout>
   );
 }

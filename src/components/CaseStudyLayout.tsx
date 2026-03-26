@@ -142,7 +142,7 @@ export default function CaseStudyLayout({
       )}
 
       {/* Body Content */}
-      <div className="px-swiss">{children}</div>
+      <div className={`px-swiss${!header.heroImage && !header.heroVideo ? " mt-section" : ""}`}>{children}</div>
 
       {/* Next Project */}
       {nextProject && (
