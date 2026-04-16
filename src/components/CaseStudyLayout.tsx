@@ -14,7 +14,7 @@ interface CaseStudyHeader {
   role: string;
   timeline?: string;
   tools?: string;
-  overview: string;
+  overview: ReactNode;
   heroImage?: string;
   heroVideo?: string;
   heroAlt?: string;
@@ -75,10 +75,12 @@ export default function CaseStudyLayout({
                 {header.title}
               </h1>
             </div>
-            <div className="md:col-span-5 md:col-start-7">
-              <p className="leading-body">
-                {header.overview}
-              </p>
+            <div className="md:col-span-5 md:col-start-7 leading-body">
+              {typeof header.overview === "string" ? (
+                <p>{header.overview}</p>
+              ) : (
+                header.overview
+              )}
             </div>
           </div>
 
