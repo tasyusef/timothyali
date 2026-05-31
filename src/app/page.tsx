@@ -92,7 +92,7 @@ export default function Home() {
       </section>
 
       {/* Selected Work */}
-      <section aria-label="Selected Work" className="px-swiss">
+      <section aria-label="Selected Work" className="relative z-10 px-swiss">
         <ScrollReveal>
           <p className="label-swiss mb-8">Selected Work</p>
         </ScrollReveal>
@@ -102,7 +102,7 @@ export default function Home() {
       </section>
 
       {/* About / Writing / Contact */}
-      <section aria-label="Quick Links" className="px-swiss border-t border-[var(--color-border)]">
+      <section aria-label="Quick Links" className="relative z-0 px-swiss border-t border-[var(--color-border)]">
         <ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-border)]">
             <Link href="/about" className="group flex flex-col gap-4 bg-[var(--color-background)] py-row md:pr-8">

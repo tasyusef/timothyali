@@ -175,7 +175,7 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
           <Link
             key={project.slug}
             href={`/work/${project.slug}`}
-            className="group block border-b border-[var(--color-border)]"
+            className="group relative block border-b border-[var(--color-border)]"
             onPointerEnter={(e) => { if (e.pointerType === "mouse") setHoveredIndex(index); }}
             onPointerLeave={(e) => { if (e.pointerType === "mouse") setHoveredIndex(null); }}
             onTouchEnd={() => { wasTouchRef.current = true; }}
@@ -224,7 +224,7 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={transition.page}
-                  className="overflow-hidden relative"
+                  className="overflow-hidden relative md:absolute md:left-0 md:right-0 md:top-full md:z-10 md:bg-[var(--color-background)] md:border-b md:border-[var(--color-border)]"
                 >
                   <ImageStrip project={project} />
                   {/* Mobile-only "View case study" prompt */}
