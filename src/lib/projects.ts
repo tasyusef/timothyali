@@ -16,6 +16,7 @@ export interface Project {
   year: string;
   heroImage: string;
   heroVideo?: string;
+  heroAspect: number; // width / height of the hero media shown in preview cards
   videos?: string[];
   images: ProjectImage[];
   stats?: ProjectStat[];
@@ -29,6 +30,7 @@ export const projects: Project[] = [
     category: "Product Design & Development",
     year: "2026",
     heroImage: "/images/sonde/hero.png",
+    heroAspect: 16 / 9,
     images: [
       { src: "/images/sonde/hero.png", aspect: 16 / 9, alt: "Sonde — real-time XRPL analytics platform" },
     ],
@@ -47,6 +49,7 @@ export const projects: Project[] = [
     category: "Product Design & Brand Identity",
     year: "2025",
     heroImage: "/images/firststrike/hero.png",
+    heroAspect: 16 / 9,
     images: [
       { src: "/images/firststrike/hero.png", aspect: 16 / 9, alt: "FirstStrike Research brand identity" },
       { src: "/images/firststrike/app-portfolio.png", aspect: 1919 / 911, alt: "Research platform portfolio dashboard" },
@@ -76,6 +79,7 @@ export const projects: Project[] = [
     category: "Web Design & Development",
     year: "2025–2026",
     heroImage: "/images/jade-aesthetics/desktop-homepage-fold.jpg",
+    heroAspect: 1920 / 1200,
     images: [
       { src: "/images/jade-aesthetics/desktop-homepage-fold.jpg", aspect: 1920 / 1200, alt: "Jade Aesthetics homepage design" },
     ],
@@ -95,6 +99,7 @@ export const projects: Project[] = [
     year: "2021",
     heroImage: "/images/xrpcafe/logo_16x9.png",
     heroVideo: "/videos/CAFE_EXPLORE_CREATE_TRADE.mp4",
+    heroAspect: 1080 / 1920,
     videos: ["/videos/CAFE_EXPLORE_CREATE_TRADE.mp4"],
     images: [
       { src: "/images/xrpcafe/0.png", aspect: 3024 / 4032, alt: "xrp.cafe mobile interface" },
@@ -129,6 +134,7 @@ export const projects: Project[] = [
     category: "Brand Identity System",
     year: "2024",
     heroImage: "/images/firstledger/FL2_FOLIO_HERO.png",
+    heroAspect: 4 / 3,
     images: [
       { src: "/images/firstledger/FL2_FOLIO_HERO.png", aspect: 4 / 3, alt: "First Ledger brand identity hero" },
       { src: "/images/firstledger/FL2_BRAND_GUIDELINES-01.png", aspect: 16 / 9, alt: "Brand guidelines cover" },
@@ -156,6 +162,7 @@ export const projects: Project[] = [
     category: "Motion Design",
     year: "2023",
     heroImage: "/images/do-androids-dream/hero.jpg",
+    heroAspect: 16 / 9,
     videos: ["/videos/DO_ANDROIDS_DREAM_-_Title_Sequence.mp4"],
     images: [
       { src: "/images/do-androids-dream/hero.jpg", aspect: 16 / 9, alt: "Do Androids Dream title sequence frame" },
@@ -175,6 +182,7 @@ export const projects: Project[] = [
     category: "Brand Design & Philosophy",
     year: "2023",
     heroImage: "/images/gridform/Poster_Frame_Mockup_2.png",
+    heroAspect: 4 / 3,
     images: [
       { src: "/images/gridform/Poster_Frame_Mockup_2.png", aspect: 4 / 3, alt: "Studio Gridform poster in frame" },
       { src: "/images/gridform/GRIDFORM_BOOK_1.png", aspect: 4 / 3, alt: "Design philosophy book cover" },

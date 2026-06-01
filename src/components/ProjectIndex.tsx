@@ -20,6 +20,10 @@ interface ProjectIndexProps {
   projects: Project[];
 }
 
+// Shared between the hover card and the idle preloader so both request the
+// identical optimized image URL (same src + sizes = shared browser cache).
+const PREVIEW_SIZES = "512px";
+
 function StatsCard({ stats }: { stats: NonNullable<Project["stats"]> }) {
   return (
     <div className="h-full shrink-0 flex items-stretch" role="group" aria-label="Key metrics">
@@ -184,7 +188,10 @@ function CursorPreview({
           exit={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.95 }}
           transition={transition.fast}
         >
-          <div className="relative w-80 lg:w-96 aspect-[16/10] overflow-hidden border border-[var(--color-border)] bg-[var(--color-background)] shadow-2xl">
+          <div
+            className="relative h-56 lg:h-72 overflow-hidden border border-[var(--color-border)] bg-[var(--color-background)] shadow-2xl"
+            style={{ aspectRatio: project.heroAspect }}
+          >
             <AnimatePresence mode="popLayout" initial={false}>
               <motion.div
                 key={project.slug}
@@ -197,20 +204,23 @@ function CursorPreview({
                 {project.heroVideo ? (
                   <video
                     src={project.heroVideo}
+                    poster={project.heroImage}
                     autoPlay
                     loop
                     muted
                     playsInline
+                    preload="auto"
                     className="w-full h-full object-cover"
                   />
                 ) : (
                   <Image
                     src={project.heroImage}
                     alt=""
-                    width={800}
-                    height={500}
+                    width={Math.round(720 * project.heroAspect)}
+                    height={720}
+                    sizes={PREVIEW_SIZES}
+                    loading="eager"
                     className="w-full h-full object-cover"
-                    sizes="384px"
                   />
                 )}
               </motion.div>
@@ -237,6 +247,17 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
   const restSpring = { stiffness: 1200, damping: 90, mass: 0.5 };
   const x = useSpring(mvX, prefersReducedMotion ? restSpring : spring.cursor);
   const y = useSpring(mvY, prefersReducedMotion ? restSpring : spring.cursor);
+
+  // Warm the optimized hero media during idle so the first hover is instant.
+  const [preloadReady, setPreloadReady] = useState(false);
+  useEffect(() => {
+    if (typeof requestIdleCallback === "function") {
+      const id = requestIdleCallback(() => setPreloadReady(true), { timeout: 2000 });
+      return () => cancelIdleCallback(id);
+    }
+    const t = window.setTimeout(() => setPreloadReady(true), 1200);
+    return () => clearTimeout(t);
+  }, []);
 
   // Place the preview to the side of the cursor, clamped to the viewport.
   const positionPreview = useCallback(
@@ -377,6 +398,29 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
         cardRef={cardRef}
         reduced={prefersReducedMotion}
       />
+
+      {/* Idle preloader — warms each hero's optimized image (and xrp.cafe's
+          video metadata) so the first hover of any row paints instantly. */}
+      {preloadReady && (
+        <div aria-hidden="true" className="sr-only">
+          {projects.map((p) => (
+            <Image
+              key={p.slug}
+              src={p.heroImage}
+              alt=""
+              width={Math.round(720 * p.heroAspect)}
+              height={720}
+              sizes={PREVIEW_SIZES}
+              loading="eager"
+            />
+          ))}
+          {projects
+            .filter((p) => p.heroVideo)
+            .map((p) => (
+              <video key={`v-${p.slug}`} src={p.heroVideo} preload="metadata" muted />
+            ))}
+        </div>
+      )}
     </div>
   );
 }
