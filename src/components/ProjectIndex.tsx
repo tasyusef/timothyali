@@ -1,12 +1,20 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useSpring,
+  useReducedMotion,
+  type MotionValue,
+} from "framer-motion";
 import type { Project } from "@/lib/projects";
-import { transition } from "@/lib/motion";
+import { transition, spring } from "@/lib/motion";
 
 interface ProjectIndexProps {
   projects: Project[];
@@ -140,10 +148,114 @@ function ImageStrip({ project }: { project: Project }) {
   );
 }
 
+/**
+ * Desktop-only floating preview that springs after the cursor while hovering
+ * the project list. Portaled to <body> so no transformed ancestor (ScrollReveal)
+ * breaks its fixed positioning. Hidden entirely on touch / below md.
+ */
+function CursorPreview({
+  project,
+  visible,
+  x,
+  y,
+  cardRef,
+  reduced,
+}: {
+  project: Project | null;
+  visible: boolean;
+  x: MotionValue<number>;
+  y: MotionValue<number>;
+  cardRef: React.RefObject<HTMLDivElement | null>;
+  reduced: boolean;
+}) {
+  if (typeof document === "undefined") return null;
+
+  return createPortal(
+    <AnimatePresence>
+      {visible && project && (
+        <motion.div
+          key="cursor-preview"
+          ref={cardRef}
+          aria-hidden="true"
+          className="pointer-events-none fixed left-0 top-0 z-50 hidden md:block"
+          style={{ x, y }}
+          initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.92 }}
+          animate={reduced ? { opacity: 1 } : { opacity: 1, scale: 1 }}
+          exit={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.95 }}
+          transition={transition.fast}
+        >
+          <div className="relative w-80 lg:w-96 aspect-[16/10] overflow-hidden border border-[var(--color-border)] bg-[var(--color-background)] shadow-2xl">
+            <AnimatePresence mode="popLayout" initial={false}>
+              <motion.div
+                key={project.slug}
+                className="w-full h-full"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={transition.fast}
+              >
+                {project.heroVideo ? (
+                  <video
+                    src={project.heroVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <Image
+                    src={project.heroImage}
+                    alt=""
+                    width={800}
+                    height={500}
+                    className="w-full h-full object-cover"
+                    sizes="384px"
+                  />
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>,
+    document.body,
+  );
+}
+
 export default function ProjectIndex({ projects }: ProjectIndexProps) {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null); // desktop mouse
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null); // mobile touch
   const wasTouchRef = useRef(false);
   const router = useRouter();
+  const prefersReducedMotion = useReducedMotion() ?? false;
+
+  // Cursor-following preview position (desktop)
+  const cardRef = useRef<HTMLDivElement | null>(null);
+  const mvX = useMotionValue(0);
+  const mvY = useMotionValue(0);
+  const restSpring = { stiffness: 1200, damping: 90, mass: 0.5 };
+  const x = useSpring(mvX, prefersReducedMotion ? restSpring : spring.cursor);
+  const y = useSpring(mvY, prefersReducedMotion ? restSpring : spring.cursor);
+
+  // Place the preview to the side of the cursor, clamped to the viewport.
+  const positionPreview = useCallback(
+    (clientX: number, clientY: number, jump: boolean) => {
+      const cardW = cardRef.current?.offsetWidth ?? 360;
+      const cardH = cardRef.current?.offsetHeight ?? 225;
+      const gap = 28;
+      let tx = clientX + gap;
+      if (tx + cardW > window.innerWidth - 12) tx = clientX - gap - cardW;
+      const ty = Math.max(12, Math.min(clientY - cardH / 2, window.innerHeight - cardH - 12));
+      mvX.set(tx);
+      mvY.set(ty);
+      if (jump) {
+        x.jump(tx);
+        y.jump(ty);
+      }
+    },
+    [mvX, mvY, x, y],
+  );
 
   const handleRowClick = useCallback(
     (e: React.MouseEvent, index: number, slug: string) => {
@@ -151,39 +263,54 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
       const isTouch = wasTouchRef.current;
       wasTouchRef.current = false;
 
-      // Desktop: always navigate (hover already handles expand)
+      // Desktop: always navigate (cursor preview already handled the hover)
       if (!isTouch) return;
 
       // Mobile: first tap expands, second tap navigates
-      if (hoveredIndex === index) {
+      if (expandedIndex === index) {
         router.push(`/work/${slug}`);
       } else {
         e.preventDefault();
-        setHoveredIndex(index);
+        setExpandedIndex(index);
       }
     },
-    [hoveredIndex, router],
+    [expandedIndex, router],
   );
 
+  const activeRow = hoveredIndex !== null ? hoveredIndex : expandedIndex;
+  const previewProject = hoveredIndex !== null ? projects[hoveredIndex] : null;
+
   return (
-    <div className="border-t border-[var(--color-border)]">
+    <div
+      className="border-t border-[var(--color-border)]"
+      onPointerMove={(e) => {
+        if (e.pointerType !== "mouse" || hoveredIndex === null) return;
+        positionPreview(e.clientX, e.clientY, false);
+      }}
+      onPointerLeave={(e) => {
+        if (e.pointerType === "mouse") setHoveredIndex(null);
+      }}
+    >
       {projects.map((project, index) => {
         const num = String(index + 1).padStart(2, "0");
-        const isHovered = hoveredIndex === index;
+        const isActive = activeRow === index;
 
         return (
           <Link
             key={project.slug}
             href={`/work/${project.slug}`}
-            className="group relative block border-b border-[var(--color-border)]"
-            onPointerEnter={(e) => { if (e.pointerType === "mouse") setHoveredIndex(index); }}
-            onPointerLeave={(e) => { if (e.pointerType === "mouse") setHoveredIndex(null); }}
+            className="group block border-b border-[var(--color-border)]"
+            onPointerEnter={(e) => {
+              if (e.pointerType !== "mouse") return;
+              positionPreview(e.clientX, e.clientY, hoveredIndex === null);
+              setHoveredIndex(index);
+            }}
             onTouchEnd={() => { wasTouchRef.current = true; }}
             onClick={(e) => handleRowClick(e, index, project.slug)}
           >
             <div
               className="grid grid-cols-12 items-center py-4 md:py-5 transition-opacity duration-fast ease-swiss"
-              style={{ opacity: hoveredIndex !== null && !isHovered ? "var(--opacity-dim)" : undefined }}
+              style={{ opacity: activeRow !== null && !isActive ? "var(--opacity-dim)" : undefined }}
             >
               <span className="col-span-1 label-swiss">{num}</span>
               <span
@@ -195,8 +322,8 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
                 <span
                   className="block transition-all duration-fast ease-swiss"
                   style={{
-                    transform: isHovered ? "translateY(-100%)" : "translateY(0)",
-                    opacity: isHovered ? 0 : 1,
+                    transform: isActive ? "translateY(-100%)" : "translateY(0)",
+                    opacity: isActive ? 0 : 1,
                   }}
                 >
                   {project.category}
@@ -204,8 +331,8 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
                 <span
                   className="absolute inset-0 block transition-all duration-fast ease-swiss"
                   style={{
-                    transform: isHovered ? "translateY(0)" : "translateY(100%)",
-                    opacity: isHovered ? 1 : 0,
+                    transform: isActive ? "translateY(0)" : "translateY(100%)",
+                    opacity: isActive ? 1 : 0,
                   }}
                 >
                   View case study &rarr;
@@ -216,23 +343,22 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
               </span>
             </div>
 
-            {/* Inline image strip — hover on desktop, tap-to-expand on mobile */}
+            {/* Mobile-only inline image strip — tap to expand, tap again to open */}
             <AnimatePresence initial={false}>
-              {isHovered && (
+              {expandedIndex === index && (
                 <motion.div
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={transition.page}
-                  className="overflow-hidden relative md:absolute md:left-0 md:right-0 md:top-full md:z-10 md:bg-[var(--color-background)] md:border-b md:border-[var(--color-border)]"
+                  className="overflow-hidden relative md:hidden"
                 >
                   <ImageStrip project={project} />
-                  {/* Mobile-only "View case study" prompt */}
                   <motion.span
                     initial={{ opacity: 0, x: -12 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ ...transition.fast, delay: 0.2 }}
-                    className="absolute bottom-5 right-0 label-swiss bg-[var(--color-background)]/60 text-[var(--color-foreground)] px-3 py-2 md:hidden flex items-center gap-1.5"
+                    className="absolute bottom-5 right-0 label-swiss bg-[var(--color-background)]/60 text-[var(--color-foreground)] px-3 py-2 flex items-center gap-1.5"
                   >
                     View case study &rarr;
                   </motion.span>
@@ -242,6 +368,15 @@ export default function ProjectIndex({ projects }: ProjectIndexProps) {
           </Link>
         );
       })}
+
+      <CursorPreview
+        project={previewProject}
+        visible={hoveredIndex !== null}
+        x={x}
+        y={y}
+        cardRef={cardRef}
+        reduced={prefersReducedMotion}
+      />
     </div>
   );
 }
