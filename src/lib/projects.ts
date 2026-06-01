@@ -25,6 +25,25 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "pocketwatch",
+    title: "Pocketwatch",
+    category: "Product & Brand Design",
+    year: "2026",
+    heroImage: "/images/pocketwatch/hero.png",
+    heroAspect: 1200 / 630,
+    images: [
+      { src: "/images/pocketwatch/hero.png", aspect: 1200 / 630, alt: "Pocketwatch — budget, net worth, and investments in one place" },
+    ],
+    stats: [
+      { label: "Role", value: "Brand & Front-End" },
+      { label: "Stack", value: "SvelteKit + Svelte 5" },
+      { label: "Status", value: "Live · Production" },
+      { label: "Scope", value: "Identity + Product" },
+    ],
+    description:
+      "Brand identity, design system, and front-end for an all-in-one personal finance app — budgeting, net worth, and investments in one clean view.",
+  },
+  {
     slug: "sonde",
     title: "Sonde",
     category: "Product Design & Development",

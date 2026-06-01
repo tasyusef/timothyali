@@ -10,6 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/blog/starting-with-less`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.6 },
     { url: `${base}/blog/the-designers-moment`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.6 },
     { url: `${base}/contact`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.7 },
+    { url: `${base}/work/pocketwatch`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/work/sonde`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/work/xrpcafe`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.8 },
     { url: `${base}/work/firstledger`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.8 },
     { url: `${base}/work/firststrike`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.8 },
