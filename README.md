@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# timothyali.com
 
-## Getting Started
+Personal portfolio of Timothy Ali — a designer working across product, brand, and motion.
+Swiss-modernist design language: dark mode primary, 12-column grids, fluid type, no decorative UI.
 
-First, run the development server:
+Built with **SvelteKit 2 + Svelte 5**, Tailwind CSS v4, and zero animation dependencies —
+Svelte transitions, springs, and the View Transitions API do all the motion work.
+Fully prerendered and deployed on Vercel.
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:5173](http://localhost:5173).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command        | Purpose                                |
+| -------------- | -------------------------------------- |
+| `pnpm dev`     | Dev server                             |
+| `pnpm build`   | Production build (prerenders the site) |
+| `pnpm preview` | Preview the production build           |
+| `pnpm check`   | svelte-check type checking             |
+| `pnpm lint`    | Prettier + ESLint                      |
+| `pnpm format`  | Format the codebase                    |
 
-## Learn More
+## Architecture
 
-To learn more about Next.js, take a look at the following resources:
+- **Routes** live in `src/routes` — each case study is its own page under `work/`.
+- **Blog posts** are markdown with frontmatter in `src/content/posts`, compiled by mdsvex.
+- **Images** in `src/lib/images` are optimized at build time by `@sveltejs/enhanced-img`
+  (AVIF/WebP + responsive srcset); videos are served from `static/videos`.
+- **Design tokens** are defined in `src/app.css` (Tailwind v4 `@theme` + Swiss utility classes).
+- **OG images** are generated at build time with satori + resvg (`/og/[key].png`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See `CLAUDE.md` for the full project rules and design system documentation.

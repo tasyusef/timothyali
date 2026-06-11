@@ -1,15 +1,46 @@
-export const ease = { swiss: [0.4, 0, 0.2, 1] as const };
-export const duration = { fast: 0.3, normal: 0.6, slow: 0.8, page: 0.4, entrance: 0.7 };
-export const delay = { stagger: 0.1, section: 0.2, hero: 0.25 };
+/**
+ * Animation tokens — the Svelte counterpart of the old framer-motion config.
+ * Durations/delays are in milliseconds (Svelte transitions expect ms).
+ */
+
+export const duration = { fast: 300, normal: 600, slow: 800, page: 400, entrance: 700 };
+export const delay = { stagger: 100, section: 200, hero: 250 };
+
+/** Spring presets for svelte/motion `Spring` (stiffness/damping are 0–1). */
 export const spring = {
-  nav: { type: "spring" as const, stiffness: 500, damping: 25, mass: 0.8 },
-  cursor: { type: "spring" as const, stiffness: 350, damping: 30, mass: 0.6 },
+	cursor: { stiffness: 0.2, damping: 0.7 }
 };
-export const viewport = { default: { once: true, margin: "-80px" }, card: { once: true, margin: "-100px" } };
-export const transition = {
-  fast: { duration: 0.3, ease: ease.swiss },
-  normal: { duration: 0.6, ease: ease.swiss },
-  slow: { duration: 0.8, ease: ease.swiss },
-  page: { duration: 0.4, ease: ease.swiss },
-  entrance: { duration: 0.7, ease: ease.swiss },
-};
+
+/**
+ * cubic-bezier(0.4, 0, 0.2, 1) as a Svelte easing function — the same
+ * "swiss" ease the CSS tokens use, for transition:fade/slide parity.
+ */
+export const easeSwiss = cubicBezier(0.4, 0, 0.2, 1);
+
+function cubicBezier(x1: number, y1: number, x2: number, y2: number) {
+	const sampleX = (t: number) => 3 * t * (1 - t) * (1 - t) * x1 + 3 * t * t * (1 - t) * x2 + t ** 3;
+	const sampleY = (t: number) => 3 * t * (1 - t) * (1 - t) * y1 + 3 * t * t * (1 - t) * y2 + t ** 3;
+
+	return (x: number): number => {
+		if (x <= 0) return 0;
+		if (x >= 1) return 1;
+		// Binary search for the bezier parameter t where sampleX(t) === x
+		let lo = 0;
+		let hi = 1;
+		let t = x;
+		for (let i = 0; i < 24; i++) {
+			const cx = sampleX(t);
+			if (Math.abs(cx - x) < 1e-5) break;
+			if (cx < x) lo = t;
+			else hi = t;
+			t = (lo + hi) / 2;
+		}
+		return sampleY(t);
+	};
+}
+
+/** True when the user prefers reduced motion (false during SSR). */
+export function prefersReducedMotion(): boolean {
+	if (typeof window === 'undefined') return false;
+	return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}

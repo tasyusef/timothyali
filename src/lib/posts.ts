@@ -1,16 +1,42 @@
-export const posts = [
-  {
-    slug: "the-designers-moment",
-    title: "Systems Thinking in the Age of AI-Assisted Design",
-    date: "February 17, 2026",
-    excerpt:
-      "AI coding tools are compressing the translation layer between design intent and implementation. The handoff isn\u2019t dying \u2014 it\u2019s becoming less lossy. And the minimum competence required of everyone is rising.",
-  },
-  {
-    slug: "starting-with-less",
-    title: "Starting With Less: A Foundation-First Approach to Design",
-    date: "January 27, 2026",
-    excerpt:
-      "Effective design must originate from structural and conceptual rigor \u2014 visual expression is not the origin of meaning but the manifestation of prior analytical decisions.",
-  },
-];
+import type { Component } from 'svelte';
+
+interface PostMetadata {
+	title: string;
+	date: string; // ISO yyyy-mm-dd
+	excerpt: string;
+}
+
+interface PostModule {
+	metadata: PostMetadata;
+	default: Component;
+}
+
+export interface Post extends PostMetadata {
+	slug: string;
+	component: Component;
+}
+
+const modules = import.meta.glob<PostModule>('/src/content/posts/*.md', { eager: true });
+
+export const posts: Post[] = Object.entries(modules)
+	.map(([path, mod]) => ({
+		slug: path.split('/').pop()!.replace('.md', ''),
+		component: mod.default,
+		...mod.metadata
+	}))
+	.sort((a, b) => +new Date(b.date) - +new Date(a.date));
+
+export function getPost(slug: string): Post | undefined {
+	return posts.find((p) => p.slug === slug);
+}
+
+const dateFormat = new Intl.DateTimeFormat('en-US', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+	timeZone: 'UTC'
+});
+
+export function formatDate(iso: string): string {
+	return dateFormat.format(new Date(iso));
+}

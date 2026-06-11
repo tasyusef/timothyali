@@ -5,7 +5,7 @@ argument-hint: [optional: branch name or PR title]
 ---
 
 1. Run `git diff --stat` and `git diff --cached --stat` to see what changed.
-2. Run `pnpm typecheck` and `pnpm lint`. If either fails, fix the issues first.
+2. Run `pnpm check` and `pnpm lint`. If either fails, fix the issues first.
 3. Stage all changes with `git add -A`.
 4. Write a clear conventional commit message based on the actual diff. Keep it concise.
 5. Commit the changes.

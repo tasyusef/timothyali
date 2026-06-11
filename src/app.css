@@ -1,0 +1,429 @@
+@import '@fontsource-variable/space-grotesk';
+@import 'tailwindcss';
+
+/*
+ * Animation Strategy
+ * ──────────────────
+ * CSS transitions   — simple interactions: hover, opacity, arrow reveals, color changes.
+ *                     Use the .hover-swiss / .arrow-reveal utility classes, or
+ *                     Tailwind's transition-* + duration-fast + ease-swiss.
+ *
+ * Svelte transitions — overlays, expands, and orchestrated entrances:
+ *                     transition:fade / transition:slide with tokens from $lib/motion.
+ *
+ * View Transitions  — cross-page fades, driven by onNavigate in +layout.svelte.
+ *
+ * .reveal           — scroll-triggered entrance, driven by the `reveal` action
+ *                     in $lib/actions/reveal.ts (IntersectionObserver + CSS).
+ *
+ * Token Reference
+ * ──────────────────
+ * Opacity:   --opacity-dim (0.35)  --opacity-hover (0.5)  --opacity-muted (0.7)
+ * Z-index:   --z-base (1)  --z-dropdown (10)  --z-overlay (40)  --z-nav (50)  --z-lightbox (60)
+ * Duration:  --duration-fast (0.3s)  --duration-normal (0.6s)  --duration-slow (0.8s)
+ * Easing:    --ease-swiss (cubic-bezier(0.4, 0, 0.2, 1))
+ * Gaps:      --gap-gallery (4px)  --gap-gallery-tight (2px)
+ * Leading:   --leading-body (1.6)
+ * Spacing:   --spacing-section (8/12/20px responsive)
+ */
+
+@theme inline {
+	--color-background: #0a0a0a;
+	--color-foreground: #ededed;
+	--color-muted: #888888;
+	--color-border: #1a1a1a;
+	--font-sans: 'Space Grotesk Variable', system-ui, sans-serif;
+	--font-body: 'Satoshi', system-ui, sans-serif;
+
+	/* Easing & Duration */
+	--ease-swiss: cubic-bezier(0.4, 0, 0.2, 1);
+	--duration-fast: 0.3s;
+	--duration-normal: 0.6s;
+	--duration-slow: 0.8s;
+
+	/* Spacing */
+	--spacing-section: 8px;
+	--gap-gallery: 4px;
+	--gap-gallery-tight: 2px;
+
+	/* Line height */
+	--leading-body: 1.6;
+}
+
+/* Opacity + z-index scales — kept outside @theme (not Tailwind namespaces;
+   inline-style var() references must survive at runtime). */
+:root {
+	--opacity-dim: 0.35;
+	--opacity-hover: 0.5;
+	--opacity-muted: 0.7;
+	--z-base: 1;
+	--z-dropdown: 10;
+	--z-overlay: 40;
+	--z-nav: 50;
+	--z-lightbox: 60;
+}
+
+.z-base {
+	z-index: var(--z-base);
+}
+.z-dropdown {
+	z-index: var(--z-dropdown);
+}
+.z-overlay {
+	z-index: var(--z-overlay);
+}
+.z-nav {
+	z-index: var(--z-nav);
+}
+.z-lightbox {
+	z-index: var(--z-lightbox);
+}
+
+[data-theme='light'] {
+	--color-background: #f5f5f5;
+	--color-foreground: #0a0a0a;
+	--color-muted: #666666;
+	--color-border: #e0e0e0;
+}
+
+/* Fluid Typography Scale */
+:root {
+	--text-display: clamp(3rem, 1.5rem + 10vw, 11rem);
+	--text-headline: clamp(2rem, 1rem + 4vw, 5rem);
+	--text-subhead: clamp(1.25rem, 0.9rem + 1.5vw, 2.5rem);
+	--text-body: clamp(1rem, 0.925rem + 0.35vw, 1.25rem);
+	--text-caption: clamp(0.6875rem, 0.625rem + 0.25vw, 0.875rem);
+}
+
+/* Typography size utilities */
+.text-display {
+	font-size: var(--text-display);
+}
+
+.text-headline {
+	font-size: var(--text-headline);
+}
+
+.text-subhead {
+	font-size: var(--text-subhead);
+}
+
+.text-caption-size {
+	font-size: var(--text-caption);
+}
+
+.leading-body {
+	line-height: var(--leading-body);
+}
+
+.gap-section {
+	gap: var(--spacing-section);
+}
+
+.bg-page {
+	background: var(--color-background);
+}
+
+@media (min-width: 768px) {
+	:root {
+		--spacing-section: 12px;
+	}
+}
+
+@media (min-width: 1280px) {
+	:root {
+		--spacing-section: 20px;
+	}
+}
+
+body {
+	background: var(--color-background);
+	color: var(--color-foreground);
+	font-family: var(--font-body);
+	font-size: var(--text-body);
+	font-weight: 500;
+	line-height: 1.6;
+}
+
+::selection {
+	background: var(--color-foreground);
+	color: var(--color-background);
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+/* Prevent casual image/video downloading */
+img,
+video {
+	-webkit-user-drag: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+}
+
+/* enhanced:img renders <picture><source…><img></picture> — make the wrapper
+   layout-transparent so h-full / flex / object-fit on the img behave as if
+   it were a direct child. */
+picture {
+	display: contents;
+}
+
+/* Swiss Utility Classes */
+.label-swiss {
+	font-size: var(--text-caption);
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--color-muted);
+	font-family: var(--font-sans);
+}
+
+.hover-swiss {
+	transition: opacity var(--duration-fast) var(--ease-swiss);
+}
+
+.hover-swiss:hover {
+	opacity: var(--opacity-hover);
+}
+
+.px-swiss {
+	padding-left: var(--spacing-section);
+	padding-right: var(--spacing-section);
+}
+
+/* Heading utility — used on all h1-h3 headings */
+.heading-swiss {
+	font-family: var(--font-sans);
+	font-weight: 400;
+	letter-spacing: -0.025em;
+}
+
+/* List bullet utility */
+.bullet-swiss {
+	width: 0.25rem;
+	height: 0.25rem;
+	background: var(--color-muted);
+	margin-top: 0.625rem;
+	flex-shrink: 0;
+}
+
+/* Arrow reveal utilities — replaces repeated arrow-on-hover patterns */
+.arrow-reveal {
+	display: inline-block;
+	opacity: 0;
+	transition: all var(--duration-fast) var(--ease-swiss);
+}
+
+.arrow-reveal-sm {
+	transform: translateX(-8px);
+}
+
+.arrow-reveal-lg {
+	transform: translateX(-20px);
+}
+
+.group\/link:hover .arrow-reveal.arrow-reveal-sm,
+.group:hover .arrow-reveal.arrow-reveal-lg {
+	transform: translateX(0);
+	opacity: 1;
+}
+
+/* Focus visible — global keyboard focus indicator */
+:focus-visible {
+	outline: 2px solid var(--color-foreground);
+	outline-offset: 3px;
+}
+
+/* Section spacing */
+.mb-section {
+	margin-bottom: 8vh;
+}
+.mt-section {
+	margin-top: 8vh;
+}
+.py-section {
+	padding-top: 8vh;
+	padding-bottom: 8vh;
+}
+@media (min-width: 768px) {
+	.mb-section {
+		margin-bottom: 12vh;
+	}
+	.mt-section {
+		margin-top: 12vh;
+	}
+	.py-section {
+		padding-top: 12vh;
+		padding-bottom: 12vh;
+	}
+}
+
+/* Page wrapper — standard page padding */
+.page-wrapper {
+	padding-left: var(--spacing-section);
+	padding-right: var(--spacing-section);
+	padding-top: 1.5rem;
+	padding-bottom: 15vh;
+}
+@media (min-width: 768px) {
+	.page-wrapper {
+		padding-top: 2.5rem;
+		padding-bottom: 25vh;
+	}
+}
+
+/* Row padding */
+.py-row {
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+	.py-row {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+}
+
+.pb-row {
+	padding-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+	.pb-row {
+		padding-bottom: 2rem;
+	}
+}
+
+/* Entrance fade — initial page-load reveals (header rows, hero sections).
+   Stagger with style="--entrance-delay: 100ms". */
+@keyframes entrance-fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.entrance {
+	opacity: 0;
+	animation: entrance-fade var(--duration-normal) var(--ease-swiss) forwards;
+	animation-delay: var(--entrance-delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.entrance {
+		opacity: 1;
+		animation: none;
+	}
+}
+
+/* Markdown prose — blog post bodies rendered from src/content/posts */
+.prose-swiss {
+	line-height: var(--leading-body);
+}
+
+.prose-swiss > * + * {
+	margin-top: 1.5rem;
+}
+
+.prose-swiss h2 {
+	font-family: var(--font-sans);
+	font-weight: 400;
+	letter-spacing: -0.025em;
+	font-size: var(--text-subhead);
+	margin-top: 2.5rem;
+}
+
+.prose-swiss ul {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	padding-left: 1rem;
+}
+
+.prose-swiss ul li {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+}
+
+.prose-swiss ul li::before {
+	content: '';
+	width: 0.25rem;
+	height: 0.25rem;
+	background: var(--color-muted);
+	margin-top: 0.625rem;
+	flex-shrink: 0;
+}
+
+/* Scroll reveal — paired with the `reveal` action ($lib/actions/reveal.ts) */
+.reveal {
+	opacity: 0;
+	transform: translateY(12px);
+	transition:
+		opacity var(--duration-slow) var(--ease-swiss),
+		transform var(--duration-slow) var(--ease-swiss);
+	transition-delay: var(--reveal-delay, 0s);
+}
+
+.reveal-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}
+
+/* Cross-page fade via the View Transitions API (driven by onNavigate) */
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: 0.4s;
+	animation-timing-function: var(--ease-swiss);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		animation: none;
+	}
+}
+
+/* Hide scrollbar */
+.scrollbar-hide {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+	display: none;
+}
+
+/* Custom scrollbar — minimal, theme-aware */
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--color-border);
+	border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--color-muted);
+}
+
+/* Firefox */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-border) transparent;
+}

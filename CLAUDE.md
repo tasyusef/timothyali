@@ -5,7 +5,7 @@ Personal portfolio website for Timothy Ali — a designer working across product
 
 ## Workflow
 - **Always start in Plan mode.** Outline what you'll do and why before writing any code. Wait for approval before executing.
-- **Verify your work.** After making changes, run `pnpm lint` and `npx tsc --noEmit`. For UI changes, open the browser preview and confirm the UI looks correct.
+- **Verify your work.** After making changes, run `pnpm lint` and `pnpm check`. For UI changes, open the browser preview and confirm the UI looks correct.
 - **Keep PRs small and focused.** One feature or fix per PR. If scope creeps, suggest splitting into separate PRs.
 - **Commit with clear messages.** Use conventional commits: `feat:`, `fix:`, `refactor:`, `style:`, `docs:`, `chore:`.
 - **Keep this file current.** When adding new pages, components, or changing architecture, update the relevant sections of this CLAUDE.md in the same commit.
@@ -14,40 +14,41 @@ Personal portfolio website for Timothy Ali — a designer working across product
 - Ask me questions.
 
 ## Tech Stack
-- **Framework:** Next.js 16 (App Router, Server Components by default)
+- **Framework:** SvelteKit 2 (fully prerendered — `export const prerender = true` in the root layout)
 - **Language:** TypeScript throughout
-- **React:** 19
-- **Styling:** Tailwind CSS v4 — all design tokens defined in `globals.css` via `@theme inline` block (no `tailwind.config.ts`)
-- **Animation:** Framer Motion (page transitions, scroll reveals, entrance animations)
-- **Blog:** MDX (`@mdx-js/loader`, `next-mdx-remote`, `gray-matter`)
-- **SEO:** Per-page metadata exports, JSON-LD structured data, dynamic OpenGraph images via `next/og`
+- **UI:** Svelte 5 (runes — `$state`, `$derived`, `$effect`, `$props`, snippets)
+- **Styling:** Tailwind CSS v4 via `@tailwindcss/vite` — all design tokens defined in `src/app.css` via `@theme inline` block (no config file)
+- **Animation:** No animation library. Svelte transitions (`fade`, `slide`, `fly`, `crossfade`), `svelte/motion` `Spring`, CSS transitions, and the View Transitions API for page fades
+- **Blog:** Markdown + mdsvex — posts in `src/content/posts/*.md` with YAML frontmatter
+- **Images:** `@sveltejs/enhanced-img` — build-time AVIF/WebP + responsive srcset for everything in `src/lib/images`
+- **SEO:** `Seo.svelte` component (meta + OG + JSON-LD), prerendered `sitemap.xml`, satori-generated OG images
 - **Package manager:** pnpm (never npm or yarn)
-- **Linting:** ESLint 9 (flat config, `eslint-config-next`)
-- **Deployment:** Vercel
-- **Fonts:** Space Grotesk (Google Fonts, `--font-space-grotesk`) + Satoshi (Fontshare, `--font-body`)
+- **Linting:** ESLint 9 (flat config, `eslint-plugin-svelte`) + Prettier (`prettier-plugin-svelte`, `prettier-plugin-tailwindcss`)
+- **Deployment:** Vercel (`@sveltejs/adapter-vercel`; the build output is fully static)
+- **Fonts:** Space Grotesk (self-hosted via `@fontsource-variable/space-grotesk`) + Satoshi (Fontshare stylesheet in `app.html`)
 
 ## Design System — Non-Negotiable
-All design tokens are encoded in `src/app/globals.css`. These are the rules:
+All design tokens are encoded in `src/app.css`. These are the rules:
 
 ### Fonts
-- **Space Grotesk** (`font-sans` / `--font-space-grotesk`) — headings, nav links, labels, uppercase metadata. Used via `.heading-swiss` and `.label-swiss` utility classes.
+- **Space Grotesk** (`font-sans` / `--font-sans`) — headings, nav links, labels, uppercase metadata. Used via `.heading-swiss` and `.label-swiss` utility classes.
 - **Satoshi** (`font-body`) — body text, paragraphs, descriptions. Set as the default body font.
 
 ### Colors
-- Never hardcode hex values. Always use CSS custom properties from `globals.css`.
+- Never hardcode hex values. Always use CSS custom properties from `app.css`.
 - Dark mode is the primary theme (`--color-background: #0a0a0a`). Light mode is toggled via `[data-theme="light"]`.
 - `--color-foreground` for primary text, `--color-muted` for secondary/labels, `--color-border` for dividers.
 
 ### Fluid Type Scale
-Font sizes are fluid `clamp()` values defined as CSS custom properties. Use the corresponding utility classes — never use inline `style={{ fontSize }}`:
+Font sizes are fluid `clamp()` values defined as CSS custom properties. Use the corresponding utility classes — never use inline `style="font-size: …"`:
+- `text-display` → `--text-display` — hero headlines (clamp 3rem–11rem)
 - `text-headline` → `--text-headline` — page titles, hero text (clamp 2rem–5rem)
 - `text-subhead` → `--text-subhead` — section headings, project titles (clamp 1.25rem–2.5rem)
 - `text-caption-size` → `--text-caption` — labels, metadata, small text (clamp 0.6875rem–0.875rem)
 - Body text (`--text-body`) is set globally on the `<body>` element (clamp 1rem–1.25rem)
-- Display text (`--text-display`) for hero headlines (clamp 3rem–11rem) — applied via inline style only on the homepage hero
 
 ### Swiss Utility Classes
-These are the core CSS utility classes defined in `globals.css`:
+These are the core CSS utility classes defined in `app.css`:
 - `.label-swiss` — uppercase, caption-size, muted color, Space Grotesk. Used for all metadata labels.
 - `.heading-swiss` — Space Grotesk, light weight, negative tracking. Used on all headings.
 - `.hover-swiss` — opacity transition on hover. Used on all interactive text links.
@@ -56,7 +57,10 @@ These are the core CSS utility classes defined in `globals.css`:
 - `.px-swiss` — horizontal section padding using `--spacing-section`.
 - `.page-wrapper` — standard page padding (horizontal + vertical).
 - `.py-row` / `.pb-row` — consistent row padding.
-- `.mb-section` / `.mt-section` — section margin spacing (8vh mobile, 12vh desktop).
+- `.mb-section` / `.mt-section` / `.py-section` — section spacing (8vh mobile, 12vh desktop).
+- `.entrance` — initial page-load fade-in; stagger with `style="--entrance-delay: 100ms"`.
+- `.reveal` / `.reveal-visible` — scroll-triggered entrance, applied by the `reveal` action (never by hand).
+- `.prose-swiss` — markdown blog post body styles (h2, paragraphs, bulleted lists).
 
 ### Spacing
 - `--spacing-section` — responsive horizontal padding (8px → 12px → 20px at breakpoints).
@@ -65,147 +69,172 @@ These are the core CSS utility classes defined in `globals.css`:
 
 ### Animation Strategy
 - **CSS transitions** for simple interactions: hover opacity, arrow reveals, color changes. Use `.hover-swiss` or Tailwind `transition-*` with `duration-fast` and `ease-swiss`.
-- **Framer Motion** for complex/orchestrated animations: page transitions, scroll reveals, entrance sequences. Import tokens from `@/lib/motion`.
+- **`.entrance` CSS class** for initial page-load fades (header rows, heroes) — staggered via `--entrance-delay`.
+- **`reveal` action** (`$lib/actions/reveal`) for scroll-triggered entrances — IntersectionObserver + `.reveal` CSS.
+- **Svelte transitions** for overlays and expands: `transition:fade` / `slide` / `fly` with `duration` (ms) and `easeSwiss` from `$lib/motion`.
+- **`Spring` from `svelte/motion`** for physics (cursor-following preview).
+- **View Transitions API** for cross-page fades — wired in `+layout.svelte` via `onNavigate`, styled in `app.css`.
+- All motion must respect `prefers-reduced-motion` (CSS handles `.reveal`/`.entrance`/view transitions; use `prefersReducedMotion()` from `$lib/motion` in components).
 
 ### UI Patterns
 - **Grid:** 12-column grid (`grid-cols-12`) on desktop, single column on mobile.
-- **Page layout:** Every page uses `.page-wrapper` for consistent padding.
+- **Page layout:** Every page uses `.page-wrapper` for consistent padding (case studies use their own header pattern).
 - **Focus rings:** Global `:focus-visible` with 2px solid foreground outline.
-- **Image protection:** Context menu and drag disabled on images/videos via inline scripts.
+- **Image protection:** Context menu and drag disabled on images/videos via inline scripts in `app.html`.
 - **Selection:** Inverted colors (`background: foreground, color: background`).
 
 ## Code Style
-- Use functional components with hooks. No class components.
-- Prefer named exports over default exports.
-- No inline styles. Use Tailwind classes or the CSS utility classes defined in `globals.css`.
+- Svelte 5 runes only — no legacy stores/`$:`/`export let`. Props via `$props()` with a typed interface.
+- Prefer named exports over default exports in `.ts` modules.
+- No inline styles except dynamic values (`style:transform`, `style:--entrance-delay`). Use Tailwind classes or the CSS utility classes defined in `app.css`.
 - Keep components under 150 lines. Extract sub-components when they grow.
 - Use semantic HTML elements (`<nav>`, `<main>`, `<section>`, `<article>`, `<dl>`, etc.).
 - All interactive elements must have visible focus states and hover states.
 - Responsive by default: build mobile-first, then layer on `sm:`, `md:`, `lg:` breakpoints.
-- Animations should be subtle and respect `prefers-reduced-motion`.
+- Images: always go through `<Img>` (`$lib/components/Img.svelte`) so they hit the enhanced-img pipeline. Add new image files under `src/lib/images/<project>/` and reference them as `/images/<project>/<file>` — the manifest in `$lib/images.ts` resolves them. The manifest **throws at build time** on unknown paths, so typos fail fast.
+- Videos are plain `<video>` tags served from `static/videos`.
 
 ## Architecture
 
 ### Page Structure
 Every page follows a consistent pattern:
-1. `.page-wrapper` container with horizontal + vertical padding
-2. Header row — `label-swiss` page title in a 12-column grid with bottom border
-3. Content — 12-column grid sections separated by borders and `py-row` padding
-4. Metadata export for SEO + JSON-LD structured data
+1. `<Seo>` component — title, description, `ogKey` (registered in `$lib/og.ts`), optional JSON-LD
+2. `.page-wrapper` container with horizontal + vertical padding
+3. Header row — `label-swiss` page title in a 12-column grid with bottom border (`.entrance` fade)
+4. Content — 12-column grid sections separated by borders and `py-row` padding
 
 ### Case Study Pattern
-Case study pages (`/work/[slug]/page.tsx`) use shared components:
-1. `CaseStudyLayout` — handles hero, header metadata (title, category, year, role, timeline, tools, overview), JSON-LD, and next-project navigation
-2. `TextSection` (from `CaseStudySection.tsx`) — titled prose section
-3. `LiveEmbed` (from `CaseStudySection.tsx`) — labeled iframe embed with link to external site
-4. `CaseStudyGallery` — image/video gallery grid with lightbox support
-5. Each case study exports its own `Metadata` for SEO
+Case study pages (`src/routes/work/<slug>/+page.svelte`) compose shared components:
+1. `<Seo>` with `ogKey={slug}` + CreativeWork JSON-LD (`imageUrl()` from `$lib/images` for the image)
+2. `CaseStudy` — wrapper handling back link, title, overview (snippet prop), metadata rows, hero, and next-project navigation
+3. `TextSection` — titled prose section (label left, copy right)
+4. `LiveEmbed` — labeled iframe embed with link to the external site
+5. `ResultsList` — bordered results/bullet list
+6. `Gallery` — image/video masonry grid with lightbox (keyboard nav, focus trap, scroll lock)
+7. New case studies must also be added to `src/lib/projects.ts` and get an OG entry automatically via slug
 
 ### Project Data
 `src/lib/projects.ts` is the central data file for the homepage project index. Each project has:
-- `slug`, `title`, `category`, `year`, `heroImage`
-- `images: ProjectImage[]` (src + aspect ratio)
+- `slug`, `title`, `category`, `year`, `heroImage`, `heroAspect`
+- `images: ProjectImage[]` (src + aspect ratio + alt)
 - `stats?: ProjectStat[]` (label/value pairs for Key Metrics cards)
 - `description` (one-liner)
 - Optional: `heroVideo`, `videos`
 
+### Blog
+- Posts are markdown files in `src/content/posts/<slug>.md` with frontmatter: `title`, `date` (ISO), `excerpt`.
+- `$lib/posts.ts` loads them via `import.meta.glob` (eager) and sorts by date; mdsvex compiles the body to a Svelte component.
+- `/blog/[slug]` renders the post component inside `.prose-swiss`; `entries` in `+page.ts` drives prerendering.
+- Adding a post = adding one markdown file. Index, sitemap, and OG image follow automatically.
+
+### Images
+- `src/lib/images/**` is globbed with `query: { enhanced: true }` in `$lib/images.ts` → AVIF/WebP + srcset at build time.
+- `getImage('/images/…')` returns the picture data; `imageUrl(src, base)` returns the absolute optimized URL for JSON-LD/OG.
+- `<Img src alt sizes eager>` wraps `<enhanced:img>`; `picture { display: contents }` in `app.css` keeps layout identical to a bare `<img>`.
+
 ### OpenGraph Images
-Dynamic OG images are generated per-page using `next/og` via `opengraph-image.tsx` files. The shared `ogImage()` function in `src/lib/og.tsx` renders a dark card with title + subtitle.
+- `$lib/og.ts` maps every `ogKey` → `{ title, subtitle }` (static pages by hand, projects/posts derived).
+- `src/routes/og/[key].png/+server.ts` renders the dark card with satori + resvg using self-hosted Space Grotesk woffs, prerendered for every key.
+- `<Seo ogKey="…">` points `og:image` at `/og/<key>.png`.
 
 ### Navigation
-- `Navigation.tsx` — responsive nav with 12-column grid desktop layout and full-screen mobile overlay
-- `NAV_LINKS` and `NAV_LINK_COLUMNS` defined in `src/lib/layout.ts`
-- Active link detection via `usePathname()`
-- Mobile menu uses Framer Motion `AnimatePresence`
+- `Navigation.svelte` — responsive nav with 12-column grid desktop layout and full-screen mobile overlay.
+- `NAV_LINKS`, `NAV_LINK_COLUMNS`, and `isActiveLink()` live in `src/lib/nav.ts`.
+- Active-link underline slides between links via Svelte `crossfade`.
+- Mobile overlay uses `transition:fade` + the `focusTrap` action (Escape closes, Tab wraps).
 
-### Framer Motion Tokens
+### Motion Tokens
 All animation values are centralized in `src/lib/motion.ts`:
-- `ease.swiss` — `[0.4, 0, 0.2, 1]`
-- `duration` — fast (0.3), normal (0.6), slow (0.8), page (0.4), entrance (0.7)
-- `delay` — stagger (0.1), section (0.2), hero (0.25)
-- `spring.nav` — spring config for nav animations
-- `viewport` — IntersectionObserver margins for scroll reveals
-- `transition` — pre-composed transition objects (fast, normal, slow, page, entrance)
+- `duration` — fast (300), normal (600), slow (800), page (400), entrance (700) — in **ms**
+- `delay` — stagger (100), section (200), hero (250)
+- `easeSwiss` — cubic-bezier(0.4, 0, 0.2, 1) as a Svelte easing function
+- `spring.cursor` — Spring preset for the cursor-following preview
+- `prefersReducedMotion()` — SSR-safe media query check
 
-### Theme Initialization
-- Inline `<script>` in `layout.tsx` reads `localStorage.getItem('theme')` before React hydrates
-- Prevents FOUC by setting `data-theme` attribute synchronously
-- Light mode uses `[data-theme="light"]` CSS selector to swap color tokens
+### Theme
+- Inline `<script>` in `app.html` reads `localStorage.getItem('theme')` before hydration (no FOUC).
+- `$lib/theme.svelte.ts` is a runes-based store; `ThemeToggle.svelte` flips it and persists to localStorage.
+- Light mode uses the `[data-theme="light"]` CSS selector to swap color tokens.
 
 ### SEO
-- Every page exports `Metadata` with title, description, OpenGraph, and canonical URL
-- `robots.ts` and `sitemap.ts` at app root for crawlers
-- JSON-LD structured data (`Person` on root layout, `CreativeWork` on case studies, `Article` on blog posts)
+- `Seo.svelte` renders title (auto-suffixed "— Timothy Ali"), description, canonical, OG/Twitter tags, optional `article` metadata, and JSON-LD.
+- Person JSON-LD lives in `+layout.svelte`; CreativeWork on case studies; Article on blog posts.
+- `src/routes/sitemap.xml/+server.ts` builds the sitemap from `projects` + `posts`; `static/robots.txt` points to it.
 
 ## File Structure
 ```
 src/
-├── app/
-│   ├── layout.tsx              # Root layout — fonts, theme init, nav, footer, JSON-LD
-│   ├── globals.css             # Tailwind v4 @theme tokens, Swiss utility classes
-│   ├── page.tsx                # Homepage — ProjectIndex with image strips + stats cards
-│   ├── opengraph-image.tsx     # Dynamic OG image for homepage
-│   ├── robots.ts               # Robots.txt generation
-│   ├── sitemap.ts              # Sitemap generation
-│   ├── about/
-│   │   ├── page.tsx            # Bio, capabilities, tools, location, experience timeline
-│   │   ├── layout.tsx          # About page layout wrapper
-│   │   └── opengraph-image.tsx
-│   ├── blog/
-│   │   ├── page.tsx            # Blog index — post list
-│   │   ├── layout.tsx          # Blog layout wrapper
-│   │   ├── opengraph-image.tsx
-│   │   ├── [slug]/             # Dynamic blog post route
-│   │   │   ├── page.tsx
-│   │   │   └── opengraph-image.tsx
-│   │   └── the-designers-moment/  # Static blog post
-│   │       ├── page.tsx
-│   │       └── opengraph-image.tsx
-│   ├── contact/
-│   │   ├── page.tsx            # Contact page with email link
-│   │   ├── layout.tsx
-│   │   └── opengraph-image.tsx
-│   └── work/                   # Case study pages
-│       ├── sonde/page.tsx
-│       ├── firststrike/page.tsx + opengraph-image.tsx
-│       ├── jade-aesthetics/page.tsx
-│       ├── xrpcafe/page.tsx + opengraph-image.tsx
-│       ├── firstledger/page.tsx + opengraph-image.tsx
-│       ├── do-androids-dream/page.tsx + opengraph-image.tsx
-│       └── gridform/page.tsx + opengraph-image.tsx
-├── components/
-│   ├── Navigation.tsx          # Responsive nav — 12-col grid desktop, fullscreen mobile overlay
-│   ├── Footer.tsx              # Site footer
-│   ├── PageTransition.tsx      # Framer Motion page enter/exit wrapper
-│   ├── ScrollReveal.tsx        # IntersectionObserver fade-in-up wrapper
-│   ├── ProjectIndex.tsx        # Homepage project list — image strips with hover expand + stats cards
-│   ├── ProjectCard.tsx         # Individual project card (used in /work grid if needed)
-│   ├── CaseStudyLayout.tsx     # Shared case study wrapper — hero, metadata grid, next-project link
-│   ├── CaseStudySection.tsx    # TextSection + LiveEmbed components for case study content
-│   └── CaseStudyGallery.tsx    # Image/video gallery grid
+├── app.html                    # Shell — theme init, image protection, Satoshi font link
+├── app.css                     # Tailwind v4 @theme tokens, Swiss utility classes, prose styles
+├── app.d.ts
+├── content/
+│   └── posts/                  # Blog posts (markdown + frontmatter, compiled by mdsvex)
+│       ├── the-designers-moment.md
+│       └── starting-with-less.md
 ├── lib/
-│   ├── motion.ts               # Framer Motion tokens (ease, duration, delay, spring, transition)
-│   ├── layout.ts               # NAV_LINKS, NAV_LINK_COLUMNS constants
-│   ├── og.tsx                  # Shared OpenGraph image generator (ogImage, ogSize)
+│   ├── site.ts                 # SITE_URL, titles, SOCIAL_LINKS, Person JSON-LD
+│   ├── nav.ts                  # NAV_LINKS, NAV_LINK_COLUMNS, isActiveLink
+│   ├── motion.ts               # duration/delay tokens (ms), easeSwiss, spring presets
+│   ├── theme.svelte.ts         # Runes-based theme store
 │   ├── projects.ts             # Project data array (slug, title, images, stats, description)
-│   └── posts.ts                # Blog post data/utilities
+│   ├── posts.ts                # Markdown post loader (import.meta.glob) + formatDate
+│   ├── images.ts               # Enhanced-image manifest — getImage / imageUrl
+│   ├── og.ts                   # OG card registry (ogKey → title/subtitle)
+│   ├── actions/
+│   │   ├── reveal.ts           # IntersectionObserver scroll reveal (.reveal classes)
+│   │   ├── focusTrap.ts        # Tab trap + Escape for modal overlays
+│   │   └── portal.ts           # Move node to <body> (cursor preview)
+│   ├── images/                 # Source images, optimized at build time (per-project folders)
+│   └── components/
+│       ├── Seo.svelte          # Head meta + OG + JSON-LD
+│       ├── Img.svelte          # <enhanced:img> wrapper resolving "/images/…" paths
+│       ├── Navigation.svelte   # Responsive nav — crossfade underline, mobile overlay
+│       ├── ThemeToggle.svelte
+│       ├── Footer.svelte
+│       ├── ProjectIndex.svelte # Homepage project list — cursor preview + mobile expand
+│       ├── ProjectImageStrip.svelte  # Horizontal media strip with scroll arrows
+│       ├── ProjectStatsCard.svelte   # Key Metrics card
+│       ├── CursorPreview.svelte      # Spring-driven hover preview (portaled to body)
+│       ├── CaseStudy.svelte    # Case study wrapper — header, hero, metadata, next link
+│       ├── TextSection.svelte  # Titled prose section
+│       ├── LiveEmbed.svelte    # Labeled iframe embed
+│       ├── ResultsList.svelte  # Bulleted results section
+│       └── Gallery.svelte      # Masonry gallery + lightbox
+└── routes/
+    ├── +layout.ts              # export const prerender = true
+    ├── +layout.svelte          # app.css, view transitions, nav/footer, Person JSON-LD, skip link
+    ├── +page.svelte            # Homepage — hero grid, ProjectIndex, quick links
+    ├── about/+page.svelte
+    ├── blog/
+    │   ├── +page.svelte        # Post index
+    │   └── [slug]/             # Dynamic post route (+page.ts loads from $lib/posts)
+    ├── contact/+page.svelte
+    ├── work/                   # One folder per case study (8 total)
+    │   └── <slug>/+page.svelte
+    ├── og/[key].png/+server.ts # Prerendered OG cards (satori + resvg)
+    └── sitemap.xml/+server.ts
+static/
+├── robots.txt
+└── videos/                     # mp4 assets (served as-is)
 ```
 
 ## Common Mistakes — Don't Repeat These
-- Don't hardcode colors. Use CSS custom properties from `globals.css` (`var(--color-border)`, etc.).
-- Don't use inline `style={{ fontSize }}`. Use the utility classes: `text-headline`, `text-subhead`, `text-caption-size`.
+- Don't hardcode colors. Use CSS custom properties from `app.css` (`var(--color-border)`, etc.).
+- Don't use inline font-size styles. Use the utility classes: `text-display`, `text-headline`, `text-subhead`, `text-caption-size`.
 - Don't use arbitrary spacing values like `p-[13px]`. Use Tailwind's spacing scale.
+- Don't use plain `<img>` for repo images — use `<Img>` so they're optimized; plain `<video>` is correct for videos.
 - Don't forget focus states on interactive elements. The global `:focus-visible` rule handles most cases.
 - Don't forget `aria-labelledby`, `aria-label`, `role` attributes on semantic structures.
-- Don't use default exports unless required by Next.js (page.tsx, layout.tsx). Prefer named exports.
-- Don't forget to add projects to `src/lib/projects.ts` when creating new case studies.
-- Don't forget SEO metadata exports and JSON-LD on every page.
+- Don't add an animation library — the Svelte primitives + tokens in `$lib/motion` cover everything.
+- Don't forget to add projects to `src/lib/projects.ts` when creating new case studies (the OG card and sitemap derive from it).
+- Don't forget the `<Seo>` component (with `ogKey`) and JSON-LD on every new page.
+- Svelte attributes containing double quotes need curly quotes (`“”`) or an expression — Prettier will mangle `attr='… "…" …'`.
 
 ## Testing & Verification
 
 ### After Every Change (lightweight)
-- Run `npx tsc --noEmit` to catch type errors.
-- Run `pnpm lint` to catch lint violations.
+- Run `pnpm check` to catch type errors (svelte-check).
+- Run `pnpm lint` to catch format/lint violations (`pnpm format` to fix).
 - For UI changes, open the browser preview and visually confirm.
 
 ### Before Commits & PRs (full audit)
@@ -213,6 +242,6 @@ src/
 - Run the **code-reviewer** agent to catch bugs and logic errors.
 - Run the **code-simplifier** agent to clean up code quality.
 - Run the **verify-app** agent to confirm the app builds and runs correctly.
-- Run `pnpm build` to catch production build errors.
+- Run `pnpm build` to catch production build errors (also regenerates all prerendered pages and OG images).
 - Verify dark mode and light mode both look correct.
 - Check responsive layout at mobile, tablet, and desktop widths.
