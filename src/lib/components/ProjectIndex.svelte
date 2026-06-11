@@ -4,7 +4,7 @@
 	import { Spring } from 'svelte/motion';
 	import type { Project } from '$lib/projects';
 	import { duration, easeSwiss, spring, prefersReducedMotion } from '$lib/motion';
-	import Img from './Img.svelte';
+	import { getImage } from '$lib/images';
 	import ProjectImageStrip from './ProjectImageStrip.svelte';
 	import CursorPreview from './CursorPreview.svelte';
 
@@ -61,6 +61,23 @@
 	const activeRow = $derived(hoveredIndex !== null ? hoveredIndex : expandedIndex);
 	const previewProject = $derived(hoveredIndex !== null ? projects[hoveredIndex] : null);
 </script>
+
+<!-- Idle image preloading — warms each hero's optimized AVIF (the format the
+     cursor preview will request) so the first hover of any row paints
+     instantly. Injected after idle so it never competes with page load. -->
+<svelte:head>
+	{#if preloadReady}
+		{#each projects as p (p.slug)}
+			<link
+				rel="preload"
+				as="image"
+				type="image/avif"
+				imagesrcset={getImage(p.heroImage).sources.avif}
+				imagesizes="512px"
+			/>
+		{/each}
+	{/if}
+</svelte:head>
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
@@ -139,13 +156,11 @@
 
 	<CursorPreview project={previewProject} x={pos.current.x} y={pos.current.y} bind:card />
 
-	<!-- Idle preloader — warms each hero's optimized image (and xrp.cafe's
-	     video metadata) so the first hover of any row paints instantly. -->
+	<!-- Idle preloader — video metadata warms via a hidden element (there is no
+	     reliable preload-link equivalent for video). Image preloading happens
+	     through the <link rel="preload"> hints in <svelte:head> above. -->
 	{#if preloadReady}
 		<div aria-hidden="true" class="sr-only">
-			{#each projects as p (p.slug)}
-				<Img src={p.heroImage} alt="" sizes="512px" eager />
-			{/each}
 			{#each projects.filter((p) => p.heroVideo) as p (p.slug)}
 				<video src={p.heroVideo} preload="metadata" muted></video>
 			{/each}

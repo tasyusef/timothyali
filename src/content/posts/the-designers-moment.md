@@ -1,7 +1,7 @@
 ---
 title: Systems Thinking in the Age of AI-Assisted Design
 date: '2026-02-17'
-excerpt: 'AI coding tools are compressing the translation layer between design intent and implementation. The handoff isn’t dying — it’s becoming less lossy. And the minimum competence required of everyone is rising.'
+excerpt: 'AI coding tools are compressing the translation layer between design intent and implementation. The handoff isn’t dying — it’s becoming less lossy.'
 ---
 
 For as long as interface design has existed as a discipline, there has been a persistent bottleneck between what a designer envisions and what ultimately ships. That bottleneck is the handoff.

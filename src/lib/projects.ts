@@ -86,49 +86,57 @@ export const projects: Project[] = [
 			{
 				src: '/images/firststrike/app-portfolio.png',
 				aspect: 1919 / 911,
-				alt: 'Research platform portfolio dashboard'
+				alt: 'FirstStrike research platform portfolio dashboard'
 			},
 			{
 				src: '/images/firststrike/app-company.png',
 				aspect: 1919 / 912,
-				alt: 'Company analysis view'
+				alt: 'FirstStrike research platform company analysis view'
 			},
 			{
 				src: '/images/firststrike/firststrike_pres-02.png',
 				aspect: 16 / 9,
-				alt: 'Mission statement'
+				alt: 'FirstStrike Research mission statement'
 			},
 			{
 				src: '/images/firststrike/firststrike_pres-03.png',
 				aspect: 3376 / 2250,
-				alt: 'Billboard mockup'
+				alt: 'FirstStrike Research billboard mockup'
 			},
-			{ src: '/images/firststrike/firststrike_pres-04.png', aspect: 16 / 9, alt: 'Brand pillars' },
+			{
+				src: '/images/firststrike/firststrike_pres-04.png',
+				aspect: 16 / 9,
+				alt: 'FirstStrike Research brand pillars'
+			},
 			{
 				src: '/images/firststrike/firststrike_pres-05.png',
 				aspect: 16 / 9,
-				alt: 'Primary logo lockup'
+				alt: 'FirstStrike Research primary logo lockup'
 			},
 			{
 				src: '/images/firststrike/firststrike_pres-06.png',
 				aspect: 16 / 9,
-				alt: 'Secondary logo lockup'
+				alt: 'FirstStrike Research secondary logo lockup'
 			},
 			{
 				src: '/images/firststrike/firststrike_pres-07.png',
 				aspect: 16 / 9,
-				alt: 'Logo construction grid'
+				alt: 'FirstStrike Research logo construction grid'
 			},
-			{ src: '/images/firststrike/firststrike_pres-08.png', aspect: 16 / 9, alt: 'Color system' },
+			{
+				src: '/images/firststrike/firststrike_pres-08.png',
+				aspect: 16 / 9,
+				alt: 'FirstStrike Research color system'
+			},
 			{
 				src: '/images/firststrike/firststrike_pres-09.png',
 				aspect: 4 / 3,
-				alt: 'Business card mockup'
+				alt: 'FirstStrike Research business card mockup'
 			},
 			{
 				src: '/images/firststrike/firststrike_pres-10.png',
 				aspect: 16 / 9,
-				alt: 'Typography system'
+				alt: 'FirstStrike Research typography system'
 			}
 		],
 		stats: [
@@ -174,26 +182,38 @@ export const projects: Project[] = [
 		videos: ['/videos/CAFE_EXPLORE_CREATE_TRADE.mp4'],
 		images: [
 			{ src: '/images/xrpcafe/0.png', aspect: 3024 / 4032, alt: 'xrp.cafe mobile interface' },
-			{ src: '/images/xrpcafe/1.png', aspect: 16 / 9, alt: 'NFT marketplace explore page' },
-			{ src: '/images/xrpcafe/2.png', aspect: 16 / 9, alt: 'Collection detail page' },
-			{ src: '/images/xrpcafe/3.png', aspect: 16 / 9, alt: 'NFT listing interface' },
-			{ src: '/images/xrpcafe/4.png', aspect: 16 / 9, alt: 'Trading dashboard' },
-			{ src: '/images/xrpcafe/5.png', aspect: 16 / 9, alt: 'Motion graphics frame' },
-			{ src: '/images/xrpcafe/6.png', aspect: 16 / 9, alt: 'Brand application' },
-			{ src: '/images/xrpcafe/7.png', aspect: 16 / 9, alt: 'Marketing campaign' },
+			{
+				src: '/images/xrpcafe/1.png',
+				aspect: 16 / 9,
+				alt: 'xrp.cafe NFT marketplace explore page'
+			},
+			{ src: '/images/xrpcafe/2.png', aspect: 16 / 9, alt: 'xrp.cafe collection detail page' },
+			{ src: '/images/xrpcafe/3.png', aspect: 16 / 9, alt: 'xrp.cafe NFT listing interface' },
+			{ src: '/images/xrpcafe/4.png', aspect: 16 / 9, alt: 'xrp.cafe trading dashboard' },
+			{ src: '/images/xrpcafe/5.png', aspect: 16 / 9, alt: 'xrp.cafe motion graphics frame' },
+			{ src: '/images/xrpcafe/6.png', aspect: 16 / 9, alt: 'xrp.cafe brand application' },
+			{ src: '/images/xrpcafe/7.png', aspect: 16 / 9, alt: 'xrp.cafe marketing campaign' },
 			{ src: '/images/xrpcafe/logo_16x9.png', aspect: 16 / 9, alt: 'xrp.cafe logo' },
-			{ src: '/images/xrpcafe/XLS20_1Y-04.png', aspect: 1, alt: 'XLS-20 anniversary artwork' },
+			{
+				src: '/images/xrpcafe/XLS20_1Y-04.png',
+				aspect: 1,
+				alt: 'xrp.cafe XLS-20 anniversary artwork'
+			},
 			{
 				src: '/images/xrpcafe/booth_team.jpg',
 				aspect: 1536 / 2048,
-				alt: 'Team at conference booth'
+				alt: 'xrp.cafe team at conference booth'
 			},
 			{
 				src: '/images/xrpcafe/booth_setup.jpg',
 				aspect: 4032 / 3024,
-				alt: 'Conference booth setup'
+				alt: 'xrp.cafe conference booth setup'
 			},
-			{ src: '/images/xrpcafe/booth_table.jpg', aspect: 3024 / 4032, alt: 'Booth display table' },
+			{
+				src: '/images/xrpcafe/booth_table.jpg',
+				aspect: 3024 / 4032,
+				alt: 'xrp.cafe booth display table'
+			},
 			{
 				src: '/images/xrpcafe/booth_tablet.jpg',
 				aspect: 3024 / 4032,
@@ -231,43 +251,47 @@ export const projects: Project[] = [
 			{
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-01.png',
 				aspect: 16 / 9,
-				alt: 'Brand guidelines cover'
+				alt: 'First Ledger brand guidelines cover'
 			},
 			{
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-02.png',
 				aspect: 16 / 9,
-				alt: 'Logo system'
+				alt: 'First Ledger logo system'
 			},
 			{
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-03.png',
 				aspect: 16 / 9,
-				alt: 'Color palette'
+				alt: 'First Ledger color palette'
 			},
-			{ src: '/images/firstledger/FL2_BRAND_GUIDELINES-04.png', aspect: 16 / 9, alt: 'Typography' },
+			{
+				src: '/images/firstledger/FL2_BRAND_GUIDELINES-04.png',
+				aspect: 16 / 9,
+				alt: 'First Ledger typography'
+			},
 			{
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-05.png',
 				aspect: 16 / 9,
-				alt: 'Icon system'
+				alt: 'First Ledger icon system'
 			},
 			{
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-06.png',
 				aspect: 16 / 9,
-				alt: 'Social media templates'
+				alt: 'First Ledger social media templates'
 			},
 			{
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-07.png',
 				aspect: 16 / 9,
-				alt: 'Motion guidelines'
+				alt: 'First Ledger motion guidelines'
 			},
 			{
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-08.png',
 				aspect: 16 / 9,
-				alt: 'Brand applications'
+				alt: 'First Ledger brand applications'
 			},
 			{
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-10.png',
 				aspect: 16 / 9,
-				alt: 'Guidelines summary'
+				alt: 'First Ledger brand guidelines summary'
 			}
 		],
 		stats: [
@@ -318,13 +342,33 @@ export const projects: Project[] = [
 			{
 				src: '/images/gridform/GRIDFORM_BOOK_1.png',
 				aspect: 4 / 3,
-				alt: 'Design philosophy book cover'
+				alt: 'Studio Gridform design philosophy book cover'
 			},
-			{ src: '/images/gridform/GRIDFORM_BOOK_2.png', aspect: 4 / 3, alt: 'Book interior spread' },
-			{ src: '/images/gridform/GRIDFORM_BOOK_3.png', aspect: 4 / 3, alt: 'Typography spread' },
-			{ src: '/images/gridform/GRIDFORM_BOOK_4.png', aspect: 4 / 3, alt: 'Grid system page' },
-			{ src: '/images/gridform/GRIDFORM_PRINT.png', aspect: 4 / 3, alt: 'Print collateral' },
-			{ src: '/images/gridform/GRIDFORM_SIGNBOARD.png', aspect: 4 / 3, alt: 'Signboard mockup' }
+			{
+				src: '/images/gridform/GRIDFORM_BOOK_2.png',
+				aspect: 4 / 3,
+				alt: 'Studio Gridform book interior spread'
+			},
+			{
+				src: '/images/gridform/GRIDFORM_BOOK_3.png',
+				aspect: 4 / 3,
+				alt: 'Studio Gridform typography spread'
+			},
+			{
+				src: '/images/gridform/GRIDFORM_BOOK_4.png',
+				aspect: 4 / 3,
+				alt: 'Studio Gridform grid system page'
+			},
+			{
+				src: '/images/gridform/GRIDFORM_PRINT.png',
+				aspect: 4 / 3,
+				alt: 'Studio Gridform print collateral'
+			},
+			{
+				src: '/images/gridform/GRIDFORM_SIGNBOARD.png',
+				aspect: 4 / 3,
+				alt: 'Studio Gridform signboard mockup'
+			}
 		],
 		stats: [
 			{ label: 'Book', value: '28 Pages' },

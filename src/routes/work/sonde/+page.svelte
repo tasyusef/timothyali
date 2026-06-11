@@ -8,7 +8,7 @@
 	import { SITE_URL } from '$lib/site';
 
 	const description =
-		'A real-time XRPL block explorer, analytics platform, and on-chain intelligence suite — polyglot data architecture, wallet-based auth, smart money scoring, fund tracing, and AI-powered investigations. Designed and built from scratch.';
+		'A real-time XRPL block explorer, analytics platform, and on-chain intelligence suite — designed and built from scratch, live at sondelab.com.';
 </script>
 
 <Seo

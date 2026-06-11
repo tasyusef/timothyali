@@ -10,7 +10,7 @@
 />
 
 <section class="page-wrapper">
-	<h1 class="sr-only">Writing</h1>
+	<h1 class="sr-only">Writing by Timothy Ali — Design Systems, Brand & AI-Assisted Work</h1>
 	<!-- Header row -->
 	<div
 		class="entrance pb-row grid grid-cols-1 border-b border-[var(--color-border)] md:grid-cols-12"

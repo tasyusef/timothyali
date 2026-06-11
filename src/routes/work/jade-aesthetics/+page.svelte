@@ -5,6 +5,7 @@
 	import LiveEmbed from '$lib/components/LiveEmbed.svelte';
 	import ResultsList from '$lib/components/ResultsList.svelte';
 	import { getNextProject } from '$lib/projects';
+	import { imageUrl } from '$lib/images';
 	import { SITE_URL } from '$lib/site';
 
 	const description =
@@ -22,7 +23,8 @@
 		description,
 		author: { '@type': 'Person', name: 'Timothy Ali', url: SITE_URL },
 		dateCreated: '2025-01-01',
-		url: `${SITE_URL}/work/jade-aesthetics`
+		url: `${SITE_URL}/work/jade-aesthetics`,
+		image: imageUrl('/images/jade-aesthetics/desktop-homepage-fold.jpg', SITE_URL)
 	}}
 />
 

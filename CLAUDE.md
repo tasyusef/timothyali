@@ -157,9 +157,15 @@ All animation values are centralized in `src/lib/motion.ts`:
 - Light mode uses the `[data-theme="light"]` CSS selector to swap color tokens.
 
 ### SEO
-- `Seo.svelte` renders title (auto-suffixed "— Timothy Ali"), description, canonical, OG/Twitter tags, optional `article` metadata, and JSON-LD.
-- Person JSON-LD lives in `+layout.svelte`; CreativeWork on case studies; Article on blog posts.
-- `src/routes/sitemap.xml/+server.ts` builds the sitemap from `projects` + `posts`; `static/robots.txt` points to it.
+- `Seo.svelte` renders title (auto-suffixed "— Timothy Ali"), description, author, canonical, OG tags (incl. `og:image:width/height/alt`), Twitter tags (incl. `twitter:site`/`creator` from `X_HANDLE`), optional `article` metadata, and JSON-LD.
+- Structured data: Person + WebSite JSON-LD in `+layout.svelte`; ProfilePage on `/about` (`PERSON_ENTITY` from `$lib/site`); CreativeWork on case studies; Article (with `image`/`description`/`dateModified`) on blog posts; BreadcrumbList rendered automatically by `CaseStudy.svelte`.
+- Every page needs exactly one `<h1>` with keyword-bearing text — use `sr-only` when the design has no visible heading (home, about, blog index).
+- `src/routes/sitemap.xml/+server.ts` builds the sitemap from `projects` + `posts`; `lastmod` only where a real content date exists (posts) — never the build date. `static/robots.txt` points to it.
+- `trailingSlash = 'never'` is pinned in `+layout.ts` — canonical URLs have no trailing slash.
+- `+error.svelte` is the branded 404/error page (served by the adapter's catchall for unknown URLs).
+- Meta descriptions ≤160 chars; page titles ≤60 chars including the "— Timothy Ali" suffix.
+- Image alt text must carry project context ("First Ledger color palette", not "Color palette").
+- Satoshi loads from Fontshare (preconnect hints in `app.html`); self-hosting the woff2s is the eventual goal — the CDN is blocked from CI environments.
 
 ## File Structure
 ```
@@ -201,8 +207,9 @@ src/
 │       ├── ResultsList.svelte  # Bulleted results section
 │       └── Gallery.svelte      # Masonry gallery + lightbox
 └── routes/
-    ├── +layout.ts              # export const prerender = true
-    ├── +layout.svelte          # app.css, view transitions, nav/footer, Person JSON-LD, skip link
+    ├── +layout.ts              # prerender = true, trailingSlash = 'never'
+    ├── +layout.svelte          # app.css, view transitions, nav/footer, Person+WebSite JSON-LD, skip link
+    ├── +error.svelte           # Branded 404/error page
     ├── +page.svelte            # Homepage — hero grid, ProjectIndex, quick links
     ├── about/+page.svelte
     ├── blog/
@@ -215,6 +222,8 @@ src/
     └── sitemap.xml/+server.ts
 static/
 ├── robots.txt
+├── icon.svg                    # Favicon
+├── apple-touch-icon.png        # 180×180 PNG (iOS ignores SVG icons)
 └── videos/                     # mp4 assets (served as-is)
 ```
 

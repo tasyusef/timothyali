@@ -13,7 +13,7 @@
 </script>
 
 <Seo
-	title="FirstStrike Research — Brand Identity & Product Design"
+	title="FirstStrike Research — Brand & Product Design"
 	{description}
 	ogKey="firststrike"
 	jsonLd={{
@@ -144,17 +144,17 @@
 			{
 				type: 'image',
 				src: '/images/firststrike/firststrike_pres-05.png',
-				alt: 'Primary logo lockup — horizontal wordmark'
+				alt: 'FirstStrike Research primary logo lockup — horizontal wordmark'
 			},
 			{
 				type: 'image',
 				src: '/images/firststrike/firststrike_pres-06.png',
-				alt: 'Secondary logo lockup — stacked wordmark'
+				alt: 'FirstStrike Research secondary logo lockup — stacked wordmark'
 			},
 			{
 				type: 'image',
 				src: '/images/firststrike/firststrike_pres-07.png',
-				alt: 'Logo construction on blue grid'
+				alt: 'FirstStrike Research logo construction on blue grid'
 			},
 			{
 				type: 'image',
@@ -164,12 +164,12 @@
 			{
 				type: 'image',
 				src: '/images/firststrike/firststrike_pres-09.png',
-				alt: 'Business card mockup on concrete'
+				alt: 'FirstStrike Research business card mockup on concrete'
 			},
 			{
 				type: 'image',
 				src: '/images/firststrike/firststrike_pres-10.png',
-				alt: 'Typography system — Helvetica Heavy and Medium'
+				alt: 'FirstStrike Research typography system — Helvetica Heavy and Medium'
 			}
 		]}
 	/>

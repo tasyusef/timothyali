@@ -19,10 +19,13 @@
 		'@context': 'https://schema.org',
 		'@type': 'Article',
 		headline: post.title,
+		description: post.excerpt,
+		image: `${SITE_URL}/og/${post.slug}.png`,
 		author: { '@type': 'Person', name: 'Timothy Ali', url: SITE_URL },
 		datePublished: post.date,
+		dateModified: post.date,
 		url: `${SITE_URL}/blog/${post.slug}`,
-		publisher: { '@type': 'Person', name: 'Timothy Ali' }
+		publisher: { '@type': 'Person', name: 'Timothy Ali', url: SITE_URL }
 	}}
 />
 

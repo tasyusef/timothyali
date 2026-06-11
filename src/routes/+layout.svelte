@@ -3,7 +3,7 @@
 	import { onNavigate } from '$app/navigation';
 	import Navigation from '$lib/components/Navigation.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	import { PERSON_JSON_LD } from '$lib/site';
+	import { PERSON_JSON_LD, WEBSITE_JSON_LD } from '$lib/site';
 
 	let { children } = $props();
 
@@ -19,12 +19,12 @@
 		});
 	});
 
-	const personLd = `<script type="application/ld+json">${JSON.stringify(PERSON_JSON_LD)}<${''}/script>`;
+	const siteLd = `<script type="application/ld+json">${JSON.stringify([PERSON_JSON_LD, WEBSITE_JSON_LD])}<${''}/script>`;
 </script>
 
 <svelte:head>
 	<!-- eslint-disable-next-line svelte/no-at-html-tags — JSON.stringify of our own data -->
-	{@html personLd}
+	{@html siteLd}
 </svelte:head>
 
 <a

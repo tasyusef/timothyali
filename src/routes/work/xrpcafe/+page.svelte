@@ -118,14 +118,42 @@
 				src: '/videos/CAFE_EXPLORE_CREATE_TRADE.mp4',
 				alt: 'Explore Create Trade motion graphic'
 			},
-			{ type: 'image', src: '/images/xrpcafe/1.png', alt: 'Super Saiyan mug character' },
-			{ type: 'image', src: '/images/xrpcafe/2.png', alt: 'Marketplace UI with characters' },
-			{ type: 'image', src: '/images/xrpcafe/3.png', alt: 'BBQ beach mug character' },
-			{ type: 'image', src: '/images/xrpcafe/7.png', alt: 'Halloween pumpkin mug' },
-			{ type: 'image', src: '/images/xrpcafe/6.png', alt: 'JUST MINT NFTs graphic' },
-			{ type: 'image', src: '/images/xrpcafe/4.png', alt: 'Jeopardy event' },
-			{ type: 'image', src: '/images/xrpcafe/5.png', alt: 'VeSea charity event' },
-			{ type: 'image', src: '/images/xrpcafe/XLS20_1Y-04.png', alt: 'XLS-20 one year anniversary' },
+			{
+				type: 'image',
+				src: '/images/xrpcafe/1.png',
+				alt: 'xrp.cafe Super Saiyan mug mascot character'
+			},
+			{
+				type: 'image',
+				src: '/images/xrpcafe/2.png',
+				alt: 'xrp.cafe marketplace UI with mascot characters'
+			},
+			{
+				type: 'image',
+				src: '/images/xrpcafe/3.png',
+				alt: 'xrp.cafe beach-BBQ mug mascot character'
+			},
+			{ type: 'image', src: '/images/xrpcafe/7.png', alt: 'xrp.cafe Halloween pumpkin mug mascot' },
+			{
+				type: 'image',
+				src: '/images/xrpcafe/6.png',
+				alt: 'xrp.cafe JUST MINT NFTs campaign graphic'
+			},
+			{
+				type: 'image',
+				src: '/images/xrpcafe/4.png',
+				alt: 'xrp.cafe community Jeopardy event graphic'
+			},
+			{
+				type: 'image',
+				src: '/images/xrpcafe/5.png',
+				alt: 'xrp.cafe and VeSea charity event graphic'
+			},
+			{
+				type: 'image',
+				src: '/images/xrpcafe/XLS20_1Y-04.png',
+				alt: 'xrp.cafe XLS-20 one year anniversary artwork'
+			},
 			{
 				type: 'image',
 				src: '/images/xrpcafe/booth_team.jpg',

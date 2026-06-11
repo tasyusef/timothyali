@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import { page } from '$app/state';
 	import { reveal } from '$lib/actions/reveal';
+	import { SITE_URL } from '$lib/site';
 	import Img from './Img.svelte';
 
 	interface Props {
@@ -42,7 +44,29 @@
 			...(tools ? [{ label: 'Tools', value: tools }] : [])
 		].filter(Boolean)
 	);
+
+	// Breadcrumb rich result: timothyali.com › Work › <Project>
+	const breadcrumbLd = $derived(
+		`<script type="application/ld+json">${JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Work', item: SITE_URL },
+				{
+					'@type': 'ListItem',
+					position: 2,
+					name: title,
+					item: new URL(page.url.pathname, SITE_URL).href
+				}
+			]
+		})}<${''}/script>`
+	);
 </script>
+
+<svelte:head>
+	<!-- eslint-disable-next-line svelte/no-at-html-tags — JSON.stringify of our own data -->
+	{@html breadcrumbLd}
+</svelte:head>
 
 <article>
 	<!-- Header -->

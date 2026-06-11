@@ -135,37 +135,37 @@
 			{
 				type: 'image',
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-04.png',
-				alt: 'Logo construction — Pencil + Paper = Ledger diagram'
+				alt: 'First Ledger logo construction — Pencil + Paper = Ledger diagram'
 			},
 			{
 				type: 'image',
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-03.png',
-				alt: 'Primary and secondary logo lockups'
+				alt: 'First Ledger primary and secondary logo lockups'
 			},
 			{
 				type: 'image',
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-05.png',
-				alt: 'Primary logo spacing'
+				alt: 'First Ledger primary logo clear-space rules'
 			},
 			{
 				type: 'image',
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-02.png',
-				alt: 'Brand pillars — Fun, Reliable, Fast'
+				alt: 'First Ledger brand pillars — Fun, Reliable, Fast'
 			},
 			{
 				type: 'image',
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-10.png',
-				alt: 'Typography system spread'
+				alt: 'First Ledger typography system spread'
 			},
 			{
 				type: 'image',
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-07.png',
-				alt: 'Co-branding guidelines primary'
+				alt: 'First Ledger and xrp.cafe co-branding guidelines — primary lockup'
 			},
 			{
 				type: 'image',
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-08.png',
-				alt: 'Co-branding guidelines secondary'
+				alt: 'First Ledger and xrp.cafe co-branding guidelines — secondary lockup'
 			}
 		]}
 	/>

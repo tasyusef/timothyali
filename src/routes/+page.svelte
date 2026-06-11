@@ -28,6 +28,7 @@
 
 <!-- Hero Section -->
 <section aria-label="Introduction" class="px-swiss pt-[4vh] pb-[8vh] md:pt-[6vh] md:pb-[14vh]">
+	<h1 class="sr-only">Timothy Ali — Product, Brand & Motion Designer</h1>
 	<div class="entrance border-t border-[var(--color-border)] pt-6">
 		<div class="grid grid-cols-2 gap-y-6 md:grid-cols-12">
 			<div class="hidden md:col-span-3 md:block">

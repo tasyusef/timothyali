@@ -98,18 +98,26 @@
 				src: '/images/gridform/Poster_Frame_Mockup_2.png',
 				alt: 'Less Noise poster series displayed on outdoor wall'
 			},
-			{ type: 'image', src: '/images/gridform/GRIDFORM_BOOK_3.png', alt: 'Book stack' },
+			{
+				type: 'image',
+				src: '/images/gridform/GRIDFORM_BOOK_3.png',
+				alt: 'Studio Gridform Less Noise book stack'
+			},
 			{
 				type: 'image',
 				src: '/images/gridform/GRIDFORM_BOOK_1.png',
-				alt: 'Design is Problem Solving spread'
+				alt: 'Studio Gridform book — Design is Problem Solving spread'
 			},
 			{
 				type: 'image',
 				src: '/images/gridform/GRIDFORM_BOOK_4.png',
-				alt: 'Timeless Over Trendy — First Ledger spread'
+				alt: 'Studio Gridform book — Timeless Over Trendy spread featuring First Ledger'
 			},
-			{ type: 'image', src: '/images/gridform/GRIDFORM_SIGNBOARD.png', alt: 'Signboard mockup' }
+			{
+				type: 'image',
+				src: '/images/gridform/GRIDFORM_SIGNBOARD.png',
+				alt: 'Studio Gridform signboard mockup'
+			}
 		]}
 	/>
 </CaseStudy>

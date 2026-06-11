@@ -2,7 +2,7 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import Img from '$lib/components/Img.svelte';
 	import { reveal } from '$lib/actions/reveal';
-	import { SOCIAL_LINKS } from '$lib/site';
+	import { SOCIAL_LINKS, PERSON_ENTITY, SITE_URL } from '$lib/site';
 
 	const capabilities = [
 		'Product Design',
@@ -69,10 +69,16 @@
 	title="About"
 	description="Timothy Ali is a designer working across product, brand, and motion — designing and building products, brand systems, and websites for startups and tech companies."
 	ogKey="about"
+	jsonLd={{
+		'@context': 'https://schema.org',
+		'@type': 'ProfilePage',
+		url: `${SITE_URL}/about`,
+		mainEntity: PERSON_ENTITY
+	}}
 />
 
 <div class="page-wrapper">
-	<h1 class="sr-only">About</h1>
+	<h1 class="sr-only">About Timothy Ali — Product, Brand & Motion Designer in Denver</h1>
 	<!-- Header row -->
 	<div
 		class="entrance pb-row grid grid-cols-1 border-b border-[var(--color-border)] md:grid-cols-12"

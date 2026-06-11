@@ -23,7 +23,11 @@
 		style:--entrance-delay="100ms"
 	>
 		<div class="md:col-span-5 md:col-start-1">
-			<h1 class="heading-swiss text-headline">Get in touch</h1>
+			<h1 class="heading-swiss text-headline">
+				Get in touch<span class="sr-only">
+					with Timothy Ali — designer for product, brand & motion</span
+				>
+			</h1>
 		</div>
 		<div class="md:col-span-5 md:col-start-7">
 			<p class="leading-body">
