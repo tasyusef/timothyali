@@ -122,7 +122,8 @@
 			>
 				<p class="label-swiss">Contact</p>
 				<p class="leading-body">
-					I&rsquo;m open to full-time opportunities and freelance projects. Let&rsquo;s talk.
+					I&rsquo;m open to full-time product design roles and select freelance projects.
+					Let&rsquo;s talk.
 				</p>
 				<span class="label-swiss hover-swiss mt-auto overflow-hidden">
 					<span class="arrow-reveal arrow-reveal-lg">Reach out &rarr;</span>

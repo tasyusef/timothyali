@@ -31,8 +31,8 @@
 <CaseStudy
 	title="xrp.cafe"
 	category="Brand Identity & Motion Design"
-	year="2021–present"
-	role="Cofounder / Designer"
+	year="2021–2024"
+	role="Cofounder / Founding Designer"
 	tools="Illustrator, After Effects"
 	heroImage="/images/xrpcafe/logo_16x9.png"
 	heroVideo="/videos/CAFE_EXPLORE_CREATE_TRADE.mp4"
@@ -41,10 +41,10 @@
 >
 	{#snippet overview()}
 		<p class="mb-4">
-			xrp.cafe is the #1 NFT marketplace on the XRP Ledger. I cofounded it and led the brand&rsquo;s
-			implementation across marketing, events, and content — extending the visual identity into
-			social campaigns, motion graphics, event booths, and community touchpoints over four years and
-			counting.
+			xrp.cafe is the #1 NFT marketplace on the XRP Ledger. As cofounder and founding designer, I
+			led the design of a 0&rarr;1 marketplace — the brand&rsquo;s rollout across marketing, events,
+			and content, extending the visual identity into 10+ social campaigns, motion graphics, event
+			booths, and community touchpoints.
 		</p>
 		<p>
 			The positioning was a deliberate contrarian bet. Crypto branding in 2021 was dark, aggressive,

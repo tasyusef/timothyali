@@ -12,13 +12,13 @@
 </script>
 
 <Seo
-	title="Do Androids Dream — Motion Design"
+	title="Do Androids Dream? — Motion Design"
 	{description}
 	ogKey="do-androids-dream"
 	jsonLd={{
 		'@context': 'https://schema.org',
 		'@type': 'CreativeWork',
-		name: 'Do Androids Dream — Motion Design',
+		name: 'Do Androids Dream? — Motion Design',
 		description,
 		author: { '@type': 'Person', name: 'Timothy Ali', url: SITE_URL },
 		dateCreated: '2023-01-01',

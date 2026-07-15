@@ -2,13 +2,13 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import CaseStudy from '$lib/components/CaseStudy.svelte';
 	import TextSection from '$lib/components/TextSection.svelte';
-	import LiveEmbed from '$lib/components/LiveEmbed.svelte';
+	import Gallery from '$lib/components/Gallery.svelte';
 	import { getNextProject } from '$lib/projects';
 	import { imageUrl } from '$lib/images';
 	import { SITE_URL } from '$lib/site';
 
 	const description =
-		'A real-time XRPL block explorer, analytics platform, and on-chain intelligence suite — designed and built from scratch, live at sondelab.com.';
+		'A real-time XRPL block explorer, analytics platform, and on-chain intelligence suite — designed, built, and shipped to production from scratch.';
 </script>
 
 <Seo
@@ -30,22 +30,23 @@
 <CaseStudy
 	title="Sonde"
 	category="Product Design & Development"
-	year="2026"
+	year="2025–2026"
 	role="Designer & Developer (sole creator)"
-	timeline="Ongoing"
-	tools="Figma, Next.js, TypeScript, Tailwind CSS, Recharts, PostgreSQL, ClickHouse, Neo4j, WebSockets, SSE, Claude Haiku 4.5"
+	tools="Figma, Next.js, TypeScript, Tailwind CSS, Recharts, PostgreSQL, ClickHouse, Neo4j, WebSockets, SSE"
+	heroImage="/images/sonde/hero.png"
+	heroAlt="Sonde — Decode the XRPL. Real-time intelligence, analytics, and portfolio tracking for the XRP Ledger"
 	nextProject={getNextProject('sonde')}
 >
 	{#snippet overview()}
 		<p class="mb-4">
 			A real-time block explorer, analytics platform, and on-chain intelligence suite for the XRP
-			Ledger — self-initiated, designed and built from scratch. Running live at sondelab.com.
+			Ledger — self-initiated, designed and built from scratch, and shipped to production.
 		</p>
 		<ul class="space-y-2">
 			<li>— Block explorer, network analytics, and a trading portfolio dashboard</li>
 			<li>— Intelligence layer: smart money scoring, fund tracing, AI investigations</li>
 			<li>— Polyglot data stack across three live XRPL WebSocket connections</li>
-			<li>— Wallet-based auth and a live subscription product</li>
+			<li>— Wallet-based auth and a commercial subscription product</li>
 		</ul>
 	{/snippet}
 
@@ -113,9 +114,9 @@
 			is what turns Sonde from an explorer into an analytical product. Smart money scoring ranks
 			wallets by profitability and consistency; Neo4j pathfinding traces how value moved across up
 			to six hops; account labels classify addresses with cited evidence; a risk module flags wash
-			trading. A Claude Haiku 4.5 agent with scoped tool access runs multi-turn investigations
-			across all of it — pulling trades, tracing flows, and generating structured risk reports in a
-			single thread.
+			trading. A Claude Sonnet agent with scoped tool access runs multi-turn investigations across
+			all of it — pulling trades, tracing flows, and generating structured risk reports in a single
+			thread.
 		</p>
 	</TextSection>
 
@@ -139,28 +140,66 @@
 			cache and SWR on the client so pages never flash empty. Auth has no passwords and no emails:
 			users sign in by proving they own a wallet — the client embeds a single-use nonce in a dummy
 			transaction, and the server verifies the signature and issues a JWT. The commercial model is
-			two tiers, Free and Pro ($9/mo or $79/yr), with Pro unlocking the portfolio suite and the full
-			intelligence layer; managed AI runs on per-user limits, and power users can bring their own
-			API key to bypass them.
+			two tiers, Free and Pro, with Pro unlocking the portfolio suite and the full intelligence
+			layer; managed AI runs on per-user limits, and power users can bring their own API key to
+			bypass them.
 		</p>
 	</TextSection>
 
-	<LiveEmbed
-		label="Live Explorer"
-		description="Explore the live Sonde block explorer and intelligence suite. Browse accounts, trace fund flows, run investigations, and see real-time on-chain data directly."
-		href="https://sondelab.com/"
-		src="https://sondelab.com/"
-		title="Sonde XRPL Block Explorer"
+	<Gallery
+		items={[
+			{
+				type: 'image',
+				src: '/images/sonde/network.png',
+				alt: 'Sonde network insights — live XRP price, market cap, TradingView chart, and latest ledgers'
+			},
+			{
+				type: 'image',
+				src: '/images/sonde/markets.png',
+				alt: 'Sonde markets — XRPL token rankings by price, market cap, volume, and holders'
+			},
+			{
+				type: 'image',
+				src: '/images/sonde/account.png',
+				alt: 'Sonde account page — balance, smart money score, risk profile, and counterparty graph'
+			},
+			{
+				type: 'image',
+				src: '/images/sonde/transaction.png',
+				alt: 'Sonde transaction detail — identifiers, outcome, balance changes, and affected ledger nodes'
+			},
+			{
+				type: 'image',
+				src: '/images/sonde/portfolio.png',
+				alt: 'Sonde portfolio — total value, performance chart, allocation, and watchlist'
+			},
+			{
+				type: 'image',
+				src: '/images/sonde/smart-money.png',
+				alt: 'Sonde Smart Money leaderboard — scored wallets ranked by PnL, win rate, and Sharpe'
+			},
+			{
+				type: 'image',
+				src: '/images/sonde/smart-money-detail.png',
+				alt: 'Sonde Smart Money detail — score factors, score history, and tokens traded'
+			},
+			{
+				type: 'image',
+				src: '/images/sonde/ask-the-ledger.png',
+				alt: 'Ask the Ledger — natural-language queries over the XRP Ledger'
+			}
+		]}
 	/>
 
 	<TextSection title="Outcome">
 		<p>
-			Sonde runs in production at sondelab.com as a three-part product — a public block explorer, a
-			network analytics suite, and an intelligence layer — on a polyglot data architecture with
-			wallet-based auth and a subscription model that&rsquo;s live and taking payments in both fiat
-			and crypto. What began as a design exercise in information density became a complete,
-			commercially operating product: a real-time window into the XRP Ledger that treats on-chain
-			data with the same clarity and structure as any well-designed financial tool.
+			Sonde shipped to production as a three-part product — a public block explorer, a network
+			analytics suite, and an intelligence layer — on a polyglot data architecture with wallet-based
+			auth and a subscription model that took payments in both fiat and crypto. What began as a
+			design exercise in information density became a complete, commercially operating product: a
+			real-time window into the XRP Ledger that treated on-chain data with the same clarity and
+			structure as any well-designed financial tool. I ran it end to end — design, engineering, and
+			operations — before sunsetting the hosted instance.
 		</p>
 	</TextSection>
 </CaseStudy>

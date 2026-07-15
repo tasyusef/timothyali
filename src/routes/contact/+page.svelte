@@ -31,8 +31,8 @@
 		</div>
 		<div class="md:col-span-5 md:col-start-7">
 			<p class="leading-body">
-				I&rsquo;m open to full-time product and brand design roles, as well as freelance projects.
-				Let&rsquo;s talk.
+				I&rsquo;m open to full-time product design roles and select freelance projects. Let&rsquo;s
+				talk.
 			</p>
 		</div>
 	</div>
@@ -58,7 +58,9 @@
 			class="py-row grid grid-cols-1 gap-2 border-t border-b border-[var(--color-border)] md:grid-cols-12 md:gap-0"
 		>
 			<p class="label-swiss md:col-span-3">Availability</p>
-			<p class="md:col-span-5 md:col-start-7">Open to new projects</p>
+			<p class="md:col-span-5 md:col-start-7">
+				Open to full-time roles and select freelance projects
+			</p>
 		</div>
 	</div>
 </div>

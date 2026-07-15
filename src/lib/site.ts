@@ -2,9 +2,9 @@ import { imageUrl } from './images';
 
 export const SITE_URL = 'https://www.timothyali.com';
 export const SITE_NAME = 'Timothy Ali';
-export const SITE_TITLE = 'Timothy Ali — Product Design, Brand Identity & Motion';
+export const SITE_TITLE = 'Timothy Ali — UX & Product Designer in Denver';
 export const SITE_DESCRIPTION =
-	'Portfolio of Timothy Ali — designer specializing in product/web design, brand identity, and motion design for startups and tech companies.';
+	'Portfolio of Timothy Ali — UX and product designer in Denver, CO, specializing in product design, brand identity, and motion for startups and tech companies.';
 export const X_HANDLE = '@twocakeS__';
 
 export interface SocialLink {
@@ -34,8 +34,19 @@ export const PERSON_ENTITY = {
 	name: 'Timothy Ali',
 	url: SITE_URL,
 	image: imageUrl('/images/about/headshot.jpg', SITE_URL),
-	jobTitle: 'Product Designer',
-	knowsAbout: ['Product Design', 'Brand Identity', 'Motion Design', 'Web Design', 'UI/UX Design'],
+	jobTitle: 'UX & Product Designer',
+	knowsAbout: [
+		'Product Design',
+		'Brand Identity',
+		'Motion Design',
+		'Web Design',
+		'UI/UX Design',
+		'Design Systems'
+	],
+	alumniOf: {
+		'@type': 'CollegeOrUniversity',
+		name: 'Rocky Mountain College of Art + Design'
+	},
 	address: {
 		'@type': 'PostalAddress',
 		addressLocality: 'Denver',

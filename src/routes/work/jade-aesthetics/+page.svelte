@@ -112,11 +112,11 @@
 
 	<TextSection title="Process">
 		<p>
-			V2 was built almost entirely with Claude Code. I directed the design decisions, content
-			strategy, and architecture; Claude handled implementation at speed — scaffolding the
-			application, generating the SEO infrastructure, writing schemas, and templating content across
-			30+ pages. Work that reads like weeks of templating compressed into days, without ceding a
-			single design decision.
+			I architected and built V2 using Claude Code as a force multiplier. I designed the component
+			system, defined the SEO and content architecture across 30+ pages, and wrote the structured
+			data strategy — directing the AI to execute the repetitive implementation at speed while I
+			owned every design decision, review, and architectural call. Work that reads like weeks of
+			templating compressed into days, without ceding control of the craft.
 		</p>
 	</TextSection>
 
@@ -136,7 +136,7 @@
 			'Structured data (JSON-LD) on every route — MedicalBusiness, MedicalProcedure, FAQPage, and BreadcrumbList schemas',
 			'Server-rendered Next.js application with zero client-side content dependencies',
 			'URL redirect strategy preserving all search equity through the V1-to-V2 migration',
-			'V2 built and launched in approximately 2 months using Claude Code'
+			'V2 architected, built, and launched in approximately 2 months, directing AI-assisted development with Claude Code'
 		]}
 	/>
 

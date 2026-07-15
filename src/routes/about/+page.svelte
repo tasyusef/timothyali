@@ -14,7 +14,15 @@
 		'Interaction Design'
 	];
 
-	const tools = ['Figma', 'Adobe Creative Suite', 'Framer', 'Claude Code'];
+	const tools = [
+		'Figma',
+		'Adobe Creative Suite',
+		'Framer',
+		'Claude Code',
+		'Codex',
+		'React',
+		'TypeScript'
+	];
 
 	const experience = [
 		{
@@ -25,7 +33,7 @@
 				'Created brand identities, miscellaneous graphics, and designed apps and websites for startups and local businesses including med-spas, gyms, and online communities.'
 		},
 		{
-			period: '2021 — Now',
+			period: '2021 — 2024',
 			org: 'xrp.cafe',
 			role: 'Founding Graphic Designer',
 			summary:
@@ -40,7 +48,7 @@
 		},
 		{
 			period: '2025 — Now',
-			org: 'firststrike research',
+			org: 'FirstStrike Research',
 			role: 'Brand Designer',
 			summary:
 				'Developed a high-contrast brand identity and product design for FirstStrike Research, a veteran-owned financial platform. Designed a responsive web application featuring real-time market dashboards, AI-driven analysis, portfolio tracking with P&L visualization, and prediction market trading — empowering everyday investors with institutional-grade research tools.'
@@ -53,11 +61,18 @@
 				'Designed and developed two complete websites for a premium medical spa — an initial Framer launch followed by a 30+ page SEO-architected Next.js application with perfect Lighthouse accessibility scores and server-side rendering.'
 		},
 		{
-			period: '2026 — Now',
+			period: '2025 — 2026',
 			org: 'Sonde',
-			role: 'Designer & Developer',
+			role: 'Personal Project — Designer & Developer',
 			summary:
 				'Designed and built a real-time XRPL block explorer with live WebSocket data streaming, account and transaction exploration, and a typographically driven dark-mode interface — from brand identity through full-stack development.'
+		},
+		{
+			period: '2026 — Now',
+			org: 'DOMOTO',
+			role: 'Digital Designer (Contract)',
+			summary:
+				'Designing and building a multi-brand design-system platform, coded in JavaScript, that gives client companies one navigable home for their living design systems, components, and tokens — architected AI-native so agents can programmatically read design tokens, components, and brand assets. Serving publicly traded and Fortune 500 clients.'
 		}
 	];
 
@@ -78,7 +93,7 @@
 />
 
 <div class="page-wrapper">
-	<h1 class="sr-only">About Timothy Ali — Product, Brand & Motion Designer in Denver</h1>
+	<h1 class="sr-only">About Timothy Ali — UX & Product Designer in Denver</h1>
 	<!-- Header row -->
 	<div
 		class="entrance pb-row grid grid-cols-1 border-b border-[var(--color-border)] md:grid-cols-12"
@@ -110,10 +125,12 @@
 					to growth.
 				</p>
 				<p>
-					Most recently I designed and built Sonde, a real-time XRPL block explorer — handling
-					everything from brand identity through full-stack development. Before that I worked with
-					FirstStrike Research, crypto projects like xrp.cafe and First Ledger, and freelance work
-					spanning luxury med spas, gyms, online communities, and esports teams.
+					Currently I&rsquo;m designing and building a multi-brand, AI-native design-system platform
+					at DOMOTO, serving publicly traded and Fortune 500 clients. Before that I designed and
+					built Sonde, a personal project — a real-time XRPL block explorer I took from brand
+					identity through full-stack development — and worked with FirstStrike Research, crypto
+					projects like xrp.cafe and First Ledger, and freelance clients spanning luxury med spas,
+					gyms, online communities, and esports teams.
 				</p>
 				<p>
 					I bring a modernist, &ldquo;less noise&rdquo; approach to everything I make — rooted in
@@ -125,7 +142,10 @@
 					Whether it&rsquo;s accelerating a prototype, writing production code, or pressure-testing
 					a design decision, I&rsquo;m always exploring new ways to integrate AI into my process.
 				</p>
-				<p>Based in Denver, Colorado. Open to full-time opportunities and freelance projects.</p>
+				<p>
+					Based in Denver, Colorado. Open to full-time product design roles and select freelance
+					projects.
+				</p>
 			</div>
 			<div class="mt-8 flex flex-wrap gap-6">
 				{#each SOCIAL_LINKS as link (link.label)}
@@ -166,6 +186,17 @@
 		</div>
 	</div>
 
+	<!-- Education -->
+	<div use:reveal>
+		<div class="py-row grid grid-cols-1 border-t border-[var(--color-border)] md:grid-cols-12">
+			<p class="label-swiss mb-4 md:col-span-3 md:mb-0">Education</p>
+			<div class="md:col-span-5 md:col-start-7">
+				<p class="leading-body">BFA, Graphic Design</p>
+				<p class="leading-body">Rocky Mountain College of Art + Design, 2022—2025</p>
+			</div>
+		</div>
+	</div>
+
 	<!-- Location -->
 	<div use:reveal>
 		<div class="py-row grid grid-cols-1 border-t border-[var(--color-border)] md:grid-cols-12">
@@ -183,7 +214,7 @@
 		>
 			<p class="label-swiss mb-4 md:col-span-3 md:mb-0">Status</p>
 			<div class="md:col-span-5 md:col-start-7">
-				<p class="leading-body">Available for new projects</p>
+				<p class="leading-body">Open to full-time roles and select freelance projects</p>
 			</div>
 		</div>
 	</div>
@@ -206,6 +237,14 @@
 						<dd class="leading-body text-caption-size mt-auto">{job.summary}</dd>
 					</div>
 				{/each}
+				{#if experience.length % 3 !== 0}
+					<div
+						class="hidden bg-[var(--color-background)] md:block {experience.length % 3 === 1
+							? 'md:col-span-2'
+							: ''}"
+						aria-hidden="true"
+					></div>
+				{/if}
 			</dl>
 		</div>
 	</div>

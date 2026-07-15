@@ -31,7 +31,7 @@
 <CaseStudy
 	title="First Ledger"
 	category="Brand Identity System"
-	year="2024"
+	year="2024–2025"
 	role="Brand Designer"
 	timeline="~1 year"
 	tools="Illustrator"

@@ -51,14 +51,44 @@ export const projects: Project[] = [
 		slug: 'sonde',
 		title: 'Sonde',
 		category: 'Product Design & Development',
-		year: '2026',
+		year: '2025–2026',
 		heroImage: '/images/sonde/hero.png',
 		heroAspect: 16 / 9,
 		images: [
 			{
 				src: '/images/sonde/hero.png',
 				aspect: 16 / 9,
-				alt: 'Sonde — real-time XRPL analytics platform'
+				alt: 'Sonde — Decode the XRPL. Real-time intelligence, analytics, and portfolio tracking'
+			},
+			{
+				src: '/images/sonde/network.png',
+				aspect: 16 / 9,
+				alt: 'Sonde network insights — live XRP price, market cap, and latest ledgers'
+			},
+			{
+				src: '/images/sonde/markets.png',
+				aspect: 16 / 9,
+				alt: 'Sonde markets — XRPL token rankings by price, market cap, and volume'
+			},
+			{
+				src: '/images/sonde/account.png',
+				aspect: 16 / 9,
+				alt: 'Sonde account page — balance, smart money score, and counterparty graph'
+			},
+			{
+				src: '/images/sonde/portfolio.png',
+				aspect: 16 / 9,
+				alt: 'Sonde portfolio — total value, performance chart, and allocation'
+			},
+			{
+				src: '/images/sonde/smart-money.png',
+				aspect: 16 / 9,
+				alt: 'Sonde Smart Money leaderboard — scored wallets ranked by PnL and win rate'
+			},
+			{
+				src: '/images/sonde/ask-the-ledger.png',
+				aspect: 16 / 9,
+				alt: 'Ask the Ledger — natural-language queries over the XRP Ledger'
 			}
 		],
 		stats: [
@@ -175,7 +205,7 @@ export const projects: Project[] = [
 		slug: 'xrpcafe',
 		title: 'xrp.cafe',
 		category: 'Brand Identity & Motion Design',
-		year: '2021',
+		year: '2021–2024',
 		heroImage: '/images/xrpcafe/logo_16x9.png',
 		heroVideo: '/videos/CAFE_EXPLORE_CREATE_TRADE.mp4',
 		heroAspect: 1080 / 1920,
@@ -239,7 +269,7 @@ export const projects: Project[] = [
 		slug: 'firstledger',
 		title: 'First Ledger',
 		category: 'Brand Identity System',
-		year: '2024',
+		year: '2024–2025',
 		heroImage: '/images/firstledger/FL2_FOLIO_HERO.png',
 		heroAspect: 4 / 3,
 		images: [
@@ -304,7 +334,7 @@ export const projects: Project[] = [
 	},
 	{
 		slug: 'do-androids-dream',
-		title: 'Do Androids Dream',
+		title: 'Do Androids Dream?',
 		category: 'Motion Design',
 		year: '2023',
 		heroImage: '/images/do-androids-dream/hero.jpg',

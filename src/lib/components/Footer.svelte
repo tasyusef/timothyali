@@ -5,6 +5,22 @@
 </script>
 
 <footer class="px-swiss pb-8">
+	<div
+		class="py-row grid grid-cols-1 gap-4 border-t border-[var(--color-border)] md:grid-cols-12 md:gap-0"
+	>
+		<p class="label-swiss md:col-span-3">Availability</p>
+		<div class="md:col-span-5 md:col-start-7">
+			<p class="leading-body mb-4">
+				Open to full-time product design roles and select freelance projects.
+			</p>
+			<a
+				href="/contact"
+				class="label-swiss duration-fast ease-swiss underline underline-offset-4 transition-colors hover:text-[var(--color-foreground)]"
+			>
+				Get in touch
+			</a>
+		</div>
+	</div>
 	<div class="border-t border-[var(--color-border)] py-8">
 		<!-- Desktop -->
 		<div class="hidden items-center md:grid md:grid-cols-12">

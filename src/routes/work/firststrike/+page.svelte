@@ -19,7 +19,7 @@
 	jsonLd={{
 		'@context': 'https://schema.org',
 		'@type': 'CreativeWork',
-		name: 'FirstStrike Research — Brand Identity & Product Design',
+		name: 'FirstStrike Research — Product Design & Brand Identity',
 		description,
 		author: { '@type': 'Person', name: 'Timothy Ali', url: SITE_URL },
 		dateCreated: '2025-01-01',
@@ -30,7 +30,7 @@
 
 <CaseStudy
 	title="FirstStrike Research"
-	category="Brand Identity & Product Design"
+	category="Product Design & Brand Identity"
 	year="2025"
 	role="Lead Designer (sole designer)"
 	timeline="~3 months"
@@ -112,7 +112,7 @@
 	</TextSection>
 
 	<LiveEmbed
-		label="Live Platform"
+		label="Interactive Prototype"
 		description="Interactive prototype of the FirstStrike research platform. Explore the dashboards, market data, and trading interfaces."
 		href="https://effervescent-semifreddo-de1ae5.netlify.app/"
 		src="https://effervescent-semifreddo-de1ae5.netlify.app/"
@@ -129,7 +129,7 @@
 			{
 				type: 'image',
 				src: '/images/firststrike/firststrike_pres-02.png',
-				alt: 'Mission statement — veteran-owned financial research blog'
+				alt: 'Mission statement — veteran-owned financial research company'
 			},
 			{
 				type: 'image',
