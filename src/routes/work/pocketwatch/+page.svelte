@@ -2,6 +2,7 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import CaseStudy from '$lib/components/CaseStudy.svelte';
 	import TextSection from '$lib/components/TextSection.svelte';
+	import Gallery from '$lib/components/Gallery.svelte';
 	import { getNextProject } from '$lib/projects';
 	import { imageUrl } from '$lib/images';
 	import { SITE_URL } from '$lib/site';
@@ -34,7 +35,7 @@
 	timeline="Ongoing"
 	tools="Figma, SvelteKit, Svelte 5, TypeScript, Tailwind CSS, Bits UI"
 	heroImage="/images/pocketwatch/hero.png"
-	heroAlt="Pocketwatch — budget, net worth, and investments in one place"
+	heroAlt="Pocketwatch dashboard on desktop and mobile — net worth, spending, cash flow, and investments"
 	nextProject={getNextProject('pocketwatch')}
 >
 	{#snippet overview()}
@@ -89,6 +90,17 @@
 		</p>
 	</TextSection>
 
+	<TextSection title="Loud Outside, Quiet Inside">
+		<p>
+			The marketing layer inverts the app&rsquo;s restraint on purpose. The landing page, ads, and
+			social campaign run loud — electric lime and burnt orange, chunky condensed display type
+			shouting &ldquo;Keep an eye on every dollar&rdquo; — because acquisition needs stopping power
+			the product itself should never have. The same mascot and wordmark carry both registers, so
+			the brand stays recognizable whether it&rsquo;s a billboard-loud ad or a quiet nav bar. Once
+			you&rsquo;re inside, the color disappears and your money is the loudest thing on screen.
+		</p>
+	</TextSection>
+
 	<TextSection title="One Ledger for Everything">
 		<p>
 			Most people run their financial life across three or four disconnected tools — a budgeting
@@ -124,14 +136,51 @@
 		</a>
 	</TextSection>
 
+	<Gallery
+		items={[
+			{
+				type: 'image',
+				src: '/images/pocketwatch/budget.png',
+				alt: 'Pocketwatch budget — zero-based categories with Ready to Assign, activity, and monthly summary'
+			},
+			{
+				type: 'image',
+				src: '/images/pocketwatch/phone-dashboard.png',
+				alt: 'Pocketwatch mobile dashboard — net worth chart, wealth velocity, spending pace, and debt'
+			},
+			{
+				type: 'image',
+				src: '/images/pocketwatch/brand-card.png',
+				alt: 'Pocketwatch brand card — mascot app icon on cream with Satoshi wordmark'
+			},
+			{
+				type: 'image',
+				src: '/images/pocketwatch/brand-lime.png',
+				alt: 'Pocketwatch campaign graphic — one ledger for your whole financial life, electric lime'
+			},
+			{
+				type: 'image',
+				src: '/images/pocketwatch/ad-orange.png',
+				alt: 'Pocketwatch ad — budgeting and investing, one ledger, burnt orange with dashboard'
+			},
+			{
+				type: 'image',
+				src: '/images/pocketwatch/banner-lime.png',
+				alt: 'Pocketwatch social banner — keep an eye on every dollar, category pills and mobile app'
+			}
+		]}
+	/>
+
 	<TextSection title="Outcome">
 		<p>
 			Pocketwatch is the rare personal project that&rsquo;s genuinely shippable software: built
 			security-first — every route scoped to its owner, inputs validated, sessions revocable
-			server-side — to the standard a tool handling real money demands. What I&rsquo;m proudest of
-			is the restraint. An all-in-one finance app is exactly the kind of product that bloats into
-			noise; Pocketwatch stays quiet and lets your own money be the only thing on screen with any
-			color.
+			server-side — to the standard a tool handling real money demands. Privacy is a product
+			feature, not a policy page: financial data lives encrypted on the user&rsquo;s own device,
+			bank connections are read-only, sign-in is passkey-based, and the business model is
+			subscriptions — never data. What I&rsquo;m proudest of is the restraint. An all-in-one finance
+			app is exactly the kind of product that bloats into noise; Pocketwatch stays quiet and lets
+			your own money be the only thing on screen with any color.
 		</p>
 	</TextSection>
 </CaseStudy>

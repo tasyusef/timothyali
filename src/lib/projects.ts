@@ -30,12 +30,32 @@ export const projects: Project[] = [
 		category: 'Product & Brand Design',
 		year: '2026',
 		heroImage: '/images/pocketwatch/hero.png',
-		heroAspect: 1200 / 630,
+		heroAspect: 1920 / 1219,
 		images: [
 			{
 				src: '/images/pocketwatch/hero.png',
+				aspect: 1920 / 1219,
+				alt: 'Pocketwatch dashboard on desktop and mobile — net worth, spending, cash flow, and investments'
+			},
+			{
+				src: '/images/pocketwatch/budget.png',
+				aspect: 16 / 10,
+				alt: 'Pocketwatch budget — zero-based categories with Ready to Assign and monthly summary'
+			},
+			{
+				src: '/images/pocketwatch/brand-card.png',
 				aspect: 1200 / 630,
-				alt: 'Pocketwatch — budget, net worth, and investments in one place'
+				alt: 'Pocketwatch brand card — mascot app icon on cream with Satoshi wordmark'
+			},
+			{
+				src: '/images/pocketwatch/brand-lime.png',
+				aspect: 1920 / 1008,
+				alt: 'Pocketwatch campaign graphic — one ledger for your whole financial life, electric lime'
+			},
+			{
+				src: '/images/pocketwatch/ad-orange.png',
+				aspect: 1920 / 1005,
+				alt: 'Pocketwatch ad — budgeting and investing, one ledger, burnt orange with dashboard'
 			}
 		],
 		stats: [
