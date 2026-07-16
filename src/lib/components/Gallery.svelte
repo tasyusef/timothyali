@@ -91,7 +91,7 @@
 
 <svelte:window onkeydown={onKeydown} />
 
-<section aria-labelledby="gallery-heading">
+<section aria-labelledby="gallery-heading" class="mb-section">
 	<h2 id="gallery-heading" class="sr-only">Gallery</h2>
 
 	<!-- Thumbnail grid — mobile: 2-col flat grid -->
