@@ -114,14 +114,14 @@
 						muted
 						playsinline
 						aria-label={heroAlt ?? title}
-						class="col-span-3 h-full w-full object-cover"
+						class="col-start-1 col-end-4 row-start-1 h-full w-full object-cover"
 					></video>
 					<Img
 						src={heroImage}
 						alt={heroAlt ?? title}
 						sizes="75vw"
 						eager
-						class="col-span-9 h-full w-full object-cover"
+						class="col-start-4 col-end-13 row-start-1 h-full w-full object-cover"
 					/>
 				</div>
 			{:else if heroImage}
