@@ -3,7 +3,7 @@
 	import Img from '$lib/components/Img.svelte';
 	import ProjectIndex from '$lib/components/ProjectIndex.svelte';
 	import { reveal } from '$lib/actions/reveal';
-	import { projects } from '$lib/projects';
+	import { designProjects, codeProjects } from '$lib/projects';
 	import { posts } from '$lib/posts';
 	import { SOCIAL_LINKS } from '$lib/site';
 
@@ -77,13 +77,23 @@
 	</div>
 </section>
 
-<!-- Selected Work -->
-<section aria-label="Selected Work" class="px-swiss">
+<!-- Selected Work — Design & Brand -->
+<section aria-label="Design and brand work" class="px-swiss">
 	<div use:reveal>
-		<p class="label-swiss mb-8">Selected Work</p>
+		<p class="label-swiss mb-8">Design &amp; Brand</p>
 	</div>
 	<div use:reveal>
-		<ProjectIndex {projects} />
+		<ProjectIndex projects={designProjects} />
+	</div>
+</section>
+
+<!-- Selected Work — Code & Product -->
+<section aria-label="Code and product work" class="px-swiss mt-section">
+	<div use:reveal>
+		<p class="label-swiss mb-8">Code &amp; Product</p>
+	</div>
+	<div use:reveal>
+		<ProjectIndex projects={codeProjects} startIndex={designProjects.length} />
 	</div>
 </section>
 

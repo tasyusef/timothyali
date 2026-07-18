@@ -115,11 +115,13 @@ Case study pages (`src/routes/work/<slug>/+page.svelte`) compose shared componen
 
 ### Project Data
 `src/lib/projects.ts` is the central data file for the homepage project index. Each project has:
-- `slug`, `title`, `category`, `year`, `heroImage`, `heroAspect`
+- `slug`, `title`, `section` (`'design' | 'code'`), `category`, `year`, `heroImage`, `heroAspect`
 - `images: ProjectImage[]` (src + aspect ratio + alt)
 - `stats?: ProjectStat[]` (label/value pairs for Key Metrics cards)
 - `description` (one-liner)
 - Optional: `heroVideo`, `videos`
+
+The homepage renders two grouped indexes — "Design & Brand" (`designProjects`) then "Code & Product" (`codeProjects`), both derived from `section`. The array is ordered design-first so numbering runs continuously (01–05, then 06–08 via `ProjectIndex`'s `startIndex` prop) and `getNextProject` cycles design → code. New projects must set `section`.
 
 ### Blog
 - Posts are markdown files in `src/content/posts/<slug>.md` with frontmatter: `title`, `date` (ISO), `excerpt`.
@@ -210,7 +212,7 @@ src/
     ├── +layout.ts              # prerender = true, trailingSlash = 'never'
     ├── +layout.svelte          # app.css, view transitions, nav/footer, Person+WebSite JSON-LD, skip link
     ├── +error.svelte           # Branded 404/error page
-    ├── +page.svelte            # Homepage — hero grid, ProjectIndex, quick links
+    ├── +page.svelte            # Homepage — hero grid, grouped ProjectIndexes (design / code), quick links
     ├── about/+page.svelte
     ├── blog/
     │   ├── +page.svelte        # Post index

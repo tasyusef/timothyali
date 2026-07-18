@@ -8,7 +8,7 @@
 	import ProjectImageStrip from './ProjectImageStrip.svelte';
 	import CursorPreview from './CursorPreview.svelte';
 
-	let { projects }: { projects: Project[] } = $props();
+	let { projects, startIndex = 0 }: { projects: Project[]; startIndex?: number } = $props();
 
 	let hoveredIndex = $state<number | null>(null); // desktop mouse
 	let expandedIndex = $state<number | null>(null); // mobile touch
@@ -91,7 +91,7 @@
 	}}
 >
 	{#each projects as project, index (project.slug)}
-		{@const num = String(index + 1).padStart(2, '0')}
+		{@const num = String(startIndex + index + 1).padStart(2, '0')}
 		{@const isActive = activeRow === index}
 
 		<a
