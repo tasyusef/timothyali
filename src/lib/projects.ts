@@ -314,12 +314,12 @@ export const projects: Project[] = [
 		category: 'Product & Brand Design',
 		year: '2026',
 		heroImage: '/images/pocketwatch/hero.png',
-		heroAspect: 1920 / 1219,
+		heroAspect: 1,
 		images: [
 			{
 				src: '/images/pocketwatch/hero.png',
-				aspect: 1920 / 1219,
-				alt: 'Pocketwatch dashboard on desktop and mobile — net worth, spending, cash flow, and investments'
+				aspect: 1,
+				alt: 'Pocketwatch — all your money in one place. Dashboard with net worth, investments, and money agenda on electric lime'
 			},
 			{
 				src: '/images/pocketwatch/ad-both.png',

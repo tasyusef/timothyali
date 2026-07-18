@@ -35,7 +35,7 @@
 	timeline="Ongoing"
 	tools="Figma, SvelteKit, Svelte 5, TypeScript, Tailwind CSS, Bits UI"
 	heroImage="/images/pocketwatch/hero.png"
-	heroAlt="Pocketwatch dashboard on desktop and mobile — net worth, spending, cash flow, and investments"
+	heroAlt="Pocketwatch — all your money in one place. Dashboard with net worth, investments, and money agenda on electric lime"
 	nextProject={getNextProject('pocketwatch')}
 >
 	{#snippet overview()}
