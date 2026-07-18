@@ -125,7 +125,13 @@
 					/>
 				</div>
 			{:else if heroImage}
-				<Img src={heroImage} alt={heroAlt ?? title} sizes="100vw" eager class="h-auto w-full" />
+				<Img
+					src={heroImage}
+					alt={heroAlt ?? title}
+					sizes="100vw"
+					eager
+					class="mx-auto h-auto max-h-[80vh] w-auto max-w-full"
+				/>
 			{/if}
 		</div>
 	{/if}
