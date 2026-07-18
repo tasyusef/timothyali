@@ -36,8 +36,8 @@
 	tools="Figma, SvelteKit, Svelte 5, TypeScript, Tailwind CSS, Bits UI"
 	heroImage="/images/pocketwatch/hero.png"
 	heroAlt="Pocketwatch — all your money in one place. Dashboard with net worth, investments, and money agenda on electric lime"
-	heroImage2="/images/pocketwatch/hero-networth.png"
-	heroAlt2="Pocketwatch campaign — watch your wealth compound, net worth tracking on sky blue"
+	heroImage2="/images/pocketwatch/hero-invest.png"
+	heroAlt2="Pocketwatch campaign — watch your investments move, stocks and crypto repriced live on violet"
 	nextProject={getNextProject('pocketwatch')}
 >
 	{#snippet overview()}
