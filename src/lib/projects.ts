@@ -30,7 +30,7 @@ export const projects: Project[] = [
 		slug: 'firststrike',
 		title: 'FirstStrike Research',
 		section: 'design',
-		category: 'Product Design & Brand Identity',
+		category: 'Brand Identity',
 		year: '2025',
 		heroImage: '/images/firststrike/hero.png',
 		heroAspect: 16 / 9,
@@ -39,16 +39,6 @@ export const projects: Project[] = [
 				src: '/images/firststrike/hero.png',
 				aspect: 16 / 9,
 				alt: 'FirstStrike Research brand identity'
-			},
-			{
-				src: '/images/firststrike/app-portfolio.png',
-				aspect: 1919 / 911,
-				alt: 'FirstStrike research platform portfolio dashboard'
-			},
-			{
-				src: '/images/firststrike/app-company.png',
-				aspect: 1919 / 912,
-				alt: 'FirstStrike research platform company analysis view'
 			},
 			{
 				src: '/images/firststrike/firststrike_pres-02.png',
@@ -97,13 +87,13 @@ export const projects: Project[] = [
 			}
 		],
 		stats: [
-			{ label: 'Timeline', value: '~3 Mo' },
-			{ label: 'Scope', value: 'Brand + Product' },
-			{ label: 'Platform', value: 'Live Prototype' },
+			{ label: 'Timeline', value: '~1 Mo' },
+			{ label: 'Scope', value: 'Full Identity' },
+			{ label: 'Collateral', value: 'Print + Digital' },
 			{ label: 'Role', value: 'Sole Designer' }
 		],
 		description:
-			'Brand identity, website design, and development for a veteran-owned financial research publication.'
+			'Brand identity for a veteran-owned financial research publication — wordmark, color system, typography, and guidelines.'
 	},
 	{
 		slug: 'xrpcafe',

@@ -51,7 +51,7 @@
 			org: 'FirstStrike Research',
 			role: 'Brand Designer',
 			summary:
-				'Developed a high-contrast brand identity and product design for FirstStrike Research, a veteran-owned financial platform. Designed a responsive web application featuring real-time market dashboards, AI-driven analysis, portfolio tracking with P&L visualization, and prediction market trading — empowering everyday investors with institutional-grade research tools.'
+				'Developed a high-contrast, retro-inspired brand identity for FirstStrike Research, a veteran-owned financial research company — wordmark, color system, typography, and brand guidelines applied across web, social, and print.'
 		},
 		{
 			period: '2025 — 2026',

@@ -2,24 +2,23 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import CaseStudy from '$lib/components/CaseStudy.svelte';
 	import TextSection from '$lib/components/TextSection.svelte';
-	import LiveEmbed from '$lib/components/LiveEmbed.svelte';
 	import Gallery from '$lib/components/Gallery.svelte';
 	import { getNextProject } from '$lib/projects';
 	import { imageUrl } from '$lib/images';
 	import { SITE_URL } from '$lib/site';
 
 	const description =
-		'Brand identity and prediction-market research platform for a veteran-owned financial research company — from mood board to full product in three months.';
+		'Brand identity for FirstStrike Research, a veteran-owned financial research company — wordmark, color system, typography, and guidelines built from a rough mood board.';
 </script>
 
 <Seo
-	title="FirstStrike Research — Brand & Product Design"
+	title="FirstStrike Research — Brand Identity"
 	{description}
 	ogKey="firststrike"
 	jsonLd={{
 		'@context': 'https://schema.org',
 		'@type': 'CreativeWork',
-		name: 'FirstStrike Research — Product Design & Brand Identity',
+		name: 'FirstStrike Research — Brand Identity',
 		description,
 		author: { '@type': 'Person', name: 'Timothy Ali', url: SITE_URL },
 		dateCreated: '2025-01-01',
@@ -30,10 +29,10 @@
 
 <CaseStudy
 	title="FirstStrike Research"
-	category="Product Design & Brand Identity"
+	category="Brand Identity"
 	year="2025"
-	role="Lead Designer (sole designer)"
-	timeline="~3 months"
+	role="Brand Designer (sole designer)"
+	timeline="~1 month"
 	tools="Illustrator, Figma"
 	heroImage="/images/firststrike/hero.png"
 	heroAlt="FirstStrike Research brand identity"
@@ -42,15 +41,13 @@
 	{#snippet overview()}
 		<p class="mb-4">
 			FirstStrike Research is a veteran-owned financial research company covering American markets.
-			What began as a one-month brand commission — logo, color, typography, and guidelines built
-			from a rough mood board — grew into a three-month engagement spanning identity and product: a
-			prediction-market research platform that puts institutional-grade tools in front of everyday
-			investors.
+			A one-month brand commission — logo, color, typography, and guidelines built from a rough mood
+			board into a system credible enough for finance.
 		</p>
 		<ul class="space-y-2">
 			<li>— Full identity: wordmark, lockups, color system, type, guidelines</li>
-			<li>— Product design for a real-time research platform</li>
-			<li>— Live prototype: dashboards, AI analysis, portfolio, trading</li>
+			<li>— Signature gradient-plus-grain treatment for digital surfaces</li>
+			<li>— Collateral from business cards to billboards</li>
 		</ul>
 	{/snippet}
 
@@ -82,10 +79,9 @@
 		<p>
 			Electric Blue (#003DFF) anchors the entire brand — bold enough to stand out in financial
 			media, serious enough to carry authority. It&rsquo;s paired with Midnight Black for text and
-			Ice White for secondary surfaces, and backed by three accents designed for the product rather
-			than the logo: Soft Mint, Signal Coral, and Amber Pulse, each tuned for data visualization and
-			UI states. Typography is Helvetica in two weights — Heavy for headlines that hit, Medium for
-			everything that has to be read.
+			Ice White for secondary surfaces, and backed by three accents — Soft Mint, Signal Coral, and
+			Amber Pulse — tuned for data visualization and digital surfaces. Typography is Helvetica in
+			two weights — Heavy for headlines that hit, Medium for everything that has to be read.
 		</p>
 	</TextSection>
 
@@ -94,30 +90,9 @@
 			The brand&rsquo;s most recognizable treatment is gradient-plus-grain: a deep blue-to-cyan
 			gradient overlaid with subtle noise. It gives digital surfaces a tactile, almost printed
 			quality — the retro personality made literal — without tipping into pastiche. One treatment,
-			endlessly reusable: social cards, billboards, app empty states.
+			endlessly reusable: social cards, billboards, editorial layouts.
 		</p>
 	</TextSection>
-
-	<TextSection title="From Brand to Product">
-		<p>
-			Once the identity shipped, the scope expanded into a full product: a prediction-market
-			research platform for retail investors. I designed the entire application — real-time market
-			dashboards with live price feeds, AI-generated analysis summaries, portfolio tracking with
-			P&amp;L visualization, and trading interfaces for prediction markets. The design problem was
-			density: institutional research tools earn their credibility through information, but the
-			audience is people checking positions on a phone. Every screen had to carry serious data
-			without ever feeling like a terminal — the brand&rsquo;s color and type system doing the
-			organizational work that competitors leave to chrome.
-		</p>
-	</TextSection>
-
-	<LiveEmbed
-		label="Interactive Prototype"
-		description="Interactive prototype of the FirstStrike research platform. Explore the dashboards, market data, and trading interfaces."
-		href="https://effervescent-semifreddo-de1ae5.netlify.app/"
-		src="https://effervescent-semifreddo-de1ae5.netlify.app/"
-		title="FirstStrike Research Platform"
-	/>
 
 	<Gallery
 		items={[
@@ -176,10 +151,10 @@
 
 	<TextSection title="Outcome">
 		<p>
-			A one-month logo project became a three-month engagement covering everything the company shows
-			the world — from brand guidelines to a fully designed research platform. FirstStrike launched
-			with one coherent system across every touchpoint, and a product that hands everyday investors
-			the kind of tooling that used to require an institutional login.
+			FirstStrike launched with one coherent system across every touchpoint the company shows the
+			world — wordmark, color, type, the gradient-plus-grain signature, and guidelines complete
+			enough that the brand never has to be improvised in context. A rough mood board became an
+			identity that holds its own next to legacy research outlets while looking like none of them.
 		</p>
 	</TextSection>
 </CaseStudy>
