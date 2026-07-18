@@ -15,6 +15,9 @@
 		heroImage?: string;
 		heroVideo?: string;
 		heroAlt?: string;
+		/** Optional second hero image rendered inline beside the first (square + landscape pairing). */
+		heroImage2?: string;
+		heroAlt2?: string;
 		nextProject?: { title: string; slug: string };
 		overview: Snippet;
 		children: Snippet;
@@ -30,6 +33,8 @@
 		heroImage,
 		heroVideo,
 		heroAlt,
+		heroImage2,
+		heroAlt2,
 		nextProject,
 		overview,
 		children
@@ -122,6 +127,25 @@
 						sizes="75vw"
 						eager
 						class="col-start-4 col-end-13 row-start-1 h-full w-full object-cover"
+					/>
+				</div>
+			{:else if heroImage && heroImage2}
+				<!-- Square + landscape (1200×628) pairing — column ratio matches the
+				     aspect ratios so both images render at equal height uncropped. -->
+				<div class="gap-gallery-tight grid grid-cols-[1fr_1.91fr]">
+					<Img
+						src={heroImage}
+						alt={heroAlt ?? title}
+						sizes="35vw"
+						eager
+						class="col-start-1 row-start-1 h-full w-full object-cover"
+					/>
+					<Img
+						src={heroImage2}
+						alt={heroAlt2 ?? title}
+						sizes="65vw"
+						eager
+						class="col-start-2 row-start-1 h-full w-full object-cover"
 					/>
 				</div>
 			{:else if heroImage}
