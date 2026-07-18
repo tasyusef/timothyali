@@ -322,24 +322,34 @@ export const projects: Project[] = [
 				alt: 'Pocketwatch dashboard on desktop and mobile — net worth, spending, cash flow, and investments'
 			},
 			{
-				src: '/images/pocketwatch/budget.png',
-				aspect: 16 / 10,
-				alt: 'Pocketwatch budget — zero-based categories with Ready to Assign and monthly summary'
+				src: '/images/pocketwatch/ad-both.png',
+				aspect: 1200 / 628,
+				alt: 'Pocketwatch campaign — budgeting and investing, one ledger, electric lime'
 			},
 			{
-				src: '/images/pocketwatch/brand-card.png',
-				aspect: 1200 / 630,
-				alt: 'Pocketwatch brand card — mascot app icon on cream with Satoshi wordmark'
+				src: '/images/pocketwatch/ad-networth.png',
+				aspect: 1,
+				alt: 'Pocketwatch campaign — know exactly what you are worth, net worth tracking on sky blue'
 			},
 			{
-				src: '/images/pocketwatch/brand-lime.png',
-				aspect: 1920 / 1008,
-				alt: 'Pocketwatch campaign graphic — one ledger for your whole financial life, electric lime'
+				src: '/images/pocketwatch/ad-invest.png',
+				aspect: 960 / 1200,
+				alt: 'Pocketwatch campaign — your portfolio, priced live, investments on violet'
 			},
 			{
-				src: '/images/pocketwatch/ad-orange.png',
-				aspect: 1920 / 1005,
-				alt: 'Pocketwatch ad — budgeting and investing, one ledger, burnt orange with dashboard'
+				src: '/images/pocketwatch/ad-budget.png',
+				aspect: 1,
+				alt: 'Pocketwatch campaign — every dollar, accounted for, zero-based budget on orange'
+			},
+			{
+				src: '/images/pocketwatch/ad-ledger.png',
+				aspect: 1,
+				alt: 'Pocketwatch campaign — every account in one place, unified ledger on mint green'
+			},
+			{
+				src: '/images/pocketwatch/ad-analytics.png',
+				aspect: 1200 / 628,
+				alt: 'Pocketwatch campaign — see where it all goes, category breakdown on pink'
 			}
 		],
 		stats: [

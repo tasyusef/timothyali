@@ -93,11 +93,12 @@
 	<TextSection title="Loud Outside, Quiet Inside">
 		<p>
 			The marketing layer inverts the app&rsquo;s restraint on purpose. The landing page, ads, and
-			social campaign run loud — electric lime and burnt orange, chunky condensed display type
-			shouting &ldquo;Keep an eye on every dollar&rdquo; — because acquisition needs stopping power
-			the product itself should never have. The same mascot and wordmark carry both registers, so
-			the brand stays recognizable whether it&rsquo;s a billboard-loud ad or a quiet nav bar. Once
-			you&rsquo;re inside, the color disappears and your money is the loudest thing on screen.
+			social campaign run loud — one saturated color per feature story, lime to violet to pink, with
+			chunky condensed display type shouting &ldquo;Keep an eye on every dollar&rdquo; — because
+			acquisition needs stopping power the product itself should never have. The same mascot and
+			wordmark carry both registers, so the brand stays recognizable whether it&rsquo;s a
+			billboard-loud ad or a quiet nav bar. Once you&rsquo;re inside, the color disappears and your
+			money is the loudest thing on screen.
 		</p>
 	</TextSection>
 
@@ -140,33 +141,33 @@
 		items={[
 			{
 				type: 'image',
-				src: '/images/pocketwatch/budget.png',
-				alt: 'Pocketwatch budget — zero-based categories with Ready to Assign, activity, and monthly summary'
+				src: '/images/pocketwatch/ad-both.png',
+				alt: 'Pocketwatch campaign — budgeting and investing, one ledger, electric lime'
 			},
 			{
 				type: 'image',
-				src: '/images/pocketwatch/phone-dashboard.png',
-				alt: 'Pocketwatch mobile dashboard — net worth chart, wealth velocity, spending pace, and debt'
+				src: '/images/pocketwatch/ad-networth.png',
+				alt: 'Pocketwatch campaign — know exactly what you are worth, net worth tracking on sky blue'
 			},
 			{
 				type: 'image',
-				src: '/images/pocketwatch/brand-card.png',
-				alt: 'Pocketwatch brand card — mascot app icon on cream with Satoshi wordmark'
+				src: '/images/pocketwatch/ad-invest.png',
+				alt: 'Pocketwatch campaign — your portfolio, priced live, investments on violet'
 			},
 			{
 				type: 'image',
-				src: '/images/pocketwatch/brand-lime.png',
-				alt: 'Pocketwatch campaign graphic — one ledger for your whole financial life, electric lime'
+				src: '/images/pocketwatch/ad-budget.png',
+				alt: 'Pocketwatch campaign — every dollar, accounted for, zero-based budget on orange'
 			},
 			{
 				type: 'image',
-				src: '/images/pocketwatch/ad-orange.png',
-				alt: 'Pocketwatch ad — budgeting and investing, one ledger, burnt orange with dashboard'
+				src: '/images/pocketwatch/ad-ledger.png',
+				alt: 'Pocketwatch campaign — every account in one place, unified ledger on mint green'
 			},
 			{
 				type: 'image',
-				src: '/images/pocketwatch/banner-lime.png',
-				alt: 'Pocketwatch social banner — keep an eye on every dollar, category pills and mobile app'
+				src: '/images/pocketwatch/ad-analytics.png',
+				alt: 'Pocketwatch campaign — see where it all goes, category breakdown on pink'
 			}
 		]}
 	/>
