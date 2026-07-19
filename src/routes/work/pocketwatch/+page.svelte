@@ -124,6 +124,36 @@
 		</p>
 	</TextSection>
 
+	<Gallery
+		items={[
+			{
+				type: 'image',
+				src: '/images/pocketwatch/app-dashboard.png',
+				alt: 'Pocketwatch dashboard — money agenda, composition, investments, wealth velocity, and cash flow'
+			},
+			{
+				type: 'image',
+				src: '/images/pocketwatch/app-budget.png',
+				alt: 'Pocketwatch budget — zero-based categories with Ready to Assign and monthly summary'
+			},
+			{
+				type: 'image',
+				src: '/images/pocketwatch/app-accounts.png',
+				alt: 'Pocketwatch accounts — one register for checking, cards, and brokerage trades'
+			},
+			{
+				type: 'image',
+				src: '/images/pocketwatch/app-investments.png',
+				alt: 'Pocketwatch investments — total return, portfolio value, allocation, and dividend income'
+			},
+			{
+				type: 'image',
+				src: '/images/pocketwatch/app-networth.png',
+				alt: 'Pocketwatch net worth — over-time chart, goal pacing, and what moved it'
+			}
+		]}
+	/>
+
 	<TextSection title="Live">
 		<p class="leading-body">
 			Pocketwatch is live in production as a real subscription product — a 14-day free trial, then

@@ -322,6 +322,16 @@ export const projects: Project[] = [
 				alt: 'Pocketwatch — all your money in one place. Dashboard with net worth, investments, and money agenda on electric lime'
 			},
 			{
+				src: '/images/pocketwatch/app-dashboard.png',
+				aspect: 2880 / 2020,
+				alt: 'Pocketwatch dashboard — money agenda, composition, investments, and cash flow'
+			},
+			{
+				src: '/images/pocketwatch/app-investments.png',
+				aspect: 2880 / 2214,
+				alt: 'Pocketwatch investments — total return, portfolio value, and allocation'
+			},
+			{
 				src: '/images/pocketwatch/ad-both.png',
 				aspect: 1200 / 628,
 				alt: 'Pocketwatch campaign — budgeting and investing in one place, electric lime'
