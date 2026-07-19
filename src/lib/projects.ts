@@ -324,7 +324,7 @@ export const projects: Project[] = [
 			{
 				src: '/images/pocketwatch/ad-both.png',
 				aspect: 1200 / 628,
-				alt: 'Pocketwatch campaign — budgeting and investing, one ledger, electric lime'
+				alt: 'Pocketwatch campaign — budgeting and investing in one place, electric lime'
 			},
 			{
 				src: '/images/pocketwatch/ad-networth.png',

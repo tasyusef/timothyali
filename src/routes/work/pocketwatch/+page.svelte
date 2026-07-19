@@ -37,7 +37,7 @@
 	heroImage="/images/pocketwatch/hero.png"
 	heroAlt="Pocketwatch — all your money in one place. Dashboard with net worth, investments, and money agenda on electric lime"
 	heroImage2="/images/pocketwatch/hero-invest.png"
-	heroAlt2="Pocketwatch campaign — watch your investments move, stocks and crypto repriced live on violet"
+	heroAlt2="Pocketwatch campaign — watch your investments move, live position tickers on violet"
 	nextProject={getNextProject('pocketwatch')}
 >
 	{#snippet overview()}
@@ -144,7 +144,7 @@
 			{
 				type: 'image',
 				src: '/images/pocketwatch/ad-both.png',
-				alt: 'Pocketwatch campaign — budgeting and investing, one ledger, electric lime'
+				alt: 'Pocketwatch campaign — budgeting and investing in one place, electric lime'
 			},
 			{
 				type: 'image',
