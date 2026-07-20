@@ -15,18 +15,16 @@
 		weight: number;
 	}
 
-	// Height a card adds beyond its media (meta bar) and the grid gap — used
-	// by the solver so stacked columns line up with feature cards.
-	const META = 58;
 	const GAP = 12;
 	const NOMINAL = 1400; // container width the solve is exact at
 
 	// Aspect-justified bento with column stacks. Consecutive projects sharing a
 	// bentoRow form one band; within a band, consecutive projects sharing a
 	// bentoCol stack vertically in one column. Column widths solve so every
-	// column of a band has equal total height (media + meta bars + gaps) at the
-	// nominal width. Stacked cards keep exact aspect ratios; a feature card
-	// beside a stack absorbs the few-pixel residual at other widths via cover.
+	// column of a band has equal total height (the meta chin overlays the media
+	// on hover, so card height = media height). Stacked cards keep exact aspect
+	// ratios at every width; a feature card beside a stack absorbs the few-pixel
+	// gap residual at non-nominal widths via cover.
 	const bands = $derived.by(() => {
 		const rows: Tile[][] = [];
 		let prevRow: number | undefined;
@@ -58,9 +56,9 @@
 			});
 
 			// Solve column widths for equal column heights at the nominal width:
-			// height_j = width_j * k_j + c_j, sum(width_j) = available.
+			// height_j = width_j * k_j + gaps_j, sum(width_j) = available.
 			const k = cols.map((c) => c.reduce((s, t) => s + 1 / t.aspect, 0));
-			const c = cols.map((col) => col.length * META + (col.length - 1) * GAP);
+			const c = cols.map((col) => (col.length - 1) * GAP);
 			const available = NOMINAL - (cols.length - 1) * GAP;
 			const H =
 				(available + c.reduce((s, cj, j) => s + cj / k[j], 0)) / k.reduce((s, kj) => s + 1 / kj, 0);
@@ -74,17 +72,16 @@
 </script>
 
 {#snippet card(tile: Tile, exact: boolean, stackGrow?: number)}
-	<!-- Stacked cards split the column height via flex-grow ∝ 1/aspect with the
-	     meta bar as flex-basis — algebra that keeps each media box aspect-true
-	     at every width, not just the nominal one. -->
+	<!-- Stacked cards split the column height via flex-grow ∝ 1/aspect —
+	     aspect-true at every width, not just the nominal one. -->
 	<a
 		href="/work/{tile.project.slug}"
-		class="card group/link panel-swiss flex min-h-0 min-w-0 flex-col overflow-hidden"
+		class="card group/link relative flex min-h-0 min-w-0 flex-col overflow-hidden"
 		style:flex-grow={stackGrow}
-		style:flex-basis={stackGrow !== undefined ? `${META}px` : undefined}
+		style:flex-basis={stackGrow !== undefined ? '0px' : undefined}
 	>
 		<div
-			class="bento-media w-full min-h-0 flex-1 overflow-hidden"
+			class="bento-media min-h-0 w-full flex-1 overflow-hidden"
 			style:aspect-ratio={exact ? tile.aspect : undefined}
 		>
 			{#if tile.project.heroVideo}
@@ -104,15 +101,18 @@
 				/>
 			{/if}
 		</div>
+		<!-- Meta chin — overlays the media bottom, revealed on hover/focus -->
 		<div
-			class="flex shrink-0 items-center gap-3 border-t border-[var(--color-border)] px-4 py-3 whitespace-nowrap"
+			class="chin absolute inset-x-0 bottom-0 flex items-center gap-3 border-t border-[var(--color-border)] bg-[var(--color-background)]/90 px-4 py-3 whitespace-nowrap"
 		>
 			<span class="label-swiss data-swiss">{tile.num}</span>
 			<span class="heading-swiss flex min-w-0 items-center gap-2 text-[var(--color-foreground)]">
 				<span class="truncate">{tile.project.title}</span>
 				<span class="arrow-reveal arrow-reveal-sm">&rarr;</span>
 			</span>
-			<span class="label-swiss ml-auto hidden min-w-0 truncate xl:block">{tile.project.category}</span>
+			<span class="label-swiss ml-auto hidden min-w-0 truncate xl:block">
+				{tile.project.category}
+			</span>
 			<span class="label-swiss data-swiss shrink-0 max-xl:ml-auto">{tile.project.year}</span>
 		</div>
 	</a>
@@ -158,13 +158,31 @@
 		transform: scale(1.02);
 	}
 
+	.chin {
+		opacity: 0;
+		transform: translateY(0.5rem);
+		transition:
+			opacity var(--duration-fast) var(--ease-swiss),
+			transform var(--duration-fast) var(--ease-swiss);
+	}
+
+	.card:hover .chin,
+	.card:focus-visible .chin {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
 	@media (prefers-reduced-motion: reduce) {
 		.bento-media :global(img),
-		.bento-media video {
+		.bento-media video,
+		.chin {
 			transition: none;
 		}
 		.card:hover .bento-media :global(img),
 		.card:hover .bento-media video {
+			transform: none;
+		}
+		.chin {
 			transform: none;
 		}
 	}
