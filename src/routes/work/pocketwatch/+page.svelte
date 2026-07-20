@@ -61,9 +61,9 @@
 			Pocketwatch had to feel trustworthy enough to hold someone&rsquo;s whole financial life and
 			warm enough that they open it every day. Most finance apps pick one side. The mark does both:
 			a friendly, slightly odd little eyeball peeking out of a hemispherical pocket, drawn as a
-			single confident shape and set in a soft dark squircle. An eye on your money, in a pocket. It
-			reads as approachable at app-icon size and serious in a nav bar. The wordmark is Satoshi:
-			geometric, modern, no flourishes.
+			single confident shape. An eye on your money, in a pocket. It reads as approachable at
+			app-icon size and serious in a nav bar. The wordmark is Satoshi: geometric, modern, no
+			flourishes.
 		</p>
 		<p>
 			The palette is warm-neutral and nearly monochrome, near-black ink on cream, and the mark
