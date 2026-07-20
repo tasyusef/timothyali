@@ -9,7 +9,7 @@
 	import { SITE_URL } from '$lib/site';
 
 	const description =
-		'Two complete websites for a premium medical spa in Wheaton, IL — a Framer launch site, then a 30+ page SEO-architected Next.js application. One design language, two builds.';
+		'Two complete websites for a premium medical spa in Wheaton, IL — a Framer launch, then a 30+ page SEO-architected Next.js build.';
 </script>
 
 <Seo
@@ -41,10 +41,9 @@
 		<p class="mb-4">
 			Jade Aesthetics is a premium medical spa in Wheaton, Illinois — facials, injectables, body
 			contouring, and wellness treatments. I built their entire web presence twice. The first
-			version was a Framer site that launched the brand online, with a visual identity I developed
-			from nothing but an existing logo. When the business outgrew the platform, I rebuilt
-			everything as a server-rendered Next.js application: 30+ pages, structured data on every
-			route, and a content architecture designed for long-term SEO growth.
+			version was a Framer site that launched the brand online. When the business outgrew the
+			platform, I rebuilt everything as a server-rendered Next.js application — structured data on
+			every route and a content architecture designed for long-term SEO growth.
 		</p>
 		<ul class="space-y-2">
 			<li>— Full digital design language, developed from a single logo mark</li>
@@ -85,10 +84,9 @@
 	<TextSection title="Version Two — Built to Be Found">
 		<p>
 			I rebuilt the site as a Next.js application — App Router, Tailwind CSS, server-side rendering
-			throughout, so every page delivers full HTML with no client-side dependency for content. The
-			architecture is SEO-first: unique metadata on every route, JSON-LD structured data
-			(MedicalBusiness, MedicalProcedure, FAQPage), auto-generated sitemaps, and breadcrumb
-			navigation with schema markup.
+			throughout, so every page delivers full HTML. The architecture is SEO-first: unique metadata
+			on every route, JSON-LD structured data (MedicalBusiness, MedicalProcedure, FAQPage),
+			auto-generated sitemaps, and breadcrumb navigation with schema markup.
 		</p>
 		<p>
 			The site ships over 30 pages: a content-rich homepage, four service category pages, 16
@@ -105,18 +103,17 @@
 			What changed is how it&rsquo;s enforced. Page-level decisions made by hand in Framer became a
 			component system in Next.js: service cards, FAQ accordions, testimonial carousels, and CTA
 			blocks built once and reused everywhere, with consistent spacing and hierarchy baked in. The
-			identity I created on day one now lives in an architecture that keeps it consistent across 30+
-			pages and whatever the practice adds next.
+			identity I created on day one now lives in an architecture that keeps it consistent across the
+			whole site and whatever the practice adds next.
 		</p>
 	</TextSection>
 
 	<TextSection title="Process">
 		<p>
-			I architected and built V2 using Claude Code as a force multiplier. I designed the component
-			system, defined the SEO and content architecture across 30+ pages, and wrote the structured
-			data strategy — directing the AI to execute the repetitive implementation at speed while I
-			owned every design decision, review, and architectural call. Work that reads like weeks of
-			templating compressed into days, without ceding control of the craft.
+			I built V2 with Claude Code. I designed the component system, the SEO architecture, and the
+			structured-data strategy, and directed the AI through the repetitive implementation — every
+			design decision, review, and architectural call stayed mine. The 16 treatment-page builds took
+			days instead of weeks.
 		</p>
 	</TextSection>
 
@@ -130,9 +127,8 @@
 
 	<ResultsList
 		items={[
-			'Two complete websites designed and built from scratch for a single client',
 			'30+ pages of SEO-optimized content across services, products, and blog infrastructure',
-			'Perfect 100 Lighthouse accessibility score',
+			'100 Lighthouse accessibility score',
 			'Structured data (JSON-LD) on every route — MedicalBusiness, MedicalProcedure, FAQPage, and BreadcrumbList schemas',
 			'Server-rendered Next.js application with zero client-side content dependencies',
 			'URL redirect strategy preserving all search equity through the V1-to-V2 migration',
@@ -144,8 +140,8 @@
 		<p>
 			Jade Aesthetics now has a website built to the same standard as the experience inside the
 			treatment rooms. Every procedure has its own optimized page — its own front door from Google —
-			and the server-rendered infrastructure means the site is fast, accessible, and compounding
-			organic traffic over time. Two builds, one vision.
+			and the server-rendered architecture is fast, accessible, and built to compound organic
+			traffic.
 		</p>
 	</TextSection>
 </CaseStudy>

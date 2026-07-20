@@ -8,7 +8,7 @@
 	import { SITE_URL } from '$lib/site';
 
 	const description =
-		'A bold, two-color title sequence for Philip K. Dick\'s "Do Androids Dream of Electric Sheep?" — Saul Bass instead of Blade Runner.';
+		'A bold, two-color title sequence for Philip K. Dick’s “Do Androids Dream of Electric Sheep?” — Saul Bass instead of Blade Runner.';
 </script>
 
 <Seo
@@ -32,7 +32,6 @@
 	category="Motion & Art Direction"
 	year="2023"
 	role="Director, Designer, Animator"
-	timeline="~45 seconds"
 	tools="After Effects, Illustrator"
 	nextProject={getNextProject('do-androids-dream')}
 >
@@ -47,9 +46,8 @@
 
 	<TextSection title="The Concept">
 		<p>
-			Every adaptation of Philip K. Dick&rsquo;s world defaults to the same visual language: neon,
-			fog, rain, darkness. I wanted to ask what the story looks like with the atmosphere stripped
-			away — reduced to its most graphic elements.
+			What does this story look like with the atmosphere stripped away — reduced to its most graphic
+			elements? That question drove every decision in the sequence.
 		</p>
 		<p>
 			The answer was a two-color world. Bright yellow and deep black, nothing else. The yellow is

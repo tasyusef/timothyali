@@ -35,9 +35,9 @@
 		{
 			period: '2021 — 2024',
 			org: 'xrp.cafe',
-			role: 'Founding Graphic Designer',
+			role: 'Cofounder & Founding Designer',
 			summary:
-				"Led the development of xrp.cafe's brand identity and design system, producing website wireframes, event collateral, motion graphics, and 10+ social campaigns that grew the community to 29,000+ members, helped raise $32K for St. Jude's, and over $5 million USD in revenue."
+				"Cofounded xrp.cafe and built its brand identity and design system, producing website wireframes, event collateral, motion graphics, and 10+ social campaigns that grew the community to 29,000+ members, helped raise $32K for St. Jude's, and over $5 million USD in revenue."
 		},
 		{
 			period: '2024 — 2025',
@@ -58,7 +58,7 @@
 			org: 'Jade Aesthetics',
 			role: 'Designer & Developer',
 			summary:
-				'Designed and developed two complete websites for a premium medical spa — an initial Framer launch followed by a 30+ page SEO-architected Next.js application with perfect Lighthouse accessibility scores and server-side rendering.'
+				'Designed and developed two complete websites for a premium medical spa — an initial Framer launch followed by a 30+ page SEO-architected Next.js application with 100 Lighthouse accessibility scores and server-side rendering.'
 		},
 		{
 			period: '2025 — 2026',

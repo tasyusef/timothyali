@@ -32,7 +32,7 @@
 	title="First Ledger"
 	category="Brand & Art Direction"
 	year="2024–2025"
-	role="Brand Designer"
+	role="Senior Brand Designer"
 	timeline="~1 year"
 	tools="Illustrator"
 	heroImage="/images/firstledger/FL2_FOLIO_HERO.png"
@@ -86,8 +86,7 @@
 	<TextSection title="Brand Pillars">
 		<p>
 			Fun — &ldquo;a lil meme never hurt anyone.&rdquo; Reliable — &ldquo;passion and years of
-			experience.&rdquo; Fast — &ldquo;we&rsquo;re first for a reason.&rdquo; The identity threads
-			the needle between trader credibility and community personality.
+			experience.&rdquo; Fast — &ldquo;we&rsquo;re first for a reason.&rdquo;
 		</p>
 		<p>
 			Those three words governed every visual call. The playful register kept the brand human in a
@@ -112,6 +111,7 @@
 
 	<ResultsList
 		items={[
+			'The identity held unchanged across every exchange listing, ecosystem report, and co-branded surface as the platform grew',
 			'First Telegram-based trading bot on the XRP Ledger',
 			'Consistently ranked top 2–3 DEX gateway on XRPL by trading volume (Messari)',
 			'Credited by Ripple for driving Q4 2024 XRPL growth — daily CLOB volume surged 1,140% QoQ',

@@ -18,7 +18,7 @@
 	jsonLd={{
 		'@context': 'https://schema.org',
 		'@type': 'CreativeWork',
-		name: 'Studio Gridform — "Less Noise."',
+		name: 'Studio Gridform — “Less Noise.”',
 		description,
 		author: { '@type': 'Person', name: 'Timothy Ali', url: SITE_URL },
 		dateCreated: '2023-01-01',
@@ -30,19 +30,19 @@
 <CaseStudy
 	title="Studio Gridform — “Less Noise.”"
 	category="Brand & Art Direction"
-	year="2023"
-	role="Creator & Designer"
+	year="2023–2024"
+	role="Sole Creator & Designer"
 	tools="Illustrator"
 	heroImage="/images/gridform/Poster_Frame_Mockup_2.png"
-	heroAlt="Less Noise poster series displayed on outdoor wall"
+	heroAlt="Studio Gridform Less Noise poster series displayed on outdoor wall"
 	nextProject={getNextProject('gridform')}
 >
 	{#snippet overview()}
 		<p>
 			Studio Gridform is my design practice, and &ldquo;less noise.&rdquo; is its manifesto. I built
-			the entire brand system from scratch — identity, guidelines, website, stationery, a poster
-			series, and a 28-page book explaining the thinking behind it all. Every piece is a
-			demonstration of the principles it argues for.
+			the entire brand system from scratch — identity, guidelines, stationery, a poster series, and
+			a 28-page book explaining the thinking behind it all. Every piece is a demonstration of the
+			principles it argues for.
 		</p>
 	{/snippet}
 
@@ -54,8 +54,8 @@
 			studio is named for.
 		</p>
 		<p>
-			It felt Swiss — clarity, order, purpose. Gibson SemiBold proved the typographic match: a clean
-			geometric sans whose construction mirrors the mark&rsquo;s own.
+			It felt Swiss — clarity, structure, purpose. Gibson SemiBold proved the typographic match: a
+			clean geometric sans whose construction mirrors the mark&rsquo;s own.
 		</p>
 	</TextSection>
 
@@ -78,8 +78,9 @@
 			Over Trendy, and Inside Out Design.
 		</p>
 		<p>
-			Every spread practices what it preaches: clear typographic hierarchy, purposeful grid usage,
-			and content that earns its place on the page.
+			Each principle gets its own spread: the argument set in a strict typographic hierarchy on one
+			page, real work shown as evidence on the facing page — the same grid discipline the text is
+			arguing for, applied to the page you&rsquo;re reading it on.
 		</p>
 	</TextSection>
 
@@ -96,7 +97,7 @@
 			{
 				type: 'image',
 				src: '/images/gridform/Poster_Frame_Mockup_2.png',
-				alt: 'Less Noise poster series displayed on outdoor wall'
+				alt: 'Studio Gridform Less Noise poster series displayed on outdoor wall'
 			},
 			{
 				type: 'image',
@@ -120,4 +121,12 @@
 			}
 		]}
 	/>
+
+	<TextSection title="Outcome">
+		<p>
+			The manifesto outlived the project. &ldquo;Less noise.&rdquo; codified the design philosophy
+			the rest of my practice runs on — the language of this site descends directly from it. Every
+			brand system I&rsquo;ve built since has been held to the standard the book set.
+		</p>
+	</TextSection>
 </CaseStudy>

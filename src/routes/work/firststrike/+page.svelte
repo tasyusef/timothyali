@@ -8,7 +8,7 @@
 	import { SITE_URL } from '$lib/site';
 
 	const description =
-		'Brand identity for FirstStrike Research, a veteran-owned financial research company — wordmark, color system, typography, and guidelines built from a rough mood board.';
+		'Brand identity for FirstStrike Research, a veteran-owned financial research company — wordmark, color system, typography, and full brand guidelines.';
 </script>
 
 <Seo
@@ -31,7 +31,7 @@
 	title="FirstStrike Research"
 	category="Brand & Art Direction"
 	year="2025"
-	role="Brand Designer (sole designer)"
+	role="Sole Brand Designer"
 	timeline="~1 month"
 	tools="Illustrator, Figma"
 	heroImage="/images/firststrike/hero.png"
@@ -41,8 +41,8 @@
 	{#snippet overview()}
 		<p class="mb-4">
 			FirstStrike Research is a veteran-owned financial research company covering American markets.
-			A one-month brand commission — logo, color, typography, and guidelines built from a rough mood
-			board into a system credible enough for finance.
+			A one-month brand commission — logo, color, typography, and guidelines, delivered as one
+			documented system.
 		</p>
 		<ul class="space-y-2">
 			<li>— Full identity: wordmark, lockups, color system, type, guidelines</li>
@@ -71,14 +71,14 @@
 		<p>
 			The system ships in three configurations — horizontal for headers, stacked for tight spaces,
 			and a standalone icon for favicons and avatars — each specified for both light and dark
-			backgrounds, so the mark never has to be improvised in context.
+			backgrounds, so placement is a lookup, not a judgment call.
 		</p>
 	</TextSection>
 
 	<TextSection title="Color & Type">
 		<p>
 			Electric Blue (#003DFF) anchors the entire brand — bold enough to stand out in financial
-			media, serious enough to carry authority. It&rsquo;s paired with Midnight Black for text and
+			media, with the gravity to carry authority. It&rsquo;s paired with Midnight Black for text and
 			Ice White for secondary surfaces, and backed by three accents — Soft Mint, Signal Coral, and
 			Amber Pulse — tuned for data visualization and digital surfaces. Typography is Helvetica in
 			two weights — Heavy for headlines that hit, Medium for everything that has to be read.
@@ -90,7 +90,7 @@
 			The brand&rsquo;s most recognizable treatment is gradient-plus-grain: a deep blue-to-cyan
 			gradient overlaid with subtle noise. It gives digital surfaces a tactile, almost printed
 			quality — the retro personality made literal — without tipping into pastiche. One treatment,
-			endlessly reusable: social cards, billboards, editorial layouts.
+			three surfaces on day one: social cards, billboards, editorial layouts.
 		</p>
 	</TextSection>
 
@@ -104,17 +104,17 @@
 			{
 				type: 'image',
 				src: '/images/firststrike/firststrike_pres-02.png',
-				alt: 'Mission statement — veteran-owned financial research company'
+				alt: 'FirstStrike Research mission statement — veteran-owned financial research company'
 			},
 			{
 				type: 'image',
 				src: '/images/firststrike/firststrike_pres-03.png',
-				alt: 'Billboard mockup — Real News. Real Research. Real Insights.'
+				alt: 'FirstStrike Research billboard mockup — Real News. Real Research. Real Insights.'
 			},
 			{
 				type: 'image',
 				src: '/images/firststrike/firststrike_pres-04.png',
-				alt: 'Brand pillars — Retro. Strong. Versatile.'
+				alt: 'FirstStrike Research brand pillars — Retro. Strong. Versatile.'
 			},
 			{
 				type: 'image',
@@ -151,10 +151,10 @@
 
 	<TextSection title="Outcome">
 		<p>
-			FirstStrike launched with one coherent system across every touchpoint the company shows the
-			world — wordmark, color, type, the gradient-plus-grain signature, and guidelines complete
-			enough that the brand never has to be improvised in context. A rough mood board became an
-			identity that holds its own next to legacy research outlets while looking like none of them.
+			FirstStrike launched with the full system in hand — wordmark, color, type, the
+			gradient-plus-grain signature, and guidelines detailed to the point that the brand never has
+			to be improvised in context. The identity is fully specified from business card to billboard:
+			every surface the company touches draws from the same set of rules.
 		</p>
 	</TextSection>
 </CaseStudy>

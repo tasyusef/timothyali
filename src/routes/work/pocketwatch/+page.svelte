@@ -9,7 +9,7 @@
 	import { SITE_URL } from '$lib/site';
 
 	const description =
-		'Brand identity, design system, and front-end for Pocketwatch — an all-in-one personal finance app that unifies budgeting, net worth, and investments in one clean view.';
+		'Brand identity, design system, and front-end for Pocketwatch — budgeting, net worth, and investments in one clean personal-finance app.';
 </script>
 
 <Seo
@@ -45,14 +45,14 @@
 		<p class="mb-4">
 			Pocketwatch is a personal-finance app that puts budgeting, net worth, and investments in one
 			place — &ldquo;everything that moves your money, in one ledger.&rdquo; I led the brand, the
-			design system, and the product design, and built the front end; my collaborator Chris built
-			the backend and runs the business side. It&rsquo;s live in production at pocketwatch.io.
+			design system, and the product design, and built the front end alongside my collaborator
+			Chris, who owns the backend and business side. It&rsquo;s live at pocketwatch.io.
 		</p>
 		<ul class="space-y-2">
 			<li>— Brand identity and a full design system</li>
 			<li>— Product design across budgeting, net worth, and investments</li>
 			<li>— Front end built in SvelteKit 2 / Svelte 5</li>
-			<li>— A live subscription product with a desktop app</li>
+			<li>— A subscription product with web and desktop apps</li>
 		</ul>
 	{/snippet}
 
@@ -219,14 +219,13 @@
 
 	<TextSection title="Outcome">
 		<p>
-			Pocketwatch is the rare personal project that&rsquo;s genuinely shippable software: built
-			security-first — every route scoped to its owner, inputs validated, sessions revocable
-			server-side — to the standard a tool handling real money demands. Privacy is a product
-			feature, not a policy page: financial data lives encrypted on the user&rsquo;s own device,
-			bank connections are read-only, sign-in is passkey-based, and the business model is
-			subscriptions — never data. What I&rsquo;m proudest of is the restraint. An all-in-one finance
-			app is exactly the kind of product that bloats into noise; Pocketwatch stays quiet and lets
-			your own money be the only thing on screen with any color.
+			Pocketwatch is the rare personal project that&rsquo;s genuinely shipped software. The product
+			is built security-first — every route scoped to its owner, inputs validated, sessions
+			revocable server-side — to the standard a tool handling real money demands. Privacy is a
+			product feature, not a policy page: bank connections are read-only, sign-in is passkey-based,
+			and the business model is subscriptions — never data. What I&rsquo;m proudest of is the
+			restraint: an all-in-one finance app is exactly the kind of product that bloats into noise,
+			and Pocketwatch holds its discipline at full scope — staying quiet the deeper you go.
 		</p>
 	</TextSection>
 </CaseStudy>

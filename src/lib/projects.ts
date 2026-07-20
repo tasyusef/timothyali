@@ -12,14 +12,14 @@ export interface ProjectStat {
 export interface Project {
 	slug: string;
 	title: string;
-	/** Homepage grouping — design/brand work vs code-focused product work */
+	/** Homepage grouping â design/brand work vs code-focused product work */
 	section: 'design' | 'code';
 	category: string;
 	year: string;
 	heroImage: string;
 	heroVideo?: string;
 	heroAspect: number; // width / height of the hero media shown in preview cards
-	/** Bento row grouping (desktop) — consecutive projects sharing a row number
+	/** Bento row grouping (desktop) â consecutive projects sharing a row number
 	    render in one aspect-justified band: column widths are proportional to
 	    each card's media aspect, so every card in the band is equal height with
 	    zero cropping. */
@@ -28,7 +28,7 @@ export interface Project {
 	    in one column (e.g. Sonde + Jade beside the Pocketwatch feature). */
 	bentoCol?: number;
 	/** Optional media override for the bento card when the case-study hero
-	    doesn't suit the tile (e.g. Pocketwatch's square hero → landscape ad). */
+	    doesn't suit the tile (e.g. Pocketwatch's square hero â landscape ad). */
 	bentoImage?: string;
 	bentoAspect?: number;
 	videos?: string[];
@@ -56,47 +56,47 @@ export const projects: Project[] = [
 			{
 				src: '/images/firststrike/firststrike_pres-02.png',
 				aspect: 16 / 9,
-				alt: 'FirstStrike Research mission statement'
+				alt: 'FirstStrike Research mission statement â veteran-owned financial research company'
 			},
 			{
 				src: '/images/firststrike/firststrike_pres-03.png',
 				aspect: 3376 / 2250,
-				alt: 'FirstStrike Research billboard mockup'
+				alt: 'FirstStrike Research billboard mockup â Real News. Real Research. Real Insights.'
 			},
 			{
 				src: '/images/firststrike/firststrike_pres-04.png',
 				aspect: 16 / 9,
-				alt: 'FirstStrike Research brand pillars'
+				alt: 'FirstStrike Research brand pillars â Retro. Strong. Versatile.'
 			},
 			{
 				src: '/images/firststrike/firststrike_pres-05.png',
 				aspect: 16 / 9,
-				alt: 'FirstStrike Research primary logo lockup'
+				alt: 'FirstStrike Research primary logo lockup â horizontal wordmark'
 			},
 			{
 				src: '/images/firststrike/firststrike_pres-06.png',
 				aspect: 16 / 9,
-				alt: 'FirstStrike Research secondary logo lockup'
+				alt: 'FirstStrike Research secondary logo lockup â stacked wordmark'
 			},
 			{
 				src: '/images/firststrike/firststrike_pres-07.png',
 				aspect: 16 / 9,
-				alt: 'FirstStrike Research logo construction grid'
+				alt: 'FirstStrike Research logo construction on blue grid'
 			},
 			{
 				src: '/images/firststrike/firststrike_pres-08.png',
 				aspect: 16 / 9,
-				alt: 'FirstStrike Research color system'
+				alt: 'Color system â Electric Blue, Soft Mint, Signal Coral, Amber Pulse'
 			},
 			{
 				src: '/images/firststrike/firststrike_pres-09.png',
 				aspect: 4 / 3,
-				alt: 'FirstStrike Research business card mockup'
+				alt: 'FirstStrike Research business card mockup on concrete'
 			},
 			{
 				src: '/images/firststrike/firststrike_pres-10.png',
 				aspect: 16 / 9,
-				alt: 'FirstStrike Research typography system'
+				alt: 'FirstStrike Research typography system â Helvetica Heavy and Medium'
 			}
 		],
 		stats: [
@@ -106,7 +106,7 @@ export const projects: Project[] = [
 			{ label: 'Role', value: 'Sole Designer' }
 		],
 		description:
-			'Brand identity for a veteran-owned financial research publication — wordmark, color system, typography, and guidelines.'
+			'Brand identity for a veteran-owned financial research company â wordmark, color system, typography, and guidelines.'
 	},
 	{
 		slug: 'xrpcafe',
@@ -114,7 +114,7 @@ export const projects: Project[] = [
 		title: 'xrp.cafe',
 		section: 'design',
 		category: 'Brand & Motion',
-		year: '2021–2024',
+		year: '2021â2024',
 		heroImage: '/images/xrpcafe/logo_16x9.png',
 		heroVideo: '/videos/CAFE_EXPLORE_CREATE_TRADE.mp4',
 		heroAspect: 1080 / 1920,
@@ -124,46 +124,78 @@ export const projects: Project[] = [
 			{
 				src: '/images/xrpcafe/1.png',
 				aspect: 16 / 9,
-				alt: 'xrp.cafe NFT marketplace explore page'
+				alt: 'xrp.cafe Super Saiyan mug mascot character'
 			},
-			{ src: '/images/xrpcafe/2.png', aspect: 16 / 9, alt: 'xrp.cafe collection detail page' },
-			{ src: '/images/xrpcafe/3.png', aspect: 16 / 9, alt: 'xrp.cafe NFT listing interface' },
-			{ src: '/images/xrpcafe/4.png', aspect: 16 / 9, alt: 'xrp.cafe trading dashboard' },
-			{ src: '/images/xrpcafe/5.png', aspect: 16 / 9, alt: 'xrp.cafe motion graphics frame' },
-			{ src: '/images/xrpcafe/6.png', aspect: 16 / 9, alt: 'xrp.cafe brand application' },
-			{ src: '/images/xrpcafe/7.png', aspect: 16 / 9, alt: 'xrp.cafe marketing campaign' },
-			{ src: '/images/xrpcafe/logo_16x9.png', aspect: 16 / 9, alt: 'xrp.cafe logo' },
+			{
+				src: '/images/xrpcafe/2.png',
+				aspect: 16 / 9,
+				alt: 'xrp.cafe marketplace UI with mascot characters'
+			},
+			{
+				src: '/images/xrpcafe/3.png',
+				aspect: 16 / 9,
+				alt: 'xrp.cafe beach-BBQ mug mascot character'
+			},
+			{
+				src: '/images/xrpcafe/4.png',
+				aspect: 16 / 9,
+				alt: 'xrp.cafe community Jeopardy event graphic'
+			},
+			{
+				src: '/images/xrpcafe/5.png',
+				aspect: 16 / 9,
+				alt: 'xrp.cafe and VeSea charity event graphic'
+			},
+			{
+				src: '/images/xrpcafe/6.png',
+				aspect: 16 / 9,
+				alt: 'xrp.cafe JUST MINT NFTs campaign graphic'
+			},
+			{
+				src: '/images/xrpcafe/7.png',
+				aspect: 16 / 9,
+				alt: 'xrp.cafe Halloween pumpkin mug mascot'
+			},
+			{
+				src: '/images/xrpcafe/logo_16x9.png',
+				aspect: 16 / 9,
+				alt: 'xrp.cafe coffee-mug logo lockup'
+			},
 			{
 				src: '/images/xrpcafe/XLS20_1Y-04.png',
 				aspect: 1,
-				alt: 'xrp.cafe XLS-20 anniversary artwork'
+				alt: 'xrp.cafe XLS-20 one year anniversary artwork'
 			},
 			{
 				src: '/images/xrpcafe/booth_team.jpg',
 				aspect: 1536 / 2048,
-				alt: 'xrp.cafe team at conference booth'
+				alt: 'xrp.cafe team at Consensus booth'
 			},
 			{
 				src: '/images/xrpcafe/booth_setup.jpg',
 				aspect: 4032 / 3024,
-				alt: 'xrp.cafe conference booth setup'
+				alt: 'xrp.cafe booth setup at Permissionless'
 			},
 			{
 				src: '/images/xrpcafe/booth_table.jpg',
 				aspect: 3024 / 4032,
-				alt: 'xrp.cafe booth display table'
+				alt: 'xrp.cafe booth table with stickers and merch'
 			},
 			{
 				src: '/images/xrpcafe/booth_tablet.jpg',
 				aspect: 3024 / 4032,
-				alt: 'Tablet showing xrp.cafe'
+				alt: 'xrp.cafe website demo at Consensus 2023'
 			},
 			{
 				src: '/images/xrpcafe/event_nft_display.jpg',
 				aspect: 2197 / 3905,
-				alt: 'NFT display at event'
+				alt: 'xrp.cafe team at NFT event display wall'
 			},
-			{ src: '/images/xrpcafe/xrpl_group.jpg', aspect: 1, alt: 'XRPL community group photo' }
+			{
+				src: '/images/xrpcafe/xrpl_group.jpg',
+				aspect: 1,
+				alt: 'XRP Ledger community group photo at Consensus'
+			}
 		],
 		stats: [
 			{ label: 'Community', value: '29K+' },
@@ -180,39 +212,39 @@ export const projects: Project[] = [
 		title: 'First Ledger',
 		section: 'design',
 		category: 'Brand & Art Direction',
-		year: '2024–2025',
+		year: '2024â2025',
 		heroImage: '/images/firstledger/FL2_FOLIO_HERO.png',
 		heroAspect: 4 / 3,
 		images: [
 			{
 				src: '/images/firstledger/FL2_FOLIO_HERO.png',
 				aspect: 4 / 3,
-				alt: 'First Ledger brand identity hero'
+				alt: 'First Ledger billboard mockup â The fastest way to trade'
 			},
 			{
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-01.png',
 				aspect: 16 / 9,
-				alt: 'First Ledger brand guidelines cover'
+				alt: 'First Ledger logo white on black'
 			},
 			{
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-02.png',
 				aspect: 16 / 9,
-				alt: 'First Ledger logo system'
+				alt: 'First Ledger brand pillars â Fun, Reliable, Fast'
 			},
 			{
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-03.png',
 				aspect: 16 / 9,
-				alt: 'First Ledger color palette'
+				alt: 'First Ledger primary and secondary logo lockups'
 			},
 			{
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-04.png',
 				aspect: 16 / 9,
-				alt: 'First Ledger typography'
+				alt: 'First Ledger logo construction â Pencil + Paper = Ledger diagram'
 			},
 			{
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-05.png',
 				aspect: 16 / 9,
-				alt: 'First Ledger icon system'
+				alt: 'First Ledger primary logo clear-space rules'
 			},
 			{
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-06.png',
@@ -222,24 +254,24 @@ export const projects: Project[] = [
 			{
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-07.png',
 				aspect: 16 / 9,
-				alt: 'First Ledger motion guidelines'
+				alt: 'First Ledger and xrp.cafe co-branding guidelines â primary lockup'
 			},
 			{
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-08.png',
 				aspect: 16 / 9,
-				alt: 'First Ledger brand applications'
+				alt: 'First Ledger and xrp.cafe co-branding guidelines â secondary lockup'
 			},
 			{
 				src: '/images/firstledger/FL2_BRAND_GUIDELINES-10.png',
 				aspect: 16 / 9,
-				alt: 'First Ledger brand guidelines summary'
+				alt: 'First Ledger typography system spread'
 			}
 		],
 		stats: [
 			{ label: 'Followers', value: '42K+' },
 			{ label: 'Volume', value: '$1B+' },
 			{ label: 'Scope', value: 'Full Identity' },
-			{ label: 'Role', value: 'Senior Designer' }
+			{ label: 'Role', value: 'Senior Brand Designer' }
 		],
 		description: 'Complete visual identity system for a token trading platform on the XRP Ledger.'
 	},
@@ -267,7 +299,7 @@ export const projects: Project[] = [
 			{ label: 'Role', value: 'Solo Project' }
 		],
 		description:
-			"A bold, two-color title sequence for Philip K. Dick's sci-fi landmark — Saul Bass meets Blade Runner."
+			"A bold, two-color title sequence for Philip K. Dick's sci-fi landmark â Saul Bass instead of Blade Runner."
 	},
 	{
 		slug: 'gridform',
@@ -275,19 +307,19 @@ export const projects: Project[] = [
 		title: 'Studio Gridform',
 		section: 'design',
 		category: 'Brand & Art Direction',
-		year: '2023',
+		year: '2023–2024',
 		heroImage: '/images/gridform/Poster_Frame_Mockup_2.png',
 		heroAspect: 4 / 3,
 		images: [
 			{
 				src: '/images/gridform/Poster_Frame_Mockup_2.png',
 				aspect: 4 / 3,
-				alt: 'Studio Gridform poster in frame'
+				alt: 'Studio Gridform Less Noise poster series displayed on outdoor wall'
 			},
 			{
 				src: '/images/gridform/GRIDFORM_BOOK_1.png',
 				aspect: 4 / 3,
-				alt: 'Studio Gridform design philosophy book cover'
+				alt: 'Studio Gridform book â Design is Problem Solving spread'
 			},
 			{
 				src: '/images/gridform/GRIDFORM_BOOK_2.png',
@@ -297,12 +329,12 @@ export const projects: Project[] = [
 			{
 				src: '/images/gridform/GRIDFORM_BOOK_3.png',
 				aspect: 4 / 3,
-				alt: 'Studio Gridform typography spread'
+				alt: 'Studio Gridform Less Noise book stack'
 			},
 			{
 				src: '/images/gridform/GRIDFORM_BOOK_4.png',
 				aspect: 4 / 3,
-				alt: 'Studio Gridform grid system page'
+				alt: 'Studio Gridform book â Timeless Over Trendy spread featuring First Ledger'
 			},
 			{
 				src: '/images/gridform/GRIDFORM_PRINT.png',
@@ -339,57 +371,57 @@ export const projects: Project[] = [
 			{
 				src: '/images/pocketwatch/hero.png',
 				aspect: 1,
-				alt: 'Pocketwatch — all your money in one place. Dashboard with net worth, investments, and money agenda on electric lime'
+				alt: 'Pocketwatch â all your money in one place. Dashboard with net worth, investments, and money agenda on electric lime'
 			},
 			{
 				src: '/images/pocketwatch/app-dashboard.png',
 				aspect: 2880 / 2020,
-				alt: 'Pocketwatch dashboard — money agenda, composition, investments, and cash flow'
+				alt: 'Pocketwatch dashboard â money agenda, composition, investments, and cash flow'
 			},
 			{
 				src: '/images/pocketwatch/app-investments.png',
 				aspect: 2880 / 2214,
-				alt: 'Pocketwatch investments — total return, portfolio value, and allocation'
+				alt: 'Pocketwatch investments â total return, portfolio value, and allocation'
 			},
 			{
 				src: '/images/pocketwatch/ad-both.png',
 				aspect: 1200 / 628,
-				alt: 'Pocketwatch campaign — budgeting and investing in one place, electric lime'
+				alt: 'Pocketwatch campaign â budgeting and investing in one place, electric lime'
 			},
 			{
 				src: '/images/pocketwatch/ad-networth.png',
 				aspect: 1,
-				alt: 'Pocketwatch campaign — know exactly what you are worth, net worth tracking on sky blue'
+				alt: 'Pocketwatch campaign â know exactly what you are worth, net worth tracking on sky blue'
 			},
 			{
 				src: '/images/pocketwatch/ad-invest.png',
 				aspect: 960 / 1200,
-				alt: 'Pocketwatch campaign — your portfolio, priced live, investments on violet'
+				alt: 'Pocketwatch campaign â your portfolio, priced live, investments on violet'
 			},
 			{
 				src: '/images/pocketwatch/ad-budget.png',
 				aspect: 1,
-				alt: 'Pocketwatch campaign — every dollar, accounted for, zero-based budget on orange'
+				alt: 'Pocketwatch campaign â every dollar, accounted for, zero-based budget on orange'
 			},
 			{
 				src: '/images/pocketwatch/ad-ledger.png',
 				aspect: 1,
-				alt: 'Pocketwatch campaign — every account in one place, unified ledger on mint green'
+				alt: 'Pocketwatch campaign â every account in one place, unified ledger on mint green'
 			},
 			{
 				src: '/images/pocketwatch/ad-analytics.png',
 				aspect: 1200 / 628,
-				alt: 'Pocketwatch campaign — see where it all goes, category breakdown on pink'
+				alt: 'Pocketwatch campaign â see where it all goes, category breakdown on pink'
 			}
 		],
 		stats: [
-			{ label: 'Role', value: 'Brand & Front-End' },
+			{ label: 'Role', value: 'Brand, Product & Front-End' },
 			{ label: 'Stack', value: 'SvelteKit + Svelte 5' },
-			{ label: 'Status', value: 'Live · Production' },
+			{ label: 'Status', value: 'Live Â· Production' },
 			{ label: 'Scope', value: 'Identity + Product' }
 		],
 		description:
-			'Brand identity, design system, and front-end for an all-in-one personal finance app — budgeting, net worth, and investments in one clean view.'
+			'Brand identity, design system, and front-end for an all-in-one personal finance app â budgeting, net worth, and investments in one clean view.'
 	},
 	{
 		slug: 'sonde',
@@ -398,54 +430,54 @@ export const projects: Project[] = [
 		title: 'Sonde',
 		section: 'code',
 		category: 'Product, Code & Art Direction',
-		year: '2025–2026',
+		year: '2025â2026',
 		heroImage: '/images/sonde/hero.png',
 		heroAspect: 16 / 9,
 		images: [
 			{
 				src: '/images/sonde/hero.png',
 				aspect: 16 / 9,
-				alt: 'Sonde — Decode the XRPL. Real-time intelligence, analytics, and portfolio tracking'
+				alt: 'Sonde â Decode the XRPL. Real-time intelligence, analytics, and portfolio tracking'
 			},
 			{
 				src: '/images/sonde/network.png',
 				aspect: 16 / 9,
-				alt: 'Sonde network insights — live XRP price, market cap, and latest ledgers'
+				alt: 'Sonde network insights â live XRP price, market cap, and latest ledgers'
 			},
 			{
 				src: '/images/sonde/markets.png',
 				aspect: 16 / 9,
-				alt: 'Sonde markets — XRPL token rankings by price, market cap, and volume'
+				alt: 'Sonde markets â XRPL token rankings by price, market cap, and volume'
 			},
 			{
 				src: '/images/sonde/account.png',
 				aspect: 16 / 9,
-				alt: 'Sonde account page — balance, smart money score, and counterparty graph'
+				alt: 'Sonde account page â balance, smart money score, and counterparty graph'
 			},
 			{
 				src: '/images/sonde/portfolio.png',
 				aspect: 16 / 9,
-				alt: 'Sonde portfolio — total value, performance chart, and allocation'
+				alt: 'Sonde portfolio â total value, performance chart, and allocation'
 			},
 			{
 				src: '/images/sonde/smart-money.png',
 				aspect: 16 / 9,
-				alt: 'Sonde Smart Money leaderboard — scored wallets ranked by PnL and win rate'
+				alt: 'Sonde Smart Money leaderboard â scored wallets ranked by PnL and win rate'
 			},
 			{
 				src: '/images/sonde/ask-the-ledger.png',
 				aspect: 16 / 9,
-				alt: 'Ask the Ledger — natural-language queries over the XRP Ledger'
+				alt: 'Ask the Ledger â natural-language queries over the XRP Ledger'
 			}
 		],
 		stats: [
-			{ label: 'Features', value: '9' },
+			{ label: 'Databases', value: '3' },
 			{ label: 'Data', value: 'Real-time' },
 			{ label: 'Stack', value: 'Next.js + PostgreSQL' },
 			{ label: 'Role', value: 'Sole Creator' }
 		],
 		description:
-			'A real-time XRPL analytics platform — network insights, DEX analytics, portfolio tracking, OHLCV price charts, and live on-chain data.'
+			'A real-time XRPL analytics platform â network insights, DEX analytics, portfolio tracking, OHLCV price charts, and real-time on-chain ingestion â designed, built, and run solo.'
 	},
 	{
 		slug: 'jade-aesthetics',
@@ -454,7 +486,7 @@ export const projects: Project[] = [
 		title: 'Jade Aesthetics',
 		section: 'code',
 		category: 'Web & Code',
-		year: '2025–2026',
+		year: '2025â2026',
 		heroImage: '/images/jade-aesthetics/desktop-homepage-fold.jpg',
 		heroAspect: 1920 / 1200,
 		images: [
@@ -471,7 +503,7 @@ export const projects: Project[] = [
 			{ label: 'Rendering', value: 'Server-Side' }
 		],
 		description:
-			'Two complete websites designed and built from scratch for a premium medical spa — from Framer launch to SEO-architected Next.js application.'
+			'Two complete websites designed and built from scratch for a premium medical spa â from Framer launch to SEO-architected Next.js application.'
 	}
 ];
 

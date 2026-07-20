@@ -32,7 +32,7 @@
 	title="xrp.cafe"
 	category="Brand & Motion"
 	year="2021–2024"
-	role="Cofounder / Founding Designer"
+	role="Cofounder & Founding Designer"
 	tools="Illustrator, After Effects"
 	heroImage="/images/xrpcafe/logo_16x9.png"
 	heroVideo="/videos/CAFE_EXPLORE_CREATE_TRADE.mp4"
@@ -42,9 +42,8 @@
 	{#snippet overview()}
 		<p class="mb-4">
 			xrp.cafe is the #1 NFT marketplace on the XRP Ledger. As cofounder and founding designer, I
-			led the design of a 0&rarr;1 marketplace — the brand&rsquo;s rollout across marketing, events,
-			and content, extending the visual identity into 10+ social campaigns, motion graphics, event
-			booths, and community touchpoints.
+			designed the brand from zero and led its rollout across marketing, events, and content — 10+
+			social campaigns, motion graphics, event booths, and community touchpoints.
 		</p>
 		<p>
 			The positioning was a deliberate contrarian bet. Crypto branding in 2021 was dark, aggressive,
@@ -77,7 +76,7 @@
 		<p>
 			Around the hero promo I built a library of motion assets — product launches, feature
 			announcements, event recaps — that gave the brand a consistent, energetic presence in feeds.
-			Each piece had the same job: communicate a platform feature in seconds, in character.
+			Each piece had the same job: communicate one platform feature, fast, in character.
 		</p>
 	</TextSection>
 
@@ -99,20 +98,27 @@
 	<ResultsList
 		items={[
 			'#1 NFT marketplace on the XRP Ledger by secondary sales volume',
+			'$5M+ in marketplace revenue',
+			'Community grown to 29,000+ members',
 			'11,800+ secondary sales in a single 30-day period at peak (Nov 2023)',
-			'Top 3 XRPL NFT marketplaces controlled 80%+ of all on-chain NFT volume',
+			'Top-3 XRPL marketplace in a cohort controlling 80%+ of on-chain NFT volume',
+			"Helped raise $32K for St. Jude's with VeSea",
 			'Featured on the official XRPL developer blog',
 			'Profiled by Messari as one of the most established touchpoints on XRPL',
 			'XRPL Accelerator backed — institutional support from the network',
-			'Consensus 2023 & 2024 — booth presence at the largest crypto conference',
+			'Consensus 2023 & 2024 — booth presence two years running',
 			'Permissionless 2024 — booth within the Ripple X section',
-			'ETH Denver — attended annually since 2022'
+			'ETH Denver 2022–2024 — brand presence three years running'
 		]}
 	/>
 
 	<Gallery
 		items={[
-			{ type: 'image', src: '/images/xrpcafe/logo_16x9.png', alt: 'xrp.cafe logo' },
+			{
+				type: 'image',
+				src: '/images/xrpcafe/logo_16x9.png',
+				alt: 'xrp.cafe coffee-mug logo lockup'
+			},
 			{
 				type: 'video',
 				src: '/videos/CAFE_EXPLORE_CREATE_TRADE.mp4',
@@ -177,7 +183,7 @@
 			{
 				type: 'image',
 				src: '/images/xrpcafe/event_nft_display.jpg',
-				alt: 'Team at NFT event with display wall'
+				alt: 'xrp.cafe team at NFT event display wall'
 			},
 			{
 				type: 'image',
