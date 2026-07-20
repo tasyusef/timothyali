@@ -4,16 +4,11 @@
 	import { focusTrap } from '$lib/actions/focusTrap';
 	import { duration, easeSwiss, prefersReducedMotion } from '$lib/motion';
 	import Img from './Img.svelte';
-	import BrowserFrame from './BrowserFrame.svelte';
 
 	export interface GalleryItem {
 		type: 'image' | 'video';
 		src: string;
 		alt: string;
-		/** Wrap the thumbnail in minimal browser chrome (product screenshots). */
-		frame?: boolean;
-		/** URL text shown in the frame's chrome bar. */
-		frameUrl?: string;
 	}
 
 	let { items }: { items: GalleryItem[] } = $props();
@@ -73,16 +68,7 @@
 			: `Open ${item.type} ${index + 1}`}
 		class="relative block w-full cursor-pointer overflow-hidden border-0 bg-transparent p-0"
 	>
-		{#if item.type === 'image' && item.frame}
-			<BrowserFrame url={item.frameUrl}>
-				<Img
-					src={item.src}
-					alt={item.alt ?? ''}
-					sizes="(max-width: 768px) 50vw, 25vw"
-					class="block h-auto w-full"
-				/>
-			</BrowserFrame>
-		{:else if item.type === 'image'}
+		{#if item.type === 'image'}
 			<Img
 				src={item.src}
 				alt={item.alt ?? ''}

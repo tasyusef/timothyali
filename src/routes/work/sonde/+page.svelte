@@ -149,49 +149,41 @@
 			{
 				type: 'image',
 				src: '/images/sonde/network.png',
-				frame: true,
 				alt: 'Sonde network insights: live XRP price, market cap, TradingView chart, and latest ledgers'
 			},
 			{
 				type: 'image',
 				src: '/images/sonde/markets.png',
-				frame: true,
 				alt: 'Sonde markets: XRPL token rankings by price, market cap, volume, and holders'
 			},
 			{
 				type: 'image',
 				src: '/images/sonde/account.png',
-				frame: true,
 				alt: 'Sonde account page: balance, smart money score, risk profile, and counterparty graph'
 			},
 			{
 				type: 'image',
 				src: '/images/sonde/transaction.png',
-				frame: true,
 				alt: 'Sonde transaction detail: identifiers, outcome, balance changes, and affected ledger nodes'
 			},
 			{
 				type: 'image',
 				src: '/images/sonde/portfolio.png',
-				frame: true,
 				alt: 'Sonde portfolio: total value, performance chart, allocation, and watchlist'
 			},
 			{
 				type: 'image',
 				src: '/images/sonde/smart-money.png',
-				frame: true,
 				alt: 'Sonde Smart Money leaderboard: scored wallets ranked by PnL, win rate, and Sharpe'
 			},
 			{
 				type: 'image',
 				src: '/images/sonde/smart-money-detail.png',
-				frame: true,
 				alt: 'Sonde Smart Money detail: score factors, score history, and tokens traded'
 			},
 			{
 				type: 'image',
 				src: '/images/sonde/ask-the-ledger.png',
-				frame: true,
 				alt: 'Ask the Ledger: natural-language queries over the XRP Ledger'
 			}
 		]}
