@@ -7,11 +7,10 @@
 	const capabilities = [
 		'Product Design',
 		'Brand Design',
-		'Layout Design',
 		'Motion Design',
+		'Interaction Design',
 		'Web Design',
-		'User Experience',
-		'Interaction Design'
+		'Front-End Development'
 	];
 
 	const tools = [
@@ -20,6 +19,7 @@
 		'Framer',
 		'Claude Code',
 		'Codex',
+		'Svelte',
 		'React',
 		'TypeScript'
 	];
@@ -69,6 +69,13 @@
 		},
 		{
 			period: '2026 — Now',
+			org: 'Pocketwatch',
+			role: 'Cofounder & Chief Design Officer',
+			summary:
+				'Cofounded Pocketwatch, a subscription personal-finance app, with one engineering partner. Designed the brand, design system, and product, and built the front end in SvelteKit. Live at pocketwatch.io with paying subscribers.'
+		},
+		{
+			period: '2026 — Now',
 			org: 'DOMOTO',
 			role: 'Digital Designer (Contract)',
 			summary:
@@ -82,7 +89,7 @@
 
 <Seo
 	title="About"
-	description="Timothy Ali is a designer working in product, brand, and motion. He designs and builds products, brand systems, and websites for startups and tech companies."
+	description="Timothy Ali is a designer and builder: brand, product, and motion design carried through to production code. Based in Denver, open to product design roles."
 	ogKey="about"
 	jsonLd={{
 		'@context': 'https://schema.org',
@@ -120,17 +127,15 @@
 		<div class="md:col-span-5 md:col-start-7">
 			<div class="leading-body space-y-6">
 				<p>
-					I&rsquo;m a designer working across product, brand, and motion. I design and build
-					products, brand systems, and websites for startups and tech companies, from early-stage to
-					growth.
+					I&rsquo;m a designer and a builder. I take work from first sketch to production code:
+					brand, product, motion, front end. Nothing I design stays a mockup: a finance app with
+					paying subscribers, a real-time block explorer, a 30-page Next.js site, this portfolio.
 				</p>
 				<p>
-					Now I&rsquo;m designing and building a multi-brand, AI-native design-system platform at
-					DOMOTO, serving publicly traded and Fortune 500 clients. Before that I designed and built
-					Sonde, a personal project: a real-time XRPL block explorer I took from brand identity
-					through full-stack development. I have also worked with FirstStrike Research, crypto
-					projects like xrp.cafe and First Ledger, and freelance clients from luxury med spas to
-					gyms, online communities, and esports teams.
+					I learned that way of working early. In 2021 I cofounded xrp.cafe, an NFT marketplace, and
+					ran its brand through design school while it grew past 29,000 members and $5 million in
+					sales. Today I&rsquo;m building Pocketwatch, a personal-finance app where I own the brand,
+					the product design, and the front end.
 				</p>
 				<p>
 					My foundations are Swiss modernist: clarity, structure, purpose. That training shapes how
@@ -138,10 +143,8 @@
 					restraint or loud color.
 				</p>
 				<p>
-					AI is changing creative work, and I want to understand how. I use Claude Code every day,
-					not as a shortcut but as a faster path from idea to working product: prototypes,
-					production code, tests of design decisions. I keep looking for new ways to fold AI into my
-					process.
+					I use Claude Code every day. It shortens the path from idea to working product, so I test
+					design decisions in real code instead of static mockups.
 				</p>
 				<p>
 					Based in Denver, Colorado. Open to full-time product design roles and select freelance
@@ -194,28 +197,6 @@
 			<div class="md:col-span-5 md:col-start-7">
 				<p class="leading-body">BFA, Graphic Design</p>
 				<p class="leading-body">Rocky Mountain College of Art + Design, 2022–2025</p>
-			</div>
-		</div>
-	</div>
-
-	<!-- Location -->
-	<div use:reveal>
-		<div class="py-row grid grid-cols-1 border-t border-[var(--color-border)] md:grid-cols-12">
-			<p class="label-swiss mb-4 md:col-span-3 md:mb-0">Location</p>
-			<div class="md:col-span-5 md:col-start-7">
-				<p class="leading-body">Denver, Colorado</p>
-			</div>
-		</div>
-	</div>
-
-	<!-- Status -->
-	<div use:reveal>
-		<div
-			class="py-row grid grid-cols-1 border-t border-b border-[var(--color-border)] md:grid-cols-12"
-		>
-			<p class="label-swiss mb-4 md:col-span-3 md:mb-0">Status</p>
-			<div class="md:col-span-5 md:col-start-7">
-				<p class="leading-body">Open to full-time roles and select freelance projects</p>
 			</div>
 		</div>
 	</div>
