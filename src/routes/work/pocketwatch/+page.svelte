@@ -44,15 +44,15 @@
 	{#snippet overview()}
 		<p class="mb-4">
 			Pocketwatch is a personal-finance app that puts budgeting, net worth, and investments in one
-			place: &ldquo;everything that moves your money, in one ledger.&rdquo; I led the brand, the
-			design system, and the product design, and built the front end. My collaborator Chris owns the
-			backend and business side. It&rsquo;s live at pocketwatch.io.
+			place: &ldquo;Personal finance, one ledger.&rdquo; I led the brand, the design system, and the
+			product design, and built the front end. My collaborator Chris owns the backend and business
+			side. It&rsquo;s live at pocketwatch.io.
 		</p>
 		<ul class="space-y-2">
 			<li>— Brand identity and a full design system</li>
 			<li>— Product design across budgeting, net worth, and investments</li>
 			<li>— Front end built in SvelteKit 2 / Svelte 5</li>
-			<li>— A subscription product with web and desktop apps</li>
+			<li>— A subscription product on the web, with a desktop app on the way</li>
 		</ul>
 	{/snippet}
 
@@ -66,9 +66,9 @@
 			flourishes.
 		</p>
 		<p>
-			The palette is warm-neutral and nearly monochrome, near-black ink on cream, and the mark
-			carries the personality. It&rsquo;s a character you can live with in a tool you open every
-			morning, not a logo that shouts.
+			The brand runs near-black ink on white with one accent, a citron green, and the mark carries
+			the personality. It&rsquo;s a character you can live with in a tool you open every morning,
+			not a logo that shouts.
 		</p>
 	</TextSection>
 
@@ -76,19 +76,20 @@
 		<p>
 			The core decision was to give the app no brand color at all. The chrome is quiet, a cool
 			neutral palette in the Linear / Stripe / Vercel register, because a finance app that colors
-			its own interface competes with the one thing that matters: your money. So all color comes
-			from content. Every category is a pill, an emoji plus one of ten saturated hues the user
-			picks, and those pills are the only saturated color in the UI. The interface stays calm by
-			default and turns colorful exactly where the user made it so.
+			its own interface competes with the one thing that matters: your money. So color comes from
+			content. Every category is a pill, an emoji plus one of ten hues the user picks, and that is
+			the only color a user adds to the interface. The few other accents mark meaning: gains,
+			losses, warnings. The interface stays calm by default and turns colorful exactly where the
+			user made it so.
 		</p>
 		<p>
 			Everything routes through one tokens file for type, color, spacing, and motion, consumed by
 			Tailwind and exposed as CSS variables, with a live design-system page that re-skins the whole
 			app from one attribute. Type is a three-font system: Satoshi for display, Inter for UI and
 			body, JetBrains Mono for every figure, because financial numbers must be tabular and
-			monospaced to scan. Motion works the same way: one standard ease-out, a few named durations,
-			and a global reduced-motion override, so the whole product moves the same way everywhere
-			instead of drifting component to component.
+			monospaced to scan. Motion works the same way: one main ease-out, two springs for physical
+			moves, six named durations, and a global reduced-motion override, so the whole product moves
+			the same way everywhere instead of drifting component to component.
 		</p>
 	</TextSection>
 
@@ -157,7 +158,8 @@
 	<TextSection title="Live">
 		<p class="leading-body">
 			Pocketwatch is live in production as a real subscription product: a 14-day free trial, then
-			$5/month or $50/year through Stripe, with a desktop app alongside the web app.
+			paid plans from $3.50 to $8 a month through Stripe, with two months free on annual billing. A
+			desktop app is on the way.
 		</p>
 		<a
 			href="https://pocketwatch.io/"
@@ -209,10 +211,11 @@
 			Pocketwatch is the rare personal project that shipped as real software. The product is built
 			security-first: every route scoped to its owner, inputs validated, sessions revocable
 			server-side, the standard a tool that handles real money demands. Privacy is a product
-			feature, not a policy page. Bank connections are read-only, sign-in uses passkeys, and the
-			business model is subscriptions, never data. What I&rsquo;m proudest of is the restraint: an
-			all-in-one finance app is the kind of product that bloats into noise, and Pocketwatch stays
-			quiet the deeper you go.
+			feature, not a policy page. Bank connections are read-only, there are no passwords (sign-in
+			uses passkeys, one-time email codes, or Google and Apple), and the business model is
+			subscriptions, never data. What I&rsquo;m proudest of is the restraint: an all-in-one finance
+			app is the kind of product that bloats into noise, and Pocketwatch stays quiet the deeper you
+			go.
 		</p>
 	</TextSection>
 </CaseStudy>

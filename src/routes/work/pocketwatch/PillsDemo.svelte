@@ -1,10 +1,21 @@
 <script lang="ts">
 	import { reveal } from '$lib/actions/reveal';
 
-	// The ten saturated category hues from the Pocketwatch design system —
-	// content colors (the only saturated color in that UI), generated in
-	// oklch rather than hardcoded hex, intentionally not site tokens.
-	const HUES = Array.from({ length: 10 }, (_, i) => i * 36);
+	// The ten real category accents from the Pocketwatch design system
+	// (dark-mode values from its tokens file). Product content colors,
+	// not site tokens.
+	const HUES = [
+		{ name: 'Mint', hex: '#29cd93' },
+		{ name: 'Sky', hex: '#38bdf8' },
+		{ name: 'Lavender', hex: '#b49dff' },
+		{ name: 'Rose', hex: '#fe7bbf' },
+		{ name: 'Peach', hex: '#ef9a00' },
+		{ name: 'Butter', hex: '#d2ab00' },
+		{ name: 'Sage', hex: '#16cab5' },
+		{ name: 'Coral', hex: '#ff8877' },
+		{ name: 'Plum', hex: '#ea7bfb' },
+		{ name: 'Stone', hex: '#a8b0bc' }
+	];
 	const EMOJI = ['☕', '🛒', '🏠', '✈️', '🎬', '⛽', '🍜', '💪'];
 	const NAMES: Record<string, string> = {
 		'☕': 'Coffee',
@@ -17,11 +28,11 @@
 		'💪': 'Gym'
 	};
 
-	let hue = $state(HUES[3]);
+	let hue = $state(HUES[2]);
 	let emoji = $state('☕');
 
-	const pillColor = $derived(`oklch(0.75 0.16 ${hue})`);
-	const pillBg = $derived(`oklch(0.75 0.16 ${hue} / 0.14)`);
+	const pillColor = $derived(hue.hex);
+	const pillBg = $derived(`color-mix(in oklab, ${hue.hex} 14%, transparent)`);
 </script>
 
 <div use:reveal class="mb-section">
@@ -44,14 +55,14 @@
 
 				<!-- Hue swatches -->
 				<div class="flex flex-wrap gap-2" role="group" aria-label="Category color">
-					{#each HUES as h (h)}
+					{#each HUES as h (h.name)}
 						<button
 							type="button"
 							onclick={() => (hue = h)}
 							aria-pressed={hue === h}
-							aria-label="Hue {h} degrees"
+							aria-label={h.name}
 							class="swatch {hue === h ? 'swatch-active' : ''}"
-							style:background="oklch(0.75 0.16 {h})"
+							style:background={h.hex}
 						></button>
 					{/each}
 				</div>
@@ -72,7 +83,8 @@
 				</div>
 			</div>
 			<p class="label-swiss mt-3">
-				The only saturated color in the Pocketwatch UI is the one you pick.
+				The only color you add to the Pocketwatch UI is the one you pick here. These are the
+				product&rsquo;s ten real category hues.
 			</p>
 		</div>
 	</div>
