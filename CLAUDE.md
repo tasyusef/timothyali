@@ -114,7 +114,7 @@ Case study pages (`src/routes/work/<slug>/+page.svelte`) compose shared componen
 3. `TextSection` — titled prose section (label left, copy right)
 4. `LiveEmbed` — labeled iframe embed with link to the external site
 5. `ResultsList` — bordered results/bullet list
-6. `Gallery` — image/video masonry grid with lightbox (keyboard nav, focus trap, scroll lock)
+6. `Gallery` — image/video masonry grid with lightbox (keyboard nav, focus trap, scroll lock). Items accept `frame: true` (+ optional `frameUrl`) to wrap the thumbnail in `BrowserFrame` — minimal browser chrome (dots + URL bar). Convention: **product screenshots get framed, brand/ad imagery stays full-bleed**; the lightbox always shows media unframed.
 7. New case studies must also be added to `src/lib/projects.ts` and get an OG entry automatically via slug
 
 ### Project Data
