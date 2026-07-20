@@ -24,6 +24,9 @@ export interface Project {
 	    each card's media aspect, so every card in the band is equal height with
 	    zero cropping. */
 	bentoRow?: number;
+	/** Within a band, consecutive projects sharing a bentoCol stack vertically
+	    in one column (e.g. Sonde + Jade beside the Pocketwatch feature). */
+	bentoCol?: number;
 	/** Optional media override for the bento card when the case-study hero
 	    doesn't suit the tile (e.g. Pocketwatch's square hero → landscape ad). */
 	bentoImage?: string;
@@ -391,6 +394,7 @@ export const projects: Project[] = [
 	{
 		slug: 'sonde',
 		bentoRow: 1,
+		bentoCol: 2,
 		title: 'Sonde',
 		section: 'code',
 		category: 'Product Design & Development',
@@ -446,6 +450,7 @@ export const projects: Project[] = [
 	{
 		slug: 'jade-aesthetics',
 		bentoRow: 1,
+		bentoCol: 2,
 		title: 'Jade Aesthetics',
 		section: 'code',
 		category: 'Web Design & Development',
