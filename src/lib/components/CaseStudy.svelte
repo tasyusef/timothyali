@@ -171,7 +171,7 @@
 		{@render children()}
 	</div>
 
-	<!-- Next Project -->
+	<!-- Next Project — the footer status row below carries the contact CTA -->
 	{#if nextProject}
 		<section aria-label="Next project" class="px-swiss mt-section pb-row">
 			<div use:reveal>
@@ -187,22 +187,4 @@
 			</div>
 		</section>
 	{/if}
-
-	<!-- Contact CTA -->
-	<section aria-label="Contact" class="px-swiss pb-row">
-		<div use:reveal>
-			<a
-				href="/contact"
-				class="group/link py-row hover-swiss grid grid-cols-1 gap-4 border-t border-[var(--color-border)] md:grid-cols-12 md:gap-0"
-			>
-				<p class="label-swiss md:col-span-3">Contact</p>
-				<span
-					class="heading-swiss text-subhead flex items-center gap-3 md:col-span-5 md:col-start-7"
-				>
-					Open to full-time roles — let&rsquo;s talk
-					<span class="arrow-reveal arrow-reveal-sm">&rarr;</span>
-				</span>
-			</a>
-		</div>
-	</section>
 </article>

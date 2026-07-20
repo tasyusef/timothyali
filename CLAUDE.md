@@ -53,7 +53,7 @@ Font sizes are fluid `clamp()` values defined as CSS custom properties. Use the 
 These are the core CSS utility classes defined in `app.css`:
 - `.label-swiss` — uppercase, caption-size, muted color, Space Grotesk. Used for all metadata labels.
 - `.data-swiss` — JetBrains Mono + tabular figures. For data values only (index numbers, years, dates, stats, the clock); composes with `.label-swiss`.
-- `.panel-swiss` — surface background + 1px border + `--radius-panel` (6px, the only radius on the site). Reserved for "data objects": stats cards, quick-link tiles, keycaps, browser frames, the command menu, interactive demos. Everything else stays borders-only — don't card the editorial layers.
+- `.panel-swiss` — surface background + 1px border + `--radius-panel` (6px, the only radius on the site). Reserved for "data objects": stats cards, keycaps, browser frames, the command menu, interactive demos. Everything else stays borders-only — don't card the editorial layers (prose/quick-link sections were tried as panels and reverted: it read as clutter).
 - `.heading-swiss` — Space Grotesk, light weight, negative tracking. Used on all headings.
 - `.hover-swiss` — opacity transition on hover. Used on all interactive text links.
 - `.arrow-reveal` / `.arrow-reveal-sm` / `.arrow-reveal-lg` — slide-in arrow on parent hover.
@@ -170,9 +170,10 @@ All animation values are centralized in `src/lib/motion.ts`:
 - `CommandKey.svelte` — the small ⌘K keycap trigger button (nav + footer status bar).
 - `focusTrap` keeps a module-level stack so nested overlays (e.g. menu over lightbox) only respond to Escape/Tab on the topmost trap.
 
-### Footer Status Bar
-- `StatusBar.svelte` — first footer row: availability pulse dot (static under reduced motion), `Denver, CO · <LocalTime />`, and a ⌘K keycap.
-- `LocalTime.svelte` — live Denver clock, `''` during SSR/prerender then ticking client-side (shared by homepage hero and footer).
+### Footer
+- Two rows only — keep it that way: `StatusBar.svelte` (pulse dot + "Open to work", "Get in touch" link, `Denver, CO · <LocalTime seconds={false} />`, ⌘K keycap) then the nav/© row.
+- The status row is the single sitewide availability/contact touchpoint — case studies have no separate contact CTA section, and there is no standalone Availability row (both were consolidated away after reading as stacked clutter).
+- `LocalTime.svelte` — live Denver clock, `''` during SSR/prerender then ticking client-side; `seconds` prop (homepage hero shows seconds, footer doesn't).
 
 ### SEO
 - `Seo.svelte` renders title (auto-suffixed "— Timothy Ali"), description, author, canonical, OG tags (incl. `og:image:width/height/alt`), Twitter tags (incl. `twitter:site`/`creator` from `X_HANDLE`), optional `article` metadata, and JSON-LD.

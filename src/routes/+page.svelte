@@ -85,8 +85,11 @@
 <!-- About / Writing / Contact -->
 <section aria-label="Quick Links" class="px-swiss border-t border-[var(--color-border)]">
 	<div use:reveal>
-		<div class="grid grid-cols-1 gap-2 md:grid-cols-3 md:gap-3">
-			<a href="/about" class="group panel-swiss py-row flex flex-col gap-4 px-6 md:px-8">
+		<div class="grid grid-cols-1 gap-px bg-[var(--color-border)] md:grid-cols-3">
+			<a
+				href="/about"
+				class="group py-row flex flex-col gap-4 bg-[var(--color-background)] md:pr-8"
+			>
 				<p class="label-swiss">About</p>
 				<p class="leading-body">
 					I&rsquo;m a designer who works across product, brand, and motion for startups and tech
@@ -99,7 +102,7 @@
 
 			<a
 				href="/blog/{posts[0].slug}"
-				class="group panel-swiss py-row flex flex-col gap-4 px-6 md:px-8"
+				class="group py-row flex flex-col gap-4 border-t border-[var(--color-border)] bg-[var(--color-background)] md:border-t-0 md:px-8"
 			>
 				<p class="label-swiss">Latest Writing</p>
 				<p class="leading-body">{posts[0].title}</p>
@@ -108,7 +111,10 @@
 				</span>
 			</a>
 
-			<a href="/contact" class="group panel-swiss py-row flex flex-col gap-4 px-6 md:px-8">
+			<a
+				href="/contact"
+				class="group py-row flex flex-col gap-4 border-t border-[var(--color-border)] bg-[var(--color-background)] md:border-t-0 md:pl-8"
+			>
 				<p class="label-swiss">Contact</p>
 				<p class="leading-body">
 					I&rsquo;m open to full-time product design roles and select freelance projects.
