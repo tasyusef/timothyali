@@ -33,7 +33,7 @@
 				</a>
 			{/each}
 			<div class="flex justify-end md:col-span-1 md:col-start-12">
-				<span class="label-swiss">&copy; {year}</span>
+				<span class="label-swiss data-swiss">&copy; {year}</span>
 			</div>
 		</div>
 
@@ -48,7 +48,7 @@
 				</div>
 			</div>
 			<div class="flex justify-end">
-				<span class="label-swiss">&copy; {year}</span>
+				<span class="label-swiss data-swiss">&copy; {year}</span>
 			</div>
 		</div>
 	</div>

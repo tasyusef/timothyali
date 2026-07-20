@@ -111,7 +111,7 @@
 				class="duration-fast ease-swiss grid grid-cols-12 items-center py-4 transition-opacity md:py-5"
 				style:opacity={activeRow !== null && !isActive ? 'var(--opacity-dim)' : undefined}
 			>
-				<span class="label-swiss col-span-1">{num}</span>
+				<span class="label-swiss data-swiss col-span-1">{num}</span>
 				<span class="heading-swiss text-subhead col-span-5">{project.title}</span>
 				<span
 					class="label-swiss relative hidden overflow-hidden md:col-span-3 md:col-start-7 md:block"
@@ -131,7 +131,7 @@
 						View case study &rarr;
 					</span>
 				</span>
-				<span class="label-swiss col-span-6 text-right md:col-span-2 md:col-start-11">
+				<span class="label-swiss data-swiss col-span-6 text-right md:col-span-2 md:col-start-11">
 					{project.year}
 				</span>
 			</div>

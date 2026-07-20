@@ -38,7 +38,7 @@
 			<a href="/blog" class="label-swiss hover-swiss">Back to Writing</a>
 		</div>
 		<div class="mt-2 md:col-span-3 md:col-start-10 md:mt-0 md:text-right">
-			<p class="label-swiss">{formatDate(post.date)}</p>
+			<p class="label-swiss data-swiss">{formatDate(post.date)}</p>
 		</div>
 	</div>
 

@@ -27,7 +27,7 @@
 			>
 				<div class="py-row grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-0">
 					<div class="md:col-span-3">
-						<p class="label-swiss">{formatDate(post.date)}</p>
+						<p class="label-swiss data-swiss">{formatDate(post.date)}</p>
 					</div>
 					<div class="md:col-span-5 md:col-start-7">
 						<h2 class="heading-swiss text-subhead">{post.title}</h2>

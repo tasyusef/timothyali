@@ -33,11 +33,13 @@ All design tokens are encoded in `src/app.css`. These are the rules:
 ### Fonts
 - **Space Grotesk** (`font-sans` / `--font-sans`) — headings, nav links, labels, uppercase metadata. Used via `.heading-swiss` and `.label-swiss` utility classes.
 - **Satoshi** (`font-body`) — body text, paragraphs, descriptions. Set as the default body font.
+- **JetBrains Mono** (`font-mono` / `--font-mono`, self-hosted via `@fontsource-variable/jetbrains-mono`) — data only: index numbers, years, dates, stat values, the clock. Used via the `.data-swiss` utility class, never for prose.
 
 ### Colors
 - Never hardcode hex values. Always use CSS custom properties from `app.css`.
 - Dark mode is the primary theme (`--color-background: #0a0a0a`). Light mode is toggled via `[data-theme="light"]`.
 - `--color-foreground` for primary text, `--color-muted` for secondary/labels, `--color-border` for dividers.
+- `--color-surface` — one elevation step above the background (`#111111` dark / `#ffffff` light). Used only by `.panel-swiss`.
 
 ### Fluid Type Scale
 Font sizes are fluid `clamp()` values defined as CSS custom properties. Use the corresponding utility classes — never use inline `style="font-size: …"`:
@@ -50,6 +52,8 @@ Font sizes are fluid `clamp()` values defined as CSS custom properties. Use the 
 ### Swiss Utility Classes
 These are the core CSS utility classes defined in `app.css`:
 - `.label-swiss` — uppercase, caption-size, muted color, Space Grotesk. Used for all metadata labels.
+- `.data-swiss` — JetBrains Mono + tabular figures. For data values only (index numbers, years, dates, stats, the clock); composes with `.label-swiss`.
+- `.panel-swiss` — surface background + 1px border + `--radius-panel` (6px, the only radius on the site). Reserved for "data objects": stats cards, quick-link tiles, keycaps, browser frames, the command menu, interactive demos. Everything else stays borders-only — don't card the editorial layers.
 - `.heading-swiss` — Space Grotesk, light weight, negative tracking. Used on all headings.
 - `.hover-swiss` — opacity transition on hover. Used on all interactive text links.
 - `.arrow-reveal` / `.arrow-reveal-sm` / `.arrow-reveal-lg` — slide-in arrow on parent hover.
