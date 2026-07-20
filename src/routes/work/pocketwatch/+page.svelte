@@ -3,7 +3,6 @@
 	import CaseStudy from '$lib/components/CaseStudy.svelte';
 	import TextSection from '$lib/components/TextSection.svelte';
 	import Gallery from '$lib/components/Gallery.svelte';
-	import PillsDemo from './PillsDemo.svelte';
 	import { getNextProject } from '$lib/projects';
 	import { imageUrl } from '$lib/images';
 	import { SITE_URL } from '$lib/site';
@@ -92,8 +91,6 @@
 			the same way everywhere instead of drifting component to component.
 		</p>
 	</TextSection>
-
-	<PillsDemo />
 
 	<TextSection title="Loud Outside, Quiet Inside">
 		<p>

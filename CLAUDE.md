@@ -116,7 +116,7 @@ Case study pages (`src/routes/work/<slug>/+page.svelte`) compose shared componen
 5. `ResultsList` — bordered results/bullet list
 6. `Gallery` — image/video masonry grid with lightbox (keyboard nav, focus trap, scroll lock). All media renders full-bleed. (A BrowserFrame chrome treatment for product screenshots was tried and removed: fake browser bars added noise, especially dark UI on the dark theme.)
 7. New case studies must also be added to `src/lib/projects.ts` and get an OG entry automatically via slug
-8. Case-study-local interactive demos colocate in the route folder (non-`+` files are private modules, e.g. `work/pocketwatch/PillsDemo.svelte`); promote to `$lib/components` only when shared. Demo content colors must be the showcased product's real values (PillsDemo uses Pocketwatch's actual ten category accents), clearly commented as product colors, never site tokens.
+8. Case-study-local interactive demos colocate in the route folder (non-`+` files are private modules); promote to `$lib/components` only when shared. Demo content colors must be the showcased product's real values, clearly commented as product colors, never site tokens. (A Pocketwatch category-pill demo was tried and scrapped; nothing interactive is embedded now.)
 
 ### Project Data
 `src/lib/projects.ts` is the central data file for the homepage project index. Each project has:
