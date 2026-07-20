@@ -4,57 +4,83 @@
 
 	let { projects, startIndex = 0 }: { projects: Project[]; startIndex?: number } = $props();
 
-	// Tile spans on the 12-col bento grid — curated per project via the
-	// `bento` field in $lib/projects (defaults to standard).
-	const SPANS: Record<NonNullable<Project['bento']>, string> = {
-		feature: 'col-span-8 row-span-2',
-		tall: 'col-span-4 row-span-2',
-		half: 'col-span-6',
-		standard: 'col-span-4'
-	};
+	interface Tile {
+		project: Project;
+		num: string;
+		aspect: number;
+	}
+
+	// Aspect-justified bento: consecutive projects sharing a bentoRow form one
+	// band. Column widths are proportional to each card's media aspect (Nfr),
+	// so every card in the band renders at the same height with zero cropping.
+	const rows = $derived.by(() => {
+		const out: Tile[][] = [];
+		let prevRow: number | undefined;
+		projects.forEach((project, index) => {
+			const tile: Tile = {
+				project,
+				num: String(startIndex + index + 1).padStart(2, '0'),
+				aspect: project.bentoAspect ?? project.heroAspect
+			};
+			const sameBand =
+				out.length > 0 && project.bentoRow !== undefined && project.bentoRow === prevRow;
+			if (sameBand) out[out.length - 1].push(tile);
+			else out.push([tile]);
+			prevRow = project.bentoRow;
+		});
+		return out;
+	});
 </script>
 
-<div class="bento grid grid-cols-12 gap-3">
-	{#each projects as project, index (project.slug)}
-		{@const num = String(startIndex + index + 1).padStart(2, '0')}
-		<a
-			href="/work/{project.slug}"
-			class="card group/link panel-swiss flex flex-col overflow-hidden {SPANS[
-				project.bento ?? 'standard'
-			]}"
-		>
-			<div class="bento-media flex-1 overflow-hidden">
-				{#if project.heroVideo}
-					<video src={project.heroVideo} autoplay loop muted playsinline aria-label={project.title}
-					></video>
-				{:else}
-					<Img
-						src={project.heroImage}
-						alt={project.title}
-						sizes={project.bento === 'feature' ? '66vw' : '33vw'}
-					/>
-				{/if}
-			</div>
-			<div class="flex items-center gap-3 border-t border-[var(--color-border)] px-4 py-3">
-				<span class="label-swiss data-swiss">{num}</span>
-				<span class="heading-swiss flex items-center gap-2 text-[var(--color-foreground)]">
-					{project.title}
-					<span class="arrow-reveal arrow-reveal-sm">&rarr;</span>
-				</span>
-				<span class="label-swiss ml-auto hidden truncate lg:block">{project.category}</span>
-				<span class="label-swiss data-swiss shrink-0 max-lg:ml-auto">{project.year}</span>
-			</div>
-		</a>
+<div class="flex flex-col gap-3">
+	{#each rows as row, rowIdx (rowIdx)}
+		<div class="grid gap-3" style:grid-template-columns={row.map((t) => `${t.aspect}fr`).join(' ')}>
+			{#each row as { project, num, aspect } (project.slug)}
+				<a
+					href="/work/{project.slug}"
+					class="card group/link panel-swiss flex flex-col overflow-hidden"
+				>
+					<div class="bento-media w-full overflow-hidden" style:aspect-ratio={aspect}>
+						{#if project.heroVideo}
+							<video
+								src={project.heroVideo}
+								autoplay
+								loop
+								muted
+								playsinline
+								aria-label={project.title}
+							></video>
+						{:else}
+							<Img
+								src={project.bentoImage ?? project.heroImage}
+								alt={project.title}
+								sizes={aspect > 1.5 ? '66vw' : '33vw'}
+							/>
+						{/if}
+					</div>
+					<div
+						class="flex items-center gap-3 border-t border-[var(--color-border)] px-4 py-3 whitespace-nowrap"
+					>
+						<span class="label-swiss data-swiss">{num}</span>
+						<span
+							class="heading-swiss flex min-w-0 items-center gap-2 text-[var(--color-foreground)]"
+						>
+							<span class="truncate">{project.title}</span>
+							<span class="arrow-reveal arrow-reveal-sm">&rarr;</span>
+						</span>
+						<span class="label-swiss ml-auto hidden truncate xl:block">{project.category}</span>
+						<span class="label-swiss data-swiss max-xl:ml-auto shrink-0">{project.year}</span>
+					</div>
+				</a>
+			{/each}
+		</div>
 	{/each}
 </div>
 
 <style>
-	.bento {
-		grid-auto-rows: 13rem;
-	}
-
 	/* enhanced:img renders <picture> (display: contents) — style the img
-	   through :global; the video is component-local. */
+	   through :global; the video is component-local. The media box already
+	   matches the source aspect, so object-fit never crops. */
 	.bento-media :global(img),
 	.bento-media video {
 		height: 100%;

@@ -19,9 +19,15 @@ export interface Project {
 	heroImage: string;
 	heroVideo?: string;
 	heroAspect: number; // width / height of the hero media shown in preview cards
-	/** Desktop bento tile size (ProjectBento) — defaults to 'standard' (4 cols).
-	    feature = 8 cols × 2 rows, tall = 4 cols × 2 rows, half = 6 cols. */
-	bento?: 'feature' | 'tall' | 'half' | 'standard';
+	/** Bento row grouping (desktop) — consecutive projects sharing a row number
+	    render in one aspect-justified band: column widths are proportional to
+	    each card's media aspect, so every card in the band is equal height with
+	    zero cropping. */
+	bentoRow?: number;
+	/** Optional media override for the bento card when the case-study hero
+	    doesn't suit the tile (e.g. Pocketwatch's square hero → landscape ad). */
+	bentoImage?: string;
+	bentoAspect?: number;
 	videos?: string[];
 	images: ProjectImage[];
 	stats?: ProjectStat[];
@@ -31,7 +37,7 @@ export interface Project {
 export const projects: Project[] = [
 	{
 		slug: 'firststrike',
-		bento: 'feature',
+		bentoRow: 1,
 		title: 'FirstStrike Research',
 		section: 'design',
 		category: 'Brand Identity',
@@ -101,7 +107,7 @@ export const projects: Project[] = [
 	},
 	{
 		slug: 'xrpcafe',
-		bento: 'tall',
+		bentoRow: 1,
 		title: 'xrp.cafe',
 		section: 'design',
 		category: 'Brand Identity & Motion Design',
@@ -167,6 +173,7 @@ export const projects: Project[] = [
 	},
 	{
 		slug: 'firstledger',
+		bentoRow: 2,
 		title: 'First Ledger',
 		section: 'design',
 		category: 'Brand Identity System',
@@ -235,6 +242,7 @@ export const projects: Project[] = [
 	},
 	{
 		slug: 'do-androids-dream',
+		bentoRow: 2,
 		title: 'Do Androids Dream?',
 		section: 'design',
 		category: 'Motion Design',
@@ -260,6 +268,7 @@ export const projects: Project[] = [
 	},
 	{
 		slug: 'gridform',
+		bentoRow: 2,
 		title: 'Studio Gridform',
 		section: 'design',
 		category: 'Brand Design & Philosophy',
@@ -314,7 +323,9 @@ export const projects: Project[] = [
 	},
 	{
 		slug: 'pocketwatch',
-		bento: 'feature',
+		bentoRow: 1,
+		bentoImage: '/images/pocketwatch/ad-both.png',
+		bentoAspect: 1200 / 628,
 		title: 'Pocketwatch',
 		section: 'code',
 		category: 'Product & Brand Design',
@@ -379,6 +390,7 @@ export const projects: Project[] = [
 	},
 	{
 		slug: 'sonde',
+		bentoRow: 1,
 		title: 'Sonde',
 		section: 'code',
 		category: 'Product Design & Development',
@@ -433,6 +445,7 @@ export const projects: Project[] = [
 	},
 	{
 		slug: 'jade-aesthetics',
+		bentoRow: 1,
 		title: 'Jade Aesthetics',
 		section: 'code',
 		category: 'Web Design & Development',
