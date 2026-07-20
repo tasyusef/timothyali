@@ -133,8 +133,9 @@
 					gyms, online communities, and esports teams.
 				</p>
 				<p>
-					I bring a modernist, &ldquo;less noise&rdquo; approach to everything I make, built on
-					Swiss design principles: clarity, structure, and purpose.
+					My foundations are Swiss modernist: clarity, structure, purpose. That training shapes how
+					I work, not how everything I make looks. Each project gets the voice it calls for, quiet
+					restraint or loud color.
 				</p>
 				<p>
 					AI is changing creative work, and I want to understand how. I use Claude Code every day,
