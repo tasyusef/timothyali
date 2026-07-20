@@ -14,7 +14,7 @@
 
 <!-- Hero Section -->
 <section aria-label="Introduction" class="px-swiss pt-[4vh] pb-[8vh] md:pt-[6vh] md:pb-[14vh]">
-	<h1 class="sr-only">Timothy Ali — Product, Brand & Motion Designer</h1>
+	<h1 class="sr-only">Timothy Ali: Product, Brand & Motion Designer</h1>
 	<div class="entrance border-t border-[var(--color-border)] pt-6">
 		<div class="grid grid-cols-2 gap-y-6 md:grid-cols-12">
 			<div class="hidden md:col-span-3 md:block">
@@ -99,8 +99,8 @@
 			>
 				<p class="label-swiss">About</p>
 				<p class="leading-body">
-					I&rsquo;m a designer who works across product, brand, and motion for startups and tech
-					companies. I bring a modernist, &ldquo;less noise&rdquo; approach to everything I make.
+					I design product, brand, and motion for startups and tech companies, with a modernist,
+					&ldquo;less noise&rdquo; approach to everything I make.
 				</p>
 				<span class="label-swiss hover-swiss mt-auto overflow-hidden">
 					<span class="arrow-reveal arrow-reveal-lg">&rarr;</span>

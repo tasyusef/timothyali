@@ -25,10 +25,9 @@
 		<div class="md:col-span-5 md:col-start-7">
 			<p class="leading-body">
 				{#if page.status === 404}
-					The page you&rsquo;re looking for doesn&rsquo;t exist — it may have moved, or the URL may
-					have a typo.
+					This page doesn&rsquo;t exist. It may have moved, or the URL may have a typo.
 				{:else}
-					{page.error?.message ?? 'An unexpected error occurred.'}
+					{page.error?.message ?? 'An error stopped this page from loading.'}
 				{/if}
 			</p>
 			<a href="/" class="label-swiss hover-swiss mt-8 inline-block underline underline-offset-4">

@@ -4,7 +4,7 @@ export const SITE_URL = 'https://www.timothyali.com';
 export const SITE_NAME = 'Timothy Ali';
 export const SITE_TITLE = 'Timothy Ali — UX & Product Designer in Denver';
 export const SITE_DESCRIPTION =
-	'Portfolio of Timothy Ali — UX and product designer in Denver, CO, specializing in product design, brand identity, and motion for startups and tech companies.';
+	'Portfolio of Timothy Ali, a UX and product designer in Denver, CO. Product design, brand identity, and motion for startups and tech companies.';
 export const X_HANDLE = '@twocakeS__';
 
 export interface SocialLink {

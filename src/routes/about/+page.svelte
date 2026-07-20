@@ -30,49 +30,49 @@
 			org: 'Freelance',
 			role: 'Graphic Designer',
 			summary:
-				'Created brand identities, miscellaneous graphics, and designed apps and websites for startups and local businesses including med-spas, gyms, and online communities.'
+				'Built brand identities, graphics, apps, and websites for startups and local businesses, including med-spas, gyms, and online communities.'
 		},
 		{
 			period: '2021 — 2024',
 			org: 'xrp.cafe',
 			role: 'Cofounder & Founding Designer',
 			summary:
-				"Cofounded xrp.cafe and built its brand identity and design system, producing website wireframes, event collateral, motion graphics, and 10+ social campaigns that grew the community to 29,000+ members, helped raise $32K for St. Jude's, and over $5 million USD in revenue."
+				"Cofounded xrp.cafe and built its brand identity and design system: website wireframes, event collateral, motion graphics, and 10+ social campaigns that grew the community to 29,000+ members, helped raise $32K for St. Jude's, and brought in over $5 million USD in revenue."
 		},
 		{
 			period: '2024 — 2025',
 			org: 'firstledger.net',
 			role: 'Senior Brand Designer',
 			summary:
-				'Designed and led the visual identity system for First Ledger, delivering animated promotional campaigns and social content that grew the audience to 42,000+ followers while supporting a platform that has surpassed $1B in trading volume.'
+				'Designed and led the visual identity system for First Ledger. Animated campaigns and social content grew the audience to 42,000+ followers while the platform passed $1B in trading volume.'
 		},
 		{
 			period: '2025 — Now',
 			org: 'FirstStrike Research',
 			role: 'Brand Designer',
 			summary:
-				'Developed a high-contrast, retro-inspired brand identity for FirstStrike Research, a veteran-owned financial research company — wordmark, color system, typography, and brand guidelines applied across web, social, and print.'
+				'Built a high-contrast, retro-inspired brand identity for FirstStrike Research, a veteran-owned financial research company: wordmark, color system, typography, and brand guidelines applied across web, social, and print.'
 		},
 		{
 			period: '2025 — 2026',
 			org: 'Jade Aesthetics',
 			role: 'Designer & Developer',
 			summary:
-				'Designed and developed two complete websites for a premium medical spa — an initial Framer launch followed by a 30+ page SEO-architected Next.js application with 100 Lighthouse accessibility scores and server-side rendering.'
+				'Designed and built two complete websites for a premium medical spa: a first launch in Framer, then a 30+ page SEO-architected Next.js application with 100 Lighthouse accessibility scores and server-side rendering.'
 		},
 		{
 			period: '2025 — 2026',
 			org: 'Sonde',
-			role: 'Personal Project — Designer & Developer',
+			role: 'Personal Project: Designer & Developer',
 			summary:
-				'Designed and built a real-time XRPL block explorer with live WebSocket data streaming, account and transaction exploration, and a typographically driven dark-mode interface — from brand identity through full-stack development.'
+				'Designed and built a real-time XRPL block explorer, from brand identity through full-stack development: live WebSocket data streaming, account and transaction exploration, and a typographically driven dark-mode interface.'
 		},
 		{
 			period: '2026 — Now',
 			org: 'DOMOTO',
 			role: 'Digital Designer (Contract)',
 			summary:
-				'Designing and building a multi-brand design-system platform, coded in JavaScript, that gives client companies one navigable home for their living design systems, components, and tokens — architected AI-native so agents can programmatically read design tokens, components, and brand assets. Serving publicly traded and Fortune 500 clients.'
+				'Designing and building a multi-brand design-system platform, coded in JavaScript, that gives client companies one home for their living design systems, components, and tokens. Built AI-native, so agents can read design tokens, components, and brand assets programmatically. Serving publicly traded and Fortune 500 clients.'
 		}
 	];
 
@@ -82,7 +82,7 @@
 
 <Seo
 	title="About"
-	description="Timothy Ali is a designer working across product, brand, and motion — designing and building products, brand systems, and websites for startups and tech companies."
+	description="Timothy Ali is a designer working in product, brand, and motion. He designs and builds products, brand systems, and websites for startups and tech companies."
 	ogKey="about"
 	jsonLd={{
 		'@context': 'https://schema.org',
@@ -93,7 +93,7 @@
 />
 
 <div class="page-wrapper">
-	<h1 class="sr-only">About Timothy Ali — UX & Product Designer in Denver</h1>
+	<h1 class="sr-only">About Timothy Ali, UX & Product Designer in Denver</h1>
 	<!-- Header row -->
 	<div
 		class="entrance pb-row grid grid-cols-1 border-b border-[var(--color-border)] md:grid-cols-12"
@@ -121,26 +121,26 @@
 			<div class="leading-body space-y-6">
 				<p>
 					I&rsquo;m a designer working across product, brand, and motion. I design and build
-					products, brand systems, and websites for startups and tech companies — from early-stage
-					to growth.
+					products, brand systems, and websites for startups and tech companies, from early-stage to
+					growth.
 				</p>
 				<p>
-					Currently I&rsquo;m designing and building a multi-brand, AI-native design-system platform
-					at DOMOTO, serving publicly traded and Fortune 500 clients. Before that I designed and
-					built Sonde, a personal project — a real-time XRPL block explorer I took from brand
-					identity through full-stack development — and worked with FirstStrike Research, crypto
-					projects like xrp.cafe and First Ledger, and freelance clients spanning luxury med spas,
+					Now I&rsquo;m designing and building a multi-brand, AI-native design-system platform at
+					DOMOTO, serving publicly traded and Fortune 500 clients. Before that I designed and built
+					Sonde, a personal project: a real-time XRPL block explorer I took from brand identity
+					through full-stack development. I have also worked with FirstStrike Research, crypto
+					projects like xrp.cafe and First Ledger, and freelance clients from luxury med spas to
 					gyms, online communities, and esports teams.
 				</p>
 				<p>
-					I bring a modernist, &ldquo;less noise&rdquo; approach to everything I make — rooted in
+					I bring a modernist, &ldquo;less noise&rdquo; approach to everything I make, built on
 					Swiss design principles: clarity, structure, and purpose.
 				</p>
 				<p>
-					I&rsquo;m fascinated by AI and how it&rsquo;s reshaping creative work. I use Claude Code
-					every day — not as a shortcut, but as a way to close the gap between idea and execution.
-					Whether it&rsquo;s accelerating a prototype, writing production code, or pressure-testing
-					a design decision, I&rsquo;m always exploring new ways to integrate AI into my process.
+					AI is changing creative work, and I want to understand how. I use Claude Code every day,
+					not as a shortcut but as a faster path from idea to working product: prototypes,
+					production code, tests of design decisions. I keep looking for new ways to fold AI into my
+					process.
 				</p>
 				<p>
 					Based in Denver, Colorado. Open to full-time product design roles and select freelance
@@ -192,7 +192,7 @@
 			<p class="label-swiss mb-4 md:col-span-3 md:mb-0">Education</p>
 			<div class="md:col-span-5 md:col-start-7">
 				<p class="leading-body">BFA, Graphic Design</p>
-				<p class="leading-body">Rocky Mountain College of Art + Design, 2022—2025</p>
+				<p class="leading-body">Rocky Mountain College of Art + Design, 2022–2025</p>
 			</div>
 		</div>
 	</div>

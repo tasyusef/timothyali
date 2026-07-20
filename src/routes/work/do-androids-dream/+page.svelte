@@ -8,7 +8,7 @@
 	import { SITE_URL } from '$lib/site';
 
 	const description =
-		'A bold, two-color title sequence for Philip K. Dick’s “Do Androids Dream of Electric Sheep?” — Saul Bass instead of Blade Runner.';
+		'A bold, two-color title sequence for Philip K. Dick’s “Do Androids Dream of Electric Sheep?”: Saul Bass instead of Blade Runner.';
 </script>
 
 <Seo
@@ -37,38 +37,37 @@
 >
 	{#snippet overview()}
 		<p>
-			A title sequence for Philip K. Dick&rsquo;s <em>Do Androids Dream of Electric Sheep?</em> — the
-			novel that inspired Blade Runner. Rather than recreating the dark, rain-soaked aesthetic everyone
-			expects, I went the opposite direction: a stark, high-contrast yellow-and-black graphic style closer
-			to Saul Bass than Ridley Scott.
+			A title sequence for Philip K. Dick&rsquo;s <em>Do Androids Dream of Electric Sheep?</em>, the
+			novel that inspired Blade Runner. Everyone expects the dark, rain-soaked look. I went the
+			other way: a stark, high-contrast yellow-and-black graphic style closer to Saul Bass than
+			Ridley Scott.
 		</p>
 	{/snippet}
 
 	<TextSection title="The Concept">
 		<p>
-			What does this story look like with the atmosphere stripped away — reduced to its most graphic
-			elements? That question drove every decision in the sequence.
+			What does this story look like with the atmosphere stripped away, cut down to its plainest
+			graphic elements? That question drove every decision in the sequence.
 		</p>
 		<p>
-			The answer was a two-color world. Bright yellow and deep black, nothing else. The yellow is
+			The answer was a two-color world: bright yellow and deep black, nothing else. The yellow is
 			the artificial, the synthetic, the electric; the black is the void. Together they make a world
-			that feels simultaneously stark and overwhelming, and the limited palette forces the eye onto
-			what&rsquo;s left: shape, movement, composition.
+			at once stark and overwhelming, and the narrow palette forces the eye onto what&rsquo;s left:
+			shape, movement, composition.
 		</p>
 	</TextSection>
 
 	<TextSection title="Visual Language">
 		<p>
-			The sequence&rsquo;s central element is a dystopian skyline — a jagged silhouette of towers
-			and industrial structures rendered as flat black vector shapes against the yellow sky. Against
-			that mass, a lone silhouetted figure: the emotional core of the sequence, one person dwarfed
-			by the built environment.
+			The sequence centers on a dystopian skyline: a jagged silhouette of towers and industrial
+			structures drawn as flat black vector shapes against the yellow sky. Against that mass stands
+			a lone silhouetted figure, the emotional core of the piece: one person dwarfed by the built
+			environment.
 		</p>
 		<p>
-			Subtle chromatic aberration flickers at the edges of the vector shapes throughout — a hint of
-			electronic interference that makes the world feel slightly misaligned, like it&rsquo;s being
-			viewed through a synthetic lens. It&rsquo;s the only effect in the piece, which is why it
-			registers.
+			Subtle chromatic aberration flickers at the edges of the vector shapes throughout: a hint of
+			electronic interference that leaves the world slightly misaligned, as if seen through a
+			synthetic lens. It&rsquo;s the only effect in the piece, which is why it registers.
 		</p>
 	</TextSection>
 
@@ -76,12 +75,12 @@
 		<p>
 			Three acts in forty-five seconds. Act one: the title builds word by word on a flat yellow
 			field. Act two: the cityscape enters and the credits play against it. Act three: the
-			perspective breaks — pulled into the city along a converging road as the sun rises and beams
-			radiate outward.
+			perspective breaks, and the camera pulls into the city along a converging road as the sun
+			rises and beams radiate outward.
 		</p>
 		<p>
-			The deliberately anti–Blade Runner aesthetic is itself the statement: source material this
-			rich deserves more than one visual interpretation.
+			The anti–Blade Runner look is itself the statement: source material this rich deserves more
+			than one visual reading.
 		</p>
 	</TextSection>
 

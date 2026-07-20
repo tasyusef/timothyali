@@ -26,7 +26,7 @@
 
 <div use:reveal class="mb-section">
 	<div class="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-0">
-		<h2 class="label-swiss md:col-span-3">Interactive &mdash; Try It</h2>
+		<h2 class="label-swiss md:col-span-3">Interactive: Try It</h2>
 		<div class="md:col-span-5 md:col-start-7">
 			<div class="panel-swiss flex flex-col gap-6 p-6 md:p-8">
 				<!-- Live pill preview -->

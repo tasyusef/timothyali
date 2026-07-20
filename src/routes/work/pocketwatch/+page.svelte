@@ -9,7 +9,7 @@
 	import { SITE_URL } from '$lib/site';
 
 	const description =
-		'Brand identity, design system, and front-end for Pocketwatch — budgeting, net worth, and investments in one clean personal-finance app.';
+		'Brand identity, design system, and front-end for Pocketwatch, a personal-finance app that puts budgeting, net worth, and investments in one place.';
 </script>
 
 <Seo
@@ -36,17 +36,17 @@
 	timeline="Ongoing"
 	tools="Figma, SvelteKit, Svelte 5, TypeScript, Tailwind CSS, Bits UI"
 	heroImage="/images/pocketwatch/hero.png"
-	heroAlt="Pocketwatch — all your money in one place. Dashboard with net worth, investments, and money agenda on electric lime"
+	heroAlt="Pocketwatch: all your money in one place. Dashboard with net worth, investments, and money agenda on electric lime"
 	heroImage2="/images/pocketwatch/hero-invest.png"
-	heroAlt2="Pocketwatch campaign — watch your investments move, live position tickers on violet"
+	heroAlt2="Pocketwatch campaign: watch your investments move, live position tickers on violet"
 	nextProject={getNextProject('pocketwatch')}
 >
 	{#snippet overview()}
 		<p class="mb-4">
 			Pocketwatch is a personal-finance app that puts budgeting, net worth, and investments in one
-			place — &ldquo;everything that moves your money, in one ledger.&rdquo; I led the brand, the
-			design system, and the product design, and built the front end alongside my collaborator
-			Chris, who owns the backend and business side. It&rsquo;s live at pocketwatch.io.
+			place: &ldquo;everything that moves your money, in one ledger.&rdquo; I led the brand, the
+			design system, and the product design, and built the front end. My collaborator Chris owns the
+			backend and business side. It&rsquo;s live at pocketwatch.io.
 		</p>
 		<ul class="space-y-2">
 			<li>— Brand identity and a full design system</li>
@@ -58,38 +58,36 @@
 
 	<TextSection title="Brand Identity">
 		<p>
-			Pocketwatch had to feel trustworthy enough to hold someone&rsquo;s entire financial life and
-			warm enough that they&rsquo;d actually open it every day — most finance apps land on one side
-			or the other. The mark threads that needle: a friendly, slightly odd little creature built
-			from a pocket-watch silhouette, drawn as a single confident shape and set in a soft dark
-			squircle. It reads as approachable at app-icon size and serious in a nav bar. The wordmark is
-			Satoshi — geometric, modern, no flourishes.
+			Pocketwatch had to feel trustworthy enough to hold someone&rsquo;s whole financial life and
+			warm enough that they open it every day. Most finance apps pick one side. The mark does both:
+			a friendly, slightly odd little creature built from a pocket-watch silhouette, drawn as a
+			single confident shape and set in a soft dark squircle. It reads as approachable at app-icon
+			size and serious in a nav bar. The wordmark is Satoshi: geometric, modern, no flourishes.
 		</p>
 		<p>
-			The palette is deliberately warm-neutral and nearly monochrome — near-black ink on cream —
-			with the mark doing the heavy lifting. It&rsquo;s a personality you can live with in a tool
-			you check every morning, not a logo built to shout from a billboard.
+			The palette is warm-neutral and nearly monochrome, near-black ink on cream, and the mark
+			carries the personality. It&rsquo;s a character you can live with in a tool you open every
+			morning, not a logo that shouts.
 		</p>
 	</TextSection>
 
 	<TextSection title="A Design System With No Brand Color">
 		<p>
-			The core design decision was to give the app no brand color at all. The chrome is
-			intentionally quiet — a cool, neutral palette in the Linear / Stripe / Vercel register —
-			because the moment a finance app starts coloring its own interface, it competes with the only
-			thing that actually matters: your money. So color comes entirely from content. Every category
-			is a pill — an emoji plus one of ten saturated hues the user picks — and those pills are the
-			only saturated color anywhere in the UI. The interface stays calm by default and turns
-			colorful exactly where the user made it so.
+			The core decision was to give the app no brand color at all. The chrome is quiet, a cool
+			neutral palette in the Linear / Stripe / Vercel register, because a finance app that colors
+			its own interface competes with the one thing that matters: your money. So all color comes
+			from content. Every category is a pill, an emoji plus one of ten saturated hues the user
+			picks, and those pills are the only saturated color in the UI. The interface stays calm by
+			default and turns colorful exactly where the user made it so.
 		</p>
 		<p>
-			Everything routes through a single source of truth: one tokens file for type, color, spacing,
-			and motion, consumed by Tailwind and exposed as CSS variables, with a live design-system page
-			that re-skins the entire app from one attribute. Type is a three-font system — Satoshi for
-			display, Inter for UI and body, JetBrains Mono for every figure, because financial numbers
-			have to be tabular and monospaced to scan. Motion is tokenized the same way: one workhorse
-			ease-out, a small set of named durations, and a global reduced-motion override, so the whole
-			product moves with one restrained vocabulary instead of drifting component to component.
+			Everything routes through one tokens file for type, color, spacing, and motion, consumed by
+			Tailwind and exposed as CSS variables, with a live design-system page that re-skins the whole
+			app from one attribute. Type is a three-font system: Satoshi for display, Inter for UI and
+			body, JetBrains Mono for every figure, because financial numbers must be tabular and
+			monospaced to scan. Motion works the same way: one standard ease-out, a few named durations,
+			and a global reduced-motion override, so the whole product moves the same way everywhere
+			instead of drifting component to component.
 		</p>
 	</TextSection>
 
@@ -98,32 +96,30 @@
 	<TextSection title="Loud Outside, Quiet Inside">
 		<p>
 			The marketing layer inverts the app&rsquo;s restraint on purpose. The landing page, ads, and
-			social campaign run loud — one saturated color per feature story, lime to violet to pink, with
-			chunky condensed display type shouting &ldquo;Keep an eye on every dollar&rdquo; — because
-			acquisition needs stopping power the product itself should never have. The same mascot and
-			wordmark carry both registers, so the brand stays recognizable whether it&rsquo;s a
-			billboard-loud ad or a quiet nav bar. Once you&rsquo;re inside, the color disappears and your
-			money is the loudest thing on screen.
+			social campaign run loud: one saturated color per feature story, lime to violet to pink, with
+			chunky condensed display type shouting &ldquo;Keep an eye on every dollar&rdquo;. An ad has to
+			grab attention; the product never should. The same mascot and wordmark carry both registers,
+			so the brand reads the same on a loud ad and in a quiet nav bar. Once you&rsquo;re inside, the
+			color drops away and your money is the loudest thing on screen.
 		</p>
 	</TextSection>
 
 	<TextSection title="One Ledger for Everything">
 		<p>
-			Most people run their financial life across three or four disconnected tools — a budgeting
-			app, a banking app, a brokerage, a spreadsheet for net worth. Pocketwatch&rsquo;s product
-			thesis is that those are one picture, not four. It unifies a zero-based budget (every dollar
-			assigned, with a Ready-to-Assign figure), a transaction ledger across cash and credit
-			accounts, lots-based investment tracking, manual assets, and a net-worth view derived from all
-			of it. The hard part was density without dread: it&rsquo;s a lot of financial data, and it has
-			to feel browsable, not like a tax form.
+			Most people run their financial life across three or four separate tools: a budgeting app, a
+			banking app, a brokerage, a spreadsheet for net worth. Pocketwatch treats those as one
+			picture, not four. It unifies a zero-based budget (every dollar assigned, with a
+			Ready-to-Assign figure), a transaction ledger across cash and credit accounts, lots-based
+			investment tracking, manual assets, and a net-worth view derived from all of it. The hard part
+			was to make that much financial data feel browsable rather than like a tax form.
 		</p>
 		<p>
-			The interface borrows YNAB&rsquo;s rigor but covers far more ground, and it&rsquo;s built to a
-			production standard from the first screen — every list and table designed mobile-first, every
+			The interface is as strict as YNAB but covers far more ground, and it&rsquo;s built to a
+			production standard from the first screen: every list and table designed mobile-first, every
 			loading, empty, and error state handled, every destructive action confirmed. I designed and
-			built the front end in SvelteKit 2 and Svelte 5, using its runes reactivity on a component
-			system tuned to keep dense data calm. Chris built the backend — Express, Drizzle, Postgres —
-			and owns the business and legal side, which let each of us go deep on our half.
+			built the front end in SvelteKit 2 and Svelte 5, using runes reactivity on a component system
+			tuned to keep dense data calm. Chris built the backend in Express, Drizzle, and Postgres, and
+			owns the business and legal side, so each of us could focus on his own half.
 		</p>
 	</TextSection>
 
@@ -134,42 +130,42 @@
 				src: '/images/pocketwatch/app-dashboard.png',
 				frame: true,
 				frameUrl: 'pocketwatch.io',
-				alt: 'Pocketwatch dashboard — money agenda, composition, investments, wealth velocity, and cash flow'
+				alt: 'Pocketwatch dashboard: money agenda, composition, investments, wealth velocity, and cash flow'
 			},
 			{
 				type: 'image',
 				src: '/images/pocketwatch/app-budget.png',
 				frame: true,
 				frameUrl: 'pocketwatch.io',
-				alt: 'Pocketwatch budget — zero-based categories with Ready to Assign and monthly summary'
+				alt: 'Pocketwatch budget: zero-based categories with Ready to Assign and monthly summary'
 			},
 			{
 				type: 'image',
 				src: '/images/pocketwatch/app-accounts.png',
 				frame: true,
 				frameUrl: 'pocketwatch.io',
-				alt: 'Pocketwatch accounts — one register for checking, cards, and brokerage trades'
+				alt: 'Pocketwatch accounts: one register for checking, cards, and brokerage trades'
 			},
 			{
 				type: 'image',
 				src: '/images/pocketwatch/app-investments.png',
 				frame: true,
 				frameUrl: 'pocketwatch.io',
-				alt: 'Pocketwatch investments — total return, portfolio value, allocation, and dividend income'
+				alt: 'Pocketwatch investments: total return, portfolio value, allocation, and dividend income'
 			},
 			{
 				type: 'image',
 				src: '/images/pocketwatch/app-networth.png',
 				frame: true,
 				frameUrl: 'pocketwatch.io',
-				alt: 'Pocketwatch net worth — over-time chart, goal pacing, and what moved it'
+				alt: 'Pocketwatch net worth: chart over time, goal pacing, and what moved it'
 			}
 		]}
 	/>
 
 	<TextSection title="Live">
 		<p class="leading-body">
-			Pocketwatch is live in production as a real subscription product — a 14-day free trial, then
+			Pocketwatch is live in production as a real subscription product: a 14-day free trial, then
 			$5/month or $50/year through Stripe, with a desktop app alongside the web app.
 		</p>
 		<a
@@ -187,45 +183,45 @@
 			{
 				type: 'image',
 				src: '/images/pocketwatch/ad-both.png',
-				alt: 'Pocketwatch campaign — budgeting and investing in one place, electric lime'
+				alt: 'Pocketwatch campaign: budgeting and investing in one place, on electric lime'
 			},
 			{
 				type: 'image',
 				src: '/images/pocketwatch/ad-networth.png',
-				alt: 'Pocketwatch campaign — know exactly what you are worth, net worth tracking on sky blue'
+				alt: 'Pocketwatch campaign: know exactly what you are worth, net worth tracking on sky blue'
 			},
 			{
 				type: 'image',
 				src: '/images/pocketwatch/ad-invest.png',
-				alt: 'Pocketwatch campaign — your portfolio, priced live, investments on violet'
+				alt: 'Pocketwatch campaign: your portfolio, priced live, investments on violet'
 			},
 			{
 				type: 'image',
 				src: '/images/pocketwatch/ad-budget.png',
-				alt: 'Pocketwatch campaign — every dollar, accounted for, zero-based budget on orange'
+				alt: 'Pocketwatch campaign: every dollar, accounted for, zero-based budget on orange'
 			},
 			{
 				type: 'image',
 				src: '/images/pocketwatch/ad-ledger.png',
-				alt: 'Pocketwatch campaign — every account in one place, unified ledger on mint green'
+				alt: 'Pocketwatch campaign: every account in one place, unified ledger on mint green'
 			},
 			{
 				type: 'image',
 				src: '/images/pocketwatch/ad-analytics.png',
-				alt: 'Pocketwatch campaign — see where it all goes, category breakdown on pink'
+				alt: 'Pocketwatch campaign: see where it all goes, category breakdown on pink'
 			}
 		]}
 	/>
 
 	<TextSection title="Outcome">
 		<p>
-			Pocketwatch is the rare personal project that&rsquo;s genuinely shipped software. The product
-			is built security-first — every route scoped to its owner, inputs validated, sessions
-			revocable server-side — to the standard a tool handling real money demands. Privacy is a
-			product feature, not a policy page: bank connections are read-only, sign-in is passkey-based,
-			and the business model is subscriptions — never data. What I&rsquo;m proudest of is the
-			restraint: an all-in-one finance app is exactly the kind of product that bloats into noise,
-			and Pocketwatch holds its discipline at full scope — staying quiet the deeper you go.
+			Pocketwatch is the rare personal project that shipped as real software. The product is built
+			security-first: every route scoped to its owner, inputs validated, sessions revocable
+			server-side, the standard a tool that handles real money demands. Privacy is a product
+			feature, not a policy page. Bank connections are read-only, sign-in uses passkeys, and the
+			business model is subscriptions, never data. What I&rsquo;m proudest of is the restraint: an
+			all-in-one finance app is the kind of product that bloats into noise, and Pocketwatch stays
+			quiet the deeper you go.
 		</p>
 	</TextSection>
 </CaseStudy>

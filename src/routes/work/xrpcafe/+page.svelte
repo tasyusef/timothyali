@@ -9,7 +9,7 @@
 	import { SITE_URL } from '$lib/site';
 
 	const description =
-		'Visual identity, mascot system, motion design, and marketing for the #1 NFT marketplace on the XRP Ledger — cofounded and designed from day one.';
+		'Visual identity, mascot system, motion design, and marketing for the #1 NFT marketplace on the XRP Ledger, which I cofounded and designed from the start.';
 </script>
 
 <Seo
@@ -42,56 +42,56 @@
 	{#snippet overview()}
 		<p class="mb-4">
 			xrp.cafe is the #1 NFT marketplace on the XRP Ledger. As cofounder and founding designer, I
-			designed the brand from zero and led its rollout across marketing, events, and content — 10+
+			built the brand from nothing and led its rollout across marketing, events, and content: 10+
 			social campaigns, motion graphics, event booths, and community touchpoints.
 		</p>
 		<p>
-			The positioning was a deliberate contrarian bet. Crypto branding in 2021 was dark, aggressive,
-			and self-serious; we went warm, friendly, and approachable instead — a cozy place for NFTs.
-			That warmth became the moat.
+			The positioning ran against the whole field. Crypto branding in 2021 was dark, aggressive, and
+			self-serious. We went warm, friendly, and approachable: a cozy place for NFTs. That warmth set
+			us apart and kept people with us.
 		</p>
 	{/snippet}
 
 	<TextSection title="The Mascot System">
 		<p>
-			The heart of the brand is its mascot: a simple, expressive coffee mug with stick-figure limbs
-			and a warm smile. What started as a logo mark grew into a full cast of characters — each with
-			its own personality and accessories — that became the face of the brand on every touchpoint.
+			The brand centers on its mascot: a simple, expressive coffee mug with stick-figure limbs and a
+			warm smile. It began as a logo mark and grew into a full cast of characters, each with its own
+			personality and accessories, that fronted the brand on every touchpoint.
 		</p>
 		<p>
-			A mascot system earns its keep through variety without drift. I produced new character
-			variations and scenes for campaigns, seasonal moments, and community milestones — a Halloween
-			pumpkin mug, a beach-BBQ mug, a Super Saiyan mug — each instantly recognizable as xrp.cafe,
-			none requiring a brand guideline lookup to feel right.
+			A mascot system works when it can vary without drifting. I drew new characters and scenes for
+			campaigns, seasonal moments, and community milestones: a Halloween pumpkin mug, a beach-BBQ
+			mug, a Super Saiyan mug. Each read as xrp.cafe at a glance, and none needed a brand guideline
+			to feel right.
 		</p>
 	</TextSection>
 
 	<TextSection title="Motion Graphics">
 		<p>
-			The &ldquo;Explore, Create, Trade&rdquo; promo distills the entire value proposition into a
-			fast-paced animated piece — kinetic typography, smooth character animation, and the
-			brand&rsquo;s signature blue throughout. It was designed for the feed, not the film festival:
-			vertical format, legible on a phone mid-scroll, message delivered in seconds.
+			The &ldquo;Explore, Create, Trade&rdquo; promo compresses the whole pitch into one fast
+			animated piece: kinetic typography, smooth character animation, and the brand&rsquo;s
+			signature blue throughout. I made it for the feed, not the film festival: vertical format,
+			legible on a phone mid-scroll, message delivered in seconds.
 		</p>
 		<p>
-			Around the hero promo I built a library of motion assets — product launches, feature
-			announcements, event recaps — that gave the brand a consistent, energetic presence in feeds.
-			Each piece had the same job: communicate one platform feature, fast, in character.
+			Around the hero promo I built a library of motion assets for product launches, feature
+			announcements, and event recaps, which gave the brand a steady, energetic presence in feeds.
+			Each piece had one job: show one platform feature, fast, in character.
 		</p>
 	</TextSection>
 
 	<TextSection title="Community as a Channel">
 		<p>
-			NFT marketplaces live and die by their communities, so the brand&rsquo;s primary medium was
-			the daily feed. I produced a continuous stream of content for Twitter/X, Instagram, and
-			Discord — product announcements, feature launches, community events, seasonal posts,
-			partnerships, milestone celebrations. The cadence was relentless: multiple posts a week, each
-			needing custom graphics, copy, and a read on what the community actually cared about that day.
+			An NFT marketplace depends on its community, so the brand&rsquo;s main medium was the daily
+			feed. I produced a steady stream of content for Twitter/X, Instagram, and Discord: product
+			announcements, feature launches, community events, seasonal posts, partnerships, milestone
+			celebrations. The pace never let up: several posts a week, each needing custom graphics, copy,
+			and a read on what the community cared about that day.
 		</p>
 		<p>
-			The same system extended into the physical world — booth designs, backdrops, banners, and
-			merch for Consensus, Permissionless, and ETH Denver — where a warm, recognizable brand stood
-			out on a conference floor full of black-and-neon.
+			The same system carried into the physical world, with booth designs, backdrops, banners, and
+			merch for Consensus, Permissionless, and ETH Denver. On a conference floor full of
+			black-and-neon, a warm, recognizable brand stood out.
 		</p>
 	</TextSection>
 
@@ -105,10 +105,10 @@
 			"Helped raise $32K for St. Jude's with VeSea",
 			'Featured on the official XRPL developer blog',
 			'Profiled by Messari as one of the most established touchpoints on XRPL',
-			'XRPL Accelerator backed — institutional support from the network',
-			'Consensus 2023 & 2024 — booth presence two years running',
-			'Permissionless 2024 — booth within the Ripple X section',
-			'ETH Denver 2022–2024 — brand presence three years running'
+			'XRPL Accelerator backed: institutional support from the network',
+			'Consensus 2023 & 2024: booth presence two years running',
+			'Permissionless 2024: booth within the Ripple X section',
+			'ETH Denver 2022–2024: brand presence three years running'
 		]}
 	/>
 

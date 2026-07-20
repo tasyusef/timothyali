@@ -5,7 +5,7 @@
 
 <Seo
 	title="Contact"
-	description="Get in touch with Timothy Ali — open to full-time product and brand design roles, as well as freelance projects."
+	description="Get in touch with Timothy Ali. Open to full-time product and brand design roles and freelance projects."
 	ogKey="contact"
 />
 
@@ -25,7 +25,7 @@
 		<div class="md:col-span-5 md:col-start-1">
 			<h1 class="heading-swiss text-headline">
 				Get in touch<span class="sr-only">
-					with Timothy Ali — designer for product, brand & motion</span
+					with Timothy Ali, designer for product, brand & motion</span
 				>
 			</h1>
 		</div>

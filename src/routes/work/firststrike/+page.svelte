@@ -8,7 +8,7 @@
 	import { SITE_URL } from '$lib/site';
 
 	const description =
-		'Brand identity for FirstStrike Research, a veteran-owned financial research company — wordmark, color system, typography, and full brand guidelines.';
+		'Brand identity for FirstStrike Research, a veteran-owned financial research company: wordmark, color system, typography, and full brand guidelines.';
 </script>
 
 <Seo
@@ -41,7 +41,7 @@
 	{#snippet overview()}
 		<p class="mb-4">
 			FirstStrike Research is a veteran-owned financial research company covering American markets.
-			A one-month brand commission — logo, color, typography, and guidelines, delivered as one
+			A one-month brand commission: logo, color, typography, and guidelines, delivered as one
 			documented system.
 		</p>
 		<ul class="space-y-2">
@@ -53,44 +53,43 @@
 
 	<TextSection title="The Brief">
 		<p>
-			In financial media, trust is the product. The brand had to hold its own next to legacy
-			research outlets while signaling everything they aren&rsquo;t: independent, direct, and fast.
-			The client&rsquo;s military background set the tone — first strike, first mover — and a rough
-			mood board pointed at retro print media. My job was to turn that instinct into a system
-			credible enough for finance.
+			In financial media, trust is the product. The brand had to stand next to legacy research
+			outlets while signaling everything they aren&rsquo;t: independent, direct, and fast. The
+			client&rsquo;s military background set the tone: first strike, first mover. A rough mood board
+			pointed at retro print media. My job was to turn that instinct into a system serious enough
+			for finance.
 		</p>
 	</TextSection>
 
 	<TextSection title="Logo & Wordmark">
 		<p>
-			The wordmark is set in heavy italic type. The forward lean gives it momentum — the urgency of
-			a market that doesn&rsquo;t wait — while the weight keeps it planted and serious. The defining
-			element is the halftone dot-matrix pattern trailing off the &ldquo;F&rdquo;: a nod to
-			newsprint and retro media that reads as impact radiating outward from the name.
+			I set the wordmark in heavy italic type. The forward lean gives it motion; the weight keeps it
+			serious. The defining element is the halftone dot-matrix pattern trailing off the
+			&ldquo;F&rdquo;. It recalls newsprint and reads as impact spreading from the name.
 		</p>
 		<p>
-			The system ships in three configurations — horizontal for headers, stacked for tight spaces,
-			and a standalone icon for favicons and avatars — each specified for both light and dark
-			backgrounds, so placement is a lookup, not a judgment call.
+			The logo comes in three forms: horizontal for headers, stacked for tight spaces, and a
+			standalone icon for favicons and avatars. I specified each for light and dark backgrounds, so
+			placement is a lookup, not a judgment call.
 		</p>
 	</TextSection>
 
 	<TextSection title="Color & Type">
 		<p>
-			Electric Blue (#003DFF) anchors the entire brand — bold enough to stand out in financial
-			media, with the gravity to carry authority. It&rsquo;s paired with Midnight Black for text and
-			Ice White for secondary surfaces, and backed by three accents — Soft Mint, Signal Coral, and
-			Amber Pulse — tuned for data visualization and digital surfaces. Typography is Helvetica in
-			two weights — Heavy for headlines that hit, Medium for everything that has to be read.
+			Electric Blue (#003DFF) anchors the brand: bold enough to stand out in financial media, heavy
+			enough to carry authority. Midnight Black handles text, Ice White the secondary surfaces.
+			Three accents, Soft Mint, Signal Coral, and Amber Pulse, cover data visualization and digital
+			surfaces. Typography is Helvetica in two weights: Heavy for headlines, Medium for everything
+			meant to be read.
 		</p>
 	</TextSection>
 
 	<TextSection title="The Signature Look">
 		<p>
 			The brand&rsquo;s most recognizable treatment is gradient-plus-grain: a deep blue-to-cyan
-			gradient overlaid with subtle noise. It gives digital surfaces a tactile, almost printed
-			quality — the retro personality made literal — without tipping into pastiche. One treatment,
-			three surfaces on day one: social cards, billboards, editorial layouts.
+			gradient overlaid with subtle noise. It gives digital surfaces a printed, tactile quality
+			without slipping into pastiche. One treatment, three surfaces on day one: social cards,
+			billboards, editorial layouts.
 		</p>
 	</TextSection>
 
@@ -104,27 +103,27 @@
 			{
 				type: 'image',
 				src: '/images/firststrike/firststrike_pres-02.png',
-				alt: 'FirstStrike Research mission statement — veteran-owned financial research company'
+				alt: 'FirstStrike Research mission statement: veteran-owned financial research company'
 			},
 			{
 				type: 'image',
 				src: '/images/firststrike/firststrike_pres-03.png',
-				alt: 'FirstStrike Research billboard mockup — Real News. Real Research. Real Insights.'
+				alt: 'FirstStrike Research billboard mockup: Real News. Real Research. Real Insights.'
 			},
 			{
 				type: 'image',
 				src: '/images/firststrike/firststrike_pres-04.png',
-				alt: 'FirstStrike Research brand pillars — Retro. Strong. Versatile.'
+				alt: 'FirstStrike Research brand pillars: Retro. Strong. Versatile.'
 			},
 			{
 				type: 'image',
 				src: '/images/firststrike/firststrike_pres-05.png',
-				alt: 'FirstStrike Research primary logo lockup — horizontal wordmark'
+				alt: 'FirstStrike Research primary logo lockup, horizontal wordmark'
 			},
 			{
 				type: 'image',
 				src: '/images/firststrike/firststrike_pres-06.png',
-				alt: 'FirstStrike Research secondary logo lockup — stacked wordmark'
+				alt: 'FirstStrike Research secondary logo lockup, stacked wordmark'
 			},
 			{
 				type: 'image',
@@ -134,7 +133,7 @@
 			{
 				type: 'image',
 				src: '/images/firststrike/firststrike_pres-08.png',
-				alt: 'Color system — Electric Blue, Soft Mint, Signal Coral, Amber Pulse'
+				alt: 'Color system: Electric Blue, Soft Mint, Signal Coral, Amber Pulse'
 			},
 			{
 				type: 'image',
@@ -144,17 +143,17 @@
 			{
 				type: 'image',
 				src: '/images/firststrike/firststrike_pres-10.png',
-				alt: 'FirstStrike Research typography system — Helvetica Heavy and Medium'
+				alt: 'FirstStrike Research typography system: Helvetica Heavy and Medium'
 			}
 		]}
 	/>
 
 	<TextSection title="Outcome">
 		<p>
-			FirstStrike launched with the full system in hand — wordmark, color, type, the
-			gradient-plus-grain signature, and guidelines detailed to the point that the brand never has
-			to be improvised in context. The identity is fully specified from business card to billboard:
-			every surface the company touches draws from the same set of rules.
+			FirstStrike launched with the full system in hand: wordmark, color, type, the
+			gradient-plus-grain signature, and guidelines detailed enough that no one has to improvise the
+			brand. The rules run from business card to billboard: every surface the company touches draws
+			from the same set.
 		</p>
 	</TextSection>
 </CaseStudy>

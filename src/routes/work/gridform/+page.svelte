@@ -8,7 +8,7 @@
 	import { SITE_URL } from '$lib/site';
 
 	const description =
-		'A complete brand system, poster series, and 28-page design philosophy book built around one idea: less noise.';
+		'A brand system, poster series, and 28-page design philosophy book built around one idea: less noise.';
 </script>
 
 <Seo
@@ -40,55 +40,54 @@
 	{#snippet overview()}
 		<p>
 			Studio Gridform is my design practice, and &ldquo;less noise.&rdquo; is its manifesto. I built
-			the entire brand system from scratch — identity, guidelines, stationery, a poster series, and
-			a 28-page book explaining the thinking behind it all. Every piece is a demonstration of the
-			principles it argues for.
+			the whole brand system from scratch: identity, guidelines, stationery, a poster series, and a
+			28-page book that explains the thinking. Every piece demonstrates the principles it argues
+			for.
 		</p>
 	{/snippet}
 
 	<TextSection title="Logo & Icon Mark">
 		<p>
-			I began with the most essential forms, searching for a relationship between proportion and
-			negative space. The &ldquo;G&rdquo; developed a geometric precision, and a grid element in its
-			top-right corner completes the lettermark — merging the initial with the structural motif the
-			studio is named for.
+			I began with the plainest forms, testing proportion against negative space. The
+			&ldquo;G&rdquo; took on geometric precision, and a grid element in its top-right corner
+			completes the lettermark, merging the initial with the structure the studio is named for.
 		</p>
 		<p>
-			It felt Swiss — clarity, structure, purpose. Gibson SemiBold proved the typographic match: a
+			It felt Swiss: clarity, structure, purpose. Gibson SemiBold proved the typographic match, a
 			clean geometric sans whose construction mirrors the mark&rsquo;s own.
 		</p>
 	</TextSection>
 
 	<TextSection title="The Poster Series">
 		<p>
-			Each poster explores a single geometric primitive — rectangles, circles, triangles — in a
-			four-color modernist palette: teal, vermillion, yellow, and forest green on white.
-			They&rsquo;re exercises in restraint: how much visual energy can a few flat shapes generate?
+			Each poster takes one geometric primitive (rectangles, circles, triangles) and a four-color
+			modernist palette: teal, vermillion, yellow, and forest green on white. They&rsquo;re
+			exercises in restraint: how much visual energy can a few flat shapes generate?
 		</p>
 		<p>
-			Every poster carries the same quiet footer — &ldquo;less noise.&rdquo; on the left, the
+			Every poster carries the same quiet footer: &ldquo;less noise.&rdquo; on the left, the
 			Gridform wordmark on the right. The work speaks; the branding stays out of the way.
 		</p>
 	</TextSection>
 
 	<TextSection title="The Book">
 		<p>
-			<em>Less Noise.</em> is a 28-page design philosophy book — part manifesto, part process documentation
-			— organized around four principles: Design is Problem Solving, Finding a Brand&rsquo;s Voice, Timeless
-			Over Trendy, and Inside Out Design.
+			<em>Less Noise.</em> is a 28-page design philosophy book, part manifesto, part process record, organized
+			around four principles: Design is Problem Solving, Finding a Brand&rsquo;s Voice, Timeless Over
+			Trendy, and Inside Out Design.
 		</p>
 		<p>
 			Each principle gets its own spread: the argument set in a strict typographic hierarchy on one
-			page, real work shown as evidence on the facing page — the same grid discipline the text is
-			arguing for, applied to the page you&rsquo;re reading it on.
+			page, real work shown as evidence on the facing page. The text argues for grid discipline; the
+			page it sits on obeys it.
 		</p>
 	</TextSection>
 
 	<TextSection title="Stationery & Print">
 		<p>
 			The identity extends into a full stationery system. Dark business cards pair the wordmark with
-			clean contact information and a QR code. The exterior signboard takes the brand to its most
-			minimal expression — just the G mark on a dark square, confident enough to stand alone.
+			contact details and a QR code. The exterior signboard strips the brand to its minimum: the G
+			mark alone on a dark square.
 		</p>
 	</TextSection>
 
@@ -107,12 +106,12 @@
 			{
 				type: 'image',
 				src: '/images/gridform/GRIDFORM_BOOK_1.png',
-				alt: 'Studio Gridform book — Design is Problem Solving spread'
+				alt: 'Studio Gridform book: Design is Problem Solving spread'
 			},
 			{
 				type: 'image',
 				src: '/images/gridform/GRIDFORM_BOOK_4.png',
-				alt: 'Studio Gridform book — Timeless Over Trendy spread featuring First Ledger'
+				alt: 'Studio Gridform book: Timeless Over Trendy spread featuring First Ledger'
 			},
 			{
 				type: 'image',
@@ -124,9 +123,9 @@
 
 	<TextSection title="Outcome">
 		<p>
-			The manifesto outlived the project. &ldquo;Less noise.&rdquo; codified the design philosophy
-			the rest of my practice runs on — the language of this site descends directly from it. Every
-			brand system I&rsquo;ve built since has been held to the standard the book set.
+			The manifesto outlived the project. &ldquo;Less noise.&rdquo; codified the philosophy the rest
+			of my practice runs on; the language of this site descends from it. I hold every brand system
+			I&rsquo;ve built since to the standard the book set.
 		</p>
 	</TextSection>
 </CaseStudy>
