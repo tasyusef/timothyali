@@ -30,7 +30,7 @@
 
 <CaseStudy
 	title="Pocketwatch"
-	category="Product & Brand Design"
+	category="Product, Brand & Art Direction"
 	year="2026"
 	role="Brand, Product Design & Front-End"
 	timeline="Ongoing"

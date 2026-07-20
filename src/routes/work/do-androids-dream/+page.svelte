@@ -29,7 +29,7 @@
 
 <CaseStudy
 	title="Do Androids Dream?"
-	category="Motion Design"
+	category="Motion & Art Direction"
 	year="2023"
 	role="Director, Designer, Animator"
 	timeline="~45 seconds"

@@ -30,7 +30,7 @@
 
 <CaseStudy
 	title="xrp.cafe"
-	category="Brand Identity & Motion Design"
+	category="Brand & Motion"
 	year="2021–2024"
 	role="Cofounder / Founding Designer"
 	tools="Illustrator, After Effects"

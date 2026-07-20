@@ -29,7 +29,7 @@
 
 <CaseStudy
 	title="FirstStrike Research"
-	category="Brand Identity"
+	category="Brand & Art Direction"
 	year="2025"
 	role="Brand Designer (sole designer)"
 	timeline="~1 month"

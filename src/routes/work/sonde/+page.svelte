@@ -29,7 +29,7 @@
 
 <CaseStudy
 	title="Sonde"
-	category="Product Design & Development"
+	category="Product, Code & Art Direction"
 	year="2025–2026"
 	role="Designer & Developer (sole creator)"
 	tools="Figma, Next.js, TypeScript, Tailwind CSS, Recharts, PostgreSQL, ClickHouse, Neo4j, WebSockets, SSE"

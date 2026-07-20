@@ -30,7 +30,7 @@
 
 <CaseStudy
 	title="Jade Aesthetics"
-	category="Web Design & Development"
+	category="Web & Code"
 	year="2025–2026"
 	role="Designer & Developer"
 	timeline="~4 months (two phases)"

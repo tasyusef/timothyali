@@ -29,7 +29,7 @@
 
 <CaseStudy
 	title="Studio Gridform — “Less Noise.”"
-	category="Brand Design & Philosophy"
+	category="Brand & Art Direction"
 	year="2023"
 	role="Creator & Designer"
 	tools="Illustrator"
