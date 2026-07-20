@@ -3,6 +3,7 @@
 	import { onNavigate } from '$app/navigation';
 	import Navigation from '$lib/components/Navigation.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import CommandMenu from '$lib/components/CommandMenu.svelte';
 	import { PERSON_JSON_LD, WEBSITE_JSON_LD } from '$lib/site';
 
 	let { children } = $props();
@@ -38,3 +39,4 @@
 	{@render children()}
 </main>
 <Footer />
+<CommandMenu />

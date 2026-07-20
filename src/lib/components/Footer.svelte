@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { NAV_LINKS, NAV_LINK_COLUMNS } from '$lib/nav';
+	import StatusBar from './StatusBar.svelte';
 
 	const year = new Date().getFullYear();
 </script>
 
 <footer class="px-swiss pb-8">
+	<StatusBar />
 	<div
 		class="py-row grid grid-cols-1 gap-4 border-t border-[var(--color-border)] md:grid-cols-12 md:gap-0"
 	>

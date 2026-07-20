@@ -159,8 +159,19 @@ All animation values are centralized in `src/lib/motion.ts`:
 
 ### Theme
 - Inline `<script>` in `app.html` reads `localStorage.getItem('theme')` before hydration (no FOUC).
-- `$lib/theme.svelte.ts` is a runes-based store; `ThemeToggle.svelte` flips it and persists to localStorage.
+- `$lib/theme.svelte.ts` is a runes-based store with `set(theme)` and `toggle()`; `ThemeToggle.svelte` is a segmented two-button control (moon/dark, sun/light) that persists to localStorage.
 - Light mode uses the `[data-theme="light"]` CSS selector to swap color tokens.
+
+### Command Menu (⌘K)
+- `$lib/commandMenu.svelte.ts` — runes store for open state (triggers live in Navigation and StatusBar; the menu mounts once in `+layout.svelte`).
+- `$lib/commands.ts` — builds the command list from `NAV_LINKS`, `projects`, and `theme.set` (groups: Navigate / Projects / Theme).
+- `CommandMenu.svelte` — ⌘K/Ctrl+K global shortcut, filter input, arrow-key + Enter selection, `focusTrap`, `panel-swiss` styling.
+- `CommandKey.svelte` — the small ⌘K keycap trigger button (nav + footer status bar).
+- `focusTrap` keeps a module-level stack so nested overlays (e.g. menu over lightbox) only respond to Escape/Tab on the topmost trap.
+
+### Footer Status Bar
+- `StatusBar.svelte` — first footer row: availability pulse dot (static under reduced motion), `Denver, CO · <LocalTime />`, and a ⌘K keycap.
+- `LocalTime.svelte` — live Denver clock, `''` during SSR/prerender then ticking client-side (shared by homepage hero and footer).
 
 ### SEO
 - `Seo.svelte` renders title (auto-suffixed "— Timothy Ali"), description, author, canonical, OG tags (incl. `og:image:width/height/alt`), Twitter tags (incl. `twitter:site`/`creator` from `X_HANDLE`), optional `article` metadata, and JSON-LD.

@@ -16,10 +16,13 @@ export const theme = {
 	get current() {
 		return current;
 	},
-	toggle() {
+	set(next: Theme) {
 		if (typeof document === 'undefined') return;
-		current = current === 'dark' ? 'light' : 'dark';
-		document.documentElement.dataset.theme = current;
-		localStorage.setItem('theme', current);
+		current = next;
+		document.documentElement.dataset.theme = next;
+		localStorage.setItem('theme', next);
+	},
+	toggle() {
+		this.set(current === 'dark' ? 'light' : 'dark');
 	}
 };

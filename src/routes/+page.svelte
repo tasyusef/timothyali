@@ -2,26 +2,11 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import Img from '$lib/components/Img.svelte';
 	import ProjectIndex from '$lib/components/ProjectIndex.svelte';
+	import LocalTime from '$lib/components/LocalTime.svelte';
 	import { reveal } from '$lib/actions/reveal';
 	import { designProjects, codeProjects } from '$lib/projects';
 	import { posts } from '$lib/posts';
 	import { SOCIAL_LINKS } from '$lib/site';
-
-	const timeFormat = new Intl.DateTimeFormat('en-US', {
-		timeZone: 'America/Denver',
-		hour: 'numeric',
-		minute: '2-digit',
-		second: '2-digit',
-		hour12: true
-	});
-
-	let denverTime = $state('');
-
-	$effect(() => {
-		denverTime = timeFormat.format(new Date());
-		const id = setInterval(() => (denverTime = timeFormat.format(new Date())), 1000);
-		return () => clearInterval(id);
-	});
 </script>
 
 <Seo ogKey="home" />
@@ -55,7 +40,7 @@
 			<div class="md:col-span-2 md:col-start-9">
 				<p class="label-swiss mb-2">Location / Time</p>
 				<p class="leading-body">Denver, CO</p>
-				<p class="leading-body data-swiss text-caption-size">{denverTime}</p>
+				<p class="leading-body text-caption-size"><LocalTime /></p>
 			</div>
 			<div class="md:col-span-2 md:col-start-11">
 				<p class="label-swiss mb-2">Connect</p>

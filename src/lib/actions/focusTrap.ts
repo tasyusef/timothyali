@@ -9,13 +9,20 @@ interface FocusTrapOptions {
 
 const FOCUSABLE = 'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
+/* Overlays can nest (e.g. command menu over lightbox). Every trap listens on
+   document, so only the most recently mounted one may handle keys — otherwise
+   a single Escape would close every open overlay at once. */
+const trapStack: HTMLElement[] = [];
+
 /**
- * Traps Tab focus within the node (for modal overlays: mobile nav, lightbox),
- * wires up Escape-to-close, and returns focus to the previously focused
- * element when the trap is destroyed.
+ * Traps Tab focus within the node (for modal overlays: mobile nav, lightbox,
+ * command menu), wires up Escape-to-close, and returns focus to the previously
+ * focused element when the trap is destroyed.
  */
 export const focusTrap: Action<HTMLElement, FocusTrapOptions | undefined> = (node, options) => {
 	const { onEscape, autofocus = true } = options ?? {};
+
+	trapStack.push(node);
 
 	const previouslyFocused =
 		document.activeElement instanceof HTMLElement ? document.activeElement : null;
@@ -26,6 +33,7 @@ export const focusTrap: Action<HTMLElement, FocusTrapOptions | undefined> = (nod
 	}
 
 	function onKeydown(e: KeyboardEvent) {
+		if (trapStack[trapStack.length - 1] !== node) return;
 		if (e.key === 'Escape') {
 			onEscape?.();
 			return;
@@ -51,6 +59,8 @@ export const focusTrap: Action<HTMLElement, FocusTrapOptions | undefined> = (nod
 	return {
 		destroy() {
 			document.removeEventListener('keydown', onKeydown);
+			const i = trapStack.indexOf(node);
+			if (i !== -1) trapStack.splice(i, 1);
 			previouslyFocused?.focus();
 		}
 	};
