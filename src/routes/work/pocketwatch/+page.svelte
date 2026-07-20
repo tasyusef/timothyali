@@ -71,15 +71,16 @@
 		</p>
 	</TextSection>
 
-	<TextSection title="A Design System With No Brand Color">
+	<TextSection title="The App Keeps No Color for Itself">
 		<p>
-			The core decision was to give the app no brand color at all. The chrome is quiet, a cool
-			neutral palette in the Linear / Stripe / Vercel register, because a finance app that colors
-			its own interface competes with the one thing that matters: your money. So color comes from
-			content. Every category is a pill, an emoji plus one of ten hues the user picks, and that is
-			the only color a user adds to the interface. The few other accents mark meaning: gains,
-			losses, warnings. The interface stays calm by default and turns colorful exactly where the
-			user made it so.
+			The brand has a color; the app refuses to use it. The citron lives on the marketing side only.
+			Inside the product the chrome stays neutral, a cool gray palette in the Linear / Stripe /
+			Vercel register, and the mark is the one colored thing the app itself brings. A finance app
+			that colors its own interface competes with the one thing that matters: your money. So color
+			comes from content. Every category is a pill, an emoji plus one of ten hues the user picks,
+			and that is the only color a user adds to the interface. The few other accents mark meaning:
+			gains, losses, warnings. The interface stays calm by default and turns colorful exactly where
+			the user made it so.
 		</p>
 		<p>
 			Everything routes through one tokens file for type, color, spacing, and motion, consumed by
