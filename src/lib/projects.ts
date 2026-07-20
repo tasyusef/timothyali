@@ -19,6 +19,9 @@ export interface Project {
 	heroImage: string;
 	heroVideo?: string;
 	heroAspect: number; // width / height of the hero media shown in preview cards
+	/** Desktop bento tile size (ProjectBento) — defaults to 'standard' (4 cols).
+	    feature = 8 cols × 2 rows, tall = 4 cols × 2 rows, half = 6 cols. */
+	bento?: 'feature' | 'tall' | 'half' | 'standard';
 	videos?: string[];
 	images: ProjectImage[];
 	stats?: ProjectStat[];
@@ -28,6 +31,7 @@ export interface Project {
 export const projects: Project[] = [
 	{
 		slug: 'firststrike',
+		bento: 'feature',
 		title: 'FirstStrike Research',
 		section: 'design',
 		category: 'Brand Identity',
@@ -97,6 +101,7 @@ export const projects: Project[] = [
 	},
 	{
 		slug: 'xrpcafe',
+		bento: 'tall',
 		title: 'xrp.cafe',
 		section: 'design',
 		category: 'Brand Identity & Motion Design',
@@ -309,6 +314,7 @@ export const projects: Project[] = [
 	},
 	{
 		slug: 'pocketwatch',
+		bento: 'feature',
 		title: 'Pocketwatch',
 		section: 'code',
 		category: 'Product & Brand Design',

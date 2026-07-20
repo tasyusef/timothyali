@@ -2,6 +2,7 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import Img from '$lib/components/Img.svelte';
 	import ProjectIndex from '$lib/components/ProjectIndex.svelte';
+	import ProjectBento from '$lib/components/ProjectBento.svelte';
 	import LocalTime from '$lib/components/LocalTime.svelte';
 	import { reveal } from '$lib/actions/reveal';
 	import { designProjects, codeProjects } from '$lib/projects';
@@ -67,7 +68,10 @@
 	<div use:reveal>
 		<p class="label-swiss mb-8">Design &amp; Brand</p>
 	</div>
-	<div use:reveal>
+	<div use:reveal class="hidden md:block">
+		<ProjectBento projects={designProjects} />
+	</div>
+	<div use:reveal class="md:hidden">
 		<ProjectIndex projects={designProjects} />
 	</div>
 </section>
@@ -77,7 +81,10 @@
 	<div use:reveal>
 		<p class="label-swiss mb-8">Code &amp; Product</p>
 	</div>
-	<div use:reveal>
+	<div use:reveal class="hidden md:block">
+		<ProjectBento projects={codeProjects} startIndex={designProjects.length} />
+	</div>
+	<div use:reveal class="md:hidden">
 		<ProjectIndex projects={codeProjects} startIndex={designProjects.length} />
 	</div>
 </section>

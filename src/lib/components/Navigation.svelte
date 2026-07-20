@@ -6,7 +6,6 @@
 	import { duration, easeSwiss } from '$lib/motion';
 	import { focusTrap } from '$lib/actions/focusTrap';
 	import ThemeToggle from './ThemeToggle.svelte';
-	import CommandKey from './CommandKey.svelte';
 
 	let mobileOpen = $state(false);
 
@@ -44,14 +43,12 @@
 				<span class="z-dropdown relative">{link.label}</span>
 			</a>
 		{/each}
-		<div class="hidden items-center justify-end gap-3 md:col-span-1 md:col-start-12 md:flex">
-			<CommandKey />
+		<div class="hidden justify-end md:col-span-1 md:col-start-12 md:flex">
 			<ThemeToggle />
 		</div>
 
-		<!-- Mobile hamburger + command menu + theme toggle -->
+		<!-- Mobile hamburger + theme toggle -->
 		<div class="flex items-center gap-2 md:hidden">
-			<CommandKey />
 			<ThemeToggle />
 			<button
 				type="button"

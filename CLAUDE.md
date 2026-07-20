@@ -126,7 +126,7 @@ Case study pages (`src/routes/work/<slug>/+page.svelte`) compose shared componen
 - `description` (one-liner)
 - Optional: `heroVideo`, `videos`
 
-The homepage renders two grouped indexes — "Design & Brand" (`designProjects`) then "Code & Product" (`codeProjects`), both derived from `section`. The array is ordered design-first so numbering runs continuously (01–05, then 06–08 via `ProjectIndex`'s `startIndex` prop) and `getNextProject` cycles design → code. New projects must set `section`.
+The homepage renders two grouped work sections — "Design & Brand" (`designProjects`) then "Code & Product" (`codeProjects`), both derived from `section`. Desktop shows `ProjectBento` (12-col bento of panel cards; tile size via the optional `bento` field: `feature` 8×2, `tall` 4×2, `half` 6, default `standard` 4 — curated: FirstStrike + Pocketwatch feature, xrp.cafe tall for its portrait hero video). Mobile shows `ProjectIndex` (tap-to-expand list). The array is ordered design-first so numbering runs continuously (01–05, then 06–08 via the shared `startIndex` prop) and `getNextProject` cycles design → code. New projects must set `section` (and optionally `bento`).
 
 ### Blog
 - Posts are markdown files in `src/content/posts/<slug>.md` with frontmatter: `title`, `date` (ISO), `excerpt`.
@@ -160,14 +160,14 @@ All animation values are centralized in `src/lib/motion.ts`:
 
 ### Theme
 - Inline `<script>` in `app.html` reads `localStorage.getItem('theme')` before hydration (no FOUC).
-- `$lib/theme.svelte.ts` is a runes-based store with `set(theme)` and `toggle()`; `ThemeToggle.svelte` is a segmented two-button control (moon/dark, sun/light) that persists to localStorage.
+- `$lib/theme.svelte.ts` is a runes-based store with `set(theme)` and `toggle()`; `ThemeToggle.svelte` is a plain floating icon button (no panel box — a segmented control was tried and reverted). The command menu's theme commands use `set()`.
 - Light mode uses the `[data-theme="light"]` CSS selector to swap color tokens.
 
 ### Command Menu (⌘K)
 - `$lib/commandMenu.svelte.ts` — runes store for open state (triggers live in Navigation and StatusBar; the menu mounts once in `+layout.svelte`).
 - `$lib/commands.ts` — builds the command list from `NAV_LINKS`, `projects`, and `theme.set` (groups: Navigate / Projects / Theme).
 - `CommandMenu.svelte` — ⌘K/Ctrl+K global shortcut, filter input, arrow-key + Enter selection, `focusTrap`, `panel-swiss` styling.
-- `CommandKey.svelte` — the small ⌘K keycap trigger button (nav + footer status bar).
+- `CommandKey.svelte` — the small ⌘K keycap trigger button (footer status bar only — boxed chrome stays out of the typographic top nav).
 - `focusTrap` keeps a module-level stack so nested overlays (e.g. menu over lightbox) only respond to Escape/Tab on the topmost trap.
 
 ### Footer
@@ -216,7 +216,8 @@ src/
 │       ├── Navigation.svelte   # Responsive nav — crossfade underline, mobile overlay
 │       ├── ThemeToggle.svelte
 │       ├── Footer.svelte
-│       ├── ProjectIndex.svelte # Homepage project list — cursor preview + mobile expand
+│       ├── ProjectIndex.svelte # Homepage project list (mobile) — tap to expand
+│       ├── ProjectBento.svelte # Homepage project bento grid (desktop) — panel cards, curated spans
 │       ├── ProjectImageStrip.svelte  # Horizontal media strip with scroll arrows
 │       ├── ProjectStatsCard.svelte   # Key Metrics card
 │       ├── CursorPreview.svelte      # Spring-driven hover preview (portaled to body)
