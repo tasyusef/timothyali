@@ -127,15 +127,15 @@
 		<div class="md:col-span-5 md:col-start-7">
 			<div class="leading-body space-y-6">
 				<p>
-					I&rsquo;m a designer and a builder. I take work from first sketch to production code:
-					brand, product, motion, front end. A finance app with paying subscribers, a real-time
-					block explorer, a 30-page Next.js site, this portfolio. Nothing I design stays a mockup.
+					I&rsquo;m a designer and a builder. I like to take work from first sketch to production
+					code: brand, product, motion, front end. A finance app with paying subscribers, a
+					real-time block explorer, a 30-page Next.js site, this portfolio. None of it stopped at
+					the mockup.
 				</p>
 				<p>
-					I started early. I cofounded xrp.cafe, an NFT marketplace, in 2021 and led its brand while
-					I earned my BFA. It grew past 29,000 members and $5 million in sales. Today I&rsquo;m
-					building Pocketwatch, a personal-finance app where I own the brand, the product design,
-					and the front end.
+					In 2021 I cofounded xrp.cafe, an NFT marketplace, and led its brand while I earned my BFA.
+					It grew past 29,000 members and $5 million in sales. Today I&rsquo;m building Pocketwatch,
+					a personal-finance app where I handle the brand, the product design, and the front end.
 				</p>
 				<p>
 					My foundations are Swiss modernist: clarity, structure, purpose. That training gave me a
