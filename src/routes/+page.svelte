@@ -63,29 +63,29 @@
 	</div>
 </section>
 
-<!-- Selected Work — Design & Brand -->
-<section aria-label="Design and brand work" class="px-swiss">
-	<div use:reveal>
-		<p class="label-swiss mb-8">Design &amp; Brand</p>
-	</div>
-	<div use:reveal class="hidden md:block">
-		<ProjectBento projects={designProjects} />
-	</div>
-	<div use:reveal class="md:hidden">
-		<ProjectIndex projects={designProjects} />
-	</div>
-</section>
-
 <!-- Selected Work — Code & Product -->
-<section aria-label="Code and product work" class="px-swiss mt-section">
+<section aria-label="Code and product work" class="px-swiss">
 	<div use:reveal>
 		<p class="label-swiss mb-8">Code &amp; Product</p>
 	</div>
 	<div use:reveal class="hidden md:block">
-		<ProjectBento projects={codeProjects} startIndex={designProjects.length} />
+		<ProjectBento projects={codeProjects} />
 	</div>
 	<div use:reveal class="md:hidden">
-		<ProjectIndex projects={codeProjects} startIndex={designProjects.length} />
+		<ProjectIndex projects={codeProjects} />
+	</div>
+</section>
+
+<!-- Selected Work — Design & Brand -->
+<section aria-label="Design and brand work" class="px-swiss mt-section">
+	<div use:reveal>
+		<p class="label-swiss mb-8">Design &amp; Brand</p>
+	</div>
+	<div use:reveal class="hidden md:block">
+		<ProjectBento projects={designProjects} startIndex={codeProjects.length} />
+	</div>
+	<div use:reveal class="md:hidden">
+		<ProjectIndex projects={designProjects} startIndex={codeProjects.length} />
 	</div>
 </section>
 

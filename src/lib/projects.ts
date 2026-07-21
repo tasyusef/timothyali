@@ -39,6 +39,155 @@ export interface Project {
 
 export const projects: Project[] = [
 	{
+		slug: 'pocketwatch',
+		bentoRow: 1,
+		bentoImage: '/images/pocketwatch/ad-both.png',
+		bentoAspect: 1200 / 628,
+		title: 'Pocketwatch',
+		section: 'code',
+		category: 'Product, Brand & Art Direction',
+		year: '2026',
+		heroImage: '/images/pocketwatch/hero.png',
+		heroAspect: 1,
+		images: [
+			{
+				src: '/images/pocketwatch/hero.png',
+				aspect: 1,
+				alt: 'Pocketwatch — all your money in one place. Dashboard with net worth, investments, and money agenda on electric lime'
+			},
+			{
+				src: '/images/pocketwatch/app-dashboard.png',
+				aspect: 2880 / 2020,
+				alt: 'Pocketwatch dashboard: money agenda, composition, investments, wealth velocity, and cash flow'
+			},
+			{
+				src: '/images/pocketwatch/app-investments.png',
+				aspect: 2880 / 2214,
+				alt: 'Pocketwatch investments: total return, portfolio value, allocation, and dividend income'
+			},
+			{
+				src: '/images/pocketwatch/ad-both.png',
+				aspect: 1200 / 628,
+				alt: 'Pocketwatch campaign: budgeting and investing in one place, on electric lime'
+			},
+			{
+				src: '/images/pocketwatch/ad-networth.png',
+				aspect: 1,
+				alt: 'Pocketwatch campaign: know exactly what you are worth, net worth tracking on sky blue'
+			},
+			{
+				src: '/images/pocketwatch/ad-invest.png',
+				aspect: 960 / 1200,
+				alt: 'Pocketwatch campaign: your portfolio, priced live, investments on violet'
+			},
+			{
+				src: '/images/pocketwatch/ad-budget.png',
+				aspect: 1,
+				alt: 'Pocketwatch campaign: every dollar, accounted for, zero-based budget on orange'
+			},
+			{
+				src: '/images/pocketwatch/ad-ledger.png',
+				aspect: 1,
+				alt: 'Pocketwatch campaign: every account in one place, unified ledger on mint green'
+			},
+			{
+				src: '/images/pocketwatch/ad-analytics.png',
+				aspect: 1200 / 628,
+				alt: 'Pocketwatch campaign: see where it all goes, category breakdown on pink'
+			}
+		],
+		stats: [
+			{ label: 'Role', value: 'Brand, Product & Front-End' },
+			{ label: 'Stack', value: 'SvelteKit + Svelte 5' },
+			{ label: 'Status', value: 'Live Â· Production' },
+			{ label: 'Scope', value: 'Identity + Product' }
+		],
+		description:
+			'Brand identity, design system, and front-end for an all-in-one personal finance app: budgeting, net worth, and investments in one clean view.'
+	},
+	{
+		slug: 'sonde',
+		bentoRow: 1,
+		bentoCol: 2,
+		title: 'Sonde',
+		section: 'code',
+		category: 'Product, Code & Art Direction',
+		year: '2025–2026',
+		heroImage: '/images/sonde/hero.png',
+		heroAspect: 16 / 9,
+		images: [
+			{
+				src: '/images/sonde/hero.png',
+				aspect: 16 / 9,
+				alt: 'Sonde — Decode the XRPL. Real-time intelligence, analytics, and portfolio tracking'
+			},
+			{
+				src: '/images/sonde/network.png',
+				aspect: 16 / 9,
+				alt: 'Sonde network insights: live XRP price, market cap, TradingView chart, and latest ledgers'
+			},
+			{
+				src: '/images/sonde/markets.png',
+				aspect: 16 / 9,
+				alt: 'Sonde markets: XRPL token rankings by price, market cap, volume, and holders'
+			},
+			{
+				src: '/images/sonde/account.png',
+				aspect: 16 / 9,
+				alt: 'Sonde account page: balance, smart money score, risk profile, and counterparty graph'
+			},
+			{
+				src: '/images/sonde/portfolio.png',
+				aspect: 16 / 9,
+				alt: 'Sonde portfolio: total value, performance chart, allocation, and watchlist'
+			},
+			{
+				src: '/images/sonde/smart-money.png',
+				aspect: 16 / 9,
+				alt: 'Sonde Smart Money leaderboard: scored wallets ranked by PnL, win rate, and Sharpe'
+			},
+			{
+				src: '/images/sonde/ask-the-ledger.png',
+				aspect: 16 / 9,
+				alt: 'Ask the Ledger: natural-language queries over the XRP Ledger'
+			}
+		],
+		stats: [
+			{ label: 'Databases', value: '3' },
+			{ label: 'Data', value: 'Real-time' },
+			{ label: 'Stack', value: 'Next.js + PostgreSQL' },
+			{ label: 'Role', value: 'Sole Creator' }
+		],
+		description:
+			'A real-time XRPL analytics platform: network insights, DEX analytics, portfolio tracking, OHLCV price charts, and on-chain ingestion. Designed, built, and run solo.'
+	},
+	{
+		slug: 'jade-aesthetics',
+		bentoRow: 1,
+		bentoCol: 2,
+		title: 'Jade Aesthetics',
+		section: 'code',
+		category: 'Web & Code',
+		year: '2025–2026',
+		heroImage: '/images/jade-aesthetics/desktop-homepage-fold.jpg',
+		heroAspect: 1920 / 1200,
+		images: [
+			{
+				src: '/images/jade-aesthetics/desktop-homepage-fold.jpg',
+				aspect: 1920 / 1200,
+				alt: 'Jade Aesthetics homepage design'
+			}
+		],
+		stats: [
+			{ label: 'Pages', value: '30+' },
+			{ label: 'Lighthouse A11y', value: '100' },
+			{ label: 'Architecture', value: 'SEO-First' },
+			{ label: 'Rendering', value: 'Server-Side' }
+		],
+		description:
+			'Two complete websites for a premium medical spa: a Framer launch, then an SEO-architected Next.js application.'
+	},
+	{
 		slug: 'firststrike',
 		bentoRow: 1,
 		title: 'FirstStrike Research',
@@ -355,155 +504,6 @@ export const projects: Project[] = [
 		],
 		description:
 			'A complete brand system, poster series, and 28-page design philosophy book built around one idea: less noise.'
-	},
-	{
-		slug: 'pocketwatch',
-		bentoRow: 1,
-		bentoImage: '/images/pocketwatch/ad-both.png',
-		bentoAspect: 1200 / 628,
-		title: 'Pocketwatch',
-		section: 'code',
-		category: 'Product, Brand & Art Direction',
-		year: '2026',
-		heroImage: '/images/pocketwatch/hero.png',
-		heroAspect: 1,
-		images: [
-			{
-				src: '/images/pocketwatch/hero.png',
-				aspect: 1,
-				alt: 'Pocketwatch — all your money in one place. Dashboard with net worth, investments, and money agenda on electric lime'
-			},
-			{
-				src: '/images/pocketwatch/app-dashboard.png',
-				aspect: 2880 / 2020,
-				alt: 'Pocketwatch dashboard: money agenda, composition, investments, wealth velocity, and cash flow'
-			},
-			{
-				src: '/images/pocketwatch/app-investments.png',
-				aspect: 2880 / 2214,
-				alt: 'Pocketwatch investments: total return, portfolio value, allocation, and dividend income'
-			},
-			{
-				src: '/images/pocketwatch/ad-both.png',
-				aspect: 1200 / 628,
-				alt: 'Pocketwatch campaign: budgeting and investing in one place, on electric lime'
-			},
-			{
-				src: '/images/pocketwatch/ad-networth.png',
-				aspect: 1,
-				alt: 'Pocketwatch campaign: know exactly what you are worth, net worth tracking on sky blue'
-			},
-			{
-				src: '/images/pocketwatch/ad-invest.png',
-				aspect: 960 / 1200,
-				alt: 'Pocketwatch campaign: your portfolio, priced live, investments on violet'
-			},
-			{
-				src: '/images/pocketwatch/ad-budget.png',
-				aspect: 1,
-				alt: 'Pocketwatch campaign: every dollar, accounted for, zero-based budget on orange'
-			},
-			{
-				src: '/images/pocketwatch/ad-ledger.png',
-				aspect: 1,
-				alt: 'Pocketwatch campaign: every account in one place, unified ledger on mint green'
-			},
-			{
-				src: '/images/pocketwatch/ad-analytics.png',
-				aspect: 1200 / 628,
-				alt: 'Pocketwatch campaign: see where it all goes, category breakdown on pink'
-			}
-		],
-		stats: [
-			{ label: 'Role', value: 'Brand, Product & Front-End' },
-			{ label: 'Stack', value: 'SvelteKit + Svelte 5' },
-			{ label: 'Status', value: 'Live Â· Production' },
-			{ label: 'Scope', value: 'Identity + Product' }
-		],
-		description:
-			'Brand identity, design system, and front-end for an all-in-one personal finance app: budgeting, net worth, and investments in one clean view.'
-	},
-	{
-		slug: 'sonde',
-		bentoRow: 1,
-		bentoCol: 2,
-		title: 'Sonde',
-		section: 'code',
-		category: 'Product, Code & Art Direction',
-		year: '2025–2026',
-		heroImage: '/images/sonde/hero.png',
-		heroAspect: 16 / 9,
-		images: [
-			{
-				src: '/images/sonde/hero.png',
-				aspect: 16 / 9,
-				alt: 'Sonde — Decode the XRPL. Real-time intelligence, analytics, and portfolio tracking'
-			},
-			{
-				src: '/images/sonde/network.png',
-				aspect: 16 / 9,
-				alt: 'Sonde network insights: live XRP price, market cap, TradingView chart, and latest ledgers'
-			},
-			{
-				src: '/images/sonde/markets.png',
-				aspect: 16 / 9,
-				alt: 'Sonde markets: XRPL token rankings by price, market cap, volume, and holders'
-			},
-			{
-				src: '/images/sonde/account.png',
-				aspect: 16 / 9,
-				alt: 'Sonde account page: balance, smart money score, risk profile, and counterparty graph'
-			},
-			{
-				src: '/images/sonde/portfolio.png',
-				aspect: 16 / 9,
-				alt: 'Sonde portfolio: total value, performance chart, allocation, and watchlist'
-			},
-			{
-				src: '/images/sonde/smart-money.png',
-				aspect: 16 / 9,
-				alt: 'Sonde Smart Money leaderboard: scored wallets ranked by PnL, win rate, and Sharpe'
-			},
-			{
-				src: '/images/sonde/ask-the-ledger.png',
-				aspect: 16 / 9,
-				alt: 'Ask the Ledger: natural-language queries over the XRP Ledger'
-			}
-		],
-		stats: [
-			{ label: 'Databases', value: '3' },
-			{ label: 'Data', value: 'Real-time' },
-			{ label: 'Stack', value: 'Next.js + PostgreSQL' },
-			{ label: 'Role', value: 'Sole Creator' }
-		],
-		description:
-			'A real-time XRPL analytics platform: network insights, DEX analytics, portfolio tracking, OHLCV price charts, and on-chain ingestion. Designed, built, and run solo.'
-	},
-	{
-		slug: 'jade-aesthetics',
-		bentoRow: 1,
-		bentoCol: 2,
-		title: 'Jade Aesthetics',
-		section: 'code',
-		category: 'Web & Code',
-		year: '2025–2026',
-		heroImage: '/images/jade-aesthetics/desktop-homepage-fold.jpg',
-		heroAspect: 1920 / 1200,
-		images: [
-			{
-				src: '/images/jade-aesthetics/desktop-homepage-fold.jpg',
-				aspect: 1920 / 1200,
-				alt: 'Jade Aesthetics homepage design'
-			}
-		],
-		stats: [
-			{ label: 'Pages', value: '30+' },
-			{ label: 'Lighthouse A11y', value: '100' },
-			{ label: 'Architecture', value: 'SEO-First' },
-			{ label: 'Rendering', value: 'Server-Side' }
-		],
-		description:
-			'Two complete websites for a premium medical spa: a Framer launch, then an SEO-architected Next.js application.'
 	}
 ];
 
