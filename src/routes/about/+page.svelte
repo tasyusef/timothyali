@@ -129,8 +129,8 @@
 				<p>
 					I&rsquo;m a designer and a builder. I like to take work from first sketch to production
 					code: brand, product, motion, front end. A finance app with paying subscribers, a
-					real-time block explorer, a 30-page Next.js site, this portfolio. None of it stopped at
-					the mockup.
+					real-time block explorer, a 30-page Next.js site, this portfolio. I designed and built all
+					of it.
 				</p>
 				<p>
 					In 2021 I cofounded xrp.cafe, an NFT marketplace, and led its brand while I earned my BFA.
