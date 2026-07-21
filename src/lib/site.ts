@@ -20,11 +20,6 @@ export const SOCIAL_LINKS: SocialLink[] = [
 		handle: 'linkedin.com/in/timothyali',
 		href: 'https://linkedin.com/in/timothyali'
 	},
-	{
-		label: 'Substack',
-		handle: 'substack.com/@timothyali',
-		href: 'https://substack.com/@timothyali'
-	},
 	{ label: 'X', handle: 'x.com/twocakeS__', href: 'https://x.com/twocakeS__' }
 ];
 
