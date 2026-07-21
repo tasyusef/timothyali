@@ -198,7 +198,7 @@ export const projects: Project[] = [
 			}
 		],
 		stats: [
-			{ label: 'Community', value: '30K+' },
+			{ label: 'Community', value: '32K+' },
 			{ label: 'Revenue', value: '$5M+' },
 			{ label: 'Campaigns', value: '10+' },
 			{ label: 'Role', value: 'Cofounder' }

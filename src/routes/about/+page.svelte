@@ -37,7 +37,7 @@
 			org: 'xrp.cafe',
 			role: 'Cofounder & Founding Designer',
 			summary:
-				"Cofounded xrp.cafe and built its brand identity and design system: website wireframes, event collateral, motion graphics, and 10+ social campaigns that grew the community to 30,000+ members, helped raise $32K for St. Jude's, and brought in over $5 million in revenue."
+				"Cofounded xrp.cafe and built its brand identity and design system: website wireframes, event collateral, motion graphics, and 10+ social campaigns that grew the community to 32,000+ members, helped raise $32K for St. Jude's, and brought in over $5 million in revenue."
 		},
 		{
 			period: '2024 — 2025',
@@ -132,7 +132,7 @@
 				</p>
 				<p>
 					In 2021 I cofounded xrp.cafe, an NFT marketplace, and led its brand while I earned my BFA.
-					It grew past 30,000 members and $5 million in sales. Today I&rsquo;m building Pocketwatch,
+					It grew past 32,000 members and $5 million in sales. Today I&rsquo;m building Pocketwatch,
 					a personal-finance app where I handle the brand, the product design, and the front end.
 				</p>
 				<p>
