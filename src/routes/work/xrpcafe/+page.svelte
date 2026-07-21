@@ -99,7 +99,7 @@
 		items={[
 			'#1 NFT marketplace on the XRP Ledger by secondary sales volume',
 			'$5M+ in marketplace revenue',
-			'Community grown to 29,000+ members',
+			'Community grown to 30,000+ members',
 			'11,800+ secondary sales in a single 30-day period at peak (Nov 2023)',
 			'Top-3 XRPL marketplace in a cohort controlling 80%+ of on-chain NFT volume',
 			"Helped raise $32K for St. Jude's with VeSea",

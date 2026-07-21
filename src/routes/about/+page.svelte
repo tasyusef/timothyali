@@ -37,7 +37,7 @@
 			org: 'xrp.cafe',
 			role: 'Cofounder & Founding Designer',
 			summary:
-				"Cofounded xrp.cafe and built its brand identity and design system: website wireframes, event collateral, motion graphics, and 10+ social campaigns that grew the community to 29,000+ members, helped raise $32K for St. Jude's, and brought in over $5 million in revenue."
+				"Cofounded xrp.cafe and built its brand identity and design system: website wireframes, event collateral, motion graphics, and 10+ social campaigns that grew the community to 30,000+ members, helped raise $32K for St. Jude's, and brought in over $5 million in revenue."
 		},
 		{
 			period: '2024 — 2025',
@@ -127,24 +127,21 @@
 		<div class="md:col-span-5 md:col-start-7">
 			<div class="leading-body space-y-6">
 				<p>
-					I&rsquo;m a designer and a builder. I like to take work from first sketch to production
-					code: brand, product, motion, front end. A finance app with paying subscribers, a
-					real-time block explorer, a 30-page Next.js site, this portfolio. I designed and built all
-					of it.
+					I&rsquo;m a designer and a builder. I like to take my work from ideation to production:
+					brand, product, motion, and front end.
 				</p>
 				<p>
 					In 2021 I cofounded xrp.cafe, an NFT marketplace, and led its brand while I earned my BFA.
-					It grew past 29,000 members and $5 million in sales. Today I&rsquo;m building Pocketwatch,
+					It grew past 30,000 members and $5 million in sales. Today I&rsquo;m building Pocketwatch,
 					a personal-finance app where I handle the brand, the product design, and the front end.
 				</p>
 				<p>
-					My foundations are Swiss modernist: clarity, structure, purpose. That training gave me a
-					method, not a house style. Each project gets the voice it needs: quiet restraint or loud
-					color.
+					My foundations are modernist: clarity, structure, purpose. That training taught me
+					restraint, and when to break the rules.
 				</p>
 				<p>
-					I use Claude Code every day. It shortens the path from idea to working product, so I test
-					design decisions in real code, not static mockups.
+					I believe in AI as a tool, and I use it every day. It shortens the path from idea to
+					working product and lets me do the work of several people on my own.
 				</p>
 				<p>
 					Based in Denver, Colorado. Open to full-time product design roles and select freelance
