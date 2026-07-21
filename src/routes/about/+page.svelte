@@ -37,7 +37,7 @@
 			org: 'xrp.cafe',
 			role: 'Cofounder & Founding Designer',
 			summary:
-				"Cofounded xrp.cafe and built its brand identity and design system: website wireframes, event collateral, motion graphics, and 10+ social campaigns that grew the community to 29,000+ members, helped raise $32K for St. Jude's, and brought in over $5 million USD in revenue."
+				"Cofounded xrp.cafe and built its brand identity and design system: website wireframes, event collateral, motion graphics, and 10+ social campaigns that grew the community to 29,000+ members, helped raise $32K for St. Jude's, and brought in over $5 million in revenue."
 		},
 		{
 			period: '2024 — 2025',
@@ -58,7 +58,7 @@
 			org: 'Jade Aesthetics',
 			role: 'Designer & Developer',
 			summary:
-				'Designed and built two complete websites for a premium medical spa: a first launch in Framer, then a 30+ page SEO-architected Next.js application with 100 Lighthouse accessibility scores and server-side rendering.'
+				'Designed and built two websites for a premium medical spa: a first launch in Framer, then a 30+ page SEO-architected Next.js application with 100 Lighthouse accessibility scores and server-side rendering.'
 		},
 		{
 			period: '2025 — 2026',
@@ -79,7 +79,7 @@
 			org: 'DOMOTO',
 			role: 'Digital Designer (Contract)',
 			summary:
-				'Designing and building a multi-brand design-system platform, coded in JavaScript, that gives client companies one home for their living design systems, components, and tokens. Built AI-native, so agents can read design tokens, components, and brand assets programmatically. Serving publicly traded and Fortune 500 clients.'
+				'Designing and building a multi-brand platform that gives client companies one home for their living design systems, components, and tokens. Built AI-native: agents can read tokens, components, and brand assets directly. Serving publicly traded and Fortune 500 clients.'
 		}
 	];
 
@@ -128,23 +128,23 @@
 			<div class="leading-body space-y-6">
 				<p>
 					I&rsquo;m a designer and a builder. I take work from first sketch to production code:
-					brand, product, motion, front end. Nothing I design stays a mockup: a finance app with
-					paying subscribers, a real-time block explorer, a 30-page Next.js site, this portfolio.
+					brand, product, motion, front end. A finance app with paying subscribers, a real-time
+					block explorer, a 30-page Next.js site, this portfolio. Nothing I design stays a mockup.
 				</p>
 				<p>
-					I learned that way of working early. In 2021 I cofounded xrp.cafe, an NFT marketplace, and
-					ran its brand through design school while it grew past 29,000 members and $5 million in
-					sales. Today I&rsquo;m building Pocketwatch, a personal-finance app where I own the brand,
-					the product design, and the front end.
+					I started early. I cofounded xrp.cafe, an NFT marketplace, in 2021 and led its brand while
+					I earned my BFA. It grew past 29,000 members and $5 million in sales. Today I&rsquo;m
+					building Pocketwatch, a personal-finance app where I own the brand, the product design,
+					and the front end.
 				</p>
 				<p>
-					My foundations are Swiss modernist: clarity, structure, purpose. That training shapes how
-					I work, not how everything I make looks. Each project gets the voice it calls for, quiet
-					restraint or loud color.
+					My foundations are Swiss modernist: clarity, structure, purpose. That training gave me a
+					method, not a house style. Each project gets the voice it needs: quiet restraint or loud
+					color.
 				</p>
 				<p>
 					I use Claude Code every day. It shortens the path from idea to working product, so I test
-					design decisions in real code instead of static mockups.
+					design decisions in real code, not static mockups.
 				</p>
 				<p>
 					Based in Denver, Colorado. Open to full-time product design roles and select freelance
