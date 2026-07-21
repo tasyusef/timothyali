@@ -178,9 +178,13 @@
 
 			<!-- Media -->
 			<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_static_element_interactions -->
+			<!-- Clicks on the padding around the media close the lightbox; clicks on the media itself don't -->
 			<div
 				class="flex h-full w-full items-center justify-center p-4 md:p-10 lg:p-20"
-				onclick={(e) => e.stopPropagation()}
+				onclick={(e) => {
+					e.stopPropagation();
+					if (e.target === e.currentTarget) close();
+				}}
 			>
 				{#if items[activeIndex].type === 'image'}
 					<Img
