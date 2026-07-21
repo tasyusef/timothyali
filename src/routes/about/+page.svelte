@@ -136,8 +136,8 @@
 					a personal-finance app where I handle the brand, the product design, and the front end.
 				</p>
 				<p>
-					My foundations are modernist: clarity, structure, purpose. That training taught me
-					restraint, and when to break the rules.
+					My foundation is modernist: clarity, structure, purpose. That foundation has taught me
+					restraint, but also an understanding of where the rules can be broken.
 				</p>
 				<p>
 					I believe in AI as a tool, and I use it every day. It shortens the path from idea to
