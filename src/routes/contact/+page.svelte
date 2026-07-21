@@ -31,8 +31,7 @@
 		</div>
 		<div class="md:col-span-5 md:col-start-7">
 			<p class="leading-body">
-				I&rsquo;m open to full-time product design roles and select freelance projects. Let&rsquo;s
-				talk.
+				I&rsquo;m open to full-time design roles and select freelance projects. Let&rsquo;s talk.
 			</p>
 		</div>
 	</div>

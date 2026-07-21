@@ -99,8 +99,8 @@
 			>
 				<p class="label-swiss">About</p>
 				<p class="leading-body">
-					I design product, brand, and motion for startups and tech companies, with a modernist,
-					&ldquo;less noise&rdquo; approach to everything I make.
+					I&rsquo;m a designer and a builder, taking work from ideation to production: brand,
+					product, motion, and front end.
 				</p>
 				<span class="label-swiss hover-swiss mt-auto overflow-hidden">
 					<span class="arrow-reveal arrow-reveal-lg">&rarr;</span>
@@ -124,8 +124,7 @@
 			>
 				<p class="label-swiss">Contact</p>
 				<p class="leading-body">
-					I&rsquo;m open to full-time product design roles and select freelance projects.
-					Let&rsquo;s talk.
+					I&rsquo;m open to full-time design roles and select freelance projects. Let&rsquo;s talk.
 				</p>
 				<span class="label-swiss hover-swiss mt-auto overflow-hidden">
 					<span class="arrow-reveal arrow-reveal-lg">Reach out &rarr;</span>

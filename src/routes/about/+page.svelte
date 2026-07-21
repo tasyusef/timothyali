@@ -89,7 +89,7 @@
 
 <Seo
 	title="About"
-	description="Timothy Ali is a designer and builder: brand, product, and motion design carried through to production code. Based in Denver, open to product design roles."
+	description="Timothy Ali is a designer and builder: brand, product, and motion design carried through to production code. Based in Denver, open to full-time design roles."
 	ogKey="about"
 	jsonLd={{
 		'@context': 'https://schema.org',
@@ -144,8 +144,7 @@
 					working product and lets me do the work of several people on my own.
 				</p>
 				<p>
-					Based in Denver, Colorado. Open to full-time product design roles and select freelance
-					projects.
+					Based in Denver, Colorado. Open to full-time design roles and select freelance projects.
 				</p>
 			</div>
 			<div class="mt-8 flex flex-wrap gap-6">
