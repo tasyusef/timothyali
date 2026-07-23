@@ -1,0 +1,3 @@
+{
+	"redirects": [{ "source": "/contact", "destination": "/about", "permanent": true }]
+}

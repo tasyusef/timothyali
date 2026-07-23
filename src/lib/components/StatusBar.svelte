@@ -13,7 +13,7 @@
 		Open to work
 	</p>
 	<a
-		href="/contact"
+		href="/about"
 		class="label-swiss duration-fast ease-swiss underline underline-offset-4 transition-colors hover:text-[var(--color-foreground)] md:col-span-3 md:col-start-7"
 	>
 		Get in touch

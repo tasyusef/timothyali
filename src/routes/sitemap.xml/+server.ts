@@ -24,7 +24,6 @@ const entries: SitemapEntry[] = [
 		priority: 0.6,
 		lastmod: p.date
 	})),
-	{ path: '/contact', changefreq: 'yearly', priority: 0.7 },
 	...projects.map((p) => ({
 		path: `/work/${p.slug}`,
 		changefreq: 'yearly',

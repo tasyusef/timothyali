@@ -92,7 +92,7 @@
 <!-- About / Writing / Contact -->
 <section aria-label="Quick Links" class="px-swiss border-t border-[var(--color-border)]">
 	<div use:reveal>
-		<div class="grid grid-cols-1 gap-px bg-[var(--color-border)] md:grid-cols-3">
+		<div class="grid grid-cols-1 gap-px bg-[var(--color-border)] md:grid-cols-2">
 			<a
 				href="/about"
 				class="group py-row flex flex-col gap-4 bg-[var(--color-background)] md:pr-8"
@@ -109,25 +109,12 @@
 
 			<a
 				href="/blog/{posts[0].slug}"
-				class="group py-row flex flex-col gap-4 border-t border-[var(--color-border)] bg-[var(--color-background)] md:border-t-0 md:px-8"
+				class="group py-row flex flex-col gap-4 border-t border-[var(--color-border)] bg-[var(--color-background)] md:border-t-0 md:pl-8"
 			>
 				<p class="label-swiss">Latest Writing</p>
 				<p class="leading-body">{posts[0].title}</p>
 				<span class="label-swiss hover-swiss mt-auto overflow-hidden">
 					<span class="arrow-reveal arrow-reveal-lg">Read full article &rarr;</span>
-				</span>
-			</a>
-
-			<a
-				href="/contact"
-				class="group py-row flex flex-col gap-4 border-t border-[var(--color-border)] bg-[var(--color-background)] md:border-t-0 md:pl-8"
-			>
-				<p class="label-swiss">Contact</p>
-				<p class="leading-body">
-					I&rsquo;m open to full-time design roles and select freelance projects. Let&rsquo;s talk.
-				</p>
-				<span class="label-swiss hover-swiss mt-auto overflow-hidden">
-					<span class="arrow-reveal arrow-reveal-lg">Reach out &rarr;</span>
 				</span>
 			</a>
 		</div>

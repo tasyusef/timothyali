@@ -171,8 +171,9 @@ All animation values are centralized in `src/lib/motion.ts`:
 - `focusTrap` keeps a module-level stack so nested overlays (e.g. menu over lightbox) only respond to Escape/Tab on the topmost trap.
 
 ### Footer
-- Two rows only — keep it that way: `StatusBar.svelte` (pulse dot + "Open to work", "Get in touch" link, `Denver, CO · <LocalTime seconds={false} />`, ⌘K keycap) then the nav/© row.
+- Two rows only — keep it that way: `StatusBar.svelte` (pulse dot + "Open to work", "Get in touch" link to /about, `Denver, CO · <LocalTime seconds={false} />`, ⌘K keycap) then the nav/© row.
 - The status row is the single sitewide availability/contact touchpoint — case studies have no separate contact CTA section, and there is no standalone Availability row (both were consolidated away after reading as stacked clutter).
+- There is no /contact page — it duplicated About and was removed. `vercel.json` 308-redirects /contact → /about in production; the nav has three links (Work / About / Writing) and the homepage quick-links row has two cards (About + Latest Writing).
 - `LocalTime.svelte` — live Denver clock, `''` during SSR/prerender then ticking client-side; `seconds` prop (homepage hero shows seconds, footer doesn't).
 
 ### SEO
@@ -235,7 +236,6 @@ src/
     ├── blog/
     │   ├── +page.svelte        # Post index
     │   └── [slug]/             # Dynamic post route (+page.ts loads from $lib/posts)
-    ├── contact/+page.svelte
     ├── work/                   # One folder per case study (8 total)
     │   └── <slug>/+page.svelte
     ├── og/[key].png/+server.ts # Prerendered OG cards (satori + resvg)
