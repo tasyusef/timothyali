@@ -17,6 +17,7 @@ interface SitemapEntry {
 const entries: SitemapEntry[] = [
 	{ path: '', changefreq: 'monthly', priority: 1 },
 	{ path: '/about', changefreq: 'monthly', priority: 0.8 },
+	{ path: '/art', changefreq: 'monthly', priority: 0.6 },
 	{ path: '/blog', changefreq: 'weekly', priority: 0.7, lastmod: posts[0]?.date },
 	...posts.map((p) => ({
 		path: `/blog/${p.slug}`,

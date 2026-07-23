@@ -128,6 +128,11 @@ Case study pages (`src/routes/work/<slug>/+page.svelte`) compose shared componen
 
 The homepage renders two grouped work sections — "Code & Product" (`codeProjects`) then "Design & Brand" (`designProjects`), both derived from `section`. Desktop shows `ProjectBento` — aspect-justified bento bands: consecutive projects sharing a `bentoRow` number form one band; within a band, consecutive projects sharing a `bentoCol` stack vertically in one column (Sonde + Jade beside the Pocketwatch feature). A solver sizes columns so every column of a band is equal height, and stacked cards split their column via flex-grow ∝ 1/aspect — all media renders aspect-true with zero cropping (same technique as the Pocketwatch case-study hero pair). Cards are full-bleed media tiles (no panel/radius); the meta chin (number, title, category, year) overlays the bottom edge and appears only on hover/focus. `bentoImage`/`bentoAspect` override the card media when the hero doesn't suit a tile (Pocketwatch uses its landscape ad). Mobile shows `ProjectIndex` (tap-to-expand list). The array is ordered code-first so numbering runs continuously (01–03, then 04–08 via the shared `startIndex` prop) and `getNextProject` cycles code → design. New projects must set `section` (and optionally `bento`).
 
+### Art
+- `src/lib/art.ts` holds `ArtPiece { src, alt, title?, year? }` entries; images live in `src/lib/images/art/`. No aspect ratios are stored — `artAspect()` reads intrinsic dimensions from the enhanced-image manifest, so adding a piece is one file + one entry.
+- `ArtGrid.svelte` renders them as an auto-justified bento: greedy row packing to a target aspect sum (3.4) with closest-fit wrapping, fr tracks ∝ aspect (equal-height rows, zero cropping), a phantom pad track so an underfilled last row doesn't oversize, 2-col masonry on mobile, `limit` prop for the homepage teaser row. Tiles open the shared `Lightbox.svelte` (extracted from Gallery; both use it).
+- The homepage "Art & Misc" teaser section renders `{#if art.length > 0}` — with no pieces it disappears entirely.
+
 ### Blog
 - Posts are markdown files in `src/content/posts/<slug>.md` with frontmatter: `title`, `date` (ISO), `excerpt`.
 - `$lib/posts.ts` loads them via `import.meta.glob` (eager) and sorts by date; mdsvex compiles the body to a Svelte component.
@@ -173,7 +178,7 @@ All animation values are centralized in `src/lib/motion.ts`:
 ### Footer
 - Two rows only — keep it that way: `StatusBar.svelte` (pulse dot + "Open to work", "Get in touch" link to /about, `Denver, CO · <LocalTime seconds={false} />`, ⌘K keycap) then the nav/© row.
 - The status row is the single sitewide availability/contact touchpoint — case studies have no separate contact CTA section, and there is no standalone Availability row (both were consolidated away after reading as stacked clutter).
-- There is no /contact page — it duplicated About and was removed. `vercel.json` 308-redirects /contact → /about in production; the nav has three links (Work / About / Writing) and the homepage quick-links row has two cards (About + Latest Writing).
+- There is no /contact page — it duplicated About and was removed. `vercel.json` 308-redirects /contact → /about in production; the nav has four links (Work / Art / About / Writing) and the homepage quick-links row has two cards (About + Latest Writing).
 - `LocalTime.svelte` — live Denver clock, `''` during SSR/prerender then ticking client-side; `seconds` prop (homepage hero shows seconds, footer doesn't).
 
 ### SEO
@@ -203,6 +208,7 @@ src/
 │   ├── motion.ts               # duration/delay tokens (ms), easeSwiss, spring presets
 │   ├── theme.svelte.ts         # Runes-based theme store
 │   ├── projects.ts             # Project data array (slug, title, images, stats, description)
+│   ├── art.ts                  # Art/misc pieces for /art + homepage teaser (aspect derives from the image manifest)
 │   ├── posts.ts                # Markdown post loader (import.meta.glob) + formatDate
 │   ├── images.ts               # Enhanced-image manifest — getImage / imageUrl
 │   ├── og.ts                   # OG card registry (ogKey → title/subtitle)
@@ -226,13 +232,16 @@ src/
 │       ├── TextSection.svelte  # Titled prose section
 │       ├── LiveEmbed.svelte    # Labeled iframe embed
 │       ├── ResultsList.svelte  # Bulleted results section
-│       └── Gallery.svelte      # Masonry gallery + lightbox
+│       ├── Gallery.svelte      # Masonry gallery (case studies) — renders Lightbox
+│       ├── Lightbox.svelte     # Shared full-screen lightbox (focus trap, arrows, backdrop close)
+│       └── ArtGrid.svelte      # Auto-justified bento for art pieces + Lightbox
 └── routes/
     ├── +layout.ts              # prerender = true, trailingSlash = 'never'
     ├── +layout.svelte          # app.css, view transitions, nav/footer, Person+WebSite JSON-LD, skip link
     ├── +error.svelte           # Branded 404/error page
     ├── +page.svelte            # Homepage — hero grid, grouped ProjectIndexes (design / code), quick links
     ├── about/+page.svelte
+    ├── art/+page.svelte        # Auto-justified bento of misc work (art, prints, photography)
     ├── blog/
     │   ├── +page.svelte        # Post index
     │   └── [slug]/             # Dynamic post route (+page.ts loads from $lib/posts)

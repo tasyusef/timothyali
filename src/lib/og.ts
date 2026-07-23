@@ -14,6 +14,7 @@ export const ogCards: Record<string, OgCard> = {
 	home: { title: 'Timothy Ali', subtitle: 'Product Design, Brand Identity & Motion' },
 	about: { title: 'About', subtitle: 'Designer: product, brand, and motion' },
 	blog: { title: 'Writing', subtitle: 'Notes on design systems and AI-assisted work' },
+	art: { title: 'Art', subtitle: 'Prints, photography, and misc work' },
 	...Object.fromEntries(
 		projects.map((p) => [p.slug, { title: p.title, subtitle: `${p.category} · ${p.year}` }])
 	),
