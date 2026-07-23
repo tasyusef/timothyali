@@ -131,7 +131,7 @@ The homepage renders two grouped work sections — "Code & Product" (`codeProjec
 ### Art
 - `src/lib/art.ts` holds `ArtPiece { src, alt, title?, year? }` entries; images live in `src/lib/images/art/`. No aspect ratios are stored — `artAspect()` reads intrinsic dimensions from the enhanced-image manifest, so adding a piece is one file + one entry.
 - `ArtGrid.svelte` renders them as an auto-justified bento: greedy row packing to a target aspect sum (3.4) with closest-fit wrapping, fr tracks ∝ aspect (equal-height rows, zero cropping), a phantom pad track so an underfilled last row doesn't oversize, 2-col masonry on mobile, `limit` prop for the homepage teaser row. Tiles open the shared `Lightbox.svelte` (extracted from Gallery; both use it).
-- The homepage "Art & Misc" teaser section renders `{#if art.length > 0}` — with no pieces it disappears entirely.
+- The /art page is currently HIDDEN by choice: no nav link, no homepage teaser, not in the sitemap. The route stays live for direct links. To unhide: add `{ href: '/art', label: 'Art' }` back to NAV_LINKS (+ a fourth `md:col-start-5` column entry), restore the homepage teaser section, and re-add /art to the sitemap.
 
 ### Blog
 - Posts are markdown files in `src/content/posts/<slug>.md` with frontmatter: `title`, `date` (ISO), `excerpt`.
@@ -178,7 +178,7 @@ All animation values are centralized in `src/lib/motion.ts`:
 ### Footer
 - Two rows only — keep it that way: `StatusBar.svelte` (pulse dot + "Open to work", "Get in touch" link to /about, `Denver, CO · <LocalTime seconds={false} />`, ⌘K keycap) then the nav/© row.
 - The status row is the single sitewide availability/contact touchpoint — case studies have no separate contact CTA section, and there is no standalone Availability row (both were consolidated away after reading as stacked clutter).
-- There is no /contact page — it duplicated About and was removed. `vercel.json` 308-redirects /contact → /about in production; the nav has four links (Work / Art / About / Writing) and the homepage quick-links row has two cards (About + Latest Writing).
+- There is no /contact page — it duplicated About and was removed. `vercel.json` 308-redirects /contact → /about in production; the nav has three links (Work / About / Writing) and the homepage quick-links row has two cards (About + Latest Writing).
 - `LocalTime.svelte` — live Denver clock, `''` during SSR/prerender then ticking client-side; `seconds` prop (homepage hero shows seconds, footer doesn't).
 
 ### SEO

@@ -5,9 +5,7 @@
 	import ProjectBento from '$lib/components/ProjectBento.svelte';
 	import LocalTime from '$lib/components/LocalTime.svelte';
 	import { reveal } from '$lib/actions/reveal';
-	import ArtGrid from '$lib/components/ArtGrid.svelte';
 	import { designProjects, codeProjects } from '$lib/projects';
-	import { art } from '$lib/art';
 	import { posts } from '$lib/posts';
 	import { SOCIAL_LINKS } from '$lib/site';
 </script>
@@ -90,21 +88,6 @@
 		<ProjectIndex projects={designProjects} startIndex={codeProjects.length} />
 	</div>
 </section>
-
-{#if art.length > 0}
-	<!-- Art & Misc — teaser row linking to /art -->
-	<section aria-label="Art and misc work" class="px-swiss mt-section">
-		<div use:reveal class="mb-8 flex items-baseline justify-between">
-			<p class="label-swiss">Art &amp; Misc</p>
-			<a href="/art" class="group/link label-swiss hover-swiss flex items-center gap-2">
-				View all <span class="arrow-reveal arrow-reveal-sm">&rarr;</span>
-			</a>
-		</div>
-		<div use:reveal>
-			<ArtGrid pieces={art} limit={1} />
-		</div>
-	</section>
-{/if}
 
 <!-- About / Writing -->
 <section aria-label="Quick Links" class="px-swiss border-t border-[var(--color-border)]">
