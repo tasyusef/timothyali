@@ -60,9 +60,8 @@
 			Pocketwatch had to feel trustworthy enough to hold someone&rsquo;s whole financial life and
 			warm enough that they open it every day. Most finance apps pick one side. The mark does both:
 			a friendly, slightly odd little eyeball peeking out of a hemispherical pocket, drawn as a
-			single confident shape. An eye on your money, in a pocket. It reads as approachable at
-			app-icon size and serious in a nav bar. The wordmark is Satoshi: geometric, modern, no
-			flourishes.
+			single shape. An eye on your money, in a pocket. It reads as approachable at app-icon size and
+			serious in a nav bar. The wordmark is Satoshi: geometric, modern, no flourishes.
 		</p>
 		<p>
 			The brand runs near-black ink on white with one accent, a citron green, and the mark carries
@@ -78,18 +77,17 @@
 			Vercel register, and the mark is the one colored thing the app itself brings. A finance app
 			that colors its own interface competes with the one thing that matters: your money. So color
 			comes from content. Every category is a pill, an emoji plus one of ten hues the user picks,
-			and that is the only color a user adds to the interface. The few other accents mark meaning:
-			gains, losses, warnings. The interface stays calm by default and turns colorful exactly where
-			the user made it so.
+			and that is the only color a user adds. The few other accents mark meaning: gains, losses,
+			warnings. The interface stays calm by default and turns colorful exactly where the user made
+			it so.
 		</p>
 		<p>
-			Everything routes through one tokens file for type, color, spacing, and motion, consumed by
-			Tailwind and exposed as CSS variables, with a live design-system page that re-skins the whole
-			app from one attribute. Type is a three-font system: Satoshi for display, Inter for UI and
-			body, JetBrains Mono for every figure, because financial numbers must be tabular and
-			monospaced to scan. Motion works the same way: one main ease-out, two springs for physical
-			moves, six named durations, and a global reduced-motion override, so the whole product moves
-			the same way everywhere instead of drifting component to component.
+			Everything routes through one tokens file for type, color, spacing, and motion, with a live
+			design-system page that re-skins the whole app from one attribute. Type is three fonts:
+			Satoshi for display, Inter for UI and body, JetBrains Mono for every figure, because financial
+			numbers must be tabular to scan. Motion is one main ease-out, two springs for physical moves,
+			six named durations, and a global reduced-motion override, so the product moves the same way
+			everywhere.
 		</p>
 	</TextSection>
 
@@ -97,29 +95,27 @@
 		<p>
 			The marketing layer inverts the app&rsquo;s restraint on purpose. The landing page, ads, and
 			social campaign run loud: one saturated color per feature story, lime to violet to pink, with
-			chunky condensed display type shouting &ldquo;Keep an eye on every dollar&rdquo;. An ad has to
-			grab attention; the product never should. The same mascot and wordmark carry both registers,
-			so the brand reads the same on a loud ad and in a quiet nav bar. Once you&rsquo;re inside, the
-			color drops away and your money is the loudest thing on screen.
+			chunky condensed type shouting &ldquo;Keep an eye on every dollar&rdquo;. An ad has to grab
+			attention; the product never should. The same mark carries both registers, so once
+			you&rsquo;re inside, the color drops away and your money is the loudest thing on screen.
 		</p>
 	</TextSection>
 
 	<TextSection title="One Ledger for Everything">
 		<p>
-			Most people run their financial life across three or four separate tools: a budgeting app, a
-			banking app, a brokerage, a spreadsheet for net worth. Pocketwatch treats those as one
-			picture, not four. It unifies a zero-based budget (every dollar assigned, with a
-			Ready-to-Assign figure), a transaction ledger across cash and credit accounts, lots-based
-			investment tracking, manual assets, and a net-worth view derived from all of it. The hard part
-			was to make that much financial data feel browsable rather than like a tax form.
+			Most people run their financial life across three or four tools: a budgeting app, a banking
+			app, a brokerage, a spreadsheet. Pocketwatch treats those as one picture, not four. It unifies
+			a zero-based budget (every dollar assigned, with a Ready-to-Assign figure), a transaction
+			ledger across cash and credit accounts, lots-based investment tracking, manual assets, and a
+			net-worth view derived from all of it. The hard part was making that much financial data feel
+			browsable rather than like a tax form.
 		</p>
 		<p>
-			The interface is as strict as YNAB but covers far more ground, and it&rsquo;s built to a
-			production standard from the first screen: every list and table designed mobile-first, every
-			loading, empty, and error state handled, every destructive action confirmed. I designed and
-			built the front end in SvelteKit 2 and Svelte 5, using runes reactivity on a component system
-			tuned to keep dense data calm. Chris built the backend in Express, Drizzle, and Postgres, and
-			owns the business and legal side, so each of us could focus on his own half.
+			The interface is as strict as YNAB but covers far more ground, built to a production standard
+			from the first screen: every list and table mobile-first, every loading, empty, and error
+			state handled, every destructive action confirmed. I designed and built the front end in
+			SvelteKit 2 and Svelte 5. Chris built the backend in Express, Drizzle, and Postgres and owns
+			the business side, so each of us could focus on his own half.
 		</p>
 	</TextSection>
 
@@ -206,14 +202,12 @@
 
 	<TextSection title="Outcome">
 		<p>
-			Pocketwatch is the rare personal project that shipped as real software. The product is built
-			security-first: every route scoped to its owner, inputs validated, sessions revocable
-			server-side, the standard a tool that handles real money demands. Privacy is a product
-			feature, not a policy page. Bank connections are read-only, there are no passwords (sign-in
-			uses passkeys, one-time email codes, or Google and Apple), and the business model is
-			subscriptions, never data. What I&rsquo;m proudest of is the restraint: an all-in-one finance
-			app is the kind of product that bloats into noise, and Pocketwatch stays quiet the deeper you
-			go.
+			The product is built security-first: every route scoped to its owner, inputs validated,
+			sessions revocable server-side, the standard a tool that handles real money demands. Privacy
+			is a product feature, not a policy page. Bank connections are read-only, there are no
+			passwords (sign-in uses passkeys, one-time email codes, or Google and Apple), and the business
+			model is subscriptions, never data. The hardest part was restraint: an all-in-one finance app
+			is the kind of product that bloats into noise, and Pocketwatch stays quiet the deeper you go.
 		</p>
 	</TextSection>
 </CaseStudy>
