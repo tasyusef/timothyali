@@ -24,6 +24,15 @@
 		'TypeScript'
 	];
 
+	// Third-party validation, collected from the case studies so it sits in one
+	// checkable place. Every line names its source.
+	const recognition = [
+		'Ripple credited First Ledger with driving Q4 2024 XRPL growth',
+		'First Ledger in every Messari “State of XRP Ledger” report since Q2 2024',
+		'xrp.cafe profiled by Messari and featured on the official XRPL developer blog',
+		'xrp.cafe backed by the XRPL Accelerator'
+	];
+
 	const experience = [
 		{
 			period: '2019 — Now',
@@ -193,6 +202,18 @@
 			<div class="md:col-span-5 md:col-start-7">
 				<p class="leading-body">BFA, Graphic Design</p>
 				<p class="leading-body">Rocky Mountain College of Art + Design, 2022–2025</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Recognition -->
+	<div use:reveal>
+		<div class="py-row grid grid-cols-1 border-t border-[var(--color-border)] md:grid-cols-12">
+			<p class="label-swiss mb-4 md:col-span-3 md:mb-0">Recognition</p>
+			<div class="md:col-span-5 md:col-start-7">
+				{#each recognition as item (item)}
+					<p class="leading-body">{item}</p>
+				{/each}
 			</div>
 		</div>
 	</div>

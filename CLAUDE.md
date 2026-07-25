@@ -184,7 +184,7 @@ All animation values are centralized in `src/lib/motion.ts`:
 ### SEO
 - `Seo.svelte` renders title (auto-suffixed "— Timothy Ali"), description, author, canonical, OG tags (incl. `og:image:width/height/alt`), Twitter tags (incl. `twitter:site`/`creator` from `X_HANDLE`), optional `article` metadata, and JSON-LD.
 - Structured data: Person + WebSite JSON-LD in `+layout.svelte`; ProfilePage on `/about` (`PERSON_ENTITY` from `$lib/site`); CreativeWork on case studies; Article (with `image`/`description`/`dateModified`) on blog posts; BreadcrumbList rendered automatically by `CaseStudy.svelte`.
-- Every page needs exactly one `<h1>` with keyword-bearing text — use `sr-only` when the design has no visible heading (home, about, blog index).
+- Every page needs exactly one `<h1>` with keyword-bearing text — use `sr-only` when the design has no visible heading (about, blog index). The homepage h1 is the visible positioning statement in the hero, with the keyword-bearing name/role/location in a trailing `sr-only` span.
 - `src/routes/sitemap.xml/+server.ts` builds the sitemap from `projects` + `posts`; `lastmod` only where a real content date exists (posts) — never the build date. `static/robots.txt` points to it.
 - `trailingSlash = 'never'` is pinned in `+layout.ts` — canonical URLs have no trailing slash.
 - `+error.svelte` is the branded 404/error page (served by the adapter's catchall for unknown URLs).
