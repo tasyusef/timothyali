@@ -167,4 +167,15 @@
 			}
 		]}
 	/>
+
+	<TextSection title="Live">
+		<a
+			href="https://firstledger.net/"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="label-swiss hover-swiss inline-block underline underline-offset-4"
+		>
+			Visit firstledger.net &rarr;
+		</a>
+	</TextSection>
 </CaseStudy>

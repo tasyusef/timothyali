@@ -101,14 +101,9 @@
 			'$5M+ in marketplace revenue',
 			'Community grown to 32,000+ members',
 			'11,800+ secondary sales in a single 30-day period at peak (Nov 2023)',
-			'Top-3 XRPL marketplace in a cohort controlling 80%+ of on-chain NFT volume',
 			"Helped raise $32K for St. Jude's with VeSea",
-			'Featured on the official XRPL developer blog',
-			'Profiled by Messari as one of the most established touchpoints on XRPL',
-			'XRPL Accelerator backed: institutional support from the network',
-			'Consensus 2023 & 2024: booth presence two years running',
-			'Permissionless 2024: booth within the Ripple X section',
-			'ETH Denver 2022–2024: brand presence three years running'
+			'Profiled by Messari as one of the most established touchpoints on XRPL, featured on the official XRPL developer blog, and backed by the XRPL Accelerator',
+			'Booth and brand presence at Consensus (2023, 2024), Permissionless 2024 in the Ripple X section, and ETH Denver (2022–2024)'
 		]}
 	/>
 
@@ -202,4 +197,15 @@
 			}
 		]}
 	/>
+
+	<TextSection title="Live">
+		<a
+			href="https://xrp.cafe/"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="label-swiss hover-swiss inline-block underline underline-offset-4"
+		>
+			Visit xrp.cafe &rarr;
+		</a>
+	</TextSection>
 </CaseStudy>
