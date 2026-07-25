@@ -19,7 +19,12 @@
 	});
 </script>
 
-<nav aria-label="Main navigation" class="z-nav px-swiss relative py-4 md:py-5">
+<!-- The nav owns its own bottom rule, so every page gets the same bounded band
+     instead of the homepage hero supplying a border-t of its own. -->
+<nav
+	aria-label="Main navigation"
+	class="z-nav px-swiss relative border-b border-[var(--color-border)] py-4 md:py-5"
+>
 	<div class="flex items-center justify-between md:grid md:grid-cols-12">
 		<a href="/" class="label-swiss text-[var(--color-foreground)] md:col-span-3">Timothy Ali</a>
 

@@ -289,8 +289,8 @@ picture {
 .page-wrapper {
 	padding-left: var(--spacing-section);
 	padding-right: var(--spacing-section);
-	/* No top padding: the nav's own bottom padding is the gap, so the space below
-	   the nav row matches the space above it. */
+	/* Sits below the nav's bottom rule; the nav's own padding is symmetric. */
+	padding-top: 1.5rem;
 	padding-bottom: 15vh;
 }
 @media (min-width: 768px) {

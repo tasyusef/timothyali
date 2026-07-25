@@ -18,7 +18,7 @@
      viewport height the way the old vh value did. -->
 <section aria-label="Introduction" class="px-swiss pb-[8vh] md:pb-[14vh]">
 	<h1 class="sr-only">Timothy Ali: Product, Brand & Motion Designer</h1>
-	<div class="entrance border-t border-[var(--color-border)] pt-6">
+	<div class="entrance pt-6">
 		<div class="grid grid-cols-2 gap-y-6 md:grid-cols-12">
 			<div class="hidden md:col-span-3 md:block">
 				<div class="aspect-[3/4] w-1/2 overflow-hidden">
