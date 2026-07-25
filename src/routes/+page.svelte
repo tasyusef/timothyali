@@ -33,6 +33,7 @@
 				<p class="leading-body">Product</p>
 				<p class="leading-body">Brand</p>
 				<p class="leading-body">Motion</p>
+				<p class="leading-body">Front-End</p>
 			</div>
 			<div class="md:col-span-2 md:col-start-7">
 				<p class="label-swiss mb-2">Experience</p>
