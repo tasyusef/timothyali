@@ -14,8 +14,17 @@
 
 <!-- Hero Section -->
 <section aria-label="Introduction" class="px-swiss pt-[4vh] pb-[8vh] md:pt-[6vh] md:pb-[14vh]">
-	<h1 class="sr-only">Timothy Ali: Product, Brand & Motion Designer</h1>
 	<div class="entrance border-t border-[var(--color-border)] pt-6">
+		<!-- Positioning statement — the visible h1; keywords ride along for search -->
+		<div class="mb-10 grid grid-cols-1 md:mb-16 md:grid-cols-12">
+			<h1 class="heading-swiss text-subhead md:col-span-8 md:col-start-5">
+				I&rsquo;m a designer and a builder. I take my work from ideation to production.<span
+					class="sr-only"
+				>
+					Timothy Ali, product, brand, and motion designer in Denver, Colorado.</span
+				>
+			</h1>
+		</div>
 		<div class="grid grid-cols-2 gap-y-6 md:grid-cols-12">
 			<div class="hidden md:col-span-3 md:block">
 				<div class="aspect-[3/4] w-1/2 overflow-hidden">
