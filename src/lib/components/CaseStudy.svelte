@@ -75,7 +75,7 @@
 
 <article>
 	<!-- Header -->
-	<div class="px-swiss pt-6 md:pt-10">
+	<div class="px-swiss">
 		<div class="entrance">
 			<!-- Back link row -->
 			<div

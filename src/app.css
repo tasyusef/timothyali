@@ -289,12 +289,12 @@ picture {
 .page-wrapper {
 	padding-left: var(--spacing-section);
 	padding-right: var(--spacing-section);
-	padding-top: 1.5rem;
+	/* No top padding: the nav's own bottom padding is the gap, so the space below
+	   the nav row matches the space above it. */
 	padding-bottom: 15vh;
 }
 @media (min-width: 768px) {
 	.page-wrapper {
-		padding-top: 2.5rem;
 		padding-bottom: 25vh;
 	}
 }

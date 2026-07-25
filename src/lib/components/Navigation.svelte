@@ -19,7 +19,7 @@
 	});
 </script>
 
-<nav aria-label="Main navigation" class="z-nav px-swiss relative py-5 md:py-6">
+<nav aria-label="Main navigation" class="z-nav px-swiss relative py-4 md:py-5">
 	<div class="flex items-center justify-between md:grid md:grid-cols-12">
 		<a href="/" class="label-swiss text-[var(--color-foreground)] md:col-span-3">Timothy Ali</a>
 
