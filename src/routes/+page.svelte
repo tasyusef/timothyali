@@ -13,7 +13,10 @@
 <Seo ogKey="home" />
 
 <!-- Hero Section -->
-<section aria-label="Introduction" class="px-swiss pt-[4vh] pb-[8vh] md:pt-[6vh] md:pb-[14vh]">
+<!-- Top padding matches .page-wrapper (1.5rem / 2.5rem) so the hairline sits the
+     same distance below the nav as every other page, and does not grow with
+     viewport height the way the old vh value did. -->
+<section aria-label="Introduction" class="px-swiss pt-6 pb-[8vh] md:pt-10 md:pb-[14vh]">
 	<h1 class="sr-only">Timothy Ali: Product, Brand & Motion Designer</h1>
 	<div class="entrance border-t border-[var(--color-border)] pt-6">
 		<div class="grid grid-cols-2 gap-y-6 md:grid-cols-12">
