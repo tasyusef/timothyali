@@ -26,10 +26,12 @@
 
 	// Third-party validation, collected from the case studies so it sits in one
 	// checkable place. Every line names its source.
+	// Kept short enough to hold one line in the 5-column measure; wrapped
+	// fragments read as separate entries otherwise.
 	const recognition = [
-		'Ripple credited First Ledger with driving Q4 2024 XRPL growth',
-		'First Ledger in every Messari “State of XRP Ledger” report since Q2 2024',
-		'xrp.cafe profiled by Messari and featured on the official XRPL developer blog',
+		'Ripple credited First Ledger with Q4 2024 XRPL growth',
+		'First Ledger in every Messari XRPL report since Q2 2024',
+		'xrp.cafe profiled by Messari, featured on the XRPL blog',
 		'xrp.cafe backed by the XRPL Accelerator'
 	];
 
@@ -210,7 +212,9 @@
 	<div use:reveal>
 		<div class="py-row grid grid-cols-1 border-t border-[var(--color-border)] md:grid-cols-12">
 			<p class="label-swiss mb-4 md:col-span-3 md:mb-0">Recognition</p>
-			<div class="md:col-span-5 md:col-start-7">
+			<!-- space-y-2: these are sentences, not single words like the rows above,
+			     so each entry needs separation once it wraps on narrow screens. -->
+			<div class="space-y-2 md:col-span-5 md:col-start-7">
 				{#each recognition as item (item)}
 					<p class="leading-body">{item}</p>
 				{/each}
