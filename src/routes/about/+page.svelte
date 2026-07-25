@@ -119,7 +119,7 @@
 
 	<!-- Bio + Photo -->
 	<div
-		class="entrance grid grid-cols-1 gap-8 pt-[4vh] pb-[8vh] md:grid-cols-12 md:gap-0 md:pt-[6vh] md:pb-[14vh]"
+		class="entrance py-section grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-0"
 		style:--entrance-delay="100ms"
 	>
 		<div class="md:col-span-5 md:col-start-1">

@@ -16,7 +16,7 @@
 <!-- Top padding matches .page-wrapper (1.5rem / 2.5rem) so the hairline sits the
      same distance below the nav as every other page, and does not grow with
      viewport height the way the old vh value did. -->
-<section aria-label="Introduction" class="px-swiss pb-[8vh] md:pb-[14vh]">
+<section aria-label="Introduction" class="px-swiss pb-section">
 	<h1 class="sr-only">Timothy Ali: Product, Brand & Motion Designer</h1>
 	<div class="entrance pt-6">
 		<div class="grid grid-cols-2 gap-y-6 md:grid-cols-12">

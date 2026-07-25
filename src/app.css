@@ -272,6 +272,9 @@ picture {
 	padding-top: 8vh;
 	padding-bottom: 8vh;
 }
+.pb-section {
+	padding-bottom: 8vh;
+}
 @media (min-width: 768px) {
 	.mb-section {
 		margin-bottom: 12vh;
@@ -283,19 +286,23 @@ picture {
 		padding-top: 12vh;
 		padding-bottom: 12vh;
 	}
+	.pb-section {
+		padding-bottom: 12vh;
+	}
 }
 
 /* Page wrapper — standard page padding */
 .page-wrapper {
 	padding-left: var(--spacing-section);
 	padding-right: var(--spacing-section);
-	/* Sits below the nav's bottom rule; the nav's own padding is symmetric. */
+	/* Sits below the nav's bottom rule; the nav's own padding is symmetric.
+	   The bottom gap is the shared section value, not a one-off. */
 	padding-top: 1.5rem;
-	padding-bottom: 15vh;
+	padding-bottom: 8vh;
 }
 @media (min-width: 768px) {
 	.page-wrapper {
-		padding-bottom: 25vh;
+		padding-bottom: 12vh;
 	}
 }
 
