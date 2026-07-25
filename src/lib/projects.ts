@@ -438,7 +438,27 @@ export const projects: Project[] = [
 			{
 				src: '/images/do-androids-dream/hero.jpg',
 				aspect: 16 / 9,
-				alt: 'Do Androids Dream title sequence frame'
+				alt: 'Do Androids Dream title sequence: the sun with beams radiating out behind a lone figure, black on yellow'
+			},
+			{
+				src: '/images/do-androids-dream/still-title.jpg',
+				aspect: 16 / 9,
+				alt: 'Do Androids Dream title sequence, act one: the title in heavy black type on a flat yellow field'
+			},
+			{
+				src: '/images/do-androids-dream/still-cityscape.jpg',
+				aspect: 16 / 9,
+				alt: 'Do Androids Dream title sequence, act two: a black city skyline against yellow with a lone figure at right'
+			},
+			{
+				src: '/images/do-androids-dream/still-road.jpg',
+				aspect: 16 / 9,
+				alt: 'Do Androids Dream title sequence, act three: the perspective breaks and a black road converges between yellow city blocks'
+			},
+			{
+				src: '/images/do-androids-dream/still-sunrise.jpg',
+				aspect: 16 / 9,
+				alt: 'Do Androids Dream title sequence, act three: a yellow sun rising into a black sky'
 			}
 		],
 		stats: [

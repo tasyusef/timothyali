@@ -33,6 +33,8 @@
 	year="2023"
 	role="Director, Designer, Animator"
 	tools="After Effects, Illustrator"
+	heroImage="/images/do-androids-dream/hero.jpg"
+	heroAlt="Do Androids Dream title sequence: the sun with beams radiating out behind a lone figure, black on yellow"
 	nextProject={getNextProject('do-androids-dream')}
 >
 	{#snippet overview()}
@@ -90,6 +92,26 @@
 				type: 'video',
 				src: '/videos/DO_ANDROIDS_DREAM_-_Title_Sequence.mp4',
 				alt: 'Do Androids Dream title sequence'
+			},
+			{
+				type: 'image',
+				src: '/images/do-androids-dream/still-title.jpg',
+				alt: 'Do Androids Dream title sequence, act one: the title in heavy black type on a flat yellow field'
+			},
+			{
+				type: 'image',
+				src: '/images/do-androids-dream/still-cityscape.jpg',
+				alt: 'Do Androids Dream title sequence, act two: a black city skyline against yellow with a lone figure at right, edges fringed by chromatic aberration'
+			},
+			{
+				type: 'image',
+				src: '/images/do-androids-dream/still-road.jpg',
+				alt: 'Do Androids Dream title sequence, act three: the perspective breaks and a black road converges between yellow city blocks'
+			},
+			{
+				type: 'image',
+				src: '/images/do-androids-dream/still-sunrise.jpg',
+				alt: 'Do Androids Dream title sequence, act three: a yellow sun rising into a black sky'
 			}
 		]}
 	/>
