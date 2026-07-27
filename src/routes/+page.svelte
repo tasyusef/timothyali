@@ -63,10 +63,6 @@
 					{/each}
 				</div>
 			</div>
-			<!-- Positioning statement — sits under the metadata, at body size -->
-			<p class="leading-body col-span-2 md:col-span-6 md:col-start-5 md:mt-6">
-				I design brands and products, then build them.
-			</p>
 		</div>
 	</div>
 </section>
