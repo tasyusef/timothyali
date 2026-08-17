@@ -5,8 +5,6 @@ export const SITE_NAME = 'Timothy Ali';
 export const SITE_TITLE = 'Timothy Ali — UX & Product Designer in Denver';
 export const SITE_DESCRIPTION =
 	'Portfolio of Timothy Ali, a UX and product designer in Denver, CO. Product design, brand identity, and motion for startups and tech companies.';
-export const X_HANDLE = '@twocakeS__';
-
 export interface SocialLink {
 	label: string;
 	handle: string;
@@ -19,8 +17,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 		label: 'LinkedIn',
 		handle: 'linkedin.com/in/timothyali',
 		href: 'https://linkedin.com/in/timothyali'
-	},
-	{ label: 'X', handle: 'x.com/twocakeS__', href: 'https://x.com/twocakeS__' }
+	}
 ];
 
 /** Person entity without @context — embeddable in other schemas (ProfilePage). */

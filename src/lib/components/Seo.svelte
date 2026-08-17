@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { SITE_NAME, SITE_TITLE, SITE_DESCRIPTION, SITE_URL, X_HANDLE } from '$lib/site';
+	import { SITE_NAME, SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from '$lib/site';
 
 	interface Props {
 		/** Page title — suffixed with "— Timothy Ali". Omit for the homepage default. */
@@ -52,9 +52,8 @@
 		<meta property="article:published_time" content={publishedTime} />
 		<meta property="article:author" content={SITE_NAME} />
 	{/if}
+	<!-- Card format only: no account is named here (no twitter:site/creator). -->
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:site" content={X_HANDLE} />
-	<meta name="twitter:creator" content={X_HANDLE} />
 	<meta name="twitter:title" content={fullTitle} />
 	<meta name="twitter:description" content={description} />
 	<meta name="twitter:image" content={ogImage} />
