@@ -5,7 +5,7 @@
 	import ProjectBento from '$lib/components/ProjectBento.svelte';
 	import LocalTime from '$lib/components/LocalTime.svelte';
 	import { reveal } from '$lib/actions/reveal';
-	import { designProjects, codeProjects } from '$lib/projects';
+	import { passionProjects, workProjects } from '$lib/projects';
 	import { posts } from '$lib/posts';
 	import { SOCIAL_LINKS } from '$lib/site';
 </script>
@@ -67,29 +67,29 @@
 	</div>
 </section>
 
-<!-- Selected Work — Code & Product -->
-<section aria-label="Code and product work" class="px-swiss">
+<!-- Passion Projects & Open Source -->
+<section aria-label="Passion projects and open source" class="px-swiss">
 	<div use:reveal>
-		<p class="label-swiss mb-8">Code &amp; Product</p>
+		<p class="label-swiss mb-8">Passion Projects &amp; Open Source</p>
 	</div>
 	<div use:reveal class="hidden md:block">
-		<ProjectBento projects={codeProjects} />
+		<ProjectBento projects={passionProjects} />
 	</div>
 	<div use:reveal class="md:hidden">
-		<ProjectIndex projects={codeProjects} />
+		<ProjectIndex projects={passionProjects} />
 	</div>
 </section>
 
-<!-- Selected Work — Design & Brand -->
-<section aria-label="Design and brand work" class="px-swiss mt-section">
+<!-- Selected Work -->
+<section aria-label="Selected client and studio work" class="px-swiss mt-section">
 	<div use:reveal>
-		<p class="label-swiss mb-8">Design &amp; Brand</p>
+		<p class="label-swiss mb-8">Selected Work</p>
 	</div>
 	<div use:reveal class="hidden md:block">
-		<ProjectBento projects={designProjects} startIndex={codeProjects.length} />
+		<ProjectBento projects={workProjects} startIndex={passionProjects.length} />
 	</div>
 	<div use:reveal class="md:hidden">
-		<ProjectIndex projects={designProjects} startIndex={codeProjects.length} />
+		<ProjectIndex projects={workProjects} startIndex={passionProjects.length} />
 	</div>
 </section>
 

@@ -12,8 +12,9 @@ export interface ProjectStat {
 export interface Project {
 	slug: string;
 	title: string;
-	/** Homepage grouping — design/brand work vs code-focused product work */
-	section: 'design' | 'code';
+	/** Homepage grouping — self-initiated passion projects & open source vs
+	    client/professional selected work */
+	section: 'passion' | 'work';
 	category: string;
 	year: string;
 	heroImage: string;
@@ -25,7 +26,7 @@ export interface Project {
 	    zero cropping. */
 	bentoRow?: number;
 	/** Within a band, consecutive projects sharing a bentoCol stack vertically
-	    in one column (e.g. Sonde + Jade beside the Pocketwatch feature). */
+	    in one column (a stack beside a feature card). */
 	bentoCol?: number;
 	/** Optional media override for the bento card when the case-study hero
 	    doesn't suit the tile (e.g. Pocketwatch's square hero → landscape ad). */
@@ -44,7 +45,7 @@ export const projects: Project[] = [
 		bentoImage: '/images/pocketwatch/ad-both.png',
 		bentoAspect: 1200 / 628,
 		title: 'Pocketwatch',
-		section: 'code',
+		section: 'passion',
 		category: 'Product, Brand & Art Direction',
 		year: '2026',
 		heroImage: '/images/pocketwatch/hero.png',
@@ -108,9 +109,8 @@ export const projects: Project[] = [
 	{
 		slug: 'sonde',
 		bentoRow: 1,
-		bentoCol: 2,
 		title: 'Sonde',
-		section: 'code',
+		section: 'passion',
 		category: 'Product, Code & Art Direction',
 		year: '2025–2026',
 		heroImage: '/images/sonde/hero.png',
@@ -162,36 +162,10 @@ export const projects: Project[] = [
 			'A real-time XRPL analytics platform: network insights, DEX analytics, portfolio tracking, OHLCV price charts, and on-chain ingestion. Designed, built, and run solo.'
 	},
 	{
-		slug: 'jade-aesthetics',
-		bentoRow: 1,
-		bentoCol: 2,
-		title: 'Jade Aesthetics',
-		section: 'code',
-		category: 'Web & Code',
-		year: '2025–2026',
-		heroImage: '/images/jade-aesthetics/desktop-homepage-fold.jpg',
-		heroAspect: 1920 / 1200,
-		images: [
-			{
-				src: '/images/jade-aesthetics/desktop-homepage-fold.jpg',
-				aspect: 1920 / 1200,
-				alt: 'Jade Aesthetics homepage design'
-			}
-		],
-		stats: [
-			{ label: 'Pages', value: '30+' },
-			{ label: 'Lighthouse A11y', value: '100' },
-			{ label: 'Architecture', value: 'SEO-First' },
-			{ label: 'Rendering', value: 'Server-Side' }
-		],
-		description:
-			'Two complete websites for a premium medical spa: a Framer launch, then an SEO-architected Next.js application.'
-	},
-	{
 		slug: 'firststrike',
 		bentoRow: 1,
 		title: 'FirstStrike Research',
-		section: 'design',
+		section: 'work',
 		category: 'Brand & Art Direction',
 		year: '2025',
 		heroImage: '/images/firststrike/hero.png',
@@ -261,7 +235,7 @@ export const projects: Project[] = [
 		slug: 'xrpcafe',
 		bentoRow: 1,
 		title: 'xrp.cafe',
-		section: 'design',
+		section: 'work',
 		category: 'Brand & Motion',
 		year: '2021–2024',
 		heroImage: '/images/xrpcafe/logo_16x9.png',
@@ -356,10 +330,35 @@ export const projects: Project[] = [
 			'Visual identity, motion design, and marketing for the #1 NFT marketplace on the XRP Ledger.'
 	},
 	{
+		slug: 'jade-aesthetics',
+		bentoRow: 2,
+		title: 'Jade Aesthetics',
+		section: 'work',
+		category: 'Web & Code',
+		year: '2025–2026',
+		heroImage: '/images/jade-aesthetics/desktop-homepage-fold.jpg',
+		heroAspect: 1920 / 1200,
+		images: [
+			{
+				src: '/images/jade-aesthetics/desktop-homepage-fold.jpg',
+				aspect: 1920 / 1200,
+				alt: 'Jade Aesthetics homepage design'
+			}
+		],
+		stats: [
+			{ label: 'Pages', value: '30+' },
+			{ label: 'Lighthouse A11y', value: '100' },
+			{ label: 'Architecture', value: 'SEO-First' },
+			{ label: 'Rendering', value: 'Server-Side' }
+		],
+		description:
+			'Two complete websites for a premium medical spa: a Framer launch, then an SEO-architected Next.js application.'
+	},
+	{
 		slug: 'firstledger',
 		bentoRow: 2,
 		title: 'First Ledger',
-		section: 'design',
+		section: 'work',
 		category: 'Brand & Art Direction',
 		year: '2024–2025',
 		heroImage: '/images/firstledger/FL2_FOLIO_HERO.png',
@@ -426,9 +425,9 @@ export const projects: Project[] = [
 	},
 	{
 		slug: 'do-androids-dream',
-		bentoRow: 2,
+		bentoRow: 3,
 		title: 'Do Androids Dream?',
-		section: 'design',
+		section: 'work',
 		category: 'Motion & Art Direction',
 		year: '2023',
 		heroImage: '/images/do-androids-dream/hero.jpg',
@@ -472,9 +471,9 @@ export const projects: Project[] = [
 	},
 	{
 		slug: 'gridform',
-		bentoRow: 2,
+		bentoRow: 3,
 		title: 'Studio Gridform',
-		section: 'design',
+		section: 'work',
 		category: 'Brand & Art Direction',
 		year: '2023–2024',
 		heroImage: '/images/gridform/Poster_Frame_Mockup_2.png',
@@ -527,8 +526,8 @@ export const projects: Project[] = [
 	}
 ];
 
-export const designProjects = projects.filter((p) => p.section === 'design');
-export const codeProjects = projects.filter((p) => p.section === 'code');
+export const passionProjects = projects.filter((p) => p.section === 'passion');
+export const workProjects = projects.filter((p) => p.section === 'work');
 
 export type ProjectSlug = (typeof projects)[number]['slug'];
 
