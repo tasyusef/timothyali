@@ -109,6 +109,7 @@ export const projects: Project[] = [
 	{
 		slug: 'sonde',
 		bentoRow: 1,
+		bentoCol: 2,
 		title: 'Sonde',
 		section: 'passion',
 		category: 'Product, Code & Art Direction',
@@ -160,6 +161,47 @@ export const projects: Project[] = [
 		],
 		description:
 			'A real-time XRPL analytics platform: network insights, DEX analytics, portfolio tracking, OHLCV price charts, and on-chain ingestion. Designed, built, and run solo.'
+	},
+	{
+		slug: 'gridform-studio',
+		bentoRow: 1,
+		bentoCol: 2,
+		title: 'GRIDFORM Studio',
+		section: 'passion',
+		category: 'Product, Code & Tooling',
+		year: '2026',
+		heroImage: '/images/gridform-studio/lockup-outputs.png',
+		heroAspect: 2880 / 1800,
+		images: [
+			{
+				src: '/images/gridform-studio/lockup-outputs.png',
+				aspect: 2880 / 1800,
+				alt: 'GRIDFORM Studio Lockup tool: logo preview with web, print, color, and size output toggles'
+			},
+			{
+				src: '/images/gridform-studio/lockup-review.png',
+				aspect: 2880 / 1800,
+				alt: 'GRIDFORM Studio Lockup export review: the full deliverable folder tree before export'
+			},
+			{
+				src: '/images/gridform-studio/palette.png',
+				aspect: 2880 / 1800,
+				alt: 'GRIDFORM Studio Palette tool: poster artwork with extracted swatches and token export formats'
+			},
+			{
+				src: '/images/gridform-studio/specimen.png',
+				aspect: 2880 / 1800,
+				alt: 'GRIDFORM Studio Specimen tool: brand typography sheet with live display, heading, and body styles'
+			}
+		],
+		stats: [
+			{ label: 'Tools', value: '3-In-1' },
+			{ label: 'Engine Parity', value: 'Byte-Identical' },
+			{ label: 'Platforms', value: 'Mac · Win · Linux' },
+			{ label: 'Role', value: 'Sole Creator' }
+		],
+		description:
+			'A desktop studio for the last step of brand work: logo SVGs in, a complete print + web deliverable package out — plus palettes and type sheets. Offline, no accounts.'
 	},
 	{
 		slug: 'firststrike',
