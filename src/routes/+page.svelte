@@ -5,7 +5,7 @@
 	import ProjectBento from '$lib/components/ProjectBento.svelte';
 	import LocalTime from '$lib/components/LocalTime.svelte';
 	import { reveal } from '$lib/actions/reveal';
-	import { passionProjects, workProjects } from '$lib/projects';
+	import { brandProjects, webProjects, passionProjects } from '$lib/projects';
 	import { posts } from '$lib/posts';
 	import { SOCIAL_LINKS } from '$lib/site';
 </script>
@@ -67,29 +67,48 @@
 	</div>
 </section>
 
+<!-- Brand & Motion -->
+<section aria-label="Brand and motion work" class="px-swiss">
+	<div use:reveal>
+		<p class="label-swiss mb-8">Brand &amp; Motion</p>
+	</div>
+	<div use:reveal class="hidden md:block">
+		<ProjectBento projects={brandProjects} />
+	</div>
+	<div use:reveal class="md:hidden">
+		<ProjectIndex projects={brandProjects} />
+	</div>
+</section>
+
+<!-- Web & Product Design -->
+<section aria-label="Web and product design work" class="px-swiss mt-section">
+	<div use:reveal>
+		<p class="label-swiss mb-8">Web &amp; Product Design</p>
+	</div>
+	<div use:reveal class="hidden md:block">
+		<ProjectBento projects={webProjects} startIndex={brandProjects.length} />
+	</div>
+	<div use:reveal class="md:hidden">
+		<ProjectIndex projects={webProjects} startIndex={brandProjects.length} />
+	</div>
+</section>
+
 <!-- Passion Projects & Open Source -->
-<section aria-label="Passion projects and open source" class="px-swiss">
+<section aria-label="Passion projects and open source" class="px-swiss mt-section">
 	<div use:reveal>
 		<p class="label-swiss mb-8">Passion Projects &amp; Open Source</p>
 	</div>
 	<div use:reveal class="hidden md:block">
-		<ProjectBento projects={passionProjects} />
+		<ProjectBento
+			projects={passionProjects}
+			startIndex={brandProjects.length + webProjects.length}
+		/>
 	</div>
 	<div use:reveal class="md:hidden">
-		<ProjectIndex projects={passionProjects} />
-	</div>
-</section>
-
-<!-- Selected Work -->
-<section aria-label="Selected client and studio work" class="px-swiss mt-section">
-	<div use:reveal>
-		<p class="label-swiss mb-8">Selected Work</p>
-	</div>
-	<div use:reveal class="hidden md:block">
-		<ProjectBento projects={workProjects} startIndex={passionProjects.length} />
-	</div>
-	<div use:reveal class="md:hidden">
-		<ProjectIndex projects={workProjects} startIndex={passionProjects.length} />
+		<ProjectIndex
+			projects={passionProjects}
+			startIndex={brandProjects.length + webProjects.length}
+		/>
 	</div>
 </section>
 
