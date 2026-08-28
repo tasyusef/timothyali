@@ -126,7 +126,13 @@ Case study pages (`src/routes/work/<slug>/+page.svelte`) compose shared componen
 - `description` (one-liner)
 - Optional: `heroVideo`, `videos`
 
-The homepage renders three grouped work sections, all derived from `section`: "Brand & Motion" (`brandProjects`: FirstStrike, xrp.cafe, First Ledger, Do Androids Dream, Studio Gridform), then "Web & Product Design" (`webProjects`: website/product client work — currently Jade Aesthetics), then "Passion Projects & Open Source" (`passionProjects`: self-initiated apps and open source — Pocketwatch, Sonde, GRIDFORM Studio). Desktop shows `ProjectBento` — aspect-justified bento bands: consecutive projects sharing a `bentoRow` number form one band; within a band, consecutive projects sharing a `bentoCol` stack vertically in one column. Current curation: brand bands = FirstStrike + xrp.cafe, then First Ledger + Do Androids Dream + Studio Gridform; web = Jade full-width (no `bentoRow` — single card); passion band = Pocketwatch feature (landscape ad) beside stacked Sonde + GRIDFORM Studio. A solver sizes columns so every column of a band is equal height, and stacked cards split their column via flex-grow ∝ 1/aspect — all media renders aspect-true with zero cropping (same technique as the Pocketwatch case-study hero pair). Cards are full-bleed media tiles (no panel/radius); the meta chin (number, title, category, year) overlays the bottom edge and appears only on hover/focus. `bentoImage`/`bentoAspect` override the card media when the hero doesn't suit a tile (Pocketwatch uses its landscape ad). Mobile shows `ProjectIndex` (tap-to-expand list). The array is ordered brand → web → passion so numbering runs continuously (01–05, 06, 07–09 via the shared `startIndex` prop) and `getNextProject` cycles in the same order. New projects must set `section` (and optionally `bento`).
+The homepage renders three grouped work sections, all derived from `section`: "Brand & Motion" (`brandProjects`: FirstStrike, xrp.cafe, First Ledger, Do Androids Dream, Studio Gridform), then "Web & Product Design" (`webProjects`: website/product client work — currently Jade Aesthetics), then "Passion Projects & Open Source" (`passionProjects`: self-initiated apps and open source — Pocketwatch, Sonde, GRIDFORM Studio). The array is ordered brand → web → passion so numbering runs continuously (01–05, 06, 07–09 via the shared `startIndex` prop) and `getNextProject` cycles in the same order. New projects must set `section`.
+
+**Homepage layout (production = `combo`):** each section renders a caption-less contact-sheet strip on desktop — `HomeContactSheet` (route-local): fixed-height (`h-64 lg:h-72`) sideways-scrolling row of hero media at aspect-true widths (`bentoImage ?? heroImage`), scroll arrows on overflow — followed at every viewport by `ProjectIndex` rows (number / title / category / year; cursor-following `CursorPreview` on desktop hover, tap-to-expand on mobile). The strip has no captions in this pairing because the rows directly below carry the meta (the standalone sheet layout keeps captions via its `captions` prop).
+
+**Layout exploration rig (dev only):** `+page.svelte` holds `layout` state (default `'combo'` = production); `HomeLayoutSwitcher` (route-local, rendered only under `import.meta.env.DEV`, persists to localStorage) flips between candidates defined in `src/routes/homeLayout.ts`: `index` (rows only), `hybrid` (one feature image + rows), `bento` (the previous production layout), `dense` (bento with a re-curated `overrides` prop — more cards per band = shorter bands), `sheet` (captioned strips only), `combo`. `HomeWorkSections` (route-local) renders the three sections per layout. Delete the losing branches once the exploration is settled.
+
+`ProjectBento` (kept for the bento/dense options) — aspect-justified bento bands: consecutive projects sharing a `bentoRow` number form one band; within a band, consecutive projects sharing a `bentoCol` stack vertically in one column. A solver sizes columns so every column of a band is equal height, and stacked cards split their column via flex-grow ∝ 1/aspect — all media renders aspect-true with zero cropping. Cards are full-bleed media tiles; the meta chin overlays the bottom edge on hover/focus. `bentoImage`/`bentoAspect` override the card media when the hero doesn't suit a tile (Pocketwatch uses its landscape ad); an optional per-slug `overrides` prop replaces `bentoRow`/`bentoCol`/aspect without touching `projects.ts`.
 
 ### Art
 - `src/lib/art.ts` holds `ArtPiece { src, alt, title?, year? }` entries; images live in `src/lib/images/art/`. No aspect ratios are stored — `artAspect()` reads intrinsic dimensions from the enhanced-image manifest, so adding a piece is one file + one entry.
@@ -223,8 +229,8 @@ src/
 │       ├── Navigation.svelte   # Responsive nav — crossfade underline, mobile overlay
 │       ├── ThemeToggle.svelte
 │       ├── Footer.svelte
-│       ├── ProjectIndex.svelte # Homepage project list (mobile) — tap to expand
-│       ├── ProjectBento.svelte # Homepage project bento grid (desktop) — panel cards, curated spans
+│       ├── ProjectIndex.svelte # Homepage project rows (all viewports) — cursor preview / tap to expand
+│       ├── ProjectBento.svelte # Bento grid (dev-only layout options) — aspect-justified bands
 │       ├── ProjectImageStrip.svelte  # Horizontal media strip with scroll arrows
 │       ├── ProjectStatsCard.svelte   # Key Metrics card
 │       ├── CursorPreview.svelte      # Spring-driven hover preview (portaled to body)
@@ -239,7 +245,7 @@ src/
     ├── +layout.ts              # prerender = true, trailingSlash = 'never'
     ├── +layout.svelte          # app.css, view transitions, nav/footer, Person+WebSite JSON-LD, skip link
     ├── +error.svelte           # Branded 404/error page
-    ├── +page.svelte            # Homepage — hero grid, grouped ProjectIndexes (design / code), quick links
+    ├── +page.svelte            # Homepage — hero grid, work sections (HomeWorkSections + dev layout switcher), quick links
     ├── about/+page.svelte
     ├── art/+page.svelte        # Auto-justified bento of misc work (art, prints, photography)
     ├── blog/

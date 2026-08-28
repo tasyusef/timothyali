@@ -1,13 +1,26 @@
+<script module lang="ts">
+	/** Per-slug band overrides. When present, row/col replace the project's own
+	 * bentoRow/bentoCol wholesale (omitted = cleared); aspect overrides the
+	 * media box ratio (cover-crops when it differs from the source). */
+	export type BentoOverrides = Record<string, { row?: number; col?: number; aspect?: number }>;
+</script>
+
 <script lang="ts">
 	import type { Project } from '$lib/projects';
 	import Img from './Img.svelte';
 
-	let { projects, startIndex = 0 }: { projects: Project[]; startIndex?: number } = $props();
+	let {
+		projects,
+		startIndex = 0,
+		overrides
+	}: { projects: Project[]; startIndex?: number; overrides?: BentoOverrides } = $props();
 
 	interface Tile {
 		project: Project;
 		num: string;
 		aspect: number;
+		row?: number;
+		col?: number;
 	}
 
 	interface Column {
@@ -29,16 +42,18 @@
 		const rows: Tile[][] = [];
 		let prevRow: number | undefined;
 		projects.forEach((project, index) => {
+			const o = overrides?.[project.slug];
 			const tile: Tile = {
 				project,
 				num: String(startIndex + index + 1).padStart(2, '0'),
-				aspect: project.bentoAspect ?? project.heroAspect
+				aspect: o?.aspect ?? project.bentoAspect ?? project.heroAspect,
+				row: o ? o.row : project.bentoRow,
+				col: o ? o.col : project.bentoCol
 			};
-			const sameBand =
-				rows.length > 0 && project.bentoRow !== undefined && project.bentoRow === prevRow;
+			const sameBand = rows.length > 0 && tile.row !== undefined && tile.row === prevRow;
 			if (sameBand) rows[rows.length - 1].push(tile);
 			else rows.push([tile]);
-			prevRow = project.bentoRow;
+			prevRow = tile.row;
 		});
 
 		return rows.map((tiles) => {
@@ -46,13 +61,10 @@
 			const cols: Tile[][] = [];
 			let prevCol: number | undefined;
 			tiles.forEach((tile) => {
-				const sameCol =
-					cols.length > 0 &&
-					tile.project.bentoCol !== undefined &&
-					tile.project.bentoCol === prevCol;
+				const sameCol = cols.length > 0 && tile.col !== undefined && tile.col === prevCol;
 				if (sameCol) cols[cols.length - 1].push(tile);
 				else cols.push([tile]);
-				prevCol = tile.project.bentoCol;
+				prevCol = tile.col;
 			});
 
 			// Solve column widths for equal column heights at the nominal width:

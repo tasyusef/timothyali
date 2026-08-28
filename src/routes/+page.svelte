@@ -1,13 +1,18 @@
 <script lang="ts">
 	import Seo from '$lib/components/Seo.svelte';
 	import Img from '$lib/components/Img.svelte';
-	import ProjectIndex from '$lib/components/ProjectIndex.svelte';
-	import ProjectBento from '$lib/components/ProjectBento.svelte';
 	import LocalTime from '$lib/components/LocalTime.svelte';
+	import HomeWorkSections from './HomeWorkSections.svelte';
+	import HomeLayoutSwitcher from './HomeLayoutSwitcher.svelte';
 	import { reveal } from '$lib/actions/reveal';
-	import { brandProjects, webProjects, passionProjects } from '$lib/projects';
 	import { posts } from '$lib/posts';
 	import { SOCIAL_LINKS } from '$lib/site';
+	import type { HomeLayout } from './homeLayout';
+
+	// Homepage layout exploration — the dev-only switcher (bottom-left) flips
+	// between candidate work-section layouts. The default here is what
+	// production builds render.
+	let layout = $state<HomeLayout>('combo');
 </script>
 
 <Seo ogKey="home" />
@@ -67,50 +72,12 @@
 	</div>
 </section>
 
-<!-- Brand & Motion -->
-<section aria-label="Brand and motion work" class="px-swiss">
-	<div use:reveal>
-		<p class="label-swiss mb-8">Brand &amp; Motion</p>
-	</div>
-	<div use:reveal class="hidden md:block">
-		<ProjectBento projects={brandProjects} />
-	</div>
-	<div use:reveal class="md:hidden">
-		<ProjectIndex projects={brandProjects} />
-	</div>
-</section>
+<!-- Work sections — layout picked by the dev switcher below -->
+<HomeWorkSections {layout} />
 
-<!-- Web & Product Design -->
-<section aria-label="Web and product design work" class="px-swiss mt-section">
-	<div use:reveal>
-		<p class="label-swiss mb-8">Web &amp; Product Design</p>
-	</div>
-	<div use:reveal class="hidden md:block">
-		<ProjectBento projects={webProjects} startIndex={brandProjects.length} />
-	</div>
-	<div use:reveal class="md:hidden">
-		<ProjectIndex projects={webProjects} startIndex={brandProjects.length} />
-	</div>
-</section>
-
-<!-- Passion Projects & Open Source -->
-<section aria-label="Passion projects and open source" class="px-swiss mt-section">
-	<div use:reveal>
-		<p class="label-swiss mb-8">Passion Projects &amp; Open Source</p>
-	</div>
-	<div use:reveal class="hidden md:block">
-		<ProjectBento
-			projects={passionProjects}
-			startIndex={brandProjects.length + webProjects.length}
-		/>
-	</div>
-	<div use:reveal class="md:hidden">
-		<ProjectIndex
-			projects={passionProjects}
-			startIndex={brandProjects.length + webProjects.length}
-		/>
-	</div>
-</section>
+{#if import.meta.env.DEV}
+	<HomeLayoutSwitcher bind:layout />
+{/if}
 
 <!-- About / Writing -->
 <section aria-label="Quick Links" class="px-swiss border-t border-[var(--color-border)]">
