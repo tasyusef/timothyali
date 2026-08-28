@@ -35,7 +35,7 @@
 	role="Designer & Developer (sole creator)"
 	tools="Electron, Svelte 5, TypeScript, Vite, Swift (parity reference)"
 	heroImage="/images/gridform-studio/lockup-outputs.png"
-	heroAlt="GRIDFORM Studio Lockup tool: a logo loaded with web, print, color, and size output toggles"
+	heroAlt="GRIDFORM Studio Lockup tool: the GRIDFORM logomark loaded with web, print, treatment, and size output toggles"
 	nextProject={getNextProject('gridform-studio')}
 >
 	{#snippet overview()}
@@ -100,12 +100,12 @@
 			{
 				type: 'image',
 				src: '/images/gridform-studio/lockup-review.png',
-				alt: 'GRIDFORM Studio Lockup export review: the full deliverable folder tree before export'
+				alt: 'GRIDFORM Studio Lockup export review: the GRIDFORM logomark deliverable folder tree before export'
 			},
 			{
 				type: 'image',
 				src: '/images/gridform-studio/palette.png',
-				alt: 'GRIDFORM Studio Palette tool: poster artwork with extracted swatches and token export formats'
+				alt: 'GRIDFORM Studio Palette tool: GRIDFORM print artwork with clustered color suggestions and token export formats'
 			},
 			{
 				type: 'image',

@@ -538,17 +538,17 @@ export const projects: Project[] = [
 			{
 				src: '/images/gridform-studio/lockup-outputs.png',
 				aspect: 2880 / 1800,
-				alt: 'GRIDFORM Studio Lockup tool: logo preview with web, print, color, and size output toggles'
+				alt: 'GRIDFORM Studio Lockup tool: the GRIDFORM logomark with web, print, treatment, and size output toggles'
 			},
 			{
 				src: '/images/gridform-studio/lockup-review.png',
 				aspect: 2880 / 1800,
-				alt: 'GRIDFORM Studio Lockup export review: the full deliverable folder tree before export'
+				alt: 'GRIDFORM Studio Lockup export review: the GRIDFORM logomark deliverable folder tree before export'
 			},
 			{
 				src: '/images/gridform-studio/palette.png',
 				aspect: 2880 / 1800,
-				alt: 'GRIDFORM Studio Palette tool: poster artwork with extracted swatches and token export formats'
+				alt: 'GRIDFORM Studio Palette tool: GRIDFORM print artwork with clustered color suggestions and token export formats'
 			},
 			{
 				src: '/images/gridform-studio/specimen.png',
