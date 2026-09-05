@@ -52,3 +52,6 @@ $RECYCLE.BIN/
 *.sw?
 
 *.psd
+
+# local-only: pnpm Node pin (Vercel rejects use-node-version; it reads engines instead)
+.npmrc
