@@ -110,6 +110,56 @@ export const projects: Project[] = [
 			'Brand identity for a veteran-owned financial research company: wordmark, color system, typography, and guidelines.'
 	},
 	{
+		slug: 'parc',
+		bentoRow: 1,
+		title: 'PARC',
+		section: 'brand',
+		category: 'Brand & Art Direction',
+		year: '2021–2026',
+		heroImage: '/images/parc/sign-sky.png',
+		heroAspect: 16 / 9,
+		images: [
+			{
+				src: '/images/parc/sign-sky.png',
+				aspect: 16 / 9,
+				alt: 'PARC logo: the four-color pixel letters on a white notched sign, floating in a pixel-cloud sky'
+			},
+			{
+				src: '/images/parc/glyph-grid-green.png',
+				aspect: 4 / 3,
+				alt: 'PARC Pixel Bold: 40 glyphs in a grid, one color per glyph, on the green colorway'
+			},
+			{
+				src: '/images/parc/mark-stacked.png',
+				aspect: 1,
+				alt: 'PARC stacked mark: the four pixel letters in a 2×2 square on a white sign, used as the profile picture'
+			},
+			{
+				src: '/images/parc/club-masthead-sky.png',
+				aspect: 16 / 9,
+				alt: 'PARC Pixel 16:9 specimen on the sky colorway: Pixel Ape Rowboat Club set across the three weights'
+			},
+			{
+				src: '/images/parc/parcade-scores.png',
+				aspect: 1,
+				alt: 'PARCade Rowboat Racer high-score card over the pixel island, set in PARC Pixel'
+			},
+			{
+				src: '/images/parc/story-row-your-boat.png',
+				aspect: 1080 / 1920,
+				alt: 'PARC Pixel story-format specimen on green: ROW in Bold, Regular, and Light, then Your boat'
+			}
+		],
+		stats: [
+			{ label: 'Cofounded', value: 'Nov 2021' },
+			{ label: 'Collections', value: '4 · 19K+ Minted' },
+			{ label: 'All-Time Volume', value: '196K+ XRP' },
+			{ label: 'Typeface', value: '3 Weights · 2 Cuts' }
+		],
+		description:
+			'Rebranding the NFT club I cofounded in 2021, all from one 5×5 pixel grid: the box logo, a five-color palette, a pixel world, and an extended pixel typeface in three weights.'
+	},
+	{
 		slug: 'xrpcafe',
 		bentoRow: 1,
 		title: 'xrp.cafe',
@@ -277,52 +327,6 @@ export const projects: Project[] = [
 		description: 'Complete visual identity system for a token trading platform on the XRP Ledger.'
 	},
 	{
-		slug: 'do-androids-dream',
-		bentoRow: 2,
-		title: 'Do Androids Dream?',
-		section: 'brand',
-		category: 'Motion & Art Direction',
-		year: '2023',
-		heroImage: '/images/do-androids-dream/hero.jpg',
-		heroAspect: 16 / 9,
-		videos: ['/videos/DO_ANDROIDS_DREAM_-_Title_Sequence.mp4'],
-		images: [
-			{
-				src: '/images/do-androids-dream/hero.jpg',
-				aspect: 16 / 9,
-				alt: 'Do Androids Dream title sequence: the sun with beams radiating out behind a lone figure, black on yellow'
-			},
-			{
-				src: '/images/do-androids-dream/still-title.jpg',
-				aspect: 16 / 9,
-				alt: 'Do Androids Dream title sequence, act one: the title in heavy black type on a flat yellow field'
-			},
-			{
-				src: '/images/do-androids-dream/still-cityscape.jpg',
-				aspect: 16 / 9,
-				alt: 'Do Androids Dream title sequence, act two: a black city skyline against yellow with a lone figure at right'
-			},
-			{
-				src: '/images/do-androids-dream/still-road.jpg',
-				aspect: 16 / 9,
-				alt: 'Do Androids Dream title sequence, act three: the perspective breaks and a black road converges between yellow city blocks'
-			},
-			{
-				src: '/images/do-androids-dream/still-sunrise.jpg',
-				aspect: 16 / 9,
-				alt: 'Do Androids Dream title sequence, act three: a yellow sun rising into a black sky'
-			}
-		],
-		stats: [
-			{ label: 'Duration', value: '~45 Sec' },
-			{ label: 'Palette', value: 'Two-Color' },
-			{ label: 'Medium', value: 'Title Sequence' },
-			{ label: 'Role', value: 'Solo Project' }
-		],
-		description:
-			"A bold, two-color title sequence for Philip K. Dick's sci-fi landmark. Saul Bass instead of Blade Runner."
-	},
-	{
 		slug: 'gridform',
 		bentoRow: 2,
 		title: 'Studio Gridform',
@@ -400,6 +404,55 @@ export const projects: Project[] = [
 		],
 		description:
 			'Two complete websites for a premium medical spa: a Framer launch, then an SEO-architected Next.js application.'
+	},
+	{
+		slug: 'parc-site',
+		title: 'PARC Website',
+		section: 'web',
+		category: 'Web & Code',
+		year: '2026',
+		heroImage: '/images/parc-site/home-hero.png',
+		heroAspect: 1280 / 900,
+		images: [
+			{
+				src: '/images/parc-site/home-hero.png',
+				aspect: 1280 / 900,
+				alt: 'parcxrpl.com home: the four-word wordmark in the logo colors on a notched paper card, pixel scatter behind it'
+			},
+			{
+				src: '/images/parc-site/gallery.png',
+				aspect: 1280 / 2600,
+				alt: 'parcxrpl.com Gallery: ape portraits hung on clotheslines between two pixel trees over the island sky'
+			},
+			{
+				src: '/images/parc-site/clubhouse.png',
+				aspect: 1280 / 2400,
+				alt: 'parcxrpl.com Clubhouse: a pixel TV, trophy shelves, and a cork notice board hanging from branches'
+			},
+			{
+				src: '/images/parc-site/parcade-boot.png',
+				aspect: 1280 / 900,
+				alt: 'parcxrpl.com PARCade: the arcade cabinet booting, the PARC badge assembling pixel by pixel on a green CRT'
+			},
+			{
+				src: '/images/parc-site/stats.png',
+				aspect: 1280 / 2200,
+				alt: 'parcxrpl.com Club Stats: $OAR token figures and four collection cards with pixel bar charts'
+			},
+			{
+				src: '/images/parc-site/larc.png',
+				aspect: 1280 / 900,
+				alt: 'parcxrpl.com LARC teaser: a corrupted boathouse terminal on a dark CRT'
+			}
+		],
+		stats: [
+			{ label: 'Pages', value: '7 + Errors' },
+			{ label: 'Design Tokens', value: '86' },
+			{ label: 'Components', value: '13 Shared' },
+			{ label: 'Typeface', value: 'PARC Pixel Only' }
+		],
+		description:
+			'A website built as an island you can walk through: one notch primitive, pixel buttons you can press, hard-step motion, and pages named as places.'
 	},
 	{
 		slug: 'pocketwatch',
@@ -564,6 +617,102 @@ export const projects: Project[] = [
 		],
 		description:
 			'A desktop studio for the last step of brand work: logo SVGs in, a complete print + web deliverable package out — plus palettes and type sheets. Offline, no accounts.'
+	},
+	{
+		slug: 'rowboat-racer',
+		bentoRow: 2,
+		title: 'Rowboat Racer',
+		section: 'passion',
+		category: 'Game Design & Code',
+		year: '2026',
+		heroImage: '/images/rowboat-racer/gameplay-early.png',
+		heroAspect: 1280 / 900,
+		images: [
+			{
+				src: '/images/rowboat-racer/gameplay-early.png',
+				aspect: 1280 / 900,
+				alt: 'Rowboat Racer on the PARCade cabinet: the beach biome on one bank, jungle on the other, a coin line, obstacles in their lanes'
+			},
+			{
+				src: '/images/rowboat-racer/library.png',
+				aspect: 1280 / 900,
+				alt: 'The PARCade game library on the CRT: the Rowboat Racer cover with Press Fire, and two coming-soon cabinets'
+			},
+			{
+				src: '/images/rowboat-racer/gameplay-mid.png',
+				aspect: 1280 / 900,
+				alt: 'Rowboat Racer mid-run: the boat approaching a reef and a ziggurat between a rocky bank and a beach'
+			},
+			{
+				src: '/images/rowboat-racer/banks-painted.png',
+				aspect: 1292 / 812,
+				alt: 'Rowboat Racer banks: rocky, town, jungle and beach biomes with clustered props and a wandering shoreline'
+			},
+			{
+				src: '/images/rowboat-racer/game-over.png',
+				aspect: 1280 / 900,
+				alt: 'Rowboat Racer game over: score, best, an initials field and a submit button on a wooden plank panel'
+			},
+			{
+				src: '/images/rowboat-racer/sprite-sheet.png',
+				aspect: 832 / 1000,
+				alt: 'The full Rowboat Racer sprite sheet: boat, ziggurats, logs, reefs, the pickups and the crashed boat'
+			}
+		],
+		stats: [
+			{ label: 'Simulation', value: '60 Steps · 5 Lanes' },
+			{ label: 'Leaderboard', value: 'Replay-Verified' },
+			{ label: 'Sprites', value: '17 + 31 Props' },
+			{ label: 'Audio', value: 'Synthesized' }
+		],
+		description:
+			'A native pixel-art river runner for the PARCade: a generated island, synthesized sound, and a leaderboard that replays every run before it counts.'
+	},
+	{
+		slug: 'do-androids-dream',
+		bentoRow: 2,
+		title: 'Do Androids Dream?',
+		section: 'passion',
+		category: 'Motion & Art Direction',
+		year: '2023',
+		heroImage: '/images/do-androids-dream/hero.jpg',
+		heroAspect: 16 / 9,
+		videos: ['/videos/DO_ANDROIDS_DREAM_-_Title_Sequence.mp4'],
+		images: [
+			{
+				src: '/images/do-androids-dream/hero.jpg',
+				aspect: 16 / 9,
+				alt: 'Do Androids Dream title sequence: the sun with beams radiating out behind a lone figure, black on yellow'
+			},
+			{
+				src: '/images/do-androids-dream/still-title.jpg',
+				aspect: 16 / 9,
+				alt: 'Do Androids Dream title sequence, act one: the title in heavy black type on a flat yellow field'
+			},
+			{
+				src: '/images/do-androids-dream/still-cityscape.jpg',
+				aspect: 16 / 9,
+				alt: 'Do Androids Dream title sequence, act two: a black city skyline against yellow with a lone figure at right'
+			},
+			{
+				src: '/images/do-androids-dream/still-road.jpg',
+				aspect: 16 / 9,
+				alt: 'Do Androids Dream title sequence, act three: the perspective breaks and a black road converges between yellow city blocks'
+			},
+			{
+				src: '/images/do-androids-dream/still-sunrise.jpg',
+				aspect: 16 / 9,
+				alt: 'Do Androids Dream title sequence, act three: a yellow sun rising into a black sky'
+			}
+		],
+		stats: [
+			{ label: 'Duration', value: '~45 Sec' },
+			{ label: 'Palette', value: 'Two-Color' },
+			{ label: 'Medium', value: 'Title Sequence' },
+			{ label: 'Role', value: 'Solo Project' }
+		],
+		description:
+			"A bold, two-color title sequence for Philip K. Dick's sci-fi landmark. Saul Bass instead of Blade Runner."
 	}
 ];
 

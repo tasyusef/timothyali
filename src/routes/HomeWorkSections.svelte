@@ -17,13 +17,18 @@
 	const DENSE: Record<string, BentoOverrides> = {
 		brand: {
 			firststrike: { row: 1 },
+			parc: { row: 1 },
 			xrpcafe: { row: 1 },
 			firstledger: { row: 1 },
-			'do-androids-dream': { row: 1 },
 			gridform: { row: 1 }
 		},
 		web: { 'jade-aesthetics': { aspect: 2.5 } },
-		passion: { pocketwatch: { row: 1 }, sonde: { row: 1 }, 'gridform-studio': { row: 1 } }
+		passion: {
+			pocketwatch: { row: 1 },
+			sonde: { row: 1 },
+			'gridform-studio': { row: 1 },
+			'do-androids-dream': { row: 1 }
+		}
 	};
 </script>
 
@@ -90,7 +95,13 @@
 	</section>
 {/snippet}
 
-{@render workSection('Brand and motion work', 'Brand & Motion', brandProjects, 0, DENSE.brand)}
+{@render workSection(
+	'Brand and art direction work',
+	'Brand & Art Direction',
+	brandProjects,
+	0,
+	DENSE.brand
+)}
 {@render workSection(
 	'Web and product design work',
 	'Web & Product Design',
@@ -99,8 +110,8 @@
 	DENSE.web
 )}
 {@render workSection(
-	'Passion projects and open source',
-	'Passion Projects & Open Source',
+	'Passion projects, school work, and open source',
+	'Passion Projects, School Work & Open Source',
 	passionProjects,
 	brandProjects.length + webProjects.length,
 	DENSE.passion

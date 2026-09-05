@@ -11,6 +11,9 @@
 
 	let { items }: { items: GalleryItem[] } = $props();
 
+	// Case studies can render more than one gallery; each needs its own heading id.
+	const headingId = $props.id();
+
 	const DESKTOP_COLS = 4;
 
 	let activeIndex = $state<number | null>(null);
@@ -58,8 +61,8 @@
 	</button>
 {/snippet}
 
-<section aria-labelledby="gallery-heading" class="mb-section">
-	<h2 id="gallery-heading" class="sr-only">Gallery</h2>
+<section aria-labelledby={headingId} class="mb-section">
+	<h2 id={headingId} class="sr-only">Gallery</h2>
 
 	<!-- Thumbnail grid — mobile: 2-col flat grid -->
 	<div use:reveal class="gap-gallery grid grid-cols-2 md:hidden">

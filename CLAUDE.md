@@ -126,7 +126,7 @@ Case study pages (`src/routes/work/<slug>/+page.svelte`) compose shared componen
 - `description` (one-liner)
 - Optional: `heroVideo`, `videos`
 
-The homepage renders three grouped work sections, all derived from `section`: "Brand & Motion" (`brandProjects`: FirstStrike, xrp.cafe, First Ledger, Do Androids Dream, Studio Gridform), then "Web & Product Design" (`webProjects`: website/product client work — currently Jade Aesthetics), then "Passion Projects & Open Source" (`passionProjects`: self-initiated apps and open source — Pocketwatch, Sonde, GRIDFORM Studio). The array is ordered brand → web → passion so numbering runs continuously (01–05, 06, 07–09 via the shared `startIndex` prop) and `getNextProject` cycles in the same order. New projects must set `section`.
+The homepage renders three grouped work sections, all derived from `section`: "Brand & Art Direction" (`brandProjects`: FirstStrike, PARC, xrp.cafe, First Ledger, Studio Gridform), then "Web & Product Design" (`webProjects`: website/product work — Jade Aesthetics, PARC Website), then "Passion Projects, School Work & Open Source" (`passionProjects`: self-initiated apps, games, school work, and open source — Pocketwatch, Sonde, GRIDFORM Studio, Rowboat Racer, Do Androids Dream). The array is ordered brand → web → passion so numbering runs continuously (01–05, 06–07, 08–12 via the shared `startIndex` prop) and `getNextProject` cycles in the same order. New projects must set `section`.
 
 **Homepage layout (production = `combo`):** each section renders a caption-less contact-sheet strip on desktop — `HomeContactSheet` (route-local): fixed-height (`h-64 lg:h-72`) sideways-scrolling row of hero media at aspect-true widths (`bentoImage ?? heroImage`), scroll arrows on overflow — followed at every viewport by `ProjectIndex` rows (number / title / category / year; cursor-following `CursorPreview` on desktop hover, tap-to-expand on mobile). The strip has no captions in this pairing because the rows directly below carry the meta (the standalone sheet layout keeps captions via its `captions` prop).
 
@@ -251,7 +251,7 @@ src/
     ├── blog/
     │   ├── +page.svelte        # Post index
     │   └── [slug]/             # Dynamic post route (+page.ts loads from $lib/posts)
-    ├── work/                   # One folder per case study (9 total)
+    ├── work/                   # One folder per case study (12 total)
     │   └── <slug>/+page.svelte
     ├── og/[key].png/+server.ts # Prerendered OG cards (satori + resvg)
     └── sitemap.xml/+server.ts
