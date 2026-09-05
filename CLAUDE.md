@@ -116,7 +116,7 @@ Case study pages (`src/routes/work/<slug>/+page.svelte`) compose shared componen
 5. `ResultsList` — bordered results/bullet list
 6. `Gallery` — image/video masonry grid with lightbox (keyboard nav, focus trap, scroll lock). All media renders full-bleed. (A BrowserFrame chrome treatment for product screenshots was tried and removed: fake browser bars added noise, especially dark UI on the dark theme.)
 7. New case studies must also be added to `src/lib/projects.ts` and get an OG entry automatically via slug
-8. Case-study-local interactive demos colocate in the route folder (non-`+` files are private modules); promote to `$lib/components` only when shared. Demo content colors must be the showcased product's real values, clearly commented as product colors, never site tokens. (A Pocketwatch category-pill demo was tried and scrapped; nothing interactive is embedded now.)
+8. Case-study-local interactive demos colocate in the route folder (non-`+` files are private modules); promote to `$lib/components` only when shared. Demo content colors must be the showcased product's real values, clearly commented as product colors, never site tokens. The one embedded demo today is the PARC brand system (`src/routes/work/parc/BrandSystem.svelte` + `BrandRule`, `ParcMark`, `PixelScatter`, `parcBrand.ts`): the brand sheet rebuilt live, with PARC Pixel woff2s and the cloud tile served from `static/parc/` and `@font-face` declared inside the component. It replaced a 1280×4800 screenshot of the sheet. (A Pocketwatch category-pill demo was tried and scrapped.)
 
 ### Project Data
 `src/lib/projects.ts` is the central data file for the homepage project index. Each project has:

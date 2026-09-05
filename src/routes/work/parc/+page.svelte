@@ -4,6 +4,7 @@
 	import TextSection from '$lib/components/TextSection.svelte';
 	import ResultsList from '$lib/components/ResultsList.svelte';
 	import Gallery from '$lib/components/Gallery.svelte';
+	import BrandSystem from './BrandSystem.svelte';
 	import { getNextProject } from '$lib/projects';
 	import { imageUrl } from '$lib/images';
 	import { SITE_URL } from '$lib/site';
@@ -96,8 +97,14 @@
 			to forty percent on drop days. And the grid is law: margins, crops, spacing and type sizes
 			land on multiples of the pixel cell, and corners always notch exactly one cell. Nobody has to
 			see the grid to feel it. All of it went into a one-page brand sheet, set in the system it
-			describes, with a do-and-don&rsquo;t pair for each rule.
+			describes, with a do-and-don&rsquo;t pair for each rule. The sheet is rebuilt below, live, in
+			the real fonts and the real marks.
 		</p>
+	</TextSection>
+
+	<BrandSystem />
+
+	<TextSection title="The World">
 		<p>
 			The colors live in a pixel world. A sky gradient with clouds is the default ground; the island
 			with its sand, water, and boathouse is where the club lives; and dark green is the reverse for
@@ -110,33 +117,8 @@
 		items={[
 			{
 				type: 'image',
-				src: '/images/parc/logo-seams.png',
-				alt: 'PARC logo before and after: 266 edge-to-edge squares with seams, then five merged paths'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/oar-badge.png',
-				alt: 'PARC oar badge: a single horizontal green oar on the white notched box'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/brand-sheet.png',
-				alt: 'PARC brand system sheet: seven rules with do-and-don’t pairs, set in PARC Pixel on club green'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/mark-square-green.png',
-				alt: 'PARC square mark: the four letters stacked 2×2 on a white notched badge over club green'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/mark-stacked.png',
-				alt: 'PARC stacked mark: the four pixel letters in a 2×2 square on a white sign, used as the profile picture'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/og-club.png',
-				alt: 'PARC share card: the box logo above Pixel Ape Rowboat Club, rowing on the XRP Ledger'
+				src: '/images/parc/banner-island.png',
+				alt: 'PARC profile banner: the sign over the island beach with a rowboat on the water'
 			},
 			{
 				type: 'image',
@@ -145,18 +127,8 @@
 			},
 			{
 				type: 'image',
-				src: '/images/parc/banner-island.png',
-				alt: 'PARC profile banner: the sign over the island beach with a rowboat on the water'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/parcade-scores.png',
-				alt: 'PARCade Rowboat Racer high-score card over the pixel island, set in PARC Pixel'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/og-oar.png',
-				alt: 'PARC $OAR share card: a wooden plank panel reading Grab an oar, you will need it'
+				src: '/images/parc/og-club.png',
+				alt: 'PARC share card: the box logo above Pixel Ape Rowboat Club, rowing on the XRP Ledger'
 			},
 			{
 				type: 'image',
@@ -167,11 +139,6 @@
 				type: 'image',
 				src: '/images/parc/og-parcade.png',
 				alt: 'PARCade share card: a wooden plank panel reading Insert coin, row fast'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/og-merch.png',
-				alt: 'PARC merch share card: a wooden plank panel reading Club goods, rowed to your door'
 			}
 		]}
 	/>
