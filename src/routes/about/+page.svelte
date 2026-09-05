@@ -44,6 +44,13 @@
 				'Built brand identities, graphics, apps, and websites for startups and local businesses, including med-spas, gyms, and online communities.'
 		},
 		{
+			period: '2021 — Now',
+			org: 'PARC',
+			role: 'Cofounder & Brand Designer',
+			summary:
+				'Cofounded Pixel Ape Rowboat Club, an NFT collective on the XRP Ledger with four collections and a club token, and have drawn its graphics and run its online presence since. In 2026 rebranded it from one 5×5 pixel grid: the logo library, the PARC Pixel typeface, the parcxrpl.com site, and the Rowboat Racer arcade game.'
+		},
+		{
 			period: '2021 — 2024',
 			org: 'xrp.cafe',
 			role: 'Cofounder & Founding Designer',
