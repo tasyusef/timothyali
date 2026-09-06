@@ -56,20 +56,37 @@
 		</ul>
 	{/snippet}
 
-	<TextSection title="Fixing the Logo">
+	<TextSection title="Old Logo, New Logo">
 		<p>
-			The box logo was 266 squares placed edge to edge in Illustrator. At most sizes they
-			anti-aliased into hairline seams. A tracer merged each master into five paths, the white sign
-			and one per letter, so the seams cannot happen. Every glyph and sprite after it followed the
-			same rule: merged shapes, never stacked cells.
+			The first logo was a cartoon: an ape&rsquo;s head with a big grin, thick black outlines, and a
+			bubbly PARC wordmark tilted across the top. On its own it was fine. Next to the actual art it
+			was the wrong brand. The apes are pixel art, and the logo looked like it belonged to a
+			different product.
 		</p>
 		<p>
-			The four-color letters belong to the logo alone. A stacked 2&times;2 version is the profile
-			picture. The secondary mark is a single horizontal oar on the same notched sign: the favicon,
-			the inline ornament, and, in the typeface, the equals key. Both lockups and the oar ship as a
-			full library for print and web.
+			So the rebrand embraces the pixel. The new logo is the four letters drawn on the same
+			5&times;5 grid as the apes, on a white sign with notched corners, so the brand and the art are
+			one thing. It is also built properly: each master is merged paths instead of 266 stacked
+			squares, so it stays sharp at any size. The four-color letters belong to the logo alone. A
+			stacked version is the profile picture, and a single oar on the same sign is the secondary
+			mark, the favicon, and the equals key in the typeface.
 		</p>
 	</TextSection>
+
+	<Gallery
+		items={[
+			{
+				type: 'image',
+				src: '/images/parc/old-mascot.png',
+				alt: 'The old PARC logo: a cartoon ape head with a wide grin and thick outlines, a bubbly PARC wordmark across the top'
+			},
+			{
+				type: 'image',
+				src: '/images/parc/old-wordmark.png',
+				alt: 'The old PARC secondary logo: the bubbly outlined PARC wordmark in black'
+			}
+		]}
+	/>
 
 	<TextSection title="One Rule">
 		<p>
