@@ -20,8 +20,8 @@
 		<h2 id={headingId} class="label-swiss md:col-span-3">Brand System</h2>
 		<div class="md:col-span-9 md:col-start-4 lg:col-span-8">
 			<p class="px px-xl">
-				Same <span style:color={PARC.orange}>joke</span>. Better
-				<span style:color={PARC.blue}>font</span>.
+				Same <span style:color={PARC.orange}>people</span>. Better
+				<span style:color={PARC.blue}>brand</span>.
 			</p>
 			<p class="label-swiss data-swiss mt-4">
 				Pixel Ape Rowboat Club · Brand System · v1.0 · Aug 2026
