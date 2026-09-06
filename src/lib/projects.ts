@@ -145,9 +145,9 @@ export const projects: Project[] = [
 				alt: 'PARCade Rowboat Racer high-score card over the pixel island, set in PARC Pixel'
 			},
 			{
-				src: '/images/parc/story-row-your-boat.png',
-				aspect: 1080 / 1920,
-				alt: 'PARC Pixel story-format specimen on green: ROW in Bold, Regular, and Light, then Your boat'
+				src: '/images/parc/three-weights-a.png',
+				aspect: 4 / 3,
+				alt: 'PARC Pixel 4:3 specimen on white: the letter A in Bold 700, Regular 400, and Light 300'
 			}
 		],
 		stats: [

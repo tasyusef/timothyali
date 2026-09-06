@@ -4,7 +4,7 @@
 	// (labels, borders, body copy) uses site tokens; everything inside a panel uses
 	// PARC's own colors on purpose — see parcBrand.ts.
 	import { reveal } from '$lib/actions/reveal';
-	import { PARC, PARC_SKY, PARC_SWATCHES, PARC_CYCLE } from './parcBrand';
+	import { PARC, PARC_SKY, PARC_SWATCHES } from './parcBrand';
 	import BrandRule from './BrandRule.svelte';
 	import ParcMark from './ParcMark.svelte';
 	import SkyClouds from './SkyClouds.svelte';
@@ -13,7 +13,6 @@
 	import ChatTexture from './ChatTexture.svelte';
 
 	const headingId = $props.id();
-	const cycled = [...'SUMMER REGATTA'].map((ch, i) => ({ ch, color: PARC_CYCLE[i % 4] }));
 </script>
 
 <section use:reveal aria-labelledby={headingId} class="mb-section">
@@ -48,35 +47,11 @@
 		</div>
 	</BrandRule>
 
-	<BrandRule n="02" title="One Color per Element" color={PARC.blue}>
+	<BrandRule n="02" title="Color" color={PARC.orange}>
 		<p>
-			Every element gets one flat brand color: a text block, an icon, a texture. The four-color
-			cycling belongs to the logo alone. Yellow never sets type on white; reverse it on green, or
-			use it as a swatch or an accent.
-		</p>
-		<div class="grid gap-1 sm:grid-cols-2">
-			<div class="panel" style:background={PARC.green}>
-				<p class="panel-label" style:color={PARC.skyBottom}>Do · one color per block</p>
-				<p class="px px-lg" style:color={PARC.white}>Summer Regatta</p>
-			</div>
-			<div class="panel" style:background={PARC.green}>
-				<p class="panel-label" style:color={PARC.orange}>Don&rsquo;t · cycling outside the logo</p>
-				<p class="px px-lg" aria-label="Summer Regatta">
-					{#each cycled as { ch, color }, i (i)}<span style:color aria-hidden="true">{ch}</span
-						>{/each}
-				</p>
-			</div>
-			<div class="panel sm:col-span-2" style:background={PARC.white}>
-				<p class="panel-label" style:color={PARC.orange}>Don&rsquo;t · yellow type on white</p>
-				<p class="px px-xl" style:color={PARC.yellow}>Summer Regatta</p>
-			</div>
-		</div>
-	</BrandRule>
-
-	<BrandRule n="03" title="Color" color={PARC.orange}>
-		<p>
-			Five colors. No tints, no gradients, no additions. Web uses the hex values; print uses the
-			CMYK builds.
+			Five colors, no tints, no gradients. Each element gets one of them; the four-color cycling
+			stays in the logo. Yellow never sets type on white. Web uses the hex values, print the CMYK
+			builds.
 		</p>
 		<dl class="grid grid-cols-3 gap-x-1 gap-y-6 sm:grid-cols-5">
 			{#each PARC_SWATCHES as s (s.name)}
@@ -95,7 +70,7 @@
 		</dl>
 	</BrandRule>
 
-	<BrandRule n="04" title="Type" color={PARC.green}>
+	<BrandRule n="03" title="Type" color={PARC.green}>
 		<p>
 			PARC Pixel in three weights, Light, Regular and Bold, each in proportional and mono cuts.
 			Light for supporting copy and captions, Regular for display, Bold for headlines. A plain
@@ -118,11 +93,10 @@
 		</div>
 	</BrandRule>
 
-	<BrandRule n="05" title="The Oar" color={PARC.blue}>
+	<BrandRule n="04" title="The Oar" color={PARC.blue}>
 		<p>
-			The secondary mark is one horizontal oar. In the fonts it lives on the equals key, so it drops
-			into any line of pixel type as an ornament or a divider. Badged for avatars and app icons,
-			boxless inline, any single brand color.
+			The secondary mark is one horizontal oar: the favicon, the badge, and the equals key in the
+			fonts, so it drops into any line of pixel type as a divider.
 		</p>
 		<div class="panel" style:background={PARC.white} style:color={PARC.green}>
 			<p class="panel-label">Live text. The equals key between the words draws the oar.</p>
@@ -130,13 +104,13 @@
 		</div>
 	</BrandRule>
 
-	<BrandRule n="06" title="Backgrounds" color={PARC.orange}>
+	<BrandRule n="05" title="Backgrounds" color={PARC.orange}>
 		<p>
-			Every background on the site is generated and most of them move. The sky drifts two layers of
-			clouds in hard steps. The hero scatters brand-color cells that twinkle, spark under the
-			cursor, and splash on click. The After Darc band runs CRT static with interference bars that
-			lock onto the cursor. The Discord band drifts chat bubbles up and posts one where you click.
-			They are there to add some life, nothing more. Reduced motion gets the still versions.
+			This was the part that took the longest. Plain type carried the specimens, but a graphic needs
+			more than a layout grid to look alive. So every surface got a generated background: clouds
+			drifting in hard steps, the hero scatter that twinkles and sparks under the cursor, CRT static
+			for After Darc, chat bubbles for Discord. They add some life, nothing more. Reduced motion
+			gets the still versions.
 		</p>
 		<div class="grid gap-4">
 			<div>
@@ -155,22 +129,6 @@
 				<p class="label-swiss data-swiss mb-2">Discord · move, click</p>
 				<div class="panel p-0"><ChatTexture /></div>
 			</div>
-		</div>
-	</BrandRule>
-
-	<BrandRule n="07" title="The Grid Is Law" color={PARC.green}>
-		<p>
-			Margins, crops, spacing, and type sizes are multiples of the pixel cell. Tracking is one cell
-			in display type and two in the logo. The badge margin is two cells, and every corner notches
-			exactly one.
-		</p>
-		<div class="panel px-8 py-10" style:background={PARC.white}>
-			<ParcMark
-				variant="wide"
-				grid
-				label="PARC box logo over its own pixel grid"
-				class="mx-auto w-full max-w-xl"
-			/>
 		</div>
 	</BrandRule>
 </section>

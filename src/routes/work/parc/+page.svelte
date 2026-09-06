@@ -6,12 +6,14 @@
 	import Gallery from '$lib/components/Gallery.svelte';
 	import BrandSystem from './BrandSystem.svelte';
 	import LogoStory from './LogoStory.svelte';
+	import World from './World.svelte';
+	import Quotes from './Quotes.svelte';
 	import { getNextProject } from '$lib/projects';
 	import { imageUrl } from '$lib/images';
 	import { SITE_URL } from '$lib/site';
 
 	const description =
-		'Rebranding Pixel Ape Rowboat Club, a parody of Bored Apes and CryptoPunks that grew a community: logo, palette, world, and a pixel typeface, all from one 5×5 grid.';
+		'Rebranding Pixel Ape Rowboat Club, the 2021 joke about Bored Apes that grew a world: a pixel logo, five colors, a typeface, and an island, live on every surface.';
 </script>
 
 <Seo
@@ -34,7 +36,7 @@
 	title="PARC"
 	category="Brand & Art Direction"
 	year="2021–2026"
-	role="Cofounder, Brand & Type Designer"
+	role="Cofounder, Brand & Art Direction"
 	timeline="Ongoing"
 	tools="Illustrator, Python (fontTools)"
 	heroImage="/images/parc/sign-sky.png"
@@ -43,145 +45,72 @@
 >
 	{#snippet overview()}
 		<p class="mb-4">
-			Pixel Ape Rowboat Club started in November 2021 as a joke about Bored Apes and CryptoPunks:
-			10,000 pixel apes in rowboats on the XRP Ledger. People stayed. Four years later and PARC has
-			grown into four collections, the $OAR token, a Twitch show, an arcade, merch, its own lore,
-			and about 196,000 XRP traded. I cofounded it and have drawn everything it puts out since. The
-			2026 rebrand is an effort to give PARC a proper logo, a palette, a world, and a typeface.
+			Pixel Ape Rowboat Club started in November 2021 as a joke. People were treating pixel apes as
+			status symbols, and we thought that was ridiculous. Bored Apes had yachts. Ours had rowboats.
+			10,000 pixel apes on the XRP Ledger, no clout included.
+		</p>
+		<p class="mb-4">
+			People stayed anyway. Partly because they believed in the network, mostly because we treated
+			the community as the point: we streamed, we did giveaways, they helped us market, and nobody
+			on the team was out of reach. Four years later PARC is four collections, a Twitch show, an
+			arcade, merch, its own lore, and about 196,000 XRP traded.
+		</p>
+		<p class="mb-4">
+			I cofounded it with xrpl_adam on the build, sloppy on marketing, and stove drawing the apes
+			with me. Branding and art direction have been mine throughout. The 2026 rebrand is the brand
+			catching up to the community, the world, and the story.
 		</p>
 		<ul class="space-y-2">
-			<li>&mdash; The box logo, its stacked mark, and a print and web logo library</li>
+			<li>&mdash; A pixel logo on the apes&rsquo; own grid, with a full logo library</li>
 			<li>&mdash; Five colors, one per element</li>
-			<li>&mdash; A pixel world of sky, clouds, and island for every surface</li>
-			<li>&mdash; PARC Pixel: a typeface in three weights, grown from the four letters</li>
+			<li>&mdash; PARC Pixel, a typeface in three weights</li>
+			<li>&mdash; Generated backgrounds for every surface</li>
 		</ul>
 	{/snippet}
 
-	<TextSection title="Old Logo, New Logo">
+	<TextSection title="The World">
 		<p>
-			The first logo was a cartoon. On its own it was fine. Next to the actual art it was the wrong
-			brand: the apes are pixel art, and the logo looked like it belonged to a different product. So
-			the rebrand embraces the pixel. The new logo is drawn on the same 5&times;5 grid as the apes,
-			and built from merged paths instead of 266 stacked squares, so it stays sharp at any size. The
-			four-color letters belong to the logo alone. A stacked version is the profile picture, and a
-			single oar on the same sign is the secondary mark, the favicon, and the equals key in the
-			typeface.
+			The apes were retro from day one. The reference was the Game Boy Advance Pok&eacute;mon games:
+			the pixel size, the flat color, a sprite that reads at a glance. The world grew from there:
+			islands, rowboats, volcanoes, wooden huts, tropical and unserious. That world is what the
+			community actually cares about, and it is what the rebrand had to serve.
+		</p>
+	</TextSection>
+
+	<World />
+
+	<TextSection title="Same People, Better Brand">
+		<p>
+			The art was always retro. The logo never was: a cartoon ape with thick outlines and a bubbly
+			wordmark, fine on its own and from a different product. In 2026 it was time. The new logo is
+			drawn on the same 5&times;5 grid as the apes, on a white sign with notched corners.
+		</p>
+		<p>
+			The hard part wasn&rsquo;t drawing it. The team was attached to the old brand and worried
+			people would hate a change, which is what people do with rebrands at first. I asked them to
+			trust that this is what I do for a living. It shipped, and the response was the opposite of
+			what they feared.
 		</p>
 	</TextSection>
 
 	<LogoStory />
 
-	<TextSection title="One Rule">
-		<p>
-			The brief for the first type specimen was one line: one color per block of text, no
-			alternating letters. That turned out to be the whole rebrand. The pixel was never the problem
-			with 2021 NFT branding; everything happening at once was. Five colors, one per element, on a
-			grid that decides every margin and corner. Still not serious. Just neater.
-		</p>
-		<p>
-			The colors live in a small world: sky and clouds as the default ground, the island where the
-			club lives, dark green for type-led surfaces. The brand sheet below is the rule and what
-			follows from it, set live in the real fonts and marks.
-		</p>
-	</TextSection>
+	<Quotes />
 
 	<BrandSystem />
 
-	<TextSection title="Four Letters Become an Alphabet">
+	<TextSection title="The Typeface">
 		<p>
-			The P, A, R and C were treated as the style guide: one-cell strokes, hollow counters, a
-			one-cell inset wherever a curve would be, diagonals stepped cell by cell. The rest of
-			A&ndash;Z, the digits, and punctuation were drawn to those rules. Every letter is five cells
-			wide, so the face is extended and monospaced by nature, and a strict mono cut followed for
-			countdowns, prices, and scoreboards. Caps only, one color, every glyph a single merged path.
-		</p>
-	</TextSection>
-
-	<TextSection title="Three Weights">
-		<p>
-			On a pixel grid, weight is stroke cells over cap-height cells: Light is 1/9, Regular 2/10,
-			Bold 3/11. The first Bold smeared stems one cell sideways, the way old system fonts did, and
-			the square module broke. The rule since: every weight is square pixels. Bold was rebuilt by
-			thickening the Light skeleton evenly on all sides.
+			PARC Pixel was the first thing made after the logo. The four letters became the style guide
+			for an alphabet: one-cell strokes, hollow counters, stepped diagonals, every letter five cells
+			wide. Three weights, each in square pixels, plus a mono cut for scores and prices. Twenty-nine
+			glyphs were finished by hand, the 2 and the at-sign among them, judged in real words at
+			reading size. The oar lives on the equals key.
 		</p>
 	</TextSection>
 
 	<Gallery
 		items={[
-			{
-				type: 'image',
-				src: '/images/parc/three-weights-a.png',
-				alt: 'PARC Pixel 4:3 specimen on white: the letter A in Bold 700, Regular 400, and Light 300'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/story-row-your-boat.png',
-				alt: 'PARC Pixel story-format specimen on green: ROW in Bold, Regular, and Light, then Your boat'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/pangram-weights.png',
-				alt: 'PARC Pixel 16:9 specimen on white: the quick brown fox pangram in Bold, Regular, and Light'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/ramp-green.png',
-				alt: 'PARC Pixel Bold size ramp from 24px to 256px on the green colorway'
-			}
-		]}
-	/>
-
-	<TextSection title="The Hard Glyphs">
-		<p>
-			The 2 did not read as a 2 in any weight, and every hand-drawn replacement looked wrong next to
-			the 3, 5, 6, 8 and 9. The version that shipped is the derived shape minus four cells. That
-			became the method for the rest: derive first, then place the cells that matter by hand, judged
-			in a real row of digits at reading size. 29 glyphs got that treatment.
-		</p>
-		<p>
-			The at-sign had to exist because the team&rsquo;s handles are on the site; five constructions
-			were tested inside a live handle at the size it is read. The dollar sign reuses each
-			weight&rsquo;s S, so it follows if the S ever changes. The equals key holds the oar in all
-			three weights.
-		</p>
-	</TextSection>
-
-	<Gallery
-		items={[
-			{
-				type: 'image',
-				src: '/images/parc/mono-numerals-sky.png',
-				alt: 'PARC Pixel Mono numerals 0 to 9 on the sky colorway: tabular, chunky, honest'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/square-ampersand-sky.png',
-				alt: 'PARC Pixel Bold ampersand at giant size on the sky colorway'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/square-oar.png',
-				alt: 'PARC Pixel Mono square specimen: the oar glyph on the equals key'
-			}
-		]}
-	/>
-
-	<TextSection title="Specimens">
-		<p>
-			Sixteen social layouts in four formats and three colorways, each a different idea: a size
-			ramp, a glyph mosaic, an anatomy sheet, the mono numerals, the character set on the island
-			sky. The &ldquo;type specimen&rdquo; labels came off at the end. The type carries the page on
-			its own.
-		</p>
-	</TextSection>
-
-	<Gallery
-		items={[
-			{
-				type: 'image',
-				src: '/images/parc/glyph-grid-green.png',
-				alt: 'PARC Pixel Bold: 40 glyphs in a grid, one color per glyph, on the green colorway'
-			},
 			{
 				type: 'image',
 				src: '/images/parc/club-masthead-sky.png',
@@ -189,13 +118,8 @@
 			},
 			{
 				type: 'image',
-				src: '/images/parc/story-grab-an-oar.png',
-				alt: 'PARC Pixel story-format specimen on green: Grab an oar and row, one color per word'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/square-mosaic-green.png',
-				alt: 'PARC Pixel square specimen on green: a mosaic of club words cycling through weights and colors'
+				src: '/images/parc/three-weights-a.png',
+				alt: 'PARC Pixel 4:3 specimen on white: the letter A in Bold 700, Regular 400, and Light 300'
 			},
 			{
 				type: 'image',
@@ -204,23 +128,114 @@
 			},
 			{
 				type: 'image',
-				src: '/images/parc/grab-an-oar-sky.png',
-				alt: 'PARC Pixel 16:9 specimen on the sky colorway: Grab an oar and row, with the alphabet in three weights'
+				src: '/images/parc/mono-numerals-sky.png',
+				alt: 'PARC Pixel Mono numerals 0 to 9 on the sky colorway'
 			},
 			{
 				type: 'image',
-				src: '/images/parc/story-sky.png',
-				alt: 'PARC Pixel story-format specimen on the sky colorway: the full character set in every weight'
+				src: '/images/parc/glyph-grid-green.png',
+				alt: 'PARC Pixel Bold: 40 glyphs in a grid, one color per glyph, on the green colorway'
 			},
 			{
 				type: 'image',
-				src: '/images/parc/square-mono-white.png',
-				alt: 'PARC Pixel Mono square specimen on white: numerals, alphabet, and a price line'
+				src: '/images/parc/square-ampersand-sky.png',
+				alt: 'PARC Pixel Bold ampersand at giant size on the sky colorway'
+			}
+		]}
+	/>
+
+	<TextSection title="In the Wild">
+		<p>
+			Everything PARC puts out now runs on the system: the site, Discord, X, the Twitch show every
+			other Friday, merch, and the arcade. The site is the main event. The hero sign hangs in the
+			sky, the collections float on the island, the arcade band is the game&rsquo;s own island with
+			live high scores, and After Darc and Discord get their own bands.
+			<a href="/work/parc-site" class="hover-swiss underline underline-offset-4"
+				>The build is its own case study.</a
+			>
+		</p>
+		<p>
+			<a
+				href="https://parcxrpl.com"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="label-swiss hover-swiss inline-block underline underline-offset-4"
+				>Open parcxrpl.com &rarr;</a
+			>
+		</p>
+	</TextSection>
+
+	<Gallery
+		items={[
+			{
+				type: 'image',
+				src: '/images/parc/site-hero.png',
+				alt: 'parcxrpl.com hero: Pixel Ape Rowboat Club on the notched sign over the scatter texture, with the green nav bar'
 			},
 			{
 				type: 'image',
-				src: '/images/parc/story-white.png',
-				alt: 'PARC Pixel story-format specimen on white: the PARC letters stacked in the logo colors'
+				src: '/images/parc/site-collections.png',
+				alt: 'parcxrpl.com collections: PARC, Monkey Phunks, and PARC Customs cards floating on the pixel-cloud sky'
+			},
+			{
+				type: 'image',
+				src: '/images/parc/site-arcade.png',
+				alt: 'parcxrpl.com arcade band: the Rowboat Racer cover on a CRT and live high scores over the island'
+			},
+			{
+				type: 'image',
+				src: '/images/parc/phone-hero.png',
+				alt: 'parcxrpl.com hero on a phone'
+			},
+			{
+				type: 'image',
+				src: '/images/parc/site-bands.png',
+				alt: 'parcxrpl.com After Darc band in Twitch purple and Discord band in blurple'
+			},
+			{
+				type: 'image',
+				src: '/images/parc/phone-arcade.png',
+				alt: 'parcxrpl.com arcade band on a phone: the Rowboat Racer cover over the island'
+			},
+			{
+				type: 'image',
+				src: '/images/parc/site-crew.png',
+				alt: 'parcxrpl.com crew row and green footer with the stacked mark'
+			}
+		]}
+	/>
+
+	<Gallery
+		items={[
+			{
+				type: 'image',
+				src: '/images/parc/after-darc-announce.png',
+				alt: 'PARC After Darc new-stream graphic: the wordmark over a pixel sunset, Saturday 9pm UTC on Twitch'
+			},
+			{
+				type: 'image',
+				src: '/images/parc/after-darc-live.png',
+				alt: 'PARC After Darc live-now graphic: the wordmark over a pixel night sky and moon'
+			},
+			{
+				type: 'image',
+				src: '/images/parc/after-darc-today.png',
+				alt: 'PARC After Darc tonight graphic'
+			},
+			{
+				type: 'image',
+				src: '/images/parc/after-darc-reminder.png',
+				alt: 'PARC After Darc tomorrow graphic'
+			},
+			{
+				type: 'image',
+				src: '/images/parc/twitter-banner.png',
+				alt: 'PARC X header: the box logo on the pixel-cloud sky'
+			},
+			{
+				type: 'image',
+				src: '/images/parc/larc-teaser.png',
+				alt: 'LARC teaser: glitched terminal text on black announcing the next collection'
 			}
 		]}
 	/>
@@ -228,13 +243,11 @@
 	<ResultsList
 		title="Outcome"
 		items={[
-			'September 2026: 10,000 PARC apes with 1,250+ holders, 4,618 Monkey Phunks, 27 one-of-one Customs, and 4,540 Mysterious Bananas minted so far',
-			'About 196,000 XRP traded across the four collections; $OAR held by 400+ wallets since February 2022',
-			'Logo, palette, world, and typeface all come from the same 5×5 grid',
-			'A full logo library for both lockups and the oar: black, CMYK, Pantone spot, and white for print; black, RGB, and white for web',
-			'PARC Pixel is the only typeface on the PARC site: headlines, body, buttons, the arcade cabinet, the game cover art, and the stats page',
-			'57 characters per weight, three weights, proportional and mono: 6 TTFs plus WOFF2',
-			'29 glyphs finished by hand, cell by cell'
+			'One logo library for both lockups and the oar: black, CMYK, Pantone, and white for print; black, RGB, and white for web',
+			'Five colors and one typeface on every surface: site, Discord, X, Twitch, merch, and the arcade',
+			'PARC Pixel: 57 characters per weight, three weights, proportional and mono',
+			'Four generated backgrounds, one per band of the site, and the game island drawn from its own sprites',
+			'Live since September 2026, to a community that is active and growing'
 		]}
 	/>
 </CaseStudy>
