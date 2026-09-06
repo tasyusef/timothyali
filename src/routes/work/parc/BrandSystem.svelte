@@ -132,21 +132,24 @@
 		</div>
 	</BrandRule>
 
-	<BrandRule n="06" title="Texture &amp; Whitespace" color={PARC.orange}>
+	<BrandRule n="06" title="Texture" color={PARC.orange}>
 		<p>
-			Whitespace is the luxury signal: small marks on big empty fields. Pixel scatter is the only
-			permitted texture, and density is the volume knob. Three to six percent for everyday calm, up
-			to forty percent only for drop-day celebration. Every scatter is seeded, so it can be
-			reproduced.
+			The one texture is pixel scatter: single cells in the brand colors on a flat field, generated
+			rather than drawn. For print and social it is a small script with a grid, a density and a
+			seed, so the same seed gives the same texture on every export, and the density can fade toward
+			an edge. On the site it comes alive. The hero band twinkles and sparks under the cursor, the
+			After Darc band runs CRT static with interference bars that lock onto the cursor&rsquo;s row,
+			and the Discord band drifts pixel chat bubbles upward and posts one where you click. It exists
+			to give the brand some life, and that is all it has to do.
 		</p>
 		<div class="grid gap-4">
 			<div>
-				<p class="label-swiss data-swiss mb-2">Everyday · 4%</p>
-				<div class="panel p-0"><PixelScatter density={0.04} seed={11} /></div>
+				<p class="label-swiss data-swiss mb-2">Static · seed 7 · 6%</p>
+				<div class="panel p-0"><PixelScatter density={0.06} seed={7} /></div>
 			</div>
 			<div>
-				<p class="label-swiss data-swiss mb-2">Drop day · 40%</p>
-				<div class="panel p-0"><PixelScatter density={0.4} seed={23} /></div>
+				<p class="label-swiss data-swiss mb-2">Living · twinkles · move the cursor</p>
+				<div class="panel p-0"><PixelScatter density={0.04} seed={19} live /></div>
 			</div>
 		</div>
 	</BrandRule>

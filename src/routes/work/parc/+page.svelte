@@ -92,19 +92,13 @@
 		</p>
 		<p>
 			One color per element: text, icons, textures each get one flat brand color. Five colors, no
-			tints, no gradients: orange, blue, green, yellow, white. Texture as the luxury signal: pixel
-			scatter is the only permitted texture, at three to six percent density for everyday use and up
-			to forty percent on drop days. And the grid is law: margins, crops, spacing and type sizes
-			land on multiples of the pixel cell, and corners always notch exactly one cell. Nobody has to
-			see the grid to feel it. All of it went into a one-page brand sheet, set in the system it
-			describes, with a do-and-don&rsquo;t pair for each rule. The sheet is rebuilt below, live, in
-			the real fonts and the real marks.
+			tints, no gradients: orange, blue, green, yellow, white. Pixel scatter is the only texture,
+			and it is generated, from a grid, a density and a seed, to give the flat fields some life. And
+			the grid is law: margins, crops, spacing and type sizes land on multiples of the pixel cell,
+			and corners always notch exactly one cell. Nobody has to see the grid to feel it. All of it
+			went into a one-page brand sheet, set in the system it describes, with a do-and-don&rsquo;t
+			pair for each rule. The sheet is rebuilt below, live, in the real fonts and the real marks.
 		</p>
-	</TextSection>
-
-	<BrandSystem />
-
-	<TextSection title="The World">
 		<p>
 			The colors live in a pixel world. A sky gradient with clouds is the default ground; the island
 			with its sand, water, and boathouse is where the club lives; and dark green is the reverse for
@@ -113,35 +107,7 @@
 		</p>
 	</TextSection>
 
-	<Gallery
-		items={[
-			{
-				type: 'image',
-				src: '/images/parc/banner-island.png',
-				alt: 'PARC profile banner: the sign over the island beach with a rowboat on the water'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/glitch-story.png',
-				alt: 'PARC CRT-glitch teaser in story format: a boathouse terminal readout in PARC Pixel'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/og-club.png',
-				alt: 'PARC share card: the box logo above Pixel Ape Rowboat Club, rowing on the XRP Ledger'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/glitch-square.png',
-				alt: 'PARC CRT-glitch teaser: the wordmark breaking up over a boathouse terminal readout'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/og-parcade.png',
-				alt: 'PARCade share card: a wooden plank panel reading Insert coin, row fast'
-			}
-		]}
-	/>
+	<BrandSystem />
 
 	<TextSection title="Four Letters Become an Alphabet">
 		<p>
