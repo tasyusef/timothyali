@@ -43,11 +43,10 @@
 	{#snippet overview()}
 		<p class="mb-4">
 			Pixel Ape Rowboat Club started in November 2021 as a joke about Bored Apes and CryptoPunks:
-			10,000 pixel apes in rowboats on the XRP Ledger. People stayed. Four years on it is four
-			collections, the $OAR token, a Twitch show, an arcade, merch, its own lore, and about 196,000
-			XRP traded. I cofounded it and have drawn everything it puts out since. The 2026 rebrand does
-			not change the joke. It gives it a proper logo, a palette, a world, and a typeface, all built
-			on the 5&times;5 pixel grid the original four letters were drawn on.
+			10,000 pixel apes in rowboats on the XRP Ledger. People stayed. Four years later and PARC has
+			grown into four collections, the $OAR token, a Twitch show, an arcade, merch, its own lore,
+			and about 196,000 XRP traded. I cofounded it and have drawn everything it puts out since. The
+			2026 rebrand is an effort to give PARC a proper logo, a palette, a world, and a typeface.
 		</p>
 		<ul class="space-y-2">
 			<li>&mdash; The box logo, its stacked mark, and a print and web logo library</li>
