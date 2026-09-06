@@ -7,8 +7,10 @@
 	import { PARC, PARC_SKY, PARC_SWATCHES, PARC_CYCLE } from './parcBrand';
 	import BrandRule from './BrandRule.svelte';
 	import ParcMark from './ParcMark.svelte';
-	import PixelScatter from './PixelScatter.svelte';
+	import SkyClouds from './SkyClouds.svelte';
 	import LivingTexture from './LivingTexture.svelte';
+	import SignalTexture from './SignalTexture.svelte';
+	import ChatTexture from './ChatTexture.svelte';
 
 	const headingId = $props.id();
 	const cycled = [...'SUMMER REGATTA'].map((ch, i) => ({ ch, color: PARC_CYCLE[i % 4] }));
@@ -128,21 +130,30 @@
 		</div>
 	</BrandRule>
 
-	<BrandRule n="06" title="Texture" color={PARC.orange}>
+	<BrandRule n="06" title="Backgrounds" color={PARC.orange}>
 		<p>
-			The one texture is pixel scatter: single cells in the brand colors, generated from a grid, a
-			density, and a seed. On the site it moves. The hero band twinkles and sparks under the cursor,
-			the After Darc band runs CRT static, and the Discord band drifts chat bubbles and posts one
-			where you click. It is there to add some life, nothing more.
+			Every background on the site is generated and most of them move. The sky drifts two layers of
+			clouds in hard steps. The hero scatters brand-color cells that twinkle, spark under the
+			cursor, and splash on click. The After Darc band runs CRT static with interference bars that
+			lock onto the cursor. The Discord band drifts chat bubbles up and posts one where you click.
+			They are there to add some life, nothing more. Reduced motion gets the still versions.
 		</p>
 		<div class="grid gap-4">
 			<div>
-				<p class="label-swiss data-swiss mb-2">Static · seed 7 · 6%</p>
-				<div class="panel p-0"><PixelScatter density={0.06} seed={7} /></div>
+				<p class="label-swiss data-swiss mb-2">Sky · the default ground</p>
+				<div class="panel p-0"><SkyClouds /></div>
 			</div>
 			<div>
-				<p class="label-swiss data-swiss mb-2">Living · the site's hero background · move, click</p>
+				<p class="label-swiss data-swiss mb-2">Hero · move, click</p>
 				<div class="panel p-0"><LivingTexture /></div>
+			</div>
+			<div>
+				<p class="label-swiss data-swiss mb-2">After Darc · move, click</p>
+				<div class="panel p-0"><SignalTexture /></div>
+			</div>
+			<div>
+				<p class="label-swiss data-swiss mb-2">Discord · move, click</p>
+				<div class="panel p-0"><ChatTexture /></div>
 			</div>
 		</div>
 	</BrandRule>
