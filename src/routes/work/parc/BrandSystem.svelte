@@ -8,6 +8,7 @@
 	import BrandRule from './BrandRule.svelte';
 	import ParcMark from './ParcMark.svelte';
 	import PixelScatter from './PixelScatter.svelte';
+	import LivingTexture from './LivingTexture.svelte';
 
 	const headingId = $props.id();
 	const cycled = [...'SUMMER REGATTA'].map((ch, i) => ({ ch, color: PARC_CYCLE[i % 4] }));
@@ -140,8 +141,8 @@
 				<div class="panel p-0"><PixelScatter density={0.06} seed={7} /></div>
 			</div>
 			<div>
-				<p class="label-swiss data-swiss mb-2">Living · twinkles · move the cursor</p>
-				<div class="panel p-0"><PixelScatter density={0.04} seed={19} live /></div>
+				<p class="label-swiss data-swiss mb-2">Living · the site's hero background · move, click</p>
+				<div class="panel p-0"><LivingTexture /></div>
 			</div>
 		</div>
 	</BrandRule>

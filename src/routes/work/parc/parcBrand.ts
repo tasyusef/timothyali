@@ -25,3 +25,11 @@ export const PARC_SWATCHES = [
 
 /** The four letter colors in logo order: P, A, R, C. */
 export const PARC_CYCLE = [PARC.orange, PARC.blue, PARC.green, PARC.yellow] as const;
+
+/** Highlight tints the site fades sparks out through (`--*-hi` on parcxrpl.com). */
+export const PARC_HI: Record<string, string> = {
+	[PARC.orange]: '#ffd9cc',
+	[PARC.blue]: '#cdf0f8',
+	[PARC.green]: '#c1efdb',
+	[PARC.yellow]: '#fdf8d4'
+};
