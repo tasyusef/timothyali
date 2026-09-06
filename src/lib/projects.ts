@@ -157,7 +157,7 @@ export const projects: Project[] = [
 			{ label: 'Typeface', value: '3 Weights · 2 Cuts' }
 		],
 		description:
-			'Rebranding the NFT club I cofounded in 2021, all from one 5×5 pixel grid: the box logo, a five-color palette, a pixel world, and an extended pixel typeface in three weights.'
+			'Rebranding the NFT club I cofounded in 2021 as a joke about Bored Apes and CryptoPunks: logo, palette, pixel world, and a typeface, all from one 5×5 grid.'
 	},
 	{
 		slug: 'xrpcafe',

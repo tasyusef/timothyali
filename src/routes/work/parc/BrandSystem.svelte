@@ -20,8 +20,8 @@
 		<h2 id={headingId} class="label-swiss md:col-span-3">Brand System</h2>
 		<div class="md:col-span-9 md:col-start-4 lg:col-span-8">
 			<p class="px px-xl">
-				The pixel is the <span style:color={PARC.orange}>heritage</span>. Restraint is the
-				<span style:color={PARC.blue}>maturity</span>.
+				Same <span style:color={PARC.orange}>joke</span>. Better
+				<span style:color={PARC.blue}>font</span>.
 			</p>
 			<p class="label-swiss data-swiss mt-4">
 				Pixel Ape Rowboat Club · Brand System · v1.0 · Aug 2026
@@ -31,10 +31,9 @@
 
 	<BrandRule n="01" title="The Marks" color={PARC.green}>
 		<p>
-			Three marks, one construction: the box logo in wide and square, and the oar badge. All three
-			live on the same cell grid with the same notched corners. Nobody rebuilds them from squares;
-			each master is a handful of merged paths. Clear space is two cells on every side, measured in
-			the mark&rsquo;s own cells.
+			Three marks, one construction: the box logo wide and square, and the oar badge. Same cell
+			grid, same notched corners. The masters are merged paths, never loose squares. Clear space is
+			two cells on every side.
 		</p>
 		<div
 			class="panel sky flex flex-wrap items-center justify-center gap-8 px-8 py-12"
@@ -48,10 +47,9 @@
 
 	<BrandRule n="02" title="One Color per Element" color={PARC.blue}>
 		<p>
-			Every element, a text block, an icon, a texture, gets exactly one flat brand color. The
-			four-color letter cycling belongs to the logo alone. That scarcity is what makes the logo read
-			as a crest instead of a sticker. Yellow never sets type on white; it works reversed on green,
-			or as a swatch, a texture pixel, an accent.
+			Every element gets one flat brand color: a text block, an icon, a texture. The four-color
+			cycling belongs to the logo alone. Yellow never sets type on white; reverse it on green, or
+			use it as a swatch or an accent.
 		</p>
 		<div class="grid gap-1 sm:grid-cols-2">
 			<div class="panel" style:background={PARC.green}>
@@ -96,11 +94,9 @@
 
 	<BrandRule n="04" title="Type" color={PARC.green}>
 		<p>
-			The brand speaks pixel first. PARC Pixel ships in three weights, Light, Regular and Bold, each
-			in proportional and mono cuts drawn from the same letterforms. Light carries supporting copy
-			and captions, Regular is the display voice, Bold is for headlines that shout. A plain system
-			grotesk is allowed only where reading endurance wins: long documents, terms, body text in the
-			UI.
+			PARC Pixel in three weights, Light, Regular and Bold, each in proportional and mono cuts.
+			Light for supporting copy and captions, Regular for display, Bold for headlines. A plain
+			grotesk only where long reading wins: documents, terms, body text in the UI.
 		</p>
 		<div class="panel space-y-2" style:background={PARC.green} style:color={PARC.white}>
 			<p class="px px-lg" style:font-weight="300">Light for supporting copy</p>
@@ -121,10 +117,9 @@
 
 	<BrandRule n="05" title="The Oar" color={PARC.blue}>
 		<p>
-			The secondary mark is a single horizontal oar. In the fonts it lives on the equals key, so it
-			drops into any line of pixel type as an ornament or a divider. The mark travels wherever the
-			type goes. Badged for avatars, patches and app icons; boxless when inline; any single brand
-			color.
+			The secondary mark is one horizontal oar. In the fonts it lives on the equals key, so it drops
+			into any line of pixel type as an ornament or a divider. Badged for avatars and app icons,
+			boxless inline, any single brand color.
 		</p>
 		<div class="panel" style:background={PARC.white} style:color={PARC.green}>
 			<p class="panel-label">Live text. The equals key between the words draws the oar.</p>
@@ -134,13 +129,10 @@
 
 	<BrandRule n="06" title="Texture" color={PARC.orange}>
 		<p>
-			The one texture is pixel scatter: single cells in the brand colors on a flat field, generated
-			rather than drawn. For print and social it is a small script with a grid, a density and a
-			seed, so the same seed gives the same texture on every export, and the density can fade toward
-			an edge. On the site it comes alive. The hero band twinkles and sparks under the cursor, the
-			After Darc band runs CRT static with interference bars that lock onto the cursor&rsquo;s row,
-			and the Discord band drifts pixel chat bubbles upward and posts one where you click. It exists
-			to give the brand some life, and that is all it has to do.
+			The one texture is pixel scatter: single cells in the brand colors, generated from a grid, a
+			density, and a seed. On the site it moves. The hero band twinkles and sparks under the cursor,
+			the After Darc band runs CRT static, and the Discord band drifts chat bubbles and posts one
+			where you click. It is there to add some life, nothing more.
 		</p>
 		<div class="grid gap-4">
 			<div>
@@ -156,9 +148,9 @@
 
 	<BrandRule n="07" title="The Grid Is Law" color={PARC.green}>
 		<p>
-			Margins, crops, spacing and type sizes land on multiples of the pixel cell. Letter tracking is
-			one cell in running display type and two cells in the logo. The badge margin is two cells, and
-			every corner notches exactly one cell. Nobody has to see the grid to feel it.
+			Margins, crops, spacing, and type sizes are multiples of the pixel cell. Tracking is one cell
+			in display type and two in the logo. The badge margin is two cells, and every corner notches
+			exactly one.
 		</p>
 		<div class="panel px-8 py-10" style:background={PARC.white}>
 			<ParcMark

@@ -10,7 +10,7 @@
 	import { SITE_URL } from '$lib/site';
 
 	const description =
-		'Rebranding Pixel Ape Rowboat Club from one 5×5 grid: the box logo, a five-color palette, a pixel world, and an extended pixel typeface in three weights.';
+		'Rebranding Pixel Ape Rowboat Club, a parody of Bored Apes and CryptoPunks that grew a community: logo, palette, world, and a pixel typeface, all from one 5×5 grid.';
 </script>
 
 <Seo
@@ -42,68 +42,47 @@
 >
 	{#snippet overview()}
 		<p class="mb-4">
-			Pixel Ape Rowboat Club is an NFT project I cofounded on the XRP Ledger in November 2021, to
-			make interesting art and to support the ledger&rsquo;s ecosystem with software. I have drawn
-			its graphics and run its online presence since; xrp.cafe, the marketplace I cofounded the next
-			summer, started with members from the club. Four years on, PARC is four collections, the $OAR
-			token, a Twitch show, an arcade, and merch: more than 19,000 pieces minted and about 196,000
-			XRP traded. The brand looked like the era it came from. It was due to grow up: more tasteful,
-			still playful. The only fixed asset was the box logo, four letters drawn by hand on a
-			5&times;5 pixel grid. Everything in the rebrand came out of that grid, including the typeface.
+			Pixel Ape Rowboat Club started in November 2021 as a joke about Bored Apes and CryptoPunks:
+			10,000 pixel apes in rowboats on the XRP Ledger. People stayed. Four years on it is four
+			collections, the $OAR token, a Twitch show, an arcade, merch, its own lore, and about 196,000
+			XRP traded. I cofounded it and have drawn everything it puts out since. The 2026 rebrand does
+			not change the joke. It gives it a proper logo, a palette, a world, and a typeface, all built
+			on the 5&times;5 pixel grid the original four letters were drawn on.
 		</p>
 		<ul class="space-y-2">
-			<li>&mdash; The box logo, its stacked mark, and a full print and web logo library</li>
-			<li>&mdash; A five-color palette with one rule: one color per block</li>
+			<li>&mdash; The box logo, its stacked mark, and a print and web logo library</li>
+			<li>&mdash; Five colors, one per element</li>
 			<li>&mdash; A pixel world of sky, clouds, and island for every surface</li>
-			<li>
-				&mdash; PARC Pixel: an extended typeface in three weights, grown from the four letters
-			</li>
+			<li>&mdash; PARC Pixel: a typeface in three weights, grown from the four letters</li>
 		</ul>
 	{/snippet}
 
-	<TextSection title="Fixing the Logo First">
+	<TextSection title="Fixing the Logo">
 		<p>
-			The box logo was hand-drawn in Illustrator&rsquo;s grid tool: 266 little squares sitting edge
-			to edge. At any size that did not land on whole device pixels, every square anti-aliased and
-			the mark filled with hairline seams. Overlapping the squares still showed. The real fix was a
-			tracer that walks the outline of each shape, so each master became five merged paths: one
-			white badge silhouette and one solid path per letter. Seams became impossible rather than
-			unlikely, and that principle, merged shapes and never abutting cells, carried into the
-			typeface and every sprite after it.
+			The box logo was 266 squares placed edge to edge in Illustrator. At most sizes they
+			anti-aliased into hairline seams. A tracer merged each master into five paths, the white sign
+			and one per letter, so the seams cannot happen. Every glyph and sprite after it followed the
+			same rule: merged shapes, never stacked cells.
 		</p>
 		<p>
-			The mark reads as a signboard in the world rather than a logo pasted on top of it: four
-			letters, each in its own color, on a white sign with notched corners and a hard one-cell
-			shadow. The four-color cycling is the logo&rsquo;s alone. A stacked 2&times;2 version carries
-			the profile pictures. I tried five rowboat marks for a secondary mark; all of them either read
-			as a smile or fought the letters. What the system needed was quieter: a single horizontal oar
-			on the same notched box. It became the favicon, the inline ornament, and, in the typeface, the
-			equals key. Both lockups and the oar ship as a complete logo library: black, CMYK, Pantone
-			spot, and white for print; black, RGB, and white for web, each at three sizes.
+			The four-color letters belong to the logo alone. A stacked 2&times;2 version is the profile
+			picture. The secondary mark is a single horizontal oar on the same notched sign: the favicon,
+			the inline ornament, and, in the typeface, the equals key. Both lockups and the oar ship as a
+			full library for print and web.
 		</p>
 	</TextSection>
 
-	<TextSection title="The Thesis">
+	<TextSection title="One Rule">
 		<p>
 			The brief for the first type specimen was one line: one color per block of text, no
-			alternating letters. That line turned out to be the entire rebrand. The pixel was never what
-			made NFT-era branding feel juvenile; the maximalism was. The pixel is the heritage. Restraint
-			is the maturity. Keep the grid sacred and govern it with editorial rules.
+			alternating letters. That turned out to be the whole rebrand. The pixel was never the problem
+			with 2021 NFT branding; everything happening at once was. Five colors, one per element, on a
+			grid that decides every margin and corner. Still not serious. Just neater.
 		</p>
 		<p>
-			One color per element: text, icons, textures each get one flat brand color. Five colors, no
-			tints, no gradients: orange, blue, green, yellow, white. Pixel scatter is the only texture,
-			and it is generated, from a grid, a density and a seed, to give the flat fields some life. And
-			the grid is law: margins, crops, spacing and type sizes land on multiples of the pixel cell,
-			and corners always notch exactly one cell. Nobody has to see the grid to feel it. All of it
-			went into a one-page brand sheet, set in the system it describes, with a do-and-don&rsquo;t
-			pair for each rule. The sheet is rebuilt below, live, in the real fonts and the real marks.
-		</p>
-		<p>
-			The colors live in a pixel world. A sky gradient with clouds is the default ground; the island
-			with its sand, water, and boathouse is where the club lives; and dark green is the reverse for
-			type-led surfaces. Social banners, OG cards, the PARCade arcade panels, the $OAR token card,
-			and the CRT-glitch teasers all draw from the same handful of parts.
+			The colors live in a small world: sky and clouds as the default ground, the island where the
+			club lives, dark green for type-led surfaces. The brand sheet below is the rule and what
+			follows from it, set live in the real fonts and marks.
 		</p>
 	</TextSection>
 
@@ -111,36 +90,20 @@
 
 	<TextSection title="Four Letters Become an Alphabet">
 		<p>
-			I wanted the rebrand&rsquo;s type to come out of the logo instead of importing a typeface, and
-			I wanted a real font file at the end, not a folder of lettering. The P, A, R and C were copied
-			exactly as bitmaps and treated as a style guide. Reading them gave four rules: one-cell
-			strokes, hollow counters, a corner inset by one cell wherever a curve would be, diagonals
-			stepped cell by cell. The rest of A&ndash;Z, the digits and punctuation were drawn to those
-			rules on the same grid.
-		</p>
-		<p>
-			Letters and digits are all five cells wide, so the face is extended and monospaced by nature.
-			Punctuation was narrowed for headlines, then a strict mono cut was added for the things a
-			pixel brand leans on: countdowns, prices, scoreboards. Every glyph is exported as one merged
-			path, never a pile of squares, so nothing can anti-alias into hairline seams. The family is
-			caps only; lowercase input maps to the capitals. The font is single-color, so the logo stays
-			the only thing that cycles through all four.
+			The P, A, R and C were treated as the style guide: one-cell strokes, hollow counters, a
+			one-cell inset wherever a curve would be, diagonals stepped cell by cell. The rest of
+			A&ndash;Z, the digits, and punctuation were drawn to those rules. Every letter is five cells
+			wide, so the face is extended and monospaced by nature, and a strict mono cut followed for
+			countdowns, prices, and scoreboards. Caps only, one color, every glyph a single merged path.
 		</p>
 	</TextSection>
 
-	<TextSection title="Weights Without Borrowing">
+	<TextSection title="Three Weights">
 		<p>
-			Could PARC Pixel carry a whole site, or would headlines need a &ldquo;real&rdquo; font beside
-			it? On a pixel grid, weight is stroke cells over cap-height cells. Light reduces each letter
-			to a one-cell skeleton on a 9-row grid (1/9). Regular is the exact 2&times; of the master
-			(2/10). Bold stamps a 3&times;3 pixel on every skeleton cell on an 11-row grid (3/11).
-		</p>
-		<p>
-			The first Bold was wrong in a way that taught me the typeface&rsquo;s real law. It smeared
-			stems one cell sideways, the way old bitmap system fonts did, which made it out of 3&times;2
-			rectangles while the other weights were square pixels. The module broke and the letters read
-			like pixels sliding over each other. That set the rule: every weight is made of square pixels.
-			Bold was rebuilt by thickening the Light skeleton evenly on all sides.
+			On a pixel grid, weight is stroke cells over cap-height cells: Light is 1/9, Regular 2/10,
+			Bold 3/11. The first Bold smeared stems one cell sideways, the way old system fonts did, and
+			the square module broke. The rule since: every weight is square pixels. Bold was rebuilt by
+			thickening the Light skeleton evenly on all sides.
 		</p>
 	</TextSection>
 
@@ -169,37 +132,18 @@
 		]}
 	/>
 
-	<TextSection title="The 2">
-		<p>
-			The digit 2 did not read as a 2 in any weight. The right first fix was at the source: one
-			bitmap change to the 5&times;5 master propagated to all six fonts. Then Light looked absurd,
-			Bold&rsquo;s steps were ragged, and an afternoon of hand-drawn replacements got worse.
-			Straight descenders read as Z, curves clogged the counter, one version turned into an 8. The
-			version that shipped was the derivation minus exactly four cells.
-		</p>
-		<p>
-			The honest diagnosis was that the derived 2 shared its curve language with the 3, 5, 6, 8 and
-			9, so every from-scratch attempt looked alien beside them. That settled how the rest of the
-			family got finished: derive first, then place the pixels that matter by hand, cell by cell,
-			judged inside a real row of digits at the size it would be read. That set grew to 29 glyphs,
-			including the bold N and Z with unbroken diagonals, the question mark, the at-sign in all
-			three weights, and the oar.
-		</p>
-	</TextSection>
-
 	<TextSection title="The Hard Glyphs">
 		<p>
-			The at-sign is the hardest glyph in any pixel font, and it had to exist because the
-			team&rsquo;s handles live on the site. Five constructions were laid out large, inside a live
-			handle, and at the tiny size where it would be read. The one that shipped in Bold, a rounded
-			ring with a spiral interior, is the strongest glyph in the punctuation row.
+			The 2 did not read as a 2 in any weight, and every hand-drawn replacement looked wrong next to
+			the 3, 5, 6, 8 and 9. The version that shipped is the derived shape minus four cells. That
+			became the method for the rest: derive first, then place the cells that matter by hand, judged
+			in a real row of digits at reading size. 29 glyphs got that treatment.
 		</p>
 		<p>
-			The dollar sign was first drawn as its own angular S with a bar. That was the wrong instinct.
-			It now reuses the S bitmap from each weight, so it follows if the S ever changes, and the bar
-			extends two rows above the cap and two below the baseline. The equals key holds the oar, the
-			club&rsquo;s mark drawn as a glyph in all three weights. It is the one joke the typeface is
-			allowed.
+			The at-sign had to exist because the team&rsquo;s handles are on the site; five constructions
+			were tested inside a live handle at the size it is read. The dollar sign reuses each
+			weight&rsquo;s S, so it follows if the S ever changes. The equals key holds the oar in all
+			three weights.
 		</p>
 	</TextSection>
 
@@ -225,12 +169,10 @@
 
 	<TextSection title="Specimens">
 		<p>
-			For social, sixteen layouts in four formats: story, 16:9, 4:3 and square, in green, sky and
-			white colorways. Each was designed to differ from the others rather than restate one layout: a
-			ROW ROW ROW waterfall through the weights, a size ramp, a glyph mosaic, a giant-letter weight
-			trio, an anatomy sheet, the mono numerals, and the character set on the island sky. The
-			&ldquo;type specimen&rdquo; labels and footers came off at the end. They cluttered the
-			layouts, and the type could carry the page alone.
+			Sixteen social layouts in four formats and three colorways, each a different idea: a size
+			ramp, a glyph mosaic, an anatomy sheet, the mono numerals, the character set on the island
+			sky. The &ldquo;type specimen&rdquo; labels came off at the end. The type carries the page on
+			its own.
 		</p>
 	</TextSection>
 
@@ -287,14 +229,13 @@
 	<ResultsList
 		title="Outcome"
 		items={[
-			'The club in September 2026: 10,000 PARC apes with 1,250+ holders, 4,618 Monkey Phunks, 27 one-of-one Customs, and 4,540 Mysterious Bananas minted so far',
-			'About 196,000 XRP traded across the four collections, and $OAR held by 400+ wallets since February 2022',
-			'One grid, one system: logo, palette, world, and typeface all derive from the same 5×5 module',
-			'A complete logo library for both lockups: black, CMYK, Pantone spot, and white for print; black, RGB, and white for web',
-			'PARC Pixel is the only typeface on the new PARC site: headlines, body, buttons, the arcade cabinet, the game cover art, and the stats page',
-			'57 characters per weight: A–Z, 0–9, punctuation, symbols, and the oar',
-			'Three weights (Light 1/9, Regular 2/10, Bold 3/11) in proportional and strict mono families: 6 TTFs plus WOFF2 for the web',
-			'29 glyphs finished by hand across the family, cell by cell'
+			'September 2026: 10,000 PARC apes with 1,250+ holders, 4,618 Monkey Phunks, 27 one-of-one Customs, and 4,540 Mysterious Bananas minted so far',
+			'About 196,000 XRP traded across the four collections; $OAR held by 400+ wallets since February 2022',
+			'Logo, palette, world, and typeface all come from the same 5×5 grid',
+			'A full logo library for both lockups and the oar: black, CMYK, Pantone spot, and white for print; black, RGB, and white for web',
+			'PARC Pixel is the only typeface on the PARC site: headlines, body, buttons, the arcade cabinet, the game cover art, and the stats page',
+			'57 characters per weight, three weights, proportional and mono: 6 TTFs plus WOFF2',
+			'29 glyphs finished by hand, cell by cell'
 		]}
 	/>
 </CaseStudy>
