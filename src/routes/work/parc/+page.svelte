@@ -5,6 +5,7 @@
 	import ResultsList from '$lib/components/ResultsList.svelte';
 	import Gallery from '$lib/components/Gallery.svelte';
 	import BrandSystem from './BrandSystem.svelte';
+	import LogoStory from './LogoStory.svelte';
 	import { getNextProject } from '$lib/projects';
 	import { imageUrl } from '$lib/images';
 	import { SITE_URL } from '$lib/site';
@@ -58,35 +59,17 @@
 
 	<TextSection title="Old Logo, New Logo">
 		<p>
-			The first logo was a cartoon: an ape&rsquo;s head with a big grin, thick black outlines, and a
-			bubbly PARC wordmark tilted across the top. On its own it was fine. Next to the actual art it
-			was the wrong brand. The apes are pixel art, and the logo looked like it belonged to a
-			different product.
-		</p>
-		<p>
-			So the rebrand embraces the pixel. The new logo is the four letters drawn on the same
-			5&times;5 grid as the apes, on a white sign with notched corners, so the brand and the art are
-			one thing. It is also built properly: each master is merged paths instead of 266 stacked
-			squares, so it stays sharp at any size. The four-color letters belong to the logo alone. A
-			stacked version is the profile picture, and a single oar on the same sign is the secondary
-			mark, the favicon, and the equals key in the typeface.
+			The first logo was a cartoon. On its own it was fine. Next to the actual art it was the wrong
+			brand: the apes are pixel art, and the logo looked like it belonged to a different product. So
+			the rebrand embraces the pixel. The new logo is drawn on the same 5&times;5 grid as the apes,
+			and built from merged paths instead of 266 stacked squares, so it stays sharp at any size. The
+			four-color letters belong to the logo alone. A stacked version is the profile picture, and a
+			single oar on the same sign is the secondary mark, the favicon, and the equals key in the
+			typeface.
 		</p>
 	</TextSection>
 
-	<Gallery
-		items={[
-			{
-				type: 'image',
-				src: '/images/parc/old-mascot.png',
-				alt: 'The old PARC logo: a cartoon ape head with a wide grin and thick outlines, a bubbly PARC wordmark across the top'
-			},
-			{
-				type: 'image',
-				src: '/images/parc/old-wordmark.png',
-				alt: 'The old PARC secondary logo: the bubbly outlined PARC wordmark in black'
-			}
-		]}
-	/>
+	<LogoStory />
 
 	<TextSection title="One Rule">
 		<p>
