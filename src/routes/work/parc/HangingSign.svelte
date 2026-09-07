@@ -1,11 +1,33 @@
 <script lang="ts">
 	// Port of parcxrpl.com's HangingSign: a wooden plank on two ropes carrying the
 	// page title. Here it is the case study's h1. Wood and rope colors are the
-	// site's own (product values, not site tokens).
+	// site's own (product values, not site tokens). The ropes run all the way up to
+	// the green nav bar, so the sign hangs from the chrome the way the site's hangs
+	// from its canopy: the rope length is measured, since the back-link row sits
+	// between the nav and the sign.
 	let { title, hint = '' }: { title: string; hint?: string } = $props();
+
+	let ropeLen = $state(0);
+
+	function hang(el: HTMLDivElement) {
+		const nav = document.querySelector<HTMLElement>('.site-nav');
+		if (!nav) return;
+		const measure = () => {
+			ropeLen = Math.max(0, el.getBoundingClientRect().top - nav.getBoundingClientRect().bottom);
+		};
+		const ro = new ResizeObserver(measure);
+		ro.observe(el.parentElement ?? el);
+		ro.observe(nav);
+		window.addEventListener('resize', measure);
+		measure();
+		return () => {
+			ro.disconnect();
+			window.removeEventListener('resize', measure);
+		};
+	}
 </script>
 
-<div class="titlehang">
+<div {@attach hang} class="titlehang" style:--rope-len={ropeLen ? `${ropeLen}px` : undefined}>
 	<div class="titlesign">
 		<h1 class="heading-swiss">{title}</h1>
 		{#if hint}
@@ -26,8 +48,8 @@
 	.titlehang::after {
 		content: '';
 		position: absolute;
-		top: calc(-1 * var(--sign-drop));
-		height: calc(var(--sign-drop) + 6px);
+		top: calc(-1 * var(--rope-len, var(--sign-drop)));
+		height: calc(var(--rope-len, var(--sign-drop)) + 6px);
 		width: 6px;
 		background: repeating-linear-gradient(#a9835a 0 6px, #8a6a45 6px 12px);
 	}

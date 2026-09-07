@@ -215,10 +215,22 @@ html:has([data-brand='parc']) body {
 	letter-spacing: 0.04em;
 	text-transform: uppercase;
 }
-/* the back link is a button, not a grid column */
+/* the back link is a button, not a grid column: no rule under its row, and it sits
+   out of the ropes' way (between them on phones, at the far right on desktop) */
+[data-brand='parc'] .cs-header div:has(> .cs-back) {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border-bottom: 0;
+}
 [data-brand='parc'] .cs-back {
 	width: fit-content;
-	justify-self: start;
+	justify-self: center;
+}
+@media (min-width: 768px) {
+	[data-brand='parc'] .cs-back {
+		grid-column: 10 / -1;
+		justify-self: end;
+	}
 }
 
 /* ---------- section eyebrows: small paper tags, colored in the logo's order ---------- */
