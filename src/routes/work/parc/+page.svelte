@@ -8,7 +8,7 @@
 	import LogoStory from './LogoStory.svelte';
 	import World from './World.svelte';
 	import Quotes from './Quotes.svelte';
-	import ScatterGround from './ScatterGround.svelte';
+	import SkyGround from './SkyGround.svelte';
 	import HangingSign from './HangingSign.svelte';
 	import ParcBand from './ParcBand.svelte';
 	import PxButton from './PxButton.svelte';
@@ -37,7 +37,7 @@
 	}}
 />
 
-<ScatterGround />
+<SkyGround />
 
 <CaseStudy
 	title="PARC"
@@ -46,8 +46,6 @@
 	role="Cofounder, Brand & Art Direction"
 	timeline="Ongoing"
 	tools="Illustrator, Python (fontTools)"
-	heroImage="/images/parc/sign-sky.png"
-	heroAlt="PARC logo: the four-color pixel letters on a white notched sign, floating in a pixel-cloud sky"
 	nextProject={getNextProject('parc')}
 >
 	{#snippet heading()}
@@ -88,9 +86,7 @@
 		</p>
 	</TextSection>
 
-	<ParcBand tone="sky">
-		<World />
-	</ParcBand>
+	<World />
 
 	<TextSection title="Same People, Better Brand">
 		<p>
@@ -108,9 +104,7 @@
 
 	<LogoStory />
 
-	<ParcBand tone="green">
-		<Quotes />
-	</ParcBand>
+	<Quotes />
 
 	<BrandSystem />
 
@@ -187,8 +181,8 @@
 			},
 			{
 				type: 'image',
-				src: '/images/parc/site-arcade.png',
-				alt: 'parcxrpl.com arcade band: the Rowboat Racer cover on a CRT and live high scores over the island'
+				src: '/images/parc/phone-arcade.png',
+				alt: 'parcxrpl.com arcade band on a phone: the Rowboat Racer cover over the island'
 			},
 			{
 				type: 'image',
@@ -202,13 +196,13 @@
 			},
 			{
 				type: 'image',
-				src: '/images/parc/phone-arcade.png',
-				alt: 'parcxrpl.com arcade band on a phone: the Rowboat Racer cover over the island'
+				src: '/images/parc/site-crew.png',
+				alt: 'parcxrpl.com crew row and green footer with the stacked mark'
 			},
 			{
 				type: 'image',
-				src: '/images/parc/site-crew.png',
-				alt: 'parcxrpl.com crew row and green footer with the stacked mark'
+				src: '/images/parc/site-arcade.png',
+				alt: 'parcxrpl.com arcade band: the Rowboat Racer cover on a CRT and live high scores over the island'
 			}
 		]}
 	/>
@@ -253,7 +247,7 @@
 		]}
 	/>
 
-	<ParcBand tone="green" flush>
+	<ParcBand flush>
 		<ResultsList
 			title="Outcome"
 			items={[

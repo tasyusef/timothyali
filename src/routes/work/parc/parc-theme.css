@@ -71,14 +71,14 @@
 	/* motion in hard steps, like the site */
 	--ease-swiss: steps(4, end);
 
-	background: var(--color-background);
 	color: var(--color-foreground);
 	font-family: var(--font-body);
 	min-height: 100vh;
 }
+/* the fixed sky (SkyGround) covers the viewport; the page ground only shows on overscroll */
 html:has([data-brand='parc']),
 html:has([data-brand='parc']) body {
-	background: #ffffff;
+	background: #79c9e8;
 }
 
 /* the 12-point corner notch, resolved per element so each can set its own --n */
@@ -150,50 +150,32 @@ html:has([data-brand='parc']) body {
 [data-brand='parc'] .site-status .status-dot {
 	background: var(--parc-yellow);
 }
-
-/* ---------- content sits above the fixed scatter ground ---------- */
-[data-brand='parc'] .cs {
+/* content and chrome sit above the fixed sky (the nav already has z-nav) */
+[data-brand='parc'] main {
+	position: relative;
+}
+[data-brand='parc'] :is(.cs, .site-footer) {
 	position: relative;
 	z-index: 1;
-	pointer-events: none;
-}
-[data-brand='parc']
-	.cs
-	:is(
-		a,
-		button,
-		canvas,
-		video,
-		picture,
-		img,
-		p,
-		li,
-		h1,
-		h2,
-		h3,
-		dt,
-		dd,
-		blockquote,
-		figcaption,
-		span,
-		.cs-overview,
-		.cs-text .copy,
-		.parc-band,
-		[role='dialog'],
-		[role='dialog'] *
-	) {
-	pointer-events: auto;
 }
 
-/* ---------- paper panels: overview and text sections ---------- */
-[data-brand='parc'] :is(.cs-overview, .cs-text .copy) {
+/* ---------- paper panels (the site's hero card): overview, metadata, brand sheet ---------- */
+[data-brand='parc'] :is(.cs-overview, .cs-text .copy, .cs-meta-list, .parc-sheet) {
 	--n: 12px;
 	position: relative;
 	z-index: 0;
-	padding: calc(var(--parc-cell) * 4);
+	padding: calc(var(--parc-cell) * 4) calc(var(--parc-cell) * 3);
 }
-[data-brand='parc'] :is(.cs-overview, .cs-text .copy)::before,
-[data-brand='parc'] :is(.cs-overview, .cs-text .copy)::after {
+@media (min-width: 768px) {
+	[data-brand='parc'] :is(.cs-overview, .cs-text .copy, .cs-meta-list, .parc-sheet) {
+		padding: calc(var(--parc-cell) * 4);
+	}
+	[data-brand='parc'] .parc-sheet {
+		padding: calc(var(--parc-cell) * 2) calc(var(--parc-cell) * 6) calc(var(--parc-cell) * 6);
+	}
+}
+[data-brand='parc'] :is(.cs-overview, .cs-text .copy, .cs-meta-list, .parc-sheet)::before,
+[data-brand='parc'] :is(.cs-overview, .cs-text .copy, .cs-meta-list, .parc-sheet)::after {
 	content: '';
 	position: absolute;
 	inset: 0;
@@ -201,17 +183,82 @@ html:has([data-brand='parc']) body {
 	clip-path: var(--pix);
 }
 /* dark slab under the panel */
-[data-brand='parc'] :is(.cs-overview, .cs-text .copy)::before {
+[data-brand='parc'] :is(.cs-overview, .cs-text .copy, .cs-meta-list, .parc-sheet)::before {
 	transform: translateY(var(--d));
 	background: var(--parc-green-dark);
 }
 /* paper face with a one-cell shade ring */
-[data-brand='parc'] :is(.cs-overview, .cs-text .copy)::after {
+[data-brand='parc'] :is(.cs-overview, .cs-text .copy, .cs-meta-list, .parc-sheet)::after {
 	background: var(--parc-paper);
 	box-shadow: inset 0 0 0 var(--n) var(--parc-shade);
 }
 
-/* section eyebrows, colored in the logo's order */
+/* ---------- header: sign, back button, metadata card ---------- */
+/* rules drawn straight on the sky go green and soft */
+[data-brand='parc'] .cs-header {
+	--color-border: rgb(22 98 73 / 0.3);
+}
+[data-brand='parc'] .cs-meta-list {
+	--color-border: var(--parc-shade);
+	padding-block: var(--parc-cell) calc(var(--parc-cell) * 1.5);
+}
+[data-brand='parc'] .cs-meta:first-child {
+	border-top: 0;
+}
+/* the card is its own closing edge */
+[data-brand='parc'] .cs-meta-list + div {
+	display: none;
+}
+[data-brand='parc'] .cs-meta p:last-child {
+	font-family: var(--font-mono);
+	font-size: 0.875rem;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+/* the back link is a button, not a grid column */
+[data-brand='parc'] .cs-back {
+	width: fit-content;
+	justify-self: start;
+}
+
+/* ---------- section eyebrows: small paper tags, colored in the logo's order ---------- */
+[data-brand='parc'] :is(.cs-text, .cs-results) h2,
+[data-brand='parc'] .parc-tag {
+	--n: 6px;
+	--d: 4px;
+	position: relative;
+	z-index: 0;
+	width: fit-content;
+	align-self: start;
+	padding: var(--parc-cell) calc(var(--parc-cell) * 2);
+	color: var(--parc-green);
+}
+[data-brand='parc'] :is(.cs-text, .cs-results) h2::before,
+[data-brand='parc'] :is(.cs-text, .cs-results) h2::after,
+[data-brand='parc'] .parc-tag::before,
+[data-brand='parc'] .parc-tag::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	clip-path: var(--pix);
+}
+[data-brand='parc'] :is(.cs-text, .cs-results) h2::before,
+[data-brand='parc'] .parc-tag::before {
+	transform: translateY(var(--d));
+	background: var(--parc-green-dark);
+}
+[data-brand='parc'] :is(.cs-text, .cs-results) h2::after,
+[data-brand='parc'] .parc-tag::after {
+	background: var(--parc-paper);
+}
+/* a tag is one line; on desktop it may run past its three columns into the empty gutter */
+@media (min-width: 768px) {
+	[data-brand='parc'] :is(.cs-text, .cs-results) h2,
+	[data-brand='parc'] .parc-tag {
+		white-space: nowrap;
+	}
+}
 [data-brand='parc'] .cs-text h2 {
 	color: var(--parc-orange);
 }
@@ -223,6 +270,12 @@ html:has([data-brand='parc']) body {
 }
 [data-brand='parc'] .cs-text ~ .cs-text ~ .cs-text ~ .cs-text h2 {
 	color: var(--parc-yellow-dark);
+}
+
+/* ---------- the brand sheet: one paper document ---------- */
+[data-brand='parc'] .parc-sheet > :first-child {
+	border-top: 0;
+	padding-top: calc(var(--parc-cell) * 2);
 }
 
 /* ---------- pixel buttons out of plain links: back link and next project ---------- */
@@ -270,9 +323,6 @@ html:has([data-brand='parc']) body {
 [data-brand='parc'] :is(.cs-back, .cs-next a)::after {
 	background: var(--btn-face, var(--parc-green));
 }
-[data-brand='parc'] .cs-back {
-	color: #ffffff;
-}
 [data-brand='parc'] .cs-back * {
 	color: inherit;
 }
@@ -295,59 +345,67 @@ html:has([data-brand='parc']) body {
 [data-brand='parc'] .cs-next a .heading-swiss {
 	font-weight: 700;
 }
-
 /* the next-project row sits on the closing green run into the footer */
 [data-brand='parc'] .cs-next {
 	margin-top: 0;
-	margin-inline: calc(-1 * var(--spacing-section));
-	padding-inline: var(--spacing-section);
 	padding-bottom: calc(var(--parc-cell) * 8);
 	background: var(--parc-green);
 	--color-border: rgb(255 255 255 / 0.18);
 }
 [data-brand='parc'] .cs-next .label-swiss {
+	width: fit-content;
+	align-self: start;
 	color: var(--parc-green-hi);
 }
 
-/* ---------- metadata rows ---------- */
-[data-brand='parc'] .cs-meta p:last-child {
-	font-family: var(--font-mono);
-	font-size: 0.875rem;
-	letter-spacing: 0.04em;
-	text-transform: uppercase;
+/* ---------- galleries: every thumbnail is a paper card with a one-cell frame ---------- */
+[data-brand='parc'] .cs-gallery {
+	--gap-gallery: calc(var(--parc-cell) * 2);
 }
-
-/* ---------- galleries: hard drop on hover, in steps ---------- */
 [data-brand='parc'] .cs-gallery button {
+	--n: 8px;
+	position: relative;
+	z-index: 0;
+	overflow: visible;
+	padding: var(--parc-cell);
 	transition: transform 0.07s steps(2, end);
 }
+[data-brand='parc'] .cs-gallery button::before,
+[data-brand='parc'] .cs-gallery button::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	clip-path: var(--pix);
+}
+[data-brand='parc'] .cs-gallery button::before {
+	z-index: -2;
+	transform: translateY(var(--d));
+	background: var(--parc-green-dark);
+}
+[data-brand='parc'] .cs-gallery button::after {
+	z-index: -1;
+	background: var(--parc-paper);
+}
+/* the face rises, the slab stays put */
 [data-brand='parc'] .cs-gallery button:hover {
-	transform: translate(-2px, -2px);
-	box-shadow: 4px 4px 0 var(--parc-green-dark);
+	--d: 9px;
+	transform: translateY(-3px);
+}
+[data-brand='parc'] .cs-gallery button :is(img, video) {
+	position: relative;
+	z-index: 1;
 }
 
-/* ---------- bands ---------- */
-[data-brand='parc'] .parc-band.green {
+/* ---------- the closing green band ---------- */
+[data-brand='parc'] .parc-band {
 	--color-foreground: #ffffff;
 	--color-muted: var(--parc-green-hi);
 	--color-border: rgb(255 255 255 / 0.18);
 	color: #ffffff;
 }
-[data-brand='parc'] .parc-band.green figcaption {
-	color: var(--parc-yellow);
-}
-[data-brand='parc'] .parc-band blockquote {
-	font-size: clamp(1.125rem, 1.6vw, 1.5rem);
-}
 [data-brand='parc'] .parc-band .bullet-swiss {
 	background: var(--parc-yellow);
 }
-/* the closing band flows straight into the next-project row and the footer */
-[data-brand='parc'] .parc-band.flush {
-	margin-bottom: 0;
-}
-
-/* the Brand System sheet already speaks PARC; its own rules stay */
 
 @media (prefers-reduced-motion: reduce) {
 	[data-brand='parc'] :is(.cs-back, .cs-next a, .cs-gallery button) {
@@ -355,29 +413,9 @@ html:has([data-brand='parc']) body {
 	}
 }
 
-/* ---------- legibility over the scatter ---------- */
-/* the back link is a button, not a grid column */
-[data-brand='parc'] .cs-back {
-	width: fit-content;
-	justify-self: start;
-}
-/* metadata rows and section eyebrows get a solid white backing */
-[data-brand='parc'] .cs-meta {
-	background: #ffffff;
-}
-[data-brand='parc'] :is(.cs-text, .cs-results) h2,
-[data-brand='parc'] .cs-next .label-swiss {
-	width: fit-content;
-	align-self: start;
-}
-[data-brand='parc'] .cs-text h2 {
-	background: #ffffff;
-	padding: calc(var(--parc-cell) / 2) var(--parc-cell);
-	margin-left: calc(-1 * var(--parc-cell));
-}
-
-/* chrome above the fixed scatter layer (the nav already has z-nav) */
-[data-brand='parc'] .site-footer {
-	position: relative;
-	z-index: 1;
+/* PARC Pixel is wide: the footer's name and links stay on one line each */
+[data-brand='parc'] .site-footer :is(p, a).label-swiss {
+	white-space: nowrap;
+	font-size: 0.75rem;
+	letter-spacing: 0.04em;
 }

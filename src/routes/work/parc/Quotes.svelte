@@ -1,35 +1,59 @@
 <script lang="ts">
 	// What the community said when the rebrand went live, September 2026. Verbatim from
-	// the PARC Discord and X, including the spelling.
+	// the PARC Discord and X, including the spelling. One paper card per person.
 	import { reveal } from '$lib/actions/reveal';
+	import PxCard from './PxCard.svelte';
 
 	const headingId = $props.id();
 	const quotes = [
-		{ text: 'I know I like the new banner and logo', who: 'RedHotDankMoist', where: 'Discord' },
-		{ text: '@twocakeS these graphics is gas', who: 'DreamballerXRP', where: 'Discord' },
-		{ text: 'Love it, great website update, looks amazing', who: '@BrandoWoodz', where: 'X' },
-		{ text: 'loOkn goOd', who: '@Uga589', where: 'X' }
-	];
+		{
+			text: 'I know I like the new banner and logo',
+			who: 'RedHotDankMoist',
+			where: 'Discord',
+			color: 'green'
+		},
+		{
+			text: '@twocakeS these graphics is gas',
+			who: 'DreamballerXRP',
+			where: 'Discord',
+			color: 'orange'
+		},
+		{
+			text: 'Love it, great website update, looks amazing',
+			who: '@BrandoWoodz',
+			where: 'X',
+			color: 'blue'
+		},
+		{ text: 'loOkn goOd', who: '@Uga589', where: 'X', color: 'yellow' }
+	] as const;
 </script>
 
-<section
-	use:reveal
-	aria-labelledby={headingId}
-	class="grid grid-cols-1 gap-4 border-t border-[var(--color-border)] py-8 md:grid-cols-12 md:gap-0 md:py-10"
->
-	<h2 id={headingId} class="label-swiss md:col-span-3">The Reaction</h2>
-	<ul class="grid gap-6 sm:grid-cols-2 md:col-span-9 md:col-start-4 lg:col-span-8">
+<section use:reveal aria-labelledby={headingId} class="mb-section">
+	<h2 id={headingId} class="parc-tag label-swiss">The Reaction</h2>
+	<ul class="mt-6 grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
 		{#each quotes as q (q.who)}
 			<li>
-				<figure>
-					<blockquote class="text-subhead heading-swiss leading-tight">
-						&ldquo;{q.text}&rdquo;
-					</blockquote>
-					<figcaption class="label-swiss mt-3">
-						{q.who} <span class="data-swiss">· {q.where} · Sep 3, 2026</span>
-					</figcaption>
-				</figure>
+				<PxCard color={q.color}>
+					<figure class="flex h-full flex-col p-5 md:p-6">
+						<blockquote class="quote heading-swiss flex-1 leading-tight">
+							&ldquo;{q.text}&rdquo;
+						</blockquote>
+						<figcaption class="label-swiss mt-6 grid gap-1">
+							<span class="who">{q.who}</span>
+							<span class="data-swiss">{q.where} · Sep 3, 2026</span>
+						</figcaption>
+					</figure>
+				</PxCard>
 			</li>
 		{/each}
 	</ul>
 </section>
+
+<style>
+	.quote {
+		font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+	}
+	.who {
+		color: var(--card);
+	}
+</style>

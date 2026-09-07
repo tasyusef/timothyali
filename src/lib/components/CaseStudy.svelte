@@ -103,20 +103,22 @@
 			</div>
 
 			<!-- Metadata rows -->
-			{#each metaItems as item (item.label)}
-				<div
-					class="cs-meta grid grid-cols-1 gap-1 border-t border-[var(--color-border)] py-4 md:grid-cols-12 md:gap-0 md:py-5"
-				>
-					<p class="label-swiss md:col-span-3">{item.label}</p>
-					<p
-						class="md:col-span-5 md:col-start-7"
-						class:data-swiss={item.label === 'Year' || item.label === 'Timeline'}
-						class:text-caption-size={item.label === 'Year' || item.label === 'Timeline'}
+			<div class="cs-meta-list">
+				{#each metaItems as item (item.label)}
+					<div
+						class="cs-meta grid grid-cols-1 gap-1 border-t border-[var(--color-border)] py-4 md:grid-cols-12 md:gap-0 md:py-5"
 					>
-						{item.value}
-					</p>
-				</div>
-			{/each}
+						<p class="label-swiss md:col-span-3">{item.label}</p>
+						<p
+							class="md:col-span-5 md:col-start-7"
+							class:data-swiss={item.label === 'Year' || item.label === 'Timeline'}
+							class:text-caption-size={item.label === 'Year' || item.label === 'Timeline'}
+						>
+							{item.value}
+						</p>
+					</div>
+				{/each}
+			</div>
 			<div class="border-b border-[var(--color-border)]"></div>
 		</div>
 	</div>

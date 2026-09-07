@@ -15,7 +15,7 @@
 	const headingId = $props.id();
 </script>
 
-<section use:reveal aria-labelledby={headingId} class="mb-section">
+<section use:reveal aria-labelledby={headingId} class="parc-sheet mb-section">
 	<div
 		class="grid grid-cols-1 gap-4 border-t border-[var(--color-border)] py-8 md:grid-cols-12 md:gap-0 md:py-10"
 	>
@@ -53,7 +53,7 @@
 			stays in the logo. Yellow never sets type on white. Web uses the hex values, print the CMYK
 			builds.
 		</p>
-		<dl class="grid grid-cols-3 gap-x-1 gap-y-6 sm:grid-cols-5">
+		<dl class="grid grid-cols-2 gap-x-1 gap-y-6 sm:grid-cols-5">
 			{#each PARC_SWATCHES as s (s.name)}
 				<div>
 					<div
@@ -62,7 +62,7 @@
 						style:background={s.hex}
 					></div>
 					<dt class="mt-3 text-caption-size">{s.name}</dt>
-					<dd class="label-swiss data-swiss mt-1 normal-case">
+					<dd class="data-swiss text-caption-size mt-1 whitespace-nowrap text-[var(--color-muted)]">
 						{s.hex.toUpperCase()}<br />{s.cmyk}
 					</dd>
 				</div>
