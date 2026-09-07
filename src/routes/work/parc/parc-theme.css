@@ -215,22 +215,13 @@ html:has([data-brand='parc']) body {
 	letter-spacing: 0.04em;
 	text-transform: uppercase;
 }
-/* the back link is a button, not a grid column: no rule under its row, and it sits
-   out of the ropes' way (between them on phones, at the far right on desktop) */
+/* the back link is a PxButton under the sign (page markup); the shared row is hidden */
 [data-brand='parc'] .cs-header div:has(> .cs-back) {
-	margin-bottom: 0;
-	padding-bottom: 0;
-	border-bottom: 0;
+	display: none;
 }
-[data-brand='parc'] .cs-back {
-	width: fit-content;
-	justify-self: center;
-}
-@media (min-width: 768px) {
-	[data-brand='parc'] .cs-back {
-		grid-column: 10 / -1;
-		justify-self: end;
-	}
+/* a little more rope between the nav and the sign */
+[data-brand='parc'] .cs-title {
+	padding-top: calc(var(--parc-cell) * 3);
 }
 
 /* ---------- section eyebrows: small paper tags, colored in the logo's order ---------- */
@@ -290,8 +281,8 @@ html:has([data-brand='parc']) body {
 	padding-top: calc(var(--parc-cell) * 2);
 }
 
-/* ---------- pixel buttons out of plain links: back link and next project ---------- */
-[data-brand='parc'] :is(.cs-back, .cs-next a) {
+/* ---------- pixel button out of a plain link: next project ---------- */
+[data-brand='parc'] .cs-next a {
 	--n: 6px;
 	--d: 4px;
 	position: relative;
@@ -310,33 +301,30 @@ html:has([data-brand='parc']) body {
 	text-decoration: none;
 	transition: transform 0.07s steps(2, end);
 }
-[data-brand='parc'] :is(.cs-back, .cs-next a):hover {
+[data-brand='parc'] .cs-next a:hover {
 	opacity: 1;
 	transform: translateY(-3px);
 }
-[data-brand='parc'] :is(.cs-back, .cs-next a):active {
+[data-brand='parc'] .cs-next a:active {
 	transform: translateY(var(--d));
 }
-[data-brand='parc'] :is(.cs-back, .cs-next a)::before,
-[data-brand='parc'] :is(.cs-back, .cs-next a)::after {
+[data-brand='parc'] .cs-next a::before,
+[data-brand='parc'] .cs-next a::after {
 	content: '';
 	position: absolute;
 	inset: 0;
 	z-index: -1;
 	clip-path: var(--pix);
 }
-[data-brand='parc'] :is(.cs-back, .cs-next a)::before {
+[data-brand='parc'] .cs-next a::before {
 	transform: translateY(var(--d));
 	background: var(--btn-dark, var(--parc-green-dark));
 }
-[data-brand='parc'] :is(.cs-back, .cs-next a):hover::before {
+[data-brand='parc'] .cs-next a:hover::before {
 	transform: translateY(calc(var(--d) + 3px));
 }
-[data-brand='parc'] :is(.cs-back, .cs-next a)::after {
+[data-brand='parc'] .cs-next a::after {
 	background: var(--btn-face, var(--parc-green));
-}
-[data-brand='parc'] .cs-back * {
-	color: inherit;
 }
 [data-brand='parc'] .cs-next a {
 	--btn-face: var(--parc-orange);
@@ -420,7 +408,7 @@ html:has([data-brand='parc']) body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-	[data-brand='parc'] :is(.cs-back, .cs-next a, .cs-gallery button) {
+	[data-brand='parc'] :is(.cs-next a, .cs-gallery button) {
 		transition: none;
 	}
 }

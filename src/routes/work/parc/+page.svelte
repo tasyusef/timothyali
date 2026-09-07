@@ -50,6 +50,7 @@
 >
 	{#snippet heading()}
 		<HangingSign title="PARC" hint="Brand & Art Direction · 2021–2026" />
+		<p class="mt-8"><PxButton href="/" color="green">Back to work</PxButton></p>
 	{/snippet}
 
 	{#snippet overview()}
