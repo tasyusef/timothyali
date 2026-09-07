@@ -15,7 +15,7 @@
 	import { SITE_URL } from '$lib/site';
 
 	const description =
-		'The Pixel Ape Rowboat Club website, built in six days as an island you walk down: hanging signs, pixel buttons, live stats, a gallery on clotheslines, and an arcade.';
+		'The Pixel Ape Rowboat Club website, built as an island you walk down: hanging signs, pixel buttons, live stats, a gallery on clotheslines, and an arcade with its own game.';
 </script>
 
 <Seo
@@ -41,12 +41,12 @@
 	category="Web & Code"
 	year="2026"
 	role="Design & Code"
-	timeline="Six days, Aug 30 – Sep 4, 2026"
+	timeline="Live since September 2026"
 	tools="SvelteKit, Svelte 5, TypeScript, Canvas, Vercel, Neon, Claude Code"
 	nextProject={getNextProject('parc-site')}
 >
 	{#snippet heading()}
-		<HangingSign title="PARC Website" hint="Web & Code · Six days · 2026" />
+		<HangingSign title="PARC Website" hint="Web & Code · 2026" />
 		<p class="mt-8"><PxButton href="/" color="green">Back to work</PxButton></p>
 	{/snippet}
 
@@ -57,9 +57,8 @@
 			and merch.
 		</p>
 		<p class="mb-4">
-			I built the new one alone in six days, from the first commit on August 30 to the last on
-			September 4, 2026. Claude Code wrote most of the code. I could not have typed it by hand in
-			that time. I designed it, judged every screen by eye, and tweaked by hand until it was right.
+			I built the new one alone. Claude Code wrote most of the code; I could not have typed it by
+			hand. I designed it, judged every screen by eye, and tweaked by hand until it was right.
 		</p>
 		<p class="mb-4">
 			Two rules from the start. The site is the brand in use, so everything comes out of the same
@@ -330,8 +329,7 @@
 			same way: a screenshot diff against the deployed site, a pass at phone width, and a type check
 			at zero errors. Color, type, and spacing are all custom properties, so the audits at the end
 			ran over one file. Fonts ship as WOFF2, the animated art became WebP, and the domain moved
-			from Squarespace DNS to Vercel the night the old site kept reappearing. 291 commits, all mine,
-			in six days.
+			from Squarespace DNS to Vercel the night the old site kept reappearing.
 		</p>
 	</TextSection>
 
@@ -353,7 +351,7 @@
 			title="Outcome"
 			items={[
 				'Seven pages plus the error pages, live at parcxrpl.com since September 2026',
-				'Built in six days and 291 commits, alone, with Claude Code',
+				'Designed and built alone, with Claude Code',
 				'About 11,000 lines of Svelte and TypeScript, 13 shared components, one stylesheet of tokens',
 				'Live data throughout: the ledger, xrp.cafe, the AMM, the Fourthwall storefront, and the game leaderboard',
 				'PARC Pixel is the only typeface on the site'

@@ -447,12 +447,12 @@ export const projects: Project[] = [
 		],
 		stats: [
 			{ label: 'Pages', value: '7 + Errors' },
-			{ label: 'Built In', value: '6 Days' },
-			{ label: 'Commits', value: '291' },
+			{ label: 'Live Data', value: '5 Sources' },
+			{ label: 'Components', value: '13 Shared' },
 			{ label: 'Typeface', value: 'PARC Pixel Only' }
 		],
 		description:
-			'The club’s home, built in six days as an island you walk down: hanging signs, pixel buttons, live stats, a gallery on clotheslines, and an arcade with its own game.'
+			'The club’s home, built as an island you walk down: hanging signs, pixel buttons, live stats, a gallery on clotheslines, and an arcade with its own game.'
 	},
 	{
 		slug: 'pocketwatch',
