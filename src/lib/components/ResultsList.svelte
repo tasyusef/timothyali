@@ -4,7 +4,7 @@
 	let { items, title = 'Results' }: { items: string[]; title?: string } = $props();
 </script>
 
-<div use:reveal class="mb-section">
+<div use:reveal class="cs-results mb-section">
 	<div
 		class="grid grid-cols-1 gap-4 border-t border-[var(--color-border)] pt-6 md:grid-cols-12 md:gap-0"
 	>

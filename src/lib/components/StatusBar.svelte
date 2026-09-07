@@ -6,7 +6,7 @@
 <!-- The footer's availability + status row — the single sitewide contact
      touchpoint (case studies deliberately have no separate contact CTA). -->
 <div
-	class="py-row grid grid-cols-1 gap-4 border-t border-[var(--color-border)] md:grid-cols-12 md:items-center md:gap-0"
+	class="site-status py-row grid grid-cols-1 gap-4 border-t border-[var(--color-border)] md:grid-cols-12 md:items-center md:gap-0"
 >
 	<p class="label-swiss flex items-center gap-2 md:col-span-3">
 		<span class="status-dot" aria-hidden="true"></span>

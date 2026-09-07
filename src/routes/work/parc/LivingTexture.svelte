@@ -5,6 +5,9 @@
 	import { PARC, PARC_CYCLE, PARC_HI } from './parcBrand';
 	import { prefersReducedMotion } from '$lib/motion';
 
+	/** Sizing classes for the canvas; the default is the brand-sheet panel height. */
+	let { class: className = 'block h-52 w-full md:h-64' }: { class?: string } = $props();
+
 	const COLORS = PARC_CYCLE;
 	const DENSITY = 0.014;
 	const rc = () => COLORS[Math.floor(Math.random() * COLORS.length)];
@@ -164,7 +167,7 @@
 
 <canvas
 	{@attach texture}
-	class="block h-52 w-full cursor-crosshair md:h-64"
+	class="cursor-crosshair {className}"
 	style:background={PARC.white}
 	aria-hidden="true"
 ></canvas>

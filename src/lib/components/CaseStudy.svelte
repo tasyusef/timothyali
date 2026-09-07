@@ -19,6 +19,8 @@
 		heroImage2?: string;
 		heroAlt2?: string;
 		nextProject?: { title: string; slug: string };
+		/** Replaces the default h1 block; for brand themes whose title needs markup. */
+		heading?: Snippet;
 		overview: Snippet;
 		children: Snippet;
 	}
@@ -36,6 +38,7 @@
 		heroImage2,
 		heroAlt2,
 		nextProject,
+		heading,
 		overview,
 		children
 	}: Props = $props();
@@ -73,23 +76,28 @@
 	{@html breadcrumbLd}
 </svelte:head>
 
-<article>
+<!-- .cs-* classes are stable hooks for brand themes (see CLAUDE.md, Brand-themed case studies) -->
+<article class="cs">
 	<!-- Header -->
-	<div class="px-swiss pt-6">
+	<div class="cs-header px-swiss pt-6">
 		<div class="entrance">
 			<!-- Back link row -->
 			<div
 				class="pb-row mb-section grid grid-cols-1 border-b border-[var(--color-border)] md:grid-cols-12"
 			>
-				<a href="/" class="label-swiss hover-swiss md:col-span-3">Back to work</a>
+				<a href="/" class="cs-back label-swiss hover-swiss md:col-span-3">Back to work</a>
 			</div>
 
 			<!-- Title + Overview -->
 			<div class="mb-section grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-0">
-				<div class="md:col-span-5 md:col-start-1">
-					<h1 class="heading-swiss text-headline">{title}</h1>
+				<div class="cs-title md:col-span-5 md:col-start-1">
+					{#if heading}
+						{@render heading()}
+					{:else}
+						<h1 class="heading-swiss text-headline">{title}</h1>
+					{/if}
 				</div>
-				<div class="leading-body md:col-span-5 md:col-start-7">
+				<div class="cs-overview leading-body md:col-span-5 md:col-start-7">
 					{@render overview()}
 				</div>
 			</div>
@@ -97,7 +105,7 @@
 			<!-- Metadata rows -->
 			{#each metaItems as item (item.label)}
 				<div
-					class="grid grid-cols-1 gap-1 border-t border-[var(--color-border)] py-4 md:grid-cols-12 md:gap-0 md:py-5"
+					class="cs-meta grid grid-cols-1 gap-1 border-t border-[var(--color-border)] py-4 md:grid-cols-12 md:gap-0 md:py-5"
 				>
 					<p class="label-swiss md:col-span-3">{item.label}</p>
 					<p
@@ -115,7 +123,7 @@
 
 	<!-- Hero -->
 	{#if heroImage || heroVideo}
-		<div class="px-swiss py-section entrance" style:--entrance-delay="250ms">
+		<div class="cs-hero px-swiss py-section entrance" style:--entrance-delay="250ms">
 			{#if heroVideo && heroImage}
 				<div class="gap-gallery-tight grid w-full grid-cols-12">
 					<video
@@ -167,13 +175,13 @@
 	{/if}
 
 	<!-- Body Content -->
-	<div class="px-swiss{!heroImage && !heroVideo ? ' mt-section' : ''}">
+	<div class="cs-body px-swiss{!heroImage && !heroVideo ? ' mt-section' : ''}">
 		{@render children()}
 	</div>
 
 	<!-- Next Project — the footer status row below carries the contact CTA -->
 	{#if nextProject}
-		<section aria-label="Next project" class="px-swiss mt-section pb-row">
+		<section aria-label="Next project" class="cs-next px-swiss mt-section pb-row">
 			<div use:reveal>
 				<a
 					href="/work/{nextProject.slug}"

@@ -8,6 +8,11 @@
 	import LogoStory from './LogoStory.svelte';
 	import World from './World.svelte';
 	import Quotes from './Quotes.svelte';
+	import ScatterGround from './ScatterGround.svelte';
+	import HangingSign from './HangingSign.svelte';
+	import ParcBand from './ParcBand.svelte';
+	import PxButton from './PxButton.svelte';
+	import './parc-theme.css';
 	import { getNextProject } from '$lib/projects';
 	import { imageUrl } from '$lib/images';
 	import { SITE_URL } from '$lib/site';
@@ -32,6 +37,8 @@
 	}}
 />
 
+<ScatterGround />
+
 <CaseStudy
 	title="PARC"
 	category="Brand & Art Direction"
@@ -43,6 +50,10 @@
 	heroAlt="PARC logo: the four-color pixel letters on a white notched sign, floating in a pixel-cloud sky"
 	nextProject={getNextProject('parc')}
 >
+	{#snippet heading()}
+		<HangingSign title="PARC" hint="Brand & Art Direction · 2021–2026" />
+	{/snippet}
+
 	{#snippet overview()}
 		<p class="mb-4">
 			Pixel Ape Rowboat Club started in November 2021 as a joke. People were treating pixel apes as
@@ -77,7 +88,9 @@
 		</p>
 	</TextSection>
 
-	<World />
+	<ParcBand tone="sky">
+		<World />
+	</ParcBand>
 
 	<TextSection title="Same People, Better Brand">
 		<p>
@@ -95,7 +108,9 @@
 
 	<LogoStory />
 
-	<Quotes />
+	<ParcBand tone="green">
+		<Quotes />
+	</ParcBand>
 
 	<BrandSystem />
 
@@ -151,18 +166,10 @@
 			sky, the collections float on the island, the arcade band is the game&rsquo;s own island with
 			live high scores, and After Darc and Discord get their own bands. The stream opens on its own
 			starting-soon loop.
-			<a href="/work/parc-site" class="hover-swiss underline underline-offset-4"
-				>The build is its own case study.</a
-			>
 		</p>
-		<p>
-			<a
-				href="https://parcxrpl.com"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="label-swiss hover-swiss inline-block underline underline-offset-4"
-				>Open parcxrpl.com &rarr;</a
-			>
+		<p class="flex flex-wrap gap-3">
+			<PxButton href="https://parcxrpl.com" color="yellow" external>Open parcxrpl.com</PxButton>
+			<PxButton href="/work/parc-site" color="blue">The build, as a case study</PxButton>
 		</p>
 	</TextSection>
 
@@ -246,14 +253,16 @@
 		]}
 	/>
 
-	<ResultsList
-		title="Outcome"
-		items={[
-			'One logo library for both lockups and the oar: black, CMYK, Pantone, and white for print; black, RGB, and white for web',
-			'Five colors and one typeface on every surface: site, Discord, X, Twitch, merch, and the arcade',
-			'PARC Pixel: 57 characters per weight, three weights, proportional and mono',
-			'Four generated backgrounds, one per band of the site, and the game island drawn from its own sprites',
-			'Live since September 2026, to a community that is active and growing'
-		]}
-	/>
+	<ParcBand tone="green" flush>
+		<ResultsList
+			title="Outcome"
+			items={[
+				'One logo library for both lockups and the oar: black, CMYK, Pantone, and white for print; black, RGB, and white for web',
+				'Five colors and one typeface on every surface: site, Discord, X, Twitch, merch, and the arcade',
+				'PARC Pixel: 57 characters per weight, three weights, proportional and mono',
+				'Four generated backgrounds, one per band of the site, and the game island drawn from its own sprites',
+				'Live since September 2026, to a community that is active and growing'
+			]}
+		/>
+	</ParcBand>
 </CaseStudy>

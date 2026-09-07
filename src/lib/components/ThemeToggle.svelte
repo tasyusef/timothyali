@@ -6,7 +6,7 @@
 	type="button"
 	onclick={() => theme.toggle()}
 	aria-label={theme.current === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-	class="label-swiss hover-swiss p-2"
+	class="theme-toggle label-swiss hover-swiss p-2"
 >
 	{#if theme.current === 'dark'}
 		<svg

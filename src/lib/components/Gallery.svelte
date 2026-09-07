@@ -61,7 +61,7 @@
 	</button>
 {/snippet}
 
-<section aria-labelledby={headingId} class="mb-section">
+<section aria-labelledby={headingId} class="cs-gallery mb-section">
 	<h2 id={headingId} class="sr-only">Gallery</h2>
 
 	<!-- Thumbnail grid — mobile: 2-col flat grid -->

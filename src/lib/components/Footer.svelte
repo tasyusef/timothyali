@@ -5,7 +5,7 @@
 	const year = new Date().getFullYear();
 </script>
 
-<footer class="px-swiss pb-8">
+<footer class="site-footer px-swiss pb-8">
 	<StatusBar />
 	<div class="border-t border-[var(--color-border)] py-8">
 		<!-- Desktop -->

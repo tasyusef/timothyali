@@ -134,32 +134,7 @@
 </section>
 
 <style>
-	/* PARC Pixel: the product's typeface, served from static/parc. Only this demo uses it. */
-	@font-face {
-		font-family: 'PARC Pixel';
-		font-weight: 300;
-		src: url('/parc/PARC_Pixel-Light.woff2') format('woff2');
-		font-display: swap;
-	}
-	@font-face {
-		font-family: 'PARC Pixel';
-		font-weight: 400;
-		src: url('/parc/PARC_Pixel.woff2') format('woff2');
-		font-display: swap;
-	}
-	@font-face {
-		font-family: 'PARC Pixel';
-		font-weight: 700;
-		src: url('/parc/PARC_Pixel-Bold.woff2') format('woff2');
-		font-display: swap;
-	}
-	@font-face {
-		font-family: 'PARC Pixel Mono';
-		font-weight: 400;
-		src: url('/parc/PARC_Pixel-Mono.woff2') format('woff2');
-		font-display: swap;
-	}
-
+	/* PARC Pixel is declared once in parc-theme.css */
 	.px {
 		font-family: 'PARC Pixel', ui-monospace, monospace;
 		text-transform: uppercase;

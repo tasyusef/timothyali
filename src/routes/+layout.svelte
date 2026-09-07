@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { onNavigate } from '$app/navigation';
+	import { page } from '$app/state';
 	import Navigation from '$lib/components/Navigation.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import CommandMenu from '$lib/components/CommandMenu.svelte';
@@ -20,6 +21,10 @@
 		});
 	});
 
+	// A route's +page.ts may return { brand } to opt into a brand theme (see CLAUDE.md);
+	// the wrapper stamps it so brand CSS can restyle the chrome and shared components.
+	const brand = $derived((page.data as { brand?: string }).brand);
+
 	const siteLd = `<script type="application/ld+json">${JSON.stringify([PERSON_JSON_LD, WEBSITE_JSON_LD])}<${''}/script>`;
 </script>
 
@@ -28,15 +33,17 @@
 	{@html siteLd}
 </svelte:head>
 
-<a
-	href="#main"
-	class="label-swiss sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-[var(--color-background)] focus:px-4 focus:py-3"
->
-	Skip to content
-</a>
-<Navigation />
-<main id="main" class="min-h-screen">
-	{@render children()}
-</main>
-<Footer />
-<CommandMenu />
+<div data-brand={brand}>
+	<a
+		href="#main"
+		class="label-swiss sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-[var(--color-background)] focus:px-4 focus:py-3"
+	>
+		Skip to content
+	</a>
+	<Navigation />
+	<main id="main" class="min-h-screen">
+		{@render children()}
+	</main>
+	<Footer />
+	<CommandMenu />
+</div>
