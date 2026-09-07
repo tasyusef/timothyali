@@ -149,7 +149,8 @@
 			Everything PARC puts out now runs on the system: the site, Discord, X, the Twitch show every
 			other Friday, merch, and the arcade. The site is the main event. The hero sign hangs in the
 			sky, the collections float on the island, the arcade band is the game&rsquo;s own island with
-			live high scores, and After Darc and Discord get their own bands.
+			live high scores, and After Darc and Discord get their own bands. The stream opens on its own
+			starting-soon loop.
 			<a href="/work/parc-site" class="hover-swiss underline underline-offset-4"
 				>The build is its own case study.</a
 			>
@@ -207,6 +208,11 @@
 
 	<Gallery
 		items={[
+			{
+				type: 'video',
+				src: '/videos/parc-after-darc-intro.mp4',
+				alt: 'PARC After Darc starting-soon screen: a pixel sun over the sea with a rowboat drifting past, looped before the stream'
+			},
 			{
 				type: 'image',
 				src: '/images/parc/after-darc-announce.png',
