@@ -1,3 +1,14 @@
 {
-	"redirects": [{ "source": "/contact", "destination": "/about", "permanent": true }]
+	"redirects": [
+		{
+			"source": "/contact",
+			"destination": "/about",
+			"permanent": true
+		},
+		{
+			"source": "/work/rowboat-racer",
+			"destination": "/work/parc-site",
+			"permanent": true
+		}
+	]
 }

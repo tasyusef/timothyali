@@ -412,47 +412,47 @@ export const projects: Project[] = [
 		category: 'Web & Code',
 		year: '2026',
 		heroImage: '/images/parc-site/home-hero.png',
-		heroAspect: 1280 / 900,
+		heroAspect: 1440 / 900,
 		images: [
 			{
 				src: '/images/parc-site/home-hero.png',
-				aspect: 1280 / 900,
-				alt: 'parcxrpl.com home: the four-word wordmark in the logo colors on a notched paper card, pixel scatter behind it'
+				aspect: 1440 / 900,
+				alt: 'parcxrpl.com home: the Pixel Ape Rowboat Club sign on a notched paper card over the scatter texture, under the green nav'
 			},
 			{
-				src: '/images/parc-site/gallery.png',
-				aspect: 1280 / 2600,
-				alt: 'parcxrpl.com Gallery: ape portraits hung on clotheslines between two pixel trees over the island sky'
+				src: '/images/parc-site/gallery-top.png',
+				aspect: 1440 / 900,
+				alt: 'parcxrpl.com Gallery: ape portraits hung on clotheslines between two pixel trees over the sky'
 			},
 			{
-				src: '/images/parc-site/clubhouse.png',
-				aspect: 1280 / 2400,
-				alt: 'parcxrpl.com Clubhouse: a pixel TV, trophy shelves, and a cork notice board hanging from branches'
+				src: '/images/parc-site/community-top.png',
+				aspect: 1440 / 900,
+				alt: 'parcxrpl.com Clubhouse: the hanging sign, a pixel TV, and a cork notice board on branches'
 			},
 			{
-				src: '/images/parc-site/parcade-boot.png',
-				aspect: 1280 / 900,
-				alt: 'parcxrpl.com PARCade: the arcade cabinet booting, the PARC badge assembling pixel by pixel on a green CRT'
+				src: '/images/parc-site/parcade-library.png',
+				aspect: 1440 / 900,
+				alt: 'parcxrpl.com PARCade: the arcade cabinet with the Rowboat Racer cover on its green CRT'
 			},
 			{
-				src: '/images/parc-site/stats.png',
-				aspect: 1280 / 2200,
-				alt: 'parcxrpl.com Club Stats: $OAR token figures and four collection cards with pixel bar charts'
+				src: '/images/parc-site/stats-top.png',
+				aspect: 1440 / 900,
+				alt: 'parcxrpl.com Club Stats: the $OAR card with price, volume, holders, and pixel bar charts'
 			},
 			{
 				src: '/images/parc-site/larc.png',
-				aspect: 1280 / 900,
+				aspect: 1440 / 900,
 				alt: 'parcxrpl.com LARC teaser: a corrupted boathouse terminal on a dark CRT'
 			}
 		],
 		stats: [
 			{ label: 'Pages', value: '7 + Errors' },
-			{ label: 'Design Tokens', value: '86' },
-			{ label: 'Components', value: '13 Shared' },
+			{ label: 'Built In', value: '6 Days' },
+			{ label: 'Commits', value: '291' },
 			{ label: 'Typeface', value: 'PARC Pixel Only' }
 		],
 		description:
-			'A website built as an island you can walk through: one notch primitive, pixel buttons you can press, hard-step motion, and pages named as places.'
+			'The club’s home, built in six days as an island you walk down: hanging signs, pixel buttons, live stats, a gallery on clotheslines, and an arcade with its own game.'
 	},
 	{
 		slug: 'pocketwatch',
@@ -617,56 +617,6 @@ export const projects: Project[] = [
 		],
 		description:
 			'A desktop studio for the last step of brand work: logo SVGs in, a complete print + web deliverable package out — plus palettes and type sheets. Offline, no accounts.'
-	},
-	{
-		slug: 'rowboat-racer',
-		bentoRow: 2,
-		title: 'Rowboat Racer',
-		section: 'passion',
-		category: 'Game Design & Code',
-		year: '2026',
-		heroImage: '/images/rowboat-racer/gameplay-early.png',
-		heroAspect: 1280 / 900,
-		images: [
-			{
-				src: '/images/rowboat-racer/gameplay-early.png',
-				aspect: 1280 / 900,
-				alt: 'Rowboat Racer on the PARCade cabinet: the beach biome on one bank, jungle on the other, a coin line, obstacles in their lanes'
-			},
-			{
-				src: '/images/rowboat-racer/library.png',
-				aspect: 1280 / 900,
-				alt: 'The PARCade game library on the CRT: the Rowboat Racer cover with Press Fire, and two coming-soon cabinets'
-			},
-			{
-				src: '/images/rowboat-racer/gameplay-mid.png',
-				aspect: 1280 / 900,
-				alt: 'Rowboat Racer mid-run: the boat approaching a reef and a ziggurat between a rocky bank and a beach'
-			},
-			{
-				src: '/images/rowboat-racer/banks-painted.png',
-				aspect: 1292 / 812,
-				alt: 'Rowboat Racer banks: rocky, town, jungle and beach biomes with clustered props and a wandering shoreline'
-			},
-			{
-				src: '/images/rowboat-racer/game-over.png',
-				aspect: 1280 / 900,
-				alt: 'Rowboat Racer game over: score, best, an initials field and a submit button on a wooden plank panel'
-			},
-			{
-				src: '/images/rowboat-racer/sprite-sheet.png',
-				aspect: 832 / 1000,
-				alt: 'The full Rowboat Racer sprite sheet: boat, ziggurats, logs, reefs, the pickups and the crashed boat'
-			}
-		],
-		stats: [
-			{ label: 'Simulation', value: '60 Steps · 5 Lanes' },
-			{ label: 'Leaderboard', value: 'Replay-Verified' },
-			{ label: 'Sprites', value: '17 + 31 Props' },
-			{ label: 'Audio', value: 'Synthesized' }
-		],
-		description:
-			'A native pixel-art river runner for the PARCade: a generated island, synthesized sound, and a leaderboard that replays every run before it counts.'
 	},
 	{
 		slug: 'do-androids-dream',

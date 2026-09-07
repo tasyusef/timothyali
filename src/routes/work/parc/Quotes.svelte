@@ -4,8 +4,13 @@
 	import { reveal } from '$lib/actions/reveal';
 	import PxCard from './PxCard.svelte';
 
-	const headingId = $props.id();
-	const quotes = [
+	type Quote = {
+		text: string;
+		who: string;
+		where: string;
+		color: 'green' | 'orange' | 'blue' | 'yellow';
+	};
+	const BRAND_QUOTES: Quote[] = [
 		{
 			text: 'I know I like the new banner and logo',
 			who: 'RedHotDankMoist',
@@ -25,12 +30,16 @@
 			color: 'blue'
 		},
 		{ text: 'loOkn goOd', who: '@Uga589', where: 'X', color: 'yellow' }
-	] as const;
+	];
+
+	let { title = 'The Reaction', quotes = BRAND_QUOTES }: { title?: string; quotes?: Quote[] } =
+		$props();
+	const headingId = $props.id();
 </script>
 
 <section use:reveal aria-labelledby={headingId} class="mb-section">
-	<h2 id={headingId} class="parc-tag label-swiss">The Reaction</h2>
-	<ul class="mt-6 grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
+	<h2 id={headingId} class="parc-tag label-swiss">{title}</h2>
+	<ul class="mt-6 grid gap-4 sm:grid-cols-2 md:gap-6" class:lg:grid-cols-4={quotes.length > 2}>
 		{#each quotes as q (q.who)}
 			<li>
 				<PxCard color={q.color}>
