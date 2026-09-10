@@ -2,13 +2,14 @@
   "framework": null,
   "buildCommand": "pnpm build",
   "outputDirectory": "build",
-  "trailingSlash": true,
-  "redirects": [
-    { "source": "/about/", "destination": "/contact/", "permanent": true },
-    { "source": "/blog/", "destination": "/", "permanent": true },
-    { "source": "/art/", "destination": "/work/", "permanent": true },
-    { "source": "/work/rowboat-racer/", "destination": "/work/parc-site/", "permanent": true },
-    { "source": "/work/gridform/", "destination": "/work/", "permanent": true },
-    { "source": "/work/gridform-studio/", "destination": "/work/", "permanent": true }
+  "routes": [
+    { "src": "^/about/?$", "status": 308, "headers": { "Location": "/contact/" } },
+    { "src": "^/blog/?$", "status": 308, "headers": { "Location": "/" } },
+    { "src": "^/art/?$", "status": 308, "headers": { "Location": "/work/" } },
+    { "src": "^/work/rowboat-racer/?$", "status": 308, "headers": { "Location": "/work/parc-site/" } },
+    { "src": "^/work/gridform(-studio)?/?$", "status": 308, "headers": { "Location": "/work/" } },
+    { "src": "^/(?!.*\\.)(.+[^/])$", "status": 308, "headers": { "Location": "/$1/" } },
+    { "handle": "filesystem" },
+    { "src": "^/(.*)$", "status": 404, "dest": "/404.html" }
   ]
 }
