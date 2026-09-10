@@ -56,6 +56,14 @@ await page.waitForSelector('.ascii.drawn');
 mkdirSync('docs/social', { recursive: true });
 await page.screenshot({ path: 'docs/social/story-launch.png', clip: { x: 0, y: 0, width: 1080, height: 1920 } });
 report.push({ image: 'story-launch', width: 1080, height: 1920, bytes: readFileSync('docs/social/story-launch.png').length });
+// --- the same for Twitter/X: 1920×1080 landscape ---------------------------------------
+await page.setViewportSize({ width: 1920, height: 1080 });
+await page.goto(`${ORIGIN}/og/wide`, { waitUntil: 'networkidle' });
+await page.addStyleTag({ content: '.nav-chrome{display:none}' });
+await page.evaluate(async () => { await document.fonts.ready; await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); });
+await page.waitForSelector('.ascii.drawn');
+await page.screenshot({ path: 'docs/social/wide-launch.png', clip: { x: 0, y: 0, width: 1920, height: 1080 } });
+report.push({ image: 'wide-launch', width: 1920, height: 1080, bytes: readFileSync('docs/social/wide-launch.png').length });
 if (errors.length) { stop(); throw new Error('page errors: ' + errors.join('\n')); }
 
 // --- favicon: the actual Jacquard uppercase T as one-pixel cells, ink on yellow -----

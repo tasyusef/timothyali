@@ -1383,3 +1383,12 @@ Timothy found the first OG set boring compared with the site and requested the t
 **Video (Timothy: “I also would like this if it was a video”).** `tools/social/story-video.mjs` renders the same composition with motion on — the bands drifting at the site’s own cadence, the two words decoding the way the site’s headings do — by advancing Playwright’s fake clock 33ms per frame and screenshotting, so every run produces the same 240 frames; `ffmpeg-static` (a project-local dev dependency, its download step allowed in `package.json`) encodes them to H.264 MP4, 1080×1920, 30fps, 8s, about 1MB. Output: `docs/social/story-launch.mp4`.
 
 **Words (Timothy: “lets swap it back to im tim”).** The story now says “i’m tim.” on one line at 344, typed in behind the em cursor exactly as the hero does (`Decode` in `type` mode, 500ms in, 110ms a character). For the video, the cursor’s CSS blink is driven from the same frame clock (`document.getAnimations()` paused and stepped per frame), so it blinks on the beat and every render is identical.
+
+## 0088 — Landscape version of the story for Twitter/X
+
+- **Date:** 2026-09-10
+- **Status:** Timothy’s request (“now make a landscape version for twitter”)
+
+**Decision.** One more id on the dev-only `/og/` route, `/og/wide`, 1920×1080: the same Band (bands, seed 7, density 0.7, mirrored), the same “i’m tim.” at 344 typing in behind the em cursor, the same URL block, anchored bottom-left with 160px under it instead of the story’s 400 (a feed image has no UI overlay to clear). Twitter re-encodes anything it is given, so the still is the flat PNG and the video is the same H.264 1080p that Instagram gets. `story-video.mjs` now takes the id as its second argument; `pnpm social:generate` writes both stills. Output: `docs/social/wide-launch.png` and `.mp4`.
+
+**Why not a crop.** The story stacks the name over 1080 wide; cropping the middle of it would put the name at the top of a landscape frame with the field doing nothing underneath. Re-laying out the same roles is one CSS block.

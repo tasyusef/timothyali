@@ -7,7 +7,7 @@ export const prerender = true;
 export const entries = () => [];
 export function load({ params }) {
   const id = params.id;
-  if (id === 'home' || id === 'story') return { id, chromePath: '/' };
+  if (id === 'home' || id === 'story' || id === 'wide') return { id, chromePath: '/' };
   if (id === 'work' || id === 'contact') return { id, chromePath: `/${id}/` };
   const project = studies.find((p) => p.slug === id);
   if (!project) error(404);

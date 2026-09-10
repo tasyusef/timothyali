@@ -31,13 +31,15 @@
   onMount(() => { fit(); document.fonts?.ready.then(fit); });
 </script>
 <svelte:head><title>og/{data.id}</title><meta name="robots" content="noindex" /></svelte:head>
-<main class="og" class:story={data.id === 'story'} id="main" tabindex="-1">
+<main class="og" class:story={data.id === 'story'} class:wide={data.id === 'wide'} id="main" tabindex="-1">
   {#if data.id === 'home'}
     <Band class="og-home" mode="sky" seed={3} density={0.9} avoid=".og-line, .og-name">
       <p class="display og-line">Designer for teams<br />that don’t have one yet.</p>
       <h1 class="blackletter og-name"><Decode text="i’m tim." /><Cursor size="em" /></h1>
     </Band>
-  {:else if data.id === 'story'}
+  {:else if data.id === 'story' || data.id === 'wide'}
+    <!-- /og/wide is the same composition at 1920×1080 for Twitter/X: same field, same
+         type, the name held to the foot of the frame with more air to its right. -->
     <!-- Instagram story, 1080×1920, viewed at about a third of that: the small roles step
          up their own ladder (label 12.5 → 25, arrow 16 → 24) and everything sits inside the
          story safe zone (y 270–1540). The generator hides the chrome for this one. -->
@@ -85,6 +87,10 @@
 .og.story :global(.band){height:1920px;padding:0 var(--gutter) 400px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;gap:var(--s6)}.story-name{font-size:344px;line-height:272px}
 .og :global(.story-cta){font-size:25px;line-height:32px}
 .og :global(.story-cta .mono){font-size:24px;line-height:32px}
+
+/* Wide — the story turned on its side for Twitter/X, 1920×1080, same roles, same seed */
+.og.wide{height:1080px}
+.og.wide :global(.band){height:1080px;padding:0 var(--gutter) 160px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;gap:var(--s6)}
 
 /* Home — the hero at share size: the sentence up top, the name at the foot */
 .og-line{font-size:41.25px;line-height:48px}

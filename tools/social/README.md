@@ -55,3 +55,7 @@ still includes it automatically. Contact sheet: `docs/iterations/pixel-v2/25-soc
 frames captured under a paused fake clock, encoded with `ffmpeg-static`.
 `node tools/social/story-variants.mjs` renders a sheet of field settings; the route takes
 `mode`, `seed`, `density` and `flip` as query parameters for that.
+
+`/og/wide` is the same composition at 1920×1080 for Twitter/X (decision 0088). The generator
+writes `docs/social/wide-launch.png`; `node tools/social/story-video.mjs 8 wide` writes
+`docs/social/wide-launch.mp4`.
