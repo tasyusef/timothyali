@@ -32,11 +32,8 @@
     <!-- Instagram story, 1080×1920, viewed at about a third of that: the small roles step
          up their own ladder (label 12.5 → 25, arrow 16 → 24) and everything sits inside the
          story safe zone (y 270–1540). The generator hides the chrome for this one. -->
-    <Band class="og-story" mode="sky" seed={3} density={0.9} avoid=".story-top > *, .story-name, .story-line, .story-cards, .story-cta">
-      <div class="story-top"><span class="wordmark blackletter">timothy ali</span><span class="lbl story-chip">New site</span></div>
-      <h1 class="blackletter story-name"><Decode text="i’m tim." /><Cursor size="em" /></h1>
-      <p class="display story-line">Designer for teams<br />that don’t have<br />one yet.</p>
-      <div class="story-cards">{#each projects as p}<div class="card"><Picture src={p.cover.src} alt="" width={p.cover.w} height={p.cover.h} eager /></div>{/each}</div>
+    <Band class="og-story" mode="sky" seed={3} density={0.9} avoid=".story-name, .story-cta">
+      <h1 class="blackletter story-name">new<br />website.</h1>
       <Cta href="https://www.timothyali.com" class="lbl story-cta">timothyali.com <Arrow /></Cta>
     </Band>
   {:else if data.id === 'work'}
@@ -76,12 +73,7 @@
 
 /* Story — full frame, no chrome (the generator hides it), content in the safe zone */
 .og.story{height:1920px}
-.og.story :global(.band){height:1920px;padding:256px var(--gutter) 0;display:flex;flex-direction:column;align-items:flex-start;gap:var(--s4)}
-.story-top{align-self:stretch;display:flex;justify-content:space-between;align-items:center}
-.story-chip{font-size:25px;line-height:32px;background:var(--accent);color:var(--on-accent);padding:var(--s1) var(--s2)}
-.story-name{font-size:258px;line-height:258px;white-space:nowrap}
-.story-line{font-size:55px;line-height:64px}
-.story-cards{align-self:stretch;display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+.og.story :global(.band){height:1920px;padding:0 var(--gutter);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:var(--s6)}.story-name{font-size:258px;line-height:258px}
 .og :global(.story-cta){font-size:25px;line-height:32px}
 .og :global(.story-cta .mono){font-size:24px;line-height:32px}
 
