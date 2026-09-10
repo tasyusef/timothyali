@@ -15,7 +15,7 @@
     "image": "contact",
     "width": 1200,
     "height": 630,
-    "bytes": 9501
+    "bytes": 9327
   },
   {
     "image": "parc",
@@ -70,5 +70,11 @@
     "width": 1200,
     "height": 630,
     "bytes": 70503
+  },
+  {
+    "image": "story-launch",
+    "width": 1080,
+    "height": 1920,
+    "bytes": 386862
   }
 ]

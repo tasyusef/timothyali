@@ -47,6 +47,15 @@ for (const id of ids) {
   await page.screenshot({ path: `static/og/${id}.png`, clip: { x: 0, y: 0, width: 1200, height: 630 } });
   report.push({ image: id, width: 1200, height: 630, bytes: readFileSync(`static/og/${id}.png`).length });
 }
+// --- the Instagram story: 1080×1920, chrome hidden, into docs/social ------------------
+await page.setViewportSize({ width: 1080, height: 1920 });
+await page.goto(`${ORIGIN}/og/story`, { waitUntil: 'networkidle' });
+await page.addStyleTag({ content: '.nav-chrome{display:none}' });
+await page.evaluate(async () => { await document.fonts.ready; await Promise.all([...document.images].map((i) => i.decode().catch(() => {}))); await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); });
+await page.waitForSelector('.ascii.drawn');
+mkdirSync('docs/social', { recursive: true });
+await page.screenshot({ path: 'docs/social/story-launch.png', clip: { x: 0, y: 0, width: 1080, height: 1920 } });
+report.push({ image: 'story-launch', width: 1080, height: 1920, bytes: readFileSync('docs/social/story-launch.png').length });
 if (errors.length) { stop(); throw new Error('page errors: ' + errors.join('\n')); }
 
 // --- favicon: the actual Jacquard uppercase T as one-pixel cells, ink on yellow -----
