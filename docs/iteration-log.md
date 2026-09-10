@@ -459,3 +459,7 @@ Timothy requested a review and cohesive refinement of Selected work and the land
 **Evidence.** `iterations/pixel-v2/25-social-site/`: [new set](iterations/pixel-v2/25-social-site/contact-sheet.png), `before/` (PX-24 images, their contact sheet and generator), `assets.json`, `build.txt`, `verification.json`, `navigation.json`.
 
 **Status.** Timothy’s direction implemented; compositions await his visual review.
+
+### PX-26 — SEO pass — 2026-09-10 (0086)
+
+Sitemap, robots pointer, JSON-LD (Person/WebSite, breadcrumbs, CollectionPage, CreativeWork per study), author meta, an in-system 404 page, and preloads for the five fonts. Audit and decisions in 0086. Svelte check clean, build passed, `social:verify` extended and passing; verified live after deploy (see the decision’s status).

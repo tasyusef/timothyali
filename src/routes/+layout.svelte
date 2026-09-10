@@ -3,6 +3,11 @@
   import '@fontsource/jersey-15/400.css';
   import '@fontsource/press-start-2p/400.css';
   import '../app.css';
+  import jacquardUrl from '@fontsource/jacquard-24/files/jacquard-24-latin-400-normal.woff2?url';
+  import jerseyUrl from '@fontsource/jersey-15/files/jersey-15-latin-400-normal.woff2?url';
+  import pressStartUrl from '@fontsource/press-start-2p/files/press-start-2p-latin-400-normal.woff2?url';
+  // Every face the chrome and the first fold use, 68KB together, so the first paint is set in them.
+  const preload = [jacquardUrl, pressStartUrl, '/fonts/parc-pixel.woff2', '/fonts/parc-pixel-bold.woff2', jerseyUrl];
   import { page } from '$app/state';
   import { afterNavigate } from '$app/navigation';
   import { onMount } from 'svelte';
@@ -61,6 +66,7 @@
   // Below 900px the strip shows only the last segment, so a long study slug does not clip mid-word (decision 0072).
   const shortRoute = $derived(segments.length > 1 ? `~/…/${segments[segments.length - 1]}` : `~/tim/${route}`);
 </script>
+<svelte:head>{#each preload as href}<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" {href} />{/each}</svelte:head>
 <SocialMeta />
 <div class="site" class:motion={motion.on} class:show-grid={grid.on} data-motion={motion.on ? 'on' : 'off'}>
   <a class="skip-link lbl" href="#main" onclick={skipToContent}>Skip to content</a>

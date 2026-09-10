@@ -19,5 +19,7 @@ for(const [path,id] of cases){
  for(const name of ['favicon.svg','favicon.ico','apple-touch-icon.png'])assert.ok(existsSync(`build/${name}`));
  results.push({path,image:`/og/${id}.png`,serverRendered:true,dimensions:'1200×630',pass:true});
 }
+const sitemap=readFileSync('build/sitemap.xml','utf8');for(const [path] of cases)assert.ok(sitemap.includes(`<loc>https://www.timothyali.com${path}</loc>`),`sitemap ${path}`);assert.equal((sitemap.match(/<loc>/g)||[]).length,cases.length);assert.ok(existsSync('build/404.html'));assert.match(readFileSync('build/404.html','utf8'),/name="robots" content="noindex"/);
+for(const [path] of cases){const html=readFileSync(`build${path}index.html`,'utf8');assert.match(html,/application\/ld\+json/,`json-ld ${path}`);JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1])}
 const ico=readFileSync('build/favicon.ico');assert.equal(ico.readUInt16LE(2),1);assert.equal(ico.readUInt16LE(4),3);
-writeFileSync('docs/iterations/pixel-v2/23-social/verification.json',JSON.stringify(results,null,2));console.log('PASS: 12 prerendered pages, absolute unique metadata, 12 PNGs, SVG/ICO/touch icon.');
+writeFileSync('docs/iterations/pixel-v2/23-social/verification.json',JSON.stringify(results,null,2));console.log('PASS: 12 prerendered pages, absolute unique metadata, valid JSON-LD, sitemap, 404.html, 12 PNGs, SVG/ICO/touch icon.');

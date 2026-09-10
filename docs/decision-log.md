@@ -1357,3 +1357,14 @@ Timothy found the first OG set boring compared with the site and requested the t
 **Decision.** This folder became the checkout: `git init`, fetch the remote’s `master`, and commit the rebrand on top of it (`2469f7c`), so the old site stays in history and the sibling folder is untouched (it can be deleted). The site keeps `adapter-static`; `vercel.json` sets `framework: null`, `outputDirectory: build` and `trailingSlash: true` so the deploy matches the canonical `/…/` URLs, and redirects the old URLs: `/about` → `/contact/`, `/blog` → `/`, `/art` → `/work/`, `/work/rowboat-racer` → `/work/parc-site/`, the hidden Gridform pair → `/work/`. Redirect sources carry the trailing slash because Vercel normalises the slash before matching. `static/robots.txt` allows everything; there is no sitemap yet.
 
 **Consequences.** Every push to `master` is a production deploy. Regenerating the OG set is `pnpm social:generate`, then commit and push. Open: a sitemap, and a 404 page (Vercel’s default serves for unknown paths).
+
+## 0086 — SEO pass: sitemap, structured data, 404, font preloads
+
+- **Date:** 2026-09-10
+- **Status:** Timothy’s direction (“make the sitemap and a full seo pass on the site”); implemented and deployed
+
+**Audit.** The shipped HTML already had unique titles (20–38 chars) and descriptions (75–157 chars), one `h1` per page with `h2` sections, alt text on every image, canonical + Open Graph + Twitter tags, `lang`, viewport and theme-color. Missing: a sitemap, structured data, an author tag, a 404 page, and font preloads (five bitmap faces, `font-display: block` on PARC Pixel, so the first paint waited on them).
+
+**Decision.** `src/routes/sitemap.xml/+server.ts` prerenders the twelve public URLs from `socialPages` (no `lastmod`: a build date would be a lie); `robots.txt` points at it. `src/lib/seo.ts` emits one JSON-LD graph per page through `SocialMeta`: Person + WebSite on Home, a BreadcrumbList on every inner page, a CollectionPage on Work, and a CreativeWork per study (cover image, first year, scope, live URL, author → the Person). The Person carries the site’s own positioning, Denver, and the two public profiles the old site listed (LinkedIn, GitHub). `meta name="author"` on every page. A 404 page in the system (`/404`, prerendered without a trailing slash to `build/404.html`, `noindex`), which Vercel serves for unknown paths. The layout preloads the five faces the chrome and first fold use (68KB together). `pnpm social:verify` now also checks the sitemap, parses every page’s JSON-LD, and expects `404.html`.
+
+**Not done, on purpose.** No `og:type: article` on studies (they are portfolio pages, not articles); no Twitter handle (none given); no analytics.
