@@ -11,7 +11,7 @@
   import MetaLine from '$lib/components/MetaLine.svelte';
   import Picture from '$lib/components/Picture.svelte';
   import { projects, last } from '$lib/work';
-  import { STEP } from '$lib/tokens';
+  import { STEP, STEP_SLOW } from '$lib/tokens';
   import { onMount } from 'svelte';
   import { page } from '$app/state';
   let { data } = $props();
@@ -42,7 +42,7 @@
          up their own ladder (label 12.5 → 25, arrow 16 → 24) and everything sits inside the
          story safe zone (y 270–1540). The generator hides the chrome for this one. -->
     <Band class="og-story" mode={storyMode} seed={storySeed} density={storyDensity} flip={storyFlip}>
-      <h1 class="blackletter story-name"><Decode text="new" step={STEP} /><br /><Decode text="website." step={STEP} delay={300} /></h1>
+      <h1 class="blackletter story-name"><Decode text="i’m tim." mode="type" step={STEP_SLOW} delay={500} cursor /></h1>
       <Cta href="https://www.timothyali.com" class="lbl story-cta">timothyali.com <Arrow /></Cta>
     </Band>
   {:else if data.id === 'work'}

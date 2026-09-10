@@ -25,6 +25,7 @@ await page.waitForSelector('.ascii.drawn');
 const dir = 'docs/social/story-frames'; rmSync(dir, { recursive: true, force: true }); mkdirSync(dir, { recursive: true });
 for (let i = 0; i < FRAMES; i++) {
   await page.clock.runFor(Math.round(1000 / FPS));
+  await page.evaluate((t) => document.getAnimations().forEach((a) => { a.pause(); a.currentTime = t; }), Math.round((i + 1) * 1000 / FPS));
   await page.screenshot({ path: `${dir}/${String(i).padStart(4, '0')}.png`, clip: { x: 0, y: 0, width: 1080, height: 1920 } });
 }
 await b.close(); stop();
