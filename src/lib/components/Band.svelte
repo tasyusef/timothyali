@@ -7,11 +7,11 @@
   import Ascii from './Ascii.svelte';
   import { TICK_SLOW } from '$lib/tokens';
   type Mode = 'noise' | 'fall' | 'scan' | 'sparse' | 'sky' | 'bands';
-  let { as = 'section', class: klass = '', mode = 'noise', seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad = 1, feather = 3, children, ...rest }:
-    { as?: string; class?: string; mode?: Mode; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; children: Snippet; [key: string]: unknown } = $props();
+  let { as = 'section', class: klass = '', mode = 'noise', seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad = 1, feather = 3, flip = false, children, ...rest }:
+    { as?: string; class?: string; mode?: Mode; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; flip?: boolean; children: Snippet; [key: string]: unknown } = $props();
   const cls = $derived(['band', klass].filter(Boolean).join(' '));
 </script>
 <svelte:element this={as} class={cls} {...rest}>
-  <div class="band-bg"><Ascii {mode} {seed} {tick} {density} {avoid} {pad} {feather} /></div>
+  <div class="band-bg"><Ascii {mode} {seed} {tick} {density} {avoid} {pad} {feather} {flip} /></div>
   {@render children()}
 </svelte:element>

@@ -12,7 +12,8 @@
   import { knockout, measureBoxes, type Box } from '$lib/knockout';
   import { CELL_TEXTURE, TICK_SLOW } from '$lib/tokens';
   type Mode = 'noise' | 'fall' | 'scan' | 'sparse' | 'sky' | 'bands';
-  let { mode = 'noise' as Mode, cell = CELL_TEXTURE, px = 2, seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad = 1, feather = 3, interactive = true, reach = 7 }: { mode?: Mode; cell?: number; px?: number; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; interactive?: boolean; reach?: number } = $props();
+  let { mode = 'noise' as Mode, cell = CELL_TEXTURE, px = 2, seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad = 1, feather = 3, interactive = true, reach = 7, flip = false }: { mode?: Mode; cell?: number; px?: number; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; interactive?: boolean; reach?: number; flip?: boolean } = $props();
+  // `flip` mirrors the field left-to-right (the pattern, not the glyphs).
   const FRAME = 33; // ms between redraws while animating or cooling
   const DECAY = 0.94; // heat kept per redraw
   let canvas: HTMLCanvasElement; let host: HTMLElement;
@@ -77,7 +78,7 @@
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     const s = cell * dpr;
     for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) {
-      const f = field(x, y, frame);
+      const f = field(flip ? cols - 1 - x : x, y, frame);
       const v = (f.v * density + (heat[y * cols + x] || 0) * 0.9) * knockout(x + 0.5, y + 0.5, boxes, pad, feather);
       const ch = f.ch && v > 0.05 ? f.ch : RAMP[Math.min(RAMP.length - 1, Math.floor(v * RAMP.length))];
       if (ch !== ' ') { const sp = sprites.get(ch); if (sp) ctx.drawImage(sp, x * s, y * s); }
