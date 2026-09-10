@@ -4,11 +4,11 @@
   "outputDirectory": "build",
   "trailingSlash": true,
   "redirects": [
-    { "source": "/about", "destination": "/contact/", "permanent": true },
-    { "source": "/blog", "destination": "/", "permanent": true },
-    { "source": "/art", "destination": "/work/", "permanent": true },
-    { "source": "/work/rowboat-racer", "destination": "/work/parc-site/", "permanent": true },
-    { "source": "/work/gridform", "destination": "/work/", "permanent": true },
-    { "source": "/work/gridform-studio", "destination": "/work/", "permanent": true }
+    { "source": "/about/", "destination": "/contact/", "permanent": true },
+    { "source": "/blog/", "destination": "/", "permanent": true },
+    { "source": "/art/", "destination": "/work/", "permanent": true },
+    { "source": "/work/rowboat-racer/", "destination": "/work/parc-site/", "permanent": true },
+    { "source": "/work/gridform/", "destination": "/work/", "permanent": true },
+    { "source": "/work/gridform-studio/", "destination": "/work/", "permanent": true }
   ]
 }

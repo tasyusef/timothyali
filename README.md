@@ -28,6 +28,6 @@ pnpm check
 pnpm build
 ```
 
-Use Node 22.12 or newer. The static build is written to `build/`. Existing case-study links still open timothyali.com. Nothing has been deployed.
+Use Node 22.12 or newer. The static build is written to `build/`. Existing case-study links still open timothyali.com. Deployed: pushing `master` of `github.com/tasyusef/timothyali` triggers the Vercel production deploy at https://www.timothyali.com (decision 0085).
 
 Read `docs/design-system.md` for the tokens, type roles and components, `docs/alternate-v2.md` for the editing map, `docs/decision-log.md` for decisions, and `docs/iteration-log.md` for iterations with screenshots and source archives.

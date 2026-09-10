@@ -1346,3 +1346,14 @@ Timothy found the first OG set boring compared with the site and requested the t
 **Decision.** The images are screenshots of a dev-only route, `/og/[id]`, built from the real components inside the real layout. Every image is the site's chrome plus one Band: Home is the hero at share size, Work is the page head with the four cards, Contact is its own head, each study is a Work row. The generator only starts a dev server, freezes time and motion, and screenshots. Two small pieces of site code exist to serve this: the layout reads an optional `chromePath` from page data for its path and active nav, and `svelte.config.js` permits `/og/[id]` as the one un-crawled prerenderable route (it declares no entries, so it never ships).
 
 **Consequences.** The images cannot drift from the site: a change to the chrome, the texture, a face or a project flows into them on the next `pnpm social:generate`. The tradeoff is that the images are the site rather than a poster of it — no larger-than-life type beyond what the pages already carry. Regeneration needs Node, Playwright's Chromium and a free port 4174; it is still deterministic and local. Study images shed the coordinates from the strip, as the site does below 1100px, so long slugs fit at 1200.
+
+## 0085 — The rebrand goes live; this folder is the repo
+
+- **Date:** 2026-09-10
+- **Status:** Timothy’s direction (“push this to the Timothyali repo and push live? I think we’re good to go”); done
+
+**Context.** `timothyali2` had never been a git repository or deployed. The previous site lived in the sibling `timothyali` checkout of `github.com/tasyusef/timothyali`, whose `master` Vercel deploys to production at `www.timothyali.com`.
+
+**Decision.** This folder became the checkout: `git init`, fetch the remote’s `master`, and commit the rebrand on top of it (`2469f7c`), so the old site stays in history and the sibling folder is untouched (it can be deleted). The site keeps `adapter-static`; `vercel.json` sets `framework: null`, `outputDirectory: build` and `trailingSlash: true` so the deploy matches the canonical `/…/` URLs, and redirects the old URLs: `/about` → `/contact/`, `/blog` → `/`, `/art` → `/work/`, `/work/rowboat-racer` → `/work/parc-site/`, the hidden Gridform pair → `/work/`. Redirect sources carry the trailing slash because Vercel normalises the slash before matching. `static/robots.txt` allows everything; there is no sitemap yet.
+
+**Consequences.** Every push to `master` is a production deploy. Regenerating the OG set is `pnpm social:generate`, then commit and push. Open: a sitemap, and a 404 page (Vercel’s default serves for unknown paths).
