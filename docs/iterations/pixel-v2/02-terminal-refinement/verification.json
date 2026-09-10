@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "Kinetic words receive stepped animation when entering view",
+    "Motion control disables animations",
+    "Motion setting persists",
+    "Project index links to the selected project",
+    "Contact route and contact destination preserved",
+    "Skip link reaches main with keyboard",
+    "320px reduced-motion page: readable, no horizontal overflow, no Three.js",
+    "320px no-JavaScript page: readable, no horizontal overflow, no Three.js"
+  ],
+  "errors": []
+}

@@ -1,0 +1,80 @@
+/* ------------------------------------------------------------------
+   Reusable blocks. Each one is the CSS half of a component in
+   src/lib/components/; the component only chooses the class names, so the
+   cascade stays flat and a route can still position a block it owns.
+   ------------------------------------------------------------------ */
+
+/* --- cursor (Cursor.svelte) --------------------------------------- */
+/* One block cursor. `cell` is the status-strip size (8×16, on the grid);
+   `em` is the size Decode needs so the caret scales with a 344px name. */
+.cursor{display:inline-block;flex:none;width:8px;height:16px;background:var(--accent);margin-left:var(--s1)}
+.cursor.em{width:.14em;height:.4em;vertical-align:baseline;margin-left:.05em}
+.cursor.on-fg{background:currentColor}
+.motion .cursor{animation:blink var(--tick-cursor) steps(2,jump-none) infinite}
+
+/* --- action blocks (Cta.svelte) ----------------------------------- */
+/* The accent is used in three places only: cursors, the active nav item,
+   and these action blocks. Two hover directions are kept on purpose —
+   `block`/`row` are primary and light down to the foreground colour;
+   `quiet` is a label that lights up to the accent (decision 0065). */
+.cta{display:inline-flex;align-items:center;gap:var(--s2);padding:var(--s2) var(--s3);background:var(--accent);color:var(--on-accent);transform:translate(0,0)}
+.cta:hover{background:var(--fg);color:var(--paper)}
+.motion .cta:hover{transform:translate(var(--nudge),0)}
+.cta-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--s2);padding:var(--s3);background:var(--accent);color:var(--on-accent);transform:translate(0,0)}
+.cta-row>span{flex:none;max-width:100%}
+.cta-row:hover{background:var(--fg);color:var(--paper)}
+.cta-hint{display:inline-flex;align-items:center;gap:var(--s1);padding:var(--s1) var(--s2);background:var(--accent);color:var(--on-accent)}
+.cta-quiet{display:inline-flex;align-items:center;gap:var(--s2);padding:var(--s2)}
+.cta-quiet .mono{color:var(--accent-text)}
+
+/* --- quiet link (QuietLink.svelte) -------------------------------- */
+.quiet-link{display:inline-flex;align-items:center;gap:var(--s1)}
+.quiet-link:hover{color:var(--accent-text)}
+.quiet-link.pad{align-self:flex-start;padding:var(--s1) 0}
+
+/* --- index row (IndexRow.svelte) ---------------------------------- */
+.index-row{display:flex;gap:var(--s2);padding-bottom:var(--s4)}
+.index-row-row{justify-content:space-between;align-items:flex-end}
+.index-row-column{flex-direction:column;align-items:flex-end}
+.index-row .index-value.accent{font-size:25px;line-height:32px;color:var(--accent-text)}
+
+/* --- page foot (PageFoot.svelte) ---------------------------------- */
+.page-foot{display:flex;justify-content:space-between;gap:var(--s2);margin:var(--s8) 0 0;padding:0}
+
+/* --- cards -------------------------------------------------------- */
+.cards{display:grid;grid-template-columns:round(down,calc((100% - 32px) / 2),8px) minmax(0,1fr);gap:var(--s6) var(--s4)}
+.card{display:flex;flex-direction:column;gap:var(--s2);padding:var(--s2);background:var(--surface-card);color:var(--fg)}
+.card:hover,.card:focus-visible{background:var(--surface-card-hover)}
+.card .pic{background:var(--paper)}
+.card-body{display:grid;grid-template-rows:auto 1fr;grid-template-columns:minmax(0,1fr) auto;gap:var(--s1) var(--s2);align-items:start;flex:1;background:var(--paper);margin:0 calc(-1 * var(--s2)) calc(-1 * var(--s2));padding:var(--s2);min-width:0}
+.card-body h3{min-width:0}
+.card-body>.mono{align-self:start}
+.card:hover .card-body>.mono,.card:focus-visible .card-body>.mono{color:var(--accent-text)}
+.card-body .lbl{grid-column:1/-1}
+.card .mono{transform:translateX(0)}
+.motion .card:hover .mono,.motion .card:focus-visible .mono{transform:translateX(var(--nudge))}
+
+/* --- work rows (one index entry per project, decision 0074) -------- */
+/* No surface and no plates: the cover and the type sit on the page ground and
+   the 64px gap does the separating. The dither survives only as a hover state,
+   a 16px mat around the cover drawn in the gap by `.frame`'s negative margin,
+   so the image itself stays exactly the column width. */
+.rows{display:flex;flex-direction:column;gap:var(--s8)}
+.row{display:grid;grid-template-columns:round(down,calc((100% - 32px) * 3 / 5),8px) 1fr;gap:var(--s4);align-items:start;scroll-margin-top:var(--s2);color:var(--fg)}
+.row .frame{margin:calc(-1 * var(--s2));padding:var(--s2);min-width:0}
+.row:hover .frame,.row:focus-visible .frame{background:var(--surface-card-hover)}
+.row .pic{background:var(--paper)}
+.row-body{display:flex;flex-direction:column;gap:var(--s2);min-width:0}
+.row-body .cta-quiet{align-self:flex-start;margin-left:calc(-1 * var(--s2))}
+.row:hover .cta-quiet,.row:focus-visible .cta-quiet{background:var(--accent);color:var(--on-accent)}
+.row:hover .cta-quiet .mono,.row:focus-visible .cta-quiet .mono{color:var(--on-accent)}
+
+@media(max-width:1100px){.row-body h2{font-size:41.25px;line-height:48px}}
+@media(max-width:420px){.row-body h2{font-size:27.5px;line-height:32px}} /* “ANDROIDS” is 312px at 41.25 */
+@media(max-width:900px){.card-body h3{font-size:27.5px;line-height:32px}.row{grid-template-columns:100%;gap:var(--s2)}.rows{gap:var(--s6)}}
+@media(max-width:700px){
+  .cards{grid-template-columns:1fr}
+  .page-foot{flex-direction:column;margin:var(--s6) 0 0}
+  .index-row-column{flex-direction:row;align-items:baseline;justify-content:space-between;gap:var(--s2);padding-bottom:0;white-space:nowrap}
+  .index-row .index-value.accent{font-size:12.5px;line-height:16px}
+}

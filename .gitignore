@@ -1,57 +1,12 @@
-# dependencies
-node_modules
-
-# sveltekit
-/.svelte-kit
-/build
-/dist
-/out
-
-# testing
-/coverage
-
-# misc
+node_modules/
+.svelte-kit/
+build/
 .DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
 .env
 .env.*
 !.env.example
-
-# vercel
+test-results/
+playwright-report/
+tools/review/out/
 .vercel
-
-# typescript
 *.tsbuildinfo
-
-# personal files (resumes contain private info)
-static/resume.pdf
-static/timothyali-resume.pdf
-static/SMITHYUSEF_RESUME.PDF
-
-# OS files
-Thumbs.db
-ehthumbs.db
-desktop.ini
-$RECYCLE.BIN/
-
-# IDE/Editor
-.vscode/
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-*.psd
-
-# local-only: pnpm Node pin (Vercel rejects use-node-version; it reads engines instead)
-.npmrc

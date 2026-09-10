@@ -1,0 +1,158 @@
+<title>Timothy Ali Wordmark Sheet</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;700;900&family=Texturina:opsz,wght@12..72,700;12..72,900&family=Germania+One&family=UnifrakturMaguntia&family=UnifrakturCook:wght@700&family=Pirata+One&family=New+Rocker&family=Jacquard+24&family=Almendra+Display&family=Archivo:wdth,wght@75..100,400;75..100,600&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+  :root{
+    --yellow:#F2D600;
+    --black:#0B0B0B;
+    --ink:var(--black);
+    --ground:var(--yellow);
+    --rule:rgba(11,11,11,.28);
+    --sans:'Archivo',Helvetica,Arial,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+    --gutter:clamp(12px,2vw,24px);
+  }
+  [data-invert="1"]{--ink:var(--yellow);--ground:var(--black);--rule:rgba(242,214,0,.35);}
+  html,body{background:var(--ground);}
+  body{margin:0;color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.4;-webkit-font-smoothing:antialiased;}
+  .wrap{padding:var(--gutter);max-width:1600px;margin:0 auto;}
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);}
+  .label{font-family:var(--sans);font-stretch:75%;text-transform:uppercase;letter-spacing:.08em;font-size:11px;font-weight:600;}
+  .data{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:11px;}
+  header{border-bottom:1px solid var(--ink);padding-bottom:var(--gutter);margin-bottom:var(--gutter);align-items:end;}
+  header .t{grid-column:1/8;}
+  header h1{font:600 clamp(18px,2.2vw,28px)/1.1 var(--sans);letter-spacing:-.02em;margin:0 0 6px;text-wrap:balance;}
+  header p{margin:0;max-width:60ch;}
+  header .ctl{grid-column:9/13;display:flex;flex-direction:column;gap:10px;align-items:flex-start;}
+  button{font:inherit;background:transparent;color:var(--ink);border:1px solid var(--ink);padding:8px 12px;cursor:pointer;border-radius:0;}
+  button:hover{background:var(--ink);color:var(--ground);}
+  button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+  .range{display:flex;gap:10px;align-items:center;width:100%;}
+  input[type=range]{accent-color:var(--ink);flex:1;}
+  .spec{border-top:1px solid var(--rule);padding:calc(var(--gutter)*1.2) 0;align-items:baseline;}
+  .spec .meta{grid-column:1/3;display:flex;flex-direction:column;gap:4px;}
+  .spec .meta .n{font-size:22px;font-weight:600;letter-spacing:-.01em;font-family:var(--mono);}
+  .spec .mark{grid-column:3/11;overflow:hidden;}
+  .spec .mark .big{font-size:calc(var(--size,1) * clamp(48px,8.5vw,140px));line-height:.95;letter-spacing:var(--track,0em);white-space:nowrap;margin:0;font-weight:400;}
+  .spec .mark .small{margin:14px 0 0;display:flex;gap:24px;flex-wrap:wrap;align-items:baseline;}
+  .spec .mark .small span{font-size:clamp(20px,2.4vw,34px);line-height:1;}
+  .spec .note{grid-column:11/13;font-size:12px;}
+  .spec .note p{margin:0 0 6px;}
+  .w900{font-weight:900}.w700{font-weight:700}
+  .list{border-top:1px solid var(--ink);margin-top:var(--gutter);padding-top:var(--gutter);}
+  .list h2{grid-column:1/3;font:600 14px/1.3 var(--sans);margin:0;}
+  .list .rows{grid-column:3/13;}
+  .row{display:grid;grid-template-columns:2fr 2fr 1.4fr 4fr;column-gap:var(--gutter);padding:8px 0;border-bottom:1px solid var(--rule);font-size:13px;}
+  .row:first-child{border-top:none;}
+  .row.h{font-weight:600;}
+  footer{margin-top:var(--gutter);padding-top:var(--gutter);border-top:1px solid var(--ink);font-size:12px;max-width:70ch;}
+  @media (max-width:800px){
+    header .t,header .ctl,.spec .meta,.spec .mark,.spec .note,.list h2,.list .rows{grid-column:1/-1;}
+    .spec .note{margin-top:12px;}
+    .row{grid-template-columns:1fr 1fr;row-gap:4px;}
+  }
+  @media (prefers-reduced-motion:no-preference){button{transition:background .12s,color .12s;}}
+</style>
+
+<div class="wrap" id="root">
+  <header class="grid">
+    <div class="t">
+      <p class="label">Wordmark exploration 01 · 2026-09-08 · per decision 0018</p>
+      <h1>“Timothy Ali” set in nine free blackletters, on the yellow field.</h1>
+      <p>Round one is what Google Fonts can render live, so it can be judged in the browser at size. Adobe Fonts and paid candidates are listed below to test in Illustrator. Yellow is a placeholder hue (#F2D600, sampled from the DAD hero); it is tuned in the color-system entry.</p>
+    </div>
+    <div class="ctl">
+      <button id="flip" type="button" aria-pressed="false">Flip to yellow on black</button>
+      <label class="range"><span class="label">Size</span><input id="size" type="range" min="0.5" max="1.6" step="0.05" value="1"><span class="data" id="sizev">1.00×</span></label>
+      <label class="range"><span class="label">Track</span><input id="track" type="range" min="-0.06" max="0.1" step="0.005" value="0"><span class="data" id="trackv">0.000em</span></label>
+    </div>
+  </header>
+
+  <main id="specs">
+    <section class="spec grid" style="font-family:'Grenze Gotisch'">
+      <div class="meta"><span class="n">01</span><span class="label">Grenze Gotisch</span><span class="data">Google · variable 100–900</span><span class="data">Omnibus-Type</span></div>
+      <div class="mark"><p class="big w900">Timothy Ali</p><p class="small"><span class="w700">Timothy Ali</span><span>Timothy Ali</span><span class="w900">tim</span><span class="w900">2026</span></p></div>
+      <div class="note"><p>Softest of the set. Round terminals, no spikes. The one most likely to read as "designer" rather than "band". Weight axis means the wordmark and a display heading can share a face at different weights.</p></div>
+    </section>
+
+    <section class="spec grid" style="font-family:'Texturina'">
+      <div class="meta"><span class="n">02</span><span class="label">Texturina</span><span class="data">Google · variable, optical size</span><span class="data">Omnibus-Type</span></div>
+      <div class="mark"><p class="big w900" style="font-variation-settings:'opsz' 72">Timothy Ali</p><p class="small"><span class="w700">Timothy Ali</span><span class="w900">tim</span><span class="w900">2026</span></p></div>
+      <div class="note"><p>A textura built for screens, with an optical-size axis. More upright and rhythmic than Grenze. The vertical stress is the closest thing here to a Swiss grid rendered in letters.</p></div>
+    </section>
+
+    <section class="spec grid" style="font-family:'Germania One'">
+      <div class="meta"><span class="n">03</span><span class="label">Germania One</span><span class="data">Google · single weight</span><span class="data">John Vargas Beltrán</span></div>
+      <div class="mark"><p class="big">Timothy Ali</p><p class="small"><span>tim</span><span>2026</span><span>TIMOTHY ALI</span></p></div>
+      <div class="note"><p>Half blackletter, half grotesk. Simplified enough to use in short headings. Risk: it can read as a beer label.</p></div>
+    </section>
+
+    <section class="spec grid" style="font-family:'UnifrakturMaguntia'">
+      <div class="meta"><span class="n">04</span><span class="label">UnifrakturMaguntia</span><span class="data">Google · single weight</span><span class="data">Peter Wiegel, after Berthold Mainzer Fraktur</span></div>
+      <div class="mark"><p class="big">Timothy Ali</p><p class="small"><span>tim</span><span>2026</span></p></div>
+      <div class="note"><p>The straight historical Fraktur. Included as the control: this is what "blackletter" means to most people, and what the modern picks are moving away from.</p></div>
+    </section>
+
+    <section class="spec grid" style="font-family:'UnifrakturCook'">
+      <div class="meta"><span class="n">05</span><span class="label">UnifrakturCook</span><span class="data">Google · bold only</span><span class="data">Peter Wiegel, after Peter Schlemihl</span></div>
+      <div class="mark"><p class="big w700">Timothy Ali</p><p class="small"><span class="w700">tim</span><span class="w700">2026</span></p></div>
+      <div class="note"><p>Heavier, blunter Fraktur. Sits well against a flat yellow field because it has real mass. Less refined than 04.</p></div>
+    </section>
+
+    <section class="spec grid" style="font-family:'Pirata One'">
+      <div class="meta"><span class="n">06</span><span class="label">Pirata One</span><span class="data">Google · single weight</span><span class="data">Rodrigo Fuenzalida, Nicolas Massi</span></div>
+      <div class="mark"><p class="big">Timothy Ali</p><p class="small"><span>tim</span><span>2026</span></p></div>
+      <div class="note"><p>Condensed and chunky, the most "poster" of the group. Closest in energy to the DAD title. Also the most streetwear.</p></div>
+    </section>
+
+    <section class="spec grid" style="font-family:'New Rocker'">
+      <div class="meta"><span class="n">07</span><span class="label">New Rocker</span><span class="data">Google · single weight</span><span class="data">Impallari Type</span></div>
+      <div class="mark"><p class="big">Timothy Ali</p><p class="small"><span>tim</span><span>2026</span></p></div>
+      <div class="note"><p>Blackletter drawn with a modern pen, calligraphic rather than carved. Expressive lowercase. Included to test whether looser is better.</p></div>
+    </section>
+
+    <section class="spec grid" style="font-family:'Jacquard 24'">
+      <div class="meta"><span class="n">08</span><span class="label">Jacquard 24</span><span class="data">Google · single weight</span><span class="data">Sarah Cadigan-Fried / Rosetta, 2024</span></div>
+      <div class="mark"><p class="big">Timothy Ali</p><p class="small"><span>tim</span><span>2026</span></p></div>
+      <div class="note"><p>Pixel blackletter on a 24px grid. A wildcard: it connects to the PARC pixel work and it is a blackletter literally built on a grid. Probably not the wordmark, possibly a display voice.</p></div>
+    </section>
+
+    <section class="spec grid" style="font-family:'Almendra Display'">
+      <div class="meta"><span class="n">09</span><span class="label">Almendra Display</span><span class="data">Google · single weight</span><span class="data">Ana Sanfelippo</span></div>
+      <div class="mark"><p class="big">Timothy Ali</p><p class="small"><span>tim</span><span>2026</span></p></div>
+      <div class="note"><p>Barely blackletter, more a gothic-flavoured roman with inline detail. Included as the far end of the range: how little blackletter still reads as the argument.</p></div>
+    </section>
+  </main>
+
+  <section class="list grid">
+    <h2>Round two, to test in Illustrator</h2>
+    <div class="rows">
+      <div class="row h"><span>Face</span><span>Foundry</span><span>Cost to Timothy</span><span>Why</span></div>
+      <div class="row"><span>Eskapade Fraktur</span><span>TypeTogether, via Adobe Fonts</span><span>$0 with Creative Cloud</span><span>The strongest modern Fraktur in wide use. Roman and Fraktur styles share a family, so the wordmark and a text weight could be siblings.</span></div>
+      <div class="row"><span>Amador</span><span>Jim Parkinson, via Adobe Fonts</span><span>$0 with Creative Cloud</span><span>Heavy, rounded, American. Sits between Fraktur and Textura. Mass suits the flat yellow field.</span></div>
+      <div class="row"><span>Blonde Fraktur</span><span>via Adobe Fonts</span><span>$0 with Creative Cloud</span><span>Lighter, more elegant Fraktur. Tests the quieter end.</span></div>
+      <div class="row"><span>Fette Fraktur</span><span>Linotype / Monotype</span><span>Paid, price unverified</span><span>The classic heavy Fraktur. The control for "traditional done properly".</span></div>
+      <div class="row"><span>Moderne Fraktur, Cattedrale, Moderne Schwabacher</span><span>Various small foundries</span><span>Paid, prices unverified</span><span>Named repeatedly in 2026 "modern blackletter" round-ups. Unvetted by Claude; worth a look, not a recommendation.</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="label">How to read this sheet</p>
+    <p>Judge each at the big size first, then at the small line, then flipped. A wordmark has to survive all three. The rule from 0018: blackletter is rationed to the wordmark and a few display moments; the working type is a Swiss grotesk and will be chosen separately. Adobe Fonts availability of the three named faces is from a 2026 round-up and should be confirmed in the Creative Cloud app.</p>
+  </footer>
+</div>
+
+<script>
+  const root=document.getElementById('root');
+  const flip=document.getElementById('flip');
+  flip.addEventListener('click',()=>{
+    const on=document.documentElement.getAttribute('data-invert')==='1';
+    document.documentElement.setAttribute('data-invert',on?'0':'1');
+    flip.setAttribute('aria-pressed',String(!on));
+    flip.textContent=on?'Flip to yellow on black':'Flip to black on yellow';
+  });
+  const size=document.getElementById('size'),sizev=document.getElementById('sizev');
+  const track=document.getElementById('track'),trackv=document.getElementById('trackv');
+  const specs=document.getElementById('specs');
+  size.addEventListener('input',()=>{specs.style.setProperty('--size',size.value);sizev.textContent=Number(size.value).toFixed(2)+'×';});
+  track.addEventListener('input',()=>{specs.style.setProperty('--track',track.value+'em');trackv.textContent=Number(track.value).toFixed(3)+'em';});
+</script>

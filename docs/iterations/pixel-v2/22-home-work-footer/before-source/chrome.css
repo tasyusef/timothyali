@@ -1,0 +1,57 @@
+/* ------------------------------------------------------------------
+   Site chrome — the sticky header/status wrapper and the global footer.
+   Heights are literal because they are the chrome's geometry, not spacing:
+   64 header, 32 status strip, 104/48/32 on phones. All are 8px multiples.
+   ------------------------------------------------------------------ */
+.nav-chrome{position:sticky;top:0;z-index:var(--z-nav);background:var(--paper)}
+.nav-chrome.collapsed{top:calc(-1 * var(--header-height))}
+.nav-chrome:focus-within{top:0}
+
+.skip-link{position:absolute;z-index:var(--z-skip);top:var(--s1);left:var(--gutter);padding:var(--s1) var(--s2);background:var(--fg);color:var(--paper);transform:translateY(-200%)}
+.skip-link:focus{transform:none}
+
+.site-header{position:relative;z-index:var(--z-chrome);display:grid;grid-template-columns:auto 1fr;gap:var(--s4);align-items:start;height:64px;padding:var(--s1) var(--gutter) 0}
+.wordmark{font-size:43px;line-height:43px;white-space:nowrap}
+.path{display:flex;align-items:center;justify-self:start;min-width:0;max-width:100%;margin-top:var(--s2)}
+.path .path-text{overflow:hidden;min-width:0}
+.site-header nav{display:flex;gap:var(--s1);margin-top:var(--s1);justify-self:end}
+.site-header nav a{display:block;padding:var(--s1) var(--s2)}
+.site-header nav a b{font-weight:400;opacity:var(--dim);margin-right:var(--s1)}
+.site-header nav a[aria-current]{background:var(--accent);color:var(--on-accent)}
+.site-header nav a:hover{background:var(--fg);color:var(--paper)}
+.site-header nav a[aria-current] b,.site-header nav a:hover b{opacity:1}
+
+.readout{position:relative;z-index:var(--z-chrome);display:flex;justify-content:space-between;gap:var(--s2);padding:var(--s1) var(--gutter);height:32px;overflow:hidden;white-space:nowrap}
+.readout>span{flex:none;opacity:var(--dim)}
+.readout .path{margin-top:0;opacity:1;flex:0 1 auto;min-width:0}
+.readout .path-text{white-space:nowrap}
+.readout .path{font-size:inherit;line-height:inherit}
+/* The strip never shrinks below 16px. It sheds items by priority instead (decision 0072):
+   ≤1100 coordinates go, ≤900 Denver and SYS.OK go and the path keeps only its last
+   segment, ≤420 the clock goes. Press Start advances one em per character, so at 16px
+   the five items need about 1,040px; the steps are what fits with the gutters. */
+.path-short{display:none}
+@media(max-width:1100px){.st-coords{display:none}}
+@media(max-width:900px){.st-city,.st-sys,.path-full{display:none}.path-short{display:inline}}
+@media(max-width:420px){.st-clock{display:none}}
+
+.global-footer{display:grid;grid-template-columns:1fr auto;gap:var(--s2);align-items:center;padding:var(--s2) var(--gutter) var(--s3)}
+.global-footer .controls{display:flex;flex-wrap:wrap;gap:var(--s1)}
+.global-footer button{padding:var(--s1) var(--s2)}
+.global-footer button:hover{background:var(--fg);color:var(--paper)}
+.global-footer button[aria-pressed=true] b{color:var(--accent-text)}
+
+@media(max-width:700px){
+  /* 104 = 8 padding + 48 wordmark row + 8 gap + 32 nav row + 8 padding (decision 0070) */
+  .site-header{grid-template-columns:auto 1fr;grid-template-rows:48px 32px;gap:var(--s1);height:104px;padding:var(--s1) var(--gutter)}
+  .wordmark{font-size:43px;align-self:end}
+  .site-header nav{grid-column:1/-1;justify-self:stretch;gap:0;margin:0 calc(-1*var(--gutter))}
+  .site-header nav a{flex:1;text-align:center;padding:var(--s1) 0}
+  .hide-m{display:none}
+  /* Footer as a settings list (decision 0072): each toggle is a 32px row, label left,
+     state right, then the copyright line. Nothing wraps at 320. */
+  .global-footer{grid-template-columns:1fr;gap:var(--s2);padding:var(--s3) var(--gutter) var(--s4)}
+  .global-footer .controls{order:-1;flex-direction:column;gap:0}
+  .global-footer button{display:flex;justify-content:space-between;padding:var(--s1) 0}
+  .global-footer button:hover{background:none;color:inherit}
+}

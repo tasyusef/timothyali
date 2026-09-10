@@ -1,0 +1,10 @@
+import {chromium} from '@playwright/test';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {studies} from '../../src/lib/work.ts';
+const input=process.argv[2]||'static/og';
+const output=process.argv[3]||'docs/iterations/pixel-v2/24-social-terminal/contact-sheet.png';
+const ids=['home','work','contact',...studies.map(p=>p.slug)];
+const b=await chromium.launch({executablePath:'/Users/twocakes/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell'});
+const p=await b.newPage({viewport:{width:1248,height:1016}});
+await p.setContent(`<style>body{margin:0;padding:16px;background:#252522;display:grid;grid-template-columns:repeat(3,400px);gap:16px;color:#fff;font:14px monospace}img{display:block;width:400px;height:210px}p{margin:8px 0}</style>${ids.map(id=>`<div><img src="data:image/png;base64,${readFileSync(`${input}/${id}.png`).toString('base64')}"><p>${id}</p></div>`).join('')}`);
+await p.evaluate(()=>Promise.all([...document.images].map(i=>i.decode())));await p.screenshot({path:output,fullPage:true});await b.close();

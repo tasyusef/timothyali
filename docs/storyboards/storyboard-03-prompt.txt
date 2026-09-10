@@ -1,0 +1,45 @@
+Create VERSION 03 by editing the supplied six-frame storyboard. This is a cinematic storyboard for Timothy Ali's scroll-driven portfolio. Reference image 1 is storyboard 02: retain its exact six narrative passages, heavy condensed display type, selective pixel blackletter, and use of projected grids. Reference image 2 is the original Do Androids Dream source contact sheet: retain flat angular yellow/black silhouette graphic language. ONE portrait storyboard sheet, SIX LANDSCAPE PANELS in TWO COLUMNS by THREE ROWS, high resolution. External neutral paper gutters, heading “Timothy Ali / Scroll storyboard 03”, subtitle “Megacity · two billboards · a new destination”. Straight even frame edges, readable scene captions below each panel.
+USER REQUEST: frames 2 and 3 must be distinctly different billboards in a cyberpunk Times Square-style scene; frames 5 and 6 must be compositionally very different. The whole city should be HUGE, FUTURISTIC, BLADE RUNNER / CYBERPUNK, SLIGHTLY DYSTOPIAN. This is the core revision.
+ENVIRONMENT: vast layered city of ominous megastructures, irregular stepped towers, monumental slab buildings, protruding antenna arrays, rooftop machinery silhouettes, elevated transit lines, skybridges, enormous billboard structures and a few sparsely cut yellow window slits. An urban megacity, not generic modern skyscrapers and not a desert. Dominant angular 2D cutout shapes arranged in deep perspective. Graphic BLACK and SATURATED YELLOW only; very restrained ochre depth layers and subtle print grain allowed. Futuristic and oppressive from scale, infrastructure, crowding and composition. No photoreal rendering, glossy surfaces, RGB neon, cyberpunk rainbow palette, bloom, rain photography, or tiny decorative greebles. Dense architecture but clear main text planes. No readable real ads, no extra marketing slogans, no pseudo-Japanese, no company logos, no project images.
+TYPE: ultra heavy condensed grotesk, uppercase main copy. Jacquard 24-like CHUNKY PIXEL BLACKLETTER (stepped pixels, no flourishes) for wordmark and ONLY the words “invested” and “building”. Strong rectangular grids: shared left edges, baseline rhythm, consistent inset on each billboard or architecture plane. Type respects the plane's perspective/vanishing point, NOT randomly tilted. All main text entirely readable. The three qualities in frame3 are one coherent three-module grid.
+FRAME 1 — “01 / Megacity”. Establishing panorama. VAST futuristic yellow-black city in bottom half: many distant layers, antenna-topped megatowers, one huge off-center pyramidal/slab arcology, elevated routes. Leave clean yellow sky above left for exact copy, strong clear alignment:
+small pixel-blackletter wordmark “Timothy Ali”
+“I’M TIM.”
+“DESIGNER FOR TEAMS”
+“THAT DON’T HAVE ONE YET.”
+Short caption outside: “A vast city establishes the destination.”
+FRAME 2 — “02 / The junction”. WIDE, HORIZONTAL, ELEVATED oblique view across a futuristic Times Square-like intersection. A HUGE LANDSCAPE BILLBOARD spans two structures HIGH across UPPER LEFT/TOP, projecting into street. Its BLACK face carries YELLOW exact text, three orderly lines:
+“I GET”
+“invested”
+“IN WHAT I MAKE.”
+Middle word invested large pixel blackletter, rest heavy condensed sans. Billboard visibly LANDSCAPE/WIDE, not vertical tower signage. Perspective recedes to RIGHT. BELOW it a web of elevated walkways/transit and a wide crowded architectural junction, with smaller abstract blank signs as silhouettes. A focal tower deep RIGHT ties to next frame. Camera sees DOWN into junction: wide shot, expansive horizontal composition. Caption: “Pass beneath a wide sign above the junction.”
+FRAME 3 — “03 / The canyon”. Visually opposite frame2: LOW ANGLE, CLOSE, VERTICAL enclosure, shot looking UP a narrow street canyon. Main sign is a VERY TALL, NARROW, PORTRAIT YELLOW PYLON on the RIGHT SIDE with BLACK typography arranged as THREE STACKED RECTANGULAR MODULES, exact phrases split for width:
+“HOW THEY”
+“LOOK.”
+then
+“HOW THEY”
+“MOVE.”
+then
+“HOW THEY”
+“WORK.”
+Identical module widths, consistent left edge and spacing in perspective. Entire main sign legible and contained. On LEFT deep black massive foreground tower, short cantilevered small blank signs, cables and a HIGH skybridge constrict the narrow yellow sky. The tall pylon points upward; it is NOT another large landscape billboard and NOT a duplicate of frame2 with colors reversed. Caption: “Turn into the canyon; a vertical sign takes over.”
+FRAME 4 — “04 / The transit road”. Preserve surreal road-under-inverted-skyline motif from source. Massive futuristic elevated causeway runs to distant yellow vanishing point beneath hanging black city and overhead infrastructure. Small side layers of distant megacity. Main yellow text ON black road in its receding perspective:
+“FROM THE FIRST IDEA”
+“TO SOMETHING”
+“PEOPLE USE.”
+smaller “BRAND. PRODUCT. MOTION. FRONT END.”
+Caption: “The road carries the story through the city.”
+FRAME 5 — “05 / Beneath the megastructure”. MOSTLY BLACK frame, steep UPWARD view from deep within an enclosed industrial city. Gigantic towers and intersecting skybridges overlap and frame a NARROW OFF-CENTER ANGULAR/YELLOW slit of sky near upper RIGHT. This recalls the source's upward radial architecture but has a confined asymmetric composition; absolutely NO big centered yellow circle. One broad BLACK underside of a diagonal skybridge/structural face cuts across midframe and carries bold YELLOW text, aligned to its projected grid, exact words:
+“I’VE COFOUNDED”
+“PRODUCTS.”
+“HELPED TEAMS”
+“SHIP THEIRS.”
+Keep text large and clear with manageable shallow plane perspective, not extreme illegible distortion. Enclosure, darkness, looking up. Caption: “Look up through the structure; the sky narrows.”
+FRAME 6 — “06 / Above the city”. A CLEARLY DISTINCT OPEN PANORAMIC ENDING: emerge at a ROOFTOP OVERLOOK above a seemingly endless futuristic city. Horizontal city horizon across LOWER THIRD with dense tiny towers stretching to edge, near black parapet/platform bottom corner, huge expansive yellow sky. A large PALE YELLOW disc can be suggested subtly in distance but NO radial ring, NO surrounding inward-pointing buildings. Place invitation within open sky slightly right of center, aligned to a deliberate shared leading edge, gently projected but almost frontal:
+“TELL ME WHAT”
+“YOU’RE”
+“building.”
+building in massive pixel blackletter. Two stable legible underlined actions beneath:
+“see my work” and “get in touch”.
+Clearly keep closing scene visually different from 5: open vs enclosed, horizon vs upward view, yellow-dominant vs black-dominant, distant panorama vs near massive infrastructure. Caption: “Clear the rooftops and look across the city.”
+All six shots remain recognizable parts of the SAME city. Source fidelity through flat graphic cutouts and consistent palette. Don't add detail that overwhelms the type or breaks silhouette world. No characters required. No code or browser chrome. Reviewable storyboard, not final font specification. The most important output differences are frames2/3 horizontal-overhead vs vertical-side billboards; frames5/6 deep enclosed upward vs expansive rooftop horizon; and futuristic metropolitan scale throughout.

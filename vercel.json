@@ -1,14 +1,14 @@
 {
-	"redirects": [
-		{
-			"source": "/contact",
-			"destination": "/about",
-			"permanent": true
-		},
-		{
-			"source": "/work/rowboat-racer",
-			"destination": "/work/parc-site",
-			"permanent": true
-		}
-	]
+  "framework": null,
+  "buildCommand": "pnpm build",
+  "outputDirectory": "build",
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/about", "destination": "/contact/", "permanent": true },
+    { "source": "/blog", "destination": "/", "permanent": true },
+    { "source": "/art", "destination": "/work/", "permanent": true },
+    { "source": "/work/rowboat-racer", "destination": "/work/parc-site/", "permanent": true },
+    { "source": "/work/gridform", "destination": "/work/", "permanent": true },
+    { "source": "/work/gridform-studio", "destination": "/work/", "permanent": true }
+  ]
 }

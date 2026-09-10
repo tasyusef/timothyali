@@ -1,0 +1,40 @@
+/* ------------------------------------------------------------------
+   Layer 2 — semantic tokens. What a primitive means on this site.
+   Only these names should appear in chrome/layout/blocks/type and in the
+   routes; primitives are referenced here and (deliberately) in one place
+   outside: the discipline-label plate, which must not invert with the theme.
+   ------------------------------------------------------------------ */
+:root{
+  /* ground and type */
+  --paper:var(--ink);
+  --fg:var(--white);
+  --accent:var(--yellow);        /* fills: cursors, active nav, action blocks */
+  --accent-text:var(--yellow);   /* the accent as type; deepens on the light ground (0075) */
+  --on-accent:var(--ink);
+  --dim:.55;              /* opacity, not a colour */
+
+  /* page frame */
+  --gutter:32px;
+  --header-height:64px;   /* default; the layout overrides it inline with the measured height */
+
+  /* surfaces */
+  --surface-card:repeating-conic-gradient(color-mix(in srgb,var(--fg) 14%,transparent) 0 25%,transparent 0 50%) 0 0/4px 4px;
+  --surface-card-hover:repeating-conic-gradient(color-mix(in srgb,var(--fg) 26%,transparent) 0 25%,transparent 0 50%) 0 0/8px 8px;
+  --texture-fallback-opacity:.35;  /* the CSS checker shown before a canvas has drawn */
+
+  /* the Grid overlay */
+  --grid-fine:color-mix(in srgb,var(--fg) 12%,transparent);
+  --grid-major:color-mix(in srgb,var(--fg) 22%,transparent);
+
+  /* layering, low to high */
+  --z-band-bg:0;   /* a band's programmatic background */
+  --z-band:1;      /* everything else inside a band */
+  --z-chrome:2;    /* header and status strip inside the sticky wrapper */
+  --z-nav:50;      /* the sticky wrapper itself */
+  --z-grid:98;     /* the Grid overlay — deliberately above the nav */
+  --z-skip:99;     /* the skip link, above everything */
+
+  color-scheme:dark;
+}
+:root[data-theme=light]{--paper:var(--white);--fg:var(--ink);color-scheme:light;--accent-text:var(--yellow-deep)}
+@media(max-width:700px){:root{--gutter:16px}}

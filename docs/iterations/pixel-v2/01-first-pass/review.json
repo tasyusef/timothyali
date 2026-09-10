@@ -1,0 +1,74 @@
+[
+  {
+    "width": 1440,
+    "path": "/",
+    "overflow": false,
+    "headings": 1,
+    "three": false,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "path": "/work/",
+    "overflow": false,
+    "headings": 1,
+    "three": false,
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "path": "/contact/",
+    "overflow": false,
+    "headings": 1,
+    "three": false,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "path": "/",
+    "overflow": false,
+    "headings": 1,
+    "three": false,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "path": "/work/",
+    "overflow": false,
+    "headings": 1,
+    "three": false,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "path": "/contact/",
+    "overflow": false,
+    "headings": 1,
+    "three": false,
+    "errors": []
+  },
+  {
+    "width": 320,
+    "path": "/",
+    "overflow": false,
+    "headings": 1,
+    "three": false,
+    "errors": []
+  },
+  {
+    "width": 320,
+    "path": "/work/",
+    "overflow": false,
+    "headings": 1,
+    "three": false,
+    "errors": []
+  },
+  {
+    "width": 320,
+    "path": "/contact/",
+    "overflow": false,
+    "headings": 1,
+    "three": false,
+    "errors": []
+  }
+]

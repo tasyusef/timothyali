@@ -1,0 +1,8 @@
+
+> timothyali2@0.1.0 check /Users/twocakes/Desktop/PROJECTS/timothyali2
+> svelte-kit sync && svelte-check --tsconfig ./tsconfig.json
+
+Loading svelte-check in workspace: /Users/twocakes/Desktop/PROJECTS/timothyali2
+Getting Svelte diagnostics...
+
+svelte-check found 0 errors and 0 warnings

@@ -1,0 +1,27 @@
+/* ------------------------------------------------------------------
+   Layout primitives — the page frame, bands, and the Grid overlay.
+
+   Layering, bottom to top:
+     --z-band-bg  0   .band-bg (the programmatic texture)
+     --z-band     1   everything else inside a .band
+     --z-chrome   2   .site-header and .readout, inside …
+     --z-nav     50   .nav-chrome, the sticky wrapper
+     --z-grid    98   .site.show-grid::after — above the nav on purpose
+     --z-skip    99   .skip-link
+   ------------------------------------------------------------------ */
+.site{position:relative;min-height:100vh;display:flex;flex-direction:column}
+.site>main{flex:1}
+section{position:relative;padding:0 var(--gutter)}
+
+/* full-bleed programmatic background for a band */
+.band-bg{position:absolute;inset:0;z-index:var(--z-band-bg);pointer-events:none}
+.band-bg>*{height:100%}
+.band>:not(.band-bg){position:relative;z-index:var(--z-band)}
+
+/* grid overlay for showing the system */
+.site.show-grid::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:var(--z-grid);
+  background-image:linear-gradient(to right,var(--grid-fine) 1px,transparent 1px),linear-gradient(to bottom,var(--grid-fine) 1px,transparent 1px),linear-gradient(to right,var(--grid-major) 1px,transparent 1px),linear-gradient(to bottom,var(--grid-major) 1px,transparent 1px);
+  background-size:var(--cell-text) var(--cell-text),var(--cell-text) var(--cell-text),64px 64px,64px 64px}
+
+/* inner pages (Work, the studies, Contact — Home is not one) */
+.inner-page .page-head{padding:var(--s4) 0 0}

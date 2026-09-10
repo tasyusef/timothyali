@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1120" viewBox="0 0 1500 1120">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,3 L0,6 Z" fill="#bf4e18"/></marker></defs>
+<rect width="1500" height="1120" fill="#f6f5f0"/>
+<g font-family="Helvetica,Arial,sans-serif" fill="#171717">
+<text x="55" y="60" font-size="30" font-weight="700">One city, one camera route</text>
+<text x="55" y="92" font-size="17">Storyboard 03 · proposed spatial continuity · schematic, not to scale</text>
+<text x="55" y="150" font-size="21" font-weight="700">PLAN — looking down</text>
+<text x="1050" y="150" font-size="15">Route travels from bottom to top</text>
+<!-- districts -->
+<rect x="480" y="370" width="330" height="170" fill="#e6e3d7"/>
+<text x="625" y="528" font-size="16">Billboard district</text>
+<rect x="650" y="175" width="300" height="115" fill="#242424"/>
+<text x="676" y="201" font-size="16" fill="#fff">Suspended megastructure</text>
+<rect x="560" y="446" width="132" height="15" fill="#222"/>
+<text x="285" y="425" font-size="15">Wide sign / scene 02</text>
+<rect x="787" y="415" width="16" height="61" fill="#222"/>
+<text x="825" y="445" font-size="15">Portrait sign / scene 03</text>
+<!-- ramp -->
+<path d="M728 406 L728 258 L770 258 L770 406" fill="#ddd8c5"/>
+<text x="805" y="345" font-size="16">Transit ramp</text>
+<rect x="960" y="164" width="115" height="70" fill="#e6e3d7" stroke="#555"/>
+<text x="1098" y="188" font-size="16">Rooftop</text><text x="1098" y="209" font-size="16">overlook</text>
+<!-- continuous route -->
+<path d="M605 583 L605 477 Q605 450 639 450 L708 450 Q748 450 748 402 L748 300 L748 262 Q748 239 775 239 L910 239 Q1013 239 1013 187" fill="none" stroke="#bf4e18" stroke-width="5" marker-end="url(#arrow)"/>
+<path d="M605 568 L605 502 M712 450 Q748 450 748 408 M748 366 L748 316 M863 239 L919 239" fill="none" stroke="#bf4e18" stroke-width="3" marker-end="url(#arrow)"/>
+<!-- markers -->
+<g fill="#ffe000" stroke="#171717" stroke-width="2"><circle cx="605" cy="578" r="19"/><circle cx="605" cy="477" r="19"/><circle cx="748" cy="417" r="19"/><circle cx="748" cy="311" r="19"/><circle cx="805" cy="239" r="19"/><circle cx="1013" cy="187" r="19"/></g>
+<g font-size="18" font-weight="700" text-anchor="middle"><text x="605" y="585">1</text><text x="605" y="484">2</text><text x="748" y="424">3</text><text x="748" y="318">4</text><text x="805" y="246">5</text><text x="1013" y="194">6</text></g>
+<text x="640" y="590" font-size="16">Elevated approach</text>
+<text x="275" y="480" font-size="16">Junction: pass beneath sign</text>
+<text x="855" y="495" font-size="16">Turn into adjoining canyon</text>
+<text x="1040" y="275" font-size="16">Move to outer gap,</text><text x="1040" y="296" font-size="16">then rise clear of the roof</text>
+<text x="55" y="210" font-size="18" font-weight="700">Positional relationships</text>
+<text x="55" y="244" font-size="16">2 and 3: neighboring streets,</text><text x="55" y="267" font-size="16">different signs and viewing angles.</text>
+<text x="55" y="305" font-size="16">4 leads under the complex in 5.</text>
+<text x="55" y="343" font-size="16">6 is above the same complex.</text>
+<!-- elevation -->
+<path d="M55 632 L1445 632" stroke="#cbc8bc"/>
+<text x="55" y="680" font-size="21" font-weight="700">ELEVATION — height along the route</text>
+<text x="55" y="711" font-size="16">Descent into the sign district → rise along the ramp → climb at the outer edge</text>
+<rect x="835" y="773" width="275" height="63" fill="#242424"/>
+<path d="M865 836 L865 875 M1048 836 L1048 865" stroke="#242424" stroke-width="21"/>
+<text x="864" y="806" font-size="16" fill="#fff">Megastructure / decks</text>
+<path d="M670 957 L915 910" stroke="#797467" stroke-width="10"/>
+<path d="M1152 773 L1375 773" stroke="#242424" stroke-width="12"/>
+<text x="1220" y="811" font-size="16">Overlook</text>
+<path d="M100 1012 L1405 1012" stroke="#c9c5b7" stroke-width="3"/>
+<path d="M145 812 C230 817 280 924 358 954 Q440 988 545 988 Q623 987 700 954 L899 914 Q997 912 1070 899 Q1150 885 1150 822 L1150 764 Q1160 739 1250 739" fill="none" stroke="#bf4e18" stroke-width="5" marker-end="url(#arrow)"/>
+<g fill="#ffe000" stroke="#171717" stroke-width="2"><circle cx="145" cy="812" r="19"/><circle cx="358" cy="954" r="19"/><circle cx="545" cy="988" r="19"/><circle cx="760" cy="941" r="19"/><circle cx="965" cy="911" r="19"/><circle cx="1250" cy="739" r="19"/></g>
+<g font-size="18" font-weight="700" text-anchor="middle"><text x="145" y="819">1</text><text x="358" y="961">2</text><text x="545" y="995">3</text><text x="760" y="948">4</text><text x="965" y="918">5</text><text x="1250" y="746">6</text></g>
+<text x="105" y="782" font-size="15">Approach</text><text x="293" y="923" font-size="15">Junction</text><text x="503" y="955" font-size="15">Canyon</text>
+<text x="728" y="991" font-size="15">Road</text><text x="907" y="964" font-size="15">Look upward</text>
+<text x="1167" y="870" font-size="15">Exterior gap:</text><text x="1167" y="892" font-size="15">clear of decks</text>
+<text x="55" y="1066" font-size="17">Each numbered view has an approach, a readable stretch, and a departure. Scroll reverses the same path.</text>
+</g></svg>

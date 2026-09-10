@@ -3,16 +3,10 @@
   "configurations": [
     {
       "name": "dev",
-      "runtimeExecutable": "node",
-      "runtimeArgs": ["node_modules/vite/bin/vite.js", "dev", "--port", "5174"],
-      "port": 5174,
-      "autoPort": false
-    },
-    {
-      "name": "preview",
-      "runtimeExecutable": "node",
-      "runtimeArgs": ["node_modules/vite/bin/vite.js", "preview", "--port", "4173"],
-      "port": 4173
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 5173,
+      "autoPort": true
     }
   ]
 }

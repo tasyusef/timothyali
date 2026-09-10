@@ -1,0 +1,39 @@
+Edit the supplied storyboard sheet into a substantially improved VERSION 02. Two input references: image 1 is the existing storyboard to revise; image 2 is source frames from the user's Do Androids Dream film defining the environment. Retain SIX LANDSCAPE PANELS in TWO COLUMNS THREE ROWS, the same overall camera journey (arrival, skyline, inside city, road beneath inverted city, radial opening, invitation) and yellow/black angular flat silhouette visual language. Create large high-resolution portrait sheet. Outside panels use offwhite neutral editorial margins and clear numbered shot captions. New heading "Timothy Ali / Scroll storyboard 02". Subheading "Type in space · shorter copy · proposed".
+The user says v1 type is too flat, disconnected, light, all lowercase and wordy. THIS REVISION MUST VISIBLY FIX THIS. It must NOT repeat the same horizontal text overlays.
+TYPOGRAPHIC DESIGN: Very HEAVY, BOLD CONDENSED GROTESK display lettering with thick strokes and broad graphic mass, not the skinny narrow small type in the original. Most headline words in UPPERCASE, mixed-case pixel-blackletter for selected emphasis. Wordmark uses Jacquard 24-like PIXEL BLACKLETTER, NOT ornate conventional Fraktur; small chunky stepped pixels and dense blackletter construction. Use this exact same pixel-blackletter treatment on TWO WORDS ONLY elsewhere: “invested” in frame 2 and “building” in frame 6. All other narrative uses heavy condensed grotesk. Simple subordinate grotesk for supporting line/actions.
+COMPOSITION GRID: Set each text GROUP on a deliberate rectangular local grid with shared left edges, consistent baseline steps, and intentional linebreaks. The local grid is oriented in the same 3D perspective as a nearby building face or road plane. Planes foreshorten convincingly: baselines and cap lines converge toward the actual environment's vanishing point. This is PROJECTIVE PERSPECTIVE, not arbitrary rotation or italics. Buildings remain flat silhouette geometry, no extruded text or heavy modeled shading. Text looks like monumental graphic lettering integrated with architecture. Use enough viewpoint angle to clearly see that lettering inhabits a plane. Do not make all six frames identical compositions. Do not add visible graph-paper grids, wireframe cages, desktop website nav bars, cards, rounded boxes or UI screenshots.
+FRAME 1 ARRIVAL: Very open yellow field; black distant skyline; small pixel-blackletter Timothy Ali wordmark in upper-left. Strong BIG type left-aligned to a disciplined shared column. This opening can be frontal. Exact copy with hierarchy:
+“I’M TIM.”
+then slightly smaller on two lines:
+“DESIGNER FOR TEAMS”
+“THAT DON’T HAVE ONE YET.”
+Keep breathing room between wordmark and intro. Caption below outside scene: "01 / Arrival" / "A clear opening. One shared alignment."
+FRAME 2 SKYLINE: City comes close enough that the left tower gives us a broad uninterrupted BLACK FACE in visibly receding perspective, yellow sky and other silhouettes to right. Place YELLOW type ON THE BLACK FACE, mapped to its plane with strong but readable perspective:
+“I GET”
+“invested”
+“IN WHAT I MAKE.”
+The middle word invested is massive PIXEL BLACKLETTER like Jacquard 24, all other words bold condensed sans. Every line shares the projected left margin, its baselines converge toward the same vanishing point. Frame should feel like type belonging to a building face, not a floating centered text box. Caption: "02 / The skyline" / "The first words occupy an architectural plane."
+FRAME 3 INSIDE CITY: Near black towers occlude the edge, distant yellow corridor between planes. A BIG clean YELLOW plane recedes into the city; on that plane BLACK blocky bold condensed lettering in three equal rows:
+“HOW THEY LOOK.”
+“HOW THEY MOVE.”
+“HOW THEY WORK.”
+Rows have matching projected left edge and spacing; clear foreshortening as scene planes go into depth. Keep all words completely readable. Caption: "03 / Inside the city" / "A three-line grid moves through depth."
+FRAME 4 ROAD: Inverted black skyline overhead, dramatic BLACK road recedes forward with yellow space at sides. Frame must visibly preserve source's surreal inverted skyline. Put main YELLOW typography on the BLACK ROAD's perspective plane, huge in foreground and diminishing toward vanishing point, but all lines fit comfortably:
+“FROM THE FIRST IDEA”
+“TO SOMETHING”
+“PEOPLE USE.”
+Small accompanying line, readable and aligned with same scene grid:
+“BRAND. PRODUCT. MOTION. FRONT END.”
+This is directional floor-plane lettering, following the road's converging geometry, not a flat headline at left as v1. Caption: "04 / The road" / "The statement follows the road’s perspective."
+FRAME 5 OPENING: Radial black flat towers reach inward around yellow sky opening. A clear text plane within the opening has mild projective perspective aligned to one dominant architectural axis, robust left aligned heavy sans type:
+“I’VE COFOUNDED PRODUCTS.”
+“HELPED TEAMS SHIP THEIRS.”
+Wrap into four rows if necessary; keep shared projected alignment edge. No blackletter here. No company names, no logos. Caption: "05 / The opening" / "Two direct lines of experience."
+FRAME 6 INVITATION: Same radial opening expands, plenty of yellow negative space with dark structures only at outer edge. Typography dominates with strong internal left alignment and gentle perspective that settles almost frontal, exact copy:
+“TELL ME WHAT”
+“YOU’RE”
+“building.”
+The word building in large chunky PIXEL BLACKLETTER akin Jacquard 24; rest ultra heavy condensed grotesk. Two small clearly separate underlined actions placed below, frontal and stable:
+“see my work” and “get in touch”.
+Caption: "06 / The invitation" / "The type settles; the actions stay still."
+All copy spelled exactly, no added words. Yellow/black world with only subtle texture from source. No glow, neon, glossy 3D, gradients beyond slight yellow atmosphere. No human figure. No decorations. All six viewports and captions fully visible. The main visual improvement MUST be heavier type physically sharing the perspective of architectural planes and deliberate grid alignment, with recognizable selective pixel blackletter. This is a directional storyboard, not final font rendering.

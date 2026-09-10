@@ -1,0 +1,103 @@
+[
+  {
+    "width": 320,
+    "overflow": true,
+    "outside": [
+      {
+        "tag": "SPAN",
+        "class": "display s-y_bCXRrkrYfP",
+        "text": "Designer for teams that don’t have one yet. Whatever you’re building, I care how it",
+        "box": {
+          "x": 16,
+          "y": 907,
+          "width": 327,
+          "height": 581,
+          "top": 907,
+          "right": 343,
+          "bottom": 1488,
+          "left": 16
+        }
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "overflow": false,
+    "outside": []
+  },
+  {
+    "width": 390,
+    "overflow": false,
+    "outside": []
+  },
+  {
+    "width": 420,
+    "overflow": false,
+    "outside": []
+  },
+  {
+    "width": 700,
+    "overflow": false,
+    "outside": []
+  },
+  {
+    "width": 701,
+    "overflow": false,
+    "outside": []
+  },
+  {
+    "width": 768,
+    "overflow": false,
+    "outside": []
+  },
+  {
+    "width": 900,
+    "overflow": false,
+    "outside": []
+  },
+  {
+    "width": 1100,
+    "overflow": false,
+    "outside": []
+  },
+  {
+    "width": 1200,
+    "overflow": false,
+    "outside": []
+  },
+  {
+    "width": 1440,
+    "overflow": false,
+    "outside": []
+  },
+  {
+    "control": "Motion",
+    "before": "false",
+    "after": "true",
+    "persisted": "true",
+    "pass": true
+  },
+  {
+    "control": "Grid",
+    "before": "false",
+    "after": "true",
+    "persisted": "true",
+    "pass": true
+  },
+  {
+    "control": "Theme",
+    "before": "false",
+    "after": "true",
+    "persisted": "true",
+    "pass": true
+  },
+  {
+    "navigation": "http://127.0.0.1:4173/work/parc/"
+  },
+  {
+    "navigation": "http://127.0.0.1:4173/work/"
+  },
+  {
+    "navigation": "http://127.0.0.1:4173/contact/"
+  }
+]

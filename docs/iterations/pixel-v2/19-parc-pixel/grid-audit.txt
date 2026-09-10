@@ -1,0 +1,112 @@
+
+== 1440 /
+font sizes in use: {"PARC Pixel Web 12.5":27,"Jacquard 24 43":1,"Press Start 2P 16":11,"Jacquard 24 344":1,"PARC Pixel Bold Web 55":3,"Jacquard 24 129":3,"Jacquard 24 86":2,"PARC Pixel Bold Web 41.25":4,"Jacquard 24 258":1}
+canvases: 2 misaligned: []
+fractional/off-table text boxes: 0 []
+intermediate px % (0 = crisp): {"hero":0,"who":0,"cards":44.41,"invite":0}
+
+== 1440 /work/
+font sizes in use: {"PARC Pixel Web 12.5":44,"Jacquard 24 43":1,"Press Start 2P 16":14,"Jacquard 24 258":1,"PARC Pixel Web 25":1,"PARC Pixel Bold Web 55":4,"Jersey 15 27":8,"PARC Pixel Bold Web 41.25":4}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 1440 /contact/
+font sizes in use: {"PARC Pixel Web 12.5":18,"Jacquard 24 43":1,"Press Start 2P 16":7,"PARC Pixel Bold Web 55":1,"Jacquard 24 258":1,"Jersey 15 27":1}
+canvases: 1 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 1440 /work/parc/
+font sizes in use: {"PARC Pixel Web 12.5":35,"Jacquard 24 43":1,"Press Start 2P 16":9,"PARC Pixel Bold Web 110":1,"Jersey 15 54":2,"Jersey 15 27":22,"PARC Pixel Bold Web 41.25":7}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 1440 /work/xrpcafe/
+font sizes in use: {"PARC Pixel Web 12.5":31,"Jacquard 24 43":1,"Press Start 2P 16":9,"PARC Pixel Bold Web 110":1,"Jersey 15 54":2,"Jersey 15 27":16,"PARC Pixel Bold Web 41.25":4}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 1440 /work/firstledger/
+font sizes in use: {"PARC Pixel Web 12.5":31,"Jacquard 24 43":1,"Press Start 2P 16":9,"PARC Pixel Bold Web 110":1,"Jersey 15 54":2,"Jersey 15 27":18,"PARC Pixel Bold Web 41.25":5}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 1440 /work/do-androids-dream/
+font sizes in use: {"PARC Pixel Web 12.5":23,"Jacquard 24 43":1,"Press Start 2P 16":8,"PARC Pixel Bold Web 110":1,"Jersey 15 54":1,"Jersey 15 27":8,"PARC Pixel Bold Web 41.25":3}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 1440 /work/firststrike/
+font sizes in use: {"PARC Pixel Web 12.5":27,"Jacquard 24 43":1,"Press Start 2P 16":8,"PARC Pixel Bold Web 110":1,"Jersey 15 54":1,"Jersey 15 27":12,"PARC Pixel Bold Web 41.25":6}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 1440 /work/sonde/
+font sizes in use: {"PARC Pixel Web 12.5":34,"Jacquard 24 43":1,"Press Start 2P 16":8,"PARC Pixel Bold Web 110":1,"Jersey 15 54":1,"Jersey 15 27":20,"PARC Pixel Bold Web 41.25":6}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 1440 /work/parc-site/
+font sizes in use: {"PARC Pixel Web 12.5":35,"Jacquard 24 43":1,"Press Start 2P 16":9,"PARC Pixel Bold Web 110":1,"Jersey 15 54":3,"Jersey 15 27":23,"PARC Pixel Bold Web 41.25":10}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 1440 /work/jade-aesthetics/
+font sizes in use: {"PARC Pixel Web 12.5":34,"Jacquard 24 43":1,"Press Start 2P 16":9,"PARC Pixel Bold Web 110":1,"Jersey 15 54":1,"Jersey 15 27":22,"PARC Pixel Bold Web 41.25":8}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 390 /
+font sizes in use: {"PARC Pixel Web 12.5":26,"Jacquard 24 43":3,"Press Start 2P 16":7,"Jacquard 24 129":1,"PARC Pixel Bold Web 41.25":3,"Jacquard 24 86":4,"PARC Pixel Bold Web 27.5":4}
+canvases: 2 misaligned: []
+fractional/off-table text boxes: 0 []
+intermediate px % (0 = crisp): {"hero":0,"who":0,"cards":41.86,"invite":0}
+
+== 390 /work/
+font sizes in use: {"PARC Pixel Web 12.5":44,"Jacquard 24 43":1,"Press Start 2P 16":10,"Jacquard 24 86":1,"PARC Pixel Bold Web 27.5":8,"Jersey 15 27":8}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 390 /contact/
+font sizes in use: {"PARC Pixel Web 12.5":17,"Jacquard 24 43":1,"Press Start 2P 16":3,"PARC Pixel Bold Web 41.25":1,"Jacquard 24 86":1,"Jersey 15 27":1}
+canvases: 1 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 390 /work/parc/
+font sizes in use: {"PARC Pixel Web 12.5":34,"Jacquard 24 43":1,"Press Start 2P 16":5,"PARC Pixel Bold Web 41.25":1,"Jersey 15 27":24,"PARC Pixel Bold Web 27.5":7}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 390 /work/xrpcafe/
+font sizes in use: {"PARC Pixel Web 12.5":30,"Jacquard 24 43":1,"Press Start 2P 16":5,"PARC Pixel Bold Web 41.25":1,"Jersey 15 27":18,"PARC Pixel Bold Web 27.5":4}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 390 /work/firstledger/
+font sizes in use: {"PARC Pixel Web 12.5":30,"Jacquard 24 43":1,"Press Start 2P 16":5,"PARC Pixel Bold Web 41.25":1,"Jersey 15 27":20,"PARC Pixel Bold Web 27.5":5}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 390 /work/do-androids-dream/
+font sizes in use: {"PARC Pixel Web 12.5":22,"Jacquard 24 43":1,"Press Start 2P 16":4,"PARC Pixel Bold Web 41.25":1,"Jersey 15 27":9,"PARC Pixel Bold Web 27.5":3}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 390 /work/firststrike/
+font sizes in use: {"PARC Pixel Web 12.5":26,"Jacquard 24 43":1,"Press Start 2P 16":4,"PARC Pixel Bold Web 27.5":7,"Jersey 15 27":13}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 390 /work/sonde/
+font sizes in use: {"PARC Pixel Web 12.5":33,"Jacquard 24 43":1,"Press Start 2P 16":4,"PARC Pixel Bold Web 41.25":1,"Jersey 15 27":21,"PARC Pixel Bold Web 27.5":6}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 390 /work/parc-site/
+font sizes in use: {"PARC Pixel Web 12.5":34,"Jacquard 24 43":1,"Press Start 2P 16":5,"PARC Pixel Bold Web 41.25":1,"Jersey 15 27":26,"PARC Pixel Bold Web 27.5":10}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 390 /work/jade-aesthetics/
+font sizes in use: {"PARC Pixel Web 12.5":33,"Jacquard 24 43":1,"Press Start 2P 16":5,"PARC Pixel Bold Web 27.5":9,"Jersey 15 27":23}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []

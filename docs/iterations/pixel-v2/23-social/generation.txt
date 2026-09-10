@@ -1,0 +1,19 @@
+[
+  { image: 'home', width: 1200, height: 630, bytes: 7383 },
+  { image: 'work', width: 1200, height: 630, bytes: 197296 },
+  { image: 'contact', width: 1200, height: 630, bytes: 6965 },
+  { image: 'parc', width: 1200, height: 630, bytes: 27256 },
+  { image: 'xrpcafe', width: 1200, height: 630, bytes: 13604 },
+  { image: 'firstledger', width: 1200, height: 630, bytes: 329008 },
+  {
+    image: 'do-androids-dream',
+    width: 1200,
+    height: 630,
+    bytes: 360528
+  },
+  { image: 'firststrike', width: 1200, height: 630, bytes: 486349 },
+  { image: 'sonde', width: 1200, height: 630, bytes: 75465 },
+  { image: 'parc-site', width: 1200, height: 630, bytes: 37417 },
+  { image: 'jade-aesthetics', width: 1200, height: 630, bytes: 275457 },
+  { image: 'pocketwatch', width: 1200, height: 630, bytes: 69824 }
+]

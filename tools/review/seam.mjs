@@ -1,0 +1,10 @@
+import { chromium } from '/Users/twocakes/Desktop/PROJECTS/timothyali2/node_modules/@playwright/test/index.mjs';
+const b=await chromium.launch({executablePath:'/Users/twocakes/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell'});
+const p=await (await b.newContext({viewport:{width:1440,height:900}})).newPage();
+(async()=>{})();
+const srv=await import('node:child_process'); const proc=srv.spawn('python3',['-m','http.server','4173','--directory','/Users/twocakes/Desktop/PROJECTS/timothyali2/build']); await new Promise(r=>setTimeout(r,800));
+await p.goto('http://localhost:4173/',{waitUntil:'networkidle'}); await p.waitForTimeout(2500);
+const y=await p.evaluate(()=>{const q=document.querySelector('.quality').getBoundingClientRect();return q.top+scrollY});
+await p.evaluate(v=>scrollTo(0,v-450),y); await p.waitForTimeout(800);
+await p.screenshot({path:'tools/review/out/seam.png',clip:{x:0,y:0,width:1440,height:900}});
+await b.close(); proc.kill();

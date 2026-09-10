@@ -1,0 +1,21 @@
+capture                               size (before>after)     differing   share      first row
+------------------------------------  ----------------------  ----------  ---------  ---------
+contact-1440-dark.png                 1440x1006>1440x1008     6584        0.4536%    918
+contact-390-dark.png                  390x960>390x989         57707       14.9612%   162
+home-1440-dark-nojs.png               1440x3717               0           0          -
+home-1440-dark.png                    1440x3732               0           0          -
+home-1440-light.png                   1440x3732               0           0          -
+home-390-dark.png                     390x3905>390x3948       64045       4.1595%    2274
+work-1440-dark.png                    1440x2538>1440x2540     7328        0.2003%    2450
+work-1440-light.png                   1440x2538>1440x2540     7280        0.1990%    2450
+work-390-dark.png                     390x3126>390x3128       3844        0.3151%    2950
+work-do-androids-dream-1440-dark.png  1440x4726>1440x4728     7328        0.1076%    4638
+work-do-androids-dream-390-dark.png   390x4515>390x4517       3844        0.2182%    4339
+work-firstledger-1440-dark.png        1440x7596>1440x7598     7328        0.0670%    7508
+work-firstledger-390-dark.png         390x7468>390x7470       3844        0.1319%    7292
+work-parc-1440-dark.png               1440x12540>1440x12542   7328        0.0406%    12452
+work-parc-390-dark.png                390x14854>390x14856     3844        0.0663%    14678
+work-xrpcafe-1440-dark.png            1440x6970>1440x6972     7328        0.0730%    6882
+work-xrpcafe-390-dark.png             390x10341>390x10343     3844        0.0953%    10165
+
+17 captures, 14 differing.

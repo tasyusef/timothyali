@@ -1,0 +1,42 @@
+/* ------------------------------------------------------------------
+   Layer 3 — named type roles.
+
+   Sizes are literals on purpose: every one is a row of the cell table at
+   the top of app.css (cells per em × cell size), so the table is the
+   documentation and a token would hide the arithmetic. Only the face
+   stacks and the ladders are named.
+
+   role         face            size / line-height ladder
+   .blackletter Jacquard 24     family only, line-height 1
+   .display-xl  (inherited)     258 → 172 (≤1100) → 129 (≤700) → 86 (≤420)
+   .display     PARC Pixel Bold 55/56 → 41.25/48 (≤700)   (cell 4 → cell 3)
+   .display-s   PARC Pixel Bold 41.25/48 → 27.5/32 (≤700)  (cell 3 → cell 2)
+   .lead        Jersey 15       54/64 → 27/32 (≤700)
+   .body        Jersey 15       27/32
+   .lbl         PARC Pixel      12.5/16, uppercase        (cell 2)
+   .mono        Press Start 2P  16/16, uppercase, nowrap
+   .dim         —               opacity only
+   ------------------------------------------------------------------ */
+.blackletter{font-family:var(--face-blackletter);font-weight:400;line-height:1}
+.display{font-family:var(--face-display);font-weight:700;font-size:55px;line-height:56px;text-transform:uppercase}
+.display-s{font-family:var(--face-display);font-weight:700;font-size:41.25px;line-height:48px;text-transform:uppercase}
+.body{font-family:var(--face-text);font-size:27px;line-height:32px}
+.lead{font-family:var(--face-text);font-size:54px;line-height:64px}
+.lbl{font-family:var(--face-label);font-size:12.5px;line-height:16px;text-transform:uppercase}
+.mono{font-family:var(--face-mono);font-size:16px;line-height:16px;text-transform:uppercase;white-space:nowrap}
+.dim{opacity:var(--dim)}
+
+/* The one-word display size. Carries no face of its own — it is always
+   worn with .blackletter — so it must come after .blackletter to win the
+   line-height. Replaces the three route-local `.xl` copies. */
+.display-xl{font-size:258px;line-height:258px;display:block}
+
+@media(max-width:1100px){.display-xl{font-size:172px;line-height:172px}}
+@media(max-width:700px){
+  .display-xl{font-size:129px;line-height:129px}
+  .display{font-size:41.25px;line-height:48px}
+  .display-s{font-size:27.5px;line-height:32px}
+  .lead{font-size:27px;line-height:32px}
+}
+/* “building.” is 372px at 129, wider than a 375 phone (0075) */
+@media(max-width:420px){.display-xl{font-size:86px;line-height:86px}}

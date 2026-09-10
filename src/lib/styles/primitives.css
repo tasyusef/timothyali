@@ -1,0 +1,52 @@
+/* ------------------------------------------------------------------
+   Layer 1 — primitives. Raw values with no meaning attached yet.
+   Nothing here refers to a page, a role or a state; tokens.css does that.
+   ------------------------------------------------------------------ */
+:root{
+  /* colour primitives — the whole palette */
+  --yellow:#f2d600;
+  --ink:#11110e;
+  --white:#f4f4f0;
+  --yellow-deep:#6f6200;  /* the accent when it is text on the light ground (5.6:1 on --white) */
+
+  /* spacing — one unit and the steps actually used on the site.
+     The name is the number of units: --s4 is 4 × 8px. */
+  --u:8px;
+  --s1:8px;
+  --s2:16px;
+  --s3:24px;
+  --s4:32px;
+  --s6:48px;
+  --s8:64px;
+  --s12:96px;
+  --s16:128px;
+
+  /* grid cells — three snap units coexist by design (decision 0054) */
+  --cell-text:var(--u);   /* layout and type: 8px */
+  --cell-image:2px;       /* photographs and video: 2px */
+  --cell-texture:16px;    /* one ASCII cell: a 5×7 glyph drawn with 2px pixels */
+
+  /* face stacks — every face is a bitmap design; see the cell table in app.css */
+  --face-blackletter:'Jacquard 24',serif;
+  --face-display:'PARC Pixel Bold Web',sans-serif;   /* caps only; 13.75 cells/em (0078) */
+  --face-text:'Jersey 15',sans-serif;
+  --face-label:'PARC Pixel Web',monospace;           /* caps only; 6.25 cells/em (0078) */
+  --face-mono:'Press Start 2P',monospace;
+  --face-root:'Jersey 15',ui-monospace,monospace;
+
+  /* motion — nothing is continuous, everything steps */
+  --tick-cursor:1s;   /* one blink period, stepped 2 jump-none */
+  --nudge:8px;        /* hover displacement: exactly one cell */
+}
+
+/* ------------------------------------------------------------------
+   Breakpoints. CSS media queries cannot read custom properties, so these
+   are documentation, not tokens. Every @media in src/ uses one of these
+   four widths and no others (0075 folded 1300 into 1100 and moved the phone floor
+   from 380 to 420, which the status strip already used):
+
+     420   phone floor — .display-xl drops to 86 (“building.” is 372px at 129); status strip keeps the path alone
+     700   phone — gutter 16, header stacks, display/lead step down
+     900   two-column layouts collapse to one; study title drops to 86
+    1100   .display-xl drops to 172; study title drops to 129; Work row title drops to 41
+   ------------------------------------------------------------------ */

@@ -1,0 +1,5 @@
+{
+  "pass": true,
+  "errors": [],
+  "checks": "Client navigation Home → PARC → Contact updates a single OG image; favicon and PNG assets return HTTP 200."
+}

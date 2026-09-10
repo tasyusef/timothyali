@@ -1,0 +1,72 @@
+
+== 1440 /
+font sizes in use: {"Silkscreen 16":24,"Jacquard 24 43":1,"Press Start 2P 16":11,"Jacquard 24 344":1,"Jersey 25 82":3,"Jacquard 24 129":3,"Jacquard 24 86":2,"Jersey 25 41":4,"Jacquard 24 258":1}
+canvases: 2 misaligned: []
+fractional/off-table text boxes: 0 []
+intermediate px % (0 = crisp): {"hero":0,"who":0,"cards":47.8,"invite":0}
+
+== 1440 /work/
+font sizes in use: {"Silkscreen 16":23,"Jacquard 24 43":1,"Press Start 2P 16":10,"Jacquard 24 258":1,"Silkscreen 32":1,"Jersey 25 82":4,"Jersey 15 27":4}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 1440 /contact/
+font sizes in use: {"Silkscreen 16":15,"Jacquard 24 43":1,"Press Start 2P 16":7,"Jersey 25 82":1,"Jacquard 24 258":1,"Jersey 15 27":1}
+canvases: 1 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 1440 /work/parc/
+font sizes in use: {"Silkscreen 16":32,"Jacquard 24 43":1,"Press Start 2P 16":9,"Jacquard 24 172":1,"Jersey 15 54":2,"Jersey 15 27":22,"Jersey 25 41":7}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 1440 /work/xrpcafe/
+font sizes in use: {"Silkscreen 16":28,"Jacquard 24 43":1,"Press Start 2P 16":9,"Jacquard 24 172":1,"Jersey 15 54":2,"Jersey 15 27":16,"Jersey 25 41":4}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 1440 /work/firstledger/
+font sizes in use: {"Silkscreen 16":28,"Jacquard 24 43":1,"Press Start 2P 16":9,"Jacquard 24 172":1,"Jersey 15 54":2,"Jersey 15 27":18,"Jersey 25 41":5}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 1440 /work/do-androids-dream/
+font sizes in use: {"Silkscreen 16":20,"Jacquard 24 43":1,"Press Start 2P 16":8,"Jacquard 24 172":1,"Jersey 15 54":1,"Jersey 15 27":8,"Jersey 25 41":3}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 390 /
+font sizes in use: {"Silkscreen 16":23,"Jacquard 24 43":3,"Press Start 2P 8":3,"Jacquard 24 129":2,"Jersey 25 41":7,"Jacquard 24 86":3,"Press Start 2P 16":6}
+canvases: 2 misaligned: []
+fractional/off-table text boxes: 0 []
+intermediate px % (0 = crisp): {"hero":0,"who":0,"cards":45.25,"invite":0}
+
+== 390 /work/
+font sizes in use: {"Silkscreen 16":23,"Jacquard 24 43":1,"Press Start 2P 8":3,"Jacquard 24 129":1,"Jersey 25 41":4,"Jersey 15 27":4,"Press Start 2P 16":5}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 390 /contact/
+font sizes in use: {"Silkscreen 16":14,"Jacquard 24 43":1,"Press Start 2P 8":3,"Jersey 25 41":1,"Jacquard 24 129":1,"Jersey 15 27":1,"Press Start 2P 16":2}
+canvases: 1 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 390 /work/parc/
+font sizes in use: {"Silkscreen 16":31,"Jacquard 24 43":1,"Press Start 2P 8":3,"Press Start 2P 16":4,"Jacquard 24 86":1,"Jersey 15 27":24,"Jersey 25 41":7}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 390 /work/xrpcafe/
+font sizes in use: {"Silkscreen 16":27,"Jacquard 24 43":1,"Press Start 2P 8":3,"Press Start 2P 16":4,"Jacquard 24 86":1,"Jersey 15 27":18,"Jersey 25 41":4}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 390 /work/firstledger/
+font sizes in use: {"Silkscreen 16":27,"Jacquard 24 43":1,"Press Start 2P 8":3,"Press Start 2P 16":4,"Jacquard 24 86":1,"Jersey 15 27":20,"Jersey 25 41":5}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []
+
+== 390 /work/do-androids-dream/
+font sizes in use: {"Silkscreen 16":19,"Jacquard 24 43":2,"Press Start 2P 8":3,"Press Start 2P 16":3,"Jersey 15 27":9,"Jersey 25 41":3}
+canvases: 0 misaligned: []
+fractional/off-table text boxes: 0 []

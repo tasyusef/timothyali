@@ -1,0 +1,74 @@
+[
+  {
+    "image": "home",
+    "width": 1200,
+    "height": 630,
+    "bytes": 8965
+  },
+  {
+    "image": "work",
+    "width": 1200,
+    "height": 630,
+    "bytes": 118403
+  },
+  {
+    "image": "contact",
+    "width": 1200,
+    "height": 630,
+    "bytes": 9501
+  },
+  {
+    "image": "parc",
+    "width": 1200,
+    "height": 630,
+    "bytes": 31559
+  },
+  {
+    "image": "xrpcafe",
+    "width": 1200,
+    "height": 630,
+    "bytes": 18112
+  },
+  {
+    "image": "firstledger",
+    "width": 1200,
+    "height": 630,
+    "bytes": 300411
+  },
+  {
+    "image": "do-androids-dream",
+    "width": 1200,
+    "height": 630,
+    "bytes": 333914
+  },
+  {
+    "image": "firststrike",
+    "width": 1200,
+    "height": 630,
+    "bytes": 446991
+  },
+  {
+    "image": "sonde",
+    "width": 1200,
+    "height": 630,
+    "bytes": 72547
+  },
+  {
+    "image": "parc-site",
+    "width": 1200,
+    "height": 630,
+    "bytes": 41193
+  },
+  {
+    "image": "jade-aesthetics",
+    "width": 1200,
+    "height": 630,
+    "bytes": 252793
+  },
+  {
+    "image": "pocketwatch",
+    "width": 1200,
+    "height": 630,
+    "bytes": 70503
+  }
+]

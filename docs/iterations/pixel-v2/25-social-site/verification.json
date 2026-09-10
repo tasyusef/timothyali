@@ -1,0 +1,86 @@
+[
+  {
+    "path": "/",
+    "image": "/og/home.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/work/",
+    "image": "/og/work.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/contact/",
+    "image": "/og/contact.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/work/parc/",
+    "image": "/og/parc.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/work/xrpcafe/",
+    "image": "/og/xrpcafe.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/work/firstledger/",
+    "image": "/og/firstledger.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/work/do-androids-dream/",
+    "image": "/og/do-androids-dream.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/work/firststrike/",
+    "image": "/og/firststrike.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/work/sonde/",
+    "image": "/og/sonde.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/work/parc-site/",
+    "image": "/og/parc-site.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/work/jade-aesthetics/",
+    "image": "/og/jade-aesthetics.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/work/pocketwatch/",
+    "image": "/og/pocketwatch.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  }
+]

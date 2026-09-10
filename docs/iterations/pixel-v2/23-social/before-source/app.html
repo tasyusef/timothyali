@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- The ink hex below duplicates INK in src/lib/tokens.ts / --ink in
+         src/lib/styles/primitives.css on purpose: this runs before any stylesheet
+         or module loads. Change it in all three or none. -->
+    <meta name="theme-color" content="#11110e" />
+    <script>try{document.documentElement.dataset.theme=localStorage.getItem("tim-theme")==="light"?"light":"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+    %sveltekit.head%
+  </head>
+  <body data-sveltekit-preload-data="hover"><div style="display: contents">%sveltekit.body%</div></body>
+</html>
