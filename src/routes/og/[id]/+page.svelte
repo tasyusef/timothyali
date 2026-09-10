@@ -12,7 +12,13 @@
   import Picture from '$lib/components/Picture.svelte';
   import { projects, last } from '$lib/work';
   import { onMount } from 'svelte';
+  import { page } from '$app/state';
   let { data } = $props();
+  // Story field variants for review: /og/story?mode=fall&seed=5&density=.6 (defaults: the hero's sky).
+  const q = $derived(page.url.searchParams);
+  const storyMode = $derived((q.get('mode') ?? 'sky') as 'noise' | 'fall' | 'scan' | 'sparse' | 'sky' | 'bands');
+  const storySeed = $derived(Number(q.get('seed') ?? 3));
+  const storyDensity = $derived(Number(q.get('density') ?? 0.9));
   // Same rule as the study page: a title may wrap, a word may not. When the longest
   // word will not fit the column at 55px, the title drops one cell to 41.25/48.
   let h1: HTMLElement | undefined = $state(); let probe: HTMLElement | undefined = $state();
@@ -32,7 +38,7 @@
     <!-- Instagram story, 1080×1920, viewed at about a third of that: the small roles step
          up their own ladder (label 12.5 → 25, arrow 16 → 24) and everything sits inside the
          story safe zone (y 270–1540). The generator hides the chrome for this one. -->
-    <Band class="og-story" mode="sky" seed={3} density={0.9}>
+    <Band class="og-story" mode={storyMode} seed={storySeed} density={storyDensity}>
       <h1 class="blackletter story-name">new<br />website.</h1>
       <Cta href="https://www.timothyali.com" class="lbl story-cta">timothyali.com <Arrow /></Cta>
     </Band>
