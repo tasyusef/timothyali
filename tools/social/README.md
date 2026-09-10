@@ -46,3 +46,12 @@ slug never clips, and screenshots `/og/<id>` at 1200×630. The route declares
 `entries = () => []`, so it is never crawled and never ships; `svelte.config.js`
 names it as the one unseen prerenderable route the build may ignore. Adding a study
 still includes it automatically. Contact sheet: `docs/iterations/pixel-v2/25-social-site/contact-sheet.png`.
+
+## Story (decision 0087)
+
+`/og/story` is the Instagram story composition (1080×1920; the generator hides the chrome).
+`pnpm social:generate` writes the still to `docs/social/story-launch.png`.
+`node tools/social/story-video.mjs [seconds]` writes `docs/social/story-launch.mp4`: motion on,
+frames captured under a paused fake clock, encoded with `ffmpeg-static`.
+`node tools/social/story-variants.mjs` renders a sheet of field settings; the route takes
+`mode`, `seed`, `density` and `flip` as query parameters for that.

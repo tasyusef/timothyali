@@ -11,16 +11,17 @@
   import MetaLine from '$lib/components/MetaLine.svelte';
   import Picture from '$lib/components/Picture.svelte';
   import { projects, last } from '$lib/work';
+  import { STEP } from '$lib/tokens';
   import { onMount } from 'svelte';
   import { page } from '$app/state';
   let { data } = $props();
-  // Story field: /og/story?mode=bands&seed=7&density=.9&flip=1 are the defaults (bands, mirrored so the
+  // Story field: /og/story?mode=bands&seed=7&density=.7&flip=1 are the defaults (bands, mirrored so the
   // heavy side is on the right, opposite the words); any of them can be overridden for review.
   const q = $derived(page.url.searchParams);
   const storyMode = $derived((q.get('mode') ?? 'bands') as 'noise' | 'fall' | 'scan' | 'sparse' | 'sky' | 'bands');
   const storySeed = $derived(Number(q.get('seed') ?? 7));
   const storyFlip = $derived((q.get('flip') ?? '1') !== '0');
-  const storyDensity = $derived(Number(q.get('density') ?? 0.9));
+  const storyDensity = $derived(Number(q.get('density') ?? 0.7));
   // Same rule as the study page: a title may wrap, a word may not. When the longest
   // word will not fit the column at 55px, the title drops one cell to 41.25/48.
   let h1: HTMLElement | undefined = $state(); let probe: HTMLElement | undefined = $state();
@@ -41,7 +42,7 @@
          up their own ladder (label 12.5 → 25, arrow 16 → 24) and everything sits inside the
          story safe zone (y 270–1540). The generator hides the chrome for this one. -->
     <Band class="og-story" mode={storyMode} seed={storySeed} density={storyDensity} flip={storyFlip}>
-      <h1 class="blackletter story-name">new<br />website.</h1>
+      <h1 class="blackletter story-name"><Decode text="new" step={STEP} /><br /><Decode text="website." step={STEP} delay={300} /></h1>
       <Cta href="https://www.timothyali.com" class="lbl story-cta">timothyali.com <Arrow /></Cta>
     </Band>
   {:else if data.id === 'work'}
