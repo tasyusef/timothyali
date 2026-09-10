@@ -73,7 +73,7 @@
 
 /* Story — full frame, no chrome (the generator hides it), content in the safe zone */
 .og.story{height:1920px}
-.og.story :global(.band){height:1920px;padding:0 var(--gutter) 400px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;gap:var(--s6)}.story-name{font-size:258px;line-height:258px}
+.og.story :global(.band){height:1920px;padding:0 var(--gutter) 400px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;gap:var(--s6)}.story-name{font-size:344px;line-height:272px}
 .og :global(.story-cta){font-size:25px;line-height:32px}
 .og :global(.story-cta .mono){font-size:24px;line-height:32px}
 
