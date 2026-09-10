@@ -32,7 +32,7 @@
     <!-- Instagram story, 1080×1920, viewed at about a third of that: the small roles step
          up their own ladder (label 12.5 → 25, arrow 16 → 24) and everything sits inside the
          story safe zone (y 270–1540). The generator hides the chrome for this one. -->
-    <Band class="og-story" mode="sky" seed={3} density={0.9} avoid=".story-name, .story-cta">
+    <Band class="og-story" mode="sky" seed={3} density={0.9}>
       <h1 class="blackletter story-name">new<br />website.</h1>
       <Cta href="https://www.timothyali.com" class="lbl story-cta">timothyali.com <Arrow /></Cta>
     </Band>
@@ -73,7 +73,7 @@
 
 /* Story — full frame, no chrome (the generator hides it), content in the safe zone */
 .og.story{height:1920px}
-.og.story :global(.band){height:1920px;padding:0 var(--gutter);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:var(--s6)}.story-name{font-size:258px;line-height:258px}
+.og.story :global(.band){height:1920px;padding:0 var(--gutter) 400px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;gap:var(--s6)}.story-name{font-size:258px;line-height:258px}
 .og :global(.story-cta){font-size:25px;line-height:32px}
 .og :global(.story-cta .mono){font-size:24px;line-height:32px}
 
