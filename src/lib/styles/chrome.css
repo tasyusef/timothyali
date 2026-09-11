@@ -50,11 +50,13 @@
   .site-header{grid-template-columns:auto 1fr;grid-template-rows:48px 32px;gap:var(--s1);height:104px;padding:var(--s1) var(--gutter)}
   .wordmark{font-size:43px;align-self:end}
   .site-header nav{grid-column:1/-1;justify-self:stretch;gap:0;margin:0 calc(-1*var(--gutter))}
-  /* Three equal thirds of 700 are 233.33px; the first two are rounded to whole 2px cells
-     and the last takes the remainder, centring its label inside an even-width track so
-     the text still lands on whole pixels (0089). */
-  .site-header nav a{flex:none;width:round(down,calc(100% / 3),2px);text-align:center;padding:var(--s1) 0}
+  /* Four equal quarters (Toolbox is the fourth item, 0092); the first three are rounded
+     to whole 2px cells and the last takes the remainder, centring its label inside an
+     even-width track so the text still lands on whole pixels (0089). */
+  .site-header nav a{flex:none;width:round(down,calc(100% / 4),2px);text-align:center;padding:var(--s1) 0}
   .site-header nav a:last-child{flex:1 1 0;min-width:0;width:auto;white-space:nowrap;display:grid;grid-template-columns:round(down,100%,2px)}
+  /* Four numbered labels do not fit 320: the numbers go, the words stay (0092). */
+  .site-header nav a b{display:none}
   .hide-m{display:none}
   /* Footer as a settings list (decision 0072): each toggle is a 32px row, label left,
      state right, then the copyright line. Nothing wraps at 320. */
@@ -62,6 +64,11 @@
   .global-footer .controls{order:-1;flex-direction:column;gap:0}
   .global-footer button{display:flex;justify-content:space-between;padding:var(--s1) 0}
   .global-footer button:hover{background:none;color:inherit}
+}
+@media(max-width:420px){
+  /* CONTACT and TOOLBOX are 82px each, wider than a quarter of 320: below the phone
+     floor the four items take their own widths and share what is left (0092). */
+  .site-header nav a,.site-header nav a:last-child{flex:1 1 auto;width:auto;display:block;padding:var(--s1) 0}
 }
 
 /* PX-22: Home closing controls align with the selected-work columns.

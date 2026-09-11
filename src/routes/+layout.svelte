@@ -77,6 +77,7 @@
       <a href="/" aria-current={pathname === '/' ? 'page' : undefined}><b>01</b>Index</a>
       <a href="/work/" aria-current={pathname.startsWith('/work') ? 'page' : undefined}><b>02</b>Work</a>
       <a href="/contact/" aria-current={pathname.startsWith('/contact') ? 'page' : undefined}><b>03</b>Contact</a>
+      <a href="/toolbox/" aria-current={pathname.startsWith('/toolbox') ? 'page' : undefined}><b>04</b>Toolbox</a>
     </nav>
   </header>
   <div class="readout mono" aria-label="Status">
