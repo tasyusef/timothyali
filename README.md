@@ -34,4 +34,4 @@ Read `docs/design-system.md` for the tokens, type roles and components, `docs/al
 
 ## Contact form
 
-The form on `/contact/` posts to `api/contact.js`, a Vercel Function that relays through Resend. It needs `RESEND_API_KEY` in the Vercel project; `CONTACT_TO` and `CONTACT_FROM` are optional (decision 0090). Nothing runs in `pnpm dev` — the function only exists on Vercel, so locally the form reports the relay as unconfigured.
+The form on `/contact/` posts to `api/contact.js`, a Vercel Function that relays through Resend. It needs `RESEND_API_KEY` in the Vercel project; `CONTACT_TO` and `CONTACT_FROM` are optional (decision 0090); timothyali.com is verified in Resend and `CONTACT_FROM` is set to a sender on it. Nothing runs in `pnpm dev` — the function only exists on Vercel, so locally the form reports the relay as unconfigured.
