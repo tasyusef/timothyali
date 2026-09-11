@@ -24,19 +24,25 @@
 .lead{font-family:var(--face-text);font-size:54px;line-height:64px}
 .lbl{font-family:var(--face-label);font-size:12.5px;line-height:16px;text-transform:uppercase}
 .mono{font-family:var(--face-mono);font-size:16px;line-height:16px;text-transform:uppercase;white-space:nowrap}
+/* An inline arrow or value in another face's line sits on the line top, where a flex Cta
+   would put it; on the baseline its 16px box hangs 4px lower and the line grows to 20 (0089). */
+:where(.lbl,.body,.display,.lead) .mono{vertical-align:top}
 .dim{opacity:var(--dim)}
 
 /* The one-word display size. Carries no face of its own — it is always
    worn with .blackletter — so it must come after .blackletter to win the
-   line-height. Replaces the three route-local `.xl` copies. */
-.display-xl{font-size:258px;line-height:258px;display:block}
+   line-height. Replaces the three route-local `.xl` copies. Jacquard's sizes
+   are 43 × cells, never a multiple of 8, so the line box is the next unit up
+   (258 → 264, 172 → 176, 129 → 136) and what follows stays on the grid; the
+   glyph sits 3px (or 2) below the box top, on whole pixels (0089). */
+.display-xl{font-size:258px;line-height:264px;display:block}
 
-@media(max-width:1100px){.display-xl{font-size:172px;line-height:172px}}
+@media(max-width:1100px){.display-xl{font-size:172px;line-height:176px}}
 @media(max-width:700px){
-  .display-xl{font-size:129px;line-height:129px}
+  .display-xl{font-size:129px;line-height:136px}
   .display{font-size:41.25px;line-height:48px}
   .display-s{font-size:27.5px;line-height:32px}
   .lead{font-size:27px;line-height:32px}
 }
 /* “building.” is 372px at 129, wider than a 375 phone (0075) */
-@media(max-width:420px){.display-xl{font-size:86px;line-height:86px}}
+@media(max-width:420px){.display-xl{font-size:86px;line-height:88px}}

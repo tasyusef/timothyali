@@ -21,7 +21,11 @@
 .site-header nav a:hover{background:var(--fg);color:var(--paper)}
 .site-header nav a[aria-current] b,.site-header nav a:hover b{opacity:1}
 
-.readout{position:relative;z-index:var(--z-chrome);display:flex;justify-content:space-between;gap:var(--s2);padding:var(--s1) var(--gutter);height:32px;overflow:hidden;white-space:nowrap}
+/* One flexible gap, not space-between: leftover width split four ways lands the items on
+   thirds of a pixel and blurs the bitmap face (0089). Place and time sit with the path;
+   the clock and SYS.OK sit at the right. */
+.readout{position:relative;z-index:var(--z-chrome);display:flex;gap:var(--s4);padding:var(--s1) var(--gutter);height:32px;overflow:hidden;white-space:nowrap}
+.readout .st-clock{margin-left:auto}
 .readout>span{flex:none;opacity:var(--dim)}
 .readout .path{margin-top:0;opacity:1;flex:0 1 auto;min-width:0}
 .readout .path-text{white-space:nowrap}
@@ -46,7 +50,11 @@
   .site-header{grid-template-columns:auto 1fr;grid-template-rows:48px 32px;gap:var(--s1);height:104px;padding:var(--s1) var(--gutter)}
   .wordmark{font-size:43px;align-self:end}
   .site-header nav{grid-column:1/-1;justify-self:stretch;gap:0;margin:0 calc(-1*var(--gutter))}
-  .site-header nav a{flex:1;text-align:center;padding:var(--s1) 0}
+  /* Three equal thirds of 700 are 233.33px; the first two are rounded to whole 2px cells
+     and the last takes the remainder, centring its label inside an even-width track so
+     the text still lands on whole pixels (0089). */
+  .site-header nav a{flex:none;width:round(down,calc(100% / 3),2px);text-align:center;padding:var(--s1) 0}
+  .site-header nav a:last-child{flex:1 1 0;min-width:0;width:auto;white-space:nowrap;display:grid;grid-template-columns:round(down,100%,2px)}
   .hide-m{display:none}
   /* Footer as a settings list (decision 0072): each toggle is a 32px row, label left,
      state right, then the copyright line. Nothing wraps at 320. */

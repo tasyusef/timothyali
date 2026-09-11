@@ -57,7 +57,7 @@ component renders reach it with `:global()` anchored on their own `<main>`.
 | `--u` | `8px` | the spacing unit |
 | `--s1 … --s16` | `8 16 24 32 48 64 96 128px` | the spacing scale; the name is the number of units (`--s4` = 4 × 8) |
 | `--cell-text` | `var(--u)` | layout and type snap unit |
-| `--cell-image` | `2px` | photographs and video snap unit (0054) |
+| `--cell-image` | `2px` | gallery column snap unit (0054); figure heights snap to `--u` since 0089 |
 | `--cell-texture` | `16px` | one ASCII cell |
 | `--face-blackletter` | `'Jacquard 24',serif` | emphasis words, wordmark |
 | `--face-display` | `'PARC Pixel Bold Web',sans-serif` | uppercase display (caps-only face; 13.75 cells/em; 0078) |
@@ -71,8 +71,9 @@ component renders reach it with `:global()` anchored on their own `<main>`.
 `--s12` (96) and `--s16` (128) are declared for scale completeness but have no reference:
 96 appears only inside `round(down,calc(100vh - 96px),8px)` and 128 only as a line-height,
 and both classes of value are deliberately left literal (see **What stayed literal**).
-`--cell-image` likewise has no CSS consumer — its three consumers (`Picture`, `Clip`,
-`rowColumns()`) are all JavaScript and use `CELL_IMAGE` from `src/lib/tokens.ts`.
+`--cell-image` likewise has no CSS consumer — `rowColumns()` is JavaScript and writes the
+`2px` into its `round()` formula. `Picture` and `Clip` floor their heights to `U` (8) through
+`src/lib/figure.ts` (0089), so what follows a figure is on the layout grid.
 
 Breakpoints are a comment block, not tokens — CSS media queries cannot read custom
 properties. The four in use are `420 700 900 1100` (0075 folded 1300 into 1100 and moved the phone floor from 380 to 420, shared with the status strip).
@@ -106,7 +107,7 @@ with the theme; `--accent-text` does (0075).
 (Ascii ambient cadence) · `STEP_SLOW=110 STEP=70 STEP_FAST=55` (Decode cadence).
 
 Consumed by `Ascii.svelte` (`cell`, `tick` defaults), `Decode.svelte` (`step` default),
-`Picture.svelte` / `Clip.svelte` (the 2px height snap), `+layout.svelte` (the `theme-color`
+`figure.ts` (the 8px height floor for `Picture` / `Clip`), `+layout.svelte` (the `theme-color`
 meta tag) and every Decode/Band call site, so no colour or cadence literal is left in a
 route. `src/app.html` keeps its own `#11110e` because that script runs before any
 stylesheet or module loads; all three places carry a comment naming the other two.
@@ -143,7 +144,7 @@ would hide the arithmetic.
 | Role | Face | Ladder |
 |---|---|---|
 | `.blackletter` | Jacquard 24 | family only, `line-height:1` |
-| `.display-xl` | — (always worn with `.blackletter`) | **258 → 172 (≤1100) → 129 (≤700) → 86 (≤420)**, `display:block` |
+| `.display-xl` | — (always worn with `.blackletter`) | **258/264 → 172/176 (≤1100) → 129/136 (≤700) → 86/88 (≤420)**, `display:block` |
 | `.display` | PARC Pixel Bold | 55/56 → 41.25/48 (≤700), uppercase (cell 4 → 3) |
 | `.display-s` | PARC Pixel Bold | 41.25/48 → 27.5/32 (≤700), uppercase (cell 3 → 2) |
 | `.lead` | Jersey 15 | 54/64 → 27/32 (≤700) |
@@ -174,8 +175,8 @@ JS-measured `.small` step-down), Home’s `.para` / `.words` / `.w` and
 | `Band` | `as='section'`, `class`, `mode seed tick density avoid`, children | `<svelte:element class="band …">` + `.band-bg` + `Ascii` | Home hero (`sky`), Home work/invitation rain (`as="div"`, `fall`), Contact (`fall`) |
 | `Ascii` | `mode cell px seed tick density avoid pad feather interactive reach` | the texture canvas | via `Band` only |
 | `Decode` | `text mode step delay cursor` | kinetic type + `sr-only` real text | 6 call sites |
-| `Picture` | `src x2 alt width height eager sizes` | a photograph at its own resolution | Home cards, Work rows, study galleries |
-| `Clip` | `src label width height` | a muted looping video | study galleries |
+| `Picture` | `src x2 alt width height eager sizes row` | a photograph at its own resolution | Home cards, Work rows, study galleries |
+| `Clip` | `src label width height row` | a muted looping video | study galleries |
 
 Deleted: `Dither.svelte` and `Ticker.svelte` (unused since PX-04/PX-07; confirmed by grep
 that nothing imports them, and both survive in the earlier `source.zip` archives).
@@ -351,3 +352,34 @@ A `.home-footer` variant aligns the utilities to the gallery grid, stacks below 
 and retains the mobile settings list with 48px rows. State labels use `--accent-text`;
 hover/focus invert both label and state together. Other routes’ footer geometry is unchanged.
 See decision 0081 and PX-22 for the proposal status and verification evidence.
+
+## Staying on the unit (0089)
+
+The audit that followed the launch (`tools/review/gridcheck.mjs`, `blocks.mjs`) found the
+type crisp everywhere but the *layout* drifting off the 8px unit after certain blocks. The
+rules that came out of it, all now in the CSS with a `(0089)` comment at the spot:
+
+- **Jacquard line boxes round up to the unit.** Its sizes are 43 × cells (86, 129, 172, 258)
+  and never a multiple of 8, so a block-level blackletter carries a line-height of the next
+  unit (264, 176, 136, 88); 344 is 8 × 43 and needs nothing. The glyph lands 2–4px below the
+  box top, on whole pixels. The inline uses keep `line-height:1`.
+- **Mixed faces on one line: only one box sets the line.** Two faces baseline-aligned in the
+  same line put their boxes at different offsets, and the line grows to their union (88 became
+  97, 64 became 65, 16 became 20). The fix is per case: an inline Jacquard word in a caps
+  line gets `line-height:0`; an inline sentence in a block that mixes roles sits on the line
+  top (`vertical-align:top`); a `.mono` arrow or value in a `.lbl`/`.body`/`.display`/`.lead`
+  line sits on the line top, where a flex `Cta` would put it anyway.
+- **Figures floor to the unit.** `Picture` and `Clip` set their height to `floor(w × aspect / 8) × 8`
+  (`figure.ts`), and a multi-image gallery row passes `row={{total, n}}` so every figure takes
+  the same row height and neighbours cannot step. `object-fit: cover` hides the ≤7px crop.
+- **No `space-between` over bitmap text.** Leftover width split n ways lands items on
+  fractions of a pixel; the status strip has one `margin-left:auto` gap instead, and the
+  stacked nav sizes its first two thirds with `round(down, …, 2px)` and lets the last one
+  centre inside an even grid track.
+- **Cursor `em` is measured in cells** (`calc(6em / 43)` wide, `17em / 43` tall, `2em / 43`
+  in) so it is whole pixels at every step of the name's ladder.
+- **Nothing hangs from an off-unit edge.** The 534px share frame is chrome geometry; its
+  content is placed from the top, and the study row's centring is rounded to the unit in JS.
+- **Right-aligned blocks** (`margin-left:auto`) are on whole pixels but not on the unit when
+  the content width is not — at 1100 or 390 nothing right-aligned can be. Accepted.
+- **The wordmark stays 43/43** inside the fixed 64px header; nothing flows after it.

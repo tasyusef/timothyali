@@ -1,15 +1,16 @@
 <script lang="ts">
   // A photograph at its own resolution (decision 0054: images are not resampled to the
-  // grid). The figure sets an integer height from its width, snapped to 2px, on mount and
-  // on resize, so the layout below it stays on the pixel grid while a lazy image loads.
+  // grid). The figure sets an integer height from its width, floored to the 8px unit, on
+  // mount and on resize, so the layout below it stays on the grid while a lazy image loads
+  // (`row` shares one height across a multi-image gallery row; see figure.ts, 0089).
   // `x2` is an optional higher-resolution file (1.75× the base, 2800px on the long side).
   import { onMount } from 'svelte';
-  import { CELL_IMAGE } from '$lib/tokens';
-  let { src, x2, alt, width = 1600, height = 900, eager = false, sizes = '(min-width: 1440px) 1376px, calc(100vw - 64px)' }: { src: string; x2?: string; alt: string; width?: number; height?: number; eager?: boolean; sizes?: string } = $props();
+  import { figureHeight, type RowShare } from '$lib/figure';
+  let { src, x2, alt, width = 1600, height = 900, eager = false, sizes = '(min-width: 1440px) 1376px, calc(100vw - 64px)', row }: { src: string; x2?: string; alt: string; width?: number; height?: number; eager?: boolean; sizes?: string; row?: RowShare } = $props();
   let host: HTMLElement;
   function size() {
-    const r = host.getBoundingClientRect(); if (!r.width) return;
-    host.style.height = Math.floor((r.width * (height / width)) / CELL_IMAGE) * CELL_IMAGE + 'px';
+    if (!host.getBoundingClientRect().width) return;
+    host.style.height = figureHeight(host, height / width, row) + 'px';
   }
   onMount(() => { size(); const ro = new ResizeObserver(size); ro.observe(host); return () => ro.disconnect(); });
 </script>

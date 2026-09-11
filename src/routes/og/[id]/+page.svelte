@@ -27,7 +27,13 @@
   let h1: HTMLElement | undefined = $state(); let probe: HTMLElement | undefined = $state();
   let small = $state(false);
   const longest = $derived(data.project?.title.split(/\s+/).sort((a, b) => b.length - a.length)[0] ?? '');
-  function fit() { if (h1 && probe) small = probe.scrollWidth > h1.clientWidth; }
+  // The study row is centred in the 534px frame by hand: (frame − row) / 2 rounded down to
+  // the unit, so the row's top stays on the 8px grid whatever the cover's height.
+  let row: HTMLElement | undefined = $state(); let rowTop = $state(0);
+  function fit() {
+    if (h1 && probe) small = probe.scrollWidth > h1.clientWidth;
+    if (row) { const r = [...row.children].map((k) => k.getBoundingClientRect()); const h = Math.max(...r.map((b) => b.bottom)) - Math.min(...r.map((b) => b.top)); rowTop = Math.floor((row.clientHeight - h) / 2 / 8) * 8; }
+  }
   onMount(() => { fit(); document.fonts?.ready.then(fit); });
 </script>
 <svelte:head><title>og/{data.id}</title><meta name="robots" content="noindex" /></svelte:head>
@@ -65,7 +71,7 @@
   {:else if data.project}
     {@const p = data.project}
     <Band class="og-study" mode="fall" seed={5} density={0.7} avoid=".og-row > *">
-      <div class="row og-row">
+      <div class="row og-row" bind:this={row} style:padding-top="{rowTop}px">
         <div class="frame"><Picture src={p.cover.src} alt="" width={p.cover.w} height={p.cover.h} eager /></div>
         <div class="row-body">
           <MetaLine project={p} />
@@ -79,26 +85,32 @@
 </main>
 <style>
 /* the frame: 1200 − 96 of chrome = 534, with the page gutters */
+/* 534 = 630 − 96 of chrome: the one height here off the unit, forced by the 1200×630 spec.
+   Nothing is anchored to its bottom edge: the name is placed from the top and the study
+   row's centring is rounded to the unit in `fit()` (0089). */
 .og{height:534px;overflow:hidden}
 .og :global(.band){position:relative;isolation:isolate;overflow:hidden;height:534px;padding:var(--s4) var(--gutter)}
 
 /* Story — full frame, no chrome (the generator hides it), content in the safe zone */
 .og.story{height:1920px}
-.og.story :global(.band){height:1920px;padding:0 var(--gutter) 400px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;gap:var(--s6)}.story-name{font-size:344px;line-height:272px}
+/* 50 units under the text clears Instagram's reply bar; the wide frame has no overlay and
+   keeps 20. The name's line box is 280 so its em box (344) overhangs by whole cells (32). */
+.og.story :global(.band){height:1920px;padding:0 var(--gutter) calc(50 * var(--u));display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;gap:var(--s6)}
+.story-name{font-size:344px;line-height:280px}
 .og :global(.story-cta){font-size:25px;line-height:32px}
 .og :global(.story-cta .mono){font-size:24px;line-height:32px}
 
 /* Wide — the story turned on its side for Twitter/X, 1920×1080, same roles, same seed */
 .og.wide{height:1080px}
-.og.wide :global(.band){height:1080px;padding:0 var(--gutter) 160px;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;gap:var(--s6)}
+.og.wide :global(.band){height:1080px;padding:0 var(--gutter) calc(20 * var(--u));display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;gap:var(--s6)}
 
 /* Home — the hero at share size: the sentence up top, the name at the foot */
 .og-line{font-size:41.25px;line-height:48px}
-.og-name{position:absolute;left:var(--gutter);bottom:var(--s3);font-size:344px;line-height:344px;white-space:nowrap}
+.og-name{position:absolute;left:var(--gutter);top:calc(20 * var(--u));font-size:344px;line-height:344px;white-space:nowrap}
 
 /* Work — the page head, then the selected four as cards */
 .og-head{display:flex;justify-content:space-between;align-items:flex-start}
-.og-covers{display:grid;grid-template-columns:repeat(4,272px);gap:var(--s2);margin-top:var(--s2)}
+.og-covers{display:grid;grid-template-columns:repeat(4,calc((100% - 3 * var(--s2)) / 4));gap:var(--s2);margin-top:var(--s2)}
 .og-card{gap:var(--s1)}
 .og-card .lbl{display:block;background:var(--paper);margin:0 calc(-1 * var(--s1)) calc(-1 * var(--s1));padding:var(--s1)}
 
@@ -110,10 +122,9 @@
 .og :global(.og-contact .display){line-height:64px}
 
 /* Study — the Work row, centred in the frame */
-.og-row{height:100%;align-content:center}
+.og-row{height:100%;align-content:start}
 .og-row .frame{background:var(--surface-card)}
 .og-row h1{position:relative}
 .og-row h1.small{font-size:41.25px;line-height:48px}
 .og-row .probe{position:absolute;visibility:hidden;white-space:nowrap;pointer-events:none}
-.og-row :global(.cta-quiet){align-self:flex-start;margin-left:calc(-1 * var(--s2))}
 </style>

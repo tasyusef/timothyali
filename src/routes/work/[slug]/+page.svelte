@@ -30,9 +30,10 @@
 
 {#snippet gallery(rows: Row[], eager: boolean)}
   {#each rows as row}
+    {@const share = { total: row.reduce((a, m) => a + m.w / m.h, 0), n: row.length }}
     <div class="grow" style:--cols={rowColumns(row)}>
       {#each row as m}
-        {#if m.video}<Clip src={m.src} width={m.w} height={m.h} label={m.alt} />{:else}<Picture src={m.src} x2={m.x2} alt={m.alt} width={m.w} height={m.h} {eager} />{/if}
+        {#if m.video}<Clip src={m.src} width={m.w} height={m.h} label={m.alt} row={share} />{:else}<Picture src={m.src} x2={m.x2} alt={m.alt} width={m.w} height={m.h} {eager} row={share} />{/if}
       {/each}
     </div>
   {/each}
@@ -90,7 +91,8 @@
 .gallery .note{margin-bottom:var(--s1)}
 .grow{display:grid;grid-template-columns:var(--cols);gap:var(--s2);align-items:start}
 .list ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s2)}
-.list li{display:grid;grid-template-columns:48px 1fr;gap:var(--s2);align-items:baseline}
+.list li{display:grid;grid-template-columns:48px 1fr;gap:var(--s2);align-items:start}
+.list li>.lbl{padding-top:var(--s1)} /* one unit down, not baseline-aligned: that put the numeral on an odd pixel (0089) */
 .next{padding-top:var(--s8)}
 @media(max-width:1100px){.title{font-size:82.5px;line-height:88px}.title.small :global(.decode){font-size:55px;line-height:56px}}
 @media(max-width:900px){.title{font-size:55px;line-height:56px}.title.small :global(.decode){font-size:41.25px;line-height:48px}.intro,.text,.list{grid-template-columns:100%}}

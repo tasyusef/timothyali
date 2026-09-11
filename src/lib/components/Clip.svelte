@@ -1,16 +1,16 @@
 <script lang="ts">
   // A looping, muted video at its own resolution. It plays only while on screen with
   // motion on and pauses otherwise, so reduced motion gets a still frame. The figure
-  // sets an integer height from its width, snapped to 2px, like Picture.
+  // sets an integer height from its width, floored to the 8px unit, like Picture.
   import { onMount } from 'svelte';
   import { motion } from '$lib/motion.svelte';
-  import { CELL_IMAGE } from '$lib/tokens';
-  let { src, label, width = 16, height = 9 }: { src: string; label: string; width?: number; height?: number } = $props();
+  import { figureHeight, type RowShare } from '$lib/figure';
+  let { src, label, width = 16, height = 9, row }: { src: string; label: string; width?: number; height?: number; row?: RowShare } = $props();
   let host: HTMLElement; let video: HTMLVideoElement;
   let visible = $state(false);
   function size() {
-    const r = host.getBoundingClientRect(); if (!r.width) return;
-    host.style.height = Math.floor((r.width * (height / width)) / CELL_IMAGE) * CELL_IMAGE + 'px';
+    if (!host.getBoundingClientRect().width) return;
+    host.style.height = figureHeight(host, height / width, row) + 'px';
   }
   $effect(() => { if (!video) return; if (motion.on && visible) video.play().catch(() => {}); else video.pause(); });
   onMount(() => {

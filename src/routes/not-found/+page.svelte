@@ -15,7 +15,7 @@
   </Band>
 </main>
 <style>
-main :global(.lost){position:relative;isolation:isolate;overflow:hidden;min-height:calc(100vh - 96px);padding-top:var(--s6);padding-bottom:var(--s8)}
+main :global(.lost){position:relative;isolation:isolate;overflow:hidden;min-height:calc(100vh - 96px);min-height:round(down,calc(100vh - 96px),8px);padding-top:var(--s6);padding-bottom:var(--s8)}
 .status{display:flex;gap:var(--s2);margin-bottom:var(--s6)}
 .status>span{background:var(--paper);padding:var(--s1)}
 .status>span:first-child{background:var(--accent);color:var(--on-accent)}

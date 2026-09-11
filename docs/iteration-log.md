@@ -463,3 +463,7 @@ Timothy requested a review and cohesive refinement of Selected work and the land
 ### PX-26 — SEO pass — 2026-09-10 (0086)
 
 Sitemap, robots pointer, JSON-LD (Person/WebSite, breadcrumbs, CollectionPage, CreativeWork per study), author meta, an in-system 404 page, and preloads for the five fonts. Audit and decisions in 0086. Svelte check clean, build passed, `social:verify` extended and passing; verified live after deploy (see the decision’s status).
+
+### PX-27 — Pixel-grid audit and fixes — 2026-09-10 (0089)
+
+Three-agent audit (built site, OG compositions, static read), then fixes across type, chrome, figures and the share frame until every text box is on whole pixels, every canvas on its cell and every block top on the 8px unit at 1440/1100/1000/700/390. New `tools/review/blocks.mjs`; `gridcheck.mjs` extended. Rules recorded in `docs/design-system.md` → *Staying on the unit*.

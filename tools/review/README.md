@@ -9,7 +9,8 @@ They use the Playwright headless shell at
 Run from the project root; output goes to `tools/review/out/` (git-ignored).
 
 - `audit.mjs` — full-page captures of Home/Work/Contact at 1440 and 390, reduced-motion and no-JS renders, grid-overlay shot, overflow/error checks, crispness of solid type.
-- `gridcheck.mjs` — the pixel-grid audit: every font size on the cell table, every text box on integer pixels, every canvas on a multiple of its cell relative to the page.
+- `gridcheck.mjs` — the pixel-grid audit at 1440/1100/700/390 over the twelve routes and `/not-found.html`: every font size on the cell table (and every family in it), every text box on integer pixels, every canvas on a multiple of its cell relative to the page, and every padding/margin/gap a multiple of 8 (the `sr-only` −1 margins, the status strip's and the invitation CTA's `auto` margins and the `em` cursor at 258/129 are the expected leftovers). Home crispness as intermediate-pixel %.
+- `blocks.mjs` — the layout-rhythm audit (0089): every block/flex/grid element inside `main` whose top edge is not a multiple of 8, per route and width. Expect `0` on every line.
 - `interact.mjs` — pointer hover / click / cooldown check on the hero texture in both motion modes.
 - `perf.mjs` — frame-loop rate and longest frame gap while hovering with all bands live.
 - `seam.mjs`, `diag.mjs` — crops of the invested/looks seam and of the diagram/copy block (historical: both went in PX-07).

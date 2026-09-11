@@ -21,7 +21,7 @@
   <section class="who" aria-labelledby="statement-title">
     <h2 id="statement-title" class="para">
       <span class="display">Designer for teams that don’t have one yet. Whatever you’re building, I care how it</span>
-      <span class="words">{#each qualities as [word, label, short], i}<span class="blackletter w"><Decode text={word} step={STEP} delay={i * 150} /></span><span class="lbl note" aria-hidden="true">{#if short}<span class="note-full">{label}</span><span class="note-short">{short}</span>{:else}{label}{/if}</span>{/each}</span>
+      <span class="words">{#each qualities as [word, label, short], i}<span class="q"><span class="blackletter w"><Decode text={word} step={STEP} delay={i * 150} /></span><span class="lbl note" aria-hidden="true">{#if short}<span class="note-full">{label}</span><span class="note-short">{short}</span>{:else}{label}{/if}</span></span> {/each}</span>
     </h2>
     <p class="sr-only">Looks: brand. Moves: motion. Works: product and front end.</p>
   </section>
@@ -58,17 +58,26 @@ main :global(.hero-hint){position:absolute;right:var(--gutter);bottom:var(--s8)}
 @keyframes nudge{from{transform:translateY(0)}to{transform:translateY(2px)}}
 .who{padding-top:var(--s8);padding-bottom:var(--s8);background:var(--fg);color:var(--paper)}
 .who ::selection{background:var(--paper);color:var(--fg)}
+/* The sentence is inline in a 64px line; the span sits on the line top, not the baseline,
+   or Chrome's half-leading rounding makes each line 65 (0089). */
 .para{font-size:55px;line-height:64px}
-.para .display{display:inline;font-size:55px;line-height:64px}
-.words{display:block;font-size:129px;line-height:128px}
-.para .w{font-size:129px;line-height:128px;display:inline;margin-right:var(--s3)}
+.para .display{display:inline;font-size:55px;line-height:64px;vertical-align:top}
+/* line-height 0 on the block: the words and chips are inline boxes with their own line
+   boxes (128 / 16), and a 129px strut would push each line 2px past the unit; the word
+   sits on the line top for the same reason as the sentence. `.q` keeps a word and its
+   chip on one line — Chrome will otherwise break before the inline-block chip (0089). */
+.words{display:block;font-size:129px;line-height:0}
+.q{white-space:nowrap}
+.para .w{font-size:129px;line-height:128px;display:inline;vertical-align:top;margin-right:var(--s3)}
 /* the one deliberate use of primitives outside tokens.css: this plate must not
    invert with the theme, or yellow lands on the white panel again (0067) */
 .para .note{background:var(--ink);color:var(--yellow);display:inline-block;vertical-align:baseline;padding:var(--s1);margin-right:var(--s2)}
 .note-short{display:none}
 .work-statement{padding-bottom:var(--s6)}
 .work-statement{line-height:88px} /* room for the 86px blackletter words inline with 55px caps */
-.work-statement .blackletter{font-size:86px;line-height:inherit;text-transform:none}
+/* line-height 0 on the inline words: baseline-aligned, their 88px box sits 9px below the
+   caps' and stretched each line to 97; a zero box leaves the line to the caps' strut (0089). */
+.work-statement .blackletter{font-size:86px;line-height:0;text-transform:none}
 .work-foot{display:flex;justify-content:flex-end;padding-top:var(--s4)}
 .work-foot :global(.cta-quiet){display:flex;justify-content:space-between;width:calc(50% - var(--s2));background:var(--paper);padding:var(--s2)}
 .work-foot :global(.cta-quiet:hover),.work-foot :global(.cta-quiet:focus-visible){background:var(--fg);color:var(--paper)}
@@ -78,12 +87,12 @@ main :global(.work-rain){position:relative;isolation:isolate;overflow:hidden}
 .work-index{padding-top:var(--s8);padding-bottom:var(--s8)}
 .invitation{padding-top:var(--s8);padding-bottom:var(--s8);overflow:hidden}
 .invitation h2{display:flex;flex-wrap:wrap;flex-direction:row;justify-content:space-between;align-items:flex-end;gap:var(--s4);padding-bottom:var(--s6)}
-.invitation :global(.cta-row){width:calc(50% - var(--s2));margin-left:auto}
+.invitation :global(.cta-row){width:round(down,calc(50% - var(--s2)),8px);margin-left:auto}
 @media(max-width:1100px){.invitation h2{flex-direction:column;align-items:flex-start;gap:var(--s2)}}
-@media(max-width:1100px){.hero-name{font-size:258px;line-height:258px}.words,.para .w{font-size:86px}}
+@media(max-width:1100px){.hero-name{font-size:258px;line-height:264px}.words,.para .w{font-size:86px}}
 @media(max-width:700px){
   main :global(.hero){min-height:80vh;min-height:round(down,80vh,8px);padding-bottom:var(--s6)}
-  .hero-name{font-size:129px;line-height:129px}
+  .hero-name{font-size:129px;line-height:136px}
   main :global(.hero-hint){position:static;margin-top:var(--s2);align-self:flex-start}
   .who{padding-top:var(--s6);padding-bottom:var(--s6)}
   .para{font-size:41.25px;line-height:48px}.para .display{font-size:41.25px;line-height:48px}.words,.para .w{font-size:86px;line-height:96px}.para .w{margin-right:var(--s1)}.para .note{padding:var(--s1);margin-right:0}.note-full{display:none}.note-short{display:inline}

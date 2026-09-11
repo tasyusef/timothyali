@@ -6,9 +6,11 @@
 
 /* --- cursor (Cursor.svelte) --------------------------------------- */
 /* One block cursor. `cell` is the status-strip size (8×16, on the grid);
-   `em` is the size Decode needs so the caret scales with a 344px name. */
+   `em` is the size Decode needs so the caret scales with a 344px name: measured in
+   Jacquard cells (43 per em) so it is whole pixels at every step of the ladder —
+   48×136 with 16 in at 344, 36×102/12 at 258, 18×51/6 at 129 (0089). */
 .cursor{display:inline-block;flex:none;width:8px;height:16px;background:var(--accent);margin-left:var(--s1)}
-.cursor.em{width:.14em;height:.4em;vertical-align:baseline;margin-left:.05em}
+.cursor.em{width:calc(6em / 43);height:calc(17em / 43);vertical-align:baseline;margin-left:calc(2em / 43)}
 .cursor.on-fg{background:currentColor}
 .motion .cursor{animation:blink var(--tick-cursor) steps(2,jump-none) infinite}
 

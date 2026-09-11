@@ -38,17 +38,17 @@ h1{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2) var(--s4)}
 .contact-note :global(.cta-row){margin-top:var(--s1);flex-wrap:nowrap}
 .contact-note :global(.cta-row:hover),.contact-note :global(.cta-row:focus-visible){background:var(--paper);color:var(--fg)}
 .contact-foot :global(.page-foot){margin-top:var(--s6)}
-@media(max-width:1100px){.building{font-size:258px;line-height:258px}.intro{font-size:41.25px;line-height:48px}}
-@media(max-width:900px){.contact-bottom{grid-template-columns:1fr 2fr}.building{font-size:172px;line-height:172px}.intro{grid-column:1/-1}}
+@media(max-width:1100px){.building{font-size:258px;line-height:264px}.intro{font-size:41.25px;line-height:48px}}
+@media(max-width:900px){.contact-bottom{grid-template-columns:1fr 2fr}.building{font-size:172px;line-height:176px}.intro{grid-column:1/-1}}
 @media(max-width:700px){
   main :global(.contact){padding-top:var(--s4)}
   .contact-top{margin-bottom:var(--s4)}.channel{display:none}
   h1{display:flex;flex-direction:column;gap:var(--s2)}
   .intro{font-size:41.25px;line-height:48px}
-  .building{align-self:flex-start;font-size:129px;line-height:129px}
+  .building{align-self:flex-start;font-size:129px;line-height:136px}
   .contact-bottom{grid-template-columns:1fr;margin-top:var(--s4)}
   .signal{display:none}.contact-note{padding:var(--s3);gap:var(--s2)}
   .contact-note :global(.cta-row){padding:var(--s2);gap:var(--s2)}
 }
-@media(max-width:420px){.building{font-size:86px;line-height:86px}.contact-note{padding:var(--s2)}}
+@media(max-width:420px){.building{font-size:86px;line-height:88px}.contact-note{padding:var(--s2)}}
 </style>
