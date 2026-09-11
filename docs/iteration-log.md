@@ -467,3 +467,31 @@ Sitemap, robots pointer, JSON-LD (Person/WebSite, breadcrumbs, CollectionPage, C
 ### PX-27 — Pixel-grid audit and fixes — 2026-09-10 (0089)
 
 Three-agent audit (built site, OG compositions, static read), then fixes across type, chrome, figures and the share frame until every text box is on whole pixels, every canvas on its cell and every block top on the 8px unit at 1440/1100/1000/700/390. New `tools/review/blocks.mjs`; `gridcheck.mjs` extended. Rules recorded in `docs/design-system.md` → *Staying on the unit*.
+
+### PX-28 — Field recessed, one accent, shaded by weight — 2026-09-10 (0091)
+
+**Request.** Timothy: bring the ASCII field treatment from GRIDFORM Studio over. The app’s `Ascii.svelte` was this site’s, ported on 2026-09-10, so the code lifted straight back with only the import paths changed.
+
+**Change.** `--field-ink` token and `.band-bg { color }` recess every field to 40% of the foreground over paper. `field()` marks one hot thing per mode (droplet head, scan line, band crest, noise and sky peaks) and the pointer’s heat and click ring, all drawn in `--accent-text`. `shade` on `Ascii` and `Band` builds a sprite set per ramp step, the accent on top and the rest sinking toward paper in oklab; on for the hero sky (density 1.3), the Home and Contact rain, and the share-image bands (scan excepted). The 404 `sparse` field stays flat. One fix over the app’s version: the colour probe is created lazily, since the site prerenders.
+
+**Visual check.** Before/after crops of the hero, the Home rain, Contact and the 404 band at 1440 in both themes and at 390 (`fields.mjs`). The sky now sits behind “i’m tim.” in grey steps with a single yellow crest top right; the rain shades from a yellow head down its trail; on the light ground the field is a pale grey and the accent deepens to `--yellow-deep` as everywhere else. Share images regenerated and inspected on the contact sheet.
+
+**Validation.** Svelte check 0/0; build passed; `parity.mjs`: 27 captures, 6 differing (Home dark/light/390, Home no-JS, Contact 1440/390), every one starting at row 140 (the first field) and none changing size; the Work page and nine studies identical. `pnpm social:verify` passed. `blocks.mjs` 0 on Contact at every width; `gridcheck` canvases aligned.
+
+**Evidence.** `docs/iterations/pixel-v2/28-field-shade/`: `before/` and `after/` crops, `pair-*.png` stacked comparisons (before above, after below), `parity.txt`, the regenerated `contact-sheet.png`, and the previous Home/Contact/PARC share images in `social-before/`. The generator also refreshed the story and wide launch stills in `docs/social/`; it rewrote PX-25’s `assets.json` too, which was restored so that evidence stays as it was.
+
+**Status.** Assistant port on Timothy’s direction; awaiting his eye on the hero crest. Site and app `Ascii.svelte` are now meant to stay in step.
+
+### PX-29 — Contact form: block caret and validation notes — 2026-09-10 (0092)
+
+**Request.** Timothy, mid-PX-28: a custom cursor that fits the site for the contact section; then, on the browser’s “Please fill out this field.” bubble: “these need to be customized as well”.
+
+**Change.** `src/lib/caret.ts` (an action) puts the site’s 8-wide, line-tall accent block at the insertion point of each field, blinking with the other cursors while motion is on. Native caret transparent. The form runs `novalidate`; on submit, note chips in the label face appear under the wrong fields, the first takes focus, `aria-invalid`/`aria-describedby` are set, and typing clears a note.
+
+**Visual check.** Panel captures with text typed in both themes and both motion modes (`caret.mjs`), and the empty-submit and bad-address states (`validate.mjs`). Three rounds to get it right: the marker span first reported the font’s content box (caret 2px low → inline-block marker one line tall); blurred fields kept their block (`hidden` lost to the `.cursor` display rule, and Svelte pruned a `[hidden]` selector → inline display); the note chip inherited the label’s dim (→ `.field .note { opacity: 1 }`).
+
+**Validation.** Svelte check 0/0; build passed. Caret box 8×32 at (16, 8) in an empty 48-tall input and on the third line (y 72) of a wrapped textarea; `animation-name: blink` only with motion on; only the focused field shows one. Empty submit: three notes, focus on Name, three `aria-invalid` fields each described by its note, no POST sent; bad address: one note on Email. Contact block tops 0 off the unit at 1440/1100/700/390.
+
+**Evidence.** `docs/iterations/pixel-v2/29-contact-caret/`: `form-{theme}-{motion}[-home|-name].png`, `notes-{theme}-{empty|email}.png`.
+
+**Status.** Assistant proposal on Timothy’s two asks; awaiting his eye.

@@ -1420,3 +1420,41 @@ Timothy found the first OG set boring compared with the site and requested the t
 **Environment.** `RESEND_API_KEY` (required), `CONTACT_TO` (default studio@timothyali.com), `CONTACT_FROM` (default Resend’s `onboarding@resend.dev`, which only delivers to the address the Resend account is registered with; verify `timothyali.com` in Resend and set a sender on it to lift that). `vercel.json`’s trailing-slash redirect now skips `/api/`.
 
 **Not done.** No rate limiting beyond the honeypot and Vercel’s own; no copy-to-sender receipt; no spam scoring. Revisit if the inbox says so.
+
+## 0091 — The field recessed, one accent per mode, shaded by weight
+
+- **Date:** 2026-09-10
+- **Status:** Proposed (Timothy’s direction: bring the GRIDFORM Studio treatment over; implemented, awaiting his eye). The site’s `Ascii.svelte` and the app’s are the same component from here and are meant to stay in step.
+
+**Question.** The ASCII fields drew in the page’s foreground colour at full strength, and the hero sky, the rain and the Contact rain all competed with the type sitting on them. GRIDFORM Studio, which took this component from the site on 2026-09-10, changed it in three steps that read better there. Port them, or keep the site’s flat field?
+
+**Options considered.**
+1. Keep the flat foreground-colour field and only lower its opacity. Cheapest; still no hierarchy inside the field, and opacity on a canvas dims the pointer heat and click ring with it.
+2. Random accent flecks in the field (the app’s first attempt, `f03a639`). Rejected there: noise that means nothing.
+3. The app’s three changes, lifted as they are: recess the field with a token, one deliberate accent per mode, and a `shade` prop that colours each ramp step. Chosen.
+
+**Decision.**
+- **Recess.** A semantic token `--field-ink: color-mix(in srgb, var(--fg) 40%, var(--paper))` in `tokens.css`; `.band-bg { color: var(--field-ink) }` in `layout.css`. The canvas draws in its host’s colour, so every field now sits well behind the type in both themes, and the CSS checker shown before a canvas has drawn recesses with it.
+- **One accent per mode.** `field()` returns `{ v, ch?, hot? }`; hot cells draw from a second sprite set built in `--accent-text`. Fall: the `0` droplet head. Scan: the line itself (`line < 0.5`). Bands: the crest (`b > 0.995`). Noise: `v > 0.9`. Sky: `v > 0.92`. Pointer heat above 0.5 and the click ring also draw in the accent, so touching a field is what lights it.
+- **`shade`** on `Ascii` and `Band`. Each ramp step gets its own sprite set: the top step is the accent, and the steps below mix the field colour toward `--paper` from 8% at the heaviest to 100% at the lightest, in oklab. Canvas fills need a resolved colour, so the mix is read back from a probe element’s computed colour. The probe is made on first use: the site prerenders, the app does not, and a module-scope `document.createElement` broke the build on the first attempt.
+- **Where it is on.** The hero sky (density 0.9 → 1.3, so it reaches its top steps once shaded), the rain on Home and Contact, the rain on the Work/Contact/study share images, the story and wide share fields (`bands` by default; `shade` is off only when the query asks for `scan`). Scan stays flat because its accent is the line. The 404 page’s `sparse` field is left flat too: it is a few cells at mid weight, and shading would only fade them.
+
+**Consequences.** Pixel parity: 6 of 27 captures differ, all on the three pages with a field (Home, Contact, Home without JavaScript), none change height; the 21 Work and study captures are identical. The twelve share images were regenerated from the site (`pnpm social:generate`, `social:verify` passing) since they render from these bands. No block moved off the unit (`blocks.mjs` 0 everywhere on Contact). The dark hero now has a solid yellow crest in its top right; that is the treatment, and whether it is too much is Timothy’s call.
+
+## 0092 — The contact form in the site’s voice: block caret and validation notes
+
+- **Date:** 2026-09-10
+- **Status:** Proposed (Timothy: “i also want to add a custom cursor that fits the website for this contact section”, then, on the browser’s bubble, “these need to be customized as well”); implemented, awaiting his eye
+
+**Question.** The form fields showed the operating system’s thin caret and, on an empty submit, the browser’s grey “Please fill out this field.” bubble. Neither belongs to the system, and neither can be styled.
+
+**Options considered.**
+1. `caret-color: var(--accent)` only. The one native caret property; still a 1px line.
+2. A custom mouse pointer over the section. Read “cursor” as the mouse. Rejected: his screenshot shows the text caret in the Name field, and a pointer cursor image would be the first non-native pointer on the site.
+3. Hide the native caret and draw the site’s cursor block at the insertion point; replace the native bubbles with notes in the label face. Chosen.
+
+**Decision.**
+- **Block caret.** `src/lib/caret.ts` is a Svelte action on each field: the native caret is transparent, and a `.cursor` block (8 wide, one line tall, in `--accent`, blinking on `--tick-cursor` while motion is on, still when it is off) sits where the insertion point is. Position comes from a hidden mirror of the field’s text up to the selection end with an inline-block marker one line tall, so it follows wrapping in the textarea and horizontal scroll in an input, and lands on the line box rather than the font’s content box. It shows only while the field has focus; visibility is driven inline, because Svelte prunes a `[hidden]` selector the template never sets and the global `.cursor` display rule would otherwise win.
+- **Validation notes.** The form runs with `novalidate`; `required` stays on the fields for what it means. On submit each field is checked, a `.lbl` note chip in the accent appears under the ones that are wrong (“A name, please.” / “An address I can reply to.” / “That address doesn’t parse.” / “A line about what you’re building.”), the first of them takes focus, and the field carries `aria-invalid` and is described by its note. Typing in a field clears its note. Chips are 32 tall (16 label + 8 + 8), so the panel stays on the unit. Without JavaScript the form posts natively and the function’s `?error=invalid` path already answers.
+
+**Consequences.** Contact block tops still 0 off the unit at 1440/1100/700/390. No POST leaves the page while a note is showing. Not done: live validation while typing (it would nag), and the caret in any other field on the site (there are none).

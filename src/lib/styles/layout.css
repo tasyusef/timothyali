@@ -14,7 +14,7 @@
 section{position:relative;padding:0 var(--gutter)}
 
 /* full-bleed programmatic background for a band */
-.band-bg{position:absolute;inset:0;z-index:var(--z-band-bg);pointer-events:none}
+.band-bg{position:absolute;inset:0;z-index:var(--z-band-bg);pointer-events:none;color:var(--field-ink)}
 .band-bg>*{height:100%}
 .band>:not(.band-bg){position:relative;z-index:var(--z-band)}
 

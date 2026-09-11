@@ -93,6 +93,7 @@ properties. The four in use are `420 700 900 1100` (0075 folded 1300 into 1100 a
 | `--surface-card` | `repeating-conic-gradient(color-mix(in srgb,var(--fg) 14%,transparent) 0 25%,transparent 0 50%) 0 0/4px 4px` | | the card dither at rest |
 | `--surface-card-hover` | same shape at `26%` and `8px 8px` | | the card dither on hover |
 | `--texture-fallback-opacity` | `.35` | | the CSS checker before a canvas has drawn |
+| `--field-ink` | `color-mix(in srgb, var(--fg) 40%, var(--paper))` | | the ASCII field’s colour: recessed, well behind the type (0091) |
 | `--grid-fine` | `color-mix(in srgb,var(--fg) 12%,transparent)` | | Grid overlay, 8px lines |
 | `--grid-major` | `color-mix(in srgb,var(--fg) 22%,transparent)` | | Grid overlay, 64px lines |
 | `--z-band-bg … --z-skip` | `0 1 2 50 98 99` | | see the layering diagram above |
@@ -172,8 +173,8 @@ JS-measured `.small` step-down), Home’s `.para` / `.words` / `.w` and
 | `MetaLine` | `project`, `short=false`, `class` | `<span class="lbl …">` — `[01] / 2024 / Brand`, or `01 / Brand` when `short` | Work row, study head, Home card (`short`). Takes a `Project`; the Work index tier prints the same fields itself, split across the entry’s four columns |
 | `PageFoot` | `note`, `href`, `label`, `class` | `<footer class="page-foot lbl dim">` — note left, link + `Arrow` right | Work (`End of index / 008`), the eight studies (`[n] / 008`), Contact |
 | `QuietLink` | `href`, `label`, `dir`, `pad=false`, `class` | `<a class="quiet-link …">` with an `Arrow` | study back link (`dir="left" pad`), study “Live” link |
-| `Band` | `as='section'`, `class`, `mode seed tick density avoid`, children | `<svelte:element class="band …">` + `.band-bg` + `Ascii` | Home hero (`sky`), Home work/invitation rain (`as="div"`, `fall`), Contact (`fall`) |
-| `Ascii` | `mode cell px seed tick density avoid pad feather interactive reach` | the texture canvas | via `Band` only |
+| `Band` | `as='section'`, `class`, `mode seed tick density avoid pad feather flip shade`, children | `<svelte:element class="band …">` + `.band-bg` + `Ascii` | Home hero (`sky`, `shade`, density 1.3), Home work/invitation rain (`as="div"`, `fall`, `shade`), Contact (`fall`, `shade`), the 404 (`sparse`), the share-image route |
+| `Ascii` | `mode cell px seed tick density avoid pad feather interactive reach flip shade` | the texture canvas; one accent per mode, `shade` colours by ramp step (0091) | via `Band` only. The same file as GRIDFORM Studio’s `ui/Ascii.svelte`; keep them in step |
 | `Decode` | `text mode step delay cursor` | kinetic type + `sr-only` real text | 6 call sites |
 | `Picture` | `src x2 alt width height eager sizes row` | a photograph at its own resolution | Home cards, Work rows, study galleries |
 | `Clip` | `src label width height row` | a muted looping video | study galleries |
@@ -383,3 +384,23 @@ rules that came out of it, all now in the CSS with a `(0089)` comment at the spo
 - **Right-aligned blocks** (`margin-left:auto`) are on whole pixels but not on the unit when
   the content width is not — at 1100 or 390 nothing right-aligned can be. Accepted.
 - **The wordmark stays 43/43** inside the fixed 64px header; nothing flows after it.
+
+## The field (0091, proposal)
+
+The ASCII field draws in its host’s colour, and `.band-bg` sets that to `--field-ink`
+(40% of `--fg` over `--paper`), so every field sits behind the type in both themes.
+Each mode has one thing that draws in `--accent-text`: the rain’s `0` droplet head, the
+scan line, a band’s crest, the noise’s and the sky’s densest cells; pointer heat above
+0.5 and the click ring light the same way. With `shade`, each ramp step has its own
+colour — the top step the accent, the rest mixing the field colour toward `--paper`
+from 8% (heaviest) to 100% (lightest) in oklab, resolved through a probe element
+because a canvas fill needs a resolved colour. `shade` is on for the hero sky (density
+raised to 1.3 to reach its top steps), the Home and Contact rain and the share-image
+bands; scan stays flat (its accent is the line) and so does the 404’s `sparse`.
+`src/lib/components/Ascii.svelte` and GRIDFORM Studio’s `src/renderer/src/ui/Ascii.svelte`
+are the same component; a change to one goes to the other.
+
+Form fields (Contact) hide the native caret and show the `.cursor` block at the
+insertion point through the `blockCaret` action in `src/lib/caret.ts`; validation is the
+form’s own, as `.lbl` note chips in the accent under the field (0092).
+

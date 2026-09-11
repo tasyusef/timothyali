@@ -39,7 +39,7 @@
 <svelte:head><title>og/{data.id}</title><meta name="robots" content="noindex" /></svelte:head>
 <main class="og" class:story={data.id === 'story'} class:wide={data.id === 'wide'} id="main" tabindex="-1">
   {#if data.id === 'home'}
-    <Band class="og-home" mode="sky" seed={3} density={0.9} avoid=".og-line, .og-name">
+    <Band class="og-home" mode="sky" seed={3} density={1.3} shade avoid=".og-line, .og-name">
       <p class="display og-line">Designer for teams<br />that don’t have one yet.</p>
       <h1 class="blackletter og-name"><Decode text="i’m tim." /><Cursor size="em" /></h1>
     </Band>
@@ -49,12 +49,12 @@
     <!-- Instagram story, 1080×1920, viewed at about a third of that: the small roles step
          up their own ladder (label 12.5 → 25, arrow 16 → 24) and everything sits inside the
          story safe zone (y 270–1540). The generator hides the chrome for this one. -->
-    <Band class="og-story" mode={storyMode} seed={storySeed} density={storyDensity} flip={storyFlip}>
+    <Band class="og-story" mode={storyMode} seed={storySeed} density={storyDensity} flip={storyFlip} shade={storyMode !== 'scan'}>
       <h1 class="blackletter story-name"><Decode text="i’m tim." mode="type" step={STEP_SLOW} delay={500} cursor /></h1>
       <Cta href="https://www.timothyali.com" class="lbl story-cta">timothyali.com <Arrow /></Cta>
     </Band>
   {:else if data.id === 'work'}
-    <Band class="og-work" mode="fall" seed={5} density={0.7} avoid=".og-head > *, .og-covers">
+    <Band class="og-work" mode="fall" seed={5} density={0.7} shade avoid=".og-head > *, .og-covers">
       <div class="og-head">
         <h1 class="blackletter display-xl">work.</h1>
         <IndexRow label="Project index" value={`01–${last}`} layout="column" accent />
@@ -64,13 +64,13 @@
       </div>
     </Band>
   {:else if data.id === 'contact'}
-    <Band class="og-contact" mode="fall" seed={3} density={0.55} avoid=".og-top > span, .og-contact h1 > span">
+    <Band class="og-contact" mode="fall" seed={3} density={0.55} shade avoid=".og-top > span, .og-contact h1 > span">
       <div class="og-top lbl"><span>Let’s talk</span><span>Timothy Ali / Denver, CO</span></div>
       <h1><span class="display">Tell me what<br />you’re</span><span class="blackletter display-xl">building.</span></h1>
     </Band>
   {:else if data.project}
     {@const p = data.project}
-    <Band class="og-study" mode="fall" seed={5} density={0.7} avoid=".og-row > *">
+    <Band class="og-study" mode="fall" seed={5} density={0.7} shade avoid=".og-row > *">
       <div class="row og-row" bind:this={row} style:padding-top="{rowTop}px">
         <div class="frame"><Picture src={p.cover.src} alt="" width={p.cover.w} height={p.cover.h} eager /></div>
         <div class="row-body">

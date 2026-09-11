@@ -21,6 +21,7 @@
   --surface-card:repeating-conic-gradient(color-mix(in srgb,var(--fg) 14%,transparent) 0 25%,transparent 0 50%) 0 0/4px 4px;
   --surface-card-hover:repeating-conic-gradient(color-mix(in srgb,var(--fg) 26%,transparent) 0 25%,transparent 0 50%) 0 0/8px 8px;
   --texture-fallback-opacity:.35;  /* the CSS checker shown before a canvas has drawn */
+  --field-ink:color-mix(in srgb,var(--fg) 40%,var(--paper));   /* the ASCII field: recessed, well behind the type (0091) */
 
   /* the Grid overlay */
   --grid-fine:color-mix(in srgb,var(--fg) 12%,transparent);

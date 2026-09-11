@@ -8,7 +8,7 @@
 </script>
 <svelte:head><title>Get in touch — Timothy Ali</title><meta name="description" content="Tell me what you’re building. Connect with designer Timothy Ali about brand, product, motion, and front-end work." /></svelte:head>
 <main id="main" tabindex="-1">
-  <Band class="contact" mode="fall" seed={3} density={0.55} tick={TICK_FAST} avoid=".contact h1 > span, .contact-foot">
+  <Band class="contact" mode="fall" seed={3} density={0.55} tick={TICK_FAST} shade avoid=".contact h1 > span, .contact-foot">
     <div class="contact-top lbl"><span>Let’s talk</span><span class="channel">Timothy Ali / Denver, CO</span></div>
     <h1><span class="display intro">Tell me what<br />you’re</span><span class="blackletter display-xl building"><Decode text="building." step={STEP_FAST} /></span></h1>
     <div class="contact-bottom">

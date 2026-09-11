@@ -1,0 +1,31 @@
+capture                               size (before>after)     differing   share      first row
+------------------------------------  ----------------------  ----------  ---------  ---------
+contact-1440-dark.png                 1440x1608               28232       1.2193%    140
+contact-390-dark.png                  390x1488                2356        0.4060%    140
+home-1440-dark-nojs.png               1440x3576               1208820     23.4748%   140
+home-1440-dark.png                    1440x3592               208164      4.0245%    140
+home-1440-light.png                   1440x3592               208164      4.0245%    140
+home-390-dark.png                     390x4288                57476       3.4369%    140
+work-1440-dark.png                    1440x3808               0           0          -
+work-1440-light.png                   1440x3808               0           0          -
+work-390-dark.png                     390x4496                0           0          -
+work-do-androids-dream-1440-dark.png  1440x4752               0           0          -
+work-do-androids-dream-390-dark.png   390x4664                0           0          -
+work-firstledger-1440-dark.png        1440x7504               0           0          -
+work-firstledger-390-dark.png         390x7424                0           0          -
+work-firststrike-1440-dark.png        1440x7400               0           0          -
+work-firststrike-390-dark.png         390x6576                0           0          -
+work-jade-aesthetics-1440-dark.png    1440x10968              0           0          -
+work-jade-aesthetics-390-dark.png     390x14128               0           0          -
+work-parc-1440-dark.png               1440x12432              0           0          -
+work-parc-390-dark.png                390x14648               0           0          -
+work-parc-site-1440-dark.png          1440x17032              0           0          -
+work-parc-site-390-dark.png           390x19568               0           0          -
+work-pocketwatch-1440-dark.png        1440x7328               0           0          -
+work-pocketwatch-390-dark.png         390x10656               0           0          -
+work-sonde-1440-dark.png              1440x7976               0           0          -
+work-sonde-390-dark.png               390x9344                0           0          -
+work-xrpcafe-1440-dark.png            1440x6880               0           0          -
+work-xrpcafe-390-dark.png             390x10304               0           0          -
+
+27 captures, 6 differing.

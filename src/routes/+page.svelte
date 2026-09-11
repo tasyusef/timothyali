@@ -13,7 +13,7 @@
 </script>
 <svelte:head><title>Timothy Ali — Designer & builder</title><meta name="description" content="I’m tim. Designer for teams that don’t have one yet. Brand, product, motion, front end." /></svelte:head>
 <main id="main" tabindex="-1">
-  <Band class="hero" aria-labelledby="intro" mode="sky" seed={3} tick={TICK_SLOW} density={0.9} avoid=".hero-hint">
+  <Band class="hero" aria-labelledby="intro" mode="sky" seed={3} tick={TICK_SLOW} density={1.3} shade avoid=".hero-hint">
     <h1 id="intro" class="blackletter hero-name"><Decode text="i’m tim." mode="type" step={STEP_SLOW} delay={500} cursor /></h1>
     <Cta variant="hint" class="hero-hint lbl" aria-hidden="true">Scroll<svg class="arrow" width="16" height="16" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM3 2h1v1h-1zM3 3h1v1h-1zM3 4h1v1h-1zM3 5h1v1h-1zM3 6h1v1h-1zM3 7h1v1h-1zM0 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM5 5h1v1h-1zM2 6h1v1h-1zM4 6h1v1h-1z" fill="currentColor" /></svg></Cta>
   </Band>
@@ -26,7 +26,7 @@
     <p class="sr-only">Looks: brand. Moves: motion. Works: product and front end.</p>
   </section>
 
-  <Band as="div" class="work-rain" mode="fall" seed={5} tick={TICK_FAST} density={0.7} avoid=".index-row > span, .work-statement, .work-foot a, .invitation h2 > span, .invitation .cta-row">
+  <Band as="div" class="work-rain" mode="fall" seed={5} tick={TICK_FAST} density={0.7} shade avoid=".index-row > span, .work-statement, .work-foot a, .invitation h2 > span, .invitation .cta-row">
   <section class="work-index" aria-labelledby="work-title">
     <IndexRow label="Selected work" value={`01–${projects[projects.length - 1].n}`} />
     <h2 id="work-title" class="work-statement display">I’ve built products <span class="blackletter">of my own,</span><br />and helped teams ship <span class="blackletter">theirs.</span></h2>
