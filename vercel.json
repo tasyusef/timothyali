@@ -8,7 +8,7 @@
     { "src": "^/art/?$", "status": 308, "headers": { "Location": "/work/" } },
     { "src": "^/work/rowboat-racer/?$", "status": 308, "headers": { "Location": "/work/parc-site/" } },
     { "src": "^/work/gridform(-studio)?/?$", "status": 308, "headers": { "Location": "/work/" } },
-    { "src": "^/(?!.*\\.)(.+[^/])$", "status": 308, "headers": { "Location": "/$1/" } },
+    { "src": "^/(?!api/)(?!.*\\.)(.+[^/])$", "status": 308, "headers": { "Location": "/$1/" } },
     { "handle": "filesystem" },
     { "src": "^/(.*)$", "status": 404, "dest": "/not-found/" }
   ]

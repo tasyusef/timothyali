@@ -1407,3 +1407,16 @@ Timothy found the first OG set boring compared with the site and requested the t
 **Result.** `gridcheck.mjs`: 52 of 52 route × width renders with zero fractional boxes and zero misaligned canvases. `blocks.mjs`: zero off-unit block tops on every route at 1440/1100/1000/700/390. The OG audit: clean on all fourteen, wordmark aside. Share images, story and wide stills and videos regenerated; `pnpm social:verify` passes.
 
 **Not done.** The wordmark’s 43/43 inside the 64px header, and right-aligned blocks at content widths that are not multiples of 8 — both integer, neither on the unit, both accepted (see the doc).
+
+## 0090 — Contact form that emails the studio
+
+- **Date:** 2026-09-10
+- **Status:** Timothy’s request (“add a contact form for the contact page. that notifies me in my email” → studio@timothyali.com); Resend key added by him to Vercel
+
+**Decision.** A form in the Contact page’s ink panel — Name, Email, “What you’re building”, a `Send ->` block — and a Vercel Function at `api/contact.js` beside the static build that relays one email through Resend’s HTTP API (no SDK, no new dependency). The page stays prerendered; the form posts with `fetch` and shows `Sent.` / a reason in a `.lbl` chip, and without JavaScript it posts natively and the function redirects back to `/contact/?sent=1` (or `?error=<reason>`), which the component reads. A hidden `company` field is the honeypot: filled in means a bot, answered `ok` and dropped. Limits 120 / 200 / 5,000 characters, an address that parses, `reply_to` set to the sender so replying from studio@ just works. The LinkedIn block becomes a quiet “Or message me on LinkedIn” link under the form.
+
+**Fields on the unit.** Inputs are the body face on a paper ground: 48 tall (8 + 32 + 8), the textarea 144 (four lines), labels `.lbl dim` above, focus ring in the accent with no offset. Submit is the existing `.cta-row` as a real `<button>`.
+
+**Environment.** `RESEND_API_KEY` (required), `CONTACT_TO` (default studio@timothyali.com), `CONTACT_FROM` (default Resend’s `onboarding@resend.dev`, which only delivers to the address the Resend account is registered with; verify `timothyali.com` in Resend and set a sender on it to lift that). `vercel.json`’s trailing-slash redirect now skips `/api/`.
+
+**Not done.** No rate limiting beyond the honeypot and Vercel’s own; no copy-to-sender receipt; no spam scoring. Revisit if the inbox says so.

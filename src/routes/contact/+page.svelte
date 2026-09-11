@@ -1,9 +1,9 @@
 <script lang="ts">
   import Band from '$lib/components/Band.svelte';
   import Decode from '$lib/components/Decode.svelte';
-  import Arrow from '$lib/components/Arrow.svelte';
-  import Cta from '$lib/components/Cta.svelte';
   import PageFoot from '$lib/components/PageFoot.svelte';
+  import QuietLink from '$lib/components/QuietLink.svelte';
+  import ContactForm from '$lib/components/ContactForm.svelte';
   import { TICK_FAST, STEP_FAST } from '$lib/tokens';
 </script>
 <svelte:head><title>Get in touch — Timothy Ali</title><meta name="description" content="Tell me what you’re building. Connect with designer Timothy Ali about brand, product, motion, and front-end work." /></svelte:head>
@@ -16,7 +16,8 @@
       <div class="contact-note">
         <p class="body">Got an idea, an early team, or something that needs a designer?</p>
         <p class="body signoff">I’d like to hear about it.</p>
-        <Cta variant="row" href="https://linkedin.com/in/timothyali" class="lbl"><span>Message me on LinkedIn</span><Arrow /></Cta>
+        <ContactForm />
+        <QuietLink href="https://linkedin.com/in/timothyali" label="Or message me on LinkedIn" class="lbl alt" />
       </div>
     </div>
     <div class="contact-foot"><PageFoot note="Brand / product / motion / front end" href="/work/" label="See my work" /></div>
@@ -35,8 +36,10 @@ h1{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2) var(--s4)}
 .signal svg{display:block}
 .contact-note{background:var(--fg);color:var(--paper);padding:var(--s4);display:flex;flex-direction:column;gap:var(--s3)}
 .contact-note .body{max-width:38ch}
-.contact-note :global(.cta-row){margin-top:var(--s1);flex-wrap:nowrap}
+.contact-note :global(.cta-row){flex-wrap:nowrap}
 .contact-note :global(.cta-row:hover),.contact-note :global(.cta-row:focus-visible){background:var(--paper);color:var(--fg)}
+.contact-note :global(.alt){opacity:var(--dim)}
+.contact-bottom{align-items:start}
 .contact-foot :global(.page-foot){margin-top:var(--s6)}
 @media(max-width:1100px){.building{font-size:258px;line-height:264px}.intro{font-size:41.25px;line-height:48px}}
 @media(max-width:900px){.contact-bottom{grid-template-columns:1fr 2fr}.building{font-size:172px;line-height:176px}.intro{grid-column:1/-1}}
@@ -49,6 +52,7 @@ h1{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2) var(--s4)}
   .contact-bottom{grid-template-columns:1fr;margin-top:var(--s4)}
   .signal{display:none}.contact-note{padding:var(--s3);gap:var(--s2)}
   .contact-note :global(.cta-row){padding:var(--s2);gap:var(--s2)}
+  .contact-note :global(.contact-form){gap:var(--s1)}
 }
 @media(max-width:420px){.building{font-size:86px;line-height:88px}.contact-note{padding:var(--s2)}}
 </style>

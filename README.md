@@ -31,3 +31,7 @@ pnpm build
 Use Node 22.12 or newer. The static build is written to `build/`. Existing case-study links still open timothyali.com. Deployed: pushing `master` of `github.com/tasyusef/timothyali` triggers the Vercel production deploy at https://www.timothyali.com (decision 0085).
 
 Read `docs/design-system.md` for the tokens, type roles and components, `docs/alternate-v2.md` for the editing map, `docs/decision-log.md` for decisions, and `docs/iteration-log.md` for iterations with screenshots and source archives.
+
+## Contact form
+
+The form on `/contact/` posts to `api/contact.js`, a Vercel Function that relays through Resend. It needs `RESEND_API_KEY` in the Vercel project; `CONTACT_TO` and `CONTACT_FROM` are optional (decision 0090). Nothing runs in `pnpm dev` — the function only exists on Vercel, so locally the form reports the relay as unconfigured.
