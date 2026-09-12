@@ -41,7 +41,7 @@
   {#if step === 'outputs'}
     <div class="stage center">
       <div class="mat"><div class="artboard plate" class:plate-dark={dark} class:plate-light={!dark} style:color={ink}>
-        <div class="logo" role="img" aria-label="Example logo: Acme"><svg viewBox="0 0 32 32" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M4 32V12H8V8H12V4H20V8H24V12H28V32H20V24H12V32ZM12 18H20V10H12Z"/></svg><span>acme.</span></div>
+        <!-- the mark is an anvil on the wordmark's own 2px pixel (0111): Acme, the anvil company --><div class="logo" role="img" aria-label="Example logo: Acme"><svg viewBox="0 0 32 17" shape-rendering="crispEdges" aria-hidden="true"><path fill="currentColor" d="M9 0h23v1h-23zM5 1h27v1h-27zM2 2h30v1h-30zM0 3h32v1h-32zM0 4h32v1h-32zM3 5h29v1h-29zM8 6h23v1h-23zM11 7h18v1h-18zM12 8h14v1h-14zM12 9h14v1h-14zM12 10h14v1h-14zM10 11h18v1h-18zM8 12h22v1h-22zM5 13h26v1h-26zM5 14h26v1h-26zM5 15h26v1h-26zM5 16h26v1h-26z"/></svg><span>acme.</span></div>
       </div></div>
       <PlateToggle {dark} onchange={(v) => (dark = v)} />
     </div>
@@ -95,7 +95,10 @@
 /* the logo sits 96 down in the 288 plate (centred would be 100, off the unit) */
 .plate{width:288px;height:288px;display:flex;align-items:flex-start;justify-content:center;padding-top:96px}
 /* the mark is 32 cells at 2px beside Jacquard at 86 (43 cells/em): 64 + 16 + 158 = 238 */
-.logo{display:flex;align-items:flex-start;gap:var(--s2);width:238px}.logo svg{width:64px;height:64px;flex:none;margin-top:var(--s1)}.logo span{font:86px/88px var(--face-blackletter)}
+/* The mark and the wordmark align by ink, not by box (0111): "acme." in Jacquard at 86 is all
+   x-height letters, ink rows 35–68 of the 88px line, so the anvil is 17 pixels tall (34px, the
+   x-height), sits on the baseline and meets the x-height at the top. */
+.logo{display:flex;align-items:flex-start;gap:var(--s2);width:238px}.logo svg{width:64px;height:34px;flex:none;margin-top:35px}.logo span{font:86px/88px var(--face-blackletter)}
 .stage :global(.swatch-chip){width:32px;height:32px}
 h4{margin:0;padding-bottom:var(--s1);font-size:27.5px;line-height:32px} /* the stage is narrower than the app's */
 @media(max-width:1100px){.plate{width:240px;height:240px;padding-top:72px}}
