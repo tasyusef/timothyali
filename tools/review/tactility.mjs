@@ -7,6 +7,7 @@
 import { chromium } from '@playwright/test';
 import { mkdirSync } from 'node:fs';
 import { PNG } from 'pngjs';
+const BASE = process.env.BASE || 'http://localhost:4173';
 const OUT = 'tools/review/out/tactility/'; mkdirSync(OUT, { recursive: true });
 const EXE = '/Users/twocakes/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell';
 const b = await chromium.launch({ executablePath: EXE });
@@ -20,7 +21,7 @@ async function ctx(theme, motion, width = 1440) {
   const p = await c.newPage(); p.on('pageerror', (e) => console.log('  pageerror', String(e)));
   return [c, p];
 }
-const go = (p, path) => p.goto('http://localhost:4173' + path, { waitUntil: 'networkidle' }).then(() => p.evaluate(() => document.fonts.ready)).then(() => p.waitForTimeout(300));
+const go = (p, path) => p.goto(BASE + path, { waitUntil: 'networkidle' }).then(() => p.evaluate(() => document.fonts.ready)).then(() => p.waitForTimeout(300));
 // pause every animation on a pseudo-element (the view transition's) and seek it
 // the transition's animations start a frame after the call, once the old page is captured
 const pseudoAnims = (p) => p.waitForFunction(() => { const a = document.getAnimations().filter((a) => a.effect.pseudoElement); return a.length ? a.map((a) => ({ pseudo: a.effect.pseudoElement, name: a.animationName, duration: Math.round(a.effect.getTiming().duration), delay: Math.round(a.effect.getTiming().delay) })) : null; }, null, { timeout: 1500 }).then((h) => h.jsonValue());
@@ -113,7 +114,7 @@ console.log('image arrival');
   const [c, p] = await ctx('dark', 'on');
   // hold every cover back so it cannot be complete before the page is up
   await c.route(/\/work\/.*\.(webp|jpg|png)$/, async (route) => { await new Promise((r) => setTimeout(r, 400)); route.continue(); });
-  await p.goto('http://localhost:4173/work/', { waitUntil: 'domcontentloaded' });
+  await p.goto(BASE + '/work/', { waitUntil: 'domcontentloaded' });
   await p.waitForTimeout(100);
   const anim = await p.waitForFunction(() => { const a = document.getAnimations().find((x) => x.animationName === 'dither-in' && x.effect.target?.tagName === 'IMG'); if (!a) return null; a.pause(); a.currentTime = 10; return { duration: Math.round(a.effect.getTiming().duration), cls: a.effect.target.classList.contains('arrive') ? 'arrive' : a.effect.target.className }; }, null, { timeout: 5000 }).then((h) => h.jsonValue());
   check(anim.duration === 210 && anim.cls === 'arrive', 'a cover runs dither-in for 210ms: ' + JSON.stringify(anim));
@@ -123,7 +124,7 @@ console.log('image arrival');
   await c.close();
   const [c2, p2] = await ctx('dark', 'off');
   await c2.route(/\/work\/.*\.(webp|jpg|png)$/, async (route) => { await new Promise((r) => setTimeout(r, 400)); route.continue(); });
-  await p2.goto('http://localhost:4173/work/', { waitUntil: 'networkidle' }); await p2.waitForTimeout(200);
+  await p2.goto(BASE + '/work/', { waitUntil: 'networkidle' }); await p2.waitForTimeout(200);
   check(await p2.evaluate(() => [...document.querySelectorAll('img.arrive')].every((i) => getComputedStyle(i).animationName === 'none')), 'motion off: images arrive with no animation');
   await c2.close();
 }
