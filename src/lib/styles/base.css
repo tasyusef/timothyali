@@ -4,6 +4,9 @@
    each weight sits on its own pixel grid: Regular 6.25 cells/em, Bold 13.75 cells/em. */
 @font-face{font-family:'PARC Pixel Web';src:url('/fonts/parc-pixel.woff2') format('woff2');font-weight:400;font-display:block}
 @font-face{font-family:'PARC Pixel Bold Web';src:url('/fonts/parc-pixel-bold.woff2') format('woff2');font-weight:700;font-display:block}
+/* In-page jumps (the hero's “Explore the tools”, a Work row from Home) ease when motion is on;
+   the skip link scrolls instantly on its own (0098). The class lives on .site, so :has reaches it. */
+:root:has(.site.motion){scroll-behavior:smooth}
 :root{font-family:var(--face-root);font-size:27px;line-height:32px;color:var(--fg);background:var(--paper);font-synthesis:none;-webkit-font-smoothing:none;text-rendering:optimizeSpeed}
 *{box-sizing:border-box}body{margin:0;min-height:100vh}
 h1,h2,h3,p,figure,dl,dd{margin:0}h1,h2,h3{font-weight:400}

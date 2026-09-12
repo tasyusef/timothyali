@@ -1551,3 +1551,16 @@ Grid clean and no overflow on the agents page and the tool pages at 1440 / 1100 
 **Rejected.** Rebuilding PARC Pixel with the glyphs half a cell lower: it would centre every label on the site at once, but it moves every label, not only the ones in buttons, and it cannot fix Press Start, which is Google's. Fixing the status strip and other label rows: not buttons, not asked; the same offset is visible there and can be a later call.
 
 **Consequences.** At 1440, 9 of 178 remain flagged and none is a button off centre: the home footer rows and the Add colour button are audit false positives (a full-width row; a plus sign in a different colour from its label), the rest are descenders and the ampersand. At 700 and 390 the same, plus the wrapped chip rows in the Lockup rail, which top-align by design (0095). The contact form's Send block had its own phone padding and was corrected with the rest. `blocks.mjs` now waits for the fonts before measuring (a cold server had it measuring fallback metrics). Site-wide block audit and the Toolbox grid audit clean; the 48-state Toolbox check passes.
+
+## 0098 — Smooth scrolling, the native kind
+
+- **Date:** 2026-09-11
+- **Status:** Proposed on Timothy's “can we add some form of smooth scroll to the site?”; awaiting his eye. Uncommitted.
+
+**Options.** (a) Native `scroll-behavior: smooth` on the root, so in-page jumps ease: the Toolbox hero's “Explore the tools”, and any hash link. (b) An inertial scroll library (Lenis and its kind) that takes over the wheel and eases every scroll.
+
+**Choice.** (a), gated by the site's motion toggle: `:root:has(.site.motion){scroll-behavior:smooth}`, so Motion [off] (and the reduced-motion preference it follows by default) means instant jumps. Route changes are excluded: SvelteKit resets the scroll position on navigation, and with the root set to smooth the new page slid up from wherever the old one was scrolled, so the layout switches the root to `auto` in `beforeNavigate` when the pathname changes and clears it a frame after `afterNavigate`. The skip link already scrolls instantly on its own.
+
+**Rejected.** (b): the ease parks the page on fractional scroll positions, which blurs bitmap type mid-motion on exactly the site built to keep every pixel whole; it fights trackpads and screen readers; and it would be the site's first runtime dependency. If Timothy wants the inertial feel anyway, it is a separate decision with those costs named.
+
+**Consequences.** Measured with motion on: the hero jump is at 86px after 80ms and lands on the target at 680; a nav click while scrolled is at 0 within 40ms with the behaviour restored to smooth afterwards; the jump still eases after a navigation. With motion off every position is instant. No layout change.

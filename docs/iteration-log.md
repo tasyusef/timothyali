@@ -547,3 +547,7 @@ Timothy: the layout looks bad. Rebuilt `/toolbox/agents/` on the tool page's sha
 ### PX-34 — Every button's ink centred — 2026-09-11 (0097)
 
 Timothy: check every button, the text inside must actually be centred. New `tools/review/buttons.mjs` measures the ink in each button's screenshot; 172 of 178 were 1px high and 1px left from the label face's line placement and trailing bearing. Fixed as padding on every button block, heights unchanged; the block audits skip in-button text. Rule recorded in `docs/design-system.md` under *Staying on the unit*. Proposal, uncommitted.
+
+### PX-35 — Native smooth scrolling — 2026-09-11 (0098)
+
+Timothy asked for smooth scroll. Native `scroll-behavior: smooth` on the root, gated by the motion toggle; route changes stay instant via `beforeNavigate` / `afterNavigate` in the layout. Inertial wheel-hijacking libraries rejected for blurring bitmap type on fractional positions. Measured both toggles. Proposal, uncommitted.

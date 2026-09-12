@@ -9,7 +9,7 @@
   // Every face the chrome and the first fold use, 68KB together, so the first paint is set in them.
   const preload = [jacquardUrl, pressStartUrl, '/fonts/parc-pixel.woff2', '/fonts/parc-pixel-bold.woff2', jerseyUrl];
   import { page } from '$app/state';
-  import { afterNavigate } from '$app/navigation';
+  import { afterNavigate, beforeNavigate } from '$app/navigation';
   import { onMount } from 'svelte';
   import { motion, grid, theme } from '$lib/motion.svelte';
   import SocialMeta from '$lib/components/SocialMeta.svelte';
@@ -22,7 +22,11 @@
   let headerHeight = $state(64);
   let headerElement: HTMLElement;
   let lastScroll = 0;
-  afterNavigate(() => { navCollapsed = false; lastScroll = Math.max(0, window.scrollY); });
+  // In-page jumps ease (base.css, 0098); a route change must not, or the new page slides up
+  // from wherever the old one was scrolled. The root's behaviour is switched off for the
+  // navigation and back on once the kit has placed the new page.
+  beforeNavigate((nav) => { if (nav.to?.url.pathname !== nav.from?.url.pathname) document.documentElement.style.scrollBehavior = 'auto'; });
+  afterNavigate(() => { navCollapsed = false; lastScroll = Math.max(0, window.scrollY); requestAnimationFrame(() => { document.documentElement.style.scrollBehavior = ''; }); });
   const fmt = new Intl.DateTimeFormat('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'America/Denver' });
   function skipToContent(event: MouseEvent) {
     const main = document.getElementById('main'); if (!main) return;

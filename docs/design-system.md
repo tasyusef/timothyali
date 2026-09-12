@@ -412,6 +412,8 @@ bands; scan stays flat (its accent is the line) and so does the 404’s `sparse`
 `src/lib/components/Ascii.svelte` and GRIDFORM Studio’s `src/renderer/src/ui/Ascii.svelte`
 are the same component; a change to one goes to the other.
 
+In-page jumps ease with native `scroll-behavior: smooth`, gated by the motion toggle (`:root:has(.site.motion)`); route changes are switched to instant by the layout so a new page never slides up from the old scroll position (0098).
+
 Form fields (Contact) hide the native caret and show the `.cursor` block at the
 insertion point through the `blockCaret` action in `src/lib/caret.ts`; validation is the
 form’s own, as `.lbl` note chips in the accent under the field (0092).
