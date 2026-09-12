@@ -56,7 +56,7 @@ export const APP = {
   version: '1.0.0',
   platforms: ['macOS', 'Windows', 'Linux'],
   interfaces: ['App', 'CLI', 'MCP'],
-  status: 'Waiting on signing',
+  status: 'Released',
   description: 'Four design tools in one app: logo packages, colour systems, type specimens and image conversion. Runs on macOS, Windows and Linux, and every tool also runs from a terminal and over MCP.'
 };
 
@@ -151,8 +151,11 @@ export const binaries = [
   { os: 'Linux', path: 'toolbox' }
 ];
 
+/** The release builds live in the public releases repo; every file is checksummed there. */
+export const RELEASES = 'https://github.com/tasyusef/toolbox/releases';
+const file = (name: string) => `${RELEASES}/download/v${APP.version}/${name}`;
 export const builds = [
-  { os: 'macOS', note: 'Apple silicon and Intel', formats: 'dmg, zip' },
-  { os: 'Windows', note: 'x64 and arm64 installer', formats: 'exe' },
-  { os: 'Linux', note: 'x64 and arm64', formats: 'AppImage, deb' }
+  { os: 'macOS', note: 'Signed and notarized', files: [{ label: 'Apple silicon', href: file('Toolbox-1.0.0-arm64.dmg') }, { label: 'Intel', href: file('Toolbox-1.0.0.dmg') }] },
+  { os: 'Windows', note: 'Not code-signed. SmartScreen asks once: More info, then Run anyway.', files: [{ label: 'Installer, x64 and arm64', href: file('Toolbox-Setup-1.0.0.exe') }] },
+  { os: 'Linux', note: 'AppImage. Make it executable once.', files: [{ label: 'x86_64', href: file('toolbox-1.0.0-x86_64.AppImage') }, { label: 'arm64', href: file('toolbox-1.0.0-arm64.AppImage') }] }
 ];

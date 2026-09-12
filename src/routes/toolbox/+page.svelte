@@ -7,7 +7,7 @@
   import PageFoot from '$lib/components/PageFoot.svelte';
   import Cursor from '$lib/components/Cursor.svelte';
   import ToolDemo from '$lib/components/toolbox/ToolDemo.svelte';
-  import { APP, tools, builds } from '$lib/toolbox';
+  import { APP, tools, builds, RELEASES } from '$lib/toolbox';
   import { STEP } from '$lib/tokens';
   let selected = $state('lockup');
   const active = $derived(tools.find(t => t.slug === selected) ?? tools[0]);
@@ -51,8 +51,17 @@
   </section>
 
   <section class="release" id="download" aria-labelledby="download-title">
-    <div class="release-heading"><span class="lbl">Release {APP.version}</span><h2 id="download-title" class="blackletter">Almost yours.</h2></div>
-    <div class="release-copy"><span class="status lbl">{APP.status}</span><p class="body">The first release is finished and waiting on code signing. When the builds are signed, they’ll land here.</p><div class="platforms lbl">{#each builds as b}<span title={`${b.note} · ${b.formats}`}>{b.os}</span>{/each}</div></div>
+    <div class="release-heading"><span class="lbl">Release {APP.version}</span><h2 id="download-title" class="blackletter">Yours.</h2></div>
+    <div class="release-copy">
+      <span class="status lbl">{APP.status}</span>
+      <p class="body">Pick your platform. Every file is listed with its SHA-256 on the releases page.</p>
+      <ul class="downloads">
+        {#each builds as b}
+          <li><span class="lbl dim">{b.os}</span><span class="files">{#each b.files as f}<a class="body" href={f.href}>{f.label}</a>{/each}</span><span class="lbl dim note">{b.note}</span></li>
+        {/each}
+      </ul>
+      <QuietLink href={RELEASES} label="All files and checksums" class="lbl" />
+    </div>
   </section>
   <section class="end"><PageFoot note="Toolbox / by Timothy Ali" href="/contact/" label="Get in touch" /></section>
 </main>
@@ -77,7 +86,12 @@
 .command{padding:var(--s3);background:var(--paper);color:var(--fg);display:flex;flex-direction:column;gap:var(--s2)}.command code{font-family:var(--face-text)}.command :global(.cursor){height:24px;vertical-align:top}
 .machine :global(.quiet-link){align-self:flex-start}.machine :global(.quiet-link:hover){color:var(--accent-text)}.machine :global(.quiet-link:active){color:var(--on-accent)}
 .release{padding-top:var(--s8);padding-bottom:var(--s4);display:grid;grid-template-columns:1fr 1fr;gap:var(--s8)}
-.release h2{font-size:129px;line-height:136px;margin-top:var(--s2)}.release-copy{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s3)}.status{padding:9px 14px 7px 16px;background:var(--accent);color:var(--on-accent)}.platforms{display:flex;gap:var(--s3);flex-wrap:wrap}
+.release h2{font-size:129px;line-height:136px;margin-top:var(--s2)}.release-copy{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s3)}.status{padding:9px 14px 7px 16px;background:var(--accent);color:var(--on-accent)}.downloads{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s2);align-self:stretch}
+.downloads li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0 var(--s2);align-items:baseline}
+.downloads .files{display:flex;gap:var(--s3);flex-wrap:wrap}
+.downloads .files a{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
+.downloads .files a:hover{color:var(--accent-text)}
+.downloads .note{grid-column:2}
 .end :global(.page-foot){margin-top:var(--s4);margin-bottom:var(--s4)}
 noscript a{text-decoration:underline}
 @media(max-width:1100px){.tool-showcase{grid-template-columns:round(down,calc((100% - 32px) / 3),8px) minmax(0,1fr);gap:var(--s4)}.tool-story h3{font-size:27.5px;line-height:32px}.release h2{font-size:86px;line-height:88px}}
