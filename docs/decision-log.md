@@ -1670,6 +1670,8 @@ Grid clean and no overflow on the agents page and the tool pages at 1440 / 1100 
 
 **Consequences.** With smooth scrolling on (0098) the number rolls through the jump; with motion off it steps as the page does — it is data, not motion. Capped at 9999 cells (80,000px), which no page approaches.
 
+**Correction, the same night, on the live site.** The estimate above was wrong at exactly 1440: the full strip with the longest slug needed 1,360px before the readout and fits 1,440; the readout's 80px (five characters and a gap) pushed it to 1,472, so `do-androids-dream` and `jade-aesthetics` clipped mid-word on a 1440 screen, which 0072 had ruled out. The clock's new zone prefix (43a7978, another session's commit: the visitor's zone, up to `GMT+9`) adds up to 48px more. Fix: the path ends in the strip's own `…` (`text-overflow: ellipsis` on `.path-text`, with the Decode set inline there, because Chrome clips an inline-block whole rather than ellipsizing into it): `~/TIM/WORK/DO-ANDROID…` at 1440. Between 1100 and about 1300 a long slug with a long zone is down to `~/TIM/…`; that range was already tight before tonight and the four breakpoints (0075) leave no step there. If it matters, the coordinates are the item to shed next — 18 characters of decoration — and that is a separate call.
+
 ## 0106 — One focus ring, in the accent, on either ground
 
 - **Date:** 2026-09-11

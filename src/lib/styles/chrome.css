@@ -34,7 +34,8 @@
 .readout .st-scroll{font-variant-numeric:tabular-nums}
 .readout>span{flex:none;opacity:var(--dim)}
 .readout .path{margin-top:0;opacity:1;flex:0 1 auto;min-width:0}
-.readout .path-text{white-space:nowrap}
+.readout .path-text{white-space:nowrap;text-overflow:ellipsis} /* a path with no room ends in the strip's own … rather than mid-word (0105) */
+.readout .path .decode{display:inline} /* inline, not inline-block, or the ellipsis cannot reach into it */
 .readout .path{font-size:inherit;line-height:inherit}
 /* The strip never shrinks below 16px. It sheds items by priority instead (decision 0072):
    ≤1100 coordinates go, ≤900 Denver and SYS.OK go and the path keeps only its last

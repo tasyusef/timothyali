@@ -446,7 +446,8 @@ eases; every change is a colour, a whole cell, or a stepped dither.
   inside `document.startViewTransition` or plain when the API or motion is absent.
 - **The readout** decodes the route part of the path on navigation (`Decode` inline after
   a fixed prefix, `STEP_FAST`, 0102) and shows the scroll offset in cells of the unit as
-  `+0128` after the path (`.st-scroll`, never shed, 0105). `Decode` decodes again when its
+  `+0128` after the path (`.st-scroll`, never shed, 0105). A path with no room ends in `…`
+  (`text-overflow` on `.path-text`, the Decode inline there). `Decode` decodes again when its
   `text` changes.
 - **The field cursor** (0103): `.band{cursor:image-set(…)}` — `static/cursor/field-{dark,light}[@2x].png`
   from `tools/cursor/make.mjs`, a 16px crosshair on the 2px pixel with an open centre,
