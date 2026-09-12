@@ -157,5 +157,5 @@ const file = (name: string) => `${RELEASES}/download/v${APP.version}/${name}`;
 export const builds = [
   { os: 'macOS', note: 'Signed and notarized', files: [{ label: 'Apple silicon', href: file('Toolbox-1.0.0-arm64.dmg') }, { label: 'Intel', href: file('Toolbox-1.0.0.dmg') }] },
   { os: 'Windows', note: 'Not code-signed. SmartScreen asks once: More info, then Run anyway.', files: [{ label: 'Installer, x64 and arm64', href: file('Toolbox-Setup-1.0.0.exe') }] },
-  { os: 'Linux', note: 'AppImage. Make it executable once.', files: [{ label: 'x86_64', href: file('toolbox-1.0.0-x86_64.AppImage') }, { label: 'arm64', href: file('toolbox-1.0.0-arm64.AppImage') }] }
+  { os: 'Linux', note: 'AppImage runs anywhere once executable; deb for Debian and Ubuntu.', files: [{ label: 'AppImage x86_64', href: file('toolbox-1.0.0-x86_64.AppImage') }, { label: 'AppImage arm64', href: file('toolbox-1.0.0-arm64.AppImage') }, { label: 'deb amd64', href: file('toolbox_1.0.0_amd64.deb') }, { label: 'deb arm64', href: file('toolbox_1.0.0_arm64.deb') }] }
 ];
