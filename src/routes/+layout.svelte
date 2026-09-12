@@ -47,7 +47,16 @@
     if (!motion.on || typeof document.startViewTransition !== 'function' || nav.to?.url.pathname === nav.from?.url.pathname) return;
     return new Promise<void>((resolve) => { wipe('vt-route', async () => { resolve(); await nav.complete; }); });
   });
-  const fmt = new Intl.DateTimeFormat('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'America/Denver' });
+  // The visitor's own time and zone, not Denver's: the generic short name where English has
+  // one (MT, PT), otherwise the offset (GMT+9); long names are skipped so the strip keeps its width.
+  const fmt = new Intl.DateTimeFormat('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  function zoneName() {
+    for (const timeZoneName of ['shortGeneric', 'short'] as const) {
+      const part = new Intl.DateTimeFormat('en-US', { timeZoneName }).formatToParts(new Date()).find((p) => p.type === 'timeZoneName');
+      if (part && part.value.length <= 5) return part.value;
+    }
+    return '';
+  }
   function skipToContent(event: MouseEvent) {
     const main = document.getElementById('main'); if (!main) return;
     event.preventDefault(); main.focus({ preventScroll: true }); main.scrollIntoView({ behavior: 'instant', block: 'start' });
@@ -81,7 +90,8 @@
     motion.ready = true;
     const update = () => { if (!explicit) motion.on = !media.matches; };
     media.addEventListener('change', update);
-    const tickClock = () => { clock = fmt.format(new Date()); };
+    let zone = zoneName();
+    const tickClock = () => { const now = new Date(); if (now.getSeconds() === 0) zone = zoneName(); clock = `${zone} ${fmt.format(now)}`.trim(); };
     tickClock(); const id = setInterval(tickClock, 1000);
     return () => { window.removeEventListener('scroll', onScroll); headerObserver.disconnect(); media.removeEventListener('change', update); clearInterval(id); };
   });
@@ -110,7 +120,7 @@
     </nav>
   </header>
   <div class="readout mono" aria-label="Status">
-    <span class="path mono" aria-hidden="true"><span class="path-text"><span class="path-full">~/tim/<Decode text={route} step={STEP_FAST} /></span><span class="path-short">{shortPrefix}<Decode text={shortTail} step={STEP_FAST} /></span></span><Cursor /></span><span class="st-scroll">+{scrolled}</span><span class="st-city">Denver, CO</span><span class="st-coords">39.7392N 104.9903W</span><span class="st-clock">{clock ? `MT ${clock}` : 'MT --:--:--'}</span><span class="st-sys">SYS.OK</span>
+    <span class="path mono" aria-hidden="true"><span class="path-text"><span class="path-full">~/tim/<Decode text={route} step={STEP_FAST} /></span><span class="path-short">{shortPrefix}<Decode text={shortTail} step={STEP_FAST} /></span></span><Cursor /></span><span class="st-scroll">+{scrolled}</span><span class="st-city">Denver, CO</span><span class="st-coords">39.7392N 104.9903W</span><span class="st-clock">{clock || '--:--:--'}</span><span class="st-sys">SYS.OK</span>
   </div>
   </div>
   {@render children()}
