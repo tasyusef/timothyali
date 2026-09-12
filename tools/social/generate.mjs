@@ -1,4 +1,4 @@
-// Share images and icons. The twelve 1200×630 PNGs are screenshots of the dev-only
+// Share images and icons. The eighteen 1200×630 PNGs are screenshots of the dev-only
 // /og/<id> route, so they are drawn by the site's own components: the real header and
 // status strip, the canvas ASCII field with its knockout, the cell-sized type, the
 // shipped fonts. Motion is off (one static seeded frame, no blink, no Decode), the
@@ -8,6 +8,7 @@ import { chromium } from '@playwright/test';
 import { spawn } from 'node:child_process';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { studies } from '../../src/lib/work.ts';
+import { tools } from '../../src/lib/toolbox.ts';
 import { INK, YELLOW } from '../../src/lib/tokens.ts';
 
 const PORT = 4174, ORIGIN = `http://127.0.0.1:${PORT}`;
@@ -33,11 +34,16 @@ await page.clock.setFixedTime(FROZEN);
 const errors = []; page.on('pageerror', (e) => errors.push(String(e)));
 
 mkdirSync('static/og', { recursive: true });
-const ids = ['home', 'work', 'contact', ...studies.map((p) => p.slug)];
+// Every route in socialPages, one image each. The strip's scroll readout (0105) is a live
+// offset, meaningless in a still, so it is hidden the way the clock is frozen; with it
+// gone the four short paths keep their coordinates and the rest shed them, the way the
+// strip does below 1100px.
+const ids = ['home', 'work', 'contact', 'toolbox', 'toolbox-agents', ...tools.map((t) => `toolbox-${t.slug}`), ...studies.map((p) => p.slug)];
 const report = [];
 for (const id of ids) {
   await page.goto(`${ORIGIN}/og/${id}`, { waitUntil: 'networkidle' });
-  if (!['home', 'work', 'contact'].includes(id)) await page.addStyleTag({ content: '.st-coords{display:none}' });
+  await page.addStyleTag({ content: '.st-scroll{display:none}' });
+  if (!['home', 'work', 'contact', 'toolbox'].includes(id)) await page.addStyleTag({ content: '.st-coords{display:none}' });
   await page.evaluate(async () => {
     await document.fonts.ready;
     await Promise.all([...document.images].map((i) => i.decode().catch(() => {})));

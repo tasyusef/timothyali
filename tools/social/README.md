@@ -1,6 +1,6 @@
 # Site icons and share images
 
-`pnpm social:generate` builds the favicon set and twelve 1200×630 PNGs in `static/og/`.
+`pnpm social:generate` builds the favicon set and eighteen 1200×630 PNGs in `static/og/`.
 Run from the project root with Node 22.18+ and Playwright Chromium installed. Set
 `CHROMIUM_PATH` to select an executable; otherwise the generator uses the existing
 local review browser when present or Playwright's installed Chromium. All fonts,
@@ -12,8 +12,12 @@ colours and project covers come from this repository; no external service is use
 - Apple touch icon: 180×180.
 - Home / Contact: blackletter and PARC Pixel type; Work: selected four-cover collage.
 - Nine study images: project cover, title, scope, year, and consistent site chrome.
-- Re-run when titles, selected projects, covers or identity change. Adding a study
-  automatically includes it in generation and metadata via the `studies` export.
+- Toolbox (0110): the landing's hero (`toolbox`), the agents page head with the
+  `toolbox --mcp` plate (`toolbox-agents`), and one Work-row composition per tool with
+  the app's own screen in the frame (`toolbox-<slug>`), from the `tools` export.
+- Re-run when titles, selected projects, covers, tools or identity change. Adding a
+  study or a tool automatically includes it in generation and metadata via the
+  `studies` and `tools` exports.
 
 `src/lib/social.ts` owns the public origin and per-page preview copy. The origin is
 `https://www.timothyali.com`, retained from the previous site. `SocialMeta.svelte`
@@ -23,9 +27,11 @@ meta-description tags remain owned by their routes; keep them in sync if copy ch
 Open Graph field reference: https://ogp.me/.
 
 After generation, run `pnpm build && pnpm social:verify`. This reads the actual
-prerendered HTML and shipped files, checking all 12 routes, unique image tags,
+prerendered HTML and shipped files, checking all 18 routes, unique image tags,
 public URLs, nonempty descriptions/alt text, and PNG dimensions. The browser checks
-in `navigation.mjs` expect the local site on port 4173. `proof.mjs` produces the
+in `navigation.mjs` expect the local site on port 4173. The strip's scroll readout
+(0105) is hidden in every still, since a share image has no offset; the four short
+paths keep their coordinates, the rest shed them. `proof.mjs` produces the
 contact sheet; those review helpers use the existing local browser executable.
 
 No deployment or external social-platform cache refresh is performed here.

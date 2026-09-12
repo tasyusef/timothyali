@@ -21,6 +21,48 @@
     "pass": true
   },
   {
+    "path": "/toolbox/",
+    "image": "/og/toolbox.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/toolbox/agents/",
+    "image": "/og/toolbox-agents.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/toolbox/lockup/",
+    "image": "/og/toolbox-lockup.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/toolbox/palette/",
+    "image": "/og/toolbox-palette.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/toolbox/specimen/",
+    "image": "/og/toolbox-specimen.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/toolbox/convert/",
+    "image": "/og/toolbox-convert.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
     "path": "/work/parc/",
     "image": "/og/parc.png",
     "serverRendered": true,

@@ -1733,3 +1733,29 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 **Rejected.** (a): a clock the visitor cannot use is decoration twice over, and the place is already said twice beside it. (c): a bare time with no zone reads as the site's, which is the ambiguity (b) removes.
 
 **Consequences.** The clock item grows from a fixed eleven characters to as many as fourteen, 48px more; measured on the live site (0105's correction) the strip holds 32px with no overflow in Denver, Tokyo, Kolkata, Berlin and Los Angeles at 1440, 700 and 390, and the path's new ellipsis absorbs the loss on the longest slugs. Before JavaScript runs the clock reads `--:--:--` with no zone. The share images (0084) render the strip at build time in `America/Denver` and are unaffected.
+
+## 0110 — Toolbox share images, rendered by the site
+
+- **Date:** 2026-09-12
+- **Status:** Proposed. Generated, verified, uncommitted; awaiting Timothy's eye.
+
+**Context.** Since the Toolbox section landed (8d0cc9f, 0093–0097) its six routes — `/toolbox/`, `/toolbox/agents/` and the four tool pages — shared Home's share image, noted in `social.ts` as a stopgap. A link to a tool page unfurled as *i'm tim.* Timothy: "need to make new OG images for the new routes."
+
+**Options.** (a) One Toolbox image for all six: the hero, reused. (b) Six compositions in `/og/[id]`, the way the studies have one each (0084): the landing's hero for `/toolbox/`, the agents head for `/toolbox/agents/`, a Work row per tool. (c) Hand-drawn posters per tool.
+
+**Choice.** (b). The share route already renders a page's own blocks inside the real chrome, so each composition is its page at 1200×630: the Toolbox hero (bands field, seed 7, flipped, the top row, `toolbox.` at 258, the lead at the phone size 27/32 so the actions fit under it, the Explore button and the platforms); the agents page's label and head over the lead, then the landing's terminal plate reading `toolbox --mcp` with the cursor, inverted onto the field; each tool as the study row — the app's own screen (the page's `shot`) in the framed mat, the `[0n] / blurb` label in the accent, the name at 55 (dropping a cell if a word would not fit, the study rule), the catalog summary, and *About <tool>* as the quiet arrow. Image ids are `toolbox`, `toolbox-agents` and `toolbox-<slug>`, so a tool can never share a file name with a study. `socialPages`, the sitemap and JSON-LD already listed the routes; only the image ids changed. `verify.mjs` now checks all eighteen routes and that no two share an image.
+
+**Rejected.** (a): a tool page's link should show the tool, as a study's shows the study. (c): 0082/0083 were rejected for not being the site; nothing is drawn by hand in the generator any more.
+
+**Consequences.** Regenerating showed the strip's scroll readout (0105) had taken the room the Home path needed: `~/TIM/INDEX` was clipping to `~/TIM/IND…` in the stills, and `~/TIM/TOOLBOX` would too. A share image has no scroll offset, so the generator hides `.st-scroll` the way it freezes the clock; with it gone the four short paths (home, work, contact, toolbox) keep their coordinates and the fourteen long ones shed them, as the live strip does below 1100px. Tool labels wrap on `text-wrap: balance` so a two-line blurb never leaves one word alone. The eighteen stills, the story and the wide frame regenerated; `pnpm build && pnpm social:verify` passes on all eighteen. Evidence: `docs/iterations/pixel-v2/25-social-site/assets.json`.
+
+## 0111 — The Lockup demo's mark is an anvil, aligned by ink
+
+- **Date:** 2026-09-12
+- **Status:** Proposed. Timothy's own edit, committed with 0110.
+
+**Context.** The Lockup demo's example logo was an abstract 32-cell A beside "acme." in Jacquard. Acme is the anvil company, and the A read as a placeholder.
+
+**Choice.** A 32×17 anvil drawn on the wordmark's own 2px pixel. The mark and the wordmark align by ink, not by box: "acme." at 86 is all x-height letters, ink rows 35–68 of the 88px line, so the anvil is 17 pixels tall (34px, the x-height), sits on the baseline and meets the x-height at the top. The logo's 238px width and the plate are unchanged.
+
+**Consequences.** `tools/review/toolbox-demo.mjs` should be re-run before this ships with the next accepted pass.

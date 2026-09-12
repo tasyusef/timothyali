@@ -561,3 +561,7 @@ Timothy, same day: the field's yellow differed between themes. `.band-bg` now se
 ### PX-37 — The clock is the visitor's — 2026-09-11/12 (0109)
 
 Committed from a parallel session while PX-36 was being built (43a7978): the strip's clock shows the visitor's local time led by their zone's short name or offset, not Denver's `MT`. Logged the next day on Timothy's “log it as 0109”, after the live strip was measured across five zones with the PX-36 scroll readout beside it.
+
+### PX-38 — Toolbox share images — 2026-09-12 (0110)
+
+Timothy: "need to make new OG images for the new routes." The six Toolbox routes had shared Home's image since 0093. Three compositions were added to the dev-only `/og/[id]` route from the pages' own blocks: the landing hero for `/toolbox/`, the agents head with the `toolbox --mcp` plate for `/toolbox/agents/`, and a Work row per tool with the app's own screen in the frame. Regenerating found the 0105 scroll readout clipping the Home path in the stills; the generator now hides it (a still has no offset) and the short paths keep their coordinates. Eighteen images, `social:verify` passes on all eighteen. Proposed, uncommitted, awaiting his eye.

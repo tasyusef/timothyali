@@ -11,6 +11,7 @@
   import MetaLine from '$lib/components/MetaLine.svelte';
   import Picture from '$lib/components/Picture.svelte';
   import { projects, last } from '$lib/work';
+  import { APP } from '$lib/toolbox';
   import { STEP, STEP_SLOW } from '$lib/tokens';
   import { onMount } from 'svelte';
   import { page } from '$app/state';
@@ -26,7 +27,7 @@
   // word will not fit the column at 55px, the title drops one cell to 41.25/48.
   let h1: HTMLElement | undefined = $state(); let probe: HTMLElement | undefined = $state();
   let small = $state(false);
-  const longest = $derived(data.project?.title.split(/\s+/).sort((a, b) => b.length - a.length)[0] ?? '');
+  const longest = $derived((data.project?.title ?? data.tool?.name ?? '').split(/\s+/).sort((a, b) => b.length - a.length)[0]);
   // The study row is centred in the 534px frame by hand: (frame − row) / 2 rounded down to
   // the unit, so the row's top stays on the 8px grid whatever the cover's height.
   let row: HTMLElement | undefined = $state(); let rowTop = $state(0);
@@ -67,6 +68,36 @@
     <Band class="og-contact" mode="fall" seed={3} density={0.55} shade avoid=".og-top > span, .og-contact h1 > span">
       <div class="og-top lbl"><span>Let’s talk</span><span>Timothy Ali / Denver, CO</span></div>
       <h1><span class="display">Tell me what<br />you’re</span><span class="blackletter display-xl">building.</span></h1>
+    </Band>
+  {:else if data.id === 'toolbox'}
+    <!-- The Toolbox hero at share size: the same field, the name, the lead, the actions. -->
+    <Band class="og-toolbox" mode="bands" seed={7} density={0.7} flip shade avoid=".og-hero-top > span, .og-toolbox h1, .og-toolbox .lead, .og-actions > *">
+      <div class="og-hero-top lbl"><span>By Timothy Ali</span><span>{APP.interfaces.join(' / ')}</span></div>
+      <h1 class="blackletter display-xl"><Decode text="toolbox." /></h1>
+      <p class="lead">Make the work.<br />Let Toolbox finish the files.</p>
+      <div class="og-actions"><Cta href="/toolbox/#tools" class="lbl">Explore the tools <Arrow /></Cta><span class="lbl">{APP.platforms.join(' · ')}</span></div>
+    </Band>
+  {:else if data.id === 'toolbox-agents'}
+    <!-- The agents page's head, then the landing's command plate: the one line that says it. -->
+    <Band class="og-agents" mode="fall" seed={3} density={0.55} shade avoid=".og-agents .lbl, .og-agents h1, .og-agents .lead, .og-command">
+      <span class="lbl">Toolbox / the command line and MCP</span>
+      <h1 class="display">Without the window</h1>
+      <p class="lead">Toolbox is also its own command-line tool and MCP server.</p>
+      <div class="og-command"><span class="lbl dim">Terminal</span><code class="body">toolbox --mcp<Cursor /></code></div>
+    </Band>
+  {:else if data.tool}
+    {@const t = data.tool}
+    <!-- A tool page as a Work row: the app's own screen in the frame, the head beside it. -->
+    <Band class="og-study og-tool" mode="fall" seed={5} density={0.7} shade avoid=".og-row > *">
+      <div class="row og-row" bind:this={row} style:padding-top="{rowTop}px">
+        <div class="frame"><Picture src={t.shot.src} alt="" width={t.shot.w} height={t.shot.h} eager /></div>
+        <div class="row-body">
+          <span class="lbl og-tool-n">[{t.n}] / {t.blurb}</span>
+          <h1 class="display" class:small bind:this={h1}><span class="probe" aria-hidden="true" bind:this={probe}>{longest}</span>{t.name}</h1>
+          <p class="body">{t.summary}</p>
+          <Cta variant="quiet" class="lbl">About {t.name} <Arrow /></Cta>
+        </div>
+      </div>
     </Band>
   {:else if data.project}
     {@const p = data.project}
@@ -120,6 +151,22 @@
 .og-top>span:first-child{background:var(--accent);color:var(--on-accent)}
 .og :global(.og-contact h1){display:flex;flex-direction:column;gap:var(--s2)}
 .og :global(.og-contact .display){line-height:64px}
+
+/* Toolbox — the landing's hero at share size: top row, the name, the lead, the actions */
+.og :global(.og-toolbox){display:flex;flex-direction:column;align-items:flex-start}
+.og-hero-top{display:flex;justify-content:space-between;align-self:stretch;margin-bottom:var(--s4)}
+.og :global(.og-toolbox .lead){font-size:27px;line-height:32px;margin-top:var(--s2)}
+.og-actions{display:flex;align-items:center;gap:var(--s4);margin-top:var(--s4)}
+
+/* Agents — the page head and the command plate */
+.og :global(.og-agents){display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2)}
+.og :global(.og-agents > .lbl){background:var(--paper);padding:var(--s1);margin-bottom:var(--s1)}
+.og :global(.og-agents .lead){margin-top:var(--s2)}
+.og-command{margin-top:var(--s3);padding:var(--s3);background:var(--fg);color:var(--paper);display:flex;flex-direction:column;gap:var(--s2);min-width:calc(48 * var(--u))}
+.og-command code{font-family:var(--face-text)}.og-command :global(.cursor){height:24px;vertical-align:top}
+
+/* Tool — the study row with the tool's own head */
+.og-tool-n{color:var(--accent-text);text-wrap:balance}
 
 /* Study — the Work row, centred in the frame */
 .og-row{height:100%;align-content:start}
