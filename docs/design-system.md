@@ -205,7 +205,7 @@ The sticky wrapper holds the header and the status strip; heights are literal be
 | ≤ 700 | 104 (48 wordmark row + 8 + 32 nav row, 8 padding each side; decision 0070) | 32 | as ≤ 900 |
 | ≤ 420 | 104 | 32 | clock dropped; path alone |
 
-The strip is always 16px Press Start; it never shrinks. Priority classes: `.st-coords`, `.st-city`, `.st-sys`, `.st-clock`; the path carries `.path-full` and `.path-short`. Press Start advances one em per character, so an item's width is 16px × its characters; the steps are what fits with the gutters.
+The clock is the visitor's local time, led by their zone's short name or offset, up to fourteen characters (0109). The strip is always 16px Press Start; it never shrinks. Priority classes: `.st-coords`, `.st-city`, `.st-sys`, `.st-clock`; the path carries `.path-full` and `.path-short`. Press Start advances one em per character, so an item's width is 16px × its characters; the steps are what fits with the gutters.
 
 The global footer is one row on desktop (copyright left, the three toggles right). At or below 700px it is a settings list (decision 0073): the toggles first, each a full-width 32px row with the label left and its state right, then the copyright line; 184px in all.
 
