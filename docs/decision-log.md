@@ -1718,3 +1718,18 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 **Rejected.** (a): a component change for a site policy, and a divergence from the app. (c): the olive was the one place the brand colour changed with the theme.
 
 **Consequences.** Measured on the built site at 1440, motion off, before the darkening: Home and Toolbox bands drew the identical count of `#f2d600` pixels in both themes (15,716 and 16,248), so the swap was exact; Contact's band 44,540 light against 45,884 dark, the difference being the signal glyph and the label type inside it, which still deepen as type should. After it, the same cells draw `#c8ac00` on the light theme and no `#6f6200` is left in a field. The share-image route renders dark and is unaffected.
+
+## 0109 — The status strip's clock is the visitor's
+
+- **Date:** 2026-09-11 (committed 23:24 as 43a7978 from a parallel session; logged 2026-09-12 on Timothy's “log it as 0109”)
+- **Status:** Accepted. Live.
+
+**Context.** The strip's clock was Denver's, formatted in `America/Denver` with a hard-coded `MT` in front of it, alongside `Denver, CO` and the coordinates. Three items said the same place. The change was made in another Claude session in this checkout while the tactility pass was being built, with the reasoning in its commit message: the same rule the Toolbox app's readout already follows.
+
+**Options.** (a) Keep Denver's clock: the strip is the studio's terminal. (b) The visitor's local time, led by their zone's generic short name where English has one (`MT`, `PT`), otherwise the offset (`GMT+9`), re-read on the minute so a zone change mid-visit is caught. (c) The visitor's time with no zone.
+
+**Choice.** (b). `Intl.DateTimeFormat` with no `timeZone` gives the visitor's clock; `zoneName()` asks for `shortGeneric`, then `short`, and takes the first answer of five characters or fewer, so `MT`, `PT`, `CET`, `GMT+9` and `GMT+5:30` — no: that one is eight and is skipped — while long names never widen the strip. Denver stays as the city and the coordinates: the strip now reads as *where I am* and *when it is for you*, which is what a session readout says.
+
+**Rejected.** (a): a clock the visitor cannot use is decoration twice over, and the place is already said twice beside it. (c): a bare time with no zone reads as the site's, which is the ambiguity (b) removes.
+
+**Consequences.** The clock item grows from a fixed eleven characters to as many as fourteen, 48px more; measured on the live site (0105's correction) the strip holds 32px with no overflow in Denver, Tokyo, Kolkata, Berlin and Los Angeles at 1440, 700 and 390, and the path's new ellipsis absorbs the loss on the longest slugs. Before JavaScript runs the clock reads `--:--:--` with no zone. The share images (0084) render the strip at build time in `America/Denver` and are unaffected.
