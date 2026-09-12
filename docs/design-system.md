@@ -425,7 +425,7 @@ Form fields (Contact) hide the native caret and show the `.cursor` block at the
 insertion point through the `blockCaret` action in `src/lib/caret.ts`; validation is the
 form’s own, as `.lbl` note chips in the accent under the field (0092).
 
-## Tactility (0099–0107, proposal)
+## Tactility (0099–0108, accepted 2026-09-11)
 
 The states the browser used to handle by default now use the system's grammar. Nothing
 eases; every change is a colour, a whole cell, or a stepped dither.

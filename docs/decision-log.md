@@ -1477,7 +1477,7 @@ Timothy found the first OG set boring compared with the site and requested the t
 ## 0094 — Toolbox landing: polish pass on the four examples
 
 - **Date:** 2026-09-11
-- **Status:** Proposed. Assistant's refinement of 0093 on Timothy's “go through and refine these mocks/demos, and do an overall design review”; awaiting his eye. Uncommitted.
+- **Status:** Proposed. Assistant's refinement of 0093 on Timothy's “go through and refine these mocks/demos, and do an overall design review”. Committed and pushed in e7eacf6.
 
 **Review verdict.** The 0093 structure holds: hero, one picker, one example, the inverted band, the release note. What was off was inside the example card, not the page. Kept as is: the hero and its route-local 258 ladder, the section head, the picker, the inverted band, the release section, all copy.
 
@@ -1497,7 +1497,7 @@ Timothy found the first OG set boring compared with the site and requested the t
 ## 0095 — Toolbox examples are the app's own screens
 
 - **Date:** 2026-09-11
-- **Status:** Proposed. Built on Timothy's direction; awaiting his eye. Uncommitted. Supersedes the example-card work in 0094 (the page-level findings there stand).
+- **Status:** Proposed. Built on Timothy's direction; committed and pushed in e7eacf6. Supersedes the example-card work in 0094 (the page-level findings there stand).
 
 **Direction.** After the 0094 polish Timothy said the mocks still did not look like the app, did not function like it, and did not abstract it in a way that showed what each tool does, so they added no value. He then sketched the answer himself: for Lockup show the file tree and the buttons that choose the output files; for Convert the compression slider and the file-type selectors; "stuff like that". The assistant had reached the same place from the app's source and screenshots: the app is a canvas on a dither mat beside a rail of `LABEL … [ON]` rows and yellow chips, with a path strip and an export action, and everything it does is in-to-settings-to-out. Codex's demos were a bar, a plate and a row of loose controls.
 
@@ -1522,7 +1522,7 @@ Timothy found the first OG set boring compared with the site and requested the t
 ## 0096 — The command line and MCP page, restructured
 
 - **Date:** 2026-09-11
-- **Status:** Proposed on Timothy's “layout wise this looks pretty bad”; awaiting his eye. Uncommitted.
+- **Status:** Proposed on Timothy's “layout wise this looks pretty bad”; committed and pushed in e7eacf6.
 
 **What was wrong.** A seven-line 54px lead with nothing beside it, then a body paragraph; sections on a third / two-thirds grid with the heading alone in the third and everything else stacked in one long column on the right; “Three machine modes” running labels, code and prose together in that column; a one-sentence section (“One rule for output”) at the end.
 
@@ -1542,7 +1542,7 @@ Grid clean and no overflow on the agents page and the tool pages at 1440 / 1100 
 ## 0097 — Buttons centre their ink
 
 - **Date:** 2026-09-11
-- **Status:** Proposed on Timothy's “go through all the buttons and make sure the text inside is actually centred”; awaiting his eye. Uncommitted.
+- **Status:** Proposed on Timothy's “go through all the buttons and make sure the text inside is actually centred”; committed and pushed in e7eacf6.
 
 **Finding.** A new audit, `tools/review/buttons.mjs`, screenshots every button-like element on every route at 1×, takes the pixels in the text's colour as the ink, and compares the gaps above and below it (and left and right for chips and centred blocks). 172 of 178 buttons were off at 1440, all by the same cause: PARC Pixel Regular at 12.5 sits 1px high in its 16px line (2 above the caps, 4 below) and Press Start's arrow the same (0 and 2), and both leave a 2px trailing bearing. Equal padding therefore puts the text 1px high and 1px left. The Toolbox picker cards, a label over a display line, were 3px high.
 
@@ -1555,7 +1555,7 @@ Grid clean and no overflow on the agents page and the tool pages at 1440 / 1100 
 ## 0098 — Smooth scrolling, the native kind
 
 - **Date:** 2026-09-11
-- **Status:** Proposed on Timothy's “can we add some form of smooth scroll to the site?”; awaiting his eye. Committed ahead of the tactility pass (7fe6a00) so the pass could build on it.
+- **Status:** Proposed on Timothy's “can we add some form of smooth scroll to the site?”; committed ahead of the tactility pass (7fe6a00) so the pass could build on it, and accepted with it on 2026-09-11.
 
 **Options.** (a) Native `scroll-behavior: smooth` on the root, so in-page jumps ease: the Toolbox hero's “Explore the tools”, and any hash link. (b) An inertial scroll library (Lenis and its kind) that takes over the wheel and eases every scroll.
 
@@ -1568,7 +1568,7 @@ Grid clean and no overflow on the agents page and the tool pages at 1440 / 1100 
 ## 0099 — Press states: the pressed surface is the accent
 
 - **Date:** 2026-09-11
-- **Status:** Proposed. Timothy approved the tactility pass as a list (“what else can we do to really refine the tactility and visual polish of the site?”, nine items); the reading of each item is mine and awaits his eye. Uncommitted, with 0100–0107.
+- **Status:** Timothy approved the tactility pass as a list (“what else can we do to really refine the tactility and visual polish of the site?”, nine items); the reading of each item is mine. Accepted by Timothy on 2026-09-11 (“ok commit it all and push”), with the rest of the tactility pass.
 
 **Context.** The site had no `:active` state anywhere. Hover is the foreground colour everywhere (a block lights to `--fg` with `--paper` type), the pointer's arrival was answered, the press was not: between mousedown and the navigation the block sat in its hover colour, which is a browser default, not a choice.
 
@@ -1583,7 +1583,7 @@ Grid clean and no overflow on the agents page and the tool pages at 1440 / 1100 
 ## 0100 — Theme flip as a dither wipe
 
 - **Date:** 2026-09-11
-- **Status:** Proposed, with 0099. Uncommitted.
+- **Status:** Accepted by Timothy on 2026-09-11 (“ok commit it all and push”), with the rest of the tactility pass.
 
 **Context.** The theme toggle was a hard cut: every colour on the page flipped in one frame. The site has a grammar for how things appear — the checker, the cell, the step — and the flip did not use it.
 
@@ -1598,7 +1598,7 @@ Grid clean and no overflow on the agents page and the tool pages at 1440 / 1100 
 ## 0101 — Images arrive through the dither
 
 - **Date:** 2026-09-11
-- **Status:** Proposed, with 0099. Uncommitted.
+- **Status:** Accepted by Timothy on 2026-09-11 (“ok commit it all and push”), with the rest of the tactility pass.
 
 **Context.** A lazy image (a Work cover, a study gallery, a Toolbox screenshot) popped in whole when it loaded, on a page where everything else steps.
 
@@ -1613,7 +1613,7 @@ Grid clean and no overflow on the agents page and the tool pages at 1440 / 1100 
 ## 0102 — The readout acknowledges navigation
 
 - **Date:** 2026-09-11
-- **Status:** Proposed, with 0099. Uncommitted.
+- **Status:** Accepted by Timothy on 2026-09-11 (“ok commit it all and push”), with the rest of the tactility pass.
 
 **Context.** The status strip's path (`~/tim/work`) is the readout's one line about where you are, and on a route change it swapped in a frame while the page's title decoded beside it.
 
@@ -1628,7 +1628,7 @@ Grid clean and no overflow on the agents page and the tool pages at 1440 / 1100 
 ## 0103 — A pixel cursor over the field
 
 - **Date:** 2026-09-11
-- **Status:** Proposed, with 0099. Uncommitted.
+- **Status:** Accepted by Timothy on 2026-09-11 (“ok commit it all and push”), with the rest of the tactility pass.
 
 **Context.** The ASCII field answers the pointer with heat and a click ring, but the pointer over it was the operating system's arrow.
 
@@ -1643,7 +1643,7 @@ Grid clean and no overflow on the agents page and the tool pages at 1440 / 1100 
 ## 0104 — Route change through the field
 
 - **Date:** 2026-09-11
-- **Status:** Proposed, with 0099. Timothy approved the item with the note that it is a taste call and should stay to one beat. Uncommitted.
+- **Status:** Timothy approved the item with the note that it is a taste call and should stay to one beat. Accepted by Timothy on 2026-09-11 (“ok commit it all and push”), with the rest of the tactility pass.
 
 **Context.** A navigation between pages was a hard swap; 0098 had already made it instant rather than scrolled. Given 0100, the site now has a way for one page to leave and another to arrive.
 
@@ -1658,7 +1658,7 @@ Grid clean and no overflow on the agents page and the tool pages at 1440 / 1100 
 ## 0105 — Scroll in the readout
 
 - **Date:** 2026-09-11
-- **Status:** Proposed, with 0099. Uncommitted.
+- **Status:** Accepted by Timothy on 2026-09-11 (“ok commit it all and push”), with the rest of the tactility pass.
 
 **Context.** The status strip reports the path, the place, the coordinates, the clock and SYS.OK — everything about the session except where in the page you are.
 
@@ -1673,7 +1673,7 @@ Grid clean and no overflow on the agents page and the tool pages at 1440 / 1100 
 ## 0106 — One focus ring, in the accent, on either ground
 
 - **Date:** 2026-09-11
-- **Status:** Proposed, with 0099. Uncommitted.
+- **Status:** Accepted by Timothy on 2026-09-11 (“ok commit it all and push”), with the rest of the tactility pass.
 
 **Context.** `base.css` drew the focus ring in `currentColor`, the contact form in `--accent` at offset 0, the Toolbox demo in `--fg` and `currentColor` by control: four rules for one thing. And the accent ring had a contrast problem the type had already solved: yellow on the white ground is 1.3:1, which is why 0075 made `--accent-text` deepen on the light theme — but the contact form's fields sit in the ink panel, which on the dark theme is *white*, so their yellow ring sat on white there too.
 
@@ -1688,7 +1688,7 @@ Grid clean and no overflow on the agents page and the tool pages at 1440 / 1100 
 ## 0107 — The page scrollbar, in the system
 
 - **Date:** 2026-09-11
-- **Status:** Proposed on Timothy's addition to the list (“a custom scrollbar”), with 0099. Uncommitted.
+- **Status:** Timothy's own addition to the list (“a custom scrollbar”). Accepted by Timothy on 2026-09-11 (“ok commit it all and push”), with the rest of the tactility pass.
 
 **Context.** The one piece of chrome on the page that was still the operating system's.
 
@@ -1703,7 +1703,7 @@ Grid clean and no overflow on the agents page and the tool pages at 1440 / 1100 
 ## 0108 — The field's yellow is the brand yellow in both themes
 
 - **Date:** 2026-09-11
-- **Status:** Accepted. Timothy, with the Scroll chip's yellow beside it: “our yellow for the bg textures is different in light or dark mode. make it the same as this even in light mode.” Uncommitted, with the tactility pass.
+- **Status:** Accepted. Timothy, with the Scroll chip's yellow beside it: “our yellow for the bg textures is different in light or dark mode. make it the same as this even in light mode.” Committed with the tactility pass.
 
 **Context.** Since 0091 each field mode draws one thing in `--accent-text` — the rain's droplet, the scan line, a crest, the densest cells, the pointer's heat — and `--accent-text` deepens to `--yellow-deep` on the light theme (0075), because that token exists for *type* on the white ground, where the brand yellow is 1.3:1. So on the light theme the fields lit olive while every accent block on the page stayed `#f2d600`.
 
