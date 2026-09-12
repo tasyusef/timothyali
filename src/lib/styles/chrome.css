@@ -15,7 +15,10 @@
 .path{display:flex;align-items:center;justify-self:start;min-width:0;max-width:100%;margin-top:var(--s2)}
 .path .path-text{overflow:hidden;min-width:0}
 .site-header nav{display:flex;gap:var(--s1);margin-top:var(--s1);justify-self:end}
-.site-header nav a{display:block;padding:var(--s1) var(--s2)}
+/* Centred ink, not centred boxes (0097): PARC Pixel and Press Start sit 1px high in their line
+   and carry a 2px trailing bearing, so a button's padding is 9/7 (or 17/15, 25/23) and 2 less on
+   the right. Box heights are unchanged. */
+.site-header nav a{display:block;padding:9px 14px 7px 16px}
 .site-header nav a b{font-weight:400;opacity:var(--dim);margin-right:var(--s1)}
 .site-header nav a[aria-current]{background:var(--accent);color:var(--on-accent)}
 .site-header nav a:hover{background:var(--fg);color:var(--paper)}
@@ -41,7 +44,7 @@
 
 .global-footer{display:grid;grid-template-columns:1fr auto;gap:var(--s2);align-items:center;padding:var(--s2) var(--gutter) var(--s3)}
 .global-footer .controls{display:flex;flex-wrap:wrap;gap:var(--s1)}
-.global-footer button{padding:var(--s1) var(--s2)}
+.global-footer button{padding:9px 14px 7px 16px}
 .global-footer button:hover{background:var(--fg);color:var(--paper)}
 .global-footer button[aria-pressed=true] b{color:var(--accent-text)}
 
@@ -53,7 +56,7 @@
   /* Four equal quarters (Toolbox is the fourth item, 0092); the first three are rounded
      to whole 2px cells and the last takes the remainder, centring its label inside an
      even-width track so the text still lands on whole pixels (0089). */
-  .site-header nav a{flex:none;width:round(down,calc(100% / 4),2px);text-align:center;padding:var(--s1) 0}
+  .site-header nav a{flex:none;width:round(down,calc(100% / 4),2px);text-align:center;padding:9px 0 7px 2px}
   .site-header nav a:last-child{flex:1 1 0;min-width:0;width:auto;white-space:nowrap;display:grid;grid-template-columns:round(down,100%,2px)}
   /* Four numbered labels do not fit 320: the numbers go, the words stay (0092). */
   .site-header nav a b{display:none}
@@ -62,20 +65,20 @@
      state right, then the copyright line. Nothing wraps at 320. */
   .global-footer{grid-template-columns:1fr;gap:var(--s2);padding:var(--s3) var(--gutter) var(--s4)}
   .global-footer .controls{order:-1;flex-direction:column;gap:0}
-  .global-footer button{display:flex;justify-content:space-between;padding:var(--s1) 0}
+  .global-footer button{display:flex;justify-content:space-between;padding:9px 0 7px}
   .global-footer button:hover{background:none;color:inherit}
 }
 @media(max-width:420px){
   /* CONTACT and TOOLBOX are 82px each, wider than a quarter of 320: below the phone
      floor the four items take their own widths and share what is left (0092). */
-  .site-header nav a,.site-header nav a:last-child{flex:1 1 auto;width:auto;display:block;padding:var(--s1) 0}
+  .site-header nav a,.site-header nav a:last-child{flex:1 1 auto;width:auto;display:block;padding:9px 0 7px 2px}
 }
 
 /* PX-22: Home closing controls align with the selected-work columns.
    This variant leaves the inner-page footer geometry intact. */
 .home-footer{grid-template-columns:round(down,calc((100% - 32px) / 2),8px) minmax(0,1fr);gap:var(--s4);padding-top:var(--s4);padding-bottom:var(--s4)}
 .home-footer .controls{display:grid;grid-template-columns:repeat(2,round(down,calc((100% - 32px) / 3),8px)) minmax(0,1fr);gap:var(--s2)}
-.home-footer button{display:flex;justify-content:space-between;gap:var(--s1);padding:var(--s2) 0}
+.home-footer button{display:flex;justify-content:space-between;gap:var(--s1);padding:17px 0 15px}
 .home-footer .state{color:var(--accent-text)}
 .home-footer button:hover,.home-footer button:focus-visible{background:var(--fg);color:var(--paper)}
 .home-footer button:hover .state,.home-footer button:focus-visible .state{color:inherit}

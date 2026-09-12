@@ -51,7 +51,7 @@ h1{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2) var(--s4)}
   .building{align-self:flex-start;font-size:129px;line-height:136px}
   .contact-bottom{grid-template-columns:1fr;margin-top:var(--s4)}
   .signal{display:none}.contact-note{padding:var(--s3);gap:var(--s2)}
-  .contact-note :global(.cta-row){padding:var(--s2);gap:var(--s2)}
+  .contact-note :global(.cta-row){padding:17px 14px 15px 16px;gap:var(--s2)}
   .contact-note :global(.contact-form){gap:var(--s1)}
 }
 @media(max-width:420px){.building{font-size:86px;line-height:88px}.contact-note{padding:var(--s2)}}

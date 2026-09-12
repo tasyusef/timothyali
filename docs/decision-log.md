@@ -1458,3 +1458,96 @@ Timothy found the first OG set boring compared with the site and requested the t
 - **Validation notes.** The form runs with `novalidate`; `required` stays on the fields for what it means. On submit each field is checked, a `.lbl` note chip in the accent appears under the ones that are wrong (“A name, please.” / “An address I can reply to.” / “That address doesn’t parse.” / “A line about what you’re building.”), the first of them takes focus, and the field carries `aria-invalid` and is described by its note. Typing in a field clears its note. Chips are 32 tall (16 label + 8 + 8), so the panel stays on the unit. Without JavaScript the form posts natively and the function’s `?error=invalid` path already answers.
 
 **Consequences.** Contact block tops still 0 off the unit at 1440/1100/700/390. No POST leaves the page while a note is showing. Not done: live validation while typing (it would nag), and the caret in any other field on the site (there are none).
+
+## 0093 — Toolbox as a second landing page
+
+- **Date:** 2026-09-10
+- **Status:** Implemented proposal, awaiting Timothy’s visual review.
+
+**Direction.** Timothy asked to clean up the Toolbox page, make it distinct and interesting, and give it the clarity of a second landing page. He found the existing page cluttered and hard to follow, and suggested using components from the app to demonstrate the tools instead of relying on screenshots.
+
+**Implementation choices.** A large blackletter hero on a shaded bands field introduces the product, followed by one four-tool selector and one interactive demonstration at a time. A short inverted workflow band links to CLI/MCP documentation, then an honest release-status section closes the page. Five raster screenshots leave the landing page; detailed tool pages and the catalog remain in place. The new headlines and condensed supporting copy are assistant proposals, not accepted copy decisions.
+
+**Component reuse.** `AppToggle`, `PlateToggle`, and `SwatchDot` are copied from the actual app’s renderer UI. The website composes them into lightweight examples: logo treatments, palette/CSS selection, editable type, and a format/resize preview. It does not import Electron stores or the desktop export engine. Sample artwork is authored SVG/CSS; a visible note explains that exports happen in the app. The app source is untouched.
+
+**Consequences.** The page is substantially shorter and presents one clear task at a time. Four tool detail links, the agents documentation, platform coverage, and the waiting-on-signing status remain available. The accepted site tokens and shared components are unchanged. This is a local refinement, not a release or deployment.
+
+**0093 follow-up — 2026-09-11.** Timothy directed that the example logo read Acme and use pixel art to match the font. Applied to the wordmark, accessible label and output name. The assistant’s stepped A monogram replaces the curved acorn, on the same 3px desktop / 2px phone cell scale as the adjacent Jacquard lettering. Artwork remains a proposal for visual review.
+
+## 0094 — Toolbox landing: polish pass on the four examples
+
+- **Date:** 2026-09-11
+- **Status:** Proposed. Assistant's refinement of 0093 on Timothy's “go through and refine these mocks/demos, and do an overall design review”; awaiting his eye. Uncommitted.
+
+**Review verdict.** The 0093 structure holds: hero, one picker, one example, the inverted band, the release note. What was off was inside the example card, not the page. Kept as is: the hero and its route-local 258 ladder, the section head, the picker, the inverted band, the release section, all copy.
+
+**What changed, and why.**
+
+- **The card meets the picker's edge.** The example sat in a dithered wrap with 16px padding, so its right edge stopped 16px short of the picker's fourth button and its bottom row (also dithered) melted into the wrap. The wrap is gone: the card is now bar / plate / controls / dithered output row, flush with the picker, and the note sits under it on the page ground.
+- **The lockup is centred.** The mark and word sat left-aligned inside a fixed 400px box centred in the plate, 21px left of centre. The box is now 358 (96 + 24 + the 237 of “acme.” at 129, +1 so the centred box lands on a whole pixel), the two items at its ends; `translateY(-4px)` keeps the block top on the unit inside the 352 plate, as before.
+- **The A reads as an A.** The 0093 monogram was an arch with a small window. Redrawn on the same 32-cell grid with legs, a counter and a crossbar; still 3px cells beside Jacquard at 129 (43 cells/em), 2px on phones. Timothy's direction (Acme, pixel art matching the font) is unchanged; the drawing is still the assistant's.
+- **The specimen is a specimen.** The alphabet was always Jersey regardless of the face chosen, and only two faces were offered. Now the four faces the site loads (Jacquard 24, Jersey 15, PARC Pixel Bold, Press Start 2P), each with letter / line / alphabet sizes from the cell table (129/86/43, 108/54/27, 110/41.25/27.5, 96/32/16) so every sheet is crisp; the Bold sheet is uppercase because the cut is caps-only (0078). The plate is `min-height` rather than a fixed height so the Jacquard sheet is not clipped. The line field uses the site's block caret (0092).
+- **Convert shows a resize.** Half size dropped the poster from 224 to 192, a change nobody would notice. The poster is now authored at 256×320 and 128×160 (192×240 / 96×120 on phones), Jersey at 54 and 27, so both are whole cells and the half really is half. The “Example artwork / 01” tag in the poster and the vague “Resize preview” output label are gone; the output row names the file and its pixel size.
+- **Rejected: scaling the poster with `transform` or `zoom`.** One drawing, two sizes, but a 0.5 scale puts the 12.5px label on quarter pixels and any other factor blurs the type. Two authored sizes cost six lines of CSS.
+- **One cursor on the page.** The terminal's hand-made 8×24 block is the shared `Cursor` component (it blinks with the motion toggle), stretched to 24 by a route rule. The “Live preview” marker in the card bar is gone: Timothy, on seeing a first pass that made it a second blinking cursor, said too many were blinking at once and to keep only the terminal's and the status strip's. The specimen field's block caret stays; it only shows while the field has focus (0092).
+- **Small things.** Swatch label colour by luminance instead of a hard-coded list of dark hexes; “Example / Lockup” names the tool instead of printing its slug; the lockup output row says Mono / Colour and adds “Reversed” on the dark plate; “colours” in the site's spelling; the logo carries `role="img"`.
+
+**Consequences.** `pnpm check` 0/0, build passes, `toolbox-demo.mjs` 48 states pass, no overflow at five widths in both themes. `tools/review/toolbox-grid.mjs` (new) reports 0 block tops off the unit and 0 text boxes on fractional pixels for all four tool states at 1440/1100/900/700/390/320. Page heights: 2560 desktop, 3488 at 390. Not done: aligning the story column to the picker's first column (it is a third; the picker is quarters; “EVERYWHERE.” at 41.25 does not fit a quarter), and the About-tool pages, which were not in the brief.
+
+## 0095 — Toolbox examples are the app's own screens
+
+- **Date:** 2026-09-11
+- **Status:** Proposed. Built on Timothy's direction; awaiting his eye. Uncommitted. Supersedes the example-card work in 0094 (the page-level findings there stand).
+
+**Direction.** After the 0094 polish Timothy said the mocks still did not look like the app, did not function like it, and did not abstract it in a way that showed what each tool does, so they added no value. He then sketched the answer himself: for Lockup show the file tree and the buttons that choose the output files; for Convert the compression slider and the file-type selectors; "stuff like that". The assistant had reached the same place from the app's source and screenshots: the app is a canvas on a dither mat beside a rail of `LABEL … [ON]` rows and yellow chips, with a path strip and an export action, and everything it does is in-to-settings-to-out. Codex's demos were a bar, a plate and a row of loose controls.
+
+**Choice.** Each example is now a miniature of that tool's real screen, using the app's own blocks (copied into `demo.css`) and, where a number or a text appears, the app's own logic (ported into `plan.ts`):
+
+- **Lockup** is steps 02 and 03 of the wizard. The rail's Web / Print format chips, Color / Black / White treatments and Large / Medium / Small sizes drive a live file count in the readout (37 files with everything on, from the app's export plan for one version without Pantone names), and 03 Review shows the exact folder tree the export would write, expandable, with the colourway swatches on the treatment folders. The package name is editable and renames every file.
+- **Palette** has the colour rows (swatch, hex, name, remove, add), the four output toggles, and the files list. Each file previews in the stage: the CSS, SCSS and tokens text is generated by the app's exporters, the swatch sheet is the app's client-deck page drawn in HTML, the ASE shows its swatches and byte size. The artwork is a poster composed from the palette, so editing a hex recolours it.
+- **Specimen** offers the app's two templates. Brand sheet: title, sample line, and three roles each with a typeface select over the four site faces and an L / M / S size from that face's cell table. Specimen: one family, its characters and a size ladder.
+- **Convert** shows two authored posters in the app's stack rows with the formats chips, the compression slider, the longest-edge chips and the notes. The outputs are real: the browser encodes each poster at the chosen settings (canvas, as the app does for PNG / JPEG / WebP) and the sizes and percentages are measured; TIFF and PDF are computed the way the app's writers lay them out.
+- Every screen ends in the app's Destination row and a disabled Export, which is the app's own state before a folder is chosen. The note under the card says exporting happens in the app.
+
+**Rejected.** Screenshots (0093 already retired them: static, and out of date the moment the app changes). Faking Convert's numbers (the app measures; so does the page). A Lockup padding slider: no scale of the pixel lockup other than 1× and 2× is crisp, so the slider would blur the mark. Rail narrower than the app's 376: the settings rows wrap or truncate below it; the rail is the app's width and the stage takes what is left.
+
+**Grid and width rules learned.** The tilde in PARC Pixel Regular has a fractional advance at 12.5px (6.76), so nothing may follow `~/…` on the same line by flow; the readout's count is pushed right with `margin-left:auto` and the path is what shrinks. The ellipsis is 12.5 wide, same rule. A row that wraps its chips grows by 32 + 8, so the wrapped chip gap is 8 and the row top-aligns. Buttons that could shrink in a narrow stage are `flex:none` and their row wraps. The wizard's three steps take their own toolbar row below 1100 and lose their words below 420.
+
+**Also fixed on the way.** The hero "toolbox." at 258px is 822 wide and was clipped by the band between 700 and about 890px; it now steps to 172 below 900 like the site's display ladder.
+
+**Consequences.** `pnpm check` 0/0; build passes; `toolbox-demo.mjs` (rewritten for the new screens) passes 48 tool/theme/width states with keyboard selection, live counts, tree, file previews, template switch and measured sizes; `toolbox-grid.mjs` reports 0 block tops off the unit and 0 text boxes on fractional pixels across 24 states; `toolbox-landing.mjs` no overflow at five widths, both themes. Page height 2608 at 1440, 3968 at 390. The four About-tool pages still carry the app screenshots and were not touched.
+
+**0095 follow-up — 2026-09-11.** Timothy: clean up the mock interfaces, Convert especially, too much explanatory copy. Removed Convert's three notes (the formats line, the compression line, the transparency line) and its dead Add images / Remove all row; the output details on Palette's four toggles (Variables, JSON, Adobe swatches, PDF / PNG); Specimen's PDF / PNG line; and shortened the page note under the card to “Exporting happens in the app.” The settings speak for themselves.
+
+## 0096 — The command line and MCP page, restructured
+
+- **Date:** 2026-09-11
+- **Status:** Proposed on Timothy's “layout wise this looks pretty bad”; awaiting his eye. Uncommitted.
+
+**What was wrong.** A seven-line 54px lead with nothing beside it, then a body paragraph; sections on a third / two-thirds grid with the heading alone in the third and everything else stacked in one long column on the right; “Three machine modes” running labels, code and prose together in that column; a one-sentence section (“One rule for output”) at the end.
+
+**Choice.** The tool page's shape. The head is a two-column intro: a one-sentence lead and the body on the left, the three binary paths as meta on the right. Every section keeps the third / two-thirds split (the commands need the width) but the third now carries the explanation under its heading, and the two-thirds carries only the material: code, or code and the rules. The three machine modes are three sections, List / Run / Serve, each labelled “Machine mode 0n”. The five rules and the output rule are one two-column definition list under the commands (Arguments, Paths, Lists, Switches, Output, Exit codes). The title steps 82.5 / 55 / 41.25 so “Without the window” holds one line on desktop. Copy is unchanged apart from one added lead-in per section.
+
+**Consequences.** 3432px tall at 1440 (was 3968). No block tops off the unit and no overflow at 1440 / 1100 / 900 / 700 / 390 / 320.
+
+**0096 follow-up — accuracy and completeness, 2026-09-11.** Timothy: make sure it is accurate and shows everything people might need in the right spot. Checked against the app's `docs/AGENTS.md`, `src/main/cli.ts`, `src/main/index.ts`, `src/main/mcp.ts` and `src/shared/toolCatalog.ts`.
+
+- **Wrong, fixed.** The first command read `toolbox # what tools exist`. The parser treats no arguments as a normal launch (it opens the app, as a double-click would); listing is `toolbox list` or `toolbox help`. The app's own AGENTS.md carries the same wrong line; the site follows the code. Timothy may want to fix the app doc.
+- **Missing, added.** `toolbox help` and `toolbox describe <tool>`; the from-a-checkout commands (`npm run build`, `npx electron out/main/index.js`); `longestEdge` in the `--run` example, as the app doc has it; a failure result (`ok: false` with `error`, exit 1); that MCP keeps stdout for protocol traffic and logs to stderr; that `.mcp.json` can live in the user config; `--json` as its own convention.
+- **The options.** A new section lists every flag each tool takes, with choices, defaults and which one takes bare arguments, exactly as `toolbox <tool> --help` prints them. The params are copied into `src/lib/toolbox.ts` beside the summaries (same rule: the site cannot describe an option the binary does not have) and rendered by `src/lib/components/toolbox/Options.svelte`, flag left, description right. The same list now sits in each tool page's “Without the window” section under its example command, so a person reading about Lockup sees Lockup's flags there.
+- **Checked and already right.** Binary paths, the PATH link, the four example commands, the conventions, the exit codes, the result shape, the MCP config.
+
+Grid clean and no overflow on the agents page and the tool pages at 1440 / 1100 / 900 / 700 / 390 / 320. Agents page is 6320px at 1440 with the options in.
+
+## 0097 — Buttons centre their ink
+
+- **Date:** 2026-09-11
+- **Status:** Proposed on Timothy's “go through all the buttons and make sure the text inside is actually centred”; awaiting his eye. Uncommitted.
+
+**Finding.** A new audit, `tools/review/buttons.mjs`, screenshots every button-like element on every route at 1×, takes the pixels in the text's colour as the ink, and compares the gaps above and below it (and left and right for chips and centred blocks). 172 of 178 buttons were off at 1440, all by the same cause: PARC Pixel Regular at 12.5 sits 1px high in its 16px line (2 above the caps, 4 below) and Press Start's arrow the same (0 and 2), and both leave a 2px trailing bearing. Equal padding therefore puts the text 1px high and 1px left. The Toolbox picker cards, a label over a display line, were 3px high.
+
+**Choice.** Correct it in the padding of every button-like block, one pixel more above than below and two fewer on the right (9/7 for 32px boxes, 17/15 for 48, 25/23 for 64, 27/21 on the picker), so the box heights stay what they were and nothing around a button moves. Blocks that hold a 16px non-text item in the same line (the hero hint's arrow, the swatch dots in the demo's settings rows) get that item nudged 1px back up. The two grid audits now skip a button's descendants, since that text is a pixel down by design.
+
+**Rejected.** Rebuilding PARC Pixel with the glyphs half a cell lower: it would centre every label on the site at once, but it moves every label, not only the ones in buttons, and it cannot fix Press Start, which is Google's. Fixing the status strip and other label rows: not buttons, not asked; the same offset is visible there and can be a later call.
+
+**Consequences.** At 1440, 9 of 178 remain flagged and none is a button off centre: the home footer rows and the Add colour button are audit false positives (a full-width row; a plus sign in a different colour from its label), the rest are descenders and the ampersand. At 700 and 390 the same, plus the wrapped chip rows in the Lockup rail, which top-align by design (0095). The contact form's Send block had its own phone padding and was corrected with the rest. `blocks.mjs` now waits for the fonts before measuring (a cold server had it measuring fallback metrics). Site-wide block audit and the Toolbox grid audit clean; the 48-state Toolbox check passes.

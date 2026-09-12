@@ -384,6 +384,18 @@ rules that came out of it, all now in the CSS with a `(0089)` comment at the spo
 - **Right-aligned blocks** (`margin-left:auto`) are on whole pixels but not on the unit when
   the content width is not — at 1100 or 390 nothing right-aligned can be. Accepted.
 - **The wordmark stays 43/43** inside the fixed 64px header; nothing flows after it.
+- **Buttons centre the ink, not the line box (0097).** PARC Pixel Regular at 12.5 draws its caps
+  2px below the top of its 16px line and leaves 4 below; Press Start's arrow is 0 above and 2 below;
+  both carry a 2px trailing bearing. So a button with equal padding shows its text 1px high and
+  1px left. Every button-like block (`.cta`, `.cta-row`, `.cta-hint`, `.cta-quiet`, the nav links,
+  the footer buttons, `.quiet-link.pad`, the Toolbox picker and status chip, the demo chips, rows
+  and steps) carries one more pixel above than below (9/7, 17/15, 25/23, 27/21 on the picker) and
+  two fewer on the right; box heights are unchanged, so nothing around them moves. A 16px block in
+  such a line (the hero hint's arrow, a swatch dot in a settings row) is nudged 1px back up.
+  `tools/review/buttons.mjs` screenshots every button and compares the ink's gaps; the block
+  audits skip a button's descendants because that text is 1px down on purpose. Not applied: the
+  status strip and other non-button label rows, and descender glyphs (j, p, g, the ampersand)
+  count as ink to the audit but not to the eye.
 
 ## The field (0091, proposal)
 

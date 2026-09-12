@@ -6,6 +6,7 @@
   import Code from '$lib/components/Code.svelte';
   import PageFoot from '$lib/components/PageFoot.svelte';
   import QuietLink from '$lib/components/QuietLink.svelte';
+  import Options from '$lib/components/toolbox/Options.svelte';
   import { last } from '$lib/toolbox';
   import { STEP } from '$lib/tokens';
   let { data } = $props();
@@ -36,6 +37,7 @@
     <div class="paras">
       <p class="body">The same tool from a terminal or an agent. Identical output either way, because the app and the command line run the same code.</p>
       <Code label="Example command" text={t.command} />
+      <Options tool={t} heading={false} />
       <QuietLink href="/toolbox/agents/" label="The command line and MCP" pad class="lbl" />
     </div>
   </section>

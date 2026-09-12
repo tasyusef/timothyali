@@ -1,0 +1,82 @@
+[
+  {
+    width: 1440,
+    theme: 'dark',
+    errors: [],
+    overflow: false,
+    height: 2608,
+    images: 0
+  },
+  {
+    width: 1440,
+    theme: 'light',
+    errors: [],
+    overflow: false,
+    height: 2592,
+    images: 0
+  },
+  {
+    width: 900,
+    theme: 'dark',
+    errors: [],
+    overflow: false,
+    height: 2928,
+    images: 0
+  },
+  {
+    width: 900,
+    theme: 'light',
+    errors: [],
+    overflow: false,
+    height: 2944,
+    images: 0
+  },
+  {
+    width: 700,
+    theme: 'dark',
+    errors: [],
+    overflow: false,
+    height: 3160,
+    images: 0
+  },
+  {
+    width: 700,
+    theme: 'light',
+    errors: [],
+    overflow: false,
+    height: 3160,
+    images: 0
+  },
+  {
+    width: 390,
+    theme: 'dark',
+    errors: [],
+    overflow: false,
+    height: 3536,
+    images: 0
+  },
+  {
+    width: 390,
+    theme: 'light',
+    errors: [],
+    overflow: false,
+    height: 3536,
+    images: 0
+  },
+  {
+    width: 320,
+    theme: 'dark',
+    errors: [],
+    overflow: false,
+    height: 3688,
+    images: 0
+  },
+  {
+    width: 320,
+    theme: 'light',
+    errors: [],
+    overflow: false,
+    height: 3688,
+    images: 0
+  }
+]

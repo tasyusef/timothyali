@@ -53,7 +53,7 @@
 main :global(.hero){min-height:calc(100vh - 96px);min-height:round(down,calc(100vh - 96px),8px);display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:var(--s8);overflow:hidden}
 .hero-name{font-size:344px;line-height:344px}
 main :global(.hero-hint){position:absolute;right:var(--gutter);bottom:var(--s8)}
-:global(.hero-hint) .arrow{display:block;transform:translateY(0)}
+:global(.hero-hint) .arrow{display:block;transform:translateY(0);position:relative;top:-1px} /* a 16px block in a line moved 1 down for the type (0097) */
 :global(.motion .hero-hint) .arrow{animation:nudge var(--tick-cursor) steps(2,jump-none) infinite}
 @keyframes nudge{from{transform:translateY(0)}to{transform:translateY(2px)}}
 .who{padding-top:var(--s8);padding-bottom:var(--s8);background:var(--fg);color:var(--paper)}
@@ -79,7 +79,7 @@ main :global(.hero-hint){position:absolute;right:var(--gutter);bottom:var(--s8)}
    caps' and stretched each line to 97; a zero box leaves the line to the caps' strut (0089). */
 .work-statement .blackletter{font-size:86px;line-height:0;text-transform:none}
 .work-foot{display:flex;justify-content:flex-end;padding-top:var(--s4)}
-.work-foot :global(.cta-quiet){display:flex;justify-content:space-between;width:calc(50% - var(--s2));background:var(--paper);padding:var(--s2)}
+.work-foot :global(.cta-quiet){display:flex;justify-content:space-between;width:calc(50% - var(--s2));background:var(--paper);padding:17px 16px 15px}
 .work-foot :global(.cta-quiet:hover),.work-foot :global(.cta-quiet:focus-visible){background:var(--fg);color:var(--paper)}
 .work-foot :global(.cta-quiet:hover .mono),.work-foot :global(.cta-quiet:focus-visible .mono){color:inherit}
 main :global(.work-rain){position:relative;isolation:isolate;overflow:hidden}

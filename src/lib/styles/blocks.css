@@ -19,20 +19,23 @@
    and these action blocks. Two hover directions are kept on purpose —
    `block`/`row` are primary and light down to the foreground colour;
    `quiet` is a label that lights up to the accent (decision 0065). */
-.cta{display:inline-flex;align-items:center;gap:var(--s2);padding:var(--s2) var(--s3);background:var(--accent);color:var(--on-accent);transform:translate(0,0)}
+/* Centred ink, not centred boxes (0097): PARC Pixel and Press Start sit 1px high in their line
+   and carry a 2px trailing bearing, so a button's padding is 9/7 (or 17/15, 25/23) and 2 less on
+   the right. Box heights are unchanged. */
+.cta{display:inline-flex;align-items:center;gap:var(--s2);padding:17px 20px 15px 24px;background:var(--accent);color:var(--on-accent);transform:translate(0,0)}
 .cta:hover{background:var(--fg);color:var(--paper)}
 .motion .cta:hover{transform:translate(var(--nudge),0)}
-.cta-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--s2);padding:var(--s3);background:var(--accent);color:var(--on-accent);transform:translate(0,0)}
+.cta-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--s2);padding:25px 22px 23px 24px;background:var(--accent);color:var(--on-accent);transform:translate(0,0)}
 .cta-row>span{flex:none;max-width:100%}
 .cta-row:hover{background:var(--fg);color:var(--paper)}
-.cta-hint{display:inline-flex;align-items:center;gap:var(--s1);padding:var(--s1) var(--s2);background:var(--accent);color:var(--on-accent)}
-.cta-quiet{display:inline-flex;align-items:center;gap:var(--s2);padding:var(--s2)}
+.cta-hint{display:inline-flex;align-items:center;gap:var(--s1);padding:9px 14px 7px 16px;background:var(--accent);color:var(--on-accent)}
+.cta-quiet{display:inline-flex;align-items:center;gap:var(--s2);padding:17px 14px 15px 16px}
 .cta-quiet .mono{color:var(--accent-text)}
 
 /* --- quiet link (QuietLink.svelte) -------------------------------- */
 .quiet-link{display:inline-flex;align-items:center;gap:var(--s1)}
 .quiet-link:hover{color:var(--accent-text)}
-.quiet-link.pad{align-self:flex-start;padding:var(--s1) 0}
+.quiet-link.pad{align-self:flex-start;padding:9px 0 7px}
 
 /* --- index row (IndexRow.svelte) ---------------------------------- */
 .index-row{display:flex;gap:var(--s2);padding-bottom:var(--s4)}

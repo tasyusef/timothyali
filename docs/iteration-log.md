@@ -495,3 +495,55 @@ Three-agent audit (built site, OG compositions, static read), then fixes across 
 **Evidence.** `docs/iterations/pixel-v2/29-contact-caret/`: `form-{theme}-{motion}[-home|-name].png`, `notes-{theme}-{empty|email}.png`.
 
 **Status.** Assistant proposal on Timothy’s two asks; awaiting his eye.
+
+### PX-30 — Toolbox: one product, four live examples — 2026-09-10 (0093)
+
+**Request.** Timothy found Toolbox cluttered, indistinct and hard to follow. He asked for a cleaner second landing page and proposed showing real app components instead of a stack of screenshots.
+
+**Refinement.** Rebuilt `/toolbox/` around a large blackletter hero with the shared shaded ASCII bands, a single four-tool selector, and a two-column product story/live example. A short inverted App/CLI/MCP band and a release-status section complete the page. The landing page now has zero raster images instead of five; the measured default desktop page drops from 5,064 to 2,592px, and the 390px phone page from 4,800 to 3,536px. Tool detail pages, catalog descriptions, CLI/MCP docs and the waiting-on-signing status remain intact. New headlines and page copy are assistant proposals.
+
+**App reuse.** Copied the app’s Toggle, PlateToggle and SwatchDot components into `src/lib/components/toolbox/` with provenance in its README. `ToolDemo.svelte` composes those controls into four lightweight examples: Acorn logo treatment switches; three palettes with generated CSS; an editable type specimen using the site fonts; and a format/size illustration. The Acorn mark and poster are authored SVG/CSS. These examples do not run the desktop export engine; each carries an example label and the page says to export in the app. No app source was edited.
+
+**Responsive and visual checks.** Inspected full pages at desktop and 320px plus individual demo views. Phone selectors use the label face to keep the names legible in two columns; grid tracks allow content to shrink. Shortened the Specimen heading and phone workflow heading size after narrow-screen checks. Centered the logo on whole pixels and its block on the 8px unit; palette columns round to the same unit. Captured all four demos in both themes, including edited states. The evidence hides sticky navigation in component-only crops so it cannot obscure the preview.
+
+**Validation.** `pnpm check` reports zero errors/warnings; production build passes. `toolbox-demo.mjs` verifies 48 tool/theme/width combinations (1440, 1100, 900, 700, 390, 320), keyboard tool selection, control changes, each detail link, no horizontal overflow, and no browser page errors. A no-JavaScript check confirms all four detail links remain available. Full-page captures cover five widths in both themes with motion off. The targeted block audit reports zero block tops off the 8px unit for the default preview at six widths; these checks support implementation, not visual acceptance.
+
+**Evidence.** `docs/iterations/pixel-v2/30-toolbox-landing/`: `before/` includes old source and full-page captures; `after/` contains the revised pages and measurements; `demos/` contains interactive-state captures and the 48-state report. `grid.txt`, `check.txt`, `build.txt`, and repeatable scripts in `tools/review/toolbox-{landing,demo}.mjs` record verification.
+
+**Status.** Local implementation on Timothy’s direction; layout, sample artwork and new copy await his review. No commit, push or deployment.
+
+**PX-30 logo correction (2026-09-11):** Timothy requested “acme” instead of “acorn” and pixel art to match the font. Renamed the visible wordmark, accessible label and output treatment name to Acme. Replaced the curved acorn SVG with an authored stepped A monogram on a 32-cell grid, rendered at 3px per cell on desktop and 2px on phones, matching the Jacquard text’s cell scale. The existing background and monochrome controls still color the mark via `currentColor`. Inspected desktop/390px captures, confirmed no horizontal overflow, and ran Svelte check (0 errors/warnings). Source before and updated screenshots: `30-toolbox-landing/acme/`. Name/pixel direction is Timothy’s; the A drawing is the assistant’s interpretation.
+
+### PX-31 — Toolbox: the four examples, polished — 2026-09-11 (0094)
+
+**Request.** Timothy: the Codex build of `/toolbox/` (0093) is “in a decent spot but needs polish”; refine the mocks/demos and do an overall design review.
+
+**Review.** Page structure kept whole. Findings were in the example card: it sat 16px inside the picker's right edge with a dither-on-dither bottom row; the Acme lockup was 21px off centre in a fixed box and its A read as an arch; the specimen's alphabet ignored the chosen face and offered two faces; Convert's half size was a 32px change; two hand-made cursors stood in for the site's `Cursor`.
+
+**Refinement.** Card flush with the picker, wrap removed. Lockup box 358 with the mark and word at its ends, on whole pixels and the unit. A redrawn with legs, counter and crossbar on the 32-cell grid. Specimen in all four site faces at cell-table sizes, alphabet in the chosen face, Bold sheet uppercase, block caret in the line field. Poster authored at 256×320 and 128×160 (192/96 on phones) so half size is half and both are whole cells; output row names file and size. Shared `Cursor` in the card bar and the terminal. Luminance-based swatch labels, tool names in the bar, Mono / Colour / Reversed output name.
+
+**Validation.** `pnpm check` 0 errors 0 warnings; build passes; `toolbox-demo.mjs` 48/48; `toolbox-landing.mjs` no overflow at 1440/900/700/390/320 both themes; new `tools/review/toolbox-grid.mjs` 0 block tops off the unit and 0 fractional text boxes across 24 tool/width states. Inspected each tool at 1440 and 390 in the browser, including Jacquard / PARC Bold / Press Start sheets and the caret.
+
+**Evidence.** `docs/iterations/pixel-v2/30-toolbox-landing/`: `demos/` and `after/` recaptured, `grid.txt`, `check.txt`.
+
+**Status.** Proposal on Timothy's polish request; awaiting his eye. Not committed.
+
+### PX-32 — Toolbox: the four tool screens, in miniature — 2026-09-11 (0095)
+
+**Request.** Timothy on the 0094 demos: they don't look like the app, don't function like it, and don't abstract it in a way that shows what the tools do. His examples: Lockup's file tree and output-file buttons, Convert's compression slider and file-type selectors.
+
+**Refinement.** Each example rebuilt as that tool's own screen: readout strip, stage beside a 376px rail, bottom bar, from the app's blocks (`demo.css`) and its logic (`plan.ts`: export plan, tree, palette exporters, OKLCH). Lockup: live file count and the exact folder tree; Palette: colour rows, outputs, previewable files; Specimen: two templates over the four site faces; Convert: real in-browser encoding with measured sizes. Details in 0095.
+
+**Validation.** Check 0/0, build passes, `toolbox-demo.mjs` 48/48 (rewritten), `toolbox-grid.mjs` 0 off-unit blocks and 0 fractional text boxes across 24 states, `toolbox-landing.mjs` no overflow at 1440/900/700/390/320 both themes. Captures reviewed at 1440, 390 and 320. The hero ladder gained a 900 step after the audit found the 258px word clipped between 700 and 890.
+
+**Evidence.** `docs/iterations/pixel-v2/30-toolbox-landing/`: `demos/`, `after/`, `grid.txt`, `check.txt`.
+
+**Status.** Proposal on Timothy's direction; awaiting his eye. Not committed.
+
+### PX-33 — Agents page restructured — 2026-09-11 (0096)
+
+Timothy: the layout looks bad. Rebuilt `/toolbox/agents/` on the tool page's shape: two-column intro with the binary paths as meta; each section explanation left, material right; the three machine modes as three sections; the rules as one definition list. Grid clean and no overflow at six widths. Details in 0096. Proposal, uncommitted.
+
+### PX-34 — Every button's ink centred — 2026-09-11 (0097)
+
+Timothy: check every button, the text inside must actually be centred. New `tools/review/buttons.mjs` measures the ink in each button's screenshot; 172 of 178 were 1px high and 1px left from the label face's line placement and trailing bearing. Fixed as padding on every button block, heights unchanged; the block audits skip in-button text. Rule recorded in `docs/design-system.md` under *Staying on the unit*. Proposal, uncommitted.

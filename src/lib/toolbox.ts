@@ -7,6 +7,28 @@
 
 export interface Shot { src: string; w: number; h: number; alt: string }
 
+/** One command-line option, copied from the app's catalog (gridform/src/shared/toolCatalog.ts). */
+export interface Param {
+  name: string;
+  type: 'string' | 'number' | 'boolean' | 'string[]';
+  description: string;
+  required?: boolean;
+  choices?: string[];
+  default?: string | number | boolean | string[];
+  /** takes bare arguments on the command line */
+  primary?: boolean;
+}
+
+const outParam: Param = { name: 'out', type: 'string', description: 'Folder to write into. A fresh subfolder is created inside it, so nothing is overwritten.', required: true };
+
+/** The flag as the app's --help prints it. */
+export function signature(p: Param): string {
+  if (p.type === 'boolean') return `--${p.name}`;
+  if (p.type === 'number') return `--${p.name} <number>`;
+  if (p.choices) return `--${p.name} <${p.choices.join('|')}>`;
+  return p.type === 'string[]' ? `--${p.name} <values…>` : `--${p.name} <value>`;
+}
+
 export interface Tool {
   n: string;
   slug: string;
@@ -22,6 +44,8 @@ export interface Tool {
   outputs: string[];
   /** a real invocation, the flags the CLI takes */
   command: string;
+  /** every option, in the app's order */
+  params: Param[];
   shot: Shot;
 }
 
@@ -48,6 +72,16 @@ export const tools: Tool[] = [
     input: 'Vector SVGs',
     outputs: ['PNG', 'JPEG', 'SVG', 'PDF', 'EPS', 'README'],
     command: 'toolbox lockup logo.svg --print none --padding 0.1 --out .',
+    params: [
+      { name: 'input', type: 'string[]', description: 'Paths of the logo SVGs, one per variation (horizontal, stacked, mark).', required: true, primary: true },
+      { name: 'web', type: 'string[]', description: 'Web file types to include. Pass none to skip web output.', choices: ['jpeg', 'png', 'svg'], default: ['jpeg', 'png', 'svg'] },
+      { name: 'print', type: 'string[]', description: 'Print file types to include. Pass none to skip print output.', choices: ['eps', 'jpeg', 'pdf'], default: ['eps', 'jpeg', 'pdf'] },
+      { name: 'treatments', type: 'string[]', description: 'Colourways to build.', choices: ['color', 'black', 'white'], default: ['color', 'black', 'white'] },
+      { name: 'sizes', type: 'string[]', description: 'Raster sizes: large is 3000px, medium 1500px, small 600px on the long edge.', choices: ['large', 'medium', 'small'], default: ['large', 'medium', 'small'] },
+      { name: 'padding', type: 'number', description: 'Clear space around the mark, as a fraction of the long edge (0 to 0.25).', default: 0 },
+      { name: 'social', type: 'boolean', description: 'Also emit a square profile-picture version of each variation (web only).', default: false },
+      outParam
+    ],
     shot: shot('lockup', 'Toolbox in the Lockup tool: a logo on a white plate, with format, treatment and size switches in the right rail and a count of 73 files.')
   },
   {
@@ -59,6 +93,13 @@ export const tools: Tool[] = [
     input: 'Hex values, or artwork',
     outputs: ['CSS', 'SCSS', 'JSON', 'ASE', 'PDF', 'PNG'],
     command: "toolbox palette '#D32F05' '#003A5D' --name Acme --out .",
+    params: [
+      { name: 'colors', type: 'string[]', description: "Hex colours to include, for example '#D32F05' '#003A5D'.", primary: true },
+      { name: 'input', type: 'string[]', description: 'Paths of artwork to pull colours from. SVGs contribute their exact fills; images contribute their dominant colours. Combines with colors.' },
+      { name: 'name', type: 'string', description: 'Palette name, used for the file names and the sheet heading.', default: 'Palette' },
+      { name: 'outputs', type: 'string[]', description: 'Which files to write.', choices: ['css', 'tokens', 'ase', 'sheet'], default: ['css', 'tokens', 'ase', 'sheet'] },
+      outParam
+    ],
     shot: shot('palette', 'Toolbox in the Palette tool: a poster filling the canvas, its colours sampled into a row of swatches, with the output files listed in the right rail.')
   },
   {
@@ -70,6 +111,13 @@ export const tools: Tool[] = [
     input: 'Installed fonts',
     outputs: ['PDF', 'PNG'],
     command: 'toolbox specimen --template classic --family Helvetica --out .',
+    params: [
+      { name: 'template', type: 'string', description: "'brand' lays out named roles (heading, body, caption); 'classic' shows one family at a range of sizes.", choices: ['brand', 'classic'], default: 'brand' },
+      { name: 'title', type: 'string', description: 'Heading printed on the sheet.', default: 'Typography' },
+      { name: 'sample', type: 'string', description: 'The sentence set in each face.', default: 'The quick brown fox jumps over the lazy dog' },
+      { name: 'family', type: 'string', description: "Font family for the 'classic' template, for example 'Helvetica'. Ignored by 'brand'." },
+      outParam
+    ],
     shot: shot('specimen', 'Toolbox in the Specimen tool: a live type sheet preview beside the display, heading and body styles.')
   },
   {
@@ -81,6 +129,14 @@ export const tools: Tool[] = [
     input: 'PNG, JPEG, WebP, HEIC, TIFF, PSD, SVG',
     outputs: ['PNG', 'JPEG', 'WebP', 'TIFF', 'PDF'],
     command: 'toolbox convert a.heic b.png --formats webp --compression 40 --out ~/Desktop',
+    params: [
+      { name: 'input', type: 'string[]', description: 'Paths of the image files to convert.', required: true, primary: true },
+      { name: 'formats', type: 'string[]', description: 'Output formats. Every input is written in each one.', choices: ['png', 'jpeg', 'webp', 'tiff', 'pdf'], default: ['png'] },
+      { name: 'compression', type: 'number', description: 'How hard to compress, 0 to 100. 0 leaves the image untouched; 100 is the smallest this tool will go. Applies to JPEG, WebP and PDF; PNG and TIFF are lossless and ignore it.', default: 10 },
+      { name: 'longestEdge', type: 'number', description: 'Cap the longest side, in pixels, keeping the aspect ratio. Omit to keep each image at its own size. Images already smaller are left alone.' },
+      { name: 'background', type: 'string', description: "Fill behind transparency: 'none' keeps it wherever the format allows, or give a hex colour like '#ffffff'. JPEG and PDF have no transparency and fill with white when this is 'none'.", default: 'none' },
+      outParam
+    ],
     shot: shot('convert', 'Toolbox in the Convert tool: two posters listed with their measured output sizes per format, and format, compression and edge controls in the right rail.')
   }
 ];
