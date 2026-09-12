@@ -10,6 +10,8 @@
   --fg:var(--white);
   --accent:var(--yellow);        /* fills: cursors, active nav, action blocks */
   --accent-text:var(--yellow);   /* the accent as type; deepens on the light ground (0075) */
+  --accent-on-fg:var(--yellow-deep);   /* the accent as type on a --fg panel: the other ground, the other value (0106) */
+  --accent-field:var(--yellow);        /* the accent drawn in an ASCII field; a touch darker on the light ground (0108) */
   --on-accent:var(--ink);
   --dim:.55;              /* opacity, not a colour */
 
@@ -37,5 +39,5 @@
 
   color-scheme:dark;
 }
-:root[data-theme=light]{--paper:var(--white);--fg:var(--ink);color-scheme:light;--accent-text:var(--yellow-deep)}
+:root[data-theme=light]{--paper:var(--white);--fg:var(--ink);color-scheme:light;--accent-text:var(--yellow-deep);--accent-on-fg:var(--yellow);--accent-field:var(--yellow-field)}
 @media(max-width:700px){:root{--gutter:16px}}

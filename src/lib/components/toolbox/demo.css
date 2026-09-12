@@ -58,16 +58,16 @@
 .demo .switch .row>span:first-child{white-space:nowrap}.demo .switch .dim{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .demo .switch.on .state{color:var(--accent-text);opacity:1}
 .demo .switch:hover .state{opacity:1}
-.demo .switch input:focus-visible~.state{outline:2px solid currentColor;outline-offset:2px}
+.demo .switch input:focus-visible~.state{outline:2px solid var(--accent-text);outline-offset:2px}
 .demo .grow{flex:1}
 
 /* fields: text on the ground with a dithered baseline */
 .demo .field{display:block;width:100%;height:var(--s4);margin:0;padding:0 var(--s1);border:0;border-radius:0;outline:0;color:var(--fg);background:none;background-image:repeating-conic-gradient(color-mix(in srgb,var(--fg) 30%,transparent) 0 25%,transparent 0 50%);background-size:4px 4px;background-repeat:repeat-x;background-position:0 100%;caret-color:var(--accent)}
 .demo .field:hover{background-image:repeating-conic-gradient(color-mix(in srgb,var(--fg) 50%,transparent) 0 25%,transparent 0 50%)}
-.demo .field:focus{outline:2px solid var(--fg);outline-offset:0;background-image:none}
+.demo .field:focus{outline:2px solid var(--accent-text);outline-offset:0;background-image:none}
 .demo .field::placeholder{color:var(--fg);opacity:var(--dim)}
 .demo .field-plain{display:block;width:100%;margin:0;padding:0;border:0;outline:0;color:var(--fg);background:none;caret-color:var(--accent)}
-.demo .field-plain:focus{outline:2px solid var(--fg);outline-offset:2px}
+.demo .field-plain:focus{outline:2px solid var(--accent-text);outline-offset:2px}
 .demo .select{position:relative;display:block;min-width:0}
 .demo .select select{appearance:none;padding-right:var(--s4);text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
 .demo .select::after{content:'v';position:absolute;right:var(--s1);top:var(--s1);font-family:var(--face-mono);font-size:16px;line-height:16px;pointer-events:none;opacity:var(--dim)}
@@ -82,7 +82,7 @@
 .demo input[type=range]::-moz-range-track{height:2px;background:color-mix(in srgb,var(--fg) 30%,transparent)}
 .demo input[type=range]::-moz-range-thumb{width:8px;height:16px;border:0;border-radius:0;background:var(--accent);cursor:pointer}
 .demo input[type=range]:hover::-webkit-slider-thumb{background:var(--fg)}
-.demo input[type=range]:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.demo input[type=range]:focus-visible{outline:2px solid var(--accent-text);outline-offset:2px}
 
 /* swatches */
 .demo .swatch{display:inline-block;flex:none;outline:1px solid var(--rim)}
@@ -122,6 +122,15 @@
 .demo .figure{display:grid;grid-template-columns:minmax(0,1fr) 72px 56px;gap:var(--s1);align-items:center}
 .demo .figure .body{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .demo .figure .lbl{text-align:right;white-space:nowrap}
+
+/* press (0099): the pressed surface is the accent, as everywhere on the site. A settings
+   row takes the cell at its sides with offset shadows, into the rail's padding. */
+.demo .btn:active:not(:disabled),.demo .chip:active:not(:disabled),.demo .steps button:active:not(:disabled),.demo .cta:active:not(:disabled),.demo button.tree-row:active,.demo .file-row:active,.demo .switch:active{background:var(--accent);color:var(--on-accent)}
+.demo .btn:active:not(:disabled) .mono,.demo .switch:active .state,.demo .switch:active .plus,.demo .switch:active .dim{color:inherit;opacity:1}
+.demo .switch:active{box-shadow:var(--s1) 0 0 var(--accent),calc(-1 * var(--s1)) 0 0 var(--accent)}
+.demo .swatch-chip:active{outline:2px solid var(--accent);outline-offset:2px}
+/* Convert's thumbnails arrive through the dither once encoded (0101). */
+.motion .demo .stack-row .pic img{animation:dither-in calc(3 * var(--step)) steps(3) both}
 
 /* a nowrap label */
 .demo .nowrap{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}

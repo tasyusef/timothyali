@@ -34,10 +34,11 @@ h1{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2) var(--s4)}
 .contact-bottom{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);align-items:end;margin-top:var(--s2)}
 .signal{align-self:stretch;display:flex;align-items:flex-end;padding:var(--s4);color:var(--accent-text)}
 .signal svg{display:block}
-.contact-note{background:var(--fg);color:var(--paper);padding:var(--s4);display:flex;flex-direction:column;gap:var(--s3)}
+.contact-note{--accent-text:var(--accent-on-fg);background:var(--fg);color:var(--paper);padding:var(--s4);display:flex;flex-direction:column;gap:var(--s3)}
 .contact-note .body{max-width:38ch}
 .contact-note :global(.cta-row){flex-wrap:nowrap}
 .contact-note :global(.cta-row:hover),.contact-note :global(.cta-row:focus-visible){background:var(--paper);color:var(--fg)}
+.contact-note :global(.cta-row:active){background:var(--accent);color:var(--on-accent)} /* press (0099) */
 .contact-note :global(.alt){opacity:var(--dim)}
 .contact-bottom{align-items:start}
 .contact-foot :global(.page-foot){margin-top:var(--s6)}

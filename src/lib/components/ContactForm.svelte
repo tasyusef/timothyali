@@ -70,7 +70,6 @@ input,textarea{display:block;width:100%;margin:0;border:0;border-radius:0;paddin
 .caret{position:absolute;margin:0;pointer-events:none}
 input{height:48px}
 textarea{height:144px} /* 8 + 4 lines of 32 + 8 */
-input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:0}
 .trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
 .send{display:flex;flex-direction:column;gap:var(--s2);margin-top:var(--s1)}
 .send button{width:100%;text-align:left}

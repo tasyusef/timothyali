@@ -14,9 +14,16 @@
 section{position:relative;padding:0 var(--gutter)}
 
 /* full-bleed programmatic background for a band */
-.band-bg{position:absolute;inset:0;z-index:var(--z-band-bg);pointer-events:none;color:var(--field-ink)}
+/* The field's accent is `--accent-field` (0108): the brand yellow, a touch darker on the light
+   ground. It is decoration, not type, so the deepened `--accent-text` does not apply to it. */
+.band-bg{position:absolute;inset:0;z-index:var(--z-band-bg);pointer-events:none;color:var(--field-ink);--accent-text:var(--accent-field)}
 .band-bg>*{height:100%}
 .band>:not(.band-bg){position:relative;z-index:var(--z-band)}
+/* Over a field the pointer is the site's own: a 16px bitmap crosshair, hotspot in its open
+   centre cell, drawn in the foreground colour of the theme (0103). Links, buttons and fields
+   inside a band keep the browser's hand and I-beam. */
+.band{cursor:url(/cursor/field-dark.png) 7 7,crosshair;cursor:-webkit-image-set(url(/cursor/field-dark.png) 1x,url(/cursor/field-dark@2x.png) 2x) 7 7,crosshair;cursor:image-set(url(/cursor/field-dark.png) 1x,url(/cursor/field-dark@2x.png) 2x) 7 7,crosshair}
+:root[data-theme=light] .band{cursor:url(/cursor/field-light.png) 7 7,crosshair;cursor:-webkit-image-set(url(/cursor/field-light.png) 1x,url(/cursor/field-light@2x.png) 2x) 7 7,crosshair;cursor:image-set(url(/cursor/field-light.png) 1x,url(/cursor/field-light@2x.png) 2x) 7 7,crosshair}
 
 /* grid overlay for showing the system */
 .site.show-grid::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:var(--z-grid);

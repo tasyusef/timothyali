@@ -84,10 +84,22 @@
   .index-row .index-value.accent{font-size:12.5px;line-height:16px}
 }
 
+/* --- press (0099) ------------------------------------------------- */
+/* The pressed surface is the accent. Every block lights to the foreground colour on
+   hover and to the accent on press, whatever its rest colour, so the pair reads the
+   same everywhere; a snap, no easing, on with motion off. A text-only link gets the
+   block drawn a cell around it with offset shadows, so nothing reflows; the padded
+   variant already has its rows and takes the cell at the sides only. Cards and rows
+   press their mat. */
+.cta:active,.cta-row:active,.cta-hint:active,.cta-quiet:active,.quiet-link:active,.card:active,.row:active .frame,.row:active .cta-quiet{background:var(--accent);color:var(--on-accent)}
+.cta-quiet:active .mono,.row:active .cta-quiet .mono,.card:active .card-body>.mono{color:inherit}
+.quiet-link:active{box-shadow:0 0 0 var(--s1) var(--accent)}
+.quiet-link.pad:active{box-shadow:var(--s1) 0 0 var(--accent),calc(-1 * var(--s1)) 0 0 var(--accent)}
+
 /* --- code (Code.svelte) ------------------------------------------- */
 /* Commands and JSON, on the inverted plate the contact note uses. Jersey, not the
    mono role: a command keeps its case. `.c` is a comment, dimmed (0092). */
-.code{font-family:var(--face-text);font-size:27px;line-height:32px;white-space:pre;overflow-x:auto;margin:0;padding:var(--s2) var(--s3);background:var(--fg);color:var(--paper)}
+.code{--accent-text:var(--accent-on-fg);font-family:var(--face-text);font-size:27px;line-height:32px;white-space:pre;overflow-x:auto;margin:0;padding:var(--s2) var(--s3);background:var(--fg);color:var(--paper)}
 .code ::selection{background:var(--paper);color:var(--fg)}
 .code .c{opacity:var(--dim)}
 @media(max-width:700px){.code{padding:var(--s2)}}

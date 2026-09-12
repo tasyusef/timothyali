@@ -15,7 +15,8 @@ before and after, except for four deliberate changes. See **Parity** at the end.
   src/app.css                     the cell table + the import list, nothing else
    ├─ lib/styles/primitives.css   raw values: colour, spacing, cells, faces, motion
    ├─ lib/styles/tokens.css       what a primitive means: paper/fg/accent, surfaces, z, gutter
-   ├─ lib/styles/base.css         element defaults, .sr-only, @keyframes blink
+   ├─ lib/styles/base.css         element defaults, .sr-only, @keyframes blink, the focus
+                                  ring, the dither wipes and view transitions, the scrollbar
    ├─ lib/styles/type.css         the named type roles and their ladders
    ├─ lib/styles/chrome.css       sticky header, status strip, global footer
    ├─ lib/styles/layout.css       .site, section, .band, the Grid overlay, .inner-page
@@ -54,6 +55,7 @@ component renders reach it with `:global()` anchored on their own `<main>`.
 | `--ink` | `#11110e` | near-black primitive |
 | `--white` | `#f4f4f0` | off-white primitive |
 | `--yellow-deep` | `#6f6200` | the accent as text on the light ground (5.6:1 on `--white`; 0075) |
+| `--yellow-field` | `#c8ac00` | the accent in a field on the light ground: four oklch lightness steps down (0108) |
 | `--u` | `8px` | the spacing unit |
 | `--s1 … --s16` | `8 16 24 32 48 64 96 128px` | the spacing scale; the name is the number of units (`--s4` = 4 × 8) |
 | `--cell-text` | `var(--u)` | layout and type snap unit |
@@ -67,6 +69,7 @@ component renders reach it with `:global()` anchored on their own `<main>`.
 | `--face-root` | `'Jersey 15',ui-monospace,monospace` | the document fallback stack |
 | `--tick-cursor` | `1s` | one blink period |
 | `--nudge` | `8px` | hover displacement — exactly one cell |
+| `--step` / `--step-fast` | `70ms` / `55ms` | one step of a dither wipe; `STEP` / `STEP_FAST` in `tokens.ts` (0100) |
 
 `--s12` (96) and `--s16` (128) are declared for scale completeness but have no reference:
 96 appears only inside `round(down,calc(100vh - 96px),8px)` and 128 only as a line-height,
@@ -87,6 +90,8 @@ properties. The four in use are `420 700 900 1100` (0075 folded 1300 into 1100 a
 | `--accent` | `var(--yellow)` | `var(--yellow)` | fills: cursors, active nav, action blocks |
 | `--accent-text` | `var(--yellow)` | `var(--yellow-deep)` | the accent as type: index range, quiet arrows, quiet-link hover, footer toggle state (0075) |
 | `--on-accent` | `var(--ink)` | `var(--ink)` | type on accent |
+| `--accent-field` | `var(--yellow)` | `var(--yellow-field)` | the accent an ASCII field draws: `.band-bg` sets `--accent-text` to it (0108) |
+| `--accent-on-fg` | `var(--yellow-deep)` | `var(--yellow)` | the accent as type on a `--fg` panel — the other ground, the other value; `.who`, `.machine`, `.contact-note`, `.code` set `--accent-text` to it (0106) |
 | `--dim` | `.55` | `.55` | secondary-text opacity (a number, not a colour) |
 | `--gutter` | `32px` → `16px` ≤700 | same | page side margin |
 | `--header-height` | `64px` | same | default; the layout overrides it inline with the measured height |
@@ -403,7 +408,9 @@ The ASCII field draws in its host’s colour, and `.band-bg` sets that to `--fie
 (40% of `--fg` over `--paper`), so every field sits behind the type in both themes.
 Each mode has one thing that draws in `--accent-text`: the rain’s `0` droplet head, the
 scan line, a band’s crest, the noise’s and the sky’s densest cells; pointer heat above
-0.5 and the click ring light the same way. With `shade`, each ramp step has its own
+0.5 and the click ring light the same way. Inside `.band-bg` that token is `--accent-field`
+(0108): the brand yellow on the dark theme and `--yellow-field` (`#c8ac00`, darker)
+on the light — the field is decoration, not type, so it does not deepen to `--yellow-deep`. With `shade`, each ramp step has its own
 colour — the top step the accent, the rest mixing the field colour toward `--paper`
 from 8% (heaviest) to 100% (lightest) in oklab, resolved through a probe element
 because a canvas fill needs a resolved colour. `shade` is on for the hero sky (density
@@ -417,4 +424,44 @@ In-page jumps ease with native `scroll-behavior: smooth`, gated by the motion to
 Form fields (Contact) hide the native caret and show the `.cursor` block at the
 insertion point through the `blockCaret` action in `src/lib/caret.ts`; validation is the
 form’s own, as `.lbl` note chips in the accent under the field (0092).
+
+## Tactility (0099–0107, proposal)
+
+The states the browser used to handle by default now use the system's grammar. Nothing
+eases; every change is a colour, a whole cell, or a stepped dither.
+
+- **Press: the pressed surface is the accent** (0099). Hover lights a block to `--fg`,
+  press lights it to `--accent` / `--on-accent`, whatever its rest colour — one rule in
+  `blocks.css`, echoed at the end of `chrome.css`, in `demo.css` and where a route owns a
+  hover. A text-only `.quiet-link` gets the block a cell around it with offset shadows (the
+  `.pad` variant at the sides only); cards and rows press their mat. On with Motion [off].
+- **The dither wipe** (0100). `@keyframes dither-in` / `dither-out` in `base.css`: three
+  masks, one pixel in four at 8px, two in four at 4px, three in four at 2px, sampled with
+  `steps(3)`. One step is `--step` (70ms) or `--step-fast` (55ms), the Decode cadences,
+  now in `primitives.css` beside `STEP` / `STEP_FAST` in `tokens.ts`. Everything that
+  arrives uses it: the theme flip (new page in over the old, 210ms, `.vt-theme` on
+  `<html>`), images as they load (`Picture.svelte` adds `arrive` on a load after mount;
+  Convert's thumbnails on insertion, 0101), and the route change (old page out to the
+  field, new page in, `.vt-route`, 330ms, 0104). The layout's `wipe()` runs an update
+  inside `document.startViewTransition` or plain when the API or motion is absent.
+- **The readout** decodes the route part of the path on navigation (`Decode` inline after
+  a fixed prefix, `STEP_FAST`, 0102) and shows the scroll offset in cells of the unit as
+  `+0128` after the path (`.st-scroll`, never shed, 0105). `Decode` decodes again when its
+  `text` changes.
+- **The field cursor** (0103): `.band{cursor:image-set(…)}` — `static/cursor/field-{dark,light}[@2x].png`
+  from `tools/cursor/make.mjs`, a 16px crosshair on the 2px pixel with an open centre,
+  hotspot 7 7, in the theme's `--fg`. Controls inside a band keep the browser's cursors.
+- **Focus** (0106): `:focus-visible{outline:2px solid var(--accent-text);outline-offset:2px}`,
+  the only focus rule. `--accent-on-fg` is the accent as type on a `--fg` panel (deep yellow
+  on the dark theme, yellow on the light); `.who`, `.machine`, `.contact-note` and `.code`
+  set `--accent-text` to it, which also fixes accent type on those panels.
+- **The scrollbar** (0107): `::-webkit-scrollbar` at 16px, track `var(--paper) var(--surface-card)`,
+  thumb 8px in `--fg` inset 4px, the accent on hover and press; `scrollbar-color` for
+  Firefox only. A styled bar is a classic bar: the viewport is 16px narrower on macOS.
+- **Rejected for the pass, and not to be proposed again:** inertial or wheel-hijacking
+  scroll, reveal-on-scroll fades, parallax, sound.
+
+`tools/review/tactility.mjs` is the pass's proof: it pauses and seeks the wipes, holds the
+mouse down on seventeen controls, tabs through both themes, and checks the readout, the
+cursor files and the motion-off paths.
 

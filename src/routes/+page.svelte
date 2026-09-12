@@ -56,7 +56,7 @@ main :global(.hero-hint){position:absolute;right:var(--gutter);bottom:var(--s8)}
 :global(.hero-hint) .arrow{display:block;transform:translateY(0);position:relative;top:-1px} /* a 16px block in a line moved 1 down for the type (0097) */
 :global(.motion .hero-hint) .arrow{animation:nudge var(--tick-cursor) steps(2,jump-none) infinite}
 @keyframes nudge{from{transform:translateY(0)}to{transform:translateY(2px)}}
-.who{padding-top:var(--s8);padding-bottom:var(--s8);background:var(--fg);color:var(--paper)}
+.who{--accent-text:var(--accent-on-fg);padding-top:var(--s8);padding-bottom:var(--s8);background:var(--fg);color:var(--paper)}
 .who ::selection{background:var(--paper);color:var(--fg)}
 /* The sentence is inline in a 64px line; the span sits on the line top, not the baseline,
    or Chrome's half-leading rounding makes each line 65 (0089). */
@@ -82,8 +82,9 @@ main :global(.hero-hint){position:absolute;right:var(--gutter);bottom:var(--s8)}
 .work-foot :global(.cta-quiet){display:flex;justify-content:space-between;width:calc(50% - var(--s2));background:var(--paper);padding:17px 16px 15px}
 .work-foot :global(.cta-quiet:hover),.work-foot :global(.cta-quiet:focus-visible){background:var(--fg);color:var(--paper)}
 .work-foot :global(.cta-quiet:hover .mono),.work-foot :global(.cta-quiet:focus-visible .mono){color:inherit}
+.work-foot :global(.cta-quiet:active){background:var(--accent);color:var(--on-accent)} /* press (0099) */
 main :global(.work-rain){position:relative;isolation:isolate;overflow:hidden}
-:global(.work-rain) .card{background-color:var(--paper)}
+:global(.work-rain) .card{background-color:var(--paper)}:global(.work-rain) .card:active{background-color:var(--accent)}
 .work-index{padding-top:var(--s8);padding-bottom:var(--s8)}
 .invitation{padding-top:var(--s8);padding-bottom:var(--s8);overflow:hidden}
 .invitation h2{display:flex;flex-wrap:wrap;flex-direction:row;justify-content:space-between;align-items:flex-end;gap:var(--s4);padding-bottom:var(--s6)}

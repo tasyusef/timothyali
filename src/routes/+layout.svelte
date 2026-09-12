@@ -9,15 +9,18 @@
   // Every face the chrome and the first fold use, 68KB together, so the first paint is set in them.
   const preload = [jacquardUrl, pressStartUrl, '/fonts/parc-pixel.woff2', '/fonts/parc-pixel-bold.woff2', jerseyUrl];
   import { page } from '$app/state';
-  import { afterNavigate, beforeNavigate } from '$app/navigation';
+  import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
   import { onMount } from 'svelte';
   import { motion, grid, theme } from '$lib/motion.svelte';
   import SocialMeta from '$lib/components/SocialMeta.svelte';
   import Cursor from '$lib/components/Cursor.svelte';
-  import { INK, WHITE } from '$lib/tokens';
+  import Decode from '$lib/components/Decode.svelte';
+  import { INK, WHITE, STEP_FAST } from '$lib/tokens';
   let { children } = $props();
   let explicit = false;
   let clock = $state('');
+  let scrolled = $state('0000'); // the page offset in cells of the unit (0105)
+  const readScroll = () => { scrolled = String(Math.min(9999, Math.floor(Math.max(0, window.scrollY) / 8))).padStart(4, '0'); };
   let navCollapsed = $state(false);
   let headerHeight = $state(64);
   let headerElement: HTMLElement;
@@ -26,7 +29,24 @@
   // from wherever the old one was scrolled. The root's behaviour is switched off for the
   // navigation and back on once the kit has placed the new page.
   beforeNavigate((nav) => { if (nav.to?.url.pathname !== nav.from?.url.pathname) document.documentElement.style.scrollBehavior = 'auto'; });
-  afterNavigate(() => { navCollapsed = false; lastScroll = Math.max(0, window.scrollY); requestAnimationFrame(() => { document.documentElement.style.scrollBehavior = ''; }); });
+  afterNavigate(() => { navCollapsed = false; lastScroll = Math.max(0, window.scrollY); readScroll(); requestAnimationFrame(() => { document.documentElement.style.scrollBehavior = ''; }); });
+  // A state change arrives through the dither (base.css, 0100 / 0104): the update runs
+  // inside a view transition with a class on <html> that picks the wipe. Without the API,
+  // or with motion off, it is the plain update — a hard cut.
+  function wipe(kind: 'vt-theme' | 'vt-route', update: () => void | Promise<void>) {
+    const root = document.documentElement;
+    if (!motion.on || typeof document.startViewTransition !== 'function') return update();
+    root.classList.add(kind);
+    const t = document.startViewTransition(update);
+    t.finished.finally(() => root.classList.remove(kind));
+    return t;
+  }
+  // Route change through the field (0104): the old page dithers out to the checker, the new
+  // page dithers in. Hash jumps on the same path are not a change of page.
+  onNavigate((nav) => {
+    if (!motion.on || typeof document.startViewTransition !== 'function' || nav.to?.url.pathname === nav.from?.url.pathname) return;
+    return new Promise<void>((resolve) => { wipe('vt-route', async () => { resolve(); await nav.complete; }); });
+  });
   const fmt = new Intl.DateTimeFormat('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'America/Denver' });
   function skipToContent(event: MouseEvent) {
     const main = document.getElementById('main'); if (!main) return;
@@ -34,10 +54,12 @@
   }
   function toggleMotion() { motion.on = !motion.on; explicit = true; try { localStorage.setItem('tim-motion', motion.on ? 'on' : 'off'); } catch {} }
   function applyTheme() { document.documentElement.dataset.theme = theme.light ? 'light' : 'dark'; document.querySelector('meta[name=theme-color]')?.setAttribute('content', theme.light ? WHITE : INK); }
-  function toggleTheme() { theme.light = !theme.light; try { localStorage.setItem('tim-theme', theme.light ? 'light' : 'dark'); } catch {} applyTheme(); }
+  // The flip itself runs inside the wipe so the canvases (which redraw on `theme.light`)
+  // read the new colours after `data-theme` has changed, as they do without a transition.
+  function toggleTheme() { wipe('vt-theme', () => { theme.light = !theme.light; try { localStorage.setItem('tim-theme', theme.light ? 'light' : 'dark'); } catch {} applyTheme(); }); }
   function toggleGrid() { grid.on = !grid.on; try { localStorage.setItem('tim-grid', grid.on ? 'on' : 'off'); } catch {} }
   onMount(() => {
-    lastScroll = Math.max(0, window.scrollY);
+    lastScroll = Math.max(0, window.scrollY); readScroll();
     const measureHeader = () => { headerHeight = headerElement.offsetHeight; };
     measureHeader();
     const headerObserver = new ResizeObserver(measureHeader);
@@ -46,7 +68,7 @@
       const y = Math.max(0, Math.min(window.scrollY, document.documentElement.scrollHeight - window.innerHeight));
       if (y <= headerHeight || y < lastScroll) navCollapsed = false;
       else if (y > lastScroll && !headerElement.contains(document.activeElement)) navCollapsed = true;
-      lastScroll = y;
+      lastScroll = y; readScroll();
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     const media = matchMedia('(prefers-reduced-motion: reduce)');
@@ -68,7 +90,10 @@
   const segments = $derived(pathname.split('/').filter(Boolean));
   const route = $derived(segments.length ? segments.join('/') : 'index');
   // Below 900px the strip shows only the last segment, so a long study slug does not clip mid-word (decision 0072).
-  const shortRoute = $derived(segments.length > 1 ? `~/…/${segments[segments.length - 1]}` : `~/tim/${route}`);
+  // The path decodes into place on a route change (0102): the prefix is fixed, the route
+  // part is a Decode, so only what changed scrambles.
+  const shortPrefix = $derived(segments.length > 1 ? '~/…/' : '~/tim/');
+  const shortTail = $derived(segments.length > 1 ? segments[segments.length - 1] : route);
 </script>
 <svelte:head>{#each preload as href}<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" {href} />{/each}</svelte:head>
 <SocialMeta />
@@ -85,7 +110,7 @@
     </nav>
   </header>
   <div class="readout mono" aria-label="Status">
-    <span class="path mono" aria-hidden="true"><span class="path-text"><span class="path-full">~/tim/{route}</span><span class="path-short">{shortRoute}</span></span><Cursor /></span><span class="st-city">Denver, CO</span><span class="st-coords">39.7392N 104.9903W</span><span class="st-clock">{clock ? `MT ${clock}` : 'MT --:--:--'}</span><span class="st-sys">SYS.OK</span>
+    <span class="path mono" aria-hidden="true"><span class="path-text"><span class="path-full">~/tim/<Decode text={route} step={STEP_FAST} /></span><span class="path-short">{shortPrefix}<Decode text={shortTail} step={STEP_FAST} /></span></span><Cursor /></span><span class="st-scroll">+{scrolled}</span><span class="st-city">Denver, CO</span><span class="st-coords">39.7392N 104.9903W</span><span class="st-clock">{clock ? `MT ${clock}` : 'MT --:--:--'}</span><span class="st-sys">SYS.OK</span>
   </div>
   </div>
   {@render children()}

@@ -12,7 +12,8 @@
 h1,h2,h3,p,figure,dl,dd{margin:0}h1,h2,h3{font-weight:400}
 a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
 ::selection{background:var(--fg);color:var(--paper)}
-:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+/* One focus ring: the accent as type on whatever ground the element sits on (0106). */
+:focus-visible{outline:2px solid var(--accent-text);outline-offset:2px}
 canvas{image-rendering:pixelated}
 pre{margin:0;font:inherit}
 main{display:block}
@@ -20,3 +21,53 @@ main{display:block}
 
 /* the one blink in the system — the status-strip cursor and Decode's share it */
 @keyframes blink{from{opacity:1}to{opacity:0}}
+
+/* ------------------------------------------------------------------
+   The dither wipe (0100). Anything that arrives on the site comes through the
+   checker in three whole steps, coarse to fine: one pixel in four at 8px, two in
+   four at 4px, three in four at 2px, then all. Nothing eases; `steps(3)` samples
+   exactly the three keyframes. `dither-out` is the same road the other way.
+   Used by the theme flip and the route change (view transitions, below) and by
+   images as they load (Picture.svelte, the Toolbox demo). Motion [off] uses none.
+   ------------------------------------------------------------------ */
+@keyframes dither-in{
+  0%{mask-image:conic-gradient(#000 0 25%,#0000 0);mask-size:16px 16px}
+  33.334%{mask-image:repeating-conic-gradient(#000 0 25%,#0000 0 50%);mask-size:8px 8px}
+  66.667%{mask-image:conic-gradient(#000 0 75%,#0000 0);mask-size:4px 4px}
+  100%{mask-image:none}
+}
+@keyframes dither-out{
+  0%{mask-image:conic-gradient(#000 0 75%,#0000 0);mask-size:4px 4px}
+  33.334%{mask-image:repeating-conic-gradient(#000 0 25%,#0000 0 50%);mask-size:8px 8px}
+  66.667%{mask-image:conic-gradient(#000 0 25%,#0000 0);mask-size:16px 16px}
+  100%{mask-image:linear-gradient(#0000,#0000)}
+}
+/* The browser's cross-fade is replaced outright: no blend, no easing, the old page
+   sits under the new. `.vt-theme` and `.vt-route` are set on <html> by the layout for
+   the length of one transition; without the API or with motion off nothing runs. */
+::view-transition-image-pair(root){isolation:auto}
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+/* Theme (0100): the new page dithers in over the old, three steps at the Decode cadence. */
+:root.vt-theme::view-transition-new(root){animation:dither-in calc(3 * var(--step)) steps(3) both}
+/* Route (0104): the old page dithers out to the field at full density, the new one dithers
+   in from it; six fast steps, one beat. The field is the texture's own 16px checker. */
+:root.vt-route::view-transition{background:var(--paper) repeating-conic-gradient(var(--field-ink) 0 25%,transparent 0 50%) 0 0/var(--cell-texture) var(--cell-texture)}
+:root.vt-route::view-transition-old(root){animation:dither-out calc(3 * var(--step-fast)) steps(3) both}
+/* masked away until its turn: a backwards fill would show its first step during the delay */
+:root.vt-route::view-transition-new(root){mask-image:linear-gradient(#0000,#0000);animation:dither-in calc(3 * var(--step-fast)) steps(3) calc(3 * var(--step-fast)) forwards}
+
+/* ------------------------------------------------------------------
+   The page scrollbar, in the system (0107): a 16px track on the card dither, an 8px
+   thumb in the foreground colour — the cursor block, tall — that goes to the accent when
+   reached for or pressed; square corners, no buttons. Native behaviour is kept. Styling
+   it turns macOS overlay bars into classic ones, so the bar takes its 16px from the
+   viewport on every platform. Firefox has only the two colours: a flat track at the
+   dither's average.
+   ------------------------------------------------------------------ */
+::-webkit-scrollbar{width:16px;height:16px}
+::-webkit-scrollbar-track{background:var(--paper) var(--surface-card)}
+::-webkit-scrollbar-thumb{background:var(--fg);border:4px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover,::-webkit-scrollbar-thumb:active{background-color:var(--accent)}
+::-webkit-scrollbar-button{display:none}
+::-webkit-scrollbar-corner{background:var(--paper)}
+@supports not selector(::-webkit-scrollbar){:root{scrollbar-color:var(--fg) color-mix(in srgb,var(--fg) 14%,var(--paper))}}

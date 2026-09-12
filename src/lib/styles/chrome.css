@@ -29,6 +29,9 @@
    the clock and SYS.OK sit at the right. */
 .readout{position:relative;z-index:var(--z-chrome);display:flex;gap:var(--s4);padding:var(--s1) var(--gutter);height:32px;overflow:hidden;white-space:nowrap}
 .readout .st-clock{margin-left:auto}
+/* The scroll readout (0105): the page offset in cells of the unit, four digits, after the
+   path. 5 characters at 16px; it fits every step of the strip, so it is never shed. */
+.readout .st-scroll{font-variant-numeric:tabular-nums}
 .readout>span{flex:none;opacity:var(--dim)}
 .readout .path{margin-top:0;opacity:1;flex:0 1 auto;min-width:0}
 .readout .path-text{white-space:nowrap}
@@ -89,3 +92,8 @@
 }
 
 .home-footer>.dim{text-wrap:balance}
+
+/* --- press (0099) --- the pressed surface is the accent; see blocks.css. Last, so it
+   wins over every hover above at equal specificity. */
+.site-header nav a:active,.global-footer button:active,.home-footer button:active,.skip-link:active{background:var(--accent);color:var(--on-accent)}
+.site-header nav a:active b,.home-footer button:active .state{color:inherit;opacity:1}

@@ -1555,7 +1555,7 @@ Grid clean and no overflow on the agents page and the tool pages at 1440 / 1100 
 ## 0098 — Smooth scrolling, the native kind
 
 - **Date:** 2026-09-11
-- **Status:** Proposed on Timothy's “can we add some form of smooth scroll to the site?”; awaiting his eye. Uncommitted.
+- **Status:** Proposed on Timothy's “can we add some form of smooth scroll to the site?”; awaiting his eye. Committed ahead of the tactility pass (7fe6a00) so the pass could build on it.
 
 **Options.** (a) Native `scroll-behavior: smooth` on the root, so in-page jumps ease: the Toolbox hero's “Explore the tools”, and any hash link. (b) An inertial scroll library (Lenis and its kind) that takes over the wheel and eases every scroll.
 
@@ -1564,3 +1564,155 @@ Grid clean and no overflow on the agents page and the tool pages at 1440 / 1100 
 **Rejected.** (b): the ease parks the page on fractional scroll positions, which blurs bitmap type mid-motion on exactly the site built to keep every pixel whole; it fights trackpads and screen readers; and it would be the site's first runtime dependency. If Timothy wants the inertial feel anyway, it is a separate decision with those costs named.
 
 **Consequences.** Measured with motion on: the hero jump is at 86px after 80ms and lands on the target at 680; a nav click while scrolled is at 0 within 40ms with the behaviour restored to smooth afterwards; the jump still eases after a navigation. With motion off every position is instant. No layout change.
+
+## 0099 — Press states: the pressed surface is the accent
+
+- **Date:** 2026-09-11
+- **Status:** Proposed. Timothy approved the tactility pass as a list (“what else can we do to really refine the tactility and visual polish of the site?”, nine items); the reading of each item is mine and awaits his eye. Uncommitted, with 0100–0107.
+
+**Context.** The site had no `:active` state anywhere. Hover is the foreground colour everywhere (a block lights to `--fg` with `--paper` type), the pointer's arrival was answered, the press was not: between mousedown and the navigation the block sat in its hover colour, which is a browser default, not a choice.
+
+**Options.** (a) Invert to the accent: every block goes `--accent` / `--on-accent` while pressed. (b) Displace one cell down (`--nudge`), the button sinking. (c) Both, by block. (d) A darker hover colour, as most sites do.
+
+**Choice.** (a), one rule in `blocks.css` and its echoes where a route or the Toolbox demo owns the hover: hover lights to the foreground colour, press lights to the accent, whatever the block's rest colour. The primary blocks (`.cta`, `.cta-row`, the active nav item, the chosen chip) rest in the accent already, so their press reads as the same sequence from the visitor's side — white on hover, yellow on press — and the pair is the same on every control. It is a colour, not a move, so it is on with Motion [off] and nothing reflows or lands on a fractional pixel. Text-only links (`.quiet-link`) have no box to fill, so the press draws the block a cell around them with offset shadows (all four sides, or the sides only for the padded variant, which has its rows); cards and Work rows press their mat, the 16px dither going solid yellow. The Toolbox demo's settings rows take the cell at their sides into the rail's padding the same way. `tools/review/tactility.mjs` holds the mouse down on seventeen controls across the routes and reads the ground under it: all seventeen are the accent.
+
+**Rejected.** (b): a whole-cell drop on a 32px button is a quarter of its height, and the hover on `.cta` already displaces a cell sideways; two displacements on one block is a wobble, not a press. (d): the site has three colours and no darker yellow; a fourth colour for a state nobody names is the wrong kind of subtle.
+
+**Consequences.** Every button, link, chip, nav item, footer toggle and demo control now has a press. The demo's rows diverge from GRIDFORM Studio's, which has no press states yet; the app should take the same rule.
+
+## 0100 — Theme flip as a dither wipe
+
+- **Date:** 2026-09-11
+- **Status:** Proposed, with 0099. Uncommitted.
+
+**Context.** The theme toggle was a hard cut: every colour on the page flipped in one frame. The site has a grammar for how things appear — the checker, the cell, the step — and the flip did not use it.
+
+**Options.** (a) The View Transitions API with the browser's cross-fade. (b) The API with the site's own animation: the new page arrives through a stepped dither mask. (c) Fake it with an overlay element and CSS. (d) Leave the cut.
+
+**Choice.** (b). `toggleTheme` runs the flip inside `document.startViewTransition` with `.vt-theme` on `<html>` for its length; `base.css` cancels the browser's fade and blend (`::view-transition-image-pair(root){isolation:auto}`, no `mix-blend-mode`, no animation on the old snapshot) and gives the new snapshot `dither-in`: three whole steps, coarse to fine — one pixel in four at 8px, two in four at 4px, three in four at 2px, then all — with `steps(3)` so exactly those three frames are sampled and nothing eases. One step is `--step` (70ms, the Decode cadence, now in `primitives.css` beside its JavaScript twin), so the wipe is 210ms. The flip itself moves inside the callback, because the canvases redraw on `theme.light` and must read the new `data-theme`. Without the API, or with Motion [off], it is the same hard cut as before. The keyframes are one pair, `dither-in` / `dither-out`, and 0101 and 0104 reuse them: every arrival on the site comes through the same three frames.
+
+**Rejected.** (a): a cross-fade is the one kind of motion the site refuses — a continuous blend that sits every pixel on an in-between colour. (c): an overlay cannot show the new page under a mask without the API's snapshots; it would fade or wipe a flat colour.
+
+**Consequences.** The pass's review script pauses the transition's animations and seeks them to 10, 80 and 150ms; the three frames are the three masks (`tools/review/out/tactility/theme-*.png`). Safari and Chrome have the API; Firefox gets the cut. Pointer events are blocked for the 210ms, as with any view transition.
+
+## 0101 — Images arrive through the dither
+
+- **Date:** 2026-09-11
+- **Status:** Proposed, with 0099. Uncommitted.
+
+**Context.** A lazy image (a Work cover, a study gallery, a Toolbox screenshot) popped in whole when it loaded, on a page where everything else steps.
+
+**Options.** (a) The `dither-in` mask on the image when its load event fires. (b) A blur-up or fade. (c) A low-resolution placeholder. (d) Nothing.
+
+**Choice.** (a). `Picture.svelte` listens for `load` on an image that is not already complete at mount and adds `arrive`; `.motion img.arrive` runs `dither-in` once, 210ms, forwards. An image complete at mount — cached, or decoded before hydration — is simply there, so a return visit or an eager hero never flashes. Convert's thumbnails in the Toolbox demo, which are built on a canvas and inserted when encoded, run the same animation on insertion. Motion [off]: no animation, the image appears as before.
+
+**Rejected.** (b) and (c) for the reason 0100 gives: a blur is every pixel wrong at once. (d): it was the most visible pop left on the site.
+
+**Consequences.** Covers were held back 400ms in the review and their animation caught: 210ms, three frames (`image-*.png`). No layout change: the figure's height is set from its width before the image loads (0089).
+
+## 0102 — The readout acknowledges navigation
+
+- **Date:** 2026-09-11
+- **Status:** Proposed, with 0099. Uncommitted.
+
+**Context.** The status strip's path (`~/tim/work`) is the readout's one line about where you are, and on a route change it swapped in a frame while the page's title decoded beside it.
+
+**Options.** (a) Decode the whole path. (b) Decode only the route part, after a fixed `~/tim/` (or `~/…/` on phones). (c) Type it out with the strip's cursor. (d) Leave it.
+
+**Choice.** (b). The prefix never changes, so decoding it would be noise; the route part is a `Decode` in scramble mode at `STEP_FAST`, so `work/parc` settles in under half a second and the short path's single segment sooner. `Decode` gained the one thing it lacked: a changed `text` decodes again (with motion off, or off screen, it is simply shown). That also covers a study's title when Next goes from one study to the next through the same page component, which kept the old word before.
+
+**Rejected.** (c): typing from empty re-types the prefix every time and hides the path for the length of the typing; the scramble keeps the width and the reader's place.
+
+**Consequences.** The strip stays 32px with the Decode inline (its box is the same Press Start line, 16px, measured). The path scrambles once on first load, as every Decode on the site does when it enters the viewport.
+
+## 0103 — A pixel cursor over the field
+
+- **Date:** 2026-09-11
+- **Status:** Proposed, with 0099. Uncommitted.
+
+**Context.** The ASCII field answers the pointer with heat and a click ring, but the pointer over it was the operating system's arrow.
+
+**Options.** (a) A bitmap crosshair from `cursor:url()` on `.band` only. (b) The same site-wide. (c) The CSS `crosshair` keyword. (d) A JavaScript cursor following the pointer.
+
+**Choice.** (a). `tools/cursor/make.mjs` draws a 16px crosshair on the 2px pixel — seven cells across, open in the centre so the cell under the pointer stays visible — one file per theme in that theme's foreground colour, at 1× and 2× through `image-set()`, hotspot 7 7. It applies to `.band` alone: the fields are the interactive surfaces, and links, buttons and form fields inside a band keep the browser's hand and I-beam through the cascade. Site-wide it would be a novelty cursor over body copy.
+
+**Rejected.** (c): the keyword is a thin anti-aliased hairline in every OS, the one thing the site never draws. (d): a DOM cursor lags the real one by a frame and vanishes under iframes and selects; `cursor:url()` is the browser's own pointer, on time.
+
+**Consequences.** Four PNGs in `static/cursor/` (131–161 bytes each). Firefox and Safari take `image-set()` in `cursor` too; the plain `url()` line is the fallback.
+
+## 0104 — Route change through the field
+
+- **Date:** 2026-09-11
+- **Status:** Proposed, with 0099. Timothy approved the item with the note that it is a taste call and should stay to one beat. Uncommitted.
+
+**Context.** A navigation between pages was a hard swap; 0098 had already made it instant rather than scrolled. Given 0100, the site now has a way for one page to leave and another to arrive.
+
+**Options.** (a) The old page dithers out to the field, the new page dithers in from it, in view transitions on `onNavigate`. (b) The new page dithers in over the old, as the theme does. (c) Nothing.
+
+**Choice.** (a), because it gives the field its beat between pages: the old snapshot runs `dither-out` (three steps), the `::view-transition` ground under it is the texture's own 16px checker in `--field-ink` on `--paper` — the same pattern the fields show before a canvas draws — and the new snapshot runs `dither-in` after it. Steps are `--step-fast` (55ms), six in all, 330ms; two slow ticks of the ambient field. The new snapshot is live, so the new page's Decode runs under its mask and the readout (0102) is already scrambling as it arrives. Hash jumps on the same path are excluded, as is anything with Motion [off] or no API. A first version filled the new snapshot's first step during its delay through `animation-fill-mode:both`, so the new page showed at a quarter while the old was still leaving; it is now masked away as a base style and fills forwards only.
+
+**Rejected.** (b): it makes a route change look like a theme change; the field between is what says a page has been left. Anything longer than the beat: Timothy's condition, and a route change is the most frequent transition on the site.
+
+**Consequences.** The review seeks the transition to 10, 100, 200 and 300ms: old at three quarters, old at a quarter over the checker, new at a quarter over the checker, new at three quarters (`route-*.png`). Pointer and keyboard are held for the 330ms. Hover-preloading (`data-sveltekit-preload-data`) stays, so the data is usually there before the wipe ends and the new page's snapshot is complete.
+
+## 0105 — Scroll in the readout
+
+- **Date:** 2026-09-11
+- **Status:** Proposed, with 0099. Uncommitted.
+
+**Context.** The status strip reports the path, the place, the coordinates, the clock and SYS.OK — everything about the session except where in the page you are.
+
+**Options.** (a) The scroll offset in cells of the unit, four digits, after the path. (b) The current section's id, as a fragment on the path. (c) A percentage. (d) Nothing.
+
+**Choice.** (a): `+0128`, the page offset over 8, floored, zero-padded; five Press Start characters, read on the same passive scroll listener the collapsing header uses and after every navigation. It goes after the path because it is about the document, not the clock. It fits every step of the strip's shedding (0072) and is never shed: at 390 the short path plus the readout ends 118px short of the edge; above 1100, on the two studies with the longest slugs, the path loses up to 48px more to it than it did before, and the path is already the item that clips there.
+
+**Rejected.** (b): the pages have few ids and the sections none, so it would need ids and an intersection observer on every page for a line that changes rarely. (c): a percentage is not in cells and reads as progress, which a portfolio page is not.
+
+**Consequences.** With smooth scrolling on (0098) the number rolls through the jump; with motion off it steps as the page does — it is data, not motion. Capped at 9999 cells (80,000px), which no page approaches.
+
+## 0106 — One focus ring, in the accent, on either ground
+
+- **Date:** 2026-09-11
+- **Status:** Proposed, with 0099. Uncommitted.
+
+**Context.** `base.css` drew the focus ring in `currentColor`, the contact form in `--accent` at offset 0, the Toolbox demo in `--fg` and `currentColor` by control: four rules for one thing. And the accent ring had a contrast problem the type had already solved: yellow on the white ground is 1.3:1, which is why 0075 made `--accent-text` deepen on the light theme — but the contact form's fields sit in the ink panel, which on the dark theme is *white*, so their yellow ring sat on white there too.
+
+**Options.** (a) One rule in `--accent-text`, and a token for the accent as type on the other ground. (b) One rule in `currentColor`. (c) One rule in `--accent` and accept the contrast on the panels. (d) A two-colour ring.
+
+**Choice.** (a). `:focus-visible{outline:2px solid var(--accent-text);outline-offset:2px}` and nothing else. A new semantic token, `--accent-on-fg`, is the accent as type on a `--fg` panel — the other ground, so the other value: `--yellow-deep` on the dark theme (the panel is white), `--yellow` on the light (the panel is ink). The four panels on the foreground colour (`.who`, `.machine`, `.contact-note`, `.code`) set `--accent-text` to it locally, which puts the ring right and fixes two things that were wrong for the same reason: the contact note's LinkedIn link lit yellow on white on hover, and the Toolbox machine panel's link had been given an underline instead of the accent to avoid exactly that. The demo's rings follow the rule.
+
+**Rejected.** (b): the ring should say “the system is listening”, which is the accent's job (cursors, the active item, the action blocks). (c): a failing ring is not a ring. (d): the site draws in one colour at a time.
+
+**Consequences.** Measured through the keyboard in both themes: on the paper the ring is yellow (dark) / deep yellow (light); in the ink panel, on a field and on the quiet link, deep yellow (dark) / yellow (light); 2px, offset 2, on the panel not the field. The demo's `.field:focus` keeps its offset 0 (the field's own baseline is the dither) and only changes colour. GRIDFORM Studio should take `--accent-on-fg` when it takes the rest.
+
+## 0107 — The page scrollbar, in the system
+
+- **Date:** 2026-09-11
+- **Status:** Proposed on Timothy's addition to the list (“a custom scrollbar”), with 0099. Uncommitted.
+
+**Context.** The one piece of chrome on the page that was still the operating system's.
+
+**Options.** (a) Style the native scrollbar: `::-webkit-scrollbar` pseudo-elements, `scrollbar-color` for Firefox. (b) A JavaScript scrollbar. (c) Hide it. (d) Leave it.
+
+**Choice.** (a). A 16px track on the card dither over the paper; an 8px thumb in `--fg` inset 4px each side — the site's cursor block, tall — that goes to the accent when hovered or pressed (0099); square corners, no buttons. Native behaviour is untouched: wheel, trackpad, keys, drag. Firefox has only `scrollbar-color`, so it gets the thumb in `--fg` on a flat track at the dither's average (14% of `--fg` over `--paper`); `scrollbar-color` is set only where `::-webkit-scrollbar` is unsupported, because Chrome ignores the pseudo-elements once the property is set.
+
+**Rejected.** (b): the one runtime dependency 0098 refused, and it breaks every native scroll behaviour. (c): it hides the page's length.
+
+**Consequences.** The one real cost: any styled scrollbar is a classic scrollbar, so on macOS with overlay bars the page loses 16px of width to it on every platform now (1440 → 1424, still on the unit). The layout is in percentages and units, so nothing else moves; the ASCII fields size to their host. The headless review browsers hide scrollbars, so the audits are unaffected. `.code`'s horizontal bar gets the same treatment at 16px tall.
+
+## 0108 — The field's yellow is the brand yellow in both themes
+
+- **Date:** 2026-09-11
+- **Status:** Accepted. Timothy, with the Scroll chip's yellow beside it: “our yellow for the bg textures is different in light or dark mode. make it the same as this even in light mode.” Uncommitted, with the tactility pass.
+
+**Context.** Since 0091 each field mode draws one thing in `--accent-text` — the rain's droplet, the scan line, a crest, the densest cells, the pointer's heat — and `--accent-text` deepens to `--yellow-deep` on the light theme (0075), because that token exists for *type* on the white ground, where the brand yellow is 1.3:1. So on the light theme the fields lit olive while every accent block on the page stayed `#f2d600`.
+
+**Options.** (a) The field reads `--accent` instead of `--accent-text` in `Ascii.svelte`. (b) `.band-bg` sets `--accent-text` to `--accent` for its subtree, in the site's CSS. (c) Leave it.
+
+**Choice.** (b): one declaration on `.band-bg` in `layout.css`. `Ascii.svelte` is the same file as GRIDFORM Studio's and stays untouched; the site decides what the token means inside a field, which is what the token layer is for. The field is decoration, not type: its accent is meant to read as a few light points on the ground, and the contrast rule that deepens type does not apply to it.
+
+Seeing it, Timothy asked for “slightly darker”. Five candidates were rendered on the light hero, each a step down in oklch lightness at the brand hue and chroma (`#f2d600 #e5c900 #dbbf00 #d1b500 #c8ac00`); I proposed `#dbbf00`, two steps down, as darker without turning to mustard, which I said `#d1b500` begins to; Timothy chose the bottom one, `#c8ac00`, four steps down — his call, the deeper field is the look he wants on the light ground. It is a primitive, `--yellow-field`, and the semantic token is `--accent-field`: the brand yellow on the dark theme, `--yellow-field` on the light; `.band-bg` points `--accent-text` at it.
+
+**Rejected.** (a): a component change for a site policy, and a divergence from the app. (c): the olive was the one place the brand colour changed with the theme.
+
+**Consequences.** Measured on the built site at 1440, motion off, before the darkening: Home and Toolbox bands drew the identical count of `#f2d600` pixels in both themes (15,716 and 16,248), so the swap was exact; Contact's band 44,540 light against 45,884 dark, the difference being the signal glyph and the label type inside it, which still deepen as type should. After it, the same cells draw `#c8ac00` on the light theme and no `#6f6200` is left in a field. The share-image route renders dark and is unaffected.

@@ -8,6 +8,7 @@
   --ink:#11110e;
   --white:#f4f4f0;
   --yellow-deep:#6f6200;  /* the accent when it is text on the light ground (5.6:1 on --white) */
+  --yellow-field:#c8ac00; /* the accent in a field on the light ground: four oklch lightness steps down, same hue and chroma (0108) */
 
   /* spacing — one unit and the steps actually used on the site.
      The name is the number of units: --s4 is 4 × 8px. */
@@ -37,6 +38,8 @@
   /* motion — nothing is continuous, everything steps */
   --tick-cursor:1s;   /* one blink period, stepped 2 jump-none */
   --nudge:8px;        /* hover displacement: exactly one cell */
+  --step:70ms;        /* one Decode character; STEP in src/lib/tokens.ts (0100) */
+  --step-fast:55ms;   /* STEP_FAST in src/lib/tokens.ts */
 }
 
 /* ------------------------------------------------------------------

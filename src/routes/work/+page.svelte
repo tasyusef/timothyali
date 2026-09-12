@@ -68,6 +68,7 @@
 .entry-main :global(.cta-quiet){align-self:flex-start;margin-left:calc(-1 * var(--s2))}
 .entry:hover :global(.cta-quiet),.entry:focus-visible :global(.cta-quiet){background:var(--accent);color:var(--on-accent)}
 .entry:hover :global(.cta-quiet .mono),.entry:focus-visible :global(.cta-quiet .mono){color:var(--on-accent)}
+.entry:active :global(.cta-quiet){background:var(--accent);color:var(--on-accent)} /* press (0099) */
 .entry-year,.entry-scope{padding-top:var(--s2);white-space:nowrap}
 @media(max-width:900px){
   .entry{grid-template-columns:48px minmax(0,1fr)}

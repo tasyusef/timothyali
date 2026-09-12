@@ -42,6 +42,13 @@
     if (motion.on && visible && !done) run();
     if (!motion.on) { if (timer) clearInterval(timer); timer = undefined; shown = text; live = false; }
   });
+  // A new text decodes again (the readout's path on a route change, a study's title on
+  // Next); with motion off, or off screen, it is simply shown (0102).
+  let last = untrack(() => text);
+  $effect(() => {
+    const t = text;
+    untrack(() => { if (t === last) return; last = t; done = false; if (motion.on && visible) run(); else shown = t; });
+  });
 </script>
 <span class="decode" bind:this={el} class:live><span class="sr-only">{text}</span><span aria-hidden="true">{shown}</span>{#if cursor}<Cursor size="em" color="currentColor" />{/if}</span>
 <style>
