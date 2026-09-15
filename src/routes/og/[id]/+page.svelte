@@ -81,8 +81,8 @@
     <!-- The agents page's head, then the landing's command plate: the one line that says it. -->
     <Band class="og-agents" mode="fall" seed={3} density={0.55} shade avoid=".og-agents .lbl, .og-agents h1, .og-agents .lead, .og-command">
       <span class="lbl">Toolbox / the command line and MCP</span>
-      <h1 class="display">Without the window</h1>
-      <p class="lead">Toolbox is also its own command-line tool and MCP server.</p>
+      <h1 class="display">CLI & MCP</h1>
+      <p class="lead">Use Toolbox from a terminal or an AI assistant.</p>
       <div class="og-command"><span class="lbl dim">Terminal</span><code class="body">toolbox --mcp<Cursor /></code></div>
     </Band>
   {:else if data.tool}

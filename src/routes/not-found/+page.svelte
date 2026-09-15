@@ -10,8 +10,8 @@
   <Band class="lost" mode="sparse" seed={4} avoid=".lost h1 > span, .lost p, .lost .cta">
     <p class="lbl status"><span>404</span><span>SYS.ERR / No such path</span></p>
     <h1><span class="blackletter display-xl"><Decode text="lost." step={STEP} /></span></h1>
-    <p class="display">Nothing lives at this path.<br />The index does.</p>
-    <Cta href="/" class="lbl">Back to index <Arrow /></Cta>
+    <p class="display">This page doesn’t exist.<br />Head back home.</p>
+    <Cta href="/" class="lbl">Back to home <Arrow /></Cta>
   </Band>
 </main>
 <style>

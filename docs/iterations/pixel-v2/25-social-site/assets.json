@@ -21,37 +21,37 @@
     "image": "toolbox",
     "width": 1200,
     "height": 630,
-    "bytes": 12665
+    "bytes": 12641
   },
   {
     "image": "toolbox-agents",
     "width": 1200,
     "height": 630,
-    "bytes": 11365
+    "bytes": 11992
   },
   {
     "image": "toolbox-lockup",
     "width": 1200,
     "height": 630,
-    "bytes": 67905
+    "bytes": 67907
   },
   {
     "image": "toolbox-palette",
     "width": 1200,
     "height": 630,
-    "bytes": 56927
+    "bytes": 57089
   },
   {
     "image": "toolbox-specimen",
     "width": 1200,
     "height": 630,
-    "bytes": 70838
+    "bytes": 70859
   },
   {
     "image": "toolbox-convert",
     "width": 1200,
     "height": 630,
-    "bytes": 73275
+    "bytes": 72999
   },
   {
     "image": "parc",
@@ -69,13 +69,13 @@
     "image": "firstledger",
     "width": 1200,
     "height": 630,
-    "bytes": 300647
+    "bytes": 300501
   },
   {
     "image": "do-androids-dream",
     "width": 1200,
     "height": 630,
-    "bytes": 334305
+    "bytes": 334300
   },
   {
     "image": "firststrike",
@@ -87,25 +87,25 @@
     "image": "sonde",
     "width": 1200,
     "height": 630,
-    "bytes": 72871
+    "bytes": 72170
   },
   {
     "image": "parc-site",
     "width": 1200,
     "height": 630,
-    "bytes": 40573
+    "bytes": 39775
   },
   {
     "image": "jade-aesthetics",
     "width": 1200,
     "height": 630,
-    "bytes": 253080
+    "bytes": 253092
   },
   {
     "image": "pocketwatch",
     "width": 1200,
     "height": 630,
-    "bytes": 70542
+    "bytes": 70136
   },
   {
     "image": "story-launch",

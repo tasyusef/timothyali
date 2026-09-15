@@ -1759,3 +1759,18 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 **Choice.** A 32×17 anvil drawn on the wordmark's own 2px pixel. The mark and the wordmark align by ink, not by box: "acme." at 86 is all x-height letters, ink rows 35–68 of the 88px line, so the anvil is 17 pixels tall (34px, the x-height), sits on the baseline and meets the x-height at the top. The logo's 238px width and the plate are unchanged.
 
 **Consequences.** `tools/review/toolbox-demo.mjs` should be re-run before this ships with the next accepted pass.
+
+
+## 0112 — Refine the site copy and document the app’s full headless controls
+
+- **Date:** 2026-09-15
+- **Direction:** Timothy asked for a complete copy pass, especially the project case studies and Toolbox docs on this site, to remove awkward and LLM-like writing. After the review identified missing CLI/MCP controls, he directed that both interfaces should accomplish the app’s work headlessly.
+- **Implementation:** Rewrote the nine studies around concrete work and decisions; preserved personal details and attributed quotations. Removed unsupported outcome claims. Reworked Toolbox guides and added examples for structured colors, custom type roles, previews, and saved work. Option tables are generated from the app catalog. Small interface and metadata edits follow the same voice.
+- **Status:** Assistant wording implemented under Timothy’s editing request. His request to update the release and push the site authorizes publication; it does not imply individual approval of every sentence.
+
+## 0113 — Release Toolbox 1.1.0 for macOS and Linux
+
+- **Date:** 2026-09-15
+- **Direction:** Timothy requested updating the release and pushing it to the site, then explicitly discontinued Windows builds because he does not want to pay for signing.
+- **Implementation:** Version 1.1.0, signed/notarized macOS and Linux downloads; Windows removed from current site downloads, setup instructions, packaging scripts, and CI. Historical 1.0.0 assets remain a record of that release.
+- **Status:** Release and site publication authorized.

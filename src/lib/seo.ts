@@ -57,7 +57,7 @@ export function graphFor(path: string): object[] | undefined {
   if (path === '/work/') return [crumbs([['Timothy Ali', '/'], ['Work', '/work/']]), { '@type': 'CollectionPage', name: 'Selected work', url: `${SITE_URL}/work/`, hasPart: studies.map((p) => ({ '@id': `${SITE_URL}/work/${p.slug}/#work` })) }];
   if (path === '/contact/') return [crumbs([['Timothy Ali', '/'], ['Contact', '/contact/']])];
   if (path === '/toolbox/') return [crumbs([['Timothy Ali', '/'], ['Toolbox', '/toolbox/']]), software];
-  if (path === '/toolbox/agents/') return [crumbs([['Timothy Ali', '/'], ['Toolbox', '/toolbox/'], ['Without the window', '/toolbox/agents/']])];
+  if (path === '/toolbox/agents/') return [crumbs([['Timothy Ali', '/'], ['Toolbox', '/toolbox/'], ['CLI & MCP', '/toolbox/agents/']])];
   const t = tools.find((t) => path === `/toolbox/${t.slug}/`);
   if (t) return [crumbs([['Timothy Ali', '/'], ['Toolbox', '/toolbox/'], [t.name, `/toolbox/${t.slug}/`]])];
   const p = studies.find((s) => path === `/work/${s.slug}/`);

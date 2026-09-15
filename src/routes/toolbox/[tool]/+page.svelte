@@ -30,15 +30,15 @@
 
   <section class="shot"><Picture src={t.shot.src} alt={t.shot.alt} width={t.shot.w} height={t.shot.h} eager /></section>
 
-  <section class="text"><h2 class="display-s">When to reach for it</h2><div class="paras"><p class="body">{t.whenToUse}</p></div></section>
-  <section class="text"><h2 class="display-s">What lands on disk</h2><div class="paras"><p class="body">{t.produces}</p><ul class="outputs lbl">{#each t.outputs as o}<li>{o}</li>{/each}</ul></div></section>
+  <section class="text"><h2 class="display-s">When to use it</h2><div class="paras"><p class="body">{t.whenToUse}</p></div></section>
+  <section class="text"><h2 class="display-s">Exported files</h2><div class="paras"><p class="body">{t.produces}</p><ul class="outputs lbl">{#each t.outputs as o}<li>{o}</li>{/each}</ul></div></section>
   <section class="text">
-    <h2 class="display-s">Without the window</h2>
+    <h2 class="display-s">CLI & MCP</h2>
     <div class="paras">
-      <p class="body">The same tool from a terminal or an agent. Identical output either way, because the app and the command line run the same code.</p>
+      <p class="body">Run this example in a terminal after setting up the toolbox command. Replace the sample inputs with your own. The CLI and MCP use the app’s export engine with the options listed below.</p>
       <Code label="Example command" text={t.command} />
       <Options tool={t} heading={false} />
-      <QuietLink href="/toolbox/agents/" label="The command line and MCP" pad class="lbl" />
+      <QuietLink href="/toolbox/agents/" label="CLI & MCP setup" pad class="lbl" />
     </div>
   </section>
 
@@ -61,4 +61,5 @@
 @media(max-width:1100px){.title{font-size:82.5px;line-height:88px}}
 @media(max-width:900px){.title{font-size:55px;line-height:56px}.intro,.text{grid-template-columns:100%}}
 @media(max-width:700px){.head{padding-top:var(--s3)}.title{font-size:41.25px;line-height:48px}.intro{margin-top:var(--s3);gap:var(--s3)}.shot,.text,.next{padding-top:var(--s6)}}
+@media(max-width:420px){.title{font-size:27.5px;line-height:32px}}
 </style>

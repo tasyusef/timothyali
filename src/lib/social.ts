@@ -9,7 +9,7 @@ export const socialPages = [
   { path: '/contact/', image: 'contact', title: 'Get in touch — Timothy Ali', description: 'Tell me what you’re building. Connect with designer Timothy Ali about brand, product, motion, and front-end work.', alt: 'Tell me what you’re building. Get in touch — Timothy Ali.' },
   // Toolbox images are rendered by /og/[id] like the rest (0110): the hero, the agents head, a row per tool.
   { path: '/toolbox/', image: 'toolbox', title: 'Toolbox — Timothy Ali', description: APP.description, alt: 'Toolbox by Timothy Ali: four design tools in one app.' },
-  { path: '/toolbox/agents/', image: 'toolbox-agents', title: 'Without the window — Toolbox — Timothy Ali', description: 'Toolbox is also its own command-line tool and MCP server. The same binary describes its tools, runs one, or serves them to an agent.', alt: 'Toolbox from the command line and over MCP.' },
+  { path: '/toolbox/agents/', image: 'toolbox-agents', title: 'CLI & MCP — Toolbox — Timothy Ali', description: 'Run Toolbox from a terminal, send jobs as JSON, or connect an AI assistant through MCP. Setup, commands, and options for all four tools.', alt: 'Toolbox from the command line and over MCP.' },
   ...tools.map(t => ({ path: `/toolbox/${t.slug}/`, image: `toolbox-${t.slug}`, title: `${t.name} — Toolbox — Timothy Ali`, description: t.summary, alt: `${t.name}: ${t.blurb}. A Toolbox tool by Timothy Ali.` })),
   ...studies.map(p => ({ path: `/work/${p.slug}/`, image: p.slug, title: `${p.title} — Timothy Ali`, description: p.description, alt: `${p.title} — ${p.cover.alt} Design by Timothy Ali.` }))
 ];

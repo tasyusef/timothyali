@@ -16,9 +16,9 @@
   // wrong, the first of them focused. `required` stays on the fields for what it means.
   let notes: Record<string, string> = $state({});
   const NEED: Record<string, (el: HTMLInputElement | HTMLTextAreaElement) => string> = {
-    name: (el) => (el.value.trim() ? '' : 'A name, please.'),
-    email: (el) => (!el.value.trim() ? 'An address I can reply to.' : el.validity.typeMismatch ? 'That address doesn’t parse.' : ''),
-    message: (el) => (el.value.trim() ? '' : 'A line about what you’re building.')
+    name: (el) => (el.value.trim() ? '' : 'Enter your name.'),
+    email: (el) => (!el.value.trim() ? 'Enter an email address I can reply to.' : el.validity.typeMismatch ? 'Check your email address, for example name@example.com.' : ''),
+    message: (el) => (el.value.trim() ? '' : 'Tell me a little about what you’re building.')
   };
   function validate(form: HTMLFormElement) {
     const next: Record<string, string> = {}; let first: HTMLElement | null = null;
@@ -32,10 +32,10 @@
     else if (q.get('error')) { phase = 'error'; reason = q.get('error') ?? ''; }
   });
   const NOTE: Record<string, string> = {
-    invalid: 'Check the fields — a name, an address that works, and a message.',
-    unconfigured: 'The relay isn’t set up yet. Email studio@timothyali.com directly.',
+    invalid: 'Check your name, email address, and message.',
+    unconfigured: 'The form is unavailable. Email studio@timothyali.com directly.',
     'send-failed': 'The mail didn’t go through. Try again, or email studio@timothyali.com.',
-    network: 'No connection. Try again, or email studio@timothyali.com.'
+    network: 'Couldn’t send your message. Check your connection and try again, or email studio@timothyali.com.'
   };
   async function submit(e: SubmitEvent) {
     e.preventDefault();

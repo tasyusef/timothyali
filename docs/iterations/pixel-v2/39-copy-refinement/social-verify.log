@@ -1,0 +1,5 @@
+
+> timothyali2@0.1.0 social:verify /Users/twocakes/Desktop/PROJECTS/timothyali2
+> node tools/social/verify.mjs
+
+PASS: 18 prerendered pages, absolute unique metadata, valid JSON-LD, sitemap, not-found.html, 18 PNGs, SVG/ICO/touch icon.

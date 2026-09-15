@@ -20,7 +20,7 @@
 
   <section class="who" aria-labelledby="statement-title">
     <h2 id="statement-title" class="para">
-      <span class="display">Designer for teams that don’t have one yet. Whatever you’re building, I care how it</span>
+      <span class="display">Designer for teams that don’t have one yet. I care how it</span>
       <span class="words">{#each qualities as [word, label, short], i}<span class="q"><span class="blackletter w"><Decode text={word} step={STEP} delay={i * 150} /></span><span class="lbl note" aria-hidden="true">{#if short}<span class="note-full">{label}</span><span class="note-short">{short}</span>{:else}{label}{/if}</span></span> {/each}</span>
     </h2>
     <p class="sr-only">Looks: brand. Moves: motion. Works: product and front end.</p>
@@ -104,5 +104,5 @@ main :global(.work-rain){position:relative;isolation:isolate;overflow:hidden}
   .invitation h2{padding-bottom:var(--s4)}
   .work-index{padding-top:var(--s6);padding-bottom:var(--s6)}
 }
-@media(max-width:420px){.para .w{margin-right:0}} /* “moves.” + its chip is exactly the 320 box; the chip’s own padding keeps the gap */
+@media(max-width:420px){.para,.para .display{font-size:27.5px;line-height:32px}.para .w{margin-right:0}.para .note{padding-inline:4px}} /* “moves.” + its chip is exactly the 320 box; the chip’s own padding keeps the gap */
 </style>

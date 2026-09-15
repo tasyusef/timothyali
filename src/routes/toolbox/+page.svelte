@@ -12,8 +12,8 @@
   let selected = $state('lockup');
   const active = $derived(tools.find(t => t.slug === selected) ?? tools[0]);
   const promises: Record<string, string> = {
-    lockup: 'One logo. Ready for everywhere.', palette: 'From colour to a system.',
-    specimen: 'Meet your type.', convert: 'The right file for the job.'
+    lockup: 'Ready to hand over.', palette: 'Keep your colors together.',
+    specimen: 'See your fonts on a page.', convert: 'The right file for the job.'
   };
 </script>
 <svelte:head><title>Toolbox — Timothy Ali</title><meta name="description" content={APP.description} /></svelte:head>
@@ -24,11 +24,11 @@
       <h1 class="blackletter"><Decode text="toolbox." step={STEP} /></h1>
       <p class="lead">Make the work.<br />Let Toolbox finish the files.</p>
     </div>
-    <div class="hero-actions"><Cta href="#tools" class="lbl">Explore the tools <Arrow /></Cta><span class="lbl">macOS · Windows · Linux</span></div>
+    <div class="hero-actions"><Cta href="#tools" class="lbl">Explore the tools <Arrow /></Cta><span class="lbl">macOS · Linux</span></div>
   </Band>
 
   <section class="showcase" id="tools" aria-labelledby="tools-title">
-    <div class="section-head"><h2 id="tools-title" class="display">Four tools.<br />One app.</h2><p class="body">Logo packages, colour systems, type specimens and image conversion. Pick a tool. See what comes out.</p></div>
+    <div class="section-head"><h2 id="tools-title" class="display">Four tools.<br />One app.</h2><p class="body">Logo packages, color systems, type specimens and image conversion. Try the examples below.</p></div>
     <div class="tool-picker" role="group" aria-label="Choose a tool to preview">
       {#each tools as t}<button type="button" aria-pressed={selected === t.slug} aria-controls="tool-preview" onclick={() => selected = t.slug}><span class="lbl">{t.n}</span><span class="display-s">{t.name}</span></button>{/each}
     </div>
@@ -40,21 +40,21 @@
         <div class="formats lbl">{#each active.outputs as output}<span>{output}</span>{/each}</div>
         <QuietLink href={`/toolbox/${active.slug}/`} label={`About ${active.name}`} class="lbl" pad />
       </div>
-      <div class="demo-wrap"><ToolDemo tool={selected} /><p class="demo-note lbl dim">Exporting happens in the app.</p></div>
+      <div class="demo-wrap"><ToolDemo tool={selected} /><p class="demo-note lbl dim">Interactive preview. Download the app to export.</p></div>
     </div>
     <noscript><p class="body">Explore each tool: {#each tools as t}<a href={`/toolbox/${t.slug}/`}>{t.name}</a>{' '}{/each}</p></noscript>
   </section>
 
   <section class="machine" aria-labelledby="machine-title">
-    <div><span class="lbl">For you. And your agents.</span><h2 id="machine-title" class="display">Same tools.<br />Your workflow.</h2></div>
-    <div class="machine-copy"><p class="body">Use the app, run a command, or connect over MCP. Each route runs the same tools and produces the same files.</p><div class="command"><span class="lbl dim">Terminal</span><code class="body">toolbox --mcp<Cursor /></code></div><QuietLink href="/toolbox/agents/" label="CLI & MCP docs" class="lbl" pad /></div>
+    <div><span class="lbl">App / command line / MCP</span><h2 id="machine-title" class="display">Same tools.<br />Your workflow.</h2></div>
+    <div class="machine-copy"><p class="body">Use the app, run a command, or connect over MCP. Scripts and AI assistants use the same export engine as the app.</p><div class="command"><span class="lbl dim">Terminal</span><code class="body">toolbox --mcp<Cursor /></code></div><QuietLink href="/toolbox/agents/" label="CLI & MCP docs" class="lbl" pad /></div>
   </section>
 
   <section class="release" id="download" aria-labelledby="download-title">
     <div class="release-heading"><span class="lbl">Release {APP.version}</span><h2 id="download-title" class="blackletter">Yours.</h2></div>
     <div class="release-copy">
       <span class="status lbl">{APP.status}</span>
-      <p class="body">Pick your platform. Every file is listed with its SHA-256 on the releases page.</p>
+      <p class="body">Download Toolbox for your computer. SHA-256 checksums are available on the releases page if you want to verify your download.</p>
       <ul class="downloads">
         {#each builds as b}
           <li><span class="lbl dim">{b.os}</span><span class="files">{#each b.files as f}<a class="body" href={f.href}>{f.label}</a>{/each}</span><span class="lbl dim note">{b.note}</span></li>

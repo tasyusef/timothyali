@@ -14,7 +14,7 @@
     <div class="contact-bottom">
       <div class="signal" aria-hidden="true"><svg width="96" height="96" viewBox="0 0 12 12" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h1v7h7V7H8V6h1v1h1v1h1v1h-1v1H9v1H8v-1h1V9H1z" /></svg></div>
       <div class="contact-note">
-        <p class="body">Got an idea, an early team, or something that needs a designer?</p>
+        <p class="body">Have a project in mind or a team that needs a designer?</p>
         <p class="body signoff">I’d like to hear about it.</p>
         <ContactForm />
         <QuietLink href="https://linkedin.com/in/timothyali" label="Or message me on LinkedIn" class="lbl alt" />

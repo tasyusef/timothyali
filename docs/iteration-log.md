@@ -565,3 +565,10 @@ Committed from a parallel session while PX-36 was being built (43a7978): the str
 ### PX-38 — Toolbox share images — 2026-09-12 (0110)
 
 Timothy: "need to make new OG images for the new routes." The six Toolbox routes had shared Home's image since 0093. Three compositions were added to the dev-only `/og/[id]` route from the pages' own blocks: the landing hero for `/toolbox/`, the agents head with the `toolbox --mcp` plate for `/toolbox/agents/`, and a Work row per tool with the app's own screen in the frame. Regenerating found the 0105 scroll readout clipping the Home path in the stills; the generator now hides it (a still has no offset) and the short paths keep their coordinates. Eighteen images, `social:verify` passes on all eighteen. Proposed, uncommitted, awaiting his eye.
+
+
+### PX-39 — Copy refinement and Toolbox 1.1.0 — 2026-09-15 (0112–0113)
+
+Timothy requested a full copy review, with emphasis on all nine case studies and the Toolbox documentation. Studies now describe the work in first person, use shorter headings, and avoid unsupported commercial outcomes. Personal details and direct quotations remain. Toolbox pages explain inputs and outputs, with CLI/MCP examples for the expanded app controls. `tools/toolbox/sync-options.mjs` generates the 47 option rows from the app’s catalog. The brief Home introduction drops “Whatever you’re building”; narrow-screen guide descriptions wrap instead of overflowing. The Home statement uses the existing 27.5px/32px type size below 420px so “Designer” fits at 320px. Contact errors and metadata were edited too.
+
+The app review led to Timothy’s direction for headless feature coverage, followed by authorization to release and publish. Site downloads now target 1.1.0 on macOS and Linux; Windows was discontinued on his explicit instruction. OG images were regenerated. Before/after prose, the initial source snapshot, browser results, and screenshots are in `docs/iterations/pixel-v2/39-copy-refinement/`. See its README for verification and publication evidence. Copy is an implemented editorial pass, not a record of individual wording approvals.
