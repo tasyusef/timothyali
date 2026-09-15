@@ -29,3 +29,6 @@ Publication was explicitly requested by Timothy. The editorial choices remain th
 - Final app CI: https://github.com/tasyusef/toolbox-app/actions/runs/35002034693 (test and parity successful).
 - Eight macOS/Linux artifacts plus SHA256SUMS; all uploaded digests match the local files. No Windows artifact.
 - Source includes the SVG decoding fix; public download repository contains no private application source.
+
+- All nine public release URLs returned HTTP 200. A real export from the signed packaged macOS app produced six palette files with custom print colors.
+- Site commits were pushed to `master`. At the publication check, Vercel had not created a new deployment and production still served `b272f40` / Toolbox 1.0.0. Direct deployment awaits Vercel sign-in; the CLI and in-app browser were signed out. Do not treat the Git push alone as production verification.
