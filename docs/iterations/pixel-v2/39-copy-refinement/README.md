@@ -18,7 +18,14 @@
 - Browser: 57 route/viewport checks passed at 1440, 390 and 320px, with no page errors or overflowing prose. Contact validation was checked without sending a message.
 - Toolbox demos: 48 tool/theme/width states, keyboard controls and no-JS links passed.
 - Social verification: 18 pages and images, unique absolute metadata, JSON-LD, sitemap and favicon passed.
-- App: 204 unit tests, both golden export fixtures, and 34 real CLI/MCP checks passed locally.
+- App: 204 unit tests, both golden export fixtures, and 34 real CLI/MCP checks passed on macOS and Linux. The Linux run caught and fixed a missing SVG MIME type; its display wrapper’s combined output and leftover child process were also corrected in the test harness.
 - macOS packages signed and notarized; Linux deb archives contain control and data payloads. Release asset checksums are verified against GitHub’s uploaded digests before publication.
 
 Publication was explicitly requested by Timothy. The editorial choices remain the assistant’s implementation of that request.
+
+## Publication
+
+- Toolbox 1.1.0: https://github.com/tasyusef/toolbox/releases/tag/v1.1.0
+- Final app CI: https://github.com/tasyusef/toolbox-app/actions/runs/35002034693 (test and parity successful).
+- Eight macOS/Linux artifacts plus SHA256SUMS; all uploaded digests match the local files. No Windows artifact.
+- Source includes the SVG decoding fix; public download repository contains no private application source.
