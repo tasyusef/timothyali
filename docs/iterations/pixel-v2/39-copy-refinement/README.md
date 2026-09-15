@@ -32,3 +32,5 @@ Publication was explicitly requested by Timothy. The editorial choices remain th
 
 - All nine public release URLs returned HTTP 200. A real export from the signed packaged macOS app produced six palette files with custom print colors.
 - Site commits were pushed to `master`. At the publication check, Vercel had not created a new deployment and production still served `b272f40` / Toolbox 1.0.0. Direct deployment awaits Vercel sign-in; the CLI and in-app browser were signed out. Do not treat the Git push alone as production verification.
+
+- Resolved: Vercel picked up the subsequent push without a sign-in. Production deployment `HdGaDSAne6g72MxXPC8xDH16X3Ax` succeeded for `9ab80ef`. Live browser verification showed Release 1.1.0 and macOS/Linux downloads only. The live CLI/MCP guide includes the new structured options and library actions; PARC and Sonde serve the revised study copy.
