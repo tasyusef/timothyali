@@ -134,8 +134,8 @@ const source: Source[] = [
     title: 'xrp.cafe',
     word: 'xrp.cafe',
     year: '2021–2024',
-    scope: 'Cofounder · brand & motion',
-    role: 'Cofounder & founding designer',
+    scope: 'Founding designer',
+    role: 'Founding designer',
     tools: 'Illustrator, After Effects',
     live: { href: 'https://xrp.cafe/', label: 'xrp.cafe' },
     description: 'Visual identity, motion design, and marketing for an NFT marketplace on the XRP Ledger.',
@@ -277,12 +277,11 @@ const source: Source[] = [
     year: '2025',
     scope: 'Brand & art direction',
     role: 'Sole brand designer',
-    timeline: 'About a month',
     tools: 'Illustrator, Figma',
     description: 'Brand identity for a veteran-owned financial research company: wordmark, color system, typography, and guidelines.',
     cover: { src: '/work/firststrike.jpg', w: 1600, h: 900, alt: 'The FirstStrike Research wordmark in white italic type on the blue gradient-and-grain field' },
     lead: [
-      "FirstStrike Research is a veteran-owned financial research company covering American markets. I designed its logo, color palette, typography, and guidelines in about a month."
+      "FirstStrike Research is a veteran-owned financial research company covering American markets. I designed its logo, color palette, typography, and guidelines."
     ],
     hero: [fst('hero.jpg', 1600, 900, 'The FirstStrike Research wordmark in white italic type on the brand’s blue gradient-and-grain field')],
     blocks: [
@@ -472,16 +471,16 @@ const source: Source[] = [
     slug: 'jade-aesthetics',
     title: 'Jade Aesthetics',
     word: 'jade aesthetics',
-    year: '2025–2026',
+    year: '2025–present',
     scope: 'Web & code',
     role: 'Designer & developer',
-    timeline: 'About four months, two phases',
+    timeline: 'Ongoing · project-based freelance',
     tools: 'Framer (V1), Next.js, Tailwind CSS, Vercel, Claude Code (V2)',
     live: { href: 'https://www.jadeaesthetics.co/', label: 'jadeaesthetics.co' },
     description: 'Two websites for a medical spa: a Framer launch, followed by a Next.js rebuild with dedicated treatment pages.',
     cover: { src: '/work/jade-aesthetics.jpg', w: 1600, h: 900, alt: 'The Jade Aesthetics homepage: Naturally Elevated, Timeless Beauty over a photograph of the treatment lounge' },
     lead: [
-      "Jade Aesthetics is a medical spa in Wheaton, Illinois. I designed its first website in Framer, then rebuilt it in Next.js as the business needed more detailed service pages. The work covered the visual style, page design, and development of both versions."
+      "Jade Aesthetics is a medical spa in Wheaton, Illinois. I designed its first website in Framer, then rebuilt it in Next.js as the business needed more detailed service pages. The work covered the visual style, page design, and development of both versions. I continue to work with the practice on individual projects as needs come up."
     ],
     hero: [ja('home.jpg', 1600, 1000, 'The Jade Aesthetics homepage: Naturally Elevated, Timeless Beauty in white serif type over the treatment lounge, with Explore Services and Book Now')],
     blocks: [

@@ -1782,3 +1782,10 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Direction:** Timothy requested removing “Senior” and using “Brand designer” for First Ledger.
 - **Implementation:** Both the project scope and case-study role now read “Brand designer”, previously “Senior brand designer”.
 - **Status:** Explicit wording supplied by Timothy.
+
+## 0115 — Align professional profiles
+
+- **Date:** 2026-09-16
+- **Direction:** Timothy specified FirstStrike as 2025 without duration, unified xrp.cafe to Founding Designer, agreed to “since 2019” for experience, and clarified Jade is ongoing freelance work on individual projects.
+- **Implementation:** Updated project role/date/timeline copy and Jade introduction. Retained xrp.cafe cofounder status in its narrative. Corresponding résumé and LinkedIn changes are handled outside this public repository.
+- **Status:** Explicit factual and wording corrections from Timothy; surrounding prose is assistant wording.
