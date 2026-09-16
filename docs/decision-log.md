@@ -1774,3 +1774,11 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Direction:** Timothy requested updating the release and pushing it to the site, then explicitly discontinued Windows builds because he does not want to pay for signing.
 - **Implementation:** Version 1.1.0, signed/notarized macOS and Linux downloads; Windows removed from current site downloads, setup instructions, packaging scripts, and CI. Historical 1.0.0 assets remain a record of that release.
 - **Status:** Release and site publication authorized.
+
+
+## 0114 — First Ledger role wording
+
+- **Date:** 2026-09-16
+- **Direction:** Timothy requested removing “Senior” and using “Brand designer” for First Ledger.
+- **Implementation:** Both the project scope and case-study role now read “Brand designer”, previously “Senior brand designer”.
+- **Status:** Explicit wording supplied by Timothy.
