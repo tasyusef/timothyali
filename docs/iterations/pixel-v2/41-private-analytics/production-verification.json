@@ -1,0 +1,10 @@
+{
+  "verifiedAt": "2026-09-18T04:09:06.736Z",
+  "sessionTest": "Short-lived, server-signed test sessions; actual email-link confirmation is separate",
+  "results": [
+    "All three configured addresses admitted with valid server-signed sessions; another address denied",
+    "Anonymous pages and data requests denied",
+    "Public pages, legacy redirects, custom 404 and existing contact endpoint verified",
+    "Live ingestion reaches Redis; controlled test click removed without downloading an installer"
+  ]
+}

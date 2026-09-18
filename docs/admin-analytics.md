@@ -1,6 +1,6 @@
 # Private website analytics
 
-Status: production storage and the private email allowlist are configured. Real Redis writes, counts, limits, expiry and one-time token consumption have passed. Deployment and email delivery verification are in progress.
+Status: live at https://www.timothyali.com/admin/. Storage, server authorization, existing public routes and live analytics ingestion are verified. Resend accepted a sign-in email to an approved address; inbox arrival and the owner clicking that link are awaiting confirmation.
 
 ## What it shows
 
@@ -54,5 +54,5 @@ The site now uses adapter-vercel, with a Node 24 server for admin/auth/analytics
 1. Completed: owner addresses and Vercel CLI sign-in.
 2. Completed: free Redis and server secrets configured. Existing Resend sender/key reused; actual email delivery remains to be checked.
 3. Completed: `tools/review/admin-storage.mjs` verified actual Redis writes, rate limits, aggregates, expiry and atomic token consumption with disposable keys. Those keys were deleted after the test.
-4. Send an authorized sign-in email to the owner, consume the link once, verify a replay fails, verify sign-out and anonymous data denial. Avoid persisting real sign-in links in screenshots/logs.
-5. Deploy; verify live login/owner access, current GitHub totals, public pages, old redirects, custom 404, excluded admin traffic and a controlled public event with a build click. Do not download installers merely to test tracking.
+4. Resend accepted an authorized sign-in email. Real token atomicity and local sign-out passed. Inbox arrival and owner use of the actual email link are still awaiting confirmation. No real email link is stored in evidence.
+5. Completed: deployment 7ae1e30 is live. All three approved addresses were verified with short-lived server-signed test sessions, an unapproved address and anonymous page/data requests were denied, GitHub counts rendered, public pages/redirects/404/contact endpoint passed, and a controlled build-click event reached Redis. Test increments were removed; no installer was downloaded. These session tests do not replace the owner confirming the email link.
