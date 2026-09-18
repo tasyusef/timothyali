@@ -1,6 +1,6 @@
 # Private website analytics
 
-Status: live at https://www.timothyali.com/admin/. Storage, server authorization, existing public routes and live analytics ingestion are verified. Resend accepted a sign-in email to an approved address; inbox arrival and the owner clicking that link are awaiting confirmation.
+Status: live at https://www.timothyali.com/admin/. Storage, server authorization, existing public routes and live analytics ingestion are verified. The approved owner address now has a verified Auth.js account, confirming the real email link completed verification.
 
 ## What it shows
 
@@ -54,5 +54,5 @@ The site now uses adapter-vercel, with a Node 24 server for admin/auth/analytics
 1. Completed: owner addresses and Vercel CLI sign-in.
 2. Completed: free Redis and server secrets configured. Existing Resend sender/key reused; actual email delivery remains to be checked.
 3. Completed: `tools/review/admin-storage.mjs` verified actual Redis writes, rate limits, aggregates, expiry and atomic token consumption with disposable keys. Those keys were deleted after the test.
-4. Resend accepted an authorized sign-in email. Real token atomicity and local sign-out passed. Inbox arrival and owner use of the actual email link are still awaiting confirmation. No real email link is stored in evidence.
-5. Completed: deployment 7ae1e30 is live. All three approved addresses were verified with short-lived server-signed test sessions, an unapproved address and anonymous page/data requests were denied, GitHub counts rendered, public pages/redirects/404/contact endpoint passed, and a controlled build-click event reached Redis. Test increments were removed; no installer was downloaded. These session tests do not replace the owner confirming the email link.
+4. Completed: Resend accepted the sign-in email and the owner then completed verification through the real link. The database confirms the approved account is email-verified. Real token atomicity and local sign-out passed. No real email link is stored in evidence.
+5. Completed: deployment 7ae1e30 is live. All three approved addresses were verified with short-lived server-signed test sessions, an unapproved address and anonymous page/data requests were denied, GitHub counts rendered, public pages/redirects/404/contact endpoint passed, and a controlled build-click event reached Redis. Test increments were removed; no installer was downloaded. The real email-link verification was confirmed separately through the resulting verified account.
