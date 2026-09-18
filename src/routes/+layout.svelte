@@ -12,6 +12,7 @@
   import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
   import { onMount } from 'svelte';
   import { motion, grid, theme } from '$lib/motion.svelte';
+  import Analytics from '$lib/components/Analytics.svelte';
   import SocialMeta from '$lib/components/SocialMeta.svelte';
   import Cursor from '$lib/components/Cursor.svelte';
   import Decode from '$lib/components/Decode.svelte';
@@ -107,6 +108,7 @@
 </script>
 <svelte:head>{#each preload as href}<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" {href} />{/each}</svelte:head>
 <SocialMeta />
+<Analytics />
 <div class="site" class:motion={motion.on} class:show-grid={grid.on} data-motion={motion.on ? 'on' : 'off'}>
   <a class="skip-link lbl" href="#main" onclick={skipToContent}>Skip to content</a>
   <div class="nav-chrome" class:collapsed={navCollapsed} style={`--header-height:${headerHeight}px`}>

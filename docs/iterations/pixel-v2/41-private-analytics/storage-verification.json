@@ -1,0 +1,11 @@
+{
+  "realRedis": true,
+  "verifiedAt": "2026-09-18T04:06:25.934Z",
+  "results": [
+    "Repeat views count twice; daily visitor counts once",
+    "Build clicks and page views aggregate separately",
+    "Daily aggregates expire after 366 days",
+    "61st event in a minute is discarded atomically",
+    "Concurrent sign-in token consumption succeeds only once"
+  ]
+}

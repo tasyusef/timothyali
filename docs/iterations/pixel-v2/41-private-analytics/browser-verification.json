@@ -1,0 +1,13 @@
+{
+  "fixtureData": true,
+  "results": [
+    "Anonymous /admin/ blocked",
+    "Anonymous /admin/__data.json blocked",
+    "Real signed JWT for other email denied",
+    "Date range and release filter work",
+    "Dashboard fits 1440, 390 and 320px",
+    "Sign out invalidates this session",
+    "No browser runtime errors",
+    "Public views, hash deduplication and build clicks send the right events"
+  ]
+}

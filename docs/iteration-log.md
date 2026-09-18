@@ -576,3 +576,9 @@ The app review led to Timothy’s direction for headless feature coverage, follo
 ## PX-40 — Profile consistency (2026-09-16)
 
 Applied decision 0115 to xrp.cafe, FirstStrike Research and Jade Aesthetics. This is a copy-only correction; no layout changes. Evidence: `docs/iterations/pixel-v2/40-profile-sync/README.md`. Résumé and LinkedIn comparison remains private.
+
+## PX-41 — Private traffic and Toolbox download dashboard (2026-09-17)
+
+Timothy requested a private admin panel and chose email sign-in. Implemented `/admin/` with traffic periods, page/referrer/device breakdowns, daily traffic and visitor estimates, site download clicks and GitHub asset totals by release/build. Auth.js verifies email links; the server hook restricts every admin response to the configured owner. Migrated the adapter to Vercel server/static output, retaining the public prerendered pages, legacy redirects and custom 404.
+
+This is a local implementation proposal, not a deployed or visually accepted feature. Timothy supplied three owner addresses and completed Vercel sign-in and the Upstash terms step. Free storage is connected with auto-upgrade disabled, server secrets are configured, and real storage tests pass. Existing Resend settings are reused; email delivery and production verification remain open. Evidence and limitations: `docs/iterations/pixel-v2/41-private-analytics/`; operational details: `docs/admin-analytics.md`. Fixture screenshots are explicitly synthetic.

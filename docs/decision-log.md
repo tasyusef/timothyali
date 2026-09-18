@@ -1789,3 +1789,10 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Direction:** Timothy specified FirstStrike as 2025 without duration, unified xrp.cafe to Founding Designer, agreed to “since 2019” for experience, and clarified Jade is ongoing freelance work on individual projects.
 - **Implementation:** Updated project role/date/timeline copy and Jade introduction. Retained xrp.cafe cofounder status in its narrative. Corresponding résumé and LinkedIn changes are handled outside this public repository.
 - **Status:** Explicit factual and wording corrections from Timothy; surrounding prose is assistant wording.
+
+## 0116 — Private site analytics with email sign-in
+
+- **Date:** 2026-09-17
+- **Direction:** Timothy asked for an admin panel only he can access, showing Toolbox downloads by build and visits by page. He chose email sign-in instead of the suggested GitHub sign-in.
+- **Implementation proposal:** Auth.js email links through Resend, owner email allowlist, Redis daily traffic aggregates, and GitHub release-file download totals. Public pages stay prerendered; dynamic admin/auth/analytics use Vercel server routes. Download clicks and file requests have separate labels. Daily visitor estimates are not represented as unique people over a longer period.
+- **Status:** Implemented and checked locally. Production storage/email setup remains pending. Timothy subsequently supplied three owner addresses for the private allowlist. No deployment or visual approval claimed. Free plans are the working assumption pending Timothy's response.
