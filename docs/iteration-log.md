@@ -590,3 +590,5 @@ PX-41 final email check: the approved address has a verified Auth.js account aft
 ## PX-42 — Toolbox 1.1.1 downloads (2026-09-19)
 
 Prepared the website download configuration for the Effect v3 backend release on Timothy’s request to build and publish. The shared version now drives all installer filenames. Site checks (zero diagnostics), 24 tests, and the production build pass; all six rendered download URLs target 1.1.1. Apple credentials were restored on September 20; both macOS architectures are now signed, notarized and stapled. All eight release files and the checksum manifest are published with verified remote digests. This website update points the six download links to that release. Evidence: `docs/iterations/pixel-v2/42-toolbox-1.1.1/`.
+
+PX-42 publication verified on September 20: Vercel deployed `c80cc59` successfully. The live Toolbox page serves 1.1.1 and all six expected download links; all nine release assets return HTTP 200 with verified sizes.

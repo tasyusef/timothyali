@@ -11,7 +11,7 @@
     "https://github.com/tasyusef/toolbox/releases/download/v1.1.1/toolbox_1.1.1_amd64.deb",
     "https://github.com/tasyusef/toolbox/releases/download/v1.1.1/toolbox_1.1.1_arm64.deb"
   ],
-  "publication": "GitHub release published 2026-09-20; website deployment pending",
+  "publication": "Published and verified on production 2026-09-20",
   "appCommit": "7568b9b",
   "appCI": "https://github.com/tasyusef/toolbox-app/actions/runs/35488784599",
   "appTests": 219,
@@ -26,5 +26,12 @@
     "arm64": "c3658b9f-755c-4ac0-bb39-03fa7502d48f"
   },
   "release": "https://github.com/tasyusef/toolbox/releases/tag/v1.1.1",
-  "remoteAssets": "All eight builds and SHA256SUMS match local SHA-256 digests"
+  "remoteAssets": "All eight builds and SHA256SUMS match local SHA-256 digests",
+  "deployment": {
+    "status": "success",
+    "commit": "c80cc59",
+    "url": "https://vercel.com/timothyalis-projects/timothyali/AnRQUVJK9EBpPh82wyqE13WCeZji"
+  },
+  "liveWebsite": "HTTP 200; version 1.1.1 and all six installer links verified",
+  "liveDownloads": "All nine assets return HTTP 200 with sizes matching verified GitHub digests"
 }

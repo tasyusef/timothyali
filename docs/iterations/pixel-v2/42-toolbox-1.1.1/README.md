@@ -8,3 +8,5 @@ The release was published on September 20 after the local Apple credential profi
 
 Release: https://github.com/tasyusef/toolbox/releases/tag/v1.1.1
 Website: https://www.timothyali.com/toolbox/
+
+Production deployment `AnRQUVJK9EBpPh82wyqE13WCeZji` succeeded for `c80cc59`. The live Toolbox page returns HTTP 200, displays 1.1.1, and exposes exactly the six expected installer links. All eight release downloads and the checksum manifest return HTTP 200 with the expected sizes.
