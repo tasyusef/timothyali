@@ -586,3 +586,7 @@ This is a local implementation proposal, not a deployed or visually accepted fea
 PX-41 deployment follow-up: commit `7ae1e30` is live. All 24 unit tests, the production build, 18-page metadata checks, real Redis behavior and live page/data authorization passed. Legacy redirects, custom 404 and the pre-existing contact relay still work. A controlled live build click reached Redis and was subtracted afterward. Resend accepted a sign-in email; owner inbox/link confirmation remains pending. Production traffic screenshots are private and not committed.
 
 PX-41 final email check: the approved address has a verified Auth.js account after the real sign-in email was sent. This confirms the actual email-link callback completed, independently of the earlier short-lived test sessions.
+
+## PX-42 — Toolbox 1.1.1 downloads (2026-09-19)
+
+Prepared the website download configuration for the Effect v3 backend release on Timothy’s request to build and publish. The shared version now drives all installer filenames. Site checks (zero diagnostics), 24 tests, and the production build pass; all six rendered download URLs target 1.1.1. Apple credentials were restored on September 20; both macOS architectures are now signed, notarized and stapled. All eight release files and the checksum manifest are published with verified remote digests. This website update points the six download links to that release. Evidence: `docs/iterations/pixel-v2/42-toolbox-1.1.1/`.

@@ -55,7 +55,7 @@ const shot = (name: string, alt: string): Shot => ({ src: `/toolbox/${name}.png`
 
 export const APP = {
   name: 'Toolbox',
-  version: '1.1.0',
+  version: '1.1.1',
   platforms: ['macOS', 'Linux'],
   interfaces: ['App', 'CLI', 'MCP'],
   status: 'Released',
@@ -128,6 +128,6 @@ export const binaries = [
 export const RELEASES = 'https://github.com/tasyusef/toolbox/releases';
 const file = (name: string) => `${RELEASES}/download/v${APP.version}/${name}`;
 export const builds = [
-  { os: 'macOS', note: 'Signed and notarized', files: [{ label: 'Apple silicon', href: file('Toolbox-1.1.0-arm64.dmg') }, { label: 'Intel', href: file('Toolbox-1.1.0.dmg') }] },
-  { os: 'Linux', note: 'Make the AppImage executable before opening it, or use the deb package on Debian or Ubuntu.', files: [{ label: 'AppImage x86_64', href: file('toolbox-1.1.0-x86_64.AppImage') }, { label: 'AppImage arm64', href: file('toolbox-1.1.0-arm64.AppImage') }, { label: 'deb amd64', href: file('toolbox_1.1.0_amd64.deb') }, { label: 'deb arm64', href: file('toolbox_1.1.0_arm64.deb') }] }
+  { os: 'macOS', note: 'Signed and notarized', files: [{ label: 'Apple silicon', href: file(`Toolbox-${APP.version}-arm64.dmg`) }, { label: 'Intel', href: file(`Toolbox-${APP.version}.dmg`) }] },
+  { os: 'Linux', note: 'Make the AppImage executable before opening it, or use the deb package on Debian or Ubuntu.', files: [{ label: 'AppImage x86_64', href: file(`toolbox-${APP.version}-x86_64.AppImage`) }, { label: 'AppImage arm64', href: file(`toolbox-${APP.version}-arm64.AppImage`) }, { label: 'deb amd64', href: file(`toolbox_${APP.version}_amd64.deb`) }, { label: 'deb arm64', href: file(`toolbox_${APP.version}_arm64.deb`) }] }
 ];

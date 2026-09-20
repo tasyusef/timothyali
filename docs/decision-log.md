@@ -1796,3 +1796,10 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Direction:** Timothy asked for an admin panel only he can access, showing Toolbox downloads by build and visits by page. He chose email sign-in instead of the suggested GitHub sign-in.
 - **Implementation proposal:** Auth.js email links through Resend, owner email allowlist, Redis daily traffic aggregates, and GitHub release-file download totals. Public pages stay prerendered; dynamic admin/auth/analytics use Vercel server routes. Download clicks and file requests have separate labels. Daily visitor estimates are not represented as unique people over a longer period.
 - **Status:** Implemented, checked and deployed. Timothy supplied three owner addresses and completed the service setup steps. Upstash uses the free plan with auto-upgrade disabled; existing Resend settings are reused. Server access and live counting pass; the real sign-in link successfully verified an approved owner account. Visual approval is not claimed.
+
+## 0117 — Publish Toolbox 1.1.1
+
+- **Date:** 2026-09-19
+- **Direction:** Timothy requested building all supported installers and publishing them on the website after the Effect v3 backend migration.
+- **Implementation:** Update the current release to 1.1.1 and derive installer filenames from the shared version. macOS and Linux each retain Intel/x64 and ARM64 downloads.
+- **Status:** Release and site publication authorized. Verification evidence is recorded in the iteration log.

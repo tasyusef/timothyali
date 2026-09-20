@@ -1,0 +1,30 @@
+{
+  "version": "1.1.1",
+  "siteCheck": "0 errors, 0 warnings",
+  "siteTests": 24,
+  "siteBuild": "passed",
+  "renderedLinks": [
+    "https://github.com/tasyusef/toolbox/releases/download/v1.1.1/Toolbox-1.1.1-arm64.dmg",
+    "https://github.com/tasyusef/toolbox/releases/download/v1.1.1/Toolbox-1.1.1.dmg",
+    "https://github.com/tasyusef/toolbox/releases/download/v1.1.1/toolbox-1.1.1-arm64.AppImage",
+    "https://github.com/tasyusef/toolbox/releases/download/v1.1.1/toolbox-1.1.1-x86_64.AppImage",
+    "https://github.com/tasyusef/toolbox/releases/download/v1.1.1/toolbox_1.1.1_amd64.deb",
+    "https://github.com/tasyusef/toolbox/releases/download/v1.1.1/toolbox_1.1.1_arm64.deb"
+  ],
+  "publication": "GitHub release published 2026-09-20; website deployment pending",
+  "appCommit": "7568b9b",
+  "appCI": "https://github.com/tasyusef/toolbox-app/actions/runs/35488784599",
+  "appTests": 219,
+  "headlessChecks": 34,
+  "exportParity": "passed",
+  "macOS": "Both architectures signed, notarized and stapled; codesign verification, stapler validation and Gatekeeper assessment pass",
+  "linux": "Both AppImages and deb packages verified; uploaded draft checksums match local files",
+  "localBuilds": "/Users/twocakes/Desktop/GRAPHIC DESIGN/01_WORK/TOOLBOX/app/release",
+  "linuxPackagingWorkaround": "The fpm compressor fails on a helper path containing spaces. Copy node_modules/app-builder-bin/mac/app-builder_arm64 to /tmp/toolbox-release-app-builder and set CUSTOM_APP_BUILDER_PATH to that file; retain GNU ar in PATH.",
+  "notarization": {
+    "x64": "7f3705df-10db-41bf-b653-5e8f587d883c",
+    "arm64": "c3658b9f-755c-4ac0-bb39-03fa7502d48f"
+  },
+  "release": "https://github.com/tasyusef/toolbox/releases/tag/v1.1.1",
+  "remoteAssets": "All eight builds and SHA256SUMS match local SHA-256 digests"
+}

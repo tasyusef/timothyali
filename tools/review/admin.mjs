@@ -34,7 +34,7 @@ try {
   await publicPage.evaluate(() => { location.hash = '#test'; }); await publicPage.waitForTimeout(100); assert.equal(events.filter(event => event.type === 'view').length, 1);
   await publicPage.goto(origin + '/toolbox/'); await publicPage.waitForTimeout(400);
   await publicPage.route('https://github.com/tasyusef/toolbox/releases/download/**', route => route.abort());
-  await publicPage.locator('a[href$="Toolbox-1.1.0-arm64.dmg"]').first().click({ noWaitAfter: true }); await publicPage.waitForTimeout(300);
-  assert.ok(events.some(event => event.type === 'download' && event.file === 'Toolbox-1.1.0-arm64.dmg')); results.push('Public views, hash deduplication and build clicks send the right events');
+  await publicPage.locator('a[href$="Toolbox-1.1.1-arm64.dmg"]').first().click({ noWaitAfter: true }); await publicPage.waitForTimeout(300);
+  assert.ok(events.some(event => event.type === 'download' && event.file === 'Toolbox-1.1.1-arm64.dmg')); results.push('Public views, hash deduplication and build clicks send the right events');
   writeFileSync(`${out}/browser-verification.json`, JSON.stringify({ fixtureData: true, results }, null, 2)); console.log(results.join('\n'));
 } finally { await browser.close(); }
