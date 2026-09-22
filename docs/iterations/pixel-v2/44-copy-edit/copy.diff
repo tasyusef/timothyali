@@ -1,0 +1,140 @@
+--- before/src/routes/+page.svelte
++++ after/src/routes/+page.svelte
+@@ -30,13 +30,13 @@
+       <span class="words">{#each qualities as [word, label, short], i}<span class="q"><span class="blackletter w"><Decode text={word} step={STEP} delay={i * 150} /></span><span class="lbl note" aria-hidden="true">{#if short}<span class="note-full">{label}</span><span class="note-short">{short}</span>{:else}{label}{/if}</span></span> {/each}</span>
+     </h2>
+     <p class="sr-only">Looks: brand. Moves: motion. Works: web.</p>
+-    <p class="body companion">Your first designer, or your next one. Since 2019 I’ve shipped alongside founders, engineers, and artists.</p>
++    <p class="body companion">Since 2019, I’ve worked with founders, engineers, and artists on identities, motion, and websites. I’m open to joining an existing design team, too.</p>
+   </section>
+ 
+   <Band as="div" class="work-rain" mode="fall" seed={5} tick={TICK_FAST} density={0.7} shade avoid=".index-row > span, .work-statement, .work-foot a, .invitation h2 > span, .invitation .cta-row">
+   <section class="work-index" id="work" aria-labelledby="work-title">
+     <IndexRow label="Selected work" value={`01–${projects[projects.length - 1].n}`} />
+-    <h2 id="work-title" class="work-statement display">I’ve built products <span class="blackletter">of my own,</span><br />and helped teams ship <span class="blackletter">theirs.</span></h2>
++    <h2 id="work-title" class="work-statement display">Brand identities, websites, and motion.<br />Here’s some of <span class="blackletter">my work.</span></h2>
+     <div class="cards">
+       {#each projects as p, i}
+         <a class="card" href={`/work/${p.slug}/`}>
+--- before/src/lib/work.ts
++++ after/src/lib/work.ts
+@@ -123,12 +123,8 @@
+         [pa('after-darc-announce.png', 1600, 1600, 'PARC After Darc new-stream graphic: the wordmark over a pixel sunset, Saturday 9pm UTC on Twitch'), pa('after-darc-live.png', 1600, 1600, 'PARC After Darc live-now graphic: the wordmark over a pixel night sky and moon'), pa('after-darc-today.png', 1600, 1600, 'PARC After Darc tonight graphic'), pa('after-darc-reminder.png', 1600, 1600, 'PARC After Darc tomorrow graphic')],
+         [pa('larc-teaser.jpg', 1600, 1600, 'LARC teaser: glitched terminal text on black announcing the next collection'), pa('parcade-scores.jpg', 1600, 1600, 'PARCade high-score board in PARC Pixel Mono')]
+       ] },
+-      { type: 'list', title: 'Outcome', items: [
+-        'One logo library for both lockups and the oar: black, CMYK, Pantone, and white for print; black, RGB, and white for web.',
+-        'Five colors and one typeface on every surface: site, Discord, X, Twitch, merch, and the arcade.',
+-        'PARC Pixel: 57 characters per weight, three weights, proportional and mono.',
+-        'Four generated backgrounds, one per band of the site, and the game island drawn from its own sprites.',
+-        "The rebrand launched in September 2026."
++      { type: 'text', title: 'Outcome', paras: [
++        "The rebrand launched in September 2026 with a print and web logo library, the PARC Pixel typeface, and updated artwork for the site, community channels, merch, and arcade."
+       ] }
+     ]
+   },
+@@ -146,7 +142,7 @@
+     description: 'Two websites for a medical spa: a Framer launch, followed by a Next.js rebuild with dedicated treatment pages.',
+     cover: { src: '/work/jade-aesthetics.jpg', w: 1600, h: 900, alt: 'The Jade Aesthetics homepage: Naturally Elevated, Timeless Beauty over a photograph of the treatment lounge' },
+     lead: [
+-      "Jade Aesthetics is a medical spa in Wheaton, Illinois. I designed its first website in Framer, then rebuilt it in Next.js when the practice needed a page for each treatment: the visual style, page design, and development of both versions."
++      "I designed and built two websites for Jade Aesthetics, a medical spa in Wheaton, Illinois. The first launched in Framer. When the practice needed individual treatment pages, I rebuilt it in Next.js, keeping the visual style I’d developed for the first site."
+     ],
+     hero: [ja('home.jpg', 1600, 1000, 'The Jade Aesthetics homepage: Naturally Elevated, Timeless Beauty in white serif type over the treatment lounge, with Explore Services and Book Now')],
+     blocks: [
+@@ -161,7 +157,7 @@
+         "The Framer site introduced the practice, its services, and its approach to care. It gave the team a first website while the business was getting started."
+       ] },
+       { type: 'text', title: 'Why I rebuilt it', paras: [
+-        "The next version needed a dedicated page for each treatment, with more control over content, metadata, and structured data. I chose to rebuild in Next.js so those pages could share a template.",
++        "The next version needed a dedicated page for each treatment, with control over its content, metadata, and structured data. I built a shared treatment-page template in Next.js.",
+         "With dozens of treatments to cover, I wanted to make it straightforward to add a service without redesigning the page. Each treatment would have its own URL and a consistent set of questions to answer."
+       ] },
+       { type: 'text', title: 'Version two: treatment pages', paras: [
+@@ -185,16 +181,8 @@
+       { type: 'text', title: 'Process', paras: [
+         "I used Claude Code for the rebuild, directing the page structure and components and reviewing the implementation. Once the treatment template was in place, I used it across the 16 service pages."
+       ] },
+-      { type: 'list', title: 'Results', items: [
+-        "More than 30 pages covering services, products, the team, and practice information",
+-        "Reusable components for service cards, FAQs, testimonials, and contact links",
+-        "Page metadata, structured data, breadcrumbs, and a generated sitemap",
+-        "Server-rendered content in Next.js",
+-        "Redirects from the first site’s URLs to their replacements",
+-        "The second version was planned, built, and launched in about two months"
+-      ] },
+       { type: 'text', title: 'Outcome', paras: [
+-        "The practice now has a page for each treatment and a shared template for adding more. The rebuild kept the original visual identity while making room for the information the first site was missing."
++        "The rebuilt site launched in about two months, with more than 30 pages and redirects from the first site. The practice now has 16 treatment pages on a shared template, with the original colors and typography carried through."
+       ] }
+     ]
+   },
+@@ -241,11 +229,8 @@
+         [xc('booth-setup.jpg', 1600, 1200, 'xrp.cafe booth setup at Permissionless'), xc('booth-table.jpg', 1200, 1600, 'xrp.cafe booth table with stickers and merch'), xc('booth-tablet.jpg', 1200, 1600, 'xrp.cafe website demo at Consensus 2023')],
+         [xc('backdrop.jpg', 1600, 1200, 'xrp.cafe event backdrop mockup'), xc('banner.jpg', 1600, 1200, 'xrp.cafe retractable banner mockups')]
+       ] },
+-      { type: 'list', title: 'Outcome', items: [
+-        "A coffee-mug identity with character variations for campaigns and events.",
+-        "Motion graphics and more than ten social campaigns.",
+-        "Booth graphics and merch for Consensus, Permissionless, and ETH Denver.",
+-        "Campaign work for a charity event with VeSea benefiting St. Jude’s."
++      { type: 'text', title: 'Outcome', paras: [
++        "The identity carried through more than ten social campaigns, motion graphics, and event booths. I also made campaign work for a VeSea charity event benefiting St. Jude’s."
+       ] }
+     ]
+   },
+@@ -429,14 +414,8 @@
+         [so('network.png', 1600, 900, 'Sonde network insights: live XRP price, market cap, a candlestick chart, and the latest ledgers')],
+         [so('markets.png', 1600, 900, 'Sonde markets: XRPL token rankings by price, market cap, volume, and holders'), so('account.png', 1600, 900, 'Sonde account page: balance, smart money score, risk profile, and counterparty graph')]
+       ] },
+-      { type: 'list', title: 'How it works', items: [
+-        "Postgres stores app data, sessions, subscriptions, portfolios, account labels, and summary tables.",
+-        "ClickHouse stores transactions and trade events, with precomputed summaries for the dashboards.",
+-        "Neo4j connects accounts through payments and trades for fund tracing.",
+-        "Separate ledger connections handle page requests, data ingestion, and background analysis.",
+-        "Server-Sent Events deliver updates to the browser; cached data keeps the previous results visible while new ones load.",
+-        "Users sign in by proving wallet ownership with a single-use challenge.",
+-        "Free and Pro plans separate the public explorer from portfolio and investigation tools, with per-user AI limits."
++      { type: 'text', title: 'How it works', paras: [
++        "Account sections loaded independently, so readers could start with the balance and holdings while other requests finished. Live updates kept the previous results visible until new data arrived. Separate databases supported the app, analytics, and fund tracing."
+       ] },
+       { type: 'gallery', rows: [
+         [so('portfolio.png', 1600, 900, 'Sonde portfolio: total value, performance chart, allocation, and watchlist')],
+--- before/src/lib/components/ContactForm.svelte
++++ after/src/lib/components/ContactForm.svelte
+@@ -18,7 +18,7 @@
+   const NEED: Record<string, (el: HTMLInputElement | HTMLTextAreaElement) => string> = {
+     name: (el) => (el.value.trim() ? '' : 'Enter your name.'),
+     email: (el) => (!el.value.trim() ? 'Enter an email address I can reply to.' : el.validity.typeMismatch ? 'Check your email address, for example name@example.com.' : ''),
+-    message: (el) => (el.value.trim() ? '' : 'Tell me a little about what you’re building.')
++    message: (el) => (el.value.trim() ? '' : 'Tell me about the role or project.')
+   };
+   function validate(form: HTMLFormElement) {
+     const next: Record<string, string> = {}; let first: HTMLElement | null = null;
+@@ -52,7 +52,7 @@
+ <form id="contact-form" class="contact-form" action="/api/contact" method="post" novalidate onsubmit={submit} aria-describedby="contact-status">
+   <label class="field"><span class="lbl dim">Name</span><span class="box"><input class="body" name="name" aria-invalid={notes.name ? 'true' : undefined} aria-describedby={notes.name ? 'name-note' : undefined} oninput={clear} type="text" autocomplete="name" required maxlength="120" use:blockCaret /><span class="cursor caret" aria-hidden="true"></span></span>{#if notes.name}<span class="lbl note" id="name-note">{notes.name}</span>{/if}</label>
+   <label class="field"><span class="lbl dim">Email</span><span class="box"><input class="body" name="email" aria-invalid={notes.email ? 'true' : undefined} aria-describedby={notes.email ? 'email-note' : undefined} oninput={clear} type="email" autocomplete="email" required maxlength="200" use:blockCaret /><span class="cursor caret" aria-hidden="true"></span></span>{#if notes.email}<span class="lbl note" id="email-note">{notes.email}</span>{/if}</label>
+-  <label class="field"><span class="lbl dim">What you’re building</span><span class="box"><textarea class="body" name="message" aria-invalid={notes.message ? 'true' : undefined} aria-describedby={notes.message ? 'message-note' : undefined} oninput={clear} rows="4" required maxlength="5000" use:blockCaret></textarea><span class="cursor caret" aria-hidden="true"></span></span>{#if notes.message}<span class="lbl note" id="message-note">{notes.message}</span>{/if}</label>
++  <label class="field"><span class="lbl dim">Your message</span><span class="box"><textarea class="body" name="message" aria-invalid={notes.message ? 'true' : undefined} aria-describedby={notes.message ? 'message-note' : undefined} oninput={clear} rows="4" required maxlength="5000" use:blockCaret></textarea><span class="cursor caret" aria-hidden="true"></span></span>{#if notes.message}<span class="lbl note" id="message-note">{notes.message}</span>{/if}</label>
+   <label class="trap" aria-hidden="true"><span>Company</span><input name="company" type="text" tabindex="-1" autocomplete="off" /></label>
+   <div class="send">
+     <button class="cta-row lbl" type="submit" disabled={phase === 'sending'}><span>{phase === 'sending' ? 'Sending' : 'Send'}</span><Arrow /></button>
+--- before/src/routes/toolbox/+page.svelte
++++ after/src/routes/toolbox/+page.svelte
+@@ -51,7 +51,7 @@
+   </section>
+ 
+   <section class="release" id="download" aria-labelledby="download-title">
+-    <div class="release-heading"><span class="lbl">Release {APP.version}</span><h2 id="download-title" class="blackletter">Yours.</h2></div>
++    <div class="release-heading"><span class="lbl">Release {APP.version}</span><h2 id="download-title" class="blackletter">Download.</h2></div>
+     <div class="release-copy">
+       <span class="status lbl">{APP.status}</span>
+       <p class="body">Download Toolbox for your computer. SHA-256 checksums are available on the releases page if you want to verify your download.</p>
+@@ -104,5 +104,5 @@
+  .tool-story{display:flex;gap:var(--s2)}.tool-story h3{max-width:100%}.tool-story :global(.quiet-link){margin-top:var(--s1)}.tool-showcase{gap:var(--s3)}
+  .machine,.release{grid-template-columns:minmax(0,1fr);padding-top:var(--s6);padding-bottom:var(--s6);gap:var(--s4)}.machine h2{font-size:41.25px;line-height:48px}.release h2{font-size:86px;line-height:88px}.command{padding:var(--s2)}.demo-note{font-size:12.5px;line-height:24px}.end :global(.page-foot){margin-top:0}
+ }
+-@media(max-width:420px){.machine h2{font-size:27.5px;line-height:32px}.hero-copy h1{font-size:86px;line-height:88px}}
++@media(max-width:420px){.machine h2{font-size:27.5px;line-height:32px}.hero-copy h1{font-size:86px;line-height:88px}.release h2{font-size:43px;line-height:48px}} /* “Download.” takes the next whole-cell step to fit a 320px phone. */
+ </style>

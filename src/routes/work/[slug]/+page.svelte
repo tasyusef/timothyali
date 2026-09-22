@@ -26,7 +26,7 @@
     return () => { ro.disconnect(); document.fonts?.removeEventListener('loadingdone', fit); };
   });
 </script>
-<svelte:head><title>{p.title} — Timothy Ali</title><meta name="description" content={p.description} /></svelte:head>
+<svelte:head><title>{p.title} / Timothy Ali</title><meta name="description" content={p.description} /></svelte:head>
 
 {#snippet gallery(rows: Row[], eager: boolean)}
   {#each rows as row}
@@ -48,6 +48,7 @@
       <div class="lead-col">{#each p.lead as para}<p class="lead">{para}</p>{/each}</div>
       <dl class="meta">
         <div><dt class="lbl dim">Role</dt><dd class="body">{p.role}</dd></div>
+        {#if p.team}<div><dt class="lbl dim">Team</dt><dd class="body">{p.team}</dd></div>{/if}
         {#if p.timeline}<div><dt class="lbl dim">Timeline</dt><dd class="body">{p.timeline}</dd></div>{/if}
         <div><dt class="lbl dim">Tools</dt><dd class="body">{p.tools}</dd></div>
         {#if p.live}<div><dt class="lbl dim">Live</dt><dd class="body"><QuietLink href={p.live.href} label={p.live.label} /></dd></div>{/if}
@@ -80,7 +81,13 @@
 .title.small :global(.decode){font-size:82.5px;line-height:88px}
 .title :global(.decode){display:inline;white-space:normal} /* the title may wrap between words */
 .intro{display:grid;grid-template-columns:round(down,calc((100% - 32px) * 2 / 3),8px) 1fr;gap:var(--s4);margin-top:var(--s4);align-items:start}
-.lead-col{display:flex;flex-direction:column;gap:var(--s3)}
+.lead-col{display:flex;flex-direction:column;gap:var(--s3);max-width:64ch}
+/* Reading type (PX-43, 0123): the one lead paragraph is body size, 27/40, Timothy having found
+   the 54px opener too big, and the study paragraphs match it, each column capped at 64ch. Both
+   are on the unit. The body role elsewhere (rows, index lines, meta, lists) keeps 27/32. */
+.lead{font-size:27px;line-height:40px}
+.paras{max-width:64ch}
+.paras .body{line-height:40px}
 .meta{display:flex;flex-direction:column;gap:var(--s2);margin:0;padding-top:var(--s1)}
 .meta dt{margin-bottom:var(--s1)}.meta dd{margin:0}
 .hero-row{padding-top:var(--s8)}

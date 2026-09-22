@@ -10,7 +10,7 @@
   let signingOut = $state(false);
   async function logout() { signingOut = true; try { await signOut({ redirectTo: '/admin/login/' }); } finally { signingOut = false; } }
 </script>
-<svelte:head><title>Site activity — Timothy Ali</title><meta name="robots" content="noindex, nofollow" /></svelte:head>
+<svelte:head><title>Site activity / Timothy Ali</title><meta name="robots" content="noindex, nofollow" /></svelte:head>
 <main class="inner-page admin body" id="main" tabindex="-1">
   <header class="heading">
     <div><p class="lbl">Private / Site admin</p><h1 class="display">Site activity.</h1></div>

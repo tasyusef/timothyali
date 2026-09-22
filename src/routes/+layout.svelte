@@ -113,7 +113,7 @@
   <a class="skip-link lbl" href="#main" onclick={skipToContent}>Skip to content</a>
   <div class="nav-chrome" class:collapsed={navCollapsed} style={`--header-height:${headerHeight}px`}>
   <header class="site-header" bind:this={headerElement}>
-    <a class="wordmark blackletter" href="/" aria-label="Timothy Ali — home">timothy ali</a>
+    <a class="wordmark blackletter" href="/" aria-label="Timothy Ali, home">timothy ali</a>
     <nav class="lbl" aria-label="Main navigation">
       <a href="/" aria-current={pathname === '/' ? 'page' : undefined}><b>01</b>Index</a>
       <a href="/work/" aria-current={pathname.startsWith('/work') ? 'page' : undefined}><b>02</b>Work</a>

@@ -9,7 +9,7 @@
   import { projects, index, total, last } from '$lib/work';
   import { STEP } from '$lib/tokens';
 </script>
-<svelte:head><title>Selected work — Timothy Ali</title><meta name="description" content="Selected brand, product, motion, and front-end work by designer Timothy Ali." /></svelte:head>
+<svelte:head><title>Selected work / Timothy Ali</title><meta name="description" content="Selected brand, motion, and web work by designer Timothy Ali." /></svelte:head>
 <main class="inner-page" id="main" tabindex="-1">
   <section>
     <header class="work-header">

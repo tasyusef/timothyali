@@ -32,6 +32,8 @@ export interface Project extends Entry {
   /** the study title as written; rendered uppercase in PARC Pixel Bold (0079) */
   word: string;
   role: string;
+  /** who else was on it, shown as a Team row in the study head when known */
+  team?: string;
   timeline?: string;
   tools: string;
   live?: { href: string; label: string };
@@ -53,7 +55,7 @@ const media = (slug: string) => (f: string, w: number, h: number, alt: string): 
 const pa = media('parc'), xc = media('xrpcafe'), fl = media('firstledger'), dad = media('do-androids-dream');
 const fst = media('firststrike'), so = media('sonde'), ps = media('parc-site'), ja = media('jade-aesthetics'), pw = media('pocketwatch');
 
-/** Every project in display order: the selected four, the index five, then the hidden two.
+/** Every project in display order: the selected four (PARC, Jade, xrp.cafe, Do Androids Dream, decision 0119), the index five, then the hidden two.
  *  `n` is assigned from the position in the visible set at the bottom of this file. */
 type Source = Omit<Project, 'n'> | Omit<Entry, 'n'>;
 const source: Source[] = [
@@ -65,33 +67,35 @@ const source: Source[] = [
     year: '2021–2026',
     scope: 'Cofounder · brand & art direction',
     role: 'Cofounder · brand & art direction',
+    team: 'Cofounders xrpl_adam, sloppy, and stove',
     timeline: 'Ongoing',
     tools: 'Illustrator, Python (fontTools)',
     live: { href: 'https://parcxrpl.com', label: 'parcxrpl.com' },
     description: 'Rebranding the NFT club I cofounded in 2021: logo, palette, pixel world, and a typeface, all from one 5×5 grid.',
     cover: { src: '/work/parc.png', w: 1600, h: 900, alt: 'PARC’s four-color pixel letters on a white sign floating in a pixel-cloud sky' },
     lead: [
-      'Pixel Ape Rowboat Club started in November 2021 as a joke. People were treating pixel apes as status symbols, and we thought that was ridiculous. Bored Apes had yachts. Ours had rowboats. 10,000 pixel apes on the XRP Ledger, no clout included.',
-      "People stayed anyway. By the 2026 rebrand, PARC had four collections, a Twitch show, an arcade, merch, and its own lore. I cofounded it with xrpl_adam on development, sloppy on marketing, and stove drawing the apes with me. I’ve led the branding and art direction throughout. The old identity no longer matched what we were making."
+      "I cofounded Pixel Ape Rowboat Club in 2021 and have led its branding and art direction since. For the 2026 rebrand I drew a new logo on the apes’ 5×5 grid, built PARC Pixel, a three-weight typeface, and carried both across the website, Discord, X, Twitch, merch, and the arcade."
     ],
     hero: [pa('sign-sky.png', 1600, 900, 'The new PARC box logo: four-color pixel letters on a white sign with notched corners, floating in a pixel-cloud sky')],
     blocks: [
+      { type: 'text', title: 'Where it started', paras: [
+        'PARC started in November 2021 as a joke. People were treating pixel apes as status symbols, and we thought that was ridiculous. Bored Apes had yachts. Ours had rowboats. 10,000 pixel apes on the XRP Ledger, no clout included.',
+        "People stayed anyway. By 2026, PARC had four collections, a Twitch show, an arcade, merch, and its own lore. I run it with xrpl_adam on development, sloppy on marketing, and stove drawing the apes with me. The old identity no longer matched what we were making."
+      ] },
       { type: 'text', title: 'The world', paras: [
         "The apes started with the Game Boy Advance Pokémon games as a reference: flat color, chunky pixels, sprites you could recognize at a glance. We built a world around them with islands, rowboats, volcanoes, and wooden huts. The rebrand needed to belong in that world."
       ] },
       { type: 'text', title: 'Same people, better brand', paras: [
         "The old logo was a cartoon ape with thick outlines and a bubbly wordmark. It didn’t look much like the pixel art around it. I drew the new logo on the apes’ 5×5 grid and put it on a white sign with notched corners.",
-        "The team was attached to the old identity and worried about how the community would react. I pushed for the change. The comments after launch were encouraging."
+        "The team was attached to the old identity and worried about how the community would react. An earlier rebrand direction I had worked up didn’t win them over, and we set it aside. This time I showed them the finished logo on its sign and asked them to trust me. The comments after launch were encouraging."
       ] },
       { type: 'gallery', note: 'Before, 2021 / after, 2026', rows: [
         [pa('old-mascot.png', 1600, 1600, 'The old PARC logo: a cartoon ape head with a wide grin and thick black outlines, a bubbly yellow PARC wordmark across the top'), pa('old-wordmark.png', 1600, 900, 'The old PARC secondary logo: the bubbly outlined wordmark in black')],
-        [pa('mark-stacked.png', 1600, 1600, 'The new PARC square lockup: the box logo stacked over the oar'), pa('twitter-banner.png', 1600, 533, 'PARC X header: the box logo on the pixel-cloud sky')]
+        [pa('mark-stacked.png', 1600, 1600, 'The new PARC square lockup: the box logo stacked over the oar'), pa('mark-wide.png', 1600, 533, 'The new PARC wide logo: four-color pixel letters on the white sign, on the pixel-cloud sky')]
       ] },
       { type: 'list', title: 'The reaction', items: [
-        '“I know I like the new banner and logo” — RedHotDankMoist, Discord',
-        '“@twocakeS these graphics is gas” — DreamballerXRP, Discord',
-        '“Love it, great website update, looks amazing” — @BrandoWoodz, X',
-        '“loOkn goOd” — @Uga589, X'
+        '“I know I like the new banner and logo” / RedHotDankMoist, Discord',
+        '“Love it, great website update, looks amazing” / @BrandoWoodz, X'
       ] },
       { type: 'text', title: 'The system', paras: [
         "I made a wide logo, a square lockup, and an oar badge. They share a cell grid and notched corners, with two cells of clear space on every side. The final artwork uses merged paths so it can go straight into print and web files.",
@@ -119,12 +123,66 @@ const source: Source[] = [
         [pa('after-darc-announce.png', 1600, 1600, 'PARC After Darc new-stream graphic: the wordmark over a pixel sunset, Saturday 9pm UTC on Twitch'), pa('after-darc-live.png', 1600, 1600, 'PARC After Darc live-now graphic: the wordmark over a pixel night sky and moon'), pa('after-darc-today.png', 1600, 1600, 'PARC After Darc tonight graphic'), pa('after-darc-reminder.png', 1600, 1600, 'PARC After Darc tomorrow graphic')],
         [pa('larc-teaser.jpg', 1600, 1600, 'LARC teaser: glitched terminal text on black announcing the next collection'), pa('parcade-scores.jpg', 1600, 1600, 'PARCade high-score board in PARC Pixel Mono')]
       ] },
-      { type: 'list', title: 'Outcome', items: [
-        'One logo library for both lockups and the oar: black, CMYK, Pantone, and white for print; black, RGB, and white for web.',
-        'Five colors and one typeface on every surface: site, Discord, X, Twitch, merch, and the arcade.',
-        'PARC Pixel: 57 characters per weight, three weights, proportional and mono.',
-        'Four generated backgrounds, one per band of the site, and the game island drawn from its own sprites.',
-        "The rebrand launched in September 2026."
+      { type: 'text', title: 'Outcome', paras: [
+        "The rebrand launched in September 2026 with a print and web logo library, the PARC Pixel typeface, and updated artwork for the site, community channels, merch, and arcade."
+      ] }
+    ]
+  },
+  {
+    tier: 'selected',
+    slug: 'jade-aesthetics',
+    title: 'Jade Aesthetics',
+    word: 'jade aesthetics',
+    year: '2025–present',
+    scope: 'Web & code',
+    role: 'Designer & developer',
+    timeline: 'Ongoing · project-based freelance',
+    tools: 'Framer (V1), Next.js, Tailwind CSS, Vercel, Claude Code (V2)',
+    live: { href: 'https://www.jadeaesthetics.co/', label: 'jadeaesthetics.co' },
+    description: 'Two websites for a medical spa: a Framer launch, followed by a Next.js rebuild with dedicated treatment pages.',
+    cover: { src: '/work/jade-aesthetics.jpg', w: 1600, h: 900, alt: 'The Jade Aesthetics homepage: Naturally Elevated, Timeless Beauty over a photograph of the treatment lounge' },
+    lead: [
+      "I designed and built two websites for Jade Aesthetics, a medical spa in Wheaton, Illinois. The first launched in Framer. When the practice needed individual treatment pages, I rebuilt it in Next.js, keeping the visual style I’d developed for the first site."
+    ],
+    hero: [ja('home.jpg', 1600, 1000, 'The Jade Aesthetics homepage: Naturally Elevated, Timeless Beauty in white serif type over the treatment lounge, with Explore Services and Book Now')],
+    blocks: [
+      { type: 'list', title: 'What it is', items: [
+        'Website colors, typography, and layout developed from the existing logo',
+        'V1: Framer launch site',
+        'V2: more than 30 pages in Next.js, including 16 treatment pages',
+        'Ongoing project work with the practice as needs come up'
+      ] },
+      { type: 'text', title: 'Version one: the launch site', paras: [
+        "The practice came to me with a logo. I built the site’s visual style around it: jade green, warm gold, cream backgrounds, and the Dream Avenue serif. Photographs of the treatment rooms helped visitors get a feel for the place.",
+        "The Framer site introduced the practice, its services, and its approach to care. It gave the team a first website while the business was getting started."
+      ] },
+      { type: 'text', title: 'Why I rebuilt it', paras: [
+        "The next version needed a dedicated page for each treatment, with control over its content, metadata, and structured data. I built a shared treatment-page template in Next.js.",
+        "With dozens of treatments to cover, I wanted to make it straightforward to add a service without redesigning the page. Each treatment would have its own URL and a consistent set of questions to answer."
+      ] },
+      { type: 'text', title: 'Version two: treatment pages', paras: [
+        "I rebuilt the site with Next.js and Tailwind CSS. Pages include server-rendered content, individual metadata, structured data, breadcrumbs, and a generated sitemap.",
+        "The rebuild includes more than 30 pages, with service categories, 16 treatment pages, two skincare lines, team bios, FAQs, financing, and contact information. Treatment pages explain what the procedure is, who it’s for, what to expect, and recovery. Visitors can find those details before deciding to book."
+      ] },
+      { type: 'gallery', rows: [
+        [ja('nav-services.jpg', 1600, 900, 'The services menu open over the homepage: Face, Body, Injectables, and Wellness with their treatment counts')],
+        [ja('services-face.jpg', 1600, 1000, 'The Face Treatments category page: the headline over a facial photograph, with the breadcrumb and the introduction below'), ja('phone-services-face.jpg', 739, 1600, 'Face Treatments on a phone')],
+        [ja('service-botox.jpg', 1600, 1000, 'The Botox Cosmetic treatment page: the injectables eyebrow, the headline, and the Overview section'), ja('phone-service-botox.jpg', 739, 1600, 'The Botox Cosmetic page on a phone')]
+      ] },
+      { type: 'text', title: 'Keeping the visual identity', paras: [
+        "I kept the colors, type, and visual style from the first site. In the rebuild, service cards, FAQ accordions, testimonial carousels, and contact blocks became reusable components. That made it easier to keep the growing set of pages consistent."
+      ] },
+      { type: 'gallery', rows: [
+        [ja('products.jpg', 1600, 1000, 'The Biologique Recherche product page: the brand story and a row of exfoliants, moisturizers, serums, and cleansers'), ja('phone-products.jpg', 739, 1600, 'The Biologique Recherche page on a phone')],
+        [ja('about.jpg', 1600, 1000, 'The About page: About Jade Aesthetics over the treatment room, with Our Philosophy and What to Expect below'), ja('phone-about.jpg', 739, 1600, 'The About page on a phone: Our Philosophy')],
+        [ja('faq.jpg', 1600, 1000, 'The FAQ page: Frequently Asked Questions over eucalyptus, with the General Questions accordion below'), ja('phone-faq.jpg', 739, 1600, 'The FAQ page on a phone: the General Questions accordion')],
+        [ja('phone-home.jpg', 739, 1600, 'The homepage on a phone: the wordmark, the hamburger, and the hero headline over the lounge'), ja('phone-nav.jpg', 739, 1600, 'The mobile menu open: Services expanded to Face, Body, Injectables, and Wellness')]
+      ] },
+      { type: 'text', title: 'Process', paras: [
+        "I used Claude Code for the rebuild, directing the page structure and components and reviewing the implementation. Once the treatment template was in place, I used it across the 16 service pages."
+      ] },
+      { type: 'text', title: 'Outcome', paras: [
+        "The rebuilt site launched in about two months, with more than 30 pages and redirects from the first site. The practice now has 16 treatment pages on a shared template, with the original colors and typography carried through."
       ] }
     ]
   },
@@ -134,15 +192,14 @@ const source: Source[] = [
     title: 'xrp.cafe',
     word: 'xrp.cafe',
     year: '2021–2024',
-    scope: 'Founding designer',
+    scope: 'Founding designer · brand & motion',
     role: 'Founding designer',
     tools: 'Illustrator, After Effects',
     live: { href: 'https://xrp.cafe/', label: 'xrp.cafe' },
     description: 'Visual identity, motion design, and marketing for an NFT marketplace on the XRP Ledger.',
     cover: { src: '/work/xrpcafe.png', w: 1600, h: 900, alt: 'xrp.cafe coffee-mug logo lockup' },
     lead: [
-      "I cofounded xrp.cafe, an NFT marketplace on the XRP Ledger, and was its founding designer. From 2021 to 2024, I developed the identity and made the campaign graphics, animations, event booths, and community content.",
-      "We wanted it to feel like a cozy place for NFTs. The coffee mug gave us a friendly starting point for a brand that people would see every day in their feeds and chats."
+      "I cofounded xrp.cafe, an NFT marketplace on the XRP Ledger, and was its founding designer. From 2021 to 2024, I developed the identity and made the campaign graphics, animations, event booths, and community content."
     ],
     hero: [
       { src: '/work/video/xrpcafe-explore-create-trade.mp4', w: 1080, h: 1920, video: true, alt: 'xrp.cafe Explore Create Trade motion graphic' },
@@ -150,6 +207,7 @@ const source: Source[] = [
     ],
     blocks: [
       { type: 'text', title: 'The mascot system', paras: [
+        "We wanted it to feel like a cozy place for NFTs. The coffee mug gave us a friendly starting point for a brand that people would see every day in their feeds and chats.",
         "The mascot is a coffee mug with stick-figure limbs and a smile. I started with the logo, then drew a cast of mugs with different outfits and accessories for campaigns and community events.",
         "The basic shape stayed the same while the character changed: a Halloween pumpkin, a beach-BBQ mug, a Super Saiyan. That gave me room to respond to whatever was happening without starting from scratch each time."
       ] },
@@ -171,64 +229,8 @@ const source: Source[] = [
         [xc('booth-setup.jpg', 1600, 1200, 'xrp.cafe booth setup at Permissionless'), xc('booth-table.jpg', 1200, 1600, 'xrp.cafe booth table with stickers and merch'), xc('booth-tablet.jpg', 1200, 1600, 'xrp.cafe website demo at Consensus 2023')],
         [xc('backdrop.jpg', 1600, 1200, 'xrp.cafe event backdrop mockup'), xc('banner.jpg', 1600, 1200, 'xrp.cafe retractable banner mockups')]
       ] },
-      { type: 'list', title: 'Outcome', items: [
-        "A coffee-mug identity with character variations for campaigns and events.",
-        "Motion graphics and more than ten social campaigns.",
-        "Booth graphics and merch for Consensus, Permissionless, and ETH Denver.",
-        "Campaign work for a charity event with VeSea benefiting St. Jude’s."
-      ] }
-    ]
-  },
-  {
-    tier: 'selected',
-    slug: 'firstledger',
-    title: 'First Ledger',
-    word: 'first ledger',
-    year: '2024–2025',
-    scope: 'Brand designer',
-    role: 'Brand designer',
-    timeline: 'About a year',
-    tools: 'Illustrator',
-    live: { href: 'https://firstledger.net/', label: 'firstledger.net' },
-    description: 'Logo, typography, and brand guidelines for an XRP Ledger trading platform.',
-    cover: { src: '/work/firstledger.jpg', w: 1600, h: 900, alt: 'First Ledger billboard mockup: The fastest way to trade' },
-    lead: [
-      "First Ledger is a token trading platform from the team behind xrp.cafe. It gives people access to the XRP Ledger’s decentralized exchange through a Telegram bot and a web app.",
-      "Over about a year, I designed the logo, typography, and brand guidelines, including rules for using First Ledger alongside xrp.cafe and partner logos."
-    ],
-    hero: [fl('hero.jpg', 1600, 1200, 'First Ledger billboard mockup: The fastest way to trade')],
-    blocks: [
-      { type: 'text', title: 'Pencil + paper = ledger', paras: [
-        "The mark combines a diagonal pencil with a rounded square of paper. Together they suggest a ledger: a place to record transactions.",
-        "It had to read in a Telegram chat, a browser tab, and a small mobile header. I kept the shape simple enough to recognize at those sizes, then used it across the rest of the identity."
-      ] },
-      { type: 'gallery', rows: [
-        [fl('guide-01.png', 1600, 900, 'First Ledger logo white on black'), fl('guide-04.png', 1600, 900, 'First Ledger logo construction: Pencil + Paper = Ledger diagram')]
-      ] },
-      { type: 'text', title: 'Lockups & typography', paras: [
-        "The primary lockup pairs the icon with “FIRST LEDGER” in heavy, extended type. A shorter “FL” version fits smaller spaces. Both have clear-space rules measured from the icon.",
-        "The wide letterforms give the name a solid, unhurried feel. The type family carries through the guidelines in three weights: Heavy for headlines, Medium for subheads, and Roman for body copy."
-      ] },
-      { type: 'gallery', rows: [
-        [fl('guide-03.png', 1600, 900, 'First Ledger primary and secondary logo lockups'), fl('guide-05.png', 1600, 900, 'First Ledger primary logo clear-space rules')],
-        [fl('guide-10.png', 1600, 900, 'First Ledger typography system spread')]
-      ] },
-      { type: 'text', title: 'Brand pillars', paras: [
-        'Fun: “a lil meme never hurt anyone.” Reliable: “passion and years of experience.” Fast: “we’re first for a reason.”',
-        "The brand needed room for jokes and memes as well as product announcements and partnership decks. Those three traits helped me keep the tone consistent across both."
-      ] },
-      { type: 'text', title: 'Co-branding guidelines', paras: [
-        "First Ledger and xrp.cafe often appear together. I documented the logo sizes and spacing for those layouts so the team could reuse them.",
-        "The guidelines also cover partner logos, giving the team a reference for listings, reports, and joint campaigns."
-      ] },
-      { type: 'gallery', rows: [
-        [fl('guide-02.png', 1600, 900, 'First Ledger brand pillars: Fun, Reliable, Fast')],
-        [fl('guide-07.png', 1600, 900, 'First Ledger and xrp.cafe co-branding guidelines, primary lockup'), fl('guide-08.png', 1600, 900, 'First Ledger and xrp.cafe co-branding guidelines, secondary lockup')]
-      ] },
-      { type: 'list', title: 'Outcome', items: [
-        "Logo and lockups for the Telegram bot, web app, and marketing.",
-        "Typography and clear-space rules documented in the brand guidelines.",
-        "Co-branding layouts for xrp.cafe and other partners."
+      { type: 'text', title: 'Outcome', paras: [
+        "The identity carried through more than ten social campaigns, motion graphics, and event booths. I also made campaign work for a VeSea charity event benefiting St. Jude’s."
       ] }
     ]
   },
@@ -266,6 +268,58 @@ const source: Source[] = [
       { type: 'gallery', rows: [
         [dad('still-title.jpg', 1280, 720, 'Act one: the title in heavy black type on a flat yellow field'), dad('still-cityscape.jpg', 1280, 720, 'Act two: a black city skyline against yellow with a lone figure at right, edges fringed by chromatic aberration')],
         [dad('still-road.jpg', 1280, 720, 'Act three: the perspective breaks and a black road converges between yellow city blocks'), dad('still-sunrise.jpg', 1280, 720, 'Act three: a yellow sun rising into a black sky')]
+      ] }
+    ]
+  },
+  {
+    tier: 'index',
+    slug: 'firstledger',
+    title: 'First Ledger',
+    word: 'first ledger',
+    year: '2024–2025',
+    scope: 'Brand designer',
+    role: 'Brand designer',
+    timeline: 'About a year',
+    tools: 'Illustrator',
+    live: { href: 'https://firstledger.net/', label: 'firstledger.net' },
+    description: 'Logo, typography, and brand guidelines for an XRP Ledger trading platform.',
+    cover: { src: '/work/firstledger.jpg', w: 1600, h: 900, alt: 'First Ledger billboard mockup: The fastest way to trade' },
+    lead: [
+      "For First Ledger, a token trading platform from the team behind xrp.cafe, I designed the logo, typography, and brand guidelines over about a year, including rules for using the mark beside xrp.cafe and partner logos."
+    ],
+    hero: [fl('hero.jpg', 1600, 1200, 'First Ledger billboard mockup: The fastest way to trade')],
+    blocks: [
+      { type: 'text', title: 'Pencil + paper = ledger', paras: [
+        "First Ledger gives people access to the XRP Ledger’s decentralized exchange through a Telegram bot and a web app. The mark combines a diagonal pencil with a rounded square of paper. Together they suggest a ledger: a place to record transactions.",
+        "It had to read in a Telegram chat, a browser tab, and a small mobile header. I kept the shape simple enough to recognize at those sizes, then used it across the rest of the identity."
+      ] },
+      { type: 'gallery', rows: [
+        [fl('guide-01.png', 1600, 900, 'First Ledger logo white on black'), fl('guide-04.png', 1600, 900, 'First Ledger logo construction: Pencil + Paper = Ledger diagram')]
+      ] },
+      { type: 'text', title: 'Lockups & typography', paras: [
+        "The primary lockup pairs the icon with “FIRST LEDGER” in heavy, extended type. A shorter “FL” version fits smaller spaces. Both have clear-space rules measured from the icon.",
+        "The wide letterforms give the name a solid, unhurried feel. The type family carries through the guidelines in three weights: Heavy for headlines, Medium for subheads, and Roman for body copy."
+      ] },
+      { type: 'gallery', rows: [
+        [fl('guide-03.png', 1600, 900, 'First Ledger primary and secondary logo lockups'), fl('guide-05.png', 1600, 900, 'First Ledger primary logo clear-space rules')],
+        [fl('guide-10.png', 1600, 900, 'First Ledger typography system spread')]
+      ] },
+      { type: 'text', title: 'Brand pillars', paras: [
+        'Fun: “a lil meme never hurt anyone.” Reliable: “passion and years of experience.” Fast: “we’re first for a reason.”',
+        "The brand needed room for jokes and memes as well as product announcements and partnership decks. Those three traits helped me keep the tone consistent across both."
+      ] },
+      { type: 'text', title: 'Co-branding guidelines', paras: [
+        "First Ledger and xrp.cafe often appear together. I documented the logo sizes and spacing for those layouts so the team could reuse them.",
+        "The guidelines also cover partner logos, giving the team a reference for listings, reports, and joint campaigns."
+      ] },
+      { type: 'gallery', rows: [
+        [fl('guide-02.png', 1600, 900, 'First Ledger brand pillars: Fun, Reliable, Fast')],
+        [fl('guide-07.png', 1600, 900, 'First Ledger and xrp.cafe co-branding guidelines, primary lockup'), fl('guide-08.png', 1600, 900, 'First Ledger and xrp.cafe co-branding guidelines, secondary lockup')]
+      ] },
+      { type: 'list', title: 'Outcome', items: [
+        "Logo and lockups for the Telegram bot, web app, and marketing.",
+        "Typography and clear-space rules documented in the brand guidelines.",
+        "Co-branding layouts for xrp.cafe and other partners."
       ] }
     ]
   },
@@ -331,8 +385,8 @@ const source: Source[] = [
     scope: 'Product, code & art direction',
     role: 'Designer & developer, sole creator',
     tools: 'Figma, Next.js, TypeScript, Tailwind CSS, Recharts, PostgreSQL, ClickHouse, Neo4j, WebSockets, SSE',
-    description: 'An XRP Ledger explorer with analytics, portfolio tracking, and fund tracing. I designed, built, and ran it myself.',
-    cover: { src: '/work/sonde.png', w: 1600, h: 900, alt: 'Sonde: Decode the XRPL — real-time intelligence, analytics, and portfolio tracking' },
+    description: 'An XRP Ledger explorer with analytics, portfolio tracking, and fund tracing. I designed, built, and ran it myself; the hosted app is now closed.',
+    cover: { src: '/work/sonde.png', w: 1600, h: 900, alt: 'Sonde: Decode the XRPL. Real-time intelligence, analytics, and portfolio tracking' },
     lead: [
       "Sonde was an XRP Ledger explorer with network analytics, portfolio tracking, and tools for investigating account activity. I designed, built, and ran it myself. The hosted app is now closed."
     ],
@@ -360,14 +414,8 @@ const source: Source[] = [
         [so('network.png', 1600, 900, 'Sonde network insights: live XRP price, market cap, a candlestick chart, and the latest ledgers')],
         [so('markets.png', 1600, 900, 'Sonde markets: XRPL token rankings by price, market cap, volume, and holders'), so('account.png', 1600, 900, 'Sonde account page: balance, smart money score, risk profile, and counterparty graph')]
       ] },
-      { type: 'list', title: 'How it works', items: [
-        "Postgres stores app data, sessions, subscriptions, portfolios, account labels, and summary tables.",
-        "ClickHouse stores transactions and trade events, with precomputed summaries for the dashboards.",
-        "Neo4j connects accounts through payments and trades for fund tracing.",
-        "Separate ledger connections handle page requests, data ingestion, and background analysis.",
-        "Server-Sent Events deliver updates to the browser; cached data keeps the previous results visible while new ones load.",
-        "Users sign in by proving wallet ownership with a single-use challenge.",
-        "Free and Pro plans separate the public explorer from portfolio and investigation tools, with per-user AI limits."
+      { type: 'text', title: 'How it works', paras: [
+        "Account sections loaded independently, so readers could start with the balance and holdings while other requests finished. Live updates kept the previous results visible until new data arrived. Separate databases supported the app, analytics, and fund tracing."
       ] },
       { type: 'gallery', rows: [
         [so('portfolio.png', 1600, 900, 'Sonde portfolio: total value, performance chart, allocation, and watchlist')],
@@ -393,9 +441,7 @@ const source: Source[] = [
     description: 'A website for the club, with live stats, a gallery on clotheslines, and a playable rowing game.',
     cover: { src: '/work/parc-site.png', w: 1440, h: 810, alt: 'parcxrpl.com home: the Pixel Ape Rowboat Club sign on a notched paper card under the green nav' },
     lead: [
-      "PARC had outgrown its Squarespace site. The club now had four collections, a token, a Twitch show, an arcade, and merch. I designed a new site to bring them together.",
-      "I built it with Claude Code, which wrote most of the code. I designed the pages, directed the implementation, and reviewed and adjusted each screen.",
-      "The logo’s pixel grid became the basis for the site. I wanted it to feel like arriving on the club’s island, with different places to explore as you scroll."
+      "PARC had outgrown its Squarespace site. The club now had four collections, a token, a Twitch show, an arcade, and merch. I designed a new site to bring them together and built it with Claude Code, directing the implementation and reviewing each screen."
     ],
     hero: [ps('home-hero.png', 1440, 900, 'parcxrpl.com home: the Pixel Ape Rowboat Club sign on a notched paper card over the scatter texture, under the green nav')],
     blocks: [
@@ -405,6 +451,7 @@ const source: Source[] = [
         "Live collection stats, token data, and game scores"
       ] },
       { type: 'text', title: 'The island', paras: [
+        "The logo’s pixel grid became the basis for the site. I wanted it to feel like arriving on the club’s island, with different places to explore as you scroll.",
         "Each page opens under a jungle canopy with two layers of drifting pixel clouds. A wooden sign holds the title, introduction, and buttons. The pages are places in the club’s world: the Clubhouse, Gallery, and PARCade. Generated textures give the scenery some variation."
       ] },
       { type: 'gallery', rows: [
@@ -454,8 +501,7 @@ const source: Source[] = [
         "I worked screen by screen with Claude Code, checking screenshots, phone layouts, and type errors as I went. Shared color, type, and spacing settings kept the pages consistent. I compressed the fonts and animated artwork before deploying to Vercel."
       ] },
       { type: 'list', title: 'The reaction', items: [
-        '“Love it, great website update, looks amazing” — @BrandoWoodz, X',
-        '“loOkn goOd” — @Uga589, X'
+        '“Love it, great website update, looks amazing” / @BrandoWoodz, X'
       ] },
       { type: 'list', title: 'Outcome', items: [
         'Seven pages plus the error pages, live at parcxrpl.com since September 2026',
@@ -468,78 +514,13 @@ const source: Source[] = [
   },
   {
     tier: 'index',
-    slug: 'jade-aesthetics',
-    title: 'Jade Aesthetics',
-    word: 'jade aesthetics',
-    year: '2025–present',
-    scope: 'Web & code',
-    role: 'Designer & developer',
-    timeline: 'Ongoing · project-based freelance',
-    tools: 'Framer (V1), Next.js, Tailwind CSS, Vercel, Claude Code (V2)',
-    live: { href: 'https://www.jadeaesthetics.co/', label: 'jadeaesthetics.co' },
-    description: 'Two websites for a medical spa: a Framer launch, followed by a Next.js rebuild with dedicated treatment pages.',
-    cover: { src: '/work/jade-aesthetics.jpg', w: 1600, h: 900, alt: 'The Jade Aesthetics homepage: Naturally Elevated, Timeless Beauty over a photograph of the treatment lounge' },
-    lead: [
-      "Jade Aesthetics is a medical spa in Wheaton, Illinois. I designed its first website in Framer, then rebuilt it in Next.js as the business needed more detailed service pages. The work covered the visual style, page design, and development of both versions. I continue to work with the practice on individual projects as needs come up."
-    ],
-    hero: [ja('home.jpg', 1600, 1000, 'The Jade Aesthetics homepage: Naturally Elevated, Timeless Beauty in white serif type over the treatment lounge, with Explore Services and Book Now')],
-    blocks: [
-      { type: 'list', title: 'What it is', items: [
-        'Website colors, typography, and layout developed from the existing logo',
-        'V1: Framer launch site',
-        'V2: more than 30 pages in Next.js, including 16 treatment pages'
-      ] },
-      { type: 'text', title: 'Version one — launch', paras: [
-        "The practice came to me with a logo. I built the site’s visual style around it: jade green, warm gold, cream backgrounds, and the Dream Avenue serif. Photographs of the treatment rooms helped visitors get a feel for the place.",
-        "The Framer site introduced the practice, its services, and its approach to care. It gave the team a first website while the business was getting started."
-      ] },
-      { type: 'text', title: 'Why I rebuilt it', paras: [
-        "The next version needed a dedicated page for each treatment, with more control over content, metadata, and structured data. I chose to rebuild in Next.js so those pages could share a template.",
-        "With dozens of treatments to cover, I wanted to make it straightforward to add a service without redesigning the page. Each treatment would have its own URL and a consistent set of questions to answer."
-      ] },
-      { type: 'text', title: 'Version two — treatment pages', paras: [
-        "I rebuilt the site with Next.js and Tailwind CSS. Pages include server-rendered content, individual metadata, structured data, breadcrumbs, and a generated sitemap.",
-        "The rebuild includes more than 30 pages, with service categories, 16 treatment pages, two skincare lines, team bios, FAQs, financing, and contact information. Treatment pages explain what the procedure is, who it’s for, what to expect, and recovery. Visitors can find those details before deciding to book."
-      ] },
-      { type: 'gallery', rows: [
-        [ja('nav-services.jpg', 1600, 900, 'The services menu open over the homepage: Face, Body, Injectables, and Wellness with their treatment counts')],
-        [ja('services-face.jpg', 1600, 1000, 'The Face Treatments category page: the headline over a facial photograph, with the breadcrumb and the introduction below'), ja('phone-services-face.jpg', 739, 1600, 'Face Treatments on a phone')],
-        [ja('service-botox.jpg', 1600, 1000, 'The Botox Cosmetic treatment page: the injectables eyebrow, the headline, and the Overview section'), ja('phone-service-botox.jpg', 739, 1600, 'The Botox Cosmetic page on a phone')]
-      ] },
-      { type: 'text', title: 'Keeping the visual identity', paras: [
-        "I kept the colors, type, and visual style from the first site. In the rebuild, service cards, FAQ accordions, testimonial carousels, and contact blocks became reusable components. That made it easier to keep the growing set of pages consistent."
-      ] },
-      { type: 'gallery', rows: [
-        [ja('products.jpg', 1600, 1000, 'The Biologique Recherche product page: the brand story and a row of exfoliants, moisturizers, serums, and cleansers'), ja('phone-products.jpg', 739, 1600, 'The Biologique Recherche page on a phone')],
-        [ja('about.jpg', 1600, 1000, 'The About page: About Jade Aesthetics over the treatment room, with Our Philosophy and What to Expect below'), ja('phone-about.jpg', 739, 1600, 'The About page on a phone: Our Philosophy')],
-        [ja('faq.jpg', 1600, 1000, 'The FAQ page: Frequently Asked Questions over eucalyptus, with the General Questions accordion below'), ja('phone-faq.jpg', 739, 1600, 'The FAQ page on a phone: the General Questions accordion')],
-        [ja('phone-home.jpg', 739, 1600, 'The homepage on a phone: the wordmark, the hamburger, and the hero headline over the lounge'), ja('phone-nav.jpg', 739, 1600, 'The mobile menu open: Services expanded to Face, Body, Injectables, and Wellness')]
-      ] },
-      { type: 'text', title: 'Process', paras: [
-        "I used Claude Code for the rebuild, directing the page structure and components and reviewing the implementation. Once the treatment template was in place, I used it across the 16 service pages."
-      ] },
-      { type: 'list', title: 'Results', items: [
-        "More than 30 pages covering services, products, the team, and practice information",
-        "Reusable components for service cards, FAQs, testimonials, and contact links",
-        "Page metadata, structured data, breadcrumbs, and a generated sitemap",
-        "Server-rendered content in Next.js",
-        "Redirects from the first site’s URLs to their replacements",
-        "The second version was planned, built, and launched in about two months"
-      ] },
-      { type: 'text', title: 'Outcome', paras: [
-        "The practice now has a page for each treatment and a shared template for adding more. The rebuild kept the original visual identity while making room for the information the first site was missing."
-      ] }
-    ]
-  },
-  // Kept in the data, shown nowhere and given no page or assets (0077).
-  {
-    tier: 'index',
     slug: 'pocketwatch',
     title: 'Pocketwatch',
     word: 'pocketwatch',
     year: '2026',
     scope: 'Product, brand & art direction',
     role: 'Brand, product & front end',
+    team: 'Chris on the backend and business side',
     tools: 'SvelteKit 2, Svelte 5, Illustrator',
     live: { href: 'https://pocketwatch.io', label: 'pocketwatch.io' },
     description: 'Brand, product design, and front end for a personal finance app covering budgets, accounts, and investments.',
@@ -589,6 +570,7 @@ const source: Source[] = [
       ] }
     ]
   },
+  // Kept in the data, shown nowhere and given no page or assets (0077).
   { tier: 'index', hidden: true, slug: 'gridform-studio', title: 'Gridform Studio', year: '2026', scope: 'Product, code & tooling', description: 'A desktop studio for the last step of brand work: logo SVGs in, a complete print and web deliverable package out. Offline, no accounts.' },
   { tier: 'index', hidden: true, slug: 'gridform', title: 'Studio Gridform', year: '2023–2024', scope: 'Brand & art direction', description: 'A complete brand system, poster series, and 28-page design philosophy book built around one idea: less noise.' }
 ];

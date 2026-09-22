@@ -1,0 +1,129 @@
+{
+  "check": "0 errors, 0 warnings",
+  "production_build": "passed",
+  "social_verify": "18 pages passed",
+  "browser": [
+    {
+      "route": "/",
+      "width": 1440,
+      "has_content": true,
+      "horizontal_overflow": false
+    },
+    {
+      "route": "/work/parc/",
+      "width": 1440,
+      "has_content": true,
+      "horizontal_overflow": false
+    },
+    {
+      "route": "/work/jade-aesthetics/",
+      "width": 1440,
+      "has_content": true,
+      "horizontal_overflow": false
+    },
+    {
+      "route": "/work/xrpcafe/",
+      "width": 1440,
+      "has_content": true,
+      "horizontal_overflow": false
+    },
+    {
+      "route": "/work/sonde/",
+      "width": 1440,
+      "has_content": true,
+      "horizontal_overflow": false
+    },
+    {
+      "route": "/toolbox/",
+      "width": 1440,
+      "has_content": true,
+      "horizontal_overflow": false
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "has_content": true,
+      "horizontal_overflow": false
+    },
+    {
+      "route": "/work/parc/",
+      "width": 390,
+      "has_content": true,
+      "horizontal_overflow": false
+    },
+    {
+      "route": "/work/jade-aesthetics/",
+      "width": 390,
+      "has_content": true,
+      "horizontal_overflow": false
+    },
+    {
+      "route": "/work/xrpcafe/",
+      "width": 390,
+      "has_content": true,
+      "horizontal_overflow": false
+    },
+    {
+      "route": "/work/sonde/",
+      "width": 390,
+      "has_content": true,
+      "horizontal_overflow": false
+    },
+    {
+      "route": "/toolbox/",
+      "width": 390,
+      "has_content": true,
+      "horizontal_overflow": false
+    },
+    {
+      "route": "/",
+      "width": 320,
+      "has_content": true,
+      "horizontal_overflow": false
+    },
+    {
+      "route": "/work/parc/",
+      "width": 320,
+      "has_content": true,
+      "horizontal_overflow": false
+    },
+    {
+      "route": "/work/jade-aesthetics/",
+      "width": 320,
+      "has_content": true,
+      "horizontal_overflow": false
+    },
+    {
+      "route": "/work/xrpcafe/",
+      "width": 320,
+      "has_content": true,
+      "horizontal_overflow": false
+    },
+    {
+      "route": "/work/sonde/",
+      "width": 320,
+      "has_content": true,
+      "horizontal_overflow": false
+    },
+    {
+      "route": "/toolbox/",
+      "width": 320,
+      "has_content": true,
+      "horizontal_overflow": false
+    }
+  ],
+  "contact_320": {
+    "label": "Your message",
+    "required_note": "Tell me about the role or project.",
+    "invalid_fields": 3,
+    "overflow": false
+  },
+  "toolbox_320": {
+    "download_font_px": 43,
+    "document_scroll_width": 304,
+    "viewport_width": 320
+  },
+  "runtime_errors_on_fresh_preview": [],
+  "preview": "http://127.0.0.1:4175/",
+  "limitations": "Copy and layout verification only; no message sent or production deployment. Earlier existing preview processes held stale module references after a rebuild; a fresh preview loaded the current bundle."
+}

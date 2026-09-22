@@ -8,6 +8,7 @@ They use the Playwright headless shell at
 `~/Library/Caches/ms-playwright/chromium_headless_shell-1234/.../chrome-headless-shell`.
 Run from the project root; output goes to `tools/review/out/` (git-ignored).
 
+- `hiring-fit.mjs` — PX-43 captures: the first screen and the full page of Home, Work, PARC, Jade and Contact at 1440 and 390 from a given origin into a given folder (`node tools/review/hiring-fit.mjs <origin> <outdir>`), used for the before (live site) and after (preview) evidence in `docs/iterations/pixel-v2/43-hiring-fit/`.
 - `audit.mjs` — full-page captures of Home/Work/Contact at 1440 and 390, reduced-motion and no-JS renders, grid-overlay shot, overflow/error checks, crispness of solid type.
 - `gridcheck.mjs` — the pixel-grid audit at 1440/1100/700/390 over the twelve routes and `/not-found.html`: every font size on the cell table (and every family in it), every text box on integer pixels, every canvas on a multiple of its cell relative to the page, and every padding/margin/gap a multiple of 8 (the `sr-only` −1 margins, the status strip's and the invitation CTA's `auto` margins and the `em` cursor at 258/129 are the expected leftovers). Home crispness as intermediate-pixel %.
 - `blocks.mjs` — the layout-rhythm audit (0089): every block/flex/grid element inside `main` whose top edge is not a multiple of 8, per route and width. Expect `0` on every line.

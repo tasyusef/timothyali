@@ -5,8 +5,9 @@
   import QuietLink from '$lib/components/QuietLink.svelte';
   import ContactForm from '$lib/components/ContactForm.svelte';
   import { TICK_FAST, STEP_FAST } from '$lib/tokens';
+  import { RESUME_URL } from '$lib/social';
 </script>
-<svelte:head><title>Get in touch — Timothy Ali</title><meta name="description" content="Tell me what you’re building. Connect with designer Timothy Ali about brand, product, motion, and front-end work." /></svelte:head>
+<svelte:head><title>Get in touch / Timothy Ali</title><meta name="description" content="Tell me what you’re building. Timothy Ali is open to full-time roles, remote or in Denver, and to freelance brand, motion, and web projects." /></svelte:head>
 <main id="main" tabindex="-1">
   <Band class="contact" mode="fall" seed={3} density={0.55} tick={TICK_FAST} shade avoid=".contact h1 > span, .contact-foot">
     <div class="contact-top lbl"><span>Let’s talk</span><span class="channel">Timothy Ali / Denver, CO</span></div>
@@ -14,13 +15,17 @@
     <div class="contact-bottom">
       <div class="signal" aria-hidden="true"><svg width="96" height="96" viewBox="0 0 12 12" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h1v7h7V7H8V6h1v1h1v1h1v1h-1v1H9v1H8v-1h1V9H1z" /></svg></div>
       <div class="contact-note">
-        <p class="body">Have a project in mind or a team that needs a designer?</p>
-        <p class="body signoff">I’d like to hear about it.</p>
+        <p class="body">Hiring, or have a project in mind? I’d like to hear about it.</p>
+        <p class="body signoff">Open to full-time roles, remote or in Denver, and to freelance work.</p>
         <ContactForm />
-        <QuietLink href="https://linkedin.com/in/timothyali" label="Or message me on LinkedIn" class="lbl alt" />
+        <div class="contact-links">
+          <QuietLink href={RESUME_URL} label="Resume (PDF)" class="lbl alt" />
+          <QuietLink href="mailto:studio@timothyali.com" label="studio@timothyali.com" class="lbl alt" />
+          <QuietLink href="https://linkedin.com/in/timothyali" label="Or message me on LinkedIn" class="lbl alt" />
+        </div>
       </div>
     </div>
-    <div class="contact-foot"><PageFoot note="Brand / product / motion / front end" href="/work/" label="See my work" /></div>
+    <div class="contact-foot"><PageFoot note="Brand / motion / web" href="/work/" label="See my work" /></div>
   </Band>
 </main>
 <style>
@@ -40,6 +45,7 @@ h1{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2) var(--s4)}
 .contact-note :global(.cta-row:hover),.contact-note :global(.cta-row:focus-visible){background:var(--paper);color:var(--fg)}
 .contact-note :global(.cta-row:active){background:var(--accent);color:var(--on-accent)} /* press (0099) */
 .contact-note :global(.alt){opacity:var(--dim)}
+.contact-links{display:flex;flex-direction:column;gap:var(--s1)}
 .contact-bottom{align-items:start}
 .contact-foot :global(.page-foot){margin-top:var(--s6)}
 @media(max-width:1100px){.building{font-size:258px;line-height:264px}.intro{font-size:41.25px;line-height:48px}}

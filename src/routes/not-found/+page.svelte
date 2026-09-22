@@ -5,7 +5,7 @@
   import Cta from '$lib/components/Cta.svelte';
   import { STEP } from '$lib/tokens';
 </script>
-<svelte:head><title>Not found — Timothy Ali</title><meta name="robots" content="noindex" /><meta name="description" content="There is nothing at this path." /></svelte:head>
+<svelte:head><title>Not found / Timothy Ali</title><meta name="robots" content="noindex" /><meta name="description" content="There is nothing at this path." /></svelte:head>
 <main class="inner-page" id="main" tabindex="-1">
   <Band class="lost" mode="sparse" seed={4} avoid=".lost h1 > span, .lost p, .lost .cta">
     <p class="lbl status"><span>404</span><span>SYS.ERR / No such path</span></p>

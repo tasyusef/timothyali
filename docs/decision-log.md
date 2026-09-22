@@ -1803,3 +1803,56 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Direction:** Timothy requested building all supported installers and publishing them on the website after the Effect v3 backend migration.
 - **Implementation:** Update the current release to 1.1.1 and derive installer filenames from the shared version. macOS and Linux each retain Intel/x64 and ARM64 downloads.
 - **Status:** Release and site publication authorized. Verification evidence is recorded in the iteration log.
+
+## 0118 — Facts for the hiring-fit pass
+
+- **Date:** 2026-09-22
+- **Direction:** Timothy answered the questions the three reviews of his brief raised (the reviews and his answers are filed privately beside the résumé source; 0115 keeps résumé and LinkedIn matters out of this public repository): the site keeps “Timothy Ali”, his first and middle name, and the fuller name on his other materials is equally accurate; for the PARC rebrand he showed the team the logo and asked them to trust him, and an earlier direction the team did not agree on was set aside; freelance inquiries stay alongside full-time roles.
+- **Implementation:** The PARC study's decision paragraph is rewritten from his account; the earlier direction's artwork can join the study when he supplies it. Contact keeps “building.” and adds the full-time line. The private materials follow the same answers.
+- **Status:** Facts are Timothy's; the wording is the assistant's.
+
+## 0119 — Jade Aesthetics replaces First Ledger in the selected four
+
+- **Date:** 2026-09-22
+- **Direction:** Timothy: “i think jade probably makes more sense and showcases more.” The assistant had proposed the swap so the top four cover both tracks (brand and web) and break the run of three XRP Ledger projects; Astra had suggested moving Do Androids Dream up, the Opus review FirstStrike or Jade.
+- **Implementation:** `tier` flags and order in `src/lib/work.ts`: PARC, Jade Aesthetics, xrp.cafe, Do Androids Dream, then First Ledger as index entry 05, FirstStrike 06, Sonde 07, PARC Website 08, Pocketwatch 09. First Ledger keeps its full study. The share images regenerated for the new numbers.
+- **Status:** Timothy's pick.
+
+## 0120 — Brand and web, not product
+
+- **Date:** 2026-09-22
+- **Direction:** Timothy: “we can pivot to brand and web over product.” The Opus review had found “product” in every label (site descriptions, résumé title, cover letter, LinkedIn headline) against the brief's two tracks.
+- **Implementation:** The hero role line (“Brand and web designer. Identities, motion, and websites built in code.”), the third chip “Web” so looks/moves/works maps to brand, motion, web, the page titles and meta descriptions, the JSON-LD job title, the Contact foot note, and the résumé titles “Brand and Web Designer” and “Web and UI Designer”.
+- **Status:** Direction Timothy's; the lines are the assistant's drafts awaiting his eye.
+
+## 0121 — PARC reaction quotes trimmed to two
+
+- **Date:** 2026-09-22
+- **Direction:** Timothy was ambivalent: the quotes are real community feedback, and he did not think a reviewer wincing matters much, but deferred to the assistant's judgement.
+- **Choice:** Keep the block and the two readable quotes (RedHotDankMoist, @BrandoWoodz); drop the two slang ones. The PARC Website study keeps one. Attribution follows a slash, not an em dash.
+- **Status:** The assistant's call under Timothy's delegation; reversible in `work.ts`.
+
+## 0122 — The hiring-fit pass
+
+- **Date:** 2026-09-22
+- **Context:** Timothy's brief (`~/Downloads/Tim-Resume-and-Portfolio-Handoff.md`): no first-round interviews, materials should let a reviewer establish his role and fit quickly, preserve the personality. Three reviews agreed on the shape of the pass; they are filed privately beside the résumé source.
+- **Choices (assistant proposals):** Home hero gains a role line and a status line with the résumé link under the name, and “Scroll” becomes “Selected work”, a link to the cards. The statement “Designer for teams that don't have one yet.” stays, with a companion sentence under it (“Your first designer, or your next one. Since 2019 I've shipped alongside founders, engineers, and artists.”). Each study opens with one lead paragraph, contribution first; PARC's origin story becomes its first block. Reading typography stays inside the pixel system: the lead at 54/72 (27/40 on phones), study paragraphs at 27/40 in a 64ch column, the body role unchanged elsewhere. A Team row in the study head where the data names collaborators. Contact says hiring or project, states the availability, and lists the résumé, the email and LinkedIn. Em dashes leave the copy: page titles use the slash the chrome already uses, quote attributions follow a slash, two Jade headings take a colon. The label “Resume” carries no accents because PARC Pixel has no É. The résumé is built privately outside the repo; only the phone-less copy the site links to, `/resume/Timothy-Ali-Resume.pdf`, is here.
+- **Rejected:** A non-pixel reading face (Astra and the brief): it breaks the rule that every face is a bitmap sized to its cell (0046, 0078); leading and measure were tried first. Capping the hero height (Opus): the link matters more than the height. A résumé item in the numbered nav: it is a file, not a route.
+- **Status:** Timothy reviewed the build on the preview the same evening and asked for everything to be committed and pushed; live from 2026-09-22. Evidence: `docs/iterations/pixel-v2/43-hiring-fit/`.
+
+## 0123 — The study lead is body size
+
+- **Date:** 2026-09-22
+- **Direction:** Reviewing the PX-43 build, Timothy: the case-study top sections' “text is really big for the body copy.”
+- **Implementation:** The lead paragraph on every study is 27/40 in a 64ch column at every width, the same as the reading paragraphs below it; PX-43's 54/72 lead is gone. Jersey 15 has no size between two cells (54) and one (27), so body size was the only step down inside the system. The meta column beside it is unchanged.
+- **Status:** Timothy's direction; the size is the system's only option.
+
+
+## 0124 / Apply the copy review across portfolio and application materials
+
+- **Date:** 2026-09-22
+- **Direction:** After reviewing the copy findings and shorter cover-letter drafts, Timothy: “go ahead and go with all your suggested edits”.
+- **Implementation:** Replace the homepage companion and selected-work wording; repair and shorten Jade; trim the PARC and xrp.cafe endings and Sonde's backend inventory; broaden the contact field and validation note; label Toolbox's installer section Download. Tighten the two résumé summaries and long brand bullets, separate web-track platform context, link project names, and replace both cover letters with the approved drafts. The cover builder accepts an optional employer-fit sentence supplied for an individual application. The public phone-free résumé is rebuilt and synced. Existing confirmed facts and figures remain intact.
+- **Layout correction:** Download uses the next whole-cell Jacquard step at the existing 420px breakpoint after the new word overflowed at 320px. Study leads retain Timothy's 27/40 correction (0123).
+- **Limits:** No additional xrp.cafe interface scope or Pocketwatch interaction story invented. Those evidence gaps need project detail. Employer-specific interest is not invented in the reusable letters.
+- **Status:** Copy edits explicitly authorized and implemented locally. Evidence: `docs/iterations/pixel-v2/44-copy-edit/`; private document baseline and verification remain beside the résumé sources. Pushed with PX-43 the same evening on Timothy's “commit and push it, everything”.

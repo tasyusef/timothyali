@@ -13,7 +13,7 @@
   const t = $derived(data.tool);
   const next = $derived(data.next);
 </script>
-<svelte:head><title>{t.name} — Toolbox — Timothy Ali</title><meta name="description" content={t.summary} /></svelte:head>
+<svelte:head><title>{t.name} / Toolbox / Timothy Ali</title><meta name="description" content={t.summary} /></svelte:head>
 <main class="inner-page tool" id="main" tabindex="-1">
   <section class="head">
     <QuietLink href="/toolbox/" label="Toolbox" dir="left" pad class="lbl" />

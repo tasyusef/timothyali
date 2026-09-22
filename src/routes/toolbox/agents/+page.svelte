@@ -51,7 +51,7 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
   }
 }`;
 </script>
-<svelte:head><title>CLI & MCP — Toolbox — Timothy Ali</title><meta name="description" content={description} /></svelte:head>
+<svelte:head><title>CLI & MCP / Toolbox / Timothy Ali</title><meta name="description" content={description} /></svelte:head>
 <main class="inner-page agents" id="main" tabindex="-1">
   <section class="head">
     <QuietLink href="/toolbox/" label="Toolbox" dir="left" pad class="lbl" />

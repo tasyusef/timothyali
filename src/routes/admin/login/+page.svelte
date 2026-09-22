@@ -9,7 +9,7 @@
     catch { failed = true; sending = false; }
   }
 </script>
-<svelte:head><title>Admin sign-in — Timothy Ali</title><meta name="robots" content="noindex, nofollow" /></svelte:head>
+<svelte:head><title>Admin sign-in / Timothy Ali</title><meta name="robots" content="noindex, nofollow" /></svelte:head>
 <main id="main" tabindex="-1" class="inner-page login body">
   <p class="lbl">Private / Timothy Ali</p>
   <h1 class="display">Site admin.</h1>

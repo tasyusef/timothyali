@@ -13,9 +13,9 @@ const person = {
   '@id': `${SITE_URL}/#person`,
   name: 'Timothy Ali',
   url: SITE_URL,
-  jobTitle: 'Designer & builder',
-  description: 'Designer for teams that don’t have one yet: brand, product, motion, front end.',
-  knowsAbout: ['Brand identity', 'Product design', 'Motion design', 'Front-end development', 'Design systems', 'Typography'],
+  jobTitle: 'Brand and web designer',
+  description: 'Brand and web designer in Denver: identities, motion, and websites built in code. Open to full-time and freelance work.',
+  knowsAbout: ['Brand identity', 'Web design', 'Motion design', 'Front-end development', 'Design systems', 'Typography'],
   address: { '@type': 'PostalAddress', addressLocality: 'Denver', addressRegion: 'CO', addressCountry: 'US' },
   sameAs: PROFILES
 };

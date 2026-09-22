@@ -153,8 +153,8 @@ would hide the arithmetic.
 | `.display-xl` | — (always worn with `.blackletter`) | **258/264 → 172/176 (≤1100) → 129/136 (≤700) → 86/88 (≤420)**, `display:block` |
 | `.display` | PARC Pixel Bold | 55/56 → 41.25/48 (≤700), uppercase (cell 4 → 3) |
 | `.display-s` | PARC Pixel Bold | 41.25/48 → 27.5/32 (≤700), uppercase (cell 3 → 2) |
-| `.lead` | Jersey 15 | 54/64 → 27/32 (≤700) |
-| `.body` | Jersey 15 | 27/32 |
+| `.lead` | Jersey 15 | 54/64 → 27/32 (≤700); the study's single lead paragraph is 27/40 at every width, capped at 64ch (0123) |
+| `.body` | Jersey 15 | 27/32; the study's reading paragraphs (`.paras`) 27/40 in a 64ch column (PX-43) |
 | `.lbl` | PARC Pixel | 12.5/16, uppercase (cell 2) |
 | `.mono` | Press Start 2P | 16/16, uppercase, nowrap |
 | `.dim` | — | `opacity:var(--dim)` |
