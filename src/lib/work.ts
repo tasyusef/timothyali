@@ -47,7 +47,7 @@ export interface Project extends Entry {
 export type Item = Project | Entry;
 
 // files that also exist as `<name>@2x.jpg` (2800px on the long side) for dense screens
-const X2 = new Set(['firstledger/guide-01', 'firstledger/guide-02', 'firstledger/guide-03', 'firstledger/guide-04', 'firstledger/guide-05', 'firstledger/guide-07', 'firstledger/guide-08', 'firstledger/guide-10', 'firstledger/hero', 'parc/club-masthead-sky', 'parc/phone-arcade', 'parc/phone-hero', 'parc/sign-sky', 'parc/site-arcade', 'parc/site-bands', 'parc/site-collections', 'parc/site-crew', 'parc/site-hero', 'xrpcafe/backdrop', 'xrpcafe/banner', 'xrpcafe/booth-setup', 'xrpcafe/booth-table', 'xrpcafe/booth-tablet', 'xrpcafe/booth-team', 'xrpcafe/jeopardy', 'xrpcafe/just-mint', 'xrpcafe/logo', 'xrpcafe/marketplace', 'xrpcafe/mug-bbq', 'xrpcafe/mug-pumpkin', 'xrpcafe/mug-saiyan', 'xrpcafe/vesea-charity', 'xrpcafe/xrpl-group', 'firststrike/billboard', 'firststrike/business-card', 'firststrike/color', 'firststrike/construction', 'firststrike/hero', 'firststrike/logo-primary', 'firststrike/logo-secondary', 'firststrike/mission', 'firststrike/pillars', 'firststrike/type']);
+const X2 = new Set(['parc/first-direction', 'firstledger/guide-01', 'firstledger/guide-02', 'firstledger/guide-03', 'firstledger/guide-04', 'firstledger/guide-05', 'firstledger/guide-07', 'firstledger/guide-08', 'firstledger/guide-10', 'firstledger/hero', 'parc/club-masthead-sky', 'parc/sign-sky', 'xrpcafe/backdrop', 'xrpcafe/banner', 'xrpcafe/booth-setup', 'xrpcafe/booth-table', 'xrpcafe/booth-tablet', 'xrpcafe/booth-team', 'xrpcafe/jeopardy', 'xrpcafe/just-mint', 'xrpcafe/logo', 'xrpcafe/marketplace', 'xrpcafe/mug-bbq', 'xrpcafe/mug-pumpkin', 'xrpcafe/mug-saiyan', 'xrpcafe/vesea-charity', 'xrpcafe/xrpl-group', 'firststrike/billboard', 'firststrike/business-card', 'firststrike/color', 'firststrike/construction', 'firststrike/hero', 'firststrike/logo-primary', 'firststrike/logo-secondary', 'firststrike/mission', 'firststrike/pillars', 'firststrike/type']);
 const media = (slug: string) => (f: string, w: number, h: number, alt: string): Media => {
   const base = f.replace(/\.[a-z]+$/, '');
   return { src: `/work/${slug}/${f}`, w, h, alt, x2: X2.has(`${slug}/${base}`) ? `/work/${slug}/${base}@2x.jpg` : undefined };
@@ -55,7 +55,7 @@ const media = (slug: string) => (f: string, w: number, h: number, alt: string): 
 const pa = media('parc'), xc = media('xrpcafe'), fl = media('firstledger'), dad = media('do-androids-dream');
 const fst = media('firststrike'), so = media('sonde'), ps = media('parc-site'), ja = media('jade-aesthetics'), pw = media('pocketwatch');
 
-/** Every project in display order: the selected four (PARC, Jade, xrp.cafe, Do Androids Dream, decision 0119), the index five, then the hidden two.
+/** Every project in display order: the selected four (PARC, Jade, xrp.cafe, Do Androids Dream, decision 0119), the index four (PARC Website merged into PARC, 0126), then the hidden two.
  *  `n` is assigned from the position in the visible set at the bottom of this file. */
 type Source = Omit<Project, 'n'> | Omit<Entry, 'n'>;
 const source: Source[] = [
@@ -65,16 +65,16 @@ const source: Source[] = [
     title: 'PARC',
     word: 'parc',
     year: '2021–2026',
-    scope: 'Cofounder · brand & art direction',
-    role: 'Cofounder · brand & art direction',
+    scope: 'Cofounder · brand & website',
+    role: 'Cofounder · brand, art direction & website',
     team: 'Cofounders xrpl_adam, sloppy, and stove',
-    timeline: 'Ongoing',
-    tools: 'Illustrator, Python (fontTools)',
+    timeline: 'Ongoing · site live since September 2026',
+    tools: 'Illustrator, Python (fontTools), SvelteKit, Svelte 5, TypeScript, Canvas, Vercel, Neon, Claude Code',
     live: { href: 'https://parcxrpl.com', label: 'parcxrpl.com' },
-    description: 'Rebranding the NFT club I cofounded in 2021: logo, palette, pixel world, and a typeface, all from one 5×5 grid.',
+    description: 'Rebranding the NFT club I cofounded in 2021 and building its website: a logo, palette, and typeface from one 5×5 grid, and a site with live stats, a gallery, and a playable rowing game.',
     cover: { src: '/work/parc.png', w: 1600, h: 900, alt: 'PARC’s four-color pixel letters on a white sign floating in a pixel-cloud sky' },
     lead: [
-      "I cofounded Pixel Ape Rowboat Club in 2021 and have led its branding and art direction since. For the 2026 rebrand I drew a new logo on the apes’ 5×5 grid, built PARC Pixel, a three-weight typeface, and carried both across the website, Discord, X, Twitch, merch, and the arcade."
+      "I cofounded Pixel Ape Rowboat Club in 2021 and have led its branding and art direction since. For the 2026 rebrand I drew a new logo on the apes’ 5×5 grid and built PARC Pixel, a three-weight typeface, then designed and built the club’s website on the same grid: live stats, a gallery, a playable rowing game, and merch."
     ],
     hero: [pa('sign-sky.png', 1600, 900, 'The new PARC box logo: four-color pixel letters on a white sign with notched corners, floating in a pixel-cloud sky')],
     blocks: [
@@ -85,17 +85,19 @@ const source: Source[] = [
       { type: 'text', title: 'The world', paras: [
         "The apes started with the Game Boy Advance Pokémon games as a reference: flat color, chunky pixels, sprites you could recognize at a glance. We built a world around them with islands, rowboats, volcanoes, and wooden huts. The rebrand needed to belong in that world."
       ] },
+      { type: 'text', title: 'An earlier direction', paras: [
+        "Around 2024 I had worked up a different direction: the club’s parts renamed as three branches, The Rowboat Club, The Parcade, and The Nightclub, each a black pixel wordmark with one red icon. The team didn’t agree on it, and it was set aside."
+      ] },
+      { type: 'gallery', note: 'Set aside, around 2024', rows: [
+        [pa('first-direction.png', 1600, 1000, 'The earlier direction: three black pixel lockups on white, The Nightclub, The Parcade, and The Rowboat Club, each with a small red icon')]
+      ] },
       { type: 'text', title: 'Same people, better brand', paras: [
         "The old logo was a cartoon ape with thick outlines and a bubbly wordmark. It didn’t look much like the pixel art around it. I drew the new logo on the apes’ 5×5 grid and put it on a white sign with notched corners.",
-        "The team was attached to the old identity and worried about how the community would react. An earlier rebrand direction I had worked up didn’t win them over, and we set it aside. This time I showed them the finished logo on its sign and asked them to trust me. The comments after launch were encouraging."
+        "The team was attached to the old identity and worried about how the community would react. This time I showed them the finished logo on its sign and asked them to trust me. The comments after launch were encouraging."
       ] },
       { type: 'gallery', note: 'Before, 2021 / after, 2026', rows: [
         [pa('old-mascot.png', 1600, 1600, 'The old PARC logo: a cartoon ape head with a wide grin and thick black outlines, a bubbly yellow PARC wordmark across the top'), pa('old-wordmark.png', 1600, 900, 'The old PARC secondary logo: the bubbly outlined wordmark in black')],
         [pa('mark-stacked.png', 1600, 1600, 'The new PARC square lockup: the box logo stacked over the oar'), pa('mark-wide.png', 1600, 533, 'The new PARC wide logo: four-color pixel letters on the white sign, on the pixel-cloud sky')]
-      ] },
-      { type: 'list', title: 'The reaction', items: [
-        '“I know I like the new banner and logo” / RedHotDankMoist, Discord',
-        '“Love it, great website update, looks amazing” / @BrandoWoodz, X'
       ] },
       { type: 'text', title: 'The system', paras: [
         "I made a wide logo, a square lockup, and an oar badge. They share a cell grid and notched corners, with two cells of clear space on every side. The final artwork uses merged paths so it can go straight into print and web files.",
@@ -110,21 +112,69 @@ const source: Source[] = [
         [pa('three-weights-a.png', 1600, 1200, 'PARC Pixel specimen on white: the letter A in Bold 700, Regular 400, and Light 300'), pa('anatomy-sheet.png', 1600, 1200, 'PARC Pixel specimen on white: the Bold R on its 11 by 11 cell grid'), pa('mono-numerals-sky.png', 1600, 1200, 'PARC Pixel Mono numerals 0 to 9 on the sky colorway')],
         [pa('glyph-grid-green.png', 1600, 1200, 'PARC Pixel Bold: 40 glyphs in a grid, one color per glyph, on the green colorway'), pa('square-ampersand-sky.png', 1600, 1600, 'PARC Pixel Bold ampersand at giant size on the sky colorway')]
       ] },
+      { type: 'text', title: 'The website', paras: [
+        "PARC had outgrown its Squarespace site. The club now had four collections, a token, a Twitch show, an arcade, and merch. I designed a new site to bring them together and built it with Claude Code, directing the implementation and reviewing each screen.",
+        "The logo’s pixel grid became the basis for the site. I wanted it to feel like arriving on the club’s island, with different places to explore as you scroll. Each page opens under a jungle canopy with two layers of drifting pixel clouds. A wooden sign holds the title, introduction, and buttons. The pages are places in the club’s world: the Clubhouse, Gallery, and PARCade."
+      ] },
+      { type: 'gallery', rows: [
+        [ps('home-hero.png', 1440, 900, 'parcxrpl.com home: the Pixel Ape Rowboat Club sign on a notched paper card over the scatter texture, under the green nav')],
+        [ps('home-collections.png', 1440, 900, 'parcxrpl.com collections: PARC, Monkey Phunks, and PARC Customs as paper cards on the sky'), ps('phone-home.png', 390, 844, 'parcxrpl.com home on a phone: the hero card with stacked pixel buttons')],
+        [ps('home-crew.png', 1440, 900, 'parcxrpl.com crew row: five ape avatars, each under its own color bar, above the green footer'), ps('not-found.png', 1440, 900, 'parcxrpl.com 404: a hanging sign reading Rowed off the map')]
+      ] },
+      { type: 'text', title: 'The notch', paras: [
+        "The notched corner appears throughout the site: 6px on buttons, 10px on cards, and 12px on panels. Buttons sit above a darker base, lift on hover, and drop when pressed. Movement follows the pixels too: buttons move in steps, water shifts one cell at a time, and dropdowns open line by line."
+      ] },
+      { type: 'text', title: 'Stats first', paras: [
+        "I put Stats first in the navigation so holders could get to it quickly. It shows floor prices, trading volume, holders, and listings for the collections, alongside $OAR token data. The numbers come from the ledger and marketplace APIs. Daily snapshots feed the charts, with history starting at launch."
+      ] },
+      { type: 'gallery', rows: [
+        [ps('stats-top.png', 1440, 900, 'parcxrpl.com Club Stats: the $OAR card with price, volume, market cap, holders, and two pixel bar charts'), ps('phone-stats.png', 390, 844, 'parcxrpl.com Club Stats on a phone')]
+      ] },
+      { type: 'text', title: 'Gallery & Clubhouse', paras: [
+        "The Gallery hangs the apes on clotheslines between two trees. Selecting a frame brings up a plaque with the ape’s name. The first version scrolled sideways and hijacked the wheel. It looked good and felt wrong, so I rebuilt it with ordinary vertical scrolling.",
+        "The Clubhouse took three layouts to get right. It ended up with a TV playing the Twitch stream, a trophy shelf, and a corkboard for events, suspended from branches. I checked the ropes at different screen widths to keep them attached."
+      ] },
+      { type: 'gallery', rows: [
+        [ps('gallery-top.png', 1440, 900, 'parcxrpl.com Gallery: the hanging sign with collection chips, and the generative apes on clotheslines between two trees'), ps('phone-gallery.png', 390, 844, 'parcxrpl.com Gallery on a phone: one portrait per clothesline')],
+        [ps('community-top.png', 1440, 900, 'parcxrpl.com Clubhouse: the hanging sign, the TV on its branch, and the cork notice board'), ps('phone-community.png', 390, 844, 'parcxrpl.com Clubhouse on a phone: the sign, the On Air plaque, and the branches')]
+      ] },
+      { type: 'text', title: 'PARCade', paras: [
+        "PARCade is an arcade cabinet with a green CRT screen, scanlines, a joystick, and buttons that control the menu. On the homepage, a smaller screen shows the game cover beside live high scores, surrounded by scenery built from the game’s sprites.",
+        "I also made Rowboat Racer: an ape rowing down a five-lane river, dodging logs, reefs, and ziggurats. I drew the sprites on a 3px grid. The riverbanks change between beach, jungle, rock, and village scenery on each run. The server replays a run before accepting its score on the leaderboard."
+      ] },
+      { type: 'gallery', rows: [
+        [ps('home-arcade.png', 1440, 900, 'parcxrpl.com PARCade band: the Rowboat Racer cover on a CRT and live high scores over the game’s island'), ps('phone-arcade.png', 390, 844, 'parcxrpl.com PARCade band on a phone')],
+        [ps('parcade-library.png', 1440, 900, 'parcxrpl.com PARCade booted: the game library with Rowboat Racer live and two cabinets coming soon'), ps('phone-parcade.png', 390, 844, 'parcxrpl.com PARCade on a phone: the game library on the CRT')],
+        [ps('game-run.png', 1280, 900, 'Rowboat Racer mid-run: the boat between a beach bank and a jungle bank, coins ahead, obstacles in their lanes'), ps('game-sprites.png', 832, 1000, 'Rowboat Racer sprite sheet: the boat, obstacles, pickups, and bank props on the 3px grid')]
+      ] },
+      { type: 'text', title: 'Merch & community', paras: [
+        "Merch was going to be an external link, but the storefront’s API let me bring the catalog onto the site. Only checkout leaves it. After Darc has a static-filled background, Discord has drifting chat bubbles, and the LARC teaser is a boathouse terminal that boots, glitches, and accepts typed input. The 404 sign says you rowed off the map."
+      ] },
+      { type: 'gallery', rows: [
+        [ps('merch.png', 1440, 900, 'parcxrpl.com Merch: the PARC Vibes tee and hoodie as pixel product cards with carousels and dropdowns'), ps('phone-merch.png', 390, 844, 'parcxrpl.com Merch on a phone')],
+        [ps('larc.png', 1440, 900, 'parcxrpl.com LARC teaser: the boathouse terminal mid-corruption, an unknown vessel detected'), ps('home-bands.png', 1440, 900, 'parcxrpl.com After Darc band in Twitch purple and Discord band in blurple')]
+      ] },
       { type: 'text', title: 'In the wild', paras: [
-        "The identity appears across the website, Discord, X, Twitch, merch, and arcade. On the site, the logo hangs in the sky and the collection cards float above an island. After Darc has its own graphics and a starting-soon animation for the stream.",
+        "Beyond the site, the identity runs through Discord, X, Twitch, merch, and the arcade. After Darc has its own graphics and a starting-soon animation for the stream.",
         "I made animated backgrounds for each part of the site: drifting clouds, a scatter of pixels that responds to the cursor, broadcast static for After Darc, and chat bubbles for Discord. They switch to still versions with reduced motion."
       ] },
       { type: 'gallery', rows: [
-        [pa('site-hero.png', 1600, 1000, 'parcxrpl.com hero: Pixel Ape Rowboat Club on the notched sign over the scatter texture, with the green nav bar')],
-        [pa('site-collections.png', 1600, 1000, 'parcxrpl.com collections: PARC, Monkey Phunks, and PARC Customs cards floating on the pixel-cloud sky'), pa('phone-hero.png', 739, 1600, 'parcxrpl.com hero on a phone')],
-        [pa('site-arcade.jpg', 1600, 1000, 'parcxrpl.com arcade band: the Rowboat Racer cover on a CRT and live high scores over the island'), pa('site-bands.png', 1600, 1000, 'parcxrpl.com After Darc band in Twitch purple and Discord band in blurple')],
-        [pa('site-crew.png', 1600, 1000, 'parcxrpl.com crew row and green footer with the stacked mark'), pa('phone-arcade.jpg', 739, 1600, 'parcxrpl.com arcade band on a phone: the Rowboat Racer cover over the island')],
         [{ src: '/work/video/parc-after-darc-intro.mp4', w: 1920, h: 1080, video: true, alt: 'PARC After Darc starting-soon screen: a pixel sun over the sea with a rowboat drifting past, looped before the stream' }],
         [pa('after-darc-announce.png', 1600, 1600, 'PARC After Darc new-stream graphic: the wordmark over a pixel sunset, Saturday 9pm UTC on Twitch'), pa('after-darc-live.png', 1600, 1600, 'PARC After Darc live-now graphic: the wordmark over a pixel night sky and moon'), pa('after-darc-today.png', 1600, 1600, 'PARC After Darc tonight graphic'), pa('after-darc-reminder.png', 1600, 1600, 'PARC After Darc tomorrow graphic')],
         [pa('larc-teaser.jpg', 1600, 1600, 'LARC teaser: glitched terminal text on black announcing the next collection'), pa('parcade-scores.jpg', 1600, 1600, 'PARCade high-score board in PARC Pixel Mono')]
       ] },
-      { type: 'text', title: 'Outcome', paras: [
-        "The rebrand launched in September 2026 with a print and web logo library, the PARC Pixel typeface, and updated artwork for the site, community channels, merch, and arcade."
+      { type: 'text', title: 'How it was built', paras: [
+        "I worked screen by screen with Claude Code, checking screenshots, phone layouts, and type errors as I went. Shared color, type, and spacing settings kept the pages consistent. I compressed the fonts and animated artwork before deploying to Vercel."
+      ] },
+      { type: 'list', title: 'The reaction', items: [
+        '“I know I like the new banner and logo” / RedHotDankMoist, Discord',
+        '“Love it, great website update, looks amazing” / @BrandoWoodz, X'
+      ] },
+      { type: 'list', title: 'Outcome', items: [
+        'A print and web logo library for the wide logo, the square lockup, and the oar, and five colors on every surface',
+        'PARC Pixel: three weights plus a mono, 57 characters each, the only typeface on the site',
+        'Seven pages plus the error pages, live at parcxrpl.com since September 2026, designed and built alone with Claude Code',
+        'Live data throughout: the ledger, xrp.cafe, the AMM, the Fourthwall storefront, and the game leaderboard'
       ] }
     ]
   },
@@ -424,91 +474,6 @@ const source: Source[] = [
       ] },
       { type: 'text', title: 'Outcome', paras: [
         "I launched Sonde with a public explorer, analytics, and paid portfolio and investigation tools. Subscriptions accepted fiat and crypto. I handled design, development, and operations until I closed the hosted app."
-      ] }
-    ]
-  },
-  {
-    tier: 'index',
-    slug: 'parc-site',
-    title: 'PARC Website',
-    word: 'parc website',
-    year: '2026',
-    scope: 'Web & code',
-    role: 'Design & code',
-    timeline: 'Live since September 2026',
-    tools: 'SvelteKit, Svelte 5, TypeScript, Canvas, Vercel, Neon, Claude Code',
-    live: { href: 'https://parcxrpl.com', label: 'parcxrpl.com' },
-    description: 'A website for the club, with live stats, a gallery on clotheslines, and a playable rowing game.',
-    cover: { src: '/work/parc-site.png', w: 1440, h: 810, alt: 'parcxrpl.com home: the Pixel Ape Rowboat Club sign on a notched paper card under the green nav' },
-    lead: [
-      "PARC had outgrown its Squarespace site. The club now had four collections, a token, a Twitch show, an arcade, and merch. I designed a new site to bring them together and built it with Claude Code, directing the implementation and reviewing each screen."
-    ],
-    hero: [ps('home-hero.png', 1440, 900, 'parcxrpl.com home: the Pixel Ape Rowboat Club sign on a notched paper card over the scatter texture, under the green nav')],
-    blocks: [
-      { type: 'list', title: 'What it is', items: [
-        'Home, Gallery, Clubhouse, PARCade, Merch, Stats, LARC, and the error pages',
-        'One typeface, PARC Pixel, in three weights',
-        "Live collection stats, token data, and game scores"
-      ] },
-      { type: 'text', title: 'The island', paras: [
-        "The logo’s pixel grid became the basis for the site. I wanted it to feel like arriving on the club’s island, with different places to explore as you scroll.",
-        "Each page opens under a jungle canopy with two layers of drifting pixel clouds. A wooden sign holds the title, introduction, and buttons. The pages are places in the club’s world: the Clubhouse, Gallery, and PARCade. Generated textures give the scenery some variation."
-      ] },
-      { type: 'gallery', rows: [
-        [ps('home-collections.png', 1440, 900, 'parcxrpl.com collections: PARC, Monkey Phunks, and PARC Customs as paper cards on the sky'), ps('phone-home.png', 390, 844, 'parcxrpl.com home on a phone: the hero card with stacked pixel buttons')],
-        [ps('home-oar.png', 1440, 900, 'parcxrpl.com: the Buy $OAR and Set Trustline cards at the foot of the sky'), ps('home-crew.png', 1440, 900, 'parcxrpl.com crew row: five ape avatars, each under its own color bar, above the green footer')],
-        [ps('not-found.png', 1440, 900, 'parcxrpl.com 404: a hanging sign reading Rowed off the map'), ps('phone-collections.png', 390, 844, 'parcxrpl.com collection cards on a phone')]
-      ] },
-      { type: 'text', title: 'The notch', paras: [
-        "The notched corner appears throughout the site: 6px on buttons, 10px on cards, and 12px on panels. Buttons sit above a darker base, lift on hover, and drop when pressed. Movement follows the pixels too: buttons move in steps, water shifts one cell at a time, and dropdowns open line by line."
-      ] },
-      { type: 'text', title: 'Stats first', paras: [
-        "I put Stats first in the navigation so holders could get to it quickly. It shows floor prices, trading volume, holders, and listings for the collections, alongside $OAR token data. The numbers come from the ledger and marketplace APIs. Daily snapshots feed the charts, with history starting at launch."
-      ] },
-      { type: 'gallery', rows: [
-        [ps('stats-top.png', 1440, 900, 'parcxrpl.com Club Stats: the $OAR card with price, volume, market cap, holders, and two pixel bar charts'), ps('phone-stats.png', 390, 844, 'parcxrpl.com Club Stats on a phone')],
-        [ps('stats-cards.png', 1440, 900, 'parcxrpl.com Club Stats: four collection cards with floor, volume, holders, listed, and a 30-day floor chart')]
-      ] },
-      { type: 'text', title: 'Gallery & Clubhouse', paras: [
-        "The Gallery hangs the apes on clotheslines between two trees. Selecting a frame brings up a plaque with the ape’s name. The first version scrolled sideways and hijacked the wheel. It looked good and felt wrong, so I rebuilt it with ordinary vertical scrolling.",
-        "The Clubhouse took three layouts to get right. It ended up with a TV playing the Twitch stream, a trophy shelf, and a corkboard for events, suspended from branches. I checked the ropes at different screen widths to keep them attached."
-      ] },
-      { type: 'gallery', rows: [
-        [ps('gallery-top.png', 1440, 900, 'parcxrpl.com Gallery: the hanging sign with collection chips, and the generative apes on clotheslines between two trees'), ps('phone-gallery.png', 390, 844, 'parcxrpl.com Gallery on a phone: one portrait per clothesline')],
-        [ps('gallery-customs.png', 1440, 900, 'parcxrpl.com Gallery: the PARC Customs one-of-ones on clotheslines')],
-        [ps('community-top.png', 1440, 900, 'parcxrpl.com Clubhouse: the hanging sign, the TV on its branch, and the cork notice board'), ps('phone-community.png', 390, 844, 'parcxrpl.com Clubhouse on a phone: the sign, the On Air plaque, and the branches')],
-        [ps('community-mid.png', 1440, 900, 'parcxrpl.com Clubhouse: the trophy shelf and event cards beside the notice board'), ps('community-low.png', 1440, 900, 'parcxrpl.com Clubhouse: the last event cards above the grass and sand at the foot of the page')]
-      ] },
-      { type: 'text', title: 'PARCade', paras: [
-        "PARCade is an arcade cabinet with a green CRT screen, scanlines, a joystick, and buttons that control the menu. On the homepage, a smaller screen shows the game cover beside live high scores, surrounded by scenery built from the game’s sprites.",
-        "I also made Rowboat Racer: an ape rowing down a five-lane river, dodging logs, reefs, and ziggurats. I drew the sprites on a 3px grid. The riverbanks change between beach, jungle, rock, and village scenery on each run. The server replays a run before accepting its score on the leaderboard."
-      ] },
-      { type: 'gallery', rows: [
-        [ps('home-arcade.png', 1440, 900, 'parcxrpl.com PARCade band: the Rowboat Racer cover on a CRT and live high scores over the game’s island'), ps('phone-arcade.png', 390, 844, 'parcxrpl.com PARCade band on a phone')],
-        [ps('parcade-library.png', 1440, 900, 'parcxrpl.com PARCade booted: the game library with Rowboat Racer live and two cabinets coming soon'), ps('phone-parcade.png', 390, 844, 'parcxrpl.com PARCade on a phone: the game library on the CRT')],
-        [ps('parcade-boot.png', 1440, 900, 'parcxrpl.com PARCade booting: the PARC badge assembling on the green CRT above the deck')],
-        [ps('game-run.png', 1280, 900, 'Rowboat Racer mid-run: the boat between a beach bank and a jungle bank, coins ahead, obstacles in their lanes'), ps('game-sprites.png', 832, 1000, 'Rowboat Racer sprite sheet: the boat, obstacles, pickups, and bank props on the 3px grid')],
-        [ps('game-banks.png', 1292, 812, 'Rowboat Racer banks: rocky, village, jungle, and beach biomes with clustered props and a wandering shoreline')]
-      ] },
-      { type: 'text', title: 'Merch & community', paras: [
-        "Merch was going to be an external link, but the storefront’s API let me bring the catalog onto the site. Only checkout leaves it. After Darc has a static-filled background, Discord has drifting chat bubbles, and the LARC teaser is a boathouse terminal that boots, glitches, and accepts typed input. The 404 sign says you rowed off the map."
-      ] },
-      { type: 'gallery', rows: [
-        [ps('merch.png', 1440, 900, 'parcxrpl.com Merch: the PARC Vibes tee and hoodie as pixel product cards with carousels and dropdowns'), ps('phone-merch.png', 390, 844, 'parcxrpl.com Merch on a phone')],
-        [ps('larc.png', 1440, 900, 'parcxrpl.com LARC teaser: the boathouse terminal mid-corruption, an unknown vessel detected'), ps('home-bands.png', 1440, 900, 'parcxrpl.com After Darc band in Twitch purple and Discord band in blurple')]
-      ] },
-      { type: 'text', title: 'How it was built', paras: [
-        "I worked screen by screen with Claude Code, checking screenshots, phone layouts, and type errors as I went. Shared color, type, and spacing settings kept the pages consistent. I compressed the fonts and animated artwork before deploying to Vercel."
-      ] },
-      { type: 'list', title: 'The reaction', items: [
-        '“Love it, great website update, looks amazing” / @BrandoWoodz, X'
-      ] },
-      { type: 'list', title: 'Outcome', items: [
-        'Seven pages plus the error pages, live at parcxrpl.com since September 2026',
-        'Designed and built alone, with Claude Code',
-        'Shared components for the page headers, buttons, cards, and navigation',
-        'Live data throughout: the ledger, xrp.cafe, the AMM, the Fourthwall storefront, and the game leaderboard',
-        'PARC Pixel is the only typeface on the site'
       ] }
     ]
   },

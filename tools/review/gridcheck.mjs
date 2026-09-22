@@ -4,7 +4,7 @@ import fs from 'node:fs';
 const exe='/Users/twocakes/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell';
 const b=await chromium.launch(fs.existsSync(exe)?{executablePath:exe}:{});
 const near=(a,b)=>Math.abs(a[0]-b[0])<12&&Math.abs(a[1]-b[1])<12&&Math.abs(a[2]-b[2])<12; const Y=[244,244,240],K=[17,17,14],A=[242,214,0];
-const ROUTES=['/','/work/','/contact/','/work/parc/','/work/xrpcafe/','/work/firstledger/','/work/do-androids-dream/','/work/firststrike/','/work/sonde/','/work/parc-site/','/work/jade-aesthetics/','/work/pocketwatch/','/not-found.html'];
+const ROUTES=['/','/work/','/contact/','/work/parc/','/work/xrpcafe/','/work/firstledger/','/work/do-androids-dream/','/work/firststrike/','/work/sonde/','/work/jade-aesthetics/','/work/pocketwatch/','/not-found.html'];
 const ALL={};
 for(const width of [1440,1100,700,390]){ for(const path of ROUTES){
   const ctx=await b.newContext({viewport:{width,height:900},deviceScaleFactor:1,reducedMotion:'reduce'}); const p=await ctx.newPage();

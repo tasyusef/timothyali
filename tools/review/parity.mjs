@@ -22,7 +22,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 
 
 const OUT = 'tools/review/out/';
 const EXE = '/Users/twocakes/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell';
-const ROUTES = ['/', '/work/', '/contact/', '/work/parc/', '/work/xrpcafe/', '/work/firstledger/', '/work/do-androids-dream/', '/work/firststrike/', '/work/sonde/', '/work/parc-site/', '/work/jade-aesthetics/','/work/pocketwatch/'];
+const ROUTES = ['/', '/work/', '/contact/', '/work/parc/', '/work/xrpcafe/', '/work/firstledger/', '/work/do-androids-dream/', '/work/firststrike/', '/work/sonde/', '/work/jade-aesthetics/','/work/pocketwatch/'];
 const name = (p) => (p === '/' ? 'home' : p.replace(/^\/|\/$/g, '').replaceAll('/', '-'));
 
 // Two regions are inherently non-deterministic and are blanked before the compare:

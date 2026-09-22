@@ -11,7 +11,7 @@ import { mkdirSync } from 'node:fs';
 
 const EXE = '/Users/twocakes/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell';
 const OUT = 'docs/iterations/pixel-v2/18-full-index/';
-const PATHS = ['/work/', '/work/firststrike/', '/work/sonde/', '/work/parc-site/', '/work/jade-aesthetics/','/work/pocketwatch/'];
+const PATHS = ['/work/', '/work/firststrike/', '/work/sonde/', '/work/jade-aesthetics/','/work/pocketwatch/'];
 const name = (p) => (p === '/' ? 'home' : p.replace(/^\/|\/$/g, '').replaceAll('/', '-'));
 const only = process.argv[2];
 

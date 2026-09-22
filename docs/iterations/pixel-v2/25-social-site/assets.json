@@ -9,7 +9,7 @@
     "image": "work",
     "width": 1200,
     "height": 630,
-    "bytes": 112227
+    "bytes": 112220
   },
   {
     "image": "contact",
@@ -57,7 +57,7 @@
     "image": "parc",
     "width": 1200,
     "height": 630,
-    "bytes": 32074
+    "bytes": 33097
   },
   {
     "image": "jade-aesthetics",
@@ -96,16 +96,10 @@
     "bytes": 72489
   },
   {
-    "image": "parc-site",
-    "width": 1200,
-    "height": 630,
-    "bytes": 39780
-  },
-  {
     "image": "pocketwatch",
     "width": 1200,
     "height": 630,
-    "bytes": 70136
+    "bytes": 70143
   },
   {
     "image": "story-launch",

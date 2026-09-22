@@ -34,12 +34,12 @@
     },
     {
       "source": "/work/rowboat-racer",
-      "destination": "/work/parc-site/",
+      "destination": "/work/parc/",
       "permanent": true
     },
     {
       "source": "/work/rowboat-racer/",
-      "destination": "/work/parc-site/",
+      "destination": "/work/parc/",
       "permanent": true
     },
     {
@@ -60,6 +60,16 @@
     {
       "source": "/work/gridform-studio/",
       "destination": "/work/",
+      "permanent": true
+    },
+    {
+      "source": "/work/parc-site",
+      "destination": "/work/parc/",
+      "permanent": true
+    },
+    {
+      "source": "/work/parc-site/",
+      "destination": "/work/parc/",
       "permanent": true
     }
   ]

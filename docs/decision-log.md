@@ -1856,3 +1856,17 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Layout correction:** Download uses the next whole-cell Jacquard step at the existing 420px breakpoint after the new word overflowed at 320px. Study leads retain Timothy's 27/40 correction (0123).
 - **Limits:** No additional xrp.cafe interface scope or Pocketwatch interaction story invented. Those evidence gaps need project detail. Employer-specific interest is not invented in the reusable letters.
 - **Status:** Copy edits explicitly authorized and implemented locally. Evidence: `docs/iterations/pixel-v2/44-copy-edit/`; private document baseline and verification remain beside the résumé sources. Pushed with PX-43 the same evening on Timothy's “commit and push it, everything”.
+
+## 0125 — The PARC study shows the direction the team turned down
+
+- **Date:** 2026-09-22
+- **Direction:** Timothy supplied the artwork of the earlier rebrand direction (`PARCADE_LOGO.svg` in his PARCADE branding folder: The Nightclub, The Parcade and The Rowboat Club as black pixel wordmarks with one red icon each) and said it is “to be added to the case study”. It is not a live rename; the club site still says PARCade, After Darc and Clubhouse.
+- **Implementation:** An “An earlier direction” block after “The world”: one paragraph in his account (around 2024, the branches, the team not agreeing, setting it aside) and the sheet rendered on white at 1600×1000 with a 2× companion, noted “Set aside, around 2024”. The decision paragraph in “Same people, better brand” keeps “This time I showed them the finished logo on its sign and asked them to trust me.” First written as a 2026 first pass; Timothy corrected the date the same evening (“probably from like 2024 ish”), so the copy hedges with “around 2024”.
+- **Status:** Timothy's direction and artwork; the paragraph is the assistant's wording of his account. Reviewed on the preview and pushed the same evening.
+
+## 0126 — One PARC study: the brand and the website together
+
+- **Date:** 2026-09-22
+- **Direction:** Timothy: “i think we combine the parc website and parc branding into one case study.”
+- **Implementation:** The PARC Website study (index entry 08, `/work/parc-site/`) is folded into PARC. The merged study runs from the club's start through the earlier direction, the shipped logo, the system and the typeface, then the website in its own blocks (The website, The notch, Stats first, Gallery & Clubhouse, PARCade, Merch & community, In the wild, How it was built), ending with the reaction and one outcome list. The brand study's own site screenshots, which duplicated the website study's, are dropped with their 2× files; the website study's screenshots are trimmed to about half. Scope reads “Cofounder · brand & website”, the tools list both sides, the timeline notes the site's launch. `/work/parc-site/` and the older `/work/rowboat-racer/` redirect to `/work/parc/` in `vercel.json`. Eight studies remain, the index tier now First Ledger, FirstStrike, Sonde and Pocketwatch; share images regenerated for the new numbers; the review scripts' route lists drop the old slug.
+- **Status:** Timothy's direction; the merged structure and the trimming are the assistant's choices. Reviewed on the preview and pushed the same evening.

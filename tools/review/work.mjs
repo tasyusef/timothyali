@@ -4,7 +4,7 @@ import { chromium } from '/Users/twocakes/Desktop/PROJECTS/timothyali2/node_modu
 const out='tools/review/out/';
 const exe='/Users/twocakes/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell';
 const b=await chromium.launch({executablePath:exe});
-const paths=['/work/','/work/parc/','/work/xrpcafe/','/work/firstledger/','/work/do-androids-dream/','/work/firststrike/','/work/sonde/','/work/parc-site/','/work/jade-aesthetics/','/work/pocketwatch/'];
+const paths=['/work/','/work/parc/','/work/xrpcafe/','/work/firstledger/','/work/do-androids-dream/','/work/firststrike/','/work/sonde/','/work/jade-aesthetics/','/work/pocketwatch/'];
 for(const width of [1440,900,390]){for(const path of paths){
   if(width===900&&path!=='/work/firstledger/')continue;
   const ctx=await b.newContext({viewport:{width,height:900},deviceScaleFactor:1});const p=await ctx.newPage();const errors=[];p.on('pageerror',e=>errors.push(String(e)));p.on('console',m=>{if(m.type()==='error')errors.push(m.text())});

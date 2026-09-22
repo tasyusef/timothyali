@@ -68,3 +68,7 @@ PX-43 (2026-09-22, 0118–0122): hiring-fit pass on Timothy's brief (the brief's
 
 
 PX-44 (2026-09-22, 0124): Timothy accepted the copy-review edits across portfolio, targeted résumés, and cover letters. Applied more specific Home copy, shortened PARC/Jade/xrp.cafe/Sonde passages, broader contact field wording, and Toolbox's Download heading (43/48 below 420px to fit 320px). Private application sources remain in the September 22 résumé source folder; five PDFs rebuilt, public phone-free copy synced. Confirmed facts and platform-scale sentences unchanged. Check/build/metadata and browser width checks pass. Evidence: `docs/iterations/pixel-v2/44-copy-edit/`. Pushed with PX-43 the same evening on Timothy's word; preserve the 0123 body-sized study lead.
+
+PX-45 (2026-09-22, 0125): the PARC study gains “An earlier direction” (around 2024, on Timothy's correction), the branch lockups the team turned down (The Nightclub, The Parcade, The Rowboat Club), rendered from Timothy's SVG to `static/work/parc/first-direction.png` (+2×), with one paragraph in his account before the shipped logo. Not a live rename on the club site. Awaiting his review on the preview.
+
+PX-46 (2026-09-22, 0126): on Timothy's direction the PARC Website study is merged into PARC; eight studies, the index tier is First Ledger, FirstStrike, Sonde, Pocketwatch; `/work/parc-site/` redirects to `/work/parc/`; the brand study's duplicate site screenshots were removed. `tools/social/generate.mjs` takes `OG_PORT`. Awaiting his review on the preview.
