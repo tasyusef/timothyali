@@ -1,0 +1,3 @@
+# PX-48 — The hero is the terminal
+
+2026-09-22, decision 0128. Frames of the loop on the preview build at 430×932 with motion on: `430-t00900` (“hi.”), `430-t02600` (the name typing), `430-t04600` (the first line), `430-t08800` (the second), `430-t13600` and `430-t17600` (the third, typing and held), `430-t19200` (cleared and round again). `430-motion-off` is the static rendering: the name and the copy as one paragraph. `1440-t08800` is desktop mid-loop. One cursor at a time, no page errors, the typed line in a fixed two-line box so the field's knockout holds. Pushed the same evening after the type-in fix.

@@ -86,10 +86,10 @@ const source: Source[] = [
         "The apes started with the Game Boy Advance Pokémon games as a reference: flat color, chunky pixels, sprites you could recognize at a glance. We built a world around them with islands, rowboats, volcanoes, and wooden huts. The rebrand needed to belong in that world."
       ] },
       { type: 'text', title: 'An earlier direction', paras: [
-        "Around 2024 I had worked up a different direction: the club’s parts renamed as three branches, The Rowboat Club, The Parcade, and The Nightclub, each a black pixel wordmark with one red icon. The team didn’t agree on it, and it was set aside."
+        "Around 2024 I had worked up a different direction: the club’s parts renamed as three branches, The Rowboat Club, The Parcade, and The Nightclub, each a black pixel wordmark with one red icon: an oar, a joystick, and a microphone. The team didn’t agree on it, and it was set aside."
       ] },
       { type: 'gallery', note: 'Set aside, around 2024', rows: [
-        [pa('first-direction.png', 1600, 1000, 'The earlier direction: three black pixel lockups on white, The Nightclub, The Parcade, and The Rowboat Club, each with a small red icon')]
+        [pa('first-direction.png', 1600, 1000, 'The earlier direction: three black pixel lockups on white, The Nightclub with a red microphone, The Parcade with a red joystick, and The Rowboat Club with an oar')]
       ] },
       { type: 'text', title: 'Same people, better brand', paras: [
         "The old logo was a cartoon ape with thick outlines and a bubbly wordmark. It didn’t look much like the pixel art around it. I drew the new logo on the apes’ 5×5 grid and put it on a white sign with notched corners.",

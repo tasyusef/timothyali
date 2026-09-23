@@ -44,7 +44,7 @@
 .path-short{display:none}
 @media(max-width:1100px){.st-coords{display:none}}
 @media(max-width:900px){.st-city,.st-sys,.path-full{display:none}.path-short{display:inline}}
-@media(max-width:420px){.st-clock{display:none}}
+@media(max-width:480px){.st-clock{display:none}} /* 480, not 420 (0127): a 430px phone was clipping the path to ~/T… */
 
 .global-footer{display:grid;grid-template-columns:1fr auto;gap:var(--s2);align-items:center;padding:var(--s2) var(--gutter) var(--s3)}
 .global-footer .controls{display:flex;flex-wrap:wrap;gap:var(--s1)}

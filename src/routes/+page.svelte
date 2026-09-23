@@ -10,18 +10,59 @@
   import { projects } from '$lib/work';
   import { RESUME_URL } from '$lib/social';
   import { TICK_SLOW, TICK_FAST, STEP_SLOW, STEP, STEP_FAST } from '$lib/tokens';
+  import { motion } from '$lib/motion.svelte';
+  import { onMount } from 'svelte';
+  // The hero is the terminal (0128): with motion on, the name slot types “hi.” then “i’m tim.”,
+  // the line under it types the copy one line at a time behind the cell cursor, holds, clears
+  // and loops. Motion off, no JavaScript and the prerender show the name and the copy in full.
+  const LINES = ['Brand and web designer.', 'Identities, motion, and websites built in code.', 'Denver / remote. Open to full-time and freelance.'];
+  const STATIC_LINE = LINES.join(' ');
+  const HOLD = { hi: 900, name: 700, line: 1600, last: 2600, clear: 600 };
+  let slotName = $state('hi.');
+  let slotLine = $state('');
+  let heroVisible = $state(true);
+  const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
+  const typed = (t: string, step: number, delay = 0) => delay + [...t].length * step + 120;
+  onMount(() => {
+    const hero = document.querySelector('.hero'); if (!hero) return;
+    const io = new IntersectionObserver((es) => es.forEach((e) => { heroVisible = e.isIntersecting; }), { threshold: 0.2 });
+    io.observe(hero); return () => io.disconnect();
+  });
+  $effect(() => {
+    if (!motion.on) return;
+    let stopped = false;
+    (async () => {
+      while (!stopped) {
+        while (!heroVisible && !stopped) await sleep(300);
+        slotName = 'hi.'; slotLine = '';
+        await sleep(typed('hi.', STEP_SLOW, 200) + HOLD.hi); if (stopped) break;
+        slotName = 'i’m tim.';
+        await sleep(typed('i’m tim.', STEP_SLOW, 200) + HOLD.name); if (stopped) break;
+        for (const l of LINES) { slotLine = l; await sleep(typed(l, STEP) + (l === LINES[LINES.length - 1] ? HOLD.last : HOLD.line)); if (stopped) break; }
+        if (stopped) break;
+        slotLine = ''; slotName = '';
+        await sleep(HOLD.clear);
+      }
+    })();
+    return () => { stopped = true; slotName = 'hi.'; slotLine = ''; };
+  });
   // Brand, motion, web (PX-43): the third chip reads “Web” so looks/moves/works maps to the two
   // tracks. A chip may still carry a shorter phone form as the third element (0076).
   const qualities: [string, string, string?][] = [['looks.', 'Brand'], ['moves.', 'Motion'], ['works.', 'Web']];
 </script>
 <svelte:head><title>Timothy Ali / Brand and web designer</title><meta name="description" content="Timothy Ali, brand and web designer in Denver. Identities, motion, and websites built in code. Open to full-time and freelance work." /></svelte:head>
 <main id="main" tabindex="-1">
-  <Band class="hero" aria-labelledby="intro" mode="sky" seed={3} tick={TICK_SLOW} density={1.3} shade avoid=".hero-hint, .hero-role, .hero-status">
-    <h1 id="intro" class="blackletter hero-name"><Decode text="i’m tim." mode="type" step={STEP_SLOW} delay={500} cursor /></h1>
-    <p class="hero-role body">Brand and web designer. Identities, motion, and websites built in code.</p>
-    <!-- PARC Pixel has no É, so the label reads “Resume”; the segments do not break inside themselves on a phone -->
-    <p class="hero-status lbl"><span>Denver / remote /</span><span>Open to full-time and freelance</span><QuietLink href={RESUME_URL} label="Resume" class="hero-resume" /></p>
-    <Cta variant="hint" class="hero-hint lbl" href="#work">Selected work<svg class="arrow" width="16" height="16" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM3 2h1v1h-1zM3 3h1v1h-1zM3 4h1v1h-1zM3 5h1v1h-1zM3 6h1v1h-1zM3 7h1v1h-1zM0 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM5 5h1v1h-1zM2 6h1v1h-1zM4 6h1v1h-1z" fill="currentColor" /></svg></Cta>
+  <Band class="hero" aria-labelledby="intro" mode="sky" seed={3} tick={TICK_SLOW} density={1.3} shade avoid=".hero-actions, .hero-role">
+    {#if motion.on}
+      <h1 id="intro" class="blackletter hero-name"><span class="sr-only">i’m tim.</span><span aria-hidden="true"><Decode text={slotName} mode="type" step={STEP_SLOW} delay={200} cursor={!slotLine} /></span></h1>
+      <p class="sr-only">{STATIC_LINE}</p>
+      <p class="hero-role body" aria-hidden="true"><Decode text={slotLine} mode="type" step={STEP} cursor={!!slotLine} cursorSize="cell" /></p>
+    {:else}
+      <h1 id="intro" class="blackletter hero-name">i’m tim.</h1>
+      <p class="hero-role body">{STATIC_LINE}</p>
+    {/if}
+    <!-- PARC Pixel has no É, so the résumé label reads “Resume” -->
+    <div class="hero-actions"><Cta variant="hint" class="hero-hint lbl" href="#work">Selected work<svg class="arrow" width="16" height="16" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM3 2h1v1h-1zM3 3h1v1h-1zM3 4h1v1h-1zM3 5h1v1h-1zM3 6h1v1h-1zM3 7h1v1h-1zM0 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM5 5h1v1h-1zM2 6h1v1h-1zM4 6h1v1h-1z" fill="currentColor" /></svg></Cta><QuietLink href={RESUME_URL} label="Resume" class="hero-resume lbl" /></div>
   </Band>
 
   <section class="who" aria-labelledby="statement-title">
@@ -61,11 +102,13 @@ main :global(.hero){min-height:calc(100vh - 96px);min-height:round(down,calc(100
 .hero-name{font-size:344px;line-height:344px}
 /* The role and status lines under the name (PX-43): body and label, knocked out of the sky
    like the hint; the hint is now the link to the work. */
-.hero-role{max-width:46ch;margin-top:var(--s2)}
-.hero-status{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--s1);margin-top:var(--s2)}
-.hero-status>span{white-space:nowrap}
-.hero-status :global(.hero-resume){margin-left:var(--s2)}
-main :global(.hero-hint){position:absolute;right:var(--gutter);bottom:var(--s8)}
+/* The typed line: a flex box so the field's knockout measures one stable box (its element
+   box, not the changing words) two lines tall; the typed text wraps like prose. */
+.hero-role{display:flex;max-width:46ch;min-height:64px;margin-top:var(--s2)}
+.hero-role :global(.decode){display:inline;white-space:pre-wrap}
+/* The actions, the work chip and the résumé link (0127): bottom right on desktop with the chip
+   outermost; on phones a row under the status. */
+.hero-actions{position:absolute;right:var(--gutter);bottom:var(--s8);display:flex;flex-direction:row-reverse;align-items:center;gap:var(--s3)}
 main :global(.hero-hint:hover),main :global(.hero-hint:focus-visible){background:var(--fg);color:var(--paper)}
 :global(.hero-hint) .arrow{display:block;transform:translateY(0);position:relative;top:-1px} /* a 16px block in a line moved 1 down for the type (0097) */
 :global(.motion .hero-hint) .arrow{animation:nudge var(--tick-cursor) steps(2,jump-none) infinite}
@@ -107,9 +150,11 @@ main :global(.work-rain){position:relative;isolation:isolate;overflow:hidden}
 @media(max-width:1100px){.invitation h2{flex-direction:column;align-items:flex-start;gap:var(--s2)}}
 @media(max-width:1100px){.hero-name{font-size:258px;line-height:264px}.words,.para .w{font-size:86px}}
 @media(max-width:700px){
-  main :global(.hero){min-height:80vh;min-height:round(down,80vh,8px);padding-bottom:var(--s6)}
+  /* The first screen on a phone (0127): the hero is the small viewport less the 136px chrome,
+     so the name, the lines and the actions end at the fold; 80vh stays as the fallback. */
+  main :global(.hero){min-height:round(down,80vh,8px);min-height:round(down,calc(100svh - 136px),8px);padding-bottom:var(--s6)}
   .hero-name{font-size:129px;line-height:136px}
-  main :global(.hero-hint){position:static;margin-top:var(--s2);align-self:flex-start}
+  .hero-actions{position:static;flex-direction:row;margin-top:var(--s2);align-self:flex-start}
   .hero-role{max-width:none}
   .who{padding-top:var(--s6);padding-bottom:var(--s6)}
   .para{font-size:41.25px;line-height:48px}.para .display{font-size:41.25px;line-height:48px}.words,.para .w{font-size:86px;line-height:96px}.para .w{margin-right:var(--s1)}.para .note{padding:var(--s1);margin-right:0}.note-full{display:none}.note-short{display:inline}
