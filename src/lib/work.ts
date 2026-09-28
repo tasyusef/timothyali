@@ -10,8 +10,8 @@ export interface Media { src: string; w: number; h: number; alt: string; video?:
 export type Row = Media[];
 export type Block =
   | { type: 'text'; title: string; paras: string[] }
-  /** `narrow` sets the gallery in the paragraph column instead of the full width (PX-49) */
-  | { type: 'gallery'; rows: Row[]; note?: string; narrow?: boolean }
+  /** `note` is the caption under the screens; a gallery belongs to the text block before it (PX-52) */
+  | { type: 'gallery'; rows: Row[]; note?: string }
   | { type: 'list'; title: string; items: string[] };
 
 /** The fields the Work list needs. Every visible project is a full `Project`;
@@ -81,28 +81,40 @@ const source: Source[] = [
     lead: [
       "Sonde was an XRP Ledger explorer with network analytics, portfolio tracking, and tools for investigating account activity. I designed, built, and ran it myself."
     ],
-    hero: [so('account.png', 1600, 900, 'Sonde account page: balance, smart money score, risk profile, and counterparty graph')],
+    // The account page's content, cropped from the 1600px capture (PX-52): the app fills only
+    // the middle of its frame, so the full capture showed its type at about 86%.
+    hero: [so('crop/account-overview.png', 1116, 784, 'Sonde account page: balance, smart money score, risk profile, and counterparty graph')],
+    // Six points, each with the screens it talks about (PX-52, 0136). A gallery note is the caption
+    // under its screens; the crops keep each screen's type readable beside the text.
     blocks: [
-      { type: 'text', title: 'Making the data readable', paras: [
-        "I wanted an account page that made sense before you knew the ledger’s terminology. I used type and spacing to put the balance, holdings, and recent activity first, with the technical detail farther down.",
+      { type: 'text', title: 'The balance comes first', paras: [
+        "I wanted an account page that made sense before you knew the ledger’s terminology. I used type and spacing to put the balance, holdings, and recent activity first, with the technical detail farther down."
+      ] },
+      { type: 'gallery', note: 'The balance leads, then value, reserve and age, then the tabs.', rows: [[so('crop/account-balance.png', 780, 270, 'Sonde account balance card: 157.199903 XRP, total value, reserve, and age above the account tabs')]] },
+      { type: 'text', title: 'Three readers, three depths', paras: [
         "Different readers needed different levels of detail. A newcomer might want to see what an account holds. A trader might need profit and loss, cost basis, and allocation. An analyst might want raw transaction data or fund tracing. I organized the account tabs around that progression and kept the live updates visually quiet."
       ] },
-      { type: 'gallery', rows: [
-        [so('network.png', 1600, 900, 'Sonde network insights: live XRP price, market cap, a candlestick chart, and the latest ledgers')],
-        [so('markets.png', 1600, 900, 'Sonde markets: XRPL token rankings by price, market cap, volume, and holders'), so('portfolio.png', 1600, 900, 'Sonde portfolio: total value, performance chart, allocation, and watchlist')]
+      { type: 'gallery', note: 'For a trader: portfolio value, performance over time, and allocation.', rows: [[so('crop/portfolio.png', 1116, 730, 'Sonde portfolio: total value, performance chart, allocation, and watchlist')]] },
+      { type: 'gallery', note: 'For an analyst: a transaction’s balance changes and the ledger nodes it touched.', rows: [[so('crop/transaction.png', 1116, 440, 'Sonde transaction detail: balance changes and affected ledger nodes')]] },
+      { type: 'text', title: 'Nothing blanks while it loads', paras: [
+        "Search took an address, transaction identifier, ledger number, or token name and opened the matching view. Account pages had twelve tabs, from transactions and holdings to NFTs, liquidity pools, offers, and escrows. Sections loaded independently, so readers could start with the balance and holdings while other requests finished, and live updates kept the previous results visible until new data arrived.",
+        "The app also covered network metrics, price charts, trading data, a wallet-connected portfolio, and a token directory, with separate databases for the app, analytics, and fund tracing."
       ] },
-      { type: 'text', title: 'Brand identity', paras: [
+      { type: 'gallery', note: 'Network insights: the live price, market figures, and the price chart.', rows: [[so('crop/network.png', 1116, 640, 'Sonde network insights: live XRP price, market cap, and a candlestick chart')]] },
+      { type: 'text', title: 'Scoring wallets, tracing funds', paras: [
+        "Investigation tools scored wallets by profitability and consistency, traced funds through up to six transfers, and flagged possible wash trading."
+      ] },
+      { type: 'gallery', note: 'One wallet’s score out of 100, the factors behind it, and its history.', rows: [[so('crop/smart-money-detail.png', 1116, 455, 'Sonde Smart Money detail: a score of 64 out of 100, its score factors, and score history')]] },
+      { type: 'gallery', note: 'The leaderboard: scored wallets ranked by PnL, win rate, and Sharpe.', rows: [[so('crop/smart-money.png', 1116, 370, 'Sonde Smart Money leaderboard: scored wallets ranked by PnL, win rate, and Sharpe')]] },
+      { type: 'text', title: 'Questions in plain English', paras: [
+        "An AI assistant, Ask the Ledger, took questions in plain English and could query those tools in a conversation."
+      ] },
+      { type: 'gallery', note: 'Ask the Ledger opens on suggested questions.', rows: [[so('crop/ask.png', 1116, 270, 'Ask the Ledger: natural-language queries over the XRP Ledger, with suggested questions')]] },
+      { type: 'text', title: 'An identity for a measuring tool', paras: [
         "A sonde is a probe used to take measurements. The name suited a tool for looking into ledger activity. I used dark slate surfaces and muted neutrals, with salmon (#E8856C) for key metrics and live indicators.",
         "Satoshi handled display type, DM Sans the interface and body copy, and IBM Plex Mono the addresses, hashes, and amounts. Small colored tags distinguished payments, trades, NFT operations, trust lines, and liquidity-pool activity without coloring entire rows."
       ] },
-      { type: 'text', title: 'The product', paras: [
-        "Search took an address, transaction identifier, ledger number, or token name and opened the matching view. Account pages had twelve tabs, from transactions and holdings to NFTs, liquidity pools, offers, and escrows. Sections loaded independently, so readers could start with the balance and holdings while other requests finished, and live updates kept the previous results visible until new data arrived.",
-        "The app included network metrics, price charts, trading data, a wallet-connected portfolio, and a token directory. Investigation tools scored wallets by profitability and consistency, traced funds through up to six transfers, and flagged possible wash trading. An AI assistant could query those tools in a conversation. Separate databases supported the app, analytics, and fund tracing."
-      ] },
-      { type: 'gallery', rows: [
-        [so('smart-money.png', 1600, 900, 'Sonde Smart Money leaderboard: scored wallets ranked by PnL, win rate, and Sharpe'), so('transaction.png', 1600, 900, 'Sonde transaction detail: identifiers, outcome, balance changes, and affected ledger nodes')],
-        [so('ask-the-ledger.png', 1600, 900, 'Ask the Ledger: natural-language queries over the XRP Ledger')]
-      ] },
+      { type: 'gallery', note: 'The landing page, with salmon as the one accent.', rows: [[so('crop/landing.png', 840, 260, 'Sonde landing page: Decode the XRPL, with Ask the Ledger and Portfolio buttons')]] },
       { type: 'text', title: 'Outcome', paras: [
         "I launched Sonde with a public explorer, analytics, and paid portfolio and investigation tools. Subscriptions accepted fiat and crypto. I handled design, development, and operations. I closed the hosted app when infrastructure costs outran subscription revenue, and published the code on GitHub under the MIT license."
       ] }
@@ -124,29 +136,29 @@ const source: Source[] = [
     lead: [
       "Pocketwatch brought budgeting, net worth, and investments into one app. We were a team of two: I owned the product, brand, design, and front end, and my partner Chris built the backend, including auth, and ran the business side."
     ],
-    hero: [pw('hero.png', 1200, 1200, 'Pocketwatch: all your money in one place. Dashboard with net worth, investments, and money agenda on electric lime'), pw('hero-invest.png', 1200, 628, 'Pocketwatch campaign: watch your investments move, live position tickers on violet')],
+    // The product leads (PX-52); the launch graphics move to Brand identity.
+    hero: [pw('app-dashboard.png', 1600, 1121, 'Pocketwatch dashboard: money agenda, composition, investments, wealth velocity, and cash flow')],
     blocks: [
       { type: 'text', title: 'One ledger for everything', paras: [
         "The product combined a zero-based budget, a transaction ledger for cash and credit accounts, investment tracking, manual assets, and a net-worth view. The design challenge was helping people move between those views without losing track of which accounts and figures they were looking at.",
         "I designed and built the front end in SvelteKit 2 and Svelte 5, including mobile layouts and loading, empty, and error states. Chris built the backend with Express, Drizzle, and Postgres."
       ] },
+      { type: 'gallery', note: 'One transaction ledger across cash and credit accounts.', rows: [[pw('app-accounts.png', 1600, 1000, 'Pocketwatch accounts: one transaction ledger across cash and credit accounts')]] },
+      { type: 'gallery', note: 'Investments and net worth, derived from every account, holding, and manual asset.', rows: [[pw('app-investments.png', 1600, 1230, 'Pocketwatch investments: total return, portfolio value, allocation, and dividend income'), pw('app-networth.png', 1600, 1198, 'Pocketwatch net worth, derived from every account, holding, and manual asset')]] },
       { type: 'text', title: 'Color in the app', paras: [
         "Inside the app, I kept the interface neutral so category colors, gains, losses, and warnings were easy to pick out. People chose an emoji and one of ten colors for each category. The citron green was mostly reserved for marketing.",
         "Shared settings controlled type, color, spacing, and motion. Satoshi handled display type, Inter the interface, and JetBrains Mono the figures. Consistent number widths helped balances line up in tables. The same motion rules applied throughout, including reduced motion."
       ] },
-      { type: 'gallery', note: 'The product', rows: [
-        [pw('app-dashboard.png', 1600, 1121, 'Pocketwatch dashboard: money agenda, composition, investments, wealth velocity, and cash flow')],
-        [pw('app-budget.png', 1600, 1000, 'Pocketwatch budget: every dollar assigned, with a Ready-to-Assign figure'), pw('app-accounts.png', 1600, 1000, 'Pocketwatch accounts: one transaction ledger across cash and credit accounts')],
-        [pw('app-investments.png', 1600, 1230, 'Pocketwatch investments: total return, portfolio value, allocation, and dividend income'), pw('app-networth.png', 1600, 1198, 'Pocketwatch net worth, derived from every account, holding, and manual asset')]
-      ] },
+      { type: 'gallery', note: 'The budget: every dollar assigned, with a Ready-to-Assign figure.', rows: [[pw('app-budget.png', 1600, 1000, 'Pocketwatch budget: every dollar assigned, with a Ready-to-Assign figure')]] },
       { type: 'text', title: 'Brand identity', paras: [
         "I drew the mark as an eye peeking out of a pocket: a small, slightly odd character to go with the name. Its simple shape worked as an app icon and beside the Satoshi wordmark.",
         "The main palette was near-black and white with a citron-green accent. I kept the rest of the identity simple so the mark could carry the personality."
       ] },
+      { type: 'gallery', note: 'Launch graphics on electric lime and violet.', rows: [[pw('hero.png', 1200, 1200, 'Pocketwatch: all your money in one place. Dashboard with net worth, investments, and money agenda on electric lime'), pw('hero-invest.png', 1200, 628, 'Pocketwatch campaign: watch your investments move, live position tickers on violet')]] },
       { type: 'text', title: 'The campaign', paras: [
         "The campaign used saturated lime, violet, and pink backgrounds with large condensed type. Each ad focused on one feature, such as budgeting or investments. The eye-in-a-pocket mark connected those brighter graphics to the app."
       ] },
-      { type: 'gallery', note: 'The campaign', rows: [
+      { type: 'gallery', note: 'One feature per ad, each on its own color.', rows: [
         [pw('ad-both.png', 1200, 628, 'Pocketwatch campaign: budgeting and investing in one place, on electric lime'), pw('ad-analytics.png', 1200, 628, 'Pocketwatch campaign: see where it all goes, category breakdown on pink')],
         [pw('ad-networth.png', 1200, 1200, 'Pocketwatch campaign: know exactly what you are worth, net worth tracking on sky blue'), pw('ad-invest.png', 960, 1200, 'Pocketwatch campaign: your portfolio, priced live, investments on violet'), pw('ad-budget.png', 1200, 1200, 'Pocketwatch campaign: every dollar, accounted for, zero-based budget on orange'), pw('ad-ledger.png', 1200, 1200, 'Pocketwatch campaign: every account in one place, unified ledger on mint green')]
       ] },
@@ -180,7 +192,8 @@ const source: Source[] = [
         "Lockup takes one SVG per logo variation and exports an organized package: print and web folders, color, black, and white versions, several sizes, optional square social versions, and a README. Print PDF and EPS files can carry named Pantone spot colors. Palette exports colors as CSS and SCSS variables, design tokens, Adobe swatches, or a reference sheet. Specimen makes a type sheet from installed fonts, and Convert changes image formats, sizes, and compression.",
         "Work is organized by project, one client or job each. Every export goes into a new folder instead of replacing an earlier delivery, and saved settings let a package be reopened and exported again. The library stays on the computer, and exported files stay in the folders you choose."
       ] },
-      { type: 'gallery', rows: [[tbTools[1].shot, tbTools[2].shot], [tbTools[3].shot, tbHome]] },
+      { type: 'gallery', note: 'Palette samples a poster’s colors into swatches; Specimen sets a type sheet from installed fonts.', rows: [[tbTools[1].shot, tbTools[2].shot]] },
+      { type: 'gallery', note: 'Convert measures each file’s size per format; the home screen lists the four tools.', rows: [[tbTools[3].shot, tbHome]] },
       { type: 'text', title: 'App, command line, and agents', paras: [
         "Each tool runs three ways: in the app, from the command line, and through an MCP server that AI agents can call. The command line and MCP take the same options as the app’s controls, and they can inspect inputs, preview results, and reopen saved work before exporting.",
         "The app shares its terminal look and several components with this site."
@@ -217,7 +230,7 @@ const source: Source[] = [
       { type: 'text', title: 'An earlier direction', paras: [
         "Around 2024 I had worked up a different direction: the club’s parts renamed as three branches, The Rowboat Club, The Parcade, and The Nightclub, each a black pixel wordmark with its own icon: an oar, a red joystick, and a red microphone. We all agreed it looked good, but it didn’t fit the brand: too serious and too dark, not playful enough. We set it aside."
       ] },
-      { type: 'gallery', note: 'Set aside, around 2024', narrow: true, rows: [
+      { type: 'gallery', note: 'Set aside, around 2024', rows: [
         [pa('first-direction.png', 1600, 1000, 'The earlier direction: three black pixel lockups on white, The Nightclub with a red microphone, The Parcade with a red joystick, and The Rowboat Club with an oar')]
       ] },
       { type: 'text', title: 'Same people, better brand', paras: [

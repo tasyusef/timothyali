@@ -15,6 +15,7 @@
    .body        Jersey 15       27/32
    .lbl         PARC Pixel      12.5/16, uppercase        (cell 2)
    .mono        Press Start 2P  16/16, uppercase, nowrap
+   .read        system sans     20/32, smoothed: the case-study reading text (0136)
    .dim         —               opacity only
    ------------------------------------------------------------------ */
 .blackletter{font-family:var(--face-blackletter);font-weight:400;line-height:1}
@@ -24,9 +25,11 @@
 .lead{font-family:var(--face-text);font-size:54px;line-height:64px}
 .lbl{font-family:var(--face-label);font-size:12.5px;line-height:16px;text-transform:uppercase}
 .mono{font-family:var(--face-mono);font-size:16px;line-height:16px;text-transform:uppercase;white-space:nowrap}
+/* the one smoothed face: every other role is a bitmap and :root turns smoothing off (base.css) */
+.read{font-family:var(--face-read);font-size:20px;line-height:32px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 /* An inline arrow or value in another face's line sits on the line top, where a flex Cta
    would put it; on the baseline its 16px box hangs 4px lower and the line grows to 20 (0089). */
-:where(.lbl,.body,.display,.lead) .mono{vertical-align:top}
+:where(.lbl,.body,.display,.lead,.read) .mono{vertical-align:top}
 .dim{opacity:var(--dim)}
 
 /* The one-word display size. Carries no face of its own — it is always

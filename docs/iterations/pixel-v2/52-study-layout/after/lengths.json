@@ -1,0 +1,74 @@
+{
+  "1440 sonde": {
+    "screens": 7.1,
+    "overflow": false
+  },
+  "1440 pocketwatch": {
+    "screens": 5.6,
+    "overflow": false
+  },
+  "1440 toolbox": {
+    "screens": 3.7,
+    "overflow": false
+  },
+  "1440 parc": {
+    "screens": 11.8,
+    "overflow": false
+  },
+  "1440 firstledger": {
+    "screens": 5.6,
+    "overflow": false
+  },
+  "1440 xrpcafe": {
+    "screens": 4.6,
+    "overflow": false
+  },
+  "1440 jade-aesthetics": {
+    "screens": 4.7,
+    "overflow": false
+  },
+  "1440 firststrike": {
+    "screens": 5,
+    "overflow": false
+  },
+  "1440 do-androids-dream": {
+    "screens": 3.5,
+    "overflow": false
+  },
+  "390 sonde": {
+    "screens": 7.7,
+    "overflow": false
+  },
+  "390 pocketwatch": {
+    "screens": 9.3,
+    "overflow": false
+  },
+  "390 toolbox": {
+    "screens": 5.3,
+    "overflow": false
+  },
+  "390 parc": {
+    "screens": 20.2,
+    "overflow": false
+  },
+  "390 firstledger": {
+    "screens": 6.7,
+    "overflow": false
+  },
+  "390 xrpcafe": {
+    "screens": 8.3,
+    "overflow": false
+  },
+  "390 jade-aesthetics": {
+    "screens": 7,
+    "overflow": false
+  },
+  "390 firststrike": {
+    "screens": 5.9,
+    "overflow": false
+  },
+  "390 do-androids-dream": {
+    "screens": 4.7,
+    "overflow": false
+  }
+}

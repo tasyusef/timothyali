@@ -25,6 +25,36 @@
     const ro = new ResizeObserver(fit); ro.observe(h1);
     return () => { ro.disconnect(); document.fonts?.removeEventListener('loadingdone', fit); };
   });
+
+  // Layout B (PX-52, 0136): the study is a run of points. A text block opens a point and the
+  // galleries after it are its screens, each gallery's note the caption under them. On desktop
+  // the point's text stays in view in the left third while its screens scroll past on the right.
+  type Group = { rows: Row[]; note?: string };
+  type Part = { kind: 'point'; title: string; paras: string[]; groups: Group[] } | { kind: 'list'; title: string; items: string[] };
+  const parts = $derived.by(() => {
+    const out: Part[] = [];
+    for (const b of p.blocks) {
+      if (b.type === 'text') out.push({ kind: 'point', title: b.title, paras: b.paras, groups: [] });
+      else if (b.type === 'list') out.push({ kind: 'list', title: b.title, items: b.items });
+      else {
+        const last = out[out.length - 1];
+        if (last?.kind === 'point') last.groups.push({ rows: b.rows, note: b.note });
+        else out.push({ kind: 'point', title: '', paras: [], groups: [{ rows: b.rows, note: b.note }] });
+      }
+    }
+    return out;
+  });
+  const points = $derived(parts.filter((x) => x.kind === 'point' && x.title).length);
+  const pad = (i: number) => String(i).padStart(2, '0');
+  // A point's text is held in view only while it fits under the chrome; taller text scrolls
+  // with the page, or its last lines would stay hidden until the point's screens ran out.
+  const CHROME = 96 + 32 + 32; // header and strip, the gap above, and as much below
+  function hold(node: HTMLElement) {
+    const check = () => node.classList.toggle('hold', node.offsetHeight <= window.innerHeight - CHROME);
+    check(); document.fonts?.ready.then(check);
+    const ro = new ResizeObserver(check); ro.observe(node); window.addEventListener('resize', check);
+    return { destroy: () => { ro.disconnect(); window.removeEventListener('resize', check); } };
+  }
 </script>
 <svelte:head><title>{p.title} / Timothy Ali</title><meta name="description" content={p.description} /></svelte:head>
 
@@ -45,27 +75,38 @@
     <MetaLine project={p} />
     <h1 class="display title" class:small bind:this={h1}><span class="probe" aria-hidden="true" bind:this={probe}>{longest}</span><Decode text={p.word} step={STEP} /></h1>
     <div class="intro">
-      <div class="lead-col">{#each p.lead as para}<p class="lead">{para}</p>{/each}</div>
+      <div class="lead-col">{#each p.lead as para}<p class="read">{para}</p>{/each}</div>
       <dl class="meta">
-        <div><dt class="lbl dim">Role</dt><dd class="body">{p.role}</dd></div>
-        {#if p.team}<div><dt class="lbl dim">Team</dt><dd class="body">{p.team}</dd></div>{/if}
-        {#if p.timeline}<div><dt class="lbl dim">Timeline</dt><dd class="body">{p.timeline}</dd></div>{/if}
-        <div><dt class="lbl dim">Tools</dt><dd class="body">{p.tools}</dd></div>
-        {#if p.live}<div><dt class="lbl dim">Live</dt><dd class="body"><QuietLink href={p.live.href} label={p.live.label} /></dd></div>{/if}
-        {#if p.source}<div><dt class="lbl dim">Source</dt><dd class="body"><QuietLink href={p.source.href} label={p.source.label} /></dd></div>{/if}
+        <div><dt class="lbl dim">Role</dt><dd class="read">{p.role}</dd></div>
+        {#if p.team}<div><dt class="lbl dim">Team</dt><dd class="read">{p.team}</dd></div>{/if}
+        {#if p.timeline}<div><dt class="lbl dim">Timeline</dt><dd class="read">{p.timeline}</dd></div>{/if}
+        <div><dt class="lbl dim">Tools</dt><dd class="read">{p.tools}</dd></div>
+        {#if p.live}<div><dt class="lbl dim">Live</dt><dd class="read"><QuietLink href={p.live.href} label={p.live.label} /></dd></div>{/if}
+        {#if p.source}<div><dt class="lbl dim">Source</dt><dd class="read"><QuietLink href={p.source.href} label={p.source.label} /></dd></div>{/if}
       </dl>
     </div>
   </section>
 
   <section class="gallery hero-row">{@render gallery([p.hero], true)}</section>
 
-  {#each p.blocks as block}
-    {#if block.type === 'text'}
-      <section class="text"><h2 class="display-s">{block.title}</h2><div class="paras">{#each block.paras as para}<p class="body">{para}</p>{/each}</div></section>
-    {:else if block.type === 'gallery'}
-      <section class="gallery" class:narrow={block.narrow}>{#if block.note}<span class="lbl dim note">{block.note}</span>{/if}{@render gallery(block.rows, false)}</section>
+  {#each parts as part, i}
+    {#if part.kind === 'list'}
+      <section class="list"><h2 class="display-s">{part.title}</h2><ol>{#each part.items as item, j}<li><span class="lbl">{pad(j + 1)}</span><span class="read">{item}</span></li>{/each}</ol></section>
     {:else}
-      <section class="list"><h2 class="display-s">{block.title}</h2><ol>{#each block.items as item, i}<li><span class="lbl">{String(i + 1).padStart(2, '0')}</span><span class="body">{item}</span></li>{/each}</ol></section>
+      {@const n = parts.slice(0, i + 1).filter((x) => x.kind === 'point' && x.title).length}
+      <section class="point" class:solo={!part.groups.length}>
+        {#if part.title || part.paras.length}
+          <div class="point-text" use:hold>
+            {#if part.title}<span class="lbl dim">{pad(n)} / {pad(points)}</span><h2 class="display-s">{part.title}</h2>{/if}
+            {#if part.paras.length}<div class="paras">{#each part.paras as para}<p class="read">{para}</p>{/each}</div>{/if}
+          </div>
+        {/if}
+        {#if part.groups.length}
+          <div class="point-figs">
+            {#each part.groups as g}<div class="group">{@render gallery(g.rows, false)}{#if g.note}<p class="lbl dim cap">{g.note}</p>{/if}</div>{/each}
+          </div>
+        {/if}
+      </section>
     {/if}
   {/each}
 
@@ -84,30 +125,38 @@
 .title.small :global(.decode){display:block;font-size:82.5px;line-height:88px}
 .title :global(.decode){display:inline;white-space:normal} /* the title may wrap between words */
 .intro{display:grid;grid-template-columns:round(down,calc((100% - 32px) * 2 / 3),8px) 1fr;gap:var(--s4);margin-top:var(--s4);align-items:start}
+/* Reading text (0136): the lead, the meta values and every paragraph in the reading face,
+   20/32; the lead and paragraphs in a 64ch column. 20/32 also keeps a link's 16px arrow,
+   centred in its line, on the unit (a 24px line put it 4px off). */
 .lead-col{display:flex;flex-direction:column;gap:var(--s3);max-width:64ch}
-/* Reading type (PX-43, 0123): the one lead paragraph is body size, 27/40, Timothy having found
-   the 54px opener too big, and the study paragraphs match it, each column capped at 64ch. Both
-   are on the unit. The body role elsewhere (rows, index lines, meta, lists) keeps 27/32. */
-.lead{font-size:27px;line-height:40px}
-.paras{max-width:64ch}
-.paras .body{line-height:40px}
 .meta{display:flex;flex-direction:column;gap:var(--s2);margin:0;padding-top:var(--s1)}
 .meta dt{margin-bottom:var(--s1)}.meta dd{margin:0}
 .hero-row{padding-top:var(--s8)}
-.text,.list,.gallery{padding-top:var(--s8)}
-.text,.list{display:grid;grid-template-columns:round(down,calc((100% - 32px) / 2),8px) 1fr;gap:var(--s4);align-items:start}
-.paras{display:flex;flex-direction:column;gap:var(--s3)}
 .gallery{display:flex;flex-direction:column;gap:var(--s2)}
-.gallery .note{margin-bottom:var(--s1)}
-/* a narrow gallery sits in the paragraph column, under the text it belongs to (PX-49) */
-.gallery.narrow .note,.gallery.narrow .grow{margin-left:calc(round(down,calc((100% - 32px) / 2),8px) + 32px)}
 .grow{display:grid;grid-template-columns:var(--cols);gap:var(--s2);align-items:start}
-.list ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s2)}
+
+/* Points (PX-52): the text in the left third, the screens in the rest. A point without
+   screens is one column, its text at the reading measure. */
+.point{display:grid;grid-template-columns:round(down,calc((100% - 32px) / 3),8px) 1fr;gap:var(--s4);align-items:start;padding-top:var(--s12)}
+.point.solo{grid-template-columns:100%}
+.point-text{display:flex;flex-direction:column;gap:var(--s2)}
+.point-text h2{margin-bottom:var(--s1)}
+.paras{display:flex;flex-direction:column;gap:var(--s3);max-width:64ch}
+.point-figs{display:flex;flex-direction:column;gap:var(--s6)}
+.group{display:flex;flex-direction:column;gap:var(--s2)}
+.cap{max-width:64ch}
+.list{display:grid;grid-template-columns:round(down,calc((100% - 32px) / 3),8px) 1fr;gap:var(--s4);align-items:start;padding-top:var(--s12)}
+.list ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s3);max-width:64ch}
 .list li{display:grid;grid-template-columns:48px 1fr;gap:var(--s2);align-items:start}
 .list li>.lbl{padding-top:var(--s1)} /* one unit down, not baseline-aligned: that put the numeral on an odd pixel (0089) */
-.next{padding-top:var(--s8)}
+.next{padding-top:var(--s12)}
+@media(min-width:901px){
+  /* a third of the page holds about sixteen caps at 41.25, so the point heading steps down one cell */
+  .point-text h2,.list h2{font-size:27.5px;line-height:32px}
+  .point-text:global(.hold){position:sticky;top:calc(96px + var(--s4))}
+}
 @media(max-width:1100px){.title{font-size:82.5px;line-height:88px}.title.small :global(.decode){font-size:55px;line-height:56px}}
-@media(max-width:900px){.title{font-size:55px;line-height:56px}.title.small :global(.decode){font-size:41.25px;line-height:48px}.intro,.text,.list{grid-template-columns:100%}.gallery.narrow .note,.gallery.narrow .grow{margin-left:0}}
+@media(max-width:900px){.title{font-size:55px;line-height:56px}.title.small :global(.decode){font-size:41.25px;line-height:48px}.intro,.point,.list{grid-template-columns:100%}}
 @media(max-width:700px){.title{font-size:41.25px;line-height:48px}.title.small :global(.decode){font-size:27.5px;line-height:32px}}
 @media(max-width:700px){
   .head{padding-top:var(--s3)}
@@ -115,6 +164,6 @@
   .grow{grid-template-columns:100%}
   /* phone screenshots and squares two to a line, not one per screen (PX-49) */
   .grow.tiles{grid-template-columns:repeat(2,round(down,calc((100% - 16px) / 2),2px))} /* equal columns, so a line's figures floor to one height */
-  .hero-row,.text,.list,.gallery,.next{padding-top:var(--s6)}
+  .hero-row,.point,.list,.next{padding-top:var(--s6)}
 }
 </style>

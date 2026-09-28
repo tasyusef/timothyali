@@ -157,6 +157,7 @@ would hide the arithmetic.
 | `.body` | Jersey 15 | 27/32; the study's reading paragraphs (`.paras`) 27/40 in a 64ch column (PX-43) |
 | `.lbl` | PARC Pixel | 12.5/16, uppercase (cell 2) |
 | `.mono` | Press Start 2P | 16/16, uppercase, nowrap |
+| `.read` | system sans (`--face-read`) | 20/32 at every width, smoothed; the case-study reading text only: lead, meta values, paragraphs, list items (0136). The one face that is not a bitmap |
 | `.dim` | — | `opacity:var(--dim)` |
 
 `.display-xl` replaces the three route-local `.xl` copies (Home, Work, Contact).
@@ -242,12 +243,17 @@ index entries, then the two hidden ones (0077). `Entry` is what the Work list ne
 | Export | Is | Used by |
 |---|---|---|
 | `all` | every item, hidden included | nothing yet; the record |
-| `studies` | the eight visible `Project`s, in order | `[slug]/+page.ts` entries and the Next chain 01 → 08 → 01 |
+| `studies` | the nine visible `Project`s, in order | `[slug]/+page.ts` entries and the Next chain 01 → 09 → 01 |
 | `projects` | `tier === 'selected'` | Home cards, Work rows |
 | `index` | `tier === 'index'` | the Work index list |
 | `count` | `004` | Home |
 | `total` | `008` | the Work footer and every study footer |
 | `last` | `08` | the `01–08` ranges |
+
+A study page reads `blocks` as points (0136): each `text` block opens a point and the
+`gallery` blocks after it are its screens, a gallery's `note` the caption under them; a
+`list` stands alone. On desktop the point's text takes the left third and stays in view
+(sticky under the chrome) while it fits; below 900px it sits above its screens.
 
 `rowColumns(row)` turns a gallery row into aspect-proportional columns snapped to the 2px
 image cell. Keep a row to three images or fewer when the images are tall: at an aspect
