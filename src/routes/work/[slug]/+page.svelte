@@ -7,7 +7,7 @@
   import MetaLine from '$lib/components/MetaLine.svelte';
   import PageFoot from '$lib/components/PageFoot.svelte';
   import QuietLink from '$lib/components/QuietLink.svelte';
-  import { rowColumns, total, type Row } from '$lib/work';
+  import { rowColumns, rowTiles, total, type Row } from '$lib/work';
   import { STEP } from '$lib/tokens';
   import { onMount } from 'svelte';
   let { data } = $props();
@@ -31,9 +31,9 @@
 {#snippet gallery(rows: Row[], eager: boolean)}
   {#each rows as row}
     {@const share = { total: row.reduce((a, m) => a + m.w / m.h, 0), n: row.length }}
-    <div class="grow" style:--cols={rowColumns(row)}>
+    <div class="grow" class:tiles={rowTiles(row)} style:--cols={rowColumns(row)}>
       {#each row as m}
-        {#if m.video}<Clip src={m.src} width={m.w} height={m.h} label={m.alt} row={share} />{:else}<Picture src={m.src} x2={m.x2} alt={m.alt} width={m.w} height={m.h} {eager} row={share} />{/if}
+        {#if m.video}<Clip src={m.src} width={m.w} height={m.h} label={m.alt} poster={m.poster} row={share} />{:else}<Picture src={m.src} x2={m.x2} alt={m.alt} width={m.w} height={m.h} {eager} row={share} />{/if}
       {/each}
     </div>
   {/each}
@@ -62,7 +62,7 @@
     {#if block.type === 'text'}
       <section class="text"><h2 class="display-s">{block.title}</h2><div class="paras">{#each block.paras as para}<p class="body">{para}</p>{/each}</div></section>
     {:else if block.type === 'gallery'}
-      <section class="gallery">{#if block.note}<span class="lbl dim note">{block.note}</span>{/if}{@render gallery(block.rows, false)}</section>
+      <section class="gallery" class:narrow={block.narrow}>{#if block.note}<span class="lbl dim note">{block.note}</span>{/if}{@render gallery(block.rows, false)}</section>
     {:else}
       <section class="list"><h2 class="display-s">{block.title}</h2><ol>{#each block.items as item, i}<li><span class="lbl">{String(i + 1).padStart(2, '0')}</span><span class="body">{item}</span></li>{/each}</ol></section>
     {/if}
@@ -78,7 +78,9 @@
 .title{position:relative;font-size:110px;line-height:112px;margin-top:var(--s2)}
 .title .probe{position:absolute;left:0;top:0;width:0;overflow:hidden;visibility:hidden;white-space:pre;pointer-events:none}
 /* the step applies to the visible text only; the probe keeps the base size, or it would measure itself small and oscillate */
-.title.small :global(.decode){font-size:82.5px;line-height:88px}
+/* a block, so its own line height sets the lines; inline, the heading's larger strut held
+   every line of a small two-line title at the base pitch (48px lines under 27.5px caps, PX-49) */
+.title.small :global(.decode){display:block;font-size:82.5px;line-height:88px}
 .title :global(.decode){display:inline;white-space:normal} /* the title may wrap between words */
 .intro{display:grid;grid-template-columns:round(down,calc((100% - 32px) * 2 / 3),8px) 1fr;gap:var(--s4);margin-top:var(--s4);align-items:start}
 .lead-col{display:flex;flex-direction:column;gap:var(--s3);max-width:64ch}
@@ -96,18 +98,22 @@
 .paras{display:flex;flex-direction:column;gap:var(--s3)}
 .gallery{display:flex;flex-direction:column;gap:var(--s2)}
 .gallery .note{margin-bottom:var(--s1)}
+/* a narrow gallery sits in the paragraph column, under the text it belongs to (PX-49) */
+.gallery.narrow .note,.gallery.narrow .grow{margin-left:calc(round(down,calc((100% - 32px) / 2),8px) + 32px)}
 .grow{display:grid;grid-template-columns:var(--cols);gap:var(--s2);align-items:start}
 .list ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s2)}
 .list li{display:grid;grid-template-columns:48px 1fr;gap:var(--s2);align-items:start}
 .list li>.lbl{padding-top:var(--s1)} /* one unit down, not baseline-aligned: that put the numeral on an odd pixel (0089) */
 .next{padding-top:var(--s8)}
 @media(max-width:1100px){.title{font-size:82.5px;line-height:88px}.title.small :global(.decode){font-size:55px;line-height:56px}}
-@media(max-width:900px){.title{font-size:55px;line-height:56px}.title.small :global(.decode){font-size:41.25px;line-height:48px}.intro,.text,.list{grid-template-columns:100%}}
+@media(max-width:900px){.title{font-size:55px;line-height:56px}.title.small :global(.decode){font-size:41.25px;line-height:48px}.intro,.text,.list{grid-template-columns:100%}.gallery.narrow .note,.gallery.narrow .grow{margin-left:0}}
 @media(max-width:700px){.title{font-size:41.25px;line-height:48px}.title.small :global(.decode){font-size:27.5px;line-height:32px}}
 @media(max-width:700px){
   .head{padding-top:var(--s3)}
   .intro{margin-top:var(--s3);gap:var(--s3)}
   .grow{grid-template-columns:100%}
+  /* phone screenshots and squares two to a line, not one per screen (PX-49) */
+  .grow.tiles{grid-template-columns:repeat(2,round(down,calc((100% - 16px) / 2),2px))} /* equal columns, so a line's figures floor to one height */
   .hero-row,.text,.list,.gallery,.next{padding-top:var(--s6)}
 }
 </style>

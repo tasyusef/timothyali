@@ -18,6 +18,7 @@
   const LINES = ['Brand and web designer.', 'Identities, motion, and websites built in code.', 'Denver / remote. Open to full-time and freelance.'];
   const STATIC_LINE = LINES.join(' ');
   const HOLD = { hi: 900, name: 700, line: 1600, last: 2600, clear: 600 };
+  const erased = (t: string) => [...t].length * STEP_SLOW; // the name slot backspaces before it retypes
   let slotName = $state('hi.');
   let slotLine = $state('');
   let heroVisible = $state(true);
@@ -37,11 +38,11 @@
         slotName = 'hi.'; slotLine = '';
         await sleep(typed('hi.', STEP_SLOW, 200) + HOLD.hi); if (stopped) break;
         slotName = 'i’m tim.';
-        await sleep(typed('i’m tim.', STEP_SLOW, 200) + HOLD.name); if (stopped) break;
+        await sleep(erased('hi.') + typed('i’m tim.', STEP_SLOW, 200) + HOLD.name); if (stopped) break;
         for (const l of LINES) { slotLine = l; await sleep(typed(l, STEP) + (l === LINES[LINES.length - 1] ? HOLD.last : HOLD.line)); if (stopped) break; }
         if (stopped) break;
         slotLine = ''; slotName = '';
-        await sleep(HOLD.clear);
+        await sleep(erased('i’m tim.') + HOLD.clear);
       }
     })();
     return () => { stopped = true; slotName = 'hi.'; slotLine = ''; };
@@ -54,7 +55,7 @@
 <main id="main" tabindex="-1">
   <Band class="hero" aria-labelledby="intro" mode="sky" seed={3} tick={TICK_SLOW} density={1.3} shade avoid=".hero-actions, .hero-role">
     {#if motion.on}
-      <h1 id="intro" class="blackletter hero-name"><span class="sr-only">i’m tim.</span><span aria-hidden="true"><Decode text={slotName} mode="type" step={STEP_SLOW} delay={200} cursor={!slotLine} /></span></h1>
+      <h1 id="intro" class="blackletter hero-name"><span class="sr-only">i’m tim.</span><span aria-hidden="true"><Decode text={slotName} mode="type" step={STEP_SLOW} delay={200} cursor={!slotLine} erase /></span></h1>
       <p class="sr-only">{STATIC_LINE}</p>
       <p class="hero-role body" aria-hidden="true"><Decode text={slotLine} mode="type" step={STEP} cursor={!!slotLine} cursorSize="cell" /></p>
     {:else}

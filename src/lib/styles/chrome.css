@@ -44,6 +44,9 @@
 .path-short{display:none}
 @media(max-width:1100px){.st-coords{display:none}}
 @media(max-width:900px){.st-city,.st-sys,.path-full{display:none}.path-short{display:inline}}
+/* The nav numbers go at 900, not only 700 (PX-49): between 702 and 776 the four numbered
+   labels ran up to 57px past the gutter and the page scrolled sideways. */
+@media(max-width:900px){.site-header nav a b{display:none}}
 @media(max-width:480px){.st-clock{display:none}} /* 480, not 420 (0127): a 430px phone was clipping the path to ~/T… */
 
 .global-footer{display:grid;grid-template-columns:1fr auto;gap:var(--s2);align-items:center;padding:var(--s2) var(--gutter) var(--s3)}

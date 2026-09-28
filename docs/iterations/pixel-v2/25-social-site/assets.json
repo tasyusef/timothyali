@@ -9,7 +9,7 @@
     "image": "work",
     "width": 1200,
     "height": 630,
-    "bytes": 112220
+    "bytes": 111953
   },
   {
     "image": "contact",
@@ -69,13 +69,13 @@
     "image": "xrpcafe",
     "width": 1200,
     "height": 630,
-    "bytes": 18801
+    "bytes": 20154
   },
   {
     "image": "do-androids-dream",
     "width": 1200,
     "height": 630,
-    "bytes": 334300
+    "bytes": 334647
   },
   {
     "image": "firstledger",
@@ -87,19 +87,19 @@
     "image": "firststrike",
     "width": 1200,
     "height": 630,
-    "bytes": 447122
+    "bytes": 447034
   },
   {
     "image": "sonde",
     "width": 1200,
     "height": 630,
-    "bytes": 72489
+    "bytes": 72462
   },
   {
     "image": "pocketwatch",
     "width": 1200,
     "height": 630,
-    "bytes": 70143
+    "bytes": 70276
   },
   {
     "image": "story-launch",

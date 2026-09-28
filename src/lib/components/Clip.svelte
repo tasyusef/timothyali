@@ -2,10 +2,13 @@
   // A looping, muted video at its own resolution. It plays only while on screen with
   // motion on and pauses otherwise, so reduced motion gets a still frame. The figure
   // sets an integer height from its width, floored to the 8px unit, like Picture.
+  // The poster is that still until the first play (PX-49): with motion off, blocked
+  // autoplay or no JavaScript the reader sees a chosen frame, not a blank first frame,
+  // and nothing is fetched until the clip is on screen and allowed to play.
   import { onMount } from 'svelte';
   import { motion } from '$lib/motion.svelte';
   import { figureHeight, type RowShare } from '$lib/figure';
-  let { src, label, width = 16, height = 9, row }: { src: string; label: string; width?: number; height?: number; row?: RowShare } = $props();
+  let { src, label, width = 16, height = 9, row, poster }: { src: string; label: string; width?: number; height?: number; row?: RowShare; poster?: string } = $props();
   let host: HTMLElement; let video: HTMLVideoElement;
   let visible = $state(false);
   function size() {
@@ -22,7 +25,7 @@
   });
 </script>
 <figure class="pic clip" bind:this={host} style:aspect-ratio={`${width} / ${height}`}>
-  <video bind:this={video} {src} muted loop playsinline preload="auto" aria-label={label}></video>
+  <video bind:this={video} {src} {poster} muted loop playsinline preload={poster ? 'none' : 'auto'} aria-label={label}></video>
 </figure>
 <style>
 .pic{position:relative;margin:0;width:100%;overflow:hidden;background:var(--paper)}

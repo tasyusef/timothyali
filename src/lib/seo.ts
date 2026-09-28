@@ -54,7 +54,7 @@ const software = {
 
 export function graphFor(path: string): object[] | undefined {
   if (path === '/') return [person, website];
-  if (path === '/work/') return [crumbs([['Timothy Ali', '/'], ['Work', '/work/']]), { '@type': 'CollectionPage', name: 'Selected work', url: `${SITE_URL}/work/`, hasPart: studies.map((p) => ({ '@id': `${SITE_URL}/work/${p.slug}/#work` })) }];
+  if (path === '/work/') return [crumbs([['Timothy Ali', '/'], ['Work', '/work/']]), { '@type': 'CollectionPage', name: 'Work', url: `${SITE_URL}/work/`, hasPart: studies.map((p) => ({ '@id': `${SITE_URL}/work/${p.slug}/#work` })) }];
   if (path === '/contact/') return [crumbs([['Timothy Ali', '/'], ['Contact', '/contact/']])];
   if (path === '/toolbox/') return [crumbs([['Timothy Ali', '/'], ['Toolbox', '/toolbox/']]), software];
   if (path === '/toolbox/agents/') return [crumbs([['Timothy Ali', '/'], ['Toolbox', '/toolbox/'], ['CLI & MCP', '/toolbox/agents/']])];
