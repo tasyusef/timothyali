@@ -38,7 +38,7 @@ mkdirSync('static/og', { recursive: true });
 // offset, meaningless in a still, so it is hidden the way the clock is frozen; with it
 // gone the four short paths keep their coordinates and the rest shed them, the way the
 // strip does below 1100px.
-const ids = ['home', 'work', 'contact', 'toolbox', 'toolbox-agents', ...tools.map((t) => `toolbox-${t.slug}`), ...studies.map((p) => p.slug)];
+const ids = ['home', 'work', 'contact', 'toolbox', 'toolbox-agents', ...tools.map((t) => `toolbox-${t.slug}`), ...studies.map((p) => `work-${p.slug}`)];
 const report = [];
 for (const id of ids) {
   await page.goto(`${ORIGIN}/og/${id}`, { waitUntil: 'networkidle' });

@@ -14,7 +14,8 @@ export function load({ params }) {
   // Tool images are `toolbox-<slug>` so a tool and a study can never share a file name.
   const tool = tools.find((t) => `toolbox-${t.slug}` === id);
   if (tool) return { id, tool, chromePath: `/toolbox/${tool.slug}/` };
-  const project = studies.find((p) => p.slug === id);
+  // Study images are `work-<slug>` (0132), so the Toolbox study and the Toolbox page never share one.
+  const project = studies.find((p) => `work-${p.slug}` === id);
   if (!project) error(404);
   return { id, project, chromePath: `/work/${project.slug}/` };
 }

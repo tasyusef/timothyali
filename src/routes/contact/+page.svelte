@@ -7,7 +7,7 @@
   import { TICK_FAST, STEP_FAST } from '$lib/tokens';
   import { RESUME_URL } from '$lib/social';
 </script>
-<svelte:head><title>Get in touch / Timothy Ali</title><meta name="description" content="Tell me what you’re building. Timothy Ali is open to full-time roles, remote or in Denver, and to freelance brand, motion, and web projects." /></svelte:head>
+<svelte:head><title>Get in touch / Timothy Ali</title><meta name="description" content="Tell me what you’re building. Timothy Ali is open to full-time roles, remote or in Denver, and to contract product, front-end, and brand work." /></svelte:head>
 <main id="main" tabindex="-1">
   <Band class="contact" mode="fall" seed={3} density={0.55} tick={TICK_FAST} shade avoid=".contact h1 > span, .contact-foot">
     <div class="contact-top lbl"><span>Let’s talk</span><span class="channel">Timothy Ali / Denver, CO</span></div>
@@ -16,7 +16,7 @@
       <div class="signal" aria-hidden="true"><svg width="96" height="96" viewBox="0 0 12 12" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h1v7h7V7H8V6h1v1h1v1h1v1h-1v1H9v1H8v-1h1V9H1z" /></svg></div>
       <div class="contact-note">
         <p class="body">Hiring, or have a project in mind? I’d like to hear about it.</p>
-        <p class="body signoff">Open to full-time roles, remote or in Denver, and to freelance work.</p>
+        <p class="body signoff">Open to full-time roles, remote or in Denver, and to contract work.</p>
         <ContactForm />
         <div class="contact-links">
           <QuietLink href={RESUME_URL} label="Resume (PDF)" class="lbl alt" />
@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class="contact-foot"><PageFoot note="Brand / motion / web" href="/work/" label="See my work" /></div>
+    <div class="contact-foot"><PageFoot note="Interface / motion / code" href="/work/" label="See my work" /></div>
   </Band>
 </main>
 <style>

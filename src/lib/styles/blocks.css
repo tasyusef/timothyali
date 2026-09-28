@@ -76,6 +76,9 @@
 
 @media(max-width:1100px){.row-body h2{font-size:41.25px;line-height:48px}}
 @media(max-width:420px){.row-body h2{font-size:27.5px;line-height:32px}} /* “ANDROIDS” is 312px at 41.25 */
+/* a title whose longest word would not fit its column steps down the ladder (fitTitle, 0132) */
+.row-body h2[data-fit="41"]{font-size:41.25px;line-height:48px}
+.row-body h2[data-fit="27"]{font-size:27.5px;line-height:32px}
 @media(max-width:900px){.card-body h3{font-size:27.5px;line-height:32px}.row{grid-template-columns:100%;gap:var(--s2)}.rows{gap:var(--s6)}}
 @media(max-width:700px){
   .cards{grid-template-columns:1fr}

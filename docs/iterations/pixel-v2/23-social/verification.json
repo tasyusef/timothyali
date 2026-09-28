@@ -63,57 +63,64 @@
     "pass": true
   },
   {
-    "path": "/work/parc/",
-    "image": "/og/parc.png",
-    "serverRendered": true,
-    "dimensions": "1200×630",
-    "pass": true
-  },
-  {
-    "path": "/work/jade-aesthetics/",
-    "image": "/og/jade-aesthetics.png",
-    "serverRendered": true,
-    "dimensions": "1200×630",
-    "pass": true
-  },
-  {
-    "path": "/work/xrpcafe/",
-    "image": "/og/xrpcafe.png",
-    "serverRendered": true,
-    "dimensions": "1200×630",
-    "pass": true
-  },
-  {
-    "path": "/work/do-androids-dream/",
-    "image": "/og/do-androids-dream.png",
-    "serverRendered": true,
-    "dimensions": "1200×630",
-    "pass": true
-  },
-  {
-    "path": "/work/firstledger/",
-    "image": "/og/firstledger.png",
-    "serverRendered": true,
-    "dimensions": "1200×630",
-    "pass": true
-  },
-  {
-    "path": "/work/firststrike/",
-    "image": "/og/firststrike.png",
-    "serverRendered": true,
-    "dimensions": "1200×630",
-    "pass": true
-  },
-  {
     "path": "/work/sonde/",
-    "image": "/og/sonde.png",
+    "image": "/og/work-sonde.png",
     "serverRendered": true,
     "dimensions": "1200×630",
     "pass": true
   },
   {
     "path": "/work/pocketwatch/",
-    "image": "/og/pocketwatch.png",
+    "image": "/og/work-pocketwatch.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/work/toolbox/",
+    "image": "/og/work-toolbox.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/work/parc/",
+    "image": "/og/work-parc.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/work/firstledger/",
+    "image": "/og/work-firstledger.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/work/xrpcafe/",
+    "image": "/og/work-xrpcafe.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/work/jade-aesthetics/",
+    "image": "/og/work-jade-aesthetics.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/work/firststrike/",
+    "image": "/og/work-firststrike.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
+    "path": "/work/do-androids-dream/",
+    "image": "/og/work-do-androids-dream.png",
     "serverRendered": true,
     "dimensions": "1200×630",
     "pass": true

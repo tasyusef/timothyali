@@ -17,8 +17,24 @@ Undecided items. Each one gets promoted to the decision log once resolved.
 | Q36 | Status strip on tablet and phone: Timothy — “we also need to rethink the status bar under the nav for tablet and mobile”. At 16px Press Start the five items (path, Denver, coordinates, clock, SYS.OK) need about 1,040px, so every tablet width clips the right end; long study paths clip below about 1,300px; phones drop to 8px type. | Resolved by 0072 (built PX-15). Footer follow-up is 0073, a proposal awaiting Timothy. | 2026-09-09 |
 | Q37 | A `/system` specimen page on the site documenting the tokens, type roles and components visually. Accepted in principle (0075). When? | Assistant leaning: after the remaining page work; it doubles as a portfolio piece. | 2026-09-09 |
 | Q38 | The full index on Work: Timothy — “i also want to bring in all the other projects. so we need to figure out a good way to display them in teh works page”. Six more exist on the old site with studies and assets (FirstStrike, Sonde, Gridform Studio, PARC Website, Jade Aesthetics, Studio Gridform); Pocketwatch stays out per 0055 unless he says otherwise. Which four stay “selected” as wide rows, and do the six get ported studies now? | Resolved by 0077: two tiers, Gridform pair hidden, all eight visible projects get studies (PX-18). | 2026-09-09 |
+| Q39 | Is the pixel and terminal aesthetic right for the product positioning (0132)? Timothy, 2026-09-28: “idk if this is really the right aesthetic for the site. is it too expressive?” | Assistant leaning: keep the identity layer (name, palette, chrome, home field, Toolbox); quiet the places where expression costs comprehension: the hero sentence, the reading face in studies, the space around product screenshots. To be judged on a side-by-side mock, not in the abstract. | 2026-09-28 |
 | Q11 | Payment terms and scope rules for seed/crypto clients (risk noted in 0008). | Not decided. | 2026-09-08 |
 
 Resolved: Q1 → 0002. Q2 → 0005. Q3 → 0006. Q4 → 0002 (reasoning). Q5 → 0004. Q7 → 0008. Q8 → 0001 accepted. Q6 → 0010. Q6b → 0010 reasoning. Q9 → 0009 accepted. Q14 → 0012 accepted. Q12 → references.md + 0013/0017. Q15 → 0015. Q16 → 0014. Q17 → 0016. Q18 → 0014. Q19 → 0014 reasoning. Q20 → 0018. Q21 → context.md (modest budget). Q22 → context.md (Tungsten, unverified). Q23 → 0018 accepted. Q26, Q27 → 0019 reasoning. Q24 → 0020. Q13 → 0013/0015/0018 (unique = yellow/black, blackletter on grid, flat parallax).
 
 Q30 copy/voice portion resolved by 0024; optional supporting credit remains open.
+
+## To supply (Timothy)
+
+The repositioning's missing pieces (0132, 0133). Nothing here is written for him; each study gains its section when he supplies it. Résumé and profile items are in the private résumé README (0115).
+
+- [ ] Sonde: how the account page came to be (the directions considered, or why the newcomer → trader → analyst tabs were the first instinct).
+- [ ] Sonde: what a good answer from Ask the Ledger looked like, if there were criteria, or run a small evaluation against the open-source build.
+- [ ] Sonde: any user or subscriber numbers, even small.
+- [ ] Sonde: what you'd do differently.
+- [ ] Pocketwatch: what it did that other budgeting apps didn't.
+- [ ] Pocketwatch: two or three design decisions you're proud of.
+- [ ] Pocketwatch: the launch month and who it launched to (beta or public), and any numbers.
+- [ ] Pocketwatch: the lesson, in your words (the facts are settled: too expensive to run, and you never worked out how to market it, 0135).
+- [ ] Toolbox: why you built it, what you chose against, what you'd change, and any usage.
+

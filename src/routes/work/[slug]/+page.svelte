@@ -52,6 +52,7 @@
         {#if p.timeline}<div><dt class="lbl dim">Timeline</dt><dd class="body">{p.timeline}</dd></div>{/if}
         <div><dt class="lbl dim">Tools</dt><dd class="body">{p.tools}</dd></div>
         {#if p.live}<div><dt class="lbl dim">Live</dt><dd class="body"><QuietLink href={p.live.href} label={p.live.label} /></dd></div>{/if}
+        {#if p.source}<div><dt class="lbl dim">Source</dt><dd class="body"><QuietLink href={p.source.href} label={p.source.label} /></dd></div>{/if}
       </dl>
     </div>
   </section>

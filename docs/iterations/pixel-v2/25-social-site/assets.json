@@ -3,13 +3,13 @@
     "image": "home",
     "width": 1200,
     "height": 630,
-    "bytes": 12879
+    "bytes": 13401
   },
   {
     "image": "work",
     "width": 1200,
     "height": 630,
-    "bytes": 111953
+    "bytes": 54043
   },
   {
     "image": "contact",
@@ -54,52 +54,58 @@
     "bytes": 72999
   },
   {
-    "image": "parc",
+    "image": "work-sonde",
     "width": 1200,
     "height": 630,
-    "bytes": 33097
+    "bytes": 54592
   },
   {
-    "image": "jade-aesthetics",
+    "image": "work-pocketwatch",
     "width": 1200,
     "height": 630,
-    "bytes": 253116
+    "bytes": 86297
   },
   {
-    "image": "xrpcafe",
+    "image": "work-toolbox",
     "width": 1200,
     "height": 630,
-    "bytes": 20154
+    "bytes": 64042
   },
   {
-    "image": "do-androids-dream",
+    "image": "work-parc",
     "width": 1200,
     "height": 630,
-    "bytes": 334647
+    "bytes": 33092
   },
   {
-    "image": "firstledger",
+    "image": "work-firstledger",
     "width": 1200,
     "height": 630,
     "bytes": 300442
   },
   {
-    "image": "firststrike",
+    "image": "work-xrpcafe",
     "width": 1200,
     "height": 630,
-    "bytes": 447034
+    "bytes": 20151
   },
   {
-    "image": "sonde",
+    "image": "work-jade-aesthetics",
     "width": 1200,
     "height": 630,
-    "bytes": 72462
+    "bytes": 253138
   },
   {
-    "image": "pocketwatch",
+    "image": "work-firststrike",
     "width": 1200,
     "height": 630,
-    "bytes": 70276
+    "bytes": 447035
+  },
+  {
+    "image": "work-do-androids-dream",
+    "width": 1200,
+    "height": 630,
+    "bytes": 334649
   },
   {
     "image": "story-launch",

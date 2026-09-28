@@ -8,8 +8,9 @@
   import PageFoot from '$lib/components/PageFoot.svelte';
   import { projects, index, total, last } from '$lib/work';
   import { STEP } from '$lib/tokens';
+  import { fitTitle } from '$lib/fit';
 </script>
-<svelte:head><title>Work / Timothy Ali</title><meta name="description" content="Brand, motion, and web work by designer Timothy Ali." /></svelte:head>
+<svelte:head><title>Work / Timothy Ali</title><meta name="description" content="Product, front-end, and brand work by Timothy Ali." /></svelte:head>
 <main class="inner-page" id="main" tabindex="-1">
   <section>
     <header class="work-header">
@@ -22,7 +23,7 @@
           <div class="frame"><Picture src={p.cover.src} alt={p.cover.alt} eager={i < 2} /></div>
           <div class="row-body">
             <MetaLine project={p} />
-            <h2 class="display">{p.title}</h2>
+            <h2 class="display" use:fitTitle>{p.title}</h2>
             <p class="body">{p.description}</p>
             <Cta variant="quiet" class="lbl">View case study <Arrow /></Cta>
           </div>

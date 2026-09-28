@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { PNG } from 'pngjs';
 import { studies } from '../../src/lib/work.ts';
 import { tools } from '../../src/lib/toolbox.ts';
-const cases=[['/','home'],['/work/','work'],['/contact/','contact'],['/toolbox/','toolbox'],['/toolbox/agents/','toolbox-agents'],...tools.map(t=>[`/toolbox/${t.slug}/`,`toolbox-${t.slug}`]),...studies.map(p=>[`/work/${p.slug}/`,p.slug])];
+const cases=[['/','home'],['/work/','work'],['/contact/','contact'],['/toolbox/','toolbox'],['/toolbox/agents/','toolbox-agents'],...tools.map(t=>[`/toolbox/${t.slug}/`,`toolbox-${t.slug}`]),...studies.map(p=>[`/work/${p.slug}/`,`work-${p.slug}`])];
 const output='.vercel/output/static';
 const results=[];
 for(const [path,id] of cases){

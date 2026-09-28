@@ -41,7 +41,7 @@
 <main class="og" class:story={data.id === 'story'} class:wide={data.id === 'wide'} id="main" tabindex="-1">
   {#if data.id === 'home'}
     <Band class="og-home" mode="sky" seed={3} density={1.3} shade avoid=".og-line, .og-name">
-      <p class="display og-line">Designer for teams<br />that don’t have one yet.</p>
+      <p class="display og-line">Product designer<br />who ships in code.</p>
       <h1 class="blackletter og-name"><Decode text="i’m tim." /><Cursor size="em" /></h1>
     </Band>
   {:else if data.id === 'story' || data.id === 'wide'}

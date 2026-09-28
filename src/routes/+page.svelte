@@ -15,7 +15,7 @@
   // The hero is the terminal (0128): with motion on, the name slot types “hi.” then “i’m tim.”,
   // the line under it types the copy one line at a time behind the cell cursor, holds, clears
   // and loops. Motion off, no JavaScript and the prerender show the name and the copy in full.
-  const LINES = ['Brand and web designer.', 'Identities, motion, and websites built in code.', 'Denver / remote. Open to full-time and freelance.'];
+  const LINES = ['Product designer who ships in code.', 'Interfaces, design systems, and the front ends that run them.', 'Denver / remote. Open to full-time and contract.'];
   const STATIC_LINE = LINES.join(' ');
   const HOLD = { hi: 900, name: 700, line: 1600, last: 2600, clear: 600 };
   const erased = (t: string) => [...t].length * STEP_SLOW; // the name slot backspaces before it retypes
@@ -47,17 +47,17 @@
     })();
     return () => { stopped = true; slotName = 'hi.'; slotLine = ''; };
   });
-  // Brand, motion, web (PX-43): the third chip reads “Web” so looks/moves/works maps to the two
-  // tracks. A chip may still carry a shorter phone form as the third element (0076).
-  const qualities: [string, string, string?][] = [['looks.', 'Brand'], ['moves.', 'Motion'], ['works.', 'Web']];
+  // Interface, motion, code (0132): the product-first reading of looks/moves/works, with “works”
+  // kept last where the sentence puts its stress. A chip may carry a shorter phone form (0076).
+  const qualities: [string, string, string?][] = [['looks.', 'Interface'], ['moves.', 'Motion'], ['works.', 'Code']];
 </script>
-<svelte:head><title>Timothy Ali / Brand and web designer</title><meta name="description" content="Timothy Ali, brand and web designer in Denver. Identities, motion, and websites built in code. Open to full-time and freelance work." /></svelte:head>
+<svelte:head><title>Timothy Ali / Product designer who ships in code</title><meta name="description" content="Timothy Ali, product designer in Denver who ships in code. Interfaces, design systems, and front ends in TypeScript. Open to full-time and contract work." /></svelte:head>
 <main id="main" tabindex="-1">
   <Band class="hero" aria-labelledby="intro" mode="sky" seed={3} tick={TICK_SLOW} density={1.3} shade avoid=".hero-actions, .hero-role">
     {#if motion.on}
       <h1 id="intro" class="blackletter hero-name"><span class="sr-only">i’m tim.</span><span aria-hidden="true"><Decode text={slotName} mode="type" step={STEP_SLOW} delay={200} cursor={!slotLine} erase /></span></h1>
       <p class="sr-only">{STATIC_LINE}</p>
-      <p class="hero-role body" aria-hidden="true"><Decode text={slotLine} mode="type" step={STEP} cursor={!!slotLine} cursorSize="cell" /></p>
+      <p class="hero-role body" aria-hidden="true">{#each LINES as l}<span class="sizer">{l}</span>{/each}<Decode text={slotLine} mode="type" step={STEP} cursor={!!slotLine} cursorSize="cell" /></p>
     {:else}
       <h1 id="intro" class="blackletter hero-name">i’m tim.</h1>
       <p class="hero-role body">{STATIC_LINE}</p>
@@ -68,17 +68,17 @@
 
   <section class="who" aria-labelledby="statement-title">
     <h2 id="statement-title" class="para">
-      <span class="display">Designer for teams that don’t have one yet. I care how it</span>
+      <span class="display">I design the product and build the front end. I care how it</span>
       <span class="words">{#each qualities as [word, label, short], i}<span class="q"><span class="blackletter w"><Decode text={word} step={STEP} delay={i * 150} /></span><span class="lbl note" aria-hidden="true">{#if short}<span class="note-full">{label}</span><span class="note-short">{short}</span>{:else}{label}{/if}</span></span> {/each}</span>
     </h2>
-    <p class="sr-only">Looks: brand. Moves: motion. Works: web.</p>
-    <p class="body companion">Since 2019, I’ve worked with founders, engineers, and artists on identities, motion, and websites. I’m open to joining an existing design team, too.</p>
+    <p class="sr-only">Looks: interface. Moves: motion. Works: code.</p>
+    <p class="body companion">Since 2019, I’ve worked with founders and engineers on small teams, and I’ve shipped three products of my own: Sonde, an XRP Ledger analytics platform I designed, built, and ran solo; Pocketwatch, a personal finance app built with a partner on the backend; and Toolbox, a desktop app for brand deliverables. I also do brand and motion, and it shows in the product work.</p>
   </section>
 
   <Band as="div" class="work-rain" mode="fall" seed={5} tick={TICK_FAST} density={0.7} shade avoid=".index-row > span, .work-statement, .work-foot a, .invitation h2 > span, .invitation .cta-row">
   <section class="work-index" id="work" aria-labelledby="work-title">
     <IndexRow label="Selected work" value={`01–${projects[projects.length - 1].n}`} />
-    <h2 id="work-title" class="work-statement display">Brand identities, websites, and motion.<br />Here’s some of <span class="blackletter">my work.</span></h2>
+    <h2 id="work-title" class="work-statement display">Products, front ends, and brand systems.<br />Here’s some of <span class="blackletter">my work.</span></h2>
     <div class="cards">
       {#each projects as p, i}
         <a class="card" href={`/work/${p.slug}/`}>
@@ -103,10 +103,14 @@ main :global(.hero){min-height:calc(100vh - 96px);min-height:round(down,calc(100
 .hero-name{font-size:344px;line-height:344px}
 /* The role and status lines under the name (PX-43): body and label, knocked out of the sky
    like the hint; the hint is now the link to the work. */
-/* The typed line: a flex box so the field's knockout measures one stable box (its element
-   box, not the changing words) two lines tall; the typed text wraps like prose. */
-.hero-role{display:flex;max-width:46ch;min-height:64px;margin-top:var(--s2)}
-.hero-role :global(.decode){display:inline;white-space:pre-wrap}
+/* The typed line: one grid cell holding every copy line, hidden, under the typed one, so the
+   box is as tall as the tallest line at this width (two lines on most screens, three below
+   about 352px) and the field's knockout measures one stable box, not the changing words (0132).
+   The typed text wraps like prose. */
+.hero-role{display:grid;max-width:46ch;min-height:64px;margin-top:var(--s2);text-wrap:pretty} /* no one-word last line in the static paragraph */
+.hero-role>:global(*){grid-area:1/1}
+.sizer{visibility:hidden}
+.hero-role :global(.decode){white-space:pre-wrap}
 /* The actions, the work chip and the résumé link (0127): bottom right on desktop with the chip
    outermost; on phones a row under the status. */
 .hero-actions{position:absolute;right:var(--gutter);bottom:var(--s8);display:flex;flex-direction:row-reverse;align-items:center;gap:var(--s3)}

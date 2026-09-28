@@ -1922,3 +1922,34 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
   - The xrp.cafe cover points at the 1600px logo, not the 8000×4500 copy of the same art.
   - The hosted résumé was rebuilt from the private source: fonts embed as TrueType, the PDF is tagged, its headings extract as words. Its content is recorded privately (0115).
 - **Status:** The assistant's fixes, verified (`docs/iterations/pixel-v2/49-review-fixes/`). Two unreferenced originals stay in `static/` for Timothy to keep or delete: the Do Androids Dream? file that carries the Doors track, and `static/work/xrpcafe.png`.
+
+## 0132 — Product designer who ships in code
+
+- **Date:** 2026-09-28
+- **Direction:** Timothy's repositioning plan (filed privately, 0115) sets the positioning: “Product designer who ships in code. Product and code first, brand and motion second.” Its settled points: the selected work leads with Sonde and Pocketwatch and ends with PARC; “Timothy Ali” everywhere; Framer leaves every tools and skills list; a closed product states its outcome once, plainly, at the end of its study and not in its lead or description; Sonde is described as open source with the repository linked; Pocketwatch is a team of two, with the partner on the backend and auth; the visual design stays. The assistant's review of the plan raised three questions, and Timothy answered “yes to all three”: Toolbox takes slot 03 (the plan's slot was a client design-system project he cannot show), Framer stays in the Jade study as the reason for the rebuild (0129: search), and the invitation keeps “Tell me what you're building.” Then: “commit px-49 and go.” This reverses 0119 (Jade in the selected four) and 0120 (brand and web, not product).
+- **Implementation:** Selected four Sonde, Pocketwatch, Toolbox, PARC; index First Ledger, xrp.cafe, Jade Aesthetics, FirstStrike Research, Do Androids Dream? (the plan's order); nine studies, counts to 009. Hero lines, page titles, descriptions, JSON-LD job title and share text from the plan's copy. Statement “I design the product and build the front end. I care how it looks. moves. works.” Contact: full-time and contract. Sonde: “Product, code & art direction”, description without the closure, lead without it, the Outcome with the reason (infrastructure costs outran subscription revenue) and the MIT release, and a Source row linking `github.com/tasyusef/sonde_os`. Pocketwatch: “Product, brand & front end”, the two-person split in the lead and the Team row, the closure only in its Outcome, in his words from 0129 (“too expensive”). The résumé gains a product track, now the hosted copy (built privately, 0115).
+- **Assistant's choices, awaiting his eye:** the chips Interface, Motion, Code (the order kept, since the last word carries the stress); “Products, front ends, and brand systems.” over the cards; the companion paragraph counts three products of his own, since Toolbox joined; the Work description reads “Product, front-end, and brand work” rather than the plan's “design-system”, because no design-system study is on the site; Sonde's and Pocketwatch's cards show the product (the account page, the dashboard's top two rows) instead of a near-empty landing page and a campaign ad.
+- **Status:** Positioning, order and facts are Timothy's; the wording beyond his plan is the assistant's. Committed on his word on 2026-09-28 (“commit px-50”); not pushed.
+
+## 0133 — Toolbox as a study
+
+- **Date:** 2026-09-28
+- **Direction:** Toolbox in slot 03 (0132).
+- **Implementation:** `/work/toolbox/` on the study template, from what is already on record: the app's own README (four tools, projects, fresh export folders, local library), the site's Toolbox copy (App, CLI, MCP; 1.1.1; signed and notarized macOS, Linux AppImage and deb) and 0113 (Windows builds stopped rather than pay for signing). Role “Designer & developer”; tools Electron, Svelte 5, TypeScript, Effect, Claude Code; a Live row to `/toolbox/`. The screens are the Toolbox page's own files; the cover is the Lockup screen cropped to 16:9 at full resolution. The Lockup screen leads the study because the app's home screen shares this site's chrome and read as part of the page. The hidden Gridform Studio entry leaves the data: it was Toolbox under its old name.
+- **Not written:** why he built it, what he chose against, what he would change. Those are his to supply, as for Sonde and Pocketwatch in the plan's next phases.
+- **Status:** Content assembled by the assistant from recorded facts; awaiting Timothy's review.
+
+## 0134 — Share image names, long row titles, the typed line's box
+
+- **Date:** 2026-09-28
+- **Context:** Mechanics the new order needed.
+- **Choices:** Study share images are `work-<slug>.png`; the Toolbox study and the Toolbox page would otherwise both be `toolbox.png` (the old eight bare-slug files are removed, and every study image is regenerated for its new number). A Work row title steps down the Bold ladder when its longest word does not fit its column (`fitTitle`, `src/lib/fit.ts`, the study title's rule from 0079): “POCKETWATCH” is 572px at 55 and overflowed its column from 901 to about 1500px. The hero's typed line holds every copy line hidden in the same grid cell, so its box is as tall as the tallest line: “Interfaces, design systems, and the front ends that run them.” takes three lines below about 352px and would have moved the name while it typed; the static paragraph avoids a one-word last line. `tools/social/navigation.mjs` finds the first card from the data and waits for the head to update instead of racing it.
+- **Status:** The assistant's implementation choices; verified (`docs/iterations/pixel-v2/50-repositioning/`).
+
+## 0135 — Why Pocketwatch closed
+
+- **Date:** 2026-09-28
+- **Direction:** Timothy, asked to choose between his 23 Sep reason and the plan's: “both are true. both too expensive and we didnt really know how to market it.”
+- **Implementation:** The Pocketwatch Outcome reads “We shut it down in 2026: it was too expensive to keep running, and we never worked out how to market it.” The résumé bullet says the same in one line. The lesson itself stays his to write (open-questions.md, To supply).
+- **Status:** Timothy's facts; the wording is the assistant's.
+

@@ -11,7 +11,8 @@ colours and project covers come from this repository; no external service is use
 - ICO: embedded PNGs at 16, 32 and 48; separate PNG files are retained too.
 - Apple touch icon: 180×180.
 - Home / Contact: blackletter and PARC Pixel type; Work: selected four-cover collage.
-- Nine study images: project cover, title, scope, year, and consistent site chrome.
+- Nine study images, `work-<slug>.png` (0132: the Toolbox study and the Toolbox page would
+  otherwise both be `toolbox.png`): project cover, title, scope, year, and site chrome.
 - Toolbox (0110): the landing's hero (`toolbox`), the agents page head with the
   `toolbox --mcp` plate (`toolbox-agents`), and one Work-row composition per tool with
   the app's own screen in the frame (`toolbox-<slug>`), from the `tools` export.
