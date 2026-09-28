@@ -10,6 +10,7 @@
   import { rowColumns, rowTiles, total, type Row } from '$lib/work';
   import { STEP } from '$lib/tokens';
   import { onMount } from 'svelte';
+  import plexUrl from '@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2?url';
   let { data } = $props();
   const p = $derived(data.project);
   const next = $derived(data.next);
@@ -56,7 +57,7 @@
     return { destroy: () => { ro.disconnect(); window.removeEventListener('resize', check); } };
   }
 </script>
-<svelte:head><title>{p.title} / Timothy Ali</title><meta name="description" content={p.description} /></svelte:head>
+<svelte:head><title>{p.title} / Timothy Ali</title><meta name="description" content={p.description} /><link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href={plexUrl} /></svelte:head>
 
 {#snippet gallery(rows: Row[], eager: boolean)}
   {#each rows as row}
@@ -125,9 +126,9 @@
 .title.small :global(.decode){display:block;font-size:82.5px;line-height:88px}
 .title :global(.decode){display:inline;white-space:normal} /* the title may wrap between words */
 .intro{display:grid;grid-template-columns:round(down,calc((100% - 32px) * 2 / 3),8px) 1fr;gap:var(--s4);margin-top:var(--s4);align-items:start}
-/* Reading text (0136): the lead, the meta values and every paragraph in the reading face,
-   20/32; the lead and paragraphs in a 64ch column. 20/32 also keeps a link's 16px arrow,
-   centred in its line, on the unit (a 24px line put it 4px off). */
+/* Reading text (0136, 0137): the lead, the meta values and every paragraph in IBM Plex Mono
+   at 18/32; the lead and paragraphs in a 64ch column. A 32px line also keeps a link's 16px
+   arrow, centred in its line, on the unit (a 24px line put it 4px off). */
 .lead-col{display:flex;flex-direction:column;gap:var(--s3);max-width:64ch}
 .meta{display:flex;flex-direction:column;gap:var(--s2);margin:0;padding-top:var(--s1)}
 .meta dt{margin-bottom:var(--s1)}.meta dd{margin:0}

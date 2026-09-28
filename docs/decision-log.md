@@ -1962,3 +1962,11 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Assistant's choices, awaiting his eye:** the system stack as the face (a stand-in for a chosen text face, one token to change); the numbering; the Sonde headings and every caption (each describes only what its screens show); the Pocketwatch and Toolbox pairings; the meta values at 20/32 rather than the mock's 16/24 (a 24px line put a link's arrow 4px off the unit).
 - **Status:** Layout and face Timothy's; built and verified (`docs/iterations/pixel-v2/52-study-layout/`), committed on his word on 2026-09-28 (“yeah commit but no push yet”). On review he accepted the numbering, the Sonde headings and the captions “for now”, the Pocketwatch pairing (“good”) and the meta values at 20/32 (“thats fine”). The face itself is open: “satoshi or something? or maybe actually a more techy looking font?” (Q42).
 
+## 0137 — The study reading face is IBM Plex Mono
+
+- **Date:** 2026-09-28
+- **Direction:** Asked to choose the face 0136 left as a stand-in, Timothy first asked for “satoshi or something? or maybe actually a more techy looking font?”. The assistant rendered one Sonde passage in the system sans, Satoshi, Space Grotesk, IBM Plex Mono and Space Mono and recommended Space Grotesk, noting that a monospace takes about ten lines where the sans takes seven. Timothy: “plex mono i think.”
+- **Implementation:** `--face-read` is IBM Plex Mono 400 from `@fontsource/ibm-plex-mono` (latin, 16KB), preloaded by the study page only. `.read` is 18/32: 18px keeps about 41 characters a line in the point's third of the page at 1440, and the 32px line keeps inline arrows on the unit. It is also the mono Sonde itself used for addresses, hashes and amounts.
+- **Consequence:** point text runs longer, so fewer points stay held beside their screens on short screens: 30 of 32 at 1440×900, 19 of 32 at 1280×720 (the rest scroll with the page, by design).
+- **Status:** Face Timothy's; size and loading the assistant's. Verified: grid 52/52, no overflow at 320–1440, tests, share checks. Committed on his word (“yeah commit but no push yet”); not pushed.
+

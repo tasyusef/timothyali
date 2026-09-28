@@ -157,7 +157,7 @@ would hide the arithmetic.
 | `.body` | Jersey 15 | 27/32; the study's reading paragraphs (`.paras`) 27/40 in a 64ch column (PX-43) |
 | `.lbl` | PARC Pixel | 12.5/16, uppercase (cell 2) |
 | `.mono` | Press Start 2P | 16/16, uppercase, nowrap |
-| `.read` | system sans (`--face-read`) | 20/32 at every width, smoothed; the case-study reading text only: lead, meta values, paragraphs, list items (0136). The one face that is not a bitmap |
+| `.read` | IBM Plex Mono (`--face-read`, `@fontsource/ibm-plex-mono`, preloaded on study pages) | 18/32 at every width, smoothed; the case-study reading text only: lead, meta values, paragraphs, list items (0136, 0137). The one face that is not a bitmap |
 | `.dim` | — | `opacity:var(--dim)` |
 
 `.display-xl` replaces the three route-local `.xl` copies (Home, Work, Contact).

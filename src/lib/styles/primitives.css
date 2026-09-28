@@ -28,14 +28,14 @@
   --cell-texture:16px;    /* one ASCII cell: a 5×7 glyph drawn with 2px pixels */
 
   /* face stacks — every face is a bitmap design (see the cell table in app.css) except the
-     reading face, the system sans the case studies are read in (0136) */
+     reading face, IBM Plex Mono, which the case studies are read in (0136, 0137) */
   --face-blackletter:'Jacquard 24',serif;
   --face-display:'PARC Pixel Bold Web',sans-serif;   /* caps only; 13.75 cells/em (0078) */
   --face-text:'Jersey 15',sans-serif;
   --face-label:'PARC Pixel Web',monospace;           /* caps only; 6.25 cells/em (0078) */
   --face-mono:'Press Start 2P',monospace;
   --face-root:'Jersey 15',ui-monospace,monospace;
-  --face-read:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --face-read:'IBM Plex Mono',ui-monospace,monospace;
 
   /* motion — nothing is continuous, everything steps */
   --tick-cursor:1s;   /* one blink period, stepped 2 jump-none */

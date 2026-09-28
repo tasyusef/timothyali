@@ -2,6 +2,7 @@
   import '@fontsource/jacquard-24/400.css';
   import '@fontsource/jersey-15/400.css';
   import '@fontsource/press-start-2p/400.css';
+  import '@fontsource/ibm-plex-mono/400.css'; // the study reading face (0137), preloaded by the study page
   import '../app.css';
   import jacquardUrl from '@fontsource/jacquard-24/files/jacquard-24-latin-400-normal.woff2?url';
   import jerseyUrl from '@fontsource/jersey-15/files/jersey-15-latin-400-normal.woff2?url';

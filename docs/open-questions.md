@@ -19,14 +19,13 @@ Undecided items. Each one gets promoted to the decision log once resolved.
 | Q38 | The full index on Work: Timothy — “i also want to bring in all the other projects. so we need to figure out a good way to display them in teh works page”. Six more exist on the old site with studies and assets (FirstStrike, Sonde, Gridform Studio, PARC Website, Jade Aesthetics, Studio Gridform); Pocketwatch stays out per 0055 unless he says otherwise. Which four stay “selected” as wide rows, and do the six get ported studies now? | Resolved by 0077: two tiers, Gridform pair hidden, all eight visible projects get studies (PX-18). | 2026-09-09 |
 | Q39 | Is the pixel and terminal aesthetic right for the product positioning (0132)? Timothy, 2026-09-28: “idk if this is really the right aesthetic for the site. is it too expressive?” | Timothy moved to layout rather than aesthetic (“maybe we just need to really spend some time on refining the layout”); studies now use layout B with a plain reading face (0136). The hero and Home stay as they are for now: “later on i want to completely re work it” (Q41). | 2026-09-28 |
 | Q41 | A full rework of Home, hero included. Timothy, 2026-09-28: “the hero and the homepage is fine for now. later on i want to completely re work it.” | Deferred on his word. The assistant's notes for it: the hero sentence types and clears, so the positioning line is fully visible only about 6 s in, for 1.6 s. | 2026-09-28 |
-| Q42 | The study reading face (0136 ships the system sans as a stand-in). Timothy: “satoshi or something? or maybe actually a more techy looking font?” | Compared on the Sonde study: system sans, Satoshi, Space Grotesk, IBM Plex Mono, Space Mono. Assistant leaning: Space Grotesk. | 2026-09-28 |
 | Q11 | Payment terms and scope rules for seed/crypto clients (risk noted in 0008). | Not decided. | 2026-09-08 |
 
 Resolved: Q1 → 0002. Q2 → 0005. Q3 → 0006. Q4 → 0002 (reasoning). Q5 → 0004. Q7 → 0008. Q8 → 0001 accepted. Q6 → 0010. Q6b → 0010 reasoning. Q9 → 0009 accepted. Q14 → 0012 accepted. Q12 → references.md + 0013/0017. Q15 → 0015. Q16 → 0014. Q17 → 0016. Q18 → 0014. Q19 → 0014 reasoning. Q20 → 0018. Q21 → context.md (modest budget). Q22 → context.md (Tungsten, unverified). Q23 → 0018 accepted. Q26, Q27 → 0019 reasoning. Q24 → 0020. Q13 → 0013/0015/0018 (unique = yellow/black, blackletter on grid, flat parallax).
 
 Q30 copy/voice portion resolved by 0024; optional supporting credit remains open.
 
-Q40 (study layout) → 0136: layout B with the plain reading face, on Timothy's pick.
+Q40 (study layout) → 0136: layout B with the plain reading face, on Timothy's pick. Q42 (reading face) → 0137: IBM Plex Mono.
 
 ## To supply (Timothy)
 
