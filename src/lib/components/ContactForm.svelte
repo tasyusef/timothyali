@@ -34,7 +34,7 @@
   const NOTE: Record<string, string> = {
     invalid: 'Check your name, email address, and message.',
     unconfigured: 'The form is unavailable. Email studio@timothyali.com directly.',
-    'send-failed': 'The mail didn’t go through. Try again, or email studio@timothyali.com.',
+    'send-failed': 'Your message didn’t send. Try again, or email studio@timothyali.com.',
     network: 'Couldn’t send your message. Check your connection and try again, or email studio@timothyali.com.'
   };
   async function submit(e: SubmitEvent) {

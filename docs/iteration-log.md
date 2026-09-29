@@ -678,3 +678,17 @@ The phone introduction no longer shifts permanently upward as the paragraph type
 Focused browser regressions cover 1440×900, 1280×720, 390×844 and 320×700 reading and motion toggles; desktop/phone Tab navigation and Enter activation; no-JavaScript visibility and actual contact navigation; and reduced motion. Evidence and results: `docs/iterations/pixel-v2/55-home-accessibility/`. Authorized fixes, verified locally. Timothy authorized committing and publishing on 2026-09-29 (“commit and push”).
 
 PX-55 verification: `pnpm check` 0/0, 24 existing tests, build and metadata verification passed (18 pages). Fourteen targeted browser checks passed, plus Shift+Tab back through the wheel to the résumé at desktop and phone widths. No browser page errors; `git diff --check` clean.
+
+
+## PX-56 — Copy refinement (2026-09-29, 0142)
+
+A site-wide editorial pass on Timothy’s request to make the copy sound more natural. All nine case studies have edits, with particular attention to the product summaries, headings, and repetitive explanation. Home’s “front ends that run them” becomes “front-end development”; Toolbox’s landing and docs describe the tasks directly, with clearer setup and saved-work instructions. Role, date, quote, image, option-schema, command-example, and download-link comparisons against the previous commit pass. The affected share images are regenerated.
+
+Browser checks cover 18 pages at 1440, 390, and 320px and the four Home cards at 320×700, with no page errors or horizontal overflow. Full before/after copy and screenshots are in `docs/iterations/pixel-v2/56-copy-refinement/`. Committed and pushed on his word with PX-57.
+
+PX-56 final checks: code check 0/0, 24 tests passed, production build passed, metadata verification passed for 18 pages, and `git diff --check` clean.
+
+## PX-57 — The spring on the hero and the invitation (2026-09-29, 0143)
+
+The hero's dissolve and fill and the invitation's rain, drops and resolve now glide after the scroll on a critically damped spring instead of tracking it exactly; after a jump in scroll they ease in over about half a second (measured in headless Chrome on the drawn name's and word's scanlines and the fill). Stages jump to their end when not held, so the handoffs are unchanged; Tab to “Get in touch” still lands on the finished invitation. Checks with PX-56: `pnpm check` 0/0, 24 tests, build, `social:verify` PASS, grid audit 0 at every route and width. Committed and pushed on his word.
+

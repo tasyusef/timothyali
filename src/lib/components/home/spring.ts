@@ -27,3 +27,26 @@ export function spring(dt: number, omega: number, zeta: number): Spring {
   }
   return { update: (pos, vel, target) => { const x = pos - target; return [x * pp + vel * pv + target, x * vp + vel * vv]; } };
 }
+
+/**
+ * A value that follows a target on the spring, a frame at a time, handing each position to `set`.
+ * `to(t)` sets a new target; `to(t, true)` jumps there (the first placement, and whenever the
+ * stage is not held on the window or keyboard focus has moved the page).
+ */
+export function follower(set: (v: number) => void, omega: number, zeta: number) {
+  let pos = 0, vel = 0, target = 0, raf = 0, last = 0, placed = false;
+  const step = (now: number) => {
+    const dt = Math.min(0.05, Math.max(0.001, (now - last) / 1000)); last = now;
+    [pos, vel] = spring(dt, omega, zeta).update(pos, vel, target);
+    if (Math.abs(pos - target) < 0.0005 && Math.abs(vel) < 0.0005) { pos = target; vel = 0; raf = 0; set(pos); return; }
+    set(pos); raf = requestAnimationFrame(step);
+  };
+  return {
+    to(t: number, jump = false) {
+      target = t;
+      if (jump || !placed) { placed = true; pos = t; vel = 0; cancelAnimationFrame(raf); raf = 0; set(pos); return; }
+      if (!raf) { last = performance.now(); raf = requestAnimationFrame(step); }
+    },
+    stop() { cancelAnimationFrame(raf); raf = 0; }
+  };
+}

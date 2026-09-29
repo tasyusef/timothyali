@@ -77,7 +77,7 @@
         <span class="words">{#each qualities as [w, label, short], i}<span class="q"><span class="blackletter w">{#if all}{w}{:else if i < wordsOn}<Decode text={w} step={STEP} />{:else}<span class="ghost">{w}</span>{/if}</span><span class="lbl note" class:ghost={!all && i >= chipsOn} aria-hidden="true">{#if short}<span class="note-full">{label}</span><span class="note-short">{short}</span>{:else}{label}{/if}</span></span> {/each}</span>
       </h2>
       <p class="sr-only">Looks: interface. Moves: motion. Works: code.</p>
-      <p class="body companion" bind:this={comp} style:clip-path={all || linesOn >= lineCount && lineCount ? 'none' : `inset(0 0 calc(100% - ${linesOn * lh}px) 0)`}>I’ve been freelancing since 2019. More recently, I’ve worked with founders and engineers on small teams. I’ve also shipped three products of my own: Sonde, an XRP Ledger analytics platform I designed, built, and ran solo; Pocketwatch, a personal finance app built with a partner on the backend; and Toolbox, a desktop app for brand deliverables. I also do brand and motion, and it shows in the product work.</p>
+      <p class="body companion" bind:this={comp} style:clip-path={all || linesOn >= lineCount && lineCount ? 'none' : `inset(0 0 calc(100% - ${linesOn * lh}px) 0)`}>I’ve been freelancing since 2019. More recently, I’ve worked with founders and engineers on small teams. I’ve also built three products: Sonde, an XRP Ledger analytics platform I ran on my own; Pocketwatch, a personal finance app I made with a backend partner; and Toolbox, a desktop app for preparing brand files. I also work on branding and motion.</p>
     </div>
     <div class="wipe" aria-hidden="true" style:--t={`${lines(1 - out)}px`}></div>
   </div>

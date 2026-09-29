@@ -60,60 +60,60 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
     <div class="intro">
       <div class="paras">
         <p class="lead">Use Toolbox from a terminal or an AI assistant.</p>
-        <p class="body">The installed app includes a command-line interface (CLI) for scripts and an MCP server for AI assistants. MCP, the Model Context Protocol, lets an assistant discover and run the tools. Both use the app’s export engine without showing a window.</p>
+        <p class="body">Toolbox includes a command-line interface (CLI) and an MCP server. Use the CLI in your terminal or scripts. MCP (Model Context Protocol) lets an AI assistant find and run the tools. Both work without opening an app window.</p>
       </div>
       <dl class="meta">{#each binaries as b}<div><dt class="lbl dim">{b.os}</dt><dd class="body">{b.path}</dd></div>{/each}</dl>
     </div>
   </section>
 
   <section class="text">
-    <div class="side"><h2 class="display-s">Set up the command</h2><p class="body">Install Toolbox first. The paths above show where to find its executable. The examples below use toolbox as the command; you can substitute the full path. On macOS, the link shown here makes that shortcut available from your terminal. Run the executable directly: the macOS open command detaches it, so you won’t see the results in your terminal.</p></div>
+    <div class="side"><h2 class="display-s">Set up the command</h2><p class="body">Install Toolbox first. You can run it using the full executable path shown above, or set up the toolbox shortcut used in these examples. On macOS, run the command here to create that shortcut. Run the executable directly rather than using the macOS open command, which won’t return results to your terminal.</p></div>
     <div class="paras"><Code label="macOS shortcut" text={link} /></div>
   </section>
 
   <section class="text">
-    <div class="side"><h2 class="display-s">The command line</h2><p class="body">Choose a tool, supply its inputs and options, and set an output folder. Running toolbox with no arguments opens the desktop app. All four tools support the same export settings through the app, CLI, and MCP, including print colors, per-variation settings, and custom font roles.</p></div>
+    <div class="side"><h2 class="display-s">The command line</h2><p class="body">Choose a tool, add your inputs and options, and set an output folder. Running toolbox without arguments opens the app. The CLI and MCP support all four tools and the same export settings, including print colors, settings for individual logo variations, and custom font roles.</p></div>
     <div class="paras">
       <Code label="Commands" text={commands} />
       <dl class="rules">
-        <div><dt class="lbl dim">Arguments</dt><dd class="body">Values without a flag become the main input: file paths for convert and lockup, hex colors for palette.</dd></div>
+        <div><dt class="lbl dim">Arguments</dt><dd class="body">Pass file paths directly to convert and lockup, or hex colors to palette. You don’t need a flag for these inputs.</dd></div>
         <div><dt class="lbl dim">Paths</dt><dd class="body">Relative paths start from your current folder. Use ~ for your home folder, and quote paths that contain spaces.</dd></div>
         <div><dt class="lbl dim">Lists</dt><dd class="body">Separate values with spaces or commas: --formats webp png or --formats=webp,png. To skip an output group, use none, as in --print none.</dd></div>
         <div><dt class="lbl dim">Switches</dt><dd class="body">Use --social to include profile images and --no-social to leave them out.</dd></div>
         <div><dt class="lbl dim">JSON</dt><dd class="body">Add --json to a tool command to receive the result as JSON.</dd></div>
-        <div><dt class="lbl dim">Output</dt><dd class="body">Export and preview require --out. Toolbox creates a new subfolder inside that destination and leaves existing files in place. Inspection, font discovery, and library queries need no destination.</dd></div>
+        <div><dt class="lbl dim">Output</dt><dd class="body">Use --out for exports and previews. Toolbox creates a new folder inside that destination, leaving existing files untouched. Inspecting files, listing fonts, and reading library records don’t need an output folder.</dd></div>
         <div><dt class="lbl dim">Exit codes</dt><dd class="body">0 means success, 1 means the job failed, and 2 means the command is invalid. Normal CLI results go to stdout; errors go to stderr.</dd></div>
       </dl>
     </div>
   </section>
 
   <section class="text">
-    <div class="side"><h2 class="display-s">Print colors & type</h2><p class="body">New in 1.1.0: assign print colors, set options for individual logo variations, name palette swatches, sample images, and define your own font roles. Use inspect to find source colors and fonts to list installed families and faces.</p><p class="body">Structured flags such as --palette and --roles take a quoted JSON array. Use the detected sourceHex from your artwork and font names installed on your computer. CMYK values are percentages from 0 to 100. MCP accepts the same arrays directly, without shell quoting.</p></div>
+    <div class="side"><h2 class="display-s">Print colors & type</h2><p class="body">You can assign print colors, adjust individual logo variations, name swatches, sample images, and define font roles. These options are available from version 1.1.0. Use inspect to find the colors in your artwork and fonts to list installed font families and styles.</p><p class="body">Structured flags such as --palette and --roles take a quoted JSON array. Use the detected sourceHex from your artwork and font names installed on your computer. CMYK values are percentages from 0 to 100. MCP accepts the same arrays directly, without shell quoting.</p></div>
     <div class="paras"><Code label="Print colors and custom type" text={advanced} /></div>
   </section>
 
   <section class="text">
-    <div class="side"><h2 class="display-s">Preview & saved work</h2><p class="body">Use --action inspect to see settings and planned files without writing anything. Convert also measures output sizes; Palette returns previews of its generated code. Use --action preview with --out to write previews you can open.</p><p class="body">Add --save to an export to make it available in the app’s library. The result includes a savedID. Replace RECORD_ID in these examples with that value to reopen the work. Explicit options override saved settings.</p><p class="body">Use library-get to read a saved record and library-remove to delete its library entry. Removing an entry leaves the exported files in place.</p></div>
+    <div class="side"><h2 class="display-s">Preview & saved work</h2><p class="body">Use --action inspect to check settings and see which files will be exported. It doesn’t write any files. Convert also reports output sizes, and Palette returns a preview of the generated code. To save previews you can open, use --action preview with --out.</p><p class="body">Add --save when exporting to keep the settings in the app’s library. The result includes a savedID; use that value in place of RECORD_ID to reopen the work. Any options you pass with the new command override the saved settings.</p><p class="body">Use library-get to read a saved record and library-remove to delete its library entry. Removing an entry leaves the exported files in place.</p></div>
     <div class="paras"><Code label="Save and reopen work" text={library} /></div>
   </section>
 
   <section class="text">
-    <div class="side"><h2 class="display-s">The options</h2><p class="body">Supported flags and their defaults are listed below. Run toolbox &lt;tool&gt; --help for the options in your installed version, or toolbox list for their JSON schemas.</p></div>
+    <div class="side"><h2 class="display-s">Options</h2><p class="body">The tables below list supported flags and defaults. To check your installed version, run toolbox &lt;tool&gt; --help. Use toolbox list to get the option schemas as JSON.</p></div>
     <div class="paras options">{#each tools as t (t.slug)}<Options tool={t} />{/each}</div>
   </section>
 
   <section class="text">
-    <div class="side"><span class="lbl dim">Machine mode 01</span><h2 class="display-s">List</h2><p class="body">Run toolbox list to get the full tool catalog as JSON, including descriptions, argument schemas, and examples. Use toolbox describe followed by a tool name to inspect just that tool.</p></div>
+    <div class="side"><span class="lbl dim">Machine mode 01</span><h2 class="display-s">List</h2><p class="body">Run toolbox list for a JSON catalog of all four tools, with descriptions, argument schemas, and examples. Use toolbox describe followed by a tool name for a single tool.</p></div>
     <div class="paras"><Code label="List" text={list} /></div>
   </section>
 
   <section class="text">
-    <div class="side"><span class="lbl dim">Machine mode 02</span><h2 class="display-s">Run</h2><p class="body">Pass a JSON object with the tool name and its arguments to --run. Toolbox checks the arguments, runs the job, and returns JSON with the output folder, file names, and warnings. A successful job exits with code 0. A failed job exits with code 1 and includes an error message. Replace the example paths with your own. The examples use macOS paths and shell quoting; adjust both for your system.</p></div>
+    <div class="side"><span class="lbl dim">Machine mode 02</span><h2 class="display-s">Run</h2><p class="body">Pass the tool name and arguments to --run as a JSON object. Toolbox returns the output folder, file names, and any warnings. Successful jobs exit with code 0; failed jobs exit with code 1 and an error message. Replace the example paths with your own and adjust the macOS paths and shell quoting for your system.</p></div>
     <div class="paras"><Code label="Run one job" text={run} /><Code label="The result" text={result} /><Code label="A failure" text={failed} /></div>
   </section>
 
   <section class="text">
-    <div class="side"><span class="lbl dim">Machine mode 03</span><h2 class="display-s">Serve</h2><p class="body">Start Toolbox with --mcp to expose the four tools to an MCP client over standard input and output. Add the example server configuration to your client’s MCP settings, using the executable path for your platform. For Claude Code, the project configuration file is .mcp.json. Protocol messages use stdout; logs use stderr.</p><p class="body">Once connected, ask your assistant to convert screenshots to WebP, package logo SVGs, or extract colors from artwork. Include the source files and destination folder in your request.</p></div>
+    <div class="side"><span class="lbl dim">Machine mode 03</span><h2 class="display-s">Serve</h2><p class="body">To connect an AI assistant, add the server configuration shown here to its MCP settings. Use the executable path for your platform. The --mcp flag starts Toolbox’s server over standard input and output. Claude Code reads project settings from .mcp.json. Protocol messages go to stdout and logs go to stderr.</p><p class="body">Once connected, ask your assistant to convert screenshots to WebP, package logo SVGs, or extract colors from artwork. Include the source files and destination folder in your request.</p></div>
     <div class="paras"><Code label="Serve the tools" text="toolbox --mcp" /><Code label=".mcp.json" text={mcp} /></div>
   </section>
 

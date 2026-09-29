@@ -1,0 +1,507 @@
+[
+  {
+    "file": "src/lib/work.ts",
+    "before": "An XRP Ledger explorer with analytics, wallet scoring, and fund tracing. I designed, built, and ran it myself, and it is now open source.",
+    "after": "An XRP Ledger explorer I designed, built, and ran, with portfolio tracking, wallet scoring, and fund tracing. Now open source."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "I wanted an account page that made sense before you knew the ledger’s terminology. I used type and spacing to put the balance, holdings, and recent activity first, with the technical detail farther down.",
+    "after": "I put the balance, holdings, and recent activity at the top of the account page. You could check what an account held before getting into the ledger’s technical details."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The balance leads, then value, reserve and age, then the tabs.",
+    "after": "Balance, value, reserve, and account age sit above the tabs."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Three readers, three depths",
+    "after": "Different levels of detail"
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Different readers needed different levels of detail. A newcomer might want to see what an account holds. A trader might need profit and loss, cost basis, and allocation. An analyst might want raw transaction data or fund tracing. I organized the account tabs around that progression and kept the live updates visually quiet.",
+    "after": "Someone new to the ledger might only need an account’s holdings. A trader might want profit and loss, cost basis, and allocation. An analyst might need raw transactions or fund tracing. I organized the tabs so people could get to the level of detail they needed."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Nothing blanks while it loads",
+    "after": "Loading and live updates"
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Search took an address, transaction identifier, ledger number, or token name and opened the matching view. Account pages had twelve tabs, from transactions and holdings to NFTs, liquidity pools, offers, and escrows. Sections loaded independently, so readers could start with the balance and holdings while other requests finished, and live updates kept the previous results visible until new data arrived.",
+    "after": "Search accepted addresses, transaction IDs, ledger numbers, and token names. Account pages had twelve tabs covering transactions, holdings, NFTs, liquidity pools, offers, and escrows. Each section loaded separately, so people could read the balance and holdings while the rest loaded. During live updates, existing data stayed visible until the new results arrived."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The app also covered network metrics, price charts, trading data, a wallet-connected portfolio, and a token directory, with separate databases for the app, analytics, and fund tracing.",
+    "after": "Beyond account pages, I built network metrics, price charts, trading views, a wallet-connected portfolio, and a token directory. The app, analytics, and fund-tracing tools used separate databases."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "An AI assistant, Ask the Ledger, took questions in plain English and could query those tools in a conversation.",
+    "after": "Ask the Ledger let people ask questions in plain English. The AI assistant could query the investigation tools as part of the conversation."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "An identity for a measuring tool",
+    "after": "Name and visual identity"
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "A sonde is a probe used to take measurements. The name suited a tool for looking into ledger activity. I used dark slate surfaces and muted neutrals, with salmon (#E8856C) for key metrics and live indicators.",
+    "after": "A sonde is a measuring probe, which felt like a good name for a ledger explorer. I used dark slate backgrounds with a salmon accent (#E8856C) for key metrics and live indicators."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Satoshi handled display type, DM Sans the interface and body copy, and IBM Plex Mono the addresses, hashes, and amounts. Small colored tags distinguished payments, trades, NFT operations, trust lines, and liquidity-pool activity without coloring entire rows.",
+    "after": "I used Satoshi for headings, DM Sans for interface text, and IBM Plex Mono for addresses, hashes, and amounts. Small colored tags identify transaction types, including payments, trades, NFTs, trust lines, and liquidity-pool activity."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The landing page, with salmon as the one accent.",
+    "after": "The landing page uses the same salmon accent as the app."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "I launched Sonde with a public explorer, analytics, and paid portfolio and investigation tools. Subscriptions accepted fiat and crypto. After launch I changed the pricing: the whole explorer became free, and Pro, at $5 a month, added Claude-powered questions. I handled design, development, and operations. I closed the hosted app when infrastructure costs outran subscription revenue, and published the code on GitHub under the MIT license.",
+    "after": "Sonde launched with a public explorer, analytics, and paid portfolio and investigation tools. Subscriptions accepted fiat and crypto. I later made the full explorer free, with Claude-powered questions available on the $5-a-month Pro plan. I handled design, development, and operations. When infrastructure costs exceeded subscription revenue, I closed the hosted app and released the code on GitHub under the MIT license."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The pricing after the change, in July 2026: the whole explorer free, and Pro at $5 a month for Claude-powered questions.",
+    "after": "July 2026 pricing: a free explorer and a $5-a-month Pro plan for Claude-powered questions."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Product, brand, and front end for a personal finance app covering budgets, accounts, and investments.",
+    "after": "A personal finance app for budgets, accounts, and investments. I designed the product and brand and built the front end."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Pocketwatch brought budgeting, net worth, and investments into one app. We were a team of two: I owned the product, brand, design, and front end, and my partner Chris built the backend, including auth, and ran the business side.",
+    "after": "Pocketwatch brought budgeting, net worth, and investments into one app. I handled product design, branding, and the front end. My partner Chris built the backend, including authentication, and ran the business side."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "One ledger for everything",
+    "after": "Accounts, budgets, and investments"
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The product combined a zero-based budget, a transaction ledger for cash and credit accounts, investment tracking, manual assets, and a net-worth view. The design challenge was helping people move between those views without losing track of which accounts and figures they were looking at.",
+    "after": "Pocketwatch combined zero-based budgeting, a transaction ledger for cash and credit accounts, investment tracking, manually entered assets, and net worth. I needed to make the relationship between those views clear, so people could tell which accounts and balances they were looking at."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Shared settings controlled type, color, spacing, and motion. Satoshi handled display type, Inter the interface, and JetBrains Mono the figures. Consistent number widths helped balances line up in tables. The same motion rules applied throughout, including reduced motion.",
+    "after": "I defined shared styles for type, color, spacing, and motion. Headings use Satoshi, interface text uses Inter, and figures use JetBrains Mono so balances line up in tables. The motion settings also include a reduced-motion mode."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "I drew the mark as an eye peeking out of a pocket: a small, slightly odd character to go with the name. Its simple shape worked as an app icon and beside the Satoshi wordmark.",
+    "after": "The logo is an eye peeking out of a pocket. I wanted a slightly odd little character that worked as both an app icon and part of the wordmark."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The main palette was near-black and white with a citron-green accent. I kept the rest of the identity simple so the mark could carry the personality.",
+    "after": "I paired it with a Satoshi wordmark and a near-black, white, and citron-green palette."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "A desktop app for the last step of brand work: logo packages, palettes, type specimens, and image conversion, with a command line and an MCP server. I designed and built it.",
+    "after": "A desktop app I designed and built to prepare brand files for handoff: logo packages, color palettes, type specimens, and converted images."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Toolbox is a desktop app for the last step of brand work. It turns logo SVGs into a complete print and web package, exports palettes as code and swatches, makes type specimens, and converts images. I designed and built it. It runs on macOS and Linux, and a command line and an MCP server let scripts and AI agents use the same tools.",
+    "after": "I designed and built Toolbox to handle the file preparation that comes with brand work. It packages logos for print and web, exports color palettes, makes type specimens, and converts images. It runs on macOS and Linux, with the same tools available from the app, command line, or an AI assistant through MCP."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Lockup takes one SVG per logo variation and exports an organized package: print and web folders, color, black, and white versions, several sizes, optional square social versions, and a README. Print PDF and EPS files can carry named Pantone spot colors. Palette exports colors as CSS and SCSS variables, design tokens, Adobe swatches, or a reference sheet. Specimen makes a type sheet from installed fonts, and Convert changes image formats, sizes, and compression.",
+    "after": "Lockup turns logo SVGs into a folder of print and web files, with color, black, and white versions, multiple sizes, optional social images, and a README. PDF and EPS exports support named Pantone spot colors. Palette makes code, swatches, and reference sheets from a set of colors. Specimen makes type sheets from installed fonts. Convert handles image formats, resizing, and compression."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Work is organized by project, one client or job each. Every export goes into a new folder instead of replacing an earlier delivery, and saved settings let a package be reopened and exported again. The library stays on the computer, and exported files stay in the folders you choose.",
+    "after": "Projects keep each client or job together. You can save the settings, reopen the work, and export it again. Each export gets a new folder, so earlier deliveries stay intact. The project library and exported files are stored on your computer."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Palette samples a poster’s colors into swatches; Specimen sets a type sheet from installed fonts.",
+    "after": "Palette extracts colors from artwork. Specimen previews a type sheet."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Convert measures each file’s size per format; the home screen lists the four tools.",
+    "after": "Convert shows the output size for each format. The home screen lists all four tools."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Each tool runs three ways: in the app, from the command line, and through an MCP server that AI agents can call. The command line and MCP take the same options as the app’s controls, and they can inspect inputs, preview results, and reopen saved work before exporting.",
+    "after": "The command line and MCP server support the same settings as the app. Scripts and AI assistants can inspect source files, preview results, reopen saved work, and export without opening a window."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Toolbox 1.1.1 is available for macOS, signed and notarized, and for Linux as AppImage and deb packages. I stopped making Windows builds at 1.1.0 rather than pay for code signing. Downloads, tool guides, and the command-line reference are on this site.",
+    "after": "Toolbox 1.1.1 is available for macOS and Linux. The macOS builds are signed and notarized; Linux builds come as AppImage and deb packages. I dropped Windows support at 1.1.0 because of the cost of code signing. Downloads and guides are on this site."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Rebranding the NFT club I cofounded in 2021 and building its website: a logo, palette, and typeface from one 5×5 grid, and a site with live stats, a gallery, and a playable rowing game.",
+    "after": "A new identity and website for the NFT club I cofounded in 2021, including a custom pixel typeface, live collection stats, and a rowing game."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "I cofounded Pixel Ape Rowboat Club in 2021 and have led its branding and art direction since. For the 2026 rebrand I drew a new logo on the apes’ 5×5 grid and built PARC Pixel, a three-weight typeface, then designed and built the club’s website on the same grid: live stats, a gallery, a playable rowing game, and merch.",
+    "after": "I cofounded Pixel Ape Rowboat Club in 2021 and have led its branding and art direction since. In 2026, I redesigned the identity around the apes’ 5×5 grid, made the PARC Pixel typeface, and built a new website with live stats, a gallery, merch, and a rowing game."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Around 2024 I had worked up a different direction: the club’s parts renamed as three branches, The Rowboat Club, The Parcade, and The Nightclub, each a black pixel wordmark with its own icon: an oar, a red joystick, and a red microphone. We all agreed it looked good, but it didn’t fit the brand: too serious and too dark, not playful enough. We set it aside.",
+    "after": "Around 2024, I explored splitting the club into three branches: The Rowboat Club, The Parcade, and The Nightclub. Each had a black pixel wordmark and an icon: an oar, a red joystick, or a red microphone. We liked the design, but it felt too serious and dark for PARC. We set it aside."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Same people, better brand",
+    "after": "Redrawing the logo"
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The scripts couldn’t make a 2 that read as a 2 in any weight. So I built a small editor for placing pixels by hand and let the scripts compile the fonts from it. I placed 29 glyphs across the family that way, including the bold 2, the oar, and all three at-signs, checking each in words at reading size.",
+    "after": "The scripts struggled with some characters, especially the number 2. I built a small editor to place pixels by hand, then used the scripts to compile the fonts. I drew 29 glyphs across the family this way, including the bold 2, the oar, and all three at-signs, and checked them in words at reading size."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "title: 'In the wild'",
+    "after": "title: 'Streams, merch, and social'"
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The logo’s pixel grid became the basis for the site. I wanted it to feel like arriving on the club’s island, with places to explore: the Clubhouse, the Gallery, and PARCade. The home page opens on the wordmark on a notched paper card over a scatter of pixels. The inner pages open under a jungle canopy with drifting pixel clouds, and a hanging wooden sign carries each page’s title, introduction, and buttons.",
+    "after": "I built the site around the logo’s pixel grid and the club’s island setting. The Clubhouse, Gallery, and PARCade each have their own place in that world. The home page opens with the wordmark on a notched paper card. Inner pages use a jungle canopy, drifting clouds, and a wooden sign for the title and introduction."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The Gallery hangs the apes on clotheslines between two trees. Selecting a frame brings up a plaque with the ape’s name. The first version scrolled sideways and hijacked the wheel. It looked good and felt wrong, so I rebuilt it with ordinary vertical scrolling.",
+    "after": "In the Gallery, apes hang on clotheslines between two trees. Selecting a frame opens a plaque with the ape’s name. My first version turned wheel input into sideways scrolling. It was awkward to use, so I switched to normal vertical scrolling."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "Merch was going to be an external link, but the storefront’s API let me bring the catalog onto the site. Only checkout leaves it. After Darc has a static-filled background, Discord has drifting chat bubbles, and the LARC teaser is a boathouse terminal that boots, glitches, and accepts typed input. The 404 sign says you rowed off the map.",
+    "after": "I originally planned to link out to the merch store. Using its API meant I could put the catalog on the site and send people to the store only for checkout. Other sections have their own details: TV static for After Darc, drifting chat bubbles for Discord, and a working terminal for the LARC teaser. The 404 sign says you rowed off the map."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "For First Ledger, a token trading platform from the team behind xrp.cafe, I designed the logo, typography, and brand guidelines over about a year, including rules for using the mark beside xrp.cafe and partner logos.",
+    "after": "I spent about a year designing the identity for First Ledger, a token trading platform from the team behind xrp.cafe. The work covered the logo, typography, brand guidelines, and layouts for use alongside xrp.cafe and partner logos."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The wide letterforms give the name a solid, dependable feel. Helvetica Neue Extended carries through the guidelines in three weights: Heavy for headlines, Medium for subheads, and Roman for body copy.",
+    "after": "I used Helvetica Neue Extended throughout: Heavy for headlines, Medium for subheads, and Roman for body copy."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "I delivered the logo, lockups, type system, and guidelines, including the co-branding layouts. For scale: by mid-2026 the platform had passed $1.2B in transaction volume, 165K peak users, and more than 2M wallets created.",
+    "after": "I delivered the logo, lockups, type system, and guidelines, including the co-branding layouts. By mid-2026, First Ledger had passed $1.2B in transaction volume, 165K peak users, and more than 2M wallets created."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "I cofounded xrp.cafe, an NFT marketplace on the XRP Ledger, and was its founding designer. From 2021 to 2024, I developed the identity and made the campaign graphics, animations, event booths, and community content.",
+    "after": "As cofounder and founding designer of xrp.cafe, I developed the identity for an NFT marketplace on the XRP Ledger. From 2021 to 2024, I also made its campaign graphics, animations, event booths, and community content."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The mascot system",
+    "after": "The coffee mug"
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "We wanted it to feel like a cozy place for NFTs. The coffee mug gave us a friendly starting point for a brand that people would see every day in their feeds and chats.",
+    "after": "We wanted xrp.cafe to feel like a friendly place to spend time. A smiling coffee mug suited the name and gave us a character to use in social posts and community chats."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The mascot is a coffee mug with stick-figure limbs and a smile. I started with the logo, then drew a cast of mugs with different outfits and accessories for campaigns and community events.",
+    "after": "I started with the logo, then drew versions of the mug with different outfits and accessories for campaigns and community events."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The basic shape stayed the same while the character changed: a Halloween pumpkin, a beach-BBQ mug, a Super Saiyan. That gave me room to respond to whatever was happening without starting from scratch each time.",
+    "after": "The same mug became a Halloween pumpkin, went to a beach BBQ, and turned Super Saiyan. I could make something for each occasion while keeping the character recognizable."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "I also made motion assets for product launches, feature announcements, and event recaps. Each focused on one feature or announcement.",
+    "after": "Other animations covered product launches, feature announcements, and event recaps."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "For Consensus, Permissionless, and ETH Denver, I adapted the identity into booth designs, backdrops, banners, and merch. The mug connected the online brand to a place people could meet the team.",
+    "after": "I also designed booths, backdrops, banners, and merch for Consensus, Permissionless, and ETH Denver, using the same mug characters people knew from our posts."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The identity carried through more than ten social campaigns, motion graphics, and event booths. I also made campaign work for a VeSea charity event that raised $33K for St. Jude. For scale: by mid-2026 the marketplace had 32K followers, $16.2M in volume, and 6.7M transactions.",
+    "after": "The work included more than ten social campaigns, motion graphics, and event booths, plus campaign graphics for a VeSea charity event that raised $33K for St. Jude. By mid-2026, the marketplace had 32K followers, $16.2M in volume, and 6.7M transactions."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The rebuild was about search, not looks. Each treatment needed its own page that could show up in search results, with control over its content, metadata, and structured data. I built a shared treatment-page template in Next.js.",
+    "after": "The practice needed individual treatment pages that people could find through search. I built a shared template in Next.js so each page could have its own content, metadata, and structured data."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "With dozens of treatments to cover, I wanted to make it straightforward to add a service without redesigning the page. Each treatment would have its own URL and a consistent set of questions to answer.",
+    "after": "The template also made it easier to add treatments. Each gets its own URL and follows the same structure, so the team doesn’t need a new page design for every service."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "I rebuilt the site with Next.js and Tailwind CSS, directing the page structure and components and reviewing the implementation as Claude Code wrote it. Pages include server-rendered content, individual metadata, structured data, breadcrumbs, and a generated sitemap.",
+    "after": "I used Next.js and Tailwind CSS for the rebuild. I designed the page structure and components, then worked with Claude Code on the implementation and reviewed the results. The site uses server-rendered pages, individual metadata, structured data, breadcrumbs, and a generated sitemap."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The rebuilt site launched in about two months, with more than 30 pages and redirects from the first site. The practice now has 16 treatment pages on a shared template, in the same look as the first site.",
+    "after": "The rebuild launched in about two months with more than 30 pages, including 16 treatment pages. Redirects connect the old URLs to the new pages, and the site keeps the visual identity from the Framer version."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The client wanted an identity that felt direct and credible, with a rough mood board pointing toward retro print media. I used that reference to develop a heavy wordmark, halftone details, and a blue palette.",
+    "after": "The client brought a rough mood board of retro print references and wanted the brand to feel direct and credible. I developed a heavy wordmark, halftone details, and a blue palette from that starting point."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "title: 'The signature look'",
+    "after": "title: 'Print texture'"
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "A blue-to-cyan gradient with a layer of grain gives the backgrounds some of the texture of print. I used it in social cards, editorial layouts, and billboard mockups.",
+    "after": "I added grain to a blue-to-cyan gradient for a printed texture, then used it across social cards, editorial layouts, and billboard mockups."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "For a class project at RMCAD, I designed and animated a speculative title sequence for Philip K. Dick’s Do Androids Dream of Electric Sheep?, the novel that inspired Blade Runner. The credits are for an imagined film adaptation. I wanted to try a graphic approach: yellow, black, and flat shapes, with Saul Bass as a reference.",
+    "after": "For a class project at RMCAD, I made a title sequence for an imagined adaptation of Philip K. Dick’s Do Androids Dream of Electric Sheep?, the novel behind Blade Runner. I designed and animated it in yellow and black, using flat shapes and Saul Bass’s title work as a reference. The film credits are fictional."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "The yellow sky makes the black buildings feel heavier. With so little color, changes in scale and composition do most of the work.",
+    "after": "Against the yellow sky, the black buildings feel heavy. I used changes in scale and composition to give the sequence variety within those two colors."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "I used the changes in perspective to connect the scenes and make the city feel disorienting. The sequence was cut to The Doors’ “End of the Night”; the video here is silent, and the version with sound is on YouTube.",
+    "after": "Changes in perspective connect the scenes and make the city feel disorienting. I cut the sequence to The Doors’ “End of the Night.” The video here is silent; you can watch it with sound on YouTube."
+  },
+  {
+    "file": "src/lib/components/home/HeroStage.svelte",
+    "before": "Interfaces, design systems, and the front ends that run them.",
+    "after": "Interface design, design systems, and front-end development."
+  },
+  {
+    "file": "src/lib/components/home/StatementStage.svelte",
+    "before": "I’ve also shipped three products of my own: Sonde, an XRP Ledger analytics platform I designed, built, and ran solo; Pocketwatch, a personal finance app built with a partner on the backend; and Toolbox, a desktop app for brand deliverables. I also do brand and motion, and it shows in the product work.",
+    "after": "I’ve also built three products: Sonde, an XRP Ledger analytics platform I ran on my own; Pocketwatch, a personal finance app I made with a backend partner; and Toolbox, a desktop app for preparing brand files. I also work on branding and motion."
+  },
+  {
+    "file": "src/routes/contact/+page.svelte",
+    "before": "Open to full-time roles, remote or in Denver, and to contract work.",
+    "after": "I’m available for full-time roles and contract work, remotely or in Denver."
+  },
+  {
+    "file": "src/routes/contact/+page.svelte",
+    "before": "Or message me on LinkedIn",
+    "after": "Message me on LinkedIn"
+  },
+  {
+    "file": "src/lib/toolbox.ts",
+    "before": "Logo files in, deliverable package out",
+    "after": "Package logos for print and web"
+  },
+  {
+    "file": "src/lib/toolbox.ts",
+    "before": "Prepare logo files for a client, developer, or printer. Start with a vector SVG for each variation, then choose formats, colors, and sizes. Assign CMYK and Pantone colors for print in the app, CLI, or MCP. For a single image conversion, use Convert.",
+    "after": "Use Lockup to prepare a set of logo files for a client, developer, or printer. Add an SVG for each logo variation, then choose the formats, colors, and sizes you need. You can assign CMYK and Pantone print colors in the app, CLI, or MCP. To convert individual images, use Convert."
+  },
+  {
+    "file": "src/lib/toolbox.ts",
+    "before": "WEB and PRINT folders organized by logo variation, color treatment, and size, plus a README explaining the package. Choose PNG, JPEG, and SVG for web; JPEG, PDF, and EPS for print.",
+    "after": "Your export contains WEB and PRINT folders, organized by logo variation, color treatment, and size. A README explains what’s included. Web formats are PNG, JPEG, and SVG; print formats are JPEG, PDF, and EPS."
+  },
+  {
+    "file": "src/lib/toolbox.ts",
+    "before": "Colors in, tokens and swatches out",
+    "after": "Export palettes as code and swatches"
+  },
+  {
+    "file": "src/lib/toolbox.ts",
+    "before": "Prepare a palette for a website, an Adobe project, or a brand guide. Enter hex values or extract colors from artwork. SVGs supply their fill colors; images supply their dominant colors.",
+    "after": "Use Palette to prepare colors for a website, an Adobe project, or a brand guide. Enter hex values or import artwork. Toolbox reads fill colors from SVGs and extracts dominant colors from raster images."
+  },
+  {
+    "file": "src/lib/toolbox.ts",
+    "before": "Fonts in, type sheets out",
+    "after": "Make type specimen sheets"
+  },
+  {
+    "file": "src/lib/toolbox.ts",
+    "before": "Show a typeface at different sizes or compare fonts in a brand guide. Install the fonts on your computer first. Assign fonts, faces, and sizes to roles such as heading, body, and caption in the app, CLI, or MCP.",
+    "after": "Use Specimen to show a typeface at different sizes or compare fonts for a brand guide. Install the fonts first, then choose a family, style, and size for each role, such as heading, body, or caption. The same settings are available in the app, CLI, and MCP."
+  },
+  {
+    "file": "src/lib/toolbox.ts",
+    "before": "Images in, new formats and smaller files out",
+    "after": "Convert and resize images"
+  },
+  {
+    "file": "src/lib/toolbox.ts",
+    "before": "Prepare images for the web, change their format, or limit their dimensions. Convert reads PNG, JPEG, WebP, GIF, BMP, ICO, AVIF, and SVG on both platforms. HEIC, TIFF, and PSD input is supported on macOS only. Use Lockup when you need a full set of logo variations.",
+    "after": "Use Convert to change image formats, resize files, or adjust compression. Both platforms can read PNG, JPEG, WebP, GIF, BMP, ICO, AVIF, and SVG. HEIC, TIFF, and PSD input requires macOS. For a full package of logo variations, use Lockup."
+  },
+  {
+    "file": "src/lib/toolbox.ts",
+    "before": "One file for each source image in each selected format. When you choose multiple formats, Toolbox puts them in separate folders, such as PNG and WebP.",
+    "after": "Each source image is exported in every format you select. If you select more than one format, the files are grouped into folders such as PNG and WebP."
+  },
+  {
+    "file": "src/routes/toolbox/+page.svelte",
+    "before": "lockup: 'Ready to hand over.', palette: 'Keep your colors together.',",
+    "after": "lockup: 'Package your logos.', palette: 'Export your palette.',"
+  },
+  {
+    "file": "src/routes/toolbox/+page.svelte",
+    "before": "specimen: 'See your fonts on a page.', convert: 'The right file for the job.'",
+    "after": "specimen: 'Make a type sheet.', convert: 'Convert and resize.'"
+  },
+  {
+    "file": "src/routes/toolbox/+page.svelte",
+    "before": "Make the work.<br />Let Toolbox finish the files.",
+    "after": "Prepare your files<br />for handoff."
+  },
+  {
+    "file": "src/routes/toolbox/+page.svelte",
+    "before": "Logo packages, color systems, type specimens and image conversion. Try the examples below.",
+    "after": "Package logos, export palettes, make type sheets, and convert images. Try each tool below."
+  },
+  {
+    "file": "src/routes/toolbox/+page.svelte",
+    "before": "label={`About ${active.name}`}",
+    "after": "label={`${active.name} guide`}"
+  },
+  {
+    "file": "src/routes/toolbox/+page.svelte",
+    "before": "Same tools.<br />Your workflow.",
+    "after": "Automate<br />your exports."
+  },
+  {
+    "file": "src/routes/toolbox/+page.svelte",
+    "before": "Use the app, run a command, or connect over MCP. Scripts and AI assistants use the same export engine as the app.",
+    "after": "Use the same tools from your terminal or an AI assistant through MCP. Inspect files, preview exports, and reopen saved work without opening the app."
+  },
+  {
+    "file": "src/routes/toolbox/+page.svelte",
+    "before": "Download Toolbox for your computer. SHA-256 checksums are available on the releases page if you want to verify your download.",
+    "after": "Choose the build for your computer below. The releases page includes SHA-256 checksums to verify the downloaded file."
+  },
+  {
+    "file": "src/routes/toolbox/[tool]/+page.svelte",
+    "before": "Run this example in a terminal after setting up the toolbox command. Replace the sample inputs with your own. The CLI and MCP use the app’s export engine with the options listed below.",
+    "after": "Set up the toolbox command using the linked guide, then run this example with your own inputs. The options below work with both the CLI and MCP."
+  },
+  {
+    "file": "src/routes/toolbox/agents/+page.svelte",
+    "before": "The installed app includes a command-line interface (CLI) for scripts and an MCP server for AI assistants. MCP, the Model Context Protocol, lets an assistant discover and run the tools. Both use the app’s export engine without showing a window.",
+    "after": "Toolbox includes a command-line interface (CLI) and an MCP server. Use the CLI in your terminal or scripts. MCP (Model Context Protocol) lets an AI assistant find and run the tools. Both work without opening an app window."
+  },
+  {
+    "file": "src/routes/toolbox/agents/+page.svelte",
+    "before": "Install Toolbox first. The paths above show where to find its executable. The examples below use toolbox as the command; you can substitute the full path. On macOS, the link shown here makes that shortcut available from your terminal. Run the executable directly: the macOS open command detaches it, so you won’t see the results in your terminal.",
+    "after": "Install Toolbox first. You can run it using the full executable path shown above, or set up the toolbox shortcut used in these examples. On macOS, run the command here to create that shortcut. Run the executable directly rather than using the macOS open command, which won’t return results to your terminal."
+  },
+  {
+    "file": "src/routes/toolbox/agents/+page.svelte",
+    "before": "Choose a tool, supply its inputs and options, and set an output folder. Running toolbox with no arguments opens the desktop app. All four tools support the same export settings through the app, CLI, and MCP, including print colors, per-variation settings, and custom font roles.",
+    "after": "Choose a tool, add your inputs and options, and set an output folder. Running toolbox without arguments opens the app. The CLI and MCP support all four tools and the same export settings, including print colors, settings for individual logo variations, and custom font roles."
+  },
+  {
+    "file": "src/routes/toolbox/agents/+page.svelte",
+    "before": "Values without a flag become the main input: file paths for convert and lockup, hex colors for palette.",
+    "after": "Pass file paths directly to convert and lockup, or hex colors to palette. You don’t need a flag for these inputs."
+  },
+  {
+    "file": "src/routes/toolbox/agents/+page.svelte",
+    "before": "Export and preview require --out. Toolbox creates a new subfolder inside that destination and leaves existing files in place. Inspection, font discovery, and library queries need no destination.",
+    "after": "Use --out for exports and previews. Toolbox creates a new folder inside that destination, leaving existing files untouched. Inspecting files, listing fonts, and reading library records don’t need an output folder."
+  },
+  {
+    "file": "src/routes/toolbox/agents/+page.svelte",
+    "before": "New in 1.1.0: assign print colors, set options for individual logo variations, name palette swatches, sample images, and define your own font roles. Use inspect to find source colors and fonts to list installed families and faces.",
+    "after": "You can assign print colors, adjust individual logo variations, name swatches, sample images, and define font roles. These options are available from version 1.1.0. Use inspect to find the colors in your artwork and fonts to list installed font families and styles."
+  },
+  {
+    "file": "src/routes/toolbox/agents/+page.svelte",
+    "before": "Use --action inspect to see settings and planned files without writing anything. Convert also measures output sizes; Palette returns previews of its generated code. Use --action preview with --out to write previews you can open.",
+    "after": "Use --action inspect to check settings and see which files will be exported. It doesn’t write any files. Convert also reports output sizes, and Palette returns a preview of the generated code. To save previews you can open, use --action preview with --out."
+  },
+  {
+    "file": "src/routes/toolbox/agents/+page.svelte",
+    "before": "Add --save to an export to make it available in the app’s library. The result includes a savedID. Replace RECORD_ID in these examples with that value to reopen the work. Explicit options override saved settings.",
+    "after": "Add --save when exporting to keep the settings in the app’s library. The result includes a savedID; use that value in place of RECORD_ID to reopen the work. Any options you pass with the new command override the saved settings."
+  },
+  {
+    "file": "src/routes/toolbox/agents/+page.svelte",
+    "before": "The options</h2>",
+    "after": "Options</h2>"
+  },
+  {
+    "file": "src/routes/toolbox/agents/+page.svelte",
+    "before": "Supported flags and their defaults are listed below. Run toolbox &lt;tool&gt; --help for the options in your installed version, or toolbox list for their JSON schemas.",
+    "after": "The tables below list supported flags and defaults. To check your installed version, run toolbox &lt;tool&gt; --help. Use toolbox list to get the option schemas as JSON."
+  },
+  {
+    "file": "src/routes/toolbox/agents/+page.svelte",
+    "before": "Run toolbox list to get the full tool catalog as JSON, including descriptions, argument schemas, and examples. Use toolbox describe followed by a tool name to inspect just that tool.",
+    "after": "Run toolbox list for a JSON catalog of all four tools, with descriptions, argument schemas, and examples. Use toolbox describe followed by a tool name for a single tool."
+  },
+  {
+    "file": "src/routes/toolbox/agents/+page.svelte",
+    "before": "Pass a JSON object with the tool name and its arguments to --run. Toolbox checks the arguments, runs the job, and returns JSON with the output folder, file names, and warnings. A successful job exits with code 0. A failed job exits with code 1 and includes an error message. Replace the example paths with your own. The examples use macOS paths and shell quoting; adjust both for your system.",
+    "after": "Pass the tool name and arguments to --run as a JSON object. Toolbox returns the output folder, file names, and any warnings. Successful jobs exit with code 0; failed jobs exit with code 1 and an error message. Replace the example paths with your own and adjust the macOS paths and shell quoting for your system."
+  },
+  {
+    "file": "src/routes/toolbox/agents/+page.svelte",
+    "before": "Start Toolbox with --mcp to expose the four tools to an MCP client over standard input and output. Add the example server configuration to your client’s MCP settings, using the executable path for your platform. For Claude Code, the project configuration file is .mcp.json. Protocol messages use stdout; logs use stderr.",
+    "after": "To connect an AI assistant, add the server configuration shown here to its MCP settings. Use the executable path for your platform. The --mcp flag starts Toolbox’s server over standard input and output. Claude Code reads project settings from .mcp.json. Protocol messages go to stdout and logs go to stderr."
+  },
+  {
+    "file": "src/lib/work.ts",
+    "before": "title: 'The system'",
+    "after": "title: 'Logo, color, and spacing'"
+  },
+  {
+    "file": "src/routes/og/[id]/+page.svelte",
+    "before": "Make the work.<br />Let Toolbox finish the files.",
+    "after": "Prepare your files<br />for handoff."
+  },
+  {
+    "file": "src/routes/og/[id]/+page.svelte",
+    "before": "About {t.name} <Arrow />",
+    "after": "{t.name} guide <Arrow />"
+  },
+  {
+    "file": "src/lib/components/ContactForm.svelte",
+    "before": "The mail didn’t go through. Try again, or email studio@timothyali.com.",
+    "after": "Your message didn’t send. Try again, or email studio@timothyali.com."
+  },
+  {
+    "file": "src/routes/admin/login/+page.svelte",
+    "before": "We couldn’t sign you in. Check your email address and try again in a minute, or request a fresh link if yours has expired.",
+    "after": "Couldn’t sign you in. Check your email address and try again in a minute. If your link has expired, request a new one."
+  }
+]

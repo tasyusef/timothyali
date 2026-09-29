@@ -95,3 +95,8 @@ PX-54 (2026-09-29, 0140): Home rebuilt as four stages held on the window, on Tim
 
 
 PX-55 (2026-09-29, 0141): on Timothy's “go ahead and fix all of that”, Home's overflowing statement follows scroll progress and restores its opening when scrolling back; keyboard focus reveals the hero/work/invitation links immediately; the no-JavaScript introduction and contact link work; experience copy distinguishes freelancing since 2019 from more recent founder/team work. Commit and publication authorized by Timothy on 2026-09-29 (“commit and push”). Regression runner `tools/review/px55.mjs`, evidence `docs/iterations/pixel-v2/55-home-accessibility/`.
+
+
+PX-56 (2026-09-29, 0142): copy refinement on Timothy’s request for more natural wording. All nine studies, shared project summaries, Home/Contact, Toolbox landing and guides, and CLI/MCP explanations edited. Product positioning, facts, quotes, technical options and commands preserved. Affected share images regenerated. Before/after record and browser evidence in `docs/iterations/pixel-v2/56-copy-refinement/`. Committed and pushed on his word with PX-57 (2026-09-29).
+
+PX-57 (2026-09-29, 0143): on Timothy's word the hero and invitation follow the scroll on the spring too (critically damped, so dissolves never run backwards); pushed with PX-56.

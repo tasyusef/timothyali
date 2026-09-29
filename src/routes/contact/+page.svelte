@@ -16,12 +16,12 @@
       <div class="signal" aria-hidden="true"><svg width="96" height="96" viewBox="0 0 12 12" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h1v7h7V7H8V6h1v1h1v1h1v1h-1v1H9v1H8v-1h1V9H1z" /></svg></div>
       <div class="contact-note">
         <p class="body">Hiring, or have a project in mind? I’d like to hear about it.</p>
-        <p class="body signoff">Open to full-time roles, remote or in Denver, and to contract work.</p>
+        <p class="body signoff">I’m available for full-time roles and contract work, remotely or in Denver.</p>
         <ContactForm />
         <div class="contact-links">
           <QuietLink href={RESUME_URL} label="Resume (PDF)" class="lbl alt" />
           <QuietLink href="mailto:studio@timothyali.com" label="studio@timothyali.com" class="lbl alt" />
-          <QuietLink href="https://linkedin.com/in/timothyali" label="Or message me on LinkedIn" class="lbl alt" />
+          <QuietLink href="https://linkedin.com/in/timothyali" label="Message me on LinkedIn" class="lbl alt" />
         </div>
       </div>
     </div>

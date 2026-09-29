@@ -74,7 +74,7 @@
     <Band class="og-toolbox" mode="bands" seed={7} density={0.7} flip shade avoid=".og-hero-top > span, .og-toolbox h1, .og-toolbox .lead, .og-actions > *">
       <div class="og-hero-top lbl"><span>By Timothy Ali</span><span>{APP.interfaces.join(' / ')}</span></div>
       <h1 class="blackletter display-xl"><Decode text="toolbox." /></h1>
-      <p class="lead">Make the work.<br />Let Toolbox finish the files.</p>
+      <p class="lead">Prepare your files<br />for handoff.</p>
       <div class="og-actions"><Cta href="/toolbox/#tools" class="lbl">Explore the tools <Arrow /></Cta><span class="lbl">{APP.platforms.join(' · ')}</span></div>
     </Band>
   {:else if data.id === 'toolbox-agents'}
@@ -95,7 +95,7 @@
           <span class="lbl og-tool-n">[{t.n}] / {t.blurb}</span>
           <h1 class="display" class:small bind:this={h1}><span class="probe" aria-hidden="true" bind:this={probe}>{longest}</span>{t.name}</h1>
           <p class="body">{t.summary}</p>
-          <Cta variant="quiet" class="lbl">About {t.name} <Arrow /></Cta>
+          <Cta variant="quiet" class="lbl">{t.name} guide <Arrow /></Cta>
         </div>
       </div>
     </Band>

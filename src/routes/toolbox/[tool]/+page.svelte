@@ -35,7 +35,7 @@
   <section class="text">
     <h2 class="display-s">CLI & MCP</h2>
     <div class="paras">
-      <p class="body">Run this example in a terminal after setting up the toolbox command. Replace the sample inputs with your own. The CLI and MCP use the app’s export engine with the options listed below.</p>
+      <p class="body">Set up the toolbox command using the linked guide, then run this example with your own inputs. The options below work with both the CLI and MCP.</p>
       <Code label="Example command" text={t.command} />
       <Options tool={t} heading={false} />
       <QuietLink href="/toolbox/agents/" label="CLI & MCP setup" pad class="lbl" />

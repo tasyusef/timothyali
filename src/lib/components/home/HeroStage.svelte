@@ -13,8 +13,9 @@
   import { TICK_SLOW, STEP_SLOW, STEP } from '$lib/tokens';
   import { motion, theme } from '$lib/motion.svelte';
   import { hash, lines, onScroll, pinned, revealOnFocus, ramp, resolve, smooth, span, sprites, textMask, RAMP } from './stage';
+  import { follower } from './spring';
 
-  const LINES = ['Product designer who ships in code.', 'Interfaces, design systems, and the front ends that run them.', 'Denver / remote. Open to full-time and contract.'];
+  const LINES = ['Product designer who ships in code.', 'Interface design, design systems, and front-end development.', 'Denver / remote. Open to full-time and contract.'];
   const STATIC_LINE = LINES.join(' ');
   const HOLD = { hi: 900, name: 700, line: 1600, last: 2600, clear: 600 };
   const erased = (t: string) => [...t].length * STEP_SLOW;
@@ -40,14 +41,22 @@
   function reveal() {
     if (still) return;
     window.scrollTo({ top: sec.getBoundingClientRect().top + window.scrollY, behavior: 'instant' });
-    p = 0;
+    glide.to(0, true);
   }
+  // The stage glides after the scroll on a damped spring (spring.ts) rather than tracking it
+  // exactly; critically damped, so a dissolve never runs backwards. Off the window it jumps, so
+  // the stage always leaves complete.
+  const glide = follower((v) => { p = v; }, 9, 1);
 
   onMount(() => {
     const io = new IntersectionObserver((es) => es.forEach((e) => { inView = e.isIntersecting; }), { threshold: 0.2 });
     io.observe(sec);
-    const off = onScroll(() => { p = still ? 0 : pinned(sec); });
-    return () => { io.disconnect(); off(); };
+    const off = onScroll(() => {
+      if (still) { glide.to(0, true); return; }
+      const r = sec.getBoundingClientRect();
+      glide.to(pinned(sec), !(r.top <= 0 && r.bottom >= window.innerHeight));
+    });
+    return () => { io.disconnect(); off(); glide.stop(); };
   });
   $effect(() => {
     if (!motion.on) return;

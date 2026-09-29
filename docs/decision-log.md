@@ -2002,3 +2002,19 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Direction:** After a review identified clipped phone introduction text, keyboard focus on masked links, a hidden no-JavaScript introduction and an unclickable no-JavaScript contact link, Timothy: “go ahead and fix all of that.” This also authorizes correcting the experience sentence: freelancing since 2019, work with founders and teams more recently (his earlier clarification).
 - **Implementation (PX-55):** The statement's overflow follows scroll progress and reverses when scrolling back; its hold gains room for that overflow. Continuing to scroll completes the typing before moving the text. Static sections are visible and clickable in server-rendered HTML. Keyboard focus moves the hero, work wheel or invitation to a fully visible scroll position; the work wheel snaps to the current card without waiting for its spring. The companion now starts “I’ve been freelancing since 2019. More recently, I’ve worked with founders and engineers on small teams.”
 - **Status:** Fixes authorized; scroll timing and focus positioning are implementation choices. Verified locally; Timothy authorized committing and publishing on 2026-09-29 (“commit and push”). Evidence: `docs/iterations/pixel-v2/55-home-accessibility/`; regression runner: `tools/review/px55.mjs`.
+
+
+## 0142 — Refine the site’s copy
+
+- **Date:** 2026-09-29
+- **Direction:** Timothy: “now i want you to go through the copy and amke it soundbetter. its written by claude and soudns kinda weird at times”. This follows his earlier preference for natural, low-key copy and clear case studies and Toolbox guides.
+- **Implementation (PX-56):** Edited all nine case studies, their shared Home/Work summaries, Home and Contact text, Toolbox landing and guides, and the CLI/MCP explanations. Replaced vague headings and stock transitions with descriptive language, shortened summaries, removed repetition, and made instructions more direct. Established positioning, project facts, quotes, commands, and technical options stay intact. Updated the affected share images.
+- **Status:** Rewrite authorized; the exact wording is the assistant’s edit for Timothy’s review. Verified locally; committed and pushed on his word on 2026-09-29 (“commit and push both”), with 0143. Full before/after evidence: `docs/iterations/pixel-v2/56-copy-refinement/`.
+
+## 0143 — The spring on the hero and the invitation
+
+- **Date:** 2026-09-29
+- **Direction:** Timothy: “apply the spring to the hero and invitation too” (after the wheel's detents in 0140).
+- **Implementation (PX-57):** the hero's and the invitation's progress follows the scroll on the same harmonica-derived spring (`follower` in `src/lib/components/home/spring.ts`, ω 9), critically damped (ζ 1) rather than the wheel's 0.72, because an overshoot would run a dissolve backwards and bring glyphs back. Off the window each stage jumps to its end, so handoffs stay clean at any scroll speed; keyboard focus (PX-55) jumps the spring too.
+- **Status:** Direction Timothy's; the constants and the critical damping the assistant's. Committed and pushed on his word (“commit and push both”) with PX-56.
+

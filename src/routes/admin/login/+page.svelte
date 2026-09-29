@@ -26,7 +26,7 @@
       <input id="admin-email" type="email" bind:value={email} autocomplete="email" required disabled={sending} />
       <button class="lbl" type="submit" disabled={sending}>{sending ? 'Sending…' : 'Email me a sign-in link'}</button>
     </form>
-    {#if failed || page.url.searchParams.has('error')}<p role="alert">We couldn’t sign you in. Check your email address and try again in a minute, or request a fresh link if yours has expired.</p>{/if}
+    {#if failed || page.url.searchParams.has('error')}<p role="alert">Couldn’t sign you in. Check your email address and try again in a minute. If your link has expired, request a new one.</p>{/if}
   {/if}
   <a class="lbl" href="/">Back to the site ↗</a>
 </main>

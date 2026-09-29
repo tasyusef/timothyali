@@ -11,6 +11,7 @@
   import { TICK_FAST } from '$lib/tokens';
   import { motion, theme } from '$lib/motion.svelte';
   import { hash, lines, onScroll, pinned, revealOnFocus, ramp, resolve, smooth, span, sprites, textMask, RAMP } from './stage';
+  import { follower } from './spring';
 
   let sec: HTMLElement; let stage: HTMLElement; let cv: HTMLCanvasElement; let wordEl: HTMLElement;
   let p = $state(0);
@@ -26,13 +27,23 @@
   // the rain parts round each line once it has arrived
   const avoid = $derived([lead1 > 0.5 && '.inv-lead1', lead2 > 0.5 && '.inv-lead2', crisp > 0.5 && '.inv-word', cta > 0.5 && '.cta-row'].filter(Boolean).join(', '));
 
-  onMount(() => onScroll(() => { p = still ? 1 : pinned(sec); const r = sec.getBoundingClientRect(); live = still || r.top <= 1; }));
+  // The stage glides after the scroll on a damped spring (spring.ts), critically damped so the
+  // word never unforms; before and after its hold it jumps, so it arrives empty and leaves whole.
+  const glide = follower((v) => { p = v; }, 9, 1);
+  onMount(() => {
+    const off = onScroll(() => {
+      const r = sec.getBoundingClientRect(); live = still || r.top <= 1;
+      if (still) { glide.to(1, true); return; }
+      glide.to(pinned(sec), !(r.top <= 0 && r.bottom >= window.innerHeight));
+    });
+    return () => { off(); glide.stop(); };
+  });
 
   function reveal() {
     if (still) return;
     const top = sec.getBoundingClientRect().top + window.scrollY;
     window.scrollTo({ top: top + (sec.offsetHeight - window.innerHeight) * 0.9, behavior: 'instant' });
-    p = 0.9; live = true;
+    glide.to(0.9, true); live = true;
   }
 
   let colors: { steps: string[]; paper: string; accent: string } | null = null;
