@@ -182,7 +182,7 @@ JS-measured `.small` step-down), Home’s `.para` / `.words` / `.w` and
 | `Band` | `as='section'`, `class`, `mode seed tick density avoid pad feather flip shade`, children | `<svelte:element class="band …">` + `.band-bg` + `Ascii` | Home hero (`sky`, `shade`, density 1.3), Home work/invitation rain (`as="div"`, `fall`, `shade`), Contact (`fall`, `shade`), the 404 (`sparse`), the share-image route |
 | `Ascii` | `mode cell px seed tick density avoid pad feather interactive reach flip shade` | the texture canvas; one accent per mode, `shade` colours by ramp step (0091) | via `Band` only. The same file as GRIDFORM Studio’s `ui/Ascii.svelte`; keep them in step |
 | `Decode` | `text mode step delay cursor` | kinetic type + `sr-only` real text | 6 call sites |
-| `Picture` | `src x2 alt width height eager sizes row` | a photograph at its own resolution | Home cards, Work rows, study galleries |
+| `Picture` | `src x2 alt width height eager sizes row phone` | a photograph at its own resolution; `phone` is a tighter crop served at ≤700px through a `<picture>` source, the figure taking its aspect (PX-53) | Home cards, Work rows, study galleries |
 | `Clip` | `src label width height row` | a muted looping video | study galleries |
 
 Deleted: `Dither.svelte` and `Ticker.svelte` (unused since PX-04/PX-07; confirmed by grep

@@ -6,7 +6,8 @@
 import { home as tbHome, tools as tbTools } from './toolbox.ts';
 
 /** `poster` is a still from the video, shown until it plays and whenever motion is off */
-export interface Media { src: string; w: number; h: number; alt: string; video?: boolean; x2?: string; poster?: string }
+/** `phone` is a tighter crop of the same screen shown at ≤700px instead (PX-53) */
+export interface Media { src: string; w: number; h: number; alt: string; video?: boolean; x2?: string; poster?: string; phone?: { src: string; w: number; h: number } }
 export type Row = Media[];
 export type Block =
   | { type: 'text'; title: string; paras: string[] }
@@ -43,6 +44,8 @@ export interface Project extends Entry {
   live?: { href: string; label: string };
   /** public source code, shown as a Source row in the study head (0132) */
   source?: { href: string; label: string };
+  /** the piece with its sound, hosted elsewhere, shown as a With sound row (0139) */
+  watch?: { href: string; label: string };
   cover: Media;
   lead: string[];
   hero: Row;
@@ -53,12 +56,15 @@ export interface Project extends Entry {
 export type Item = Project | Entry;
 
 // files that also exist as `<name>@2x.jpg` (2800px on the long side) for dense screens
-const X2 = new Set(['parc/first-direction', 'firstledger/guide-01', 'firstledger/guide-02', 'firstledger/guide-03', 'firstledger/guide-04', 'firstledger/guide-05', 'firstledger/guide-07', 'firstledger/guide-08', 'firstledger/guide-10', 'firstledger/hero', 'parc/club-masthead-sky', 'parc/sign-sky', 'xrpcafe/backdrop', 'xrpcafe/banner', 'xrpcafe/booth-setup', 'xrpcafe/booth-table', 'xrpcafe/booth-tablet', 'xrpcafe/booth-team', 'xrpcafe/jeopardy', 'xrpcafe/just-mint', 'xrpcafe/logo', 'xrpcafe/marketplace', 'xrpcafe/mug-bbq', 'xrpcafe/mug-pumpkin', 'xrpcafe/mug-saiyan', 'xrpcafe/vesea-charity', 'xrpcafe/xrpl-group', 'firststrike/billboard', 'firststrike/business-card', 'firststrike/color', 'firststrike/construction', 'firststrike/hero', 'firststrike/logo-primary', 'firststrike/logo-secondary', 'firststrike/mission', 'firststrike/pillars', 'firststrike/type']);
+const X2 = new Set(['parc/first-direction', 'firstledger/guide-01', 'firstledger/guide-02', 'firstledger/guide-03', 'firstledger/guide-04', 'firstledger/guide-05', 'firstledger/guide-07', 'firstledger/guide-08', 'firstledger/guide-10', 'firstledger/hero', 'parc/club-masthead-sky', 'parc/sign-sky', 'xrpcafe/backdrop', 'xrpcafe/banner', 'xrpcafe/booth-table', 'xrpcafe/booth-tablet', 'xrpcafe/booth-team', 'xrpcafe/jeopardy', 'xrpcafe/just-mint', 'xrpcafe/logo', 'xrpcafe/marketplace', 'xrpcafe/mug-bbq', 'xrpcafe/mug-pumpkin', 'xrpcafe/mug-saiyan', 'xrpcafe/vesea-charity', 'firststrike/billboard', 'firststrike/business-card', 'firststrike/color', 'firststrike/construction', 'firststrike/hero', 'firststrike/logo-primary', 'firststrike/logo-secondary', 'firststrike/pillars', 'firststrike/type']);
 const media = (slug: string) => (f: string, w: number, h: number, alt: string): Media => {
   const base = f.replace(/\.[a-z]+$/, '');
   return { src: `/work/${slug}/${f}`, w, h, alt, x2: X2.has(`${slug}/${base}`) ? `/work/${slug}/${base}@2x.jpg` : undefined };
 };
 const pa = media('parc'), xc = media('xrpcafe'), fl = media('firstledger'), dad = media('do-androids-dream');
+// Sonde's screens, cut from the 2560px captures (PX-53): `phone` is the tighter crop a phone shows.
+const sc = (f: string, w: number, h: number, alt: string, phone?: [number, number]): Media =>
+  ({ src: `/work/sonde/cut/${f}.png`, w, h, alt, phone: phone && { src: `/work/sonde/cut/${f}-phone.png`, w: phone[0], h: phone[1] } });
 const fst = media('firststrike'), so = media('sonde'), ps = media('parc-site'), ja = media('jade-aesthetics'), pw = media('pocketwatch');
 
 /** Every project in display order: the selected four (Sonde, Pocketwatch, Toolbox, PARC, decision 0132), the index five, then the hidden one.
@@ -81,43 +87,46 @@ const source: Source[] = [
     lead: [
       "Sonde was an XRP Ledger explorer with network analytics, portfolio tracking, and tools for investigating account activity. I designed, built, and ran it myself."
     ],
-    // The account page's content, cropped from the 1600px capture (PX-52): the app fills only
+    // The account page's content, cut from the 2560px capture (PX-52, PX-53): the app fills only
     // the middle of its frame, so the full capture showed its type at about 86%.
-    hero: [so('crop/account-overview.png', 1116, 784, 'Sonde account page: balance, smart money score, risk profile, and counterparty graph')],
+    hero: [sc('account-overview', 1786, 1254, 'Sonde account page: balance, smart money score, risk profile, and counterparty graph', [520, 1048])],
     // Six points, each with the screens it talks about (PX-52, 0136). A gallery note is the caption
     // under its screens; the crops keep each screen's type readable beside the text.
     blocks: [
       { type: 'text', title: 'The balance comes first', paras: [
         "I wanted an account page that made sense before you knew the ledger’s terminology. I used type and spacing to put the balance, holdings, and recent activity first, with the technical detail farther down."
       ] },
-      { type: 'gallery', note: 'The balance leads, then value, reserve and age, then the tabs.', rows: [[so('crop/account-balance.png', 780, 270, 'Sonde account balance card: 157.199903 XRP, total value, reserve, and age above the account tabs')]] },
+      { type: 'gallery', note: 'The balance leads, then value, reserve and age, then the tabs.', rows: [[sc('account-balance', 1248, 413, 'Sonde account balance card: 157.199903 XRP, total value, reserve, and age above the account tabs', [752, 309])]] },
       { type: 'text', title: 'Three readers, three depths', paras: [
         "Different readers needed different levels of detail. A newcomer might want to see what an account holds. A trader might need profit and loss, cost basis, and allocation. An analyst might want raw transaction data or fund tracing. I organized the account tabs around that progression and kept the live updates visually quiet."
       ] },
-      { type: 'gallery', note: 'For a trader: portfolio value, performance over time, and allocation.', rows: [[so('crop/portfolio.png', 1116, 730, 'Sonde portfolio: total value, performance chart, allocation, and watchlist')]] },
-      { type: 'gallery', note: 'For an analyst: a transaction’s balance changes and the ledger nodes it touched.', rows: [[so('crop/transaction.png', 1116, 440, 'Sonde transaction detail: balance changes and affected ledger nodes')]] },
+      { type: 'gallery', note: 'For a trader: portfolio value, performance over time, and allocation.', rows: [[sc('portfolio', 1786, 1168, 'Sonde portfolio: total value, performance chart, allocation, and watchlist', [797, 520])]] },
+      { type: 'gallery', note: 'For an analyst: a transaction’s balance changes and the ledger nodes it touched.', rows: [[sc('transaction', 1786, 704, 'Sonde transaction detail: balance changes and affected ledger nodes', [1021, 352])]] },
       { type: 'text', title: 'Nothing blanks while it loads', paras: [
         "Search took an address, transaction identifier, ledger number, or token name and opened the matching view. Account pages had twelve tabs, from transactions and holdings to NFTs, liquidity pools, offers, and escrows. Sections loaded independently, so readers could start with the balance and holdings while other requests finished, and live updates kept the previous results visible until new data arrived.",
         "The app also covered network metrics, price charts, trading data, a wallet-connected portfolio, and a token directory, with separate databases for the app, analytics, and fund tracing."
       ] },
-      { type: 'gallery', note: 'Network insights: the live price, market figures, and the price chart.', rows: [[so('crop/network.png', 1116, 640, 'Sonde network insights: live XRP price, market cap, and a candlestick chart')]] },
+      { type: 'gallery', note: 'Network insights: the live price, market figures, and the price chart.', rows: [[sc('network', 1786, 1024, 'Sonde network insights: live XRP price, market cap, and a candlestick chart', [989, 400])]] },
+      { type: 'gallery', note: 'A token page for Sologenic (SOLO): price, market figures, the price chart, the order book, and top holders.', rows: [[sc('token', 1770, 1330, 'Sonde token page for Sologenic (SOLO): price, market cap, volume, holders, a price chart, the order book, and top holders', [870, 650])]] },
       { type: 'text', title: 'Scoring wallets, tracing funds', paras: [
         "Investigation tools scored wallets by profitability and consistency, traced funds through up to six transfers, and flagged possible wash trading."
       ] },
-      { type: 'gallery', note: 'One wallet’s score out of 100, the factors behind it, and its history.', rows: [[so('crop/smart-money-detail.png', 1116, 455, 'Sonde Smart Money detail: a score of 64 out of 100, its score factors, and score history')]] },
-      { type: 'gallery', note: 'The leaderboard: scored wallets ranked by PnL, win rate, and Sharpe.', rows: [[so('crop/smart-money.png', 1116, 370, 'Sonde Smart Money leaderboard: scored wallets ranked by PnL, win rate, and Sharpe')]] },
+      { type: 'gallery', note: 'One wallet’s score out of 100, the factors behind it, and its history.', rows: [[sc('smart-money-detail', 1786, 728, 'Sonde Smart Money detail: a score of 64 out of 100, its score factors, and score history', [887, 728])]] },
+      { type: 'gallery', note: 'The leaderboard: scored wallets ranked by PnL, win rate, and Sharpe.', rows: [[sc('smart-money', 1786, 592, 'Sonde Smart Money leaderboard: scored wallets ranked by PnL, win rate, and Sharpe', [989, 592])]] },
       { type: 'text', title: 'Questions in plain English', paras: [
         "An AI assistant, Ask the Ledger, took questions in plain English and could query those tools in a conversation."
       ] },
-      { type: 'gallery', note: 'Ask the Ledger opens on suggested questions.', rows: [[so('crop/ask.png', 1116, 270, 'Ask the Ledger: natural-language queries over the XRP Ledger, with suggested questions')]] },
+      { type: 'gallery', note: 'Ask the Ledger opens on suggested questions.', rows: [[sc('ask', 1786, 432, 'Ask the Ledger: natural-language queries over the XRP Ledger, with suggested questions', [861, 432])]] },
       { type: 'text', title: 'An identity for a measuring tool', paras: [
         "A sonde is a probe used to take measurements. The name suited a tool for looking into ledger activity. I used dark slate surfaces and muted neutrals, with salmon (#E8856C) for key metrics and live indicators.",
         "Satoshi handled display type, DM Sans the interface and body copy, and IBM Plex Mono the addresses, hashes, and amounts. Small colored tags distinguished payments, trades, NFT operations, trust lines, and liquidity-pool activity without coloring entire rows."
       ] },
-      { type: 'gallery', note: 'The landing page, with salmon as the one accent.', rows: [[so('crop/landing.png', 840, 260, 'Sonde landing page: Decode the XRPL, with Ask the Ledger and Portfolio buttons')]] },
+      { type: 'gallery', note: 'The landing page, with salmon as the one accent.', rows: [[sc('landing', 1344, 416, 'Sonde landing page: Decode the XRPL, with Ask the Ledger and Portfolio buttons', [768, 368])]] },
+      { type: 'gallery', note: 'A ledger’s 70 transactions, each type marked by a small colored tag.', rows: [[sc('ledger', 1770, 780, 'Sonde ledger page: ledger 105484434, its close time and 70 transactions, each tagged OfferCreate or Payment', [870, 780])]] },
       { type: 'text', title: 'Outcome', paras: [
-        "I launched Sonde with a public explorer, analytics, and paid portfolio and investigation tools. Subscriptions accepted fiat and crypto. I handled design, development, and operations. I closed the hosted app when infrastructure costs outran subscription revenue, and published the code on GitHub under the MIT license."
-      ] }
+        "I launched Sonde with a public explorer, analytics, and paid portfolio and investigation tools. Subscriptions accepted fiat and crypto. After launch I changed the pricing: the whole explorer became free, and Pro, at $5 a month, added Claude-powered questions. I handled design, development, and operations. I closed the hosted app when infrastructure costs outran subscription revenue, and published the code on GitHub under the MIT license."
+      ] },
+      { type: 'gallery', note: 'The pricing after the change, in July 2026: the whole explorer free, and Pro at $5 a month for Claude-powered questions.', rows: [[sc('pricing', 990, 1030, 'Sonde pricing: Explorer free with the full explorer; Pro at $5 a month for natural-language queries powered by Claude')]] }
     ]
   },
   {
@@ -511,6 +520,8 @@ const source: Source[] = [
     role: 'Designer and animator',
     timeline: 'Class project at RMCAD, 2023',
     tools: 'After Effects, Illustrator',
+    // The site plays the silent cut; the version with the Doors track is on YouTube (0139).
+    watch: { href: 'https://www.youtube.com/watch?v=0Q-X3-64Tak', label: 'Watch on YouTube' },
     description: 'A speculative yellow-and-black title sequence for Philip K. Dick’s “Do Androids Dream of Electric Sheep?”, inspired by Saul Bass.',
     cover: { src: '/work/do-androids-dream.jpg', w: 1600, h: 900, alt: 'Do Androids Dream title sequence: the sun with beams radiating out behind a lone figure, black on yellow' },
     lead: [
@@ -531,7 +542,7 @@ const source: Source[] = [
       ] },
       { type: 'text', title: 'Motion & pacing', paras: [
         "The 40-second sequence moves from the title into the skyline, then breaks the perspective with an inverted city and road. The final shots bring in the sun and a figure surrounded by radiating architecture.",
-        "I used the changes in perspective to connect the scenes and make the city feel disorienting. The sequence was cut to The Doors’ “End of the Night”; the video here is silent."
+        "I used the changes in perspective to connect the scenes and make the city feel disorienting. The sequence was cut to The Doors’ “End of the Night”; the video here is silent, and the version with sound is on YouTube."
       ] },
       { type: 'gallery', rows: [
         [dad('still-road.jpg', 1280, 720, 'Act three: the perspective breaks and a black road converges between yellow city blocks'), dad('still-sunrise.jpg', 1280, 720, 'Act three: a yellow sun rising into a black sky')]

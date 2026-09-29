@@ -25,7 +25,7 @@ Resolved: Q1 → 0002. Q2 → 0005. Q3 → 0006. Q4 → 0002 (reasoning). Q5 →
 
 Q30 copy/voice portion resolved by 0024; optional supporting credit remains open.
 
-Q40 (study layout) → 0136: layout B with the plain reading face, on Timothy's pick. Q42 (reading face) → 0137: IBM Plex Mono.
+Q40 (study layout) → 0136: layout B with the plain reading face, on Timothy's pick. Q42 (reading face) → 0137: IBM Plex Mono. Q43 (Sonde pricing; unused images) → 0138: pricing changed after launch; the 37 unused images are deleted.
 
 ## To supply (Timothy)
 
@@ -34,6 +34,7 @@ The repositioning's missing pieces (0132, 0133). Nothing here is written for him
 - [ ] Sonde: how the account page came to be (the directions considered, or why the newcomer → trader → analyst tabs were the first instinct).
 - [ ] Sonde: what a good answer from Ask the Ledger looked like, if there were criteria, or run a small evaluation against the open-source build.
 - [ ] Sonde: any user or subscriber numbers, even small.
+- [ ] Sonde: why the pricing changed after launch (paid portfolio and investigation tools at launch; by July 2026 the whole explorer free and Pro at $5 for Claude-powered questions). A real decision, worth its own point.
 - [ ] Sonde: what you'd do differently.
 - [ ] Pocketwatch: what it did that other budgeting apps didn't.
 - [ ] Pocketwatch: two or three design decisions you're proud of.

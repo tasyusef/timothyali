@@ -64,7 +64,7 @@
     {@const share = { total: row.reduce((a, m) => a + m.w / m.h, 0), n: row.length }}
     <div class="grow" class:tiles={rowTiles(row)} style:--cols={rowColumns(row)}>
       {#each row as m}
-        {#if m.video}<Clip src={m.src} width={m.w} height={m.h} label={m.alt} poster={m.poster} row={share} />{:else}<Picture src={m.src} x2={m.x2} alt={m.alt} width={m.w} height={m.h} {eager} row={share} />{/if}
+        {#if m.video}<Clip src={m.src} width={m.w} height={m.h} label={m.alt} poster={m.poster} row={share} />{:else}<Picture src={m.src} x2={m.x2} alt={m.alt} width={m.w} height={m.h} {eager} row={share} phone={m.phone} />{/if}
       {/each}
     </div>
   {/each}
@@ -84,6 +84,7 @@
         <div><dt class="lbl dim">Tools</dt><dd class="read">{p.tools}</dd></div>
         {#if p.live}<div><dt class="lbl dim">Live</dt><dd class="read"><QuietLink href={p.live.href} label={p.live.label} /></dd></div>{/if}
         {#if p.source}<div><dt class="lbl dim">Source</dt><dd class="read"><QuietLink href={p.source.href} label={p.source.label} /></dd></div>{/if}
+        {#if p.watch}<div><dt class="lbl dim">With sound</dt><dd class="read"><QuietLink href={p.watch.href} label={p.watch.label} /></dd></div>{/if}
       </dl>
     </div>
   </section>
