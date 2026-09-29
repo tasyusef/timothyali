@@ -460,7 +460,7 @@ eases; every change is a colour, a whole cell, or a stepped dither.
   hotspot 7 7, in the theme's `--fg`. Controls inside a band keep the browser's cursors.
 - **Focus** (0106): `:focus-visible{outline:2px solid var(--accent-text);outline-offset:2px}`,
   the only focus rule. `--accent-on-fg` is the accent as type on a `--fg` panel (deep yellow
-  on the dark theme, yellow on the light); `.who`, `.machine`, `.contact-note` and `.code`
+  on the dark theme, yellow on the light); Home's statement (`.st-sec`), `.machine`, `.contact-note` and `.code`
   set `--accent-text` to it, which also fixes accent type on those panels.
 - **The scrollbar** (0107): `::-webkit-scrollbar` at 16px, track `var(--paper) var(--surface-card)`,
   thumb 8px in `--fg` inset 4px, the accent on hover and press; `scrollbar-color` for
