@@ -23,6 +23,21 @@ export function onScroll(fn: () => void) {
   window.addEventListener('scroll', on, { passive: true }); window.addEventListener('resize', on); fn();
   return () => { window.removeEventListener('scroll', on); window.removeEventListener('resize', on); cancelAnimationFrame(q); };
 }
+/** Reveal a stage on keyboard focus, overriding the browser's automatic focus scroll. */
+export function revealOnFocus(node: HTMLElement, reveal: () => void) {
+  let frame = 0;
+  const focus = (event: FocusEvent) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement) || !target.matches(':focus-visible')) return;
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      if (node.contains(document.activeElement)) reveal();
+    });
+  };
+  node.addEventListener('focusin', focus);
+  return { destroy() { node.removeEventListener('focusin', focus); cancelAnimationFrame(frame); } };
+}
+
 /** a stable 0…1 per cell */
 export const hash = (x: number, y: number, s = 1) => { let h = (x * 374761393 + y * 668265263 + s * 144665) | 0; h = Math.imul(h ^ (h >>> 13), 1274126177); return ((h ^ (h >>> 16)) >>> 0) / 4294967296; };
 

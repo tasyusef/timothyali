@@ -669,3 +669,12 @@ Home rebuilt on Timothy's direction (Q41, 0140) after a run of mocks on a dev-on
 Checks: `pnpm check` 0/0, `pnpm test` 24, build, `social:verify` PASS (18 pages), grid audit 0 off the unit on every route at 1440/1100/700/390, no horizontal overflow on Home at 320–1440 with motion on and off, no page errors; the wheel fits phones at 844 and 700 tall. Evidence in `docs/iterations/pixel-v2/54-home-stages/`. Committed and pushed on his word (“commit it and push it”).
 
 PX-54, follow-up (same day): on desktop the wheel's copy no longer keeps room for the longest blurb, so the Case study button sits 24px under every blurb (Timothy's screenshot of the gap under Sonde's: “limit it to phones and push”); phones keep the reserved height so the wheel above never resizes. Pushed on his word.
+
+
+## PX-55 — Home reading and keyboard fixes (2026-09-29, 0141)
+
+The phone introduction no longer shifts permanently upward as the paragraph types. Its overflow now follows the user's scroll, with extra room in the section's hold; scrolling back restores the heading below the header, and scrolling onward finishes the text before moving it. Keyboard focus on Home's animated links moves the relevant section straight to a visible state, including reverse navigation into the hero. The no-JavaScript introduction is visible with its inverted background, and the closing contact link accepts pointer clicks. Experience wording separates freelancing since 2019 from more recent work with founders and teams.
+
+Focused browser regressions cover 1440×900, 1280×720, 390×844 and 320×700 reading and motion toggles; desktop/phone Tab navigation and Enter activation; no-JavaScript visibility and actual contact navigation; and reduced motion. Evidence and results: `docs/iterations/pixel-v2/55-home-accessibility/`. Authorized fixes, verified locally. Timothy authorized committing and publishing on 2026-09-29 (“commit and push”).
+
+PX-55 verification: `pnpm check` 0/0, 24 existing tests, build and metadata verification passed (18 pages). Fourteen targeted browser checks passed, plus Shift+Tab back through the wheel to the résumé at desktop and phone widths. No browser page errors; `git diff --check` clean.

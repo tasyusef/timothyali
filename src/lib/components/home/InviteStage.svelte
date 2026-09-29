@@ -10,7 +10,7 @@
   import Cta from '$lib/components/Cta.svelte';
   import { TICK_FAST } from '$lib/tokens';
   import { motion, theme } from '$lib/motion.svelte';
-  import { hash, lines, onScroll, pinned, ramp, resolve, smooth, span, sprites, textMask, RAMP } from './stage';
+  import { hash, lines, onScroll, pinned, revealOnFocus, ramp, resolve, smooth, span, sprites, textMask, RAMP } from './stage';
 
   let sec: HTMLElement; let stage: HTMLElement; let cv: HTMLCanvasElement; let wordEl: HTMLElement;
   let p = $state(0);
@@ -27,6 +27,13 @@
   const avoid = $derived([lead1 > 0.5 && '.inv-lead1', lead2 > 0.5 && '.inv-lead2', crisp > 0.5 && '.inv-word', cta > 0.5 && '.cta-row'].filter(Boolean).join(', '));
 
   onMount(() => onScroll(() => { p = still ? 1 : pinned(sec); const r = sec.getBoundingClientRect(); live = still || r.top <= 1; }));
+
+  function reveal() {
+    if (still) return;
+    const top = sec.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top: top + (sec.offsetHeight - window.innerHeight) * 0.9, behavior: 'instant' });
+    p = 0.9; live = true;
+  }
 
   let colors: { steps: string[]; paper: string; accent: string } | null = null;
   $effect(() => { void theme.light; colors = null; draw(); });
@@ -56,8 +63,8 @@
   }
 </script>
 
-<section class="inv-sec" class:still bind:this={sec} aria-labelledby="invite">
-  <div class="stage" class:live bind:this={stage} style:--rain={rain}>
+<section class="inv-sec" use:revealOnFocus={reveal} class:still bind:this={sec} aria-labelledby="invite">
+  <div class="stage" class:live={still || live} bind:this={stage} style:--rain={rain}>
     <Band as="div" class="inv" mode="fall" seed={5} tick={TICK_FAST} density={0.7} shade {avoid}>
       <div class="invitation">
         <h2 id="invite"><span class="display lead"><span class="inv-lead1" style:--t={`${lines(lead1)}px`}>Tell me what</span><br /><span class="inv-lead2" style:--t={`${lines(lead2)}px`}>you’re</span></span><span class="blackletter display-xl inv-word" bind:this={wordEl} style:--t={`${lines(crisp)}px`}>building.</span></h2>

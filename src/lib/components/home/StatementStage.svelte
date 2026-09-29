@@ -2,8 +2,8 @@
   // The statement as a stage held on the window, on the inverted panel (PX-54). It arrives
   // empty (the hero ends on this ground) and, once it is held on the window, it plays itself
   // like a terminal: the sentence types behind the cursor, the three words scramble in one by
-  // one with their chips, and the companion paragraph prints a line at a time, the screen
-  // moving up a line whenever the print reaches the bottom. It plays once; leaving finishes
+  // one with their chips, and the companion paragraph prints a line at a time. Overflowing
+  // text moves with the scroll, so returning restores the opening. It plays once; leaving finishes
   // it. Scrolling on sends the panel out in lines of the page ground, where Selected work begins.
   import { onMount, tick } from 'svelte';
   import Decode from '$lib/components/Decode.svelte';
@@ -26,8 +26,9 @@
   let started = false, skipped = false;
   const all = $derived(still || instant);
   const out = $derived(still ? 0 : smooth(p, 0.72, 0.95)); // the panel goes out in the last stretch of the hold
-  // a terminal moves its screen up a line when the print reaches the bottom
-  let lift = $state(0);
+  // Reserve enough travel to read tall content in either direction, before the exit wipe.
+  let overflow = $state(0);
+  const lift = $derived(still ? 0 : -Math.round(overflow * smooth(p, 0.08, 0.68)));
 
   const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
   async function play() {
@@ -41,19 +42,15 @@
       chipsOn = i + 1; await sleep(140); if (skipped) return;
     }
     await sleep(260); if (skipped) return;
-    for (let k = 1; k <= lineCount; k++) { linesOn = k; follow(); await sleep(LINE_MS); if (skipped) return; }
+    for (let k = 1; k <= lineCount; k++) { linesOn = k; await sleep(LINE_MS); if (skipped) return; }
   }
-  function finish() { if (instant) return; skipped = true; started = true; instant = true; typing = false; wordsOn = chipsOn = qualities.length; linesOn = lineCount; follow(); }
-  function follow() {
-    if (!comp || !inner || !stage) return;
-    const pad = parseFloat(getComputedStyle(inner).paddingBottom) || 0;
-    const bottom = comp.offsetTop + (all ? lineCount : linesOn) * lh + pad; // where the print has reached
-    const over = Math.max(0, inner.scrollHeight - stage.clientHeight);
-    lift = -Math.min(over, Math.max(0, Math.ceil((bottom - stage.clientHeight) / lh) * lh));
-  }
+  function finish() { if (instant) return; skipped = true; started = true; instant = true; typing = false; wordsOn = chipsOn = qualities.length; linesOn = lineCount; }
   function measure() {
-    if (!comp) return; lh = parseFloat(getComputedStyle(comp).lineHeight) || 32;
-    lineCount = Math.round(comp.offsetHeight / lh); if (all) linesOn = lineCount; follow();
+    if (!comp || !inner || !stage) return;
+    lh = parseFloat(getComputedStyle(comp).lineHeight) || 32;
+    lineCount = Math.round(comp.offsetHeight / lh);
+    if (all) linesOn = lineCount;
+    overflow = Math.max(0, inner.scrollHeight - stage.clientHeight);
   }
 
   onMount(() => {
@@ -63,15 +60,16 @@
       live = still || (r.top <= 1 && r.bottom >= window.innerHeight - 1);
       if (still) return;
       if (live && p < 0.72) play(); // held: play (once)
-      if (p >= 0.72 || r.bottom < 0) finish(); // leaving: whatever is left appears at once
+      // Scrolling through tall copy should never outrun its typing; leaving finishes it too.
+      if ((overflow > 0 && p > 0.08) || p >= 0.72 || r.bottom < 0) finish();
     });
     tick().then(measure);
     return () => { ro.disconnect(); off(); skipped = true; };
   });
 </script>
 
-<section class="st-sec" class:still bind:this={sec} aria-labelledby="statement-title">
-  <div class="stage" class:live bind:this={stage}>
+<section class="st-sec" class:still style:--overflow={`${overflow}px`} bind:this={sec} aria-labelledby="statement-title">
+  <div class="stage" class:live={still || live} bind:this={stage}>
     <div class="inner" bind:this={inner} style:transform={`translateY(${lift}px)`}>
       <h2 id="statement-title" class="para">
         <!-- the sentence at full length, hidden, holds the lines, so nothing below moves as it types -->
@@ -79,14 +77,14 @@
         <span class="words">{#each qualities as [w, label, short], i}<span class="q"><span class="blackletter w">{#if all}{w}{:else if i < wordsOn}<Decode text={w} step={STEP} />{:else}<span class="ghost">{w}</span>{/if}</span><span class="lbl note" class:ghost={!all && i >= chipsOn} aria-hidden="true">{#if short}<span class="note-full">{label}</span><span class="note-short">{short}</span>{:else}{label}{/if}</span></span> {/each}</span>
       </h2>
       <p class="sr-only">Looks: interface. Moves: motion. Works: code.</p>
-      <p class="body companion" bind:this={comp} style:clip-path={all || linesOn >= lineCount && lineCount ? 'none' : `inset(0 0 calc(100% - ${linesOn * lh}px) 0)`}>Since 2019, I’ve worked with founders and engineers on small teams, and I’ve shipped three products of my own: Sonde, an XRP Ledger analytics platform I designed, built, and ran solo; Pocketwatch, a personal finance app built with a partner on the backend; and Toolbox, a desktop app for brand deliverables. I also do brand and motion, and it shows in the product work.</p>
+      <p class="body companion" bind:this={comp} style:clip-path={all || linesOn >= lineCount && lineCount ? 'none' : `inset(0 0 calc(100% - ${linesOn * lh}px) 0)`}>I’ve been freelancing since 2019. More recently, I’ve worked with founders and engineers on small teams. I’ve also shipped three products of my own: Sonde, an XRP Ledger analytics platform I designed, built, and ran solo; Pocketwatch, a personal finance app built with a partner on the backend; and Toolbox, a desktop app for brand deliverables. I also do brand and motion, and it shows in the product work.</p>
     </div>
     <div class="wipe" aria-hidden="true" style:--t={`${lines(1 - out)}px`}></div>
   </div>
 </section>
 
 <style>
-.st-sec{--chrome:96px;padding:0;height:calc(100svh + 130vh);margin-top:-100vh;margin-top:-100svh;--accent-text:var(--accent-on-fg)}
+.st-sec{--chrome:96px;padding:0;height:calc(100svh + 130vh + var(--overflow,0px));margin-top:-100vh;margin-top:-100svh;--accent-text:var(--accent-on-fg)}
 .stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;color:var(--paper);pointer-events:none}
 .stage.live{background:var(--fg);pointer-events:auto}
 .stage:not(.live) .inner{visibility:hidden} /* sliding in or out under the hero: nothing of it shows until it is held */

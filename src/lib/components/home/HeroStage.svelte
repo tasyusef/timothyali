@@ -12,7 +12,7 @@
   import { RESUME_URL } from '$lib/social';
   import { TICK_SLOW, STEP_SLOW, STEP } from '$lib/tokens';
   import { motion, theme } from '$lib/motion.svelte';
-  import { hash, lines, onScroll, pinned, ramp, resolve, smooth, span, sprites, textMask, RAMP } from './stage';
+  import { hash, lines, onScroll, pinned, revealOnFocus, ramp, resolve, smooth, span, sprites, textMask, RAMP } from './stage';
 
   const LINES = ['Product designer who ships in code.', 'Interfaces, design systems, and the front ends that run them.', 'Denver / remote. Open to full-time and contract.'];
   const STATIC_LINE = LINES.join(' ');
@@ -36,6 +36,12 @@
   const wipe = $derived(smooth(p, 0.56, 0.86)); // the panel colour fills the screen in lines
   // the sky parts round the copy while it is there, and closes over its place once it has gone
   const avoid = $derived(lineVis > 0.5 ? '.hero-actions, .hero-role' : '');
+
+  function reveal() {
+    if (still) return;
+    window.scrollTo({ top: sec.getBoundingClientRect().top + window.scrollY, behavior: 'instant' });
+    p = 0;
+  }
 
   onMount(() => {
     const io = new IntersectionObserver((es) => es.forEach((e) => { inView = e.isIntersecting; }), { threshold: 0.2 });
@@ -92,7 +98,7 @@
   }
 </script>
 
-<section class="hero-sec" class:still bind:this={sec} aria-labelledby="intro">
+<section class="hero-sec" use:revealOnFocus={reveal} class:still bind:this={sec} aria-labelledby="intro">
   <div class="stage" bind:this={stage}>
     <Band as="div" class="hero" mode="sky" seed={3} tick={TICK_SLOW} density={1.3} shade {avoid}>
       {#if motion.on}

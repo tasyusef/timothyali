@@ -1,0 +1,19 @@
+{
+  "results": [
+    "No JS 1440: introduction visible, contact link opens Contact",
+    "No JS 390: introduction visible, contact link opens Contact",
+    "1440x900: paragraph reachable and heading restored when scrolling back",
+    "1440x900: motion toggle clears the text offset",
+    "1280x720: paragraph reachable and heading restored when scrolling back",
+    "1280x720: motion toggle clears the text offset",
+    "390x844: paragraph reachable and heading restored when scrolling back",
+    "390x844: motion toggle clears the text offset",
+    "320x700: paragraph reachable and heading restored when scrolling back",
+    "320x700: motion toggle clears the text offset",
+    "Keyboard 1440: Home links visible on focus; Enter opens Contact",
+    "Keyboard 390: Home links visible on focus; Enter opens Contact",
+    "Reduced motion: visible introduction and four-project list",
+    "No browser page errors"
+  ],
+  "errors": []
+}

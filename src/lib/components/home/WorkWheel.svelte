@@ -17,7 +17,7 @@
   import { fitTitle } from '$lib/fit';
   import { motion } from '$lib/motion.svelte';
   import { spring } from './spring';
-  import { onScroll } from './stage';
+  import { onScroll, revealOnFocus } from './stage';
 
   const N = projects.length;
   const LAST = projects[N - 1].n;
@@ -71,6 +71,17 @@
     if (!placed) { cam = target; vel = 0; placed = true; return; } // the first read: be there
     if (!raf) { last = performance.now(); raf = requestAnimationFrame(step); }
   }
+  function reveal() {
+    if (still || !track) return;
+    // Native Tab scrolling can stop in the invisible arrival/departure stretch.
+    // Go directly to the current card's fully visible stop, with no spring delay.
+    const index = current;
+    const top = track.getBoundingClientRect().top + window.scrollY;
+    const run = track.offsetHeight - window.innerHeight;
+    window.scrollTo({ top: top + run * (IN_VH + index * STEP_VH) / TOTAL, behavior: 'instant' });
+    cancelAnimationFrame(raf); raf = 0; vel = 0; cam = target = index;
+    live = true;
+  }
   function step(now: number) {
     const dt = Math.min(0.05, Math.max(0.001, (now - last) / 1000)); last = now;
     [cam, vel] = spring(dt, OMEGA, ZETA).update(cam, vel, target);
@@ -110,7 +121,7 @@
     <a class="all lbl" href="/work/">All work <Arrow /></a>
   </section>
 {:else}
-  <section class="wheel" aria-labelledby="work-title" bind:this={track} style:height={`calc(${TOTAL}vh + 100svh)`}>
+  <section class="wheel" use:revealOnFocus={reveal} aria-labelledby="work-title" bind:this={track} style:height={`calc(${TOTAL}vh + 100svh)`}>
     <span id="work" class="anchor" style:top={`${IN_VH}vh`}></span><!-- where the first card is in the frame -->
     <div class="stage" class:live>
       <div class="bg" aria-hidden="true" style:opacity={0.28 * vis}><Ascii mode="fall" seed={5} tick={TICK_FAST} density={0.7} shade /></div>
