@@ -120,7 +120,7 @@
           <div class="active" aria-live="polite">
             <span class="lbl dim">{p.n} / {p.year} / {p.scope}</span>
             {#key p.slug}<h2 id="work-title" class="display title" use:fitTitle><Decode text={p.title.toUpperCase()} step={STEP_FAST} /></h2>{/key}
-            <!-- every blurb in one cell, only the current one shown: the block is as tall as the longest, so nothing moves as the wheel turns -->
+            <!-- every blurb in one cell, only the current one shown; on phones the others hold their room, so the wheel above never resizes -->
             <div class="blurbs">{#each projects as q, k}<p class="read blurb" class:cur={k === current} aria-hidden={k !== current}>{q.description}</p>{/each}</div>
             <Cta variant="row" href={`/work/${p.slug}/`} class="lbl">Case study <Arrow /></Cta>
           </div>
@@ -161,7 +161,7 @@
 .title{font-size:55px;line-height:56px;margin:0;white-space:nowrap;overflow:hidden}
 .title:global([data-fit="41"]){font-size:41.25px;line-height:48px}.title:global([data-fit="27"]){font-size:27.5px;line-height:32px} /* long names step down (fitTitle) */
 .blurb{margin:0;max-width:40ch}
-.blurbs{display:grid}.blurbs>*{grid-area:1/1;visibility:hidden}.blurbs>.cur{visibility:visible}
+.blurbs{display:grid}.blurbs>*{grid-area:1/1}.blurbs>:not(.cur){display:none}
 .active :global(.cta-row){margin-top:var(--s1)}
 .all{align-self:flex-start;display:inline-flex;gap:var(--s1);padding:var(--s1);color:var(--fg);text-decoration:none}
 .all:hover{background:var(--fg);color:var(--paper)}
@@ -207,6 +207,7 @@
   .active>.lbl{display:none}
   .title{font-size:27.5px;line-height:32px}
   .blurb{font-size:15px;line-height:24px}
+  .blurbs>:not(.cur){display:block;visibility:hidden} /* phones: the block keeps the longest blurb's height, so the wheel above it never resizes */
   .copy .all{display:none}
   .list{padding-top:var(--s6);padding-bottom:var(--s6);gap:var(--s4)}
   .row{grid-template-columns:100%;gap:var(--s2)}
