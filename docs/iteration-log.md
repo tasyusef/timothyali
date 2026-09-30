@@ -703,3 +703,5 @@ Application-copy follow-up, second pass: on Timothy’s request, the private let
 ## PX-58 — Covers for Sonde, Pocketwatch and Toolbox (2026-09-29, 0144)
 
 On Timothy's request and his pick of direction B from three: the three product covers are now the app cropped large on its own dark ground under its logo (Sonde portfolio, Pocketwatch dashboard with its white lockup, Toolbox home screen), rendered by `node tools/covers/generate.mjs` at 2880×1620. The Work collage and the Sonde, Pocketwatch and Toolbox share images were regenerated; the share-image size manifest in `25-social-site/assets.json` now matches the files on disk. Checks: `pnpm check` 0/0, 24 tests, build, `social:verify` PASS, grid audit 0 everywhere, no page errors or broken images. Evidence in `docs/iterations/pixel-v2/58-product-covers/`. Committed and pushed on his word.
+
+PX-58, follow-up (2026-09-30): the three old covers (`static/work/sonde/account.png`, `static/work/pocketwatch/dashboard-cover.png`, `static/work/toolbox.png`), unreferenced since PX-58, deleted on his word (“delete the old covers”); they stay in git history.

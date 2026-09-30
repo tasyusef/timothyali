@@ -8,4 +8,4 @@ Timothy: “i want to create better cover images for each project. especially po
 
 Covers are rendered by `node tools/covers/generate.mjs` at 2880×1620 (laid out at 1600×900, 1.8×) into `static/work/{sonde,pocketwatch,toolbox}/cover.png`; the logos are in `tools/covers/marks/` (Sonde's from its app, Pocketwatch's white lockup from its brand files), the screens are the site's own (Sonde's portfolio page, Pocketwatch's dashboard, Toolbox's home screen).
 
-Checks: `pnpm check` 0/0, 24 tests, build, `social:verify` PASS, grid audit 0 at every route and width, no page errors or broken images on Home and Work. The old covers (`static/work/sonde/account.png`, `static/work/pocketwatch/dashboard-cover.png`, `static/work/toolbox.png`) are no longer referenced and are kept until he says.
+Checks: `pnpm check` 0/0, 24 tests, build, `social:verify` PASS, grid audit 0 at every route and width, no page errors or broken images on Home and Work. The old covers (`static/work/sonde/account.png`, `static/work/pocketwatch/dashboard-cover.png`, `static/work/toolbox.png`) were no longer referenced and were deleted on his word on 2026-09-30.
