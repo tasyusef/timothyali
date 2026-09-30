@@ -692,3 +692,10 @@ PX-56 final checks: code check 0/0, 24 tests passed, production build passed, me
 
 The hero's dissolve and fill and the invitation's rain, drops and resolve now glide after the scroll on a critically damped spring instead of tracking it exactly; after a jump in scroll they ease in over about half a second (measured in headless Chrome on the drawn name's and word's scanlines and the fill). Stages jump to their end when not held, so the handoffs are unchanged; Tab to “Get in touch” still lands on the finished invitation. Checks with PX-56: `pnpm check` 0/0, 24 tests, build, `social:verify` PASS, grid audit 0 at every route and width. Committed and pushed on his word.
 
+
+
+### Application-copy follow-up (2026-09-29)
+
+On Timothy’s request, the private résumé and cover-letter sources received the same editorial pass as the site. The public, phone-free Product résumé in `static/resume/Timothy-Ali-Resume.pdf` is updated locally. Source edits, prior versions and before/after evidence remain in the private résumé folder. The public PDF passed one-page, selectable-text, embedded-font, link and privacy checks, plus visual review.
+
+Application-copy follow-up, second pass: on Timothy’s request, the private letters were rewritten around one relevant example rather than a résumé recap, and résumé summaries and selected bullets were tightened. The public PDF was synced again; one-page, font, text, link and privacy checks pass. Private sources, prior versions and review evidence remain outside the repo. Timothy accepted the result (“the way it is now is good”); committed on his word, not pushed.
