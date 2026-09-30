@@ -82,8 +82,9 @@ const source: Source[] = [
     tools: 'Figma, Next.js, TypeScript, Tailwind CSS, Recharts, PostgreSQL, ClickHouse, Neo4j, WebSockets, SSE',
     source: { href: 'https://github.com/tasyusef/sonde_os', label: 'sonde_os on GitHub' },
     description: 'An XRP Ledger explorer I designed, built, and ran, with portfolio tracking, wallet scoring, and fund tracing. Now open source.',
-    // The account page, not the near-empty landing (0132): the product on the card.
-    cover: so('account.png', 1600, 900, 'Sonde account page: balance, smart money score, risk profile, and counterparty graph'),
+    // Covers for the three products are the app large on its own dark ground under its logo
+    // (direction B, 2026-09-29), rendered by tools/covers/generate.mjs.
+    cover: so('cover.png', 2880, 1620, 'The Sonde logo over its portfolio page: total portfolio value, a performance chart, and allocation'),
     lead: [
       "Sonde was an XRP Ledger explorer with network analytics, portfolio tracking, and tools for investigating account activity. I designed, built, and ran it myself."
     ],
@@ -140,8 +141,7 @@ const source: Source[] = [
     team: 'Chris on the backend, including auth, and the business side',
     tools: 'SvelteKit 2, Svelte 5, Illustrator',
     description: 'A personal finance app for budgets, accounts, and investments. I designed the product and brand and built the front end.',
-    // The dashboard's top two rows at 16:9 (0132): the product on the card, not the campaign.
-    cover: pw('dashboard-cover.png', 1600, 900, 'Pocketwatch dashboard: money agenda, net-worth composition, investments, and spending pace'),
+    cover: pw('cover.png', 2880, 1620, 'The Pocketwatch logo over its dashboard: money agenda, net-worth composition, investments, and spending pace'),
     lead: [
       "Pocketwatch brought budgeting, net worth, and investments into one app. I handled product design, branding, and the front end. My partner Chris built the backend, including authentication, and ran the business side."
     ],
@@ -189,7 +189,7 @@ const source: Source[] = [
     tools: 'Electron, Svelte 5, TypeScript, Effect, Claude Code',
     live: { href: '/toolbox/', label: 'Downloads and guides' },
     description: 'A desktop app I designed and built to prepare brand files for handoff: logo packages, color palettes, type specimens, and converted images.',
-    cover: { src: '/work/toolbox.png', w: 2880, h: 1620, alt: 'Toolbox in the Lockup tool: a logo on a white plate, with format, treatment and size switches beside it and a count of 73 files' },
+    cover: { src: '/work/toolbox/cover.png', w: 2880, h: 1620, alt: 'The toolbox wordmark over the app’s home screen: Lockup, Palette, Specimen, and Convert' },
     lead: [
       "I designed and built Toolbox to handle the file preparation that comes with brand work. It packages logos for print and web, exports color palettes, makes type specimens, and converts images. It runs on macOS and Linux, with the same tools available from the app, command line, or an AI assistant through MCP."
     ],

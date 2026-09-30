@@ -9,7 +9,7 @@
     "image": "work",
     "width": 1200,
     "height": 630,
-    "bytes": 54043
+    "bytes": 49060
   },
   {
     "image": "contact",
@@ -21,7 +21,7 @@
     "image": "toolbox",
     "width": 1200,
     "height": 630,
-    "bytes": 12641
+    "bytes": 12440
   },
   {
     "image": "toolbox-agents",
@@ -33,49 +33,49 @@
     "image": "toolbox-lockup",
     "width": 1200,
     "height": 630,
-    "bytes": 67907
+    "bytes": 38909
   },
   {
     "image": "toolbox-palette",
     "width": 1200,
     "height": 630,
-    "bytes": 57089
+    "bytes": 34475
   },
   {
     "image": "toolbox-specimen",
     "width": 1200,
     "height": 630,
-    "bytes": 70859
+    "bytes": 43510
   },
   {
     "image": "toolbox-convert",
     "width": 1200,
     "height": 630,
-    "bytes": 72999
+    "bytes": 39277
   },
   {
     "image": "work-sonde",
     "width": 1200,
     "height": 630,
-    "bytes": 54592
+    "bytes": 41737
   },
   {
     "image": "work-pocketwatch",
     "width": 1200,
     "height": 630,
-    "bytes": 86297
+    "bytes": 65193
   },
   {
     "image": "work-toolbox",
     "width": 1200,
     "height": 630,
-    "bytes": 64042
+    "bytes": 64841
   },
   {
     "image": "work-parc",
     "width": 1200,
     "height": 630,
-    "bytes": 33092
+    "bytes": 24947
   },
   {
     "image": "work-firstledger",

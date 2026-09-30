@@ -2018,3 +2018,11 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Implementation (PX-57):** the hero's and the invitation's progress follows the scroll on the same harmonica-derived spring (`follower` in `src/lib/components/home/spring.ts`, ω 9), critically damped (ζ 1) rather than the wheel's 0.72, because an overshoot would run a dissolve backwards and bring glyphs back. Off the window each stage jumps to its end, so handoffs stay clean at any scroll speed; keyboard focus (PX-55) jumps the spring too.
 - **Status:** Direction Timothy's; the constants and the critical damping the assistant's. Committed and pushed on his word (“commit and push both”) with PX-56.
 
+
+## 0144 — Product covers: the app on its own dark ground
+
+- **Date:** 2026-09-29
+- **Direction:** Timothy asked for better covers, “especially pocketwatch, sonde, and toolbox”. Shown three directions for the three (one UI card on the brand colour; the app large on its own dark ground under its logo; the logo alone), he said: “i like b.” He corrected the Pocketwatch logo: “that version of the pocketwatch logo is supposed to be white on a dark background. theres a reversed version of that logo that is mean to be black on lighter bgs.”
+- **Implementation (PX-58):** each cover is the app cropped large by the frame on the product's dark ground with a faint glow of its colour, and its logo large top left: Sonde's portfolio page under its salmon mark and wordmark; Pocketwatch's dashboard under its white lockup for dark grounds; Toolbox's home screen under the yellow Jacquard wordmark. Rendered by `tools/covers/generate.mjs` at 2880×1620; the Work collage and the three study share images regenerated.
+- **Assistant proposals inside it:** the screens (Sonde's portfolio page replacing the account page, which showed an account with no transactions; Toolbox's home screen rather than Lockup, whose loaded logo is Pocketwatch's), the layout and glow, and the logo sizes.
+- **Status:** Direction Timothy's. Verified; committed and pushed on his word (“commit and push”) on 2026-09-30. Evidence in `docs/iterations/pixel-v2/58-product-covers/`.
