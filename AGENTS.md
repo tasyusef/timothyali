@@ -102,3 +102,5 @@ PX-56 (2026-09-29, 0142): copy refinement on Timothy’s request for more natura
 PX-57 (2026-09-29, 0143): on Timothy's word the hero and invitation follow the scroll on the spring too (critically damped, so dissolves never run backwards); pushed with PX-56.
 
 PX-58 (2026-09-29, 0144): covers for Sonde, Pocketwatch and Toolbox are the app large on its own dark ground under its logo (Timothy's pick of direction B; Pocketwatch uses its white lockup for dark grounds), rendered by `node tools/covers/generate.mjs` into `static/work/<slug>/cover.png` at 2880×1620; the Work collage and three study share images regenerated. The old covers (`sonde/account.png`, `pocketwatch/dashboard-cover.png`, `work/toolbox.png`) were deleted on his word on 2026-09-30. Pushed on his word.
+
+PX-58, the other six (2026-09-30): shown the same cover treatment for the other six projects, Timothy kept it only for Jade Aesthetics (`static/work/jade-aesthetics/cover.png`, its homepage under its white lockup); PARC, First Ledger, xrp.cafe, FirstStrike and Do Androids Dream? keep their covers. `static/work/jade-aesthetics.jpg` stays as the generator's source. Pushed on his word 2026-10-02.

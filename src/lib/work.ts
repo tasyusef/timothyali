@@ -432,7 +432,7 @@ const source: Source[] = [
     tools: 'Framer (V1), Next.js, Tailwind CSS, Vercel, Claude Code (V2)',
     live: { href: 'https://www.jadeaesthetics.co/', label: 'jadeaesthetics.co' },
     description: 'Two websites for a medical spa: a Framer launch, followed by a Next.js rebuild with dedicated treatment pages.',
-    cover: { src: '/work/jade-aesthetics.jpg', w: 1600, h: 900, alt: 'The Jade Aesthetics homepage: Naturally Elevated, Timeless Beauty over a photograph of the treatment lounge' },
+    cover: { src: '/work/jade-aesthetics/cover.png', w: 2880, h: 1620, alt: 'The Jade Aesthetics logo over its homepage: Naturally Elevated, Timeless Beauty over the treatment lounge' },
     lead: [
       "I designed and built two websites for Jade Aesthetics, a medical spa in Wheaton, Illinois. The first launched in Framer. When the practice needed individual treatment pages, I rebuilt it in Next.js, keeping the visual style I’d developed for the first site."
     ],

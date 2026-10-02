@@ -1,9 +1,10 @@
-// Project covers for Sonde, Pocketwatch and Toolbox (direction B, Timothy's pick, 2026-09-29):
-// the app large and cropped by the frame on the product's own dark ground, a faint glow of its
-// brand colour, and its logo large in the corner. Laid out at 1600×900 and rendered at 1.8× to
-// 2880×1620. Everything comes from this repository: the app screens in static/, the logos in
-// ./marks (Sonde's from its app, Pocketwatch's white lockup for dark grounds from its brand
-// files), Jacquard 24 from node_modules. Run from the project root: node tools/covers/generate.mjs
+// Project covers (direction B, Timothy's pick, 2026-09-29; Jade added 2026-09-30, the rest keep their own):
+// the work large and cropped by the frame on the project's own dark ground, a faint glow of its
+// colour, and its logo large in the corner. Laid out at 1600×900 and rendered at 1.8× to
+// 2880×1620. Everything comes from this repository: the screens and images in static/, the logos
+// in ./marks (each project's own artwork in its version for dark grounds), Jacquard 24 from
+// node_modules. Run from the project root: node tools/covers/generate.mjs [slug …]
+// (no slugs: all of them).
 import { chromium } from '@playwright/test';
 import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -11,6 +12,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 const url = (p) => 'file://' + encodeURI(ROOT + p);
 const mark = (f) => readFileSync(ROOT + 'tools/covers/marks/' + f, 'utf8').replace(/<\?xml[^>]*>/, '');
+const svgLogo = (f, h) => `<div class="lock"><span class="svg fit" style="height:${h}px">${mark(f)}</span></div>`;
 const cached = '/Users/twocakes/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell';
 const launch = process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : existsSync(cached) ? { executablePath: cached } : {};
 
@@ -27,8 +29,11 @@ const covers = [
   {
     out: 'static/work/toolbox/cover.png', ground: '#11110e', glow: '242,214,0', screen: 'static/toolbox/home.png',
     logo: `<div class="lock" style="margin-top:-32px"><span style="font:400 120px/1 Jacquard;color:#f2d600">toolbox</span></div>`
-  }
+  },
+  { out: 'static/work/jade-aesthetics/cover.png', ground: '#16130f', glow: '184,145,58', screen: 'static/work/jade-aesthetics.jpg', logo: svgLogo('jade-logo-white.svg', 84) },
 ];
+const only = process.argv.slice(2);
+const slugOf = (c) => c.out.split('/').at(-2);
 
 const page = (c) => `<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{font-family:Jacquard;src:url(${url('node_modules/@fontsource/jacquard-24/files/jacquard-24-latin-400-normal.woff2')})}
@@ -43,7 +48,7 @@ body{width:1600px;height:900px;overflow:hidden;position:relative;background:radi
 const b = await chromium.launch({ ...launch, args: ['--allow-file-access-from-files'] });
 const p = await b.newPage({ viewport: { width: 1600, height: 900 }, deviceScaleFactor: 1.8 });
 const tmp = ROOT + 'tools/covers/.page.html';
-for (const c of covers) {
+for (const c of covers.filter((c) => !only.length || only.includes(slugOf(c)))) {
   writeFileSync(tmp, page(c));
   await p.goto('file://' + tmp, { waitUntil: 'load' });
   await p.evaluate(async () => {
