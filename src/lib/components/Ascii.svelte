@@ -27,7 +27,11 @@
   let ctx: CanvasRenderingContext2D | null = null;
   let cols = 0, rows = 0, dpr = 1, frame = 0, color = '', accentColor = '', offX = 0, offY = 0;
   let drawn = $state(false);
-  let visible = true;
+  // A field that mounts off screen waits for its first draw until it comes within 64px of
+  // the viewport (PX-59): Home mounts three, and drawing them all at once was the page's
+  // longest task. The on-screen check at mount is synchronous, so a visible field still
+  // paints in its first frame; off screen, the grid fallback shows until the field is due.
+  let visible = true; let due = true;
   let boxes: Box[] = [];
   let heat = new Float32Array(0);
   let pointer: { x: number; y: number } | null = null;
@@ -118,18 +122,19 @@
     if (heat.length !== cols * rows) heat = new Float32Array(cols * rows);
     canvas.width = cols * cell * dpr; canvas.height = rows * cell * dpr; canvas.style.width = cols * cell + 'px'; canvas.style.height = rows * cell + 'px';
     canvas.style.left = -offX + 'px'; canvas.style.top = -offY + 'px';
-    ctx = canvas.getContext('2d'); draw();
+    ctx = canvas.getContext('2d'); if (due) draw();
   }
   onMount(() => {
+    const r0 = host.getBoundingClientRect(); visible = due = r0.bottom > -64 && r0.top < window.innerHeight + 64;
     const ro = new ResizeObserver(resize); ro.observe(host); ro.observe(document.body); resize(); document.fonts?.ready.then(resize);
-    const io = new IntersectionObserver((es) => es.forEach((e) => { visible = e.isIntersecting; }), { rootMargin: '64px' }); io.observe(host);
+    const io = new IntersectionObserver((es) => es.forEach((e) => { visible = e.isIntersecting; if (visible && !due) { due = true; draw(); } }), { rootMargin: '64px' }); io.observe(host);
     const band = (host.closest('.band') as HTMLElement | null) ?? host;
     band.addEventListener('pointermove', onMove); band.addEventListener('pointerleave', onLeave); band.addEventListener('pointerdown', onDown);
     return () => { ro.disconnect(); io.disconnect(); band.removeEventListener('pointermove', onMove); band.removeEventListener('pointerleave', onLeave); band.removeEventListener('pointerdown', onDown); if (cooling) clearInterval(cooling); };
   });
-  $effect(() => { void theme.light; draw(); });
+  $effect(() => { void theme.light; if (due) draw(); });
   $effect(() => {
-    if (!motion.on) { frame = 0; draw(); return; }
+    if (!motion.on) { frame = 0; if (due) draw(); return; }
     const start = performance.now();
     const id = setInterval(() => { if (!visible) return; frame = Math.floor((performance.now() - start) / tick); draw(); }, FRAME);
     return () => clearInterval(id);

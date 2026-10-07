@@ -1,5 +1,6 @@
 <script lang="ts">
   import Picture from '$lib/components/Picture.svelte';
+  import { toolDescription } from '$lib/social';
   import Decode from '$lib/components/Decode.svelte';
   import Arrow from '$lib/components/Arrow.svelte';
   import Cta from '$lib/components/Cta.svelte';
@@ -13,7 +14,7 @@
   const t = $derived(data.tool);
   const next = $derived(data.next);
 </script>
-<svelte:head><title>{t.name} / Toolbox / Timothy Ali</title><meta name="description" content={t.summary} /></svelte:head>
+<svelte:head><title>{t.name} / Toolbox / Timothy Ali</title><meta name="description" content={toolDescription(t)} /></svelte:head>
 <main class="inner-page tool" id="main" tabindex="-1">
   <section class="head">
     <QuietLink href="/toolbox/" label="Toolbox" dir="left" pad class="lbl" />

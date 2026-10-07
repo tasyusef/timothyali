@@ -9,8 +9,9 @@
   import { projects, index, total, last } from '$lib/work';
   import { STEP } from '$lib/tokens';
   import { fitTitle } from '$lib/fit';
+  import { WORK_DESCRIPTION } from '$lib/social';
 </script>
-<svelte:head><title>Work / Timothy Ali</title><meta name="description" content="Product, front-end, and brand work by Timothy Ali." /></svelte:head>
+<svelte:head><title>Work / Timothy Ali</title><meta name="description" content={WORK_DESCRIPTION} /></svelte:head>
 <main class="inner-page" id="main" tabindex="-1">
   <section>
     <header class="work-header">
@@ -20,7 +21,7 @@
     <div class="rows">
       {#each projects as p, i}
         <a id={p.slug} class="row" href={`/work/${p.slug}/`}>
-          <div class="frame"><Picture src={p.cover.src} alt={p.cover.alt} eager={i < 2} /></div>
+          <div class="frame"><Picture src={p.cover.src} alt={p.cover.alt} eager={i < 2} sizes="(min-width: 1440px) 816px, (min-width: 901px) calc((100vw - 96px) * 3 / 5), calc(100vw - 32px)" /></div>
           <div class="row-body">
             <MetaLine project={p} />
             <h2 class="display" use:fitTitle>{p.title}</h2>

@@ -1,0 +1,17 @@
+## Live headers before (2026-10-02)
+### https://timothyali.com/
+HTTP/2 307 
+cache-control: public, max-age=0, must-revalidate
+location: https://www.timothyali.com/
+### https://www.timothyali.com/index.html
+HTTP/2 200 
+cache-control: public, max-age=0, must-revalidate
+### https://www.timothyali.com/work/sonde/cover.png
+HTTP/2 200 
+cache-control: public, max-age=0, must-revalidate
+### https://www.timothyali.com/fonts/parc-pixel.woff2
+HTTP/2 200 
+cache-control: public, max-age=0, must-revalidate
+### https://www.timothyali.com/work/
+HTTP/2 200 
+cache-control: public, max-age=0, must-revalidate

@@ -1,0 +1,142 @@
+{
+  "home": {
+    "url": "https://www.timothyali.com/",
+    "fetched": "2026-10-02T21:35:28.165Z",
+    "scores": {
+      "performance": 80,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "largest-contentful-paint": "3.1 s",
+      "first-contentful-paint": "1.6 s",
+      "total-blocking-time": "510 ms",
+      "cumulative-layout-shift": "0.001",
+      "speed-index": "1.6 s",
+      "interactive": "3.1 s"
+    },
+    "failing": [
+      {
+        "id": "largest-contentful-paint",
+        "score": 74,
+        "value": "3.1 s"
+      },
+      {
+        "id": "total-blocking-time",
+        "score": 57,
+        "value": "510 ms"
+      },
+      {
+        "id": "max-potential-fid",
+        "score": 8,
+        "value": "500 ms"
+      },
+      {
+        "id": "unused-css-rules",
+        "score": 0,
+        "value": "Est savings of 11 KiB"
+      },
+      {
+        "id": "image-delivery-insight",
+        "score": 0,
+        "value": "Est savings of 201 KiB"
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "score": 0
+      },
+      {
+        "id": "render-blocking-insight",
+        "score": 0,
+        "value": "Est savings of 150 ms"
+      }
+    ]
+  },
+  "work": {
+    "url": "https://www.timothyali.com/work/",
+    "fetched": "2026-10-02T21:35:52.821Z",
+    "scores": {
+      "performance": 80,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "largest-contentful-paint": "5.4 s",
+      "first-contentful-paint": "1.4 s",
+      "total-blocking-time": "0 ms",
+      "cumulative-layout-shift": "0",
+      "speed-index": "1.4 s",
+      "interactive": "5.4 s"
+    },
+    "failing": [
+      {
+        "id": "largest-contentful-paint",
+        "score": 20,
+        "value": "5.4 s"
+      },
+      {
+        "id": "interactive",
+        "score": 71,
+        "value": "5.4 s"
+      },
+      {
+        "id": "unused-css-rules",
+        "score": 0,
+        "value": "Est savings of 11 KiB"
+      },
+      {
+        "id": "lcp-discovery-insight",
+        "score": 0
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "score": 0
+      },
+      {
+        "id": "render-blocking-insight",
+        "score": 0,
+        "value": "Est savings of 150 ms"
+      }
+    ]
+  },
+  "parc": {
+    "url": "https://www.timothyali.com/work/parc/",
+    "fetched": "2026-10-02T21:35:39.447Z",
+    "scores": {
+      "performance": 98,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "largest-contentful-paint": "2.2 s",
+      "first-contentful-paint": "1.4 s",
+      "total-blocking-time": "0 ms",
+      "cumulative-layout-shift": "0",
+      "speed-index": "2.1 s",
+      "interactive": "2.2 s"
+    },
+    "failing": [
+      {
+        "id": "unused-css-rules",
+        "score": 0,
+        "value": "Est savings of 12 KiB"
+      },
+      {
+        "id": "image-delivery-insight",
+        "score": 50,
+        "value": "Est savings of 173 KiB"
+      },
+      {
+        "id": "network-dependency-tree-insight",
+        "score": 0
+      },
+      {
+        "id": "render-blocking-insight",
+        "score": 50
+      }
+    ]
+  }
+}

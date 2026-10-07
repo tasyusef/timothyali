@@ -1,0 +1,157 @@
+{
+  "note": "Mobile Lighthouse 13.5 against python http.server (no compression, no CDN) serving each build locally; before = commit e8ea981, after = PX-59. Prod numbers before the change are in lighthouse-before.json.",
+  "pages": {
+    "home": {
+      "before": {
+        "scores": {
+          "performance": 71,
+          "accessibility": 100,
+          "best-practices": 96,
+          "seo": 100
+        },
+        "lcp": "5.9 s",
+        "tbt": "0 ms",
+        "si": "3.5 s",
+        "totalKB": 1195,
+        "images": [
+          "/work/sonde/cover.png 211KB",
+          "/work/pocketwatch/cover.png 490KB",
+          "/work/toolbox/cover.png 90KB",
+          "/work/parc.png 19KB"
+        ]
+      },
+      "after": {
+        "scores": {
+          "performance": 78,
+          "accessibility": 100,
+          "best-practices": 96,
+          "seo": 100
+        },
+        "lcp": "4.3 s",
+        "tbt": "10 ms",
+        "si": "3.5 s",
+        "totalKB": 493,
+        "images": [
+          "/work/sonde/cover.1000.webp 17KB",
+          "/work/pocketwatch/cover.1000.webp 25KB",
+          "/work/toolbox/cover.1000.webp 35KB",
+          "/work/parc.1000.webp 17KB"
+        ]
+      }
+    },
+    "work": {
+      "before": {
+        "scores": {
+          "performance": 70,
+          "accessibility": 100,
+          "best-practices": 96,
+          "seo": 100
+        },
+        "lcp": "7.6 s",
+        "tbt": "0 ms",
+        "si": "3.2 s",
+        "totalKB": 1146,
+        "images": [
+          "/work/sonde/cover.png 211KB",
+          "/work/pocketwatch/cover.png 490KB",
+          "/work/toolbox/cover.png 90KB",
+          "/work/parc.png 19KB"
+        ]
+      },
+      "after": {
+        "scores": {
+          "performance": 81,
+          "accessibility": 100,
+          "best-practices": 96,
+          "seo": 100
+        },
+        "lcp": "4.0 s",
+        "tbt": "0 ms",
+        "si": "3.2 s",
+        "totalKB": 444,
+        "images": [
+          "/work/sonde/cover.1000.webp 17KB",
+          "/work/pocketwatch/cover.1000.webp 25KB",
+          "/work/toolbox/cover.1000.webp 35KB",
+          "/work/parc.1000.webp 17KB"
+        ]
+      }
+    },
+    "parc": {
+      "before": {
+        "scores": {
+          "performance": 76,
+          "accessibility": 100,
+          "best-practices": 96,
+          "seo": 100
+        },
+        "lcp": "4.7 s",
+        "tbt": "0 ms",
+        "si": "3.2 s",
+        "totalKB": 697,
+        "images": [
+          "/work/parc/sign-sky.png 64KB",
+          "/work/parc/after-darc-poster.jpg 56KB",
+          "/work/parc/first-direction.png 13KB",
+          "/work/parc/old-mascot.png 183KB"
+        ]
+      },
+      "after": {
+        "scores": {
+          "performance": 77,
+          "accessibility": 100,
+          "best-practices": 96,
+          "seo": 100
+        },
+        "lcp": "4.4 s",
+        "tbt": "0 ms",
+        "si": "3.4 s",
+        "totalKB": 506,
+        "images": [
+          "/work/parc/sign-sky.640.webp 7KB",
+          "/work/parc/after-darc-poster.jpg 56KB",
+          "/work/parc/first-direction.1000.webp 8KB",
+          "/work/parc/old-mascot.640.webp 32KB"
+        ]
+      }
+    },
+    "sonde": {
+      "before": {
+        "scores": {
+          "performance": 77,
+          "accessibility": 100,
+          "best-practices": 96,
+          "seo": 100
+        },
+        "lcp": "4.6 s",
+        "tbt": "0 ms",
+        "si": "3.2 s",
+        "totalKB": 513,
+        "images": [
+          "/work/sonde/cut/account-overview-phone.png 73KB",
+          "/work/sonde/cut/account-balance-phone.png 19KB",
+          "/work/sonde/cut/portfolio-phone.png 31KB",
+          "/work/sonde/cut/transaction-phone.png 24KB"
+        ]
+      },
+      "after": {
+        "scores": {
+          "performance": 80,
+          "accessibility": 100,
+          "best-practices": 96,
+          "seo": 100
+        },
+        "lcp": "4.1 s",
+        "tbt": "0 ms",
+        "si": "3.2 s",
+        "totalKB": 448,
+        "images": [
+          "/work/sonde/cut/account-overview-phone.520.webp 27KB",
+          "/work/sonde/cut/account-balance-phone.752.webp 10KB",
+          "/work/sonde/cut/portfolio-phone.797.webp 13KB",
+          "/work/sonde/cut/transaction-phone.1000.webp 12KB"
+        ]
+      }
+    }
+  }
+}

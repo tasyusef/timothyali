@@ -10,3 +10,7 @@ playwright-report/
 tools/review/out/
 .vercel
 *.tsbuildinfo
+
+# responsive WebP derivatives, written by tools/images/derive.mjs at build time (the manifest src/lib/images.json is committed)
+static/work/**/*.webp
+static/toolbox/**/*.webp

@@ -47,6 +47,9 @@
   });
   const points = $derived(parts.filter((x) => x.kind === 'point' && x.title).length);
   const pad = (i: number) => String(i).padStart(2, '0');
+  // What a screen's slot measures (for srcset): the right two thirds of the frame above 900px,
+  // shared by the row; the full frame below, where a row of same-shape portraits is two to a line.
+  const galleryClass = (n: number) => `(min-width: 1440px) ${Math.round(896 / n)}px, (min-width: 901px) calc((100vw - 96px) * 2 / 3 / ${n}), ${n > 1 ? 'calc((100vw - 48px) / 2)' : 'calc(100vw - 32px)'}`;
   // A point's text is held in view only while it fits under the chrome; taller text scrolls
   // with the page, or its last lines would stay hidden until the point's screens ran out.
   const CHROME = 96 + 32 + 32; // header and strip, the gap above, and as much below
@@ -64,7 +67,7 @@
     {@const share = { total: row.reduce((a, m) => a + m.w / m.h, 0), n: row.length }}
     <div class="grow" class:tiles={rowTiles(row)} style:--cols={rowColumns(row)}>
       {#each row as m}
-        {#if m.video}<Clip src={m.src} width={m.w} height={m.h} label={m.alt} poster={m.poster} row={share} />{:else}<Picture src={m.src} x2={m.x2} alt={m.alt} width={m.w} height={m.h} {eager} row={share} phone={m.phone} />{/if}
+        {#if m.video}<Clip src={m.src} width={m.w} height={m.h} label={m.alt} poster={m.poster} row={share} />{:else}<Picture src={m.src} x2={m.x2} alt={m.alt} width={m.w} height={m.h} {eager} row={share} phone={m.phone} sizes={eager ? undefined : galleryClass(row.length)} />{/if}
       {/each}
     </div>
   {/each}

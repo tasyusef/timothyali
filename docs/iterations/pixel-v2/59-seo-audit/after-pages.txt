@@ -1,0 +1,24 @@
+┌─────────┬────────────────────────────┬───────┬──────┬────┬──────────────────────────────────────────┬───────┐
+│ (index) │ route                      │ title │ desc │ h1 │ ld                                       │ words │
+├─────────┼────────────────────────────┼───────┼──────┼────┼──────────────────────────────────────────┼───────┤
+│ 0       │ '/contact/'                │ 26    │ 142  │ 1  │ 'BreadcrumbList+ContactPage'             │ 80    │
+│ 1       │ '/'                        │ 48    │ 153  │ 1  │ 'Person+WebSite+WebPage'                 │ 302   │
+│ 2       │ '/toolbox/agents/'         │ 37    │ 136  │ 1  │ 'BreadcrumbList+WebPage'                 │ 1877  │
+│ 3       │ '/toolbox/convert/'        │ 31    │ 129  │ 1  │ 'BreadcrumbList+WebPage'                 │ 444   │
+│ 4       │ '/toolbox/'                │ 21    │ 145  │ 1  │ 'BreadcrumbList+WebPage+SoftwareApplic…' │ 263   │
+│ 5       │ '/toolbox/lockup/'         │ 30    │ 140  │ 1  │ 'BreadcrumbList+WebPage'                 │ 512   │
+│ 6       │ '/toolbox/palette/'        │ 31    │ 138  │ 1  │ 'BreadcrumbList+WebPage'                 │ 389   │
+│ 7       │ '/toolbox/specimen/'       │ 32    │ 134  │ 1  │ 'BreadcrumbList+WebPage'                 │ 341   │
+│ 8       │ '/work/do-androids-dream/' │ 32    │ 129  │ 1  │ 'BreadcrumbList+WebPage+CreativeWork'    │ 314   │
+│ 9       │ '/work/firstledger/'       │ 26    │ 74   │ 1  │ 'BreadcrumbList+WebPage+CreativeWork'    │ 361   │
+│ 10      │ '/work/firststrike/'       │ 34    │ 111  │ 1  │ 'BreadcrumbList+WebPage+CreativeWork'    │ 274   │
+│ 11      │ '/work/'                   │ 18    │ 156  │ 1  │ 'BreadcrumbList+CollectionPage'          │ 311   │
+│ 12      │ '/work/jade-aesthetics/'   │ 29    │ 110  │ 1  │ 'BreadcrumbList+WebPage+CreativeWork'    │ 433   │
+│ 13      │ '/work/parc/'              │ 18    │ 141  │ 1  │ 'BreadcrumbList+WebPage+CreativeWork'    │ 1260  │
+│ 14      │ '/work/pocketwatch/'       │ 25    │ 120  │ 1  │ 'BreadcrumbList+WebPage+CreativeWork'    │ 438   │
+│ 15      │ '/work/sonde/'             │ 19    │ 126  │ 1  │ 'BreadcrumbList+WebPage+CreativeWork'    │ 592   │
+│ 16      │ '/work/toolbox/'           │ 21    │ 139  │ 1  │ 'BreadcrumbList+WebPage+CreativeWork'    │ 354   │
+│ 17      │ '/work/xrpcafe/'           │ 22    │ 87   │ 1  │ 'BreadcrumbList+WebPage+CreativeWork'    │ 334   │
+└─────────┴────────────────────────────┴───────┴──────┴────┴──────────────────────────────────────────┴───────┘
+19 pages, 18 in sitemap, 121 sitemap images
+PASS
