@@ -128,7 +128,7 @@
   </div>
   {@render children()}
   <footer class="global-footer lbl" class:home-footer={page.url.pathname === '/'}>
-    <span class="dim">(C) {new Date().getFullYear()} Timothy Ali <span class="hide-m">// A little human. A little machine.</span> // EOF</span>
+    <span class="dim">(C) {new Date().getFullYear()} Timothy Ali <span class="hide-m">// Designed and built by hand</span> // EOF</span>
     {#if motion.ready}<span class="controls"><button type="button" onclick={toggleMotion} aria-pressed={motion.on}>Motion <span class="state">[{motion.on ? 'on' : 'off'}]</span></button><button type="button" onclick={toggleGrid} aria-pressed={grid.on}>Grid <span class="state">[{grid.on ? 'on' : 'off'}]</span></button><button type="button" onclick={toggleTheme} aria-pressed={theme.light}>Theme <span class="state">[{theme.light ? 'light' : 'dark'}]</span></button></span>{/if}
   </footer>
 </div>
