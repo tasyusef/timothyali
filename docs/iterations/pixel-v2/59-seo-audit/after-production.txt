@@ -1,0 +1,56 @@
+LIVE after ~200s
+== headers
+### https://www.timothyali.com/
+HTTP/2 200 
+cache-control: public, max-age=0, must-revalidate
+permissions-policy: camera=(), microphone=(), geolocation=()
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+### https://www.timothyali.com/work/sonde/cover.1000.webp
+HTTP/2 404 
+cache-control: public, max-age=0, must-revalidate
+### https://www.timothyali.com/fonts/parc-pixel.woff2
+HTTP/2 200 
+cache-control: public, max-age=604800, stale-while-revalidate=2592000
+permissions-policy: camera=(), microphone=(), geolocation=()
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+### https://www.timothyali.com/index.html
+HTTP/2 308 
+cache-control: public, max-age=0, must-revalidate
+location: /
+### https://www.timothyali.com/resume/Timothy-Ali-Resume.pdf
+HTTP/2 200 
+cache-control: public, max-age=86400, stale-while-revalidate=604800
+permissions-policy: camera=(), microphone=(), geolocation=()
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+== home has webp sources:
+       4
+== sitemap images:
+121
+== footer:
+Designed and built by hand
+home {
+  performance: 98,
+  accessibility: 100,
+  'best-practices': 100,
+  seo: 100
+} LCP 2.1 s TBT 20 ms KB 294
+work {
+  performance: 99,
+  accessibility: 100,
+  'best-practices': 100,
+  seo: 100
+} LCP 2.0 s TBT 0 ms KB 276
+parc {
+  performance: 99,
+  accessibility: 100,
+  'best-practices': 100,
+  seo: 100
+} LCP 2.0 s TBT 0 ms KB 308
+
+[exited with code 0]
