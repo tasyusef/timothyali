@@ -815,3 +815,5 @@ Deploy (2026-10-13): PX-71 to PX-81 pushed as `24ebb46` on Timothy's “commit a
 ## PX-82 — Share images in the scene world (2026-10-13, 0183)
 
 `src/routes/og/[id]/+page.svelte`: `home`, `work`, `contact` and every `work-<slug>` Band is `mode="scene"` with `sceneSpan="box"` and the pages' knockout settings; study images are the study head (MetaLine, title at 110/112 or 82.5/88 when its longest word will not fit, description) over `study={slug}`. A `clear` of `:first-child` would have matched the Band's own field container and blanked it, so the meta line carries `og-meta`. Twelve PNGs regenerated (`pnpm social:generate`); Toolbox's six, the favicon set and the story/wide stills are unchanged. `pnpm build && pnpm social:verify` pass. Contact sheet: `docs/iterations/pixel-v2/82-share-scenes/contact-sheet.png`.
+
+Deploy (2026-10-13): PX-82 pushed as `6330725`; the new `work-pocketwatch.png` was served byte-identical about 5.5 min later; `/og/home.png`, `/og/work.png`, `/og/contact.png` answered 200. Platforms cache share images, so old previews may linger until they re-scrape.
