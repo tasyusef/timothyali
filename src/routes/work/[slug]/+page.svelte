@@ -7,8 +7,10 @@
   import MetaLine from '$lib/components/MetaLine.svelte';
   import PageFoot from '$lib/components/PageFoot.svelte';
   import QuietLink from '$lib/components/QuietLink.svelte';
+  import Band from '$lib/components/Band.svelte';
   import { rowColumns, rowTiles, total, type Row } from '$lib/work';
-  import { STEP } from '$lib/tokens';
+  import { STEP, TICK_FAST } from '$lib/tokens';
+  import { hasStudyScene } from '$lib/studyScenes';
   import { onMount } from 'svelte';
   import plexUrl from '@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2?url';
   let { data } = $props();
@@ -74,10 +76,14 @@
 {/snippet}
 
 <main class="inner-page study" id="main" tabindex="-1">
-  <section class="head">
+  <!-- the head is a strip of the landing's world (0178), a scene of its own for each study (0179);
+       the reading below stays on the plain ground -->
+  <Band class="head" mode="scene" shot="strip" sceneSpan="box" mountains={hasStudyScene(p.slug) ? '' : 'a'} study={hasStudyScene(p.slug) ? p.slug : ''} seed={Number(p.n) || 3} tick={TICK_FAST} palette="scene" cell={8} px={1} lightAs="dither" hug pad={0} feather={3} depth={0.6} avoid=".head .title .decode" clear=".head > .lbl, .head > a">
     <QuietLink href="/work/" label="Work" dir="left" pad class="lbl" />
     <MetaLine project={p} />
     <h1 class="display title" class:small bind:this={h1}><span class="probe" aria-hidden="true" bind:this={probe}>{longest}</span><Decode text={p.word} step={STEP} /></h1>
+  </Band>
+  <section class="head-intro">
     <div class="intro">
       <div class="lead-col">{#each p.lead as para}<p class="read">{para}</p>{/each}</div>
       <dl class="meta">
@@ -121,8 +127,8 @@
   </section>
 </main>
 <style>
-.head{display:flex;flex-direction:column;gap:var(--s2);padding-top:var(--s4)}
-.title{position:relative;font-size:110px;line-height:112px;margin-top:var(--s2)}
+main :global(.head){position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);padding-top:var(--s4);padding-bottom:var(--s12);min-height:384px}
+.title{position:relative;align-self:stretch;font-size:110px;line-height:112px;margin-top:var(--s2)} /* full width, so the fit probe measures the real line */
 .title .probe{position:absolute;left:0;top:0;width:0;overflow:hidden;visibility:hidden;white-space:pre;pointer-events:none}
 /* the step applies to the visible text only; the probe keeps the base size, or it would measure itself small and oscillate */
 /* a block, so its own line height sets the lines; inline, the heading's larger strut held
@@ -164,7 +170,7 @@
 @media(max-width:900px){.title{font-size:55px;line-height:56px}.title.small :global(.decode){font-size:41.25px;line-height:48px}.intro,.point,.list{grid-template-columns:100%}}
 @media(max-width:700px){.title{font-size:41.25px;line-height:48px}.title.small :global(.decode){font-size:27.5px;line-height:32px}}
 @media(max-width:700px){
-  .head{padding-top:var(--s3)}
+  main :global(.head){padding-top:var(--s3);padding-bottom:var(--s8);min-height:280px}
   .intro{margin-top:var(--s3);gap:var(--s3)}
   .grow{grid-template-columns:100%}
   /* phone screenshots and squares two to a line, not one per screen (PX-49) */

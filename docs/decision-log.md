@@ -2143,3 +2143,99 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Decision:** below the scene, the texture is drawn in the rock's two blues instead of the stars' grey, in both themes; in light mode it is printed as it is, not by its shadows like the rock.
 - **Assistant's choices inside it:** denser cells in the rock tone, lighter cells in the shade tone (split at 0.45).
 - **Status:** his direction; built (PX-70), uncommitted, awaiting his review.
+
+## 0171 — The grounds move a step toward each other
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy, shown the two grounds beside pure black and white: “keep the warm pair. nudge the paper a tiny bit darker and the dark a bit lighter”.
+- **Decision:** `--white` (the light ground and the dark theme's type) goes from `#f4f4f0` to `#efefeb`; `--ink` from `#11110e` to `#181814`. The warm tint stays. Type contrast 17.2:1 → 15.4:1; `--yellow-deep` on the light ground 5.6:1 → 5.3:1; yellow on the dark ground 13.0:1 → 12.2:1.
+- **Assistant's choices inside it:** the two values; following them through `tokens.ts`, `app.html`'s `theme-color` and the scene's snow/ink tones. The favicon, Toolbox demos and generated covers keep their own artwork colours.
+- **Status:** his direction; built (PX-71), uncommitted, awaiting his review.
+
+## 0172 — “Product designer”, not “product designer who ships in code”
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy, on the résumé title: “"product design who ships in code" feels like something i would never really say tbh”; of the four options, “lets go with product designer”.
+- **Decision:** the résumé's product track title is “Product Designer” (title case like the brand and web tracks). On the site the phrase goes everywhere: the hero's first typed line is “Product designer.”, the Home title is “Timothy Ali / Product designer”, the Home and site descriptions and the Work description drop “who ships in code”, and the Home share image reads “Product designer.” This reverses the wording of 0132, not the product positioning.
+- **Assistant's choices inside it:** carrying it to the site (the assistant's recommendation, asked alongside; he answered with the title only); the replacement sentences.
+- **Status:** his pick; built (PX-72). The résumé is rebuilt privately and the hosted copy synced; uncommitted.
+
+## 0173 — The landing's world on Contact and the 404; Work stays plain; Contact is one screen
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy, asked how far to carry the landing's look to the other pages (Toolbox excluded): “1” (each page its own shot of the same world); “for the work page id like it to be a grid of cards instead of a singe column”, then “honestly actually. work should stay plain like this”; “i also think the contact page should stay viewport height with no scroll”.
+- **Decision:** the scene has shots (`hero`, `rise`, `moon` in `src/lib/scene.ts`). Contact's yellow rain becomes the gas giant high in the sky over “building.” (`rise`); the 404's sparse yellow field becomes one small moon in an empty sky (`moon`); both in the scene's colours, glyphs in dark mode and dither in light. The Work index is unchanged (no scene, no grid). Contact fits one screen on a desktop (copy left, form right, at 1440×900 and 1280×800); it stacks and scrolls below 1101px. The 404 also fills one screen where it fits. The case studies are not touched yet.
+- **Assistant's choices inside it:** the shots and their placement; the moon's look (no bands, seas and craters); Contact's two-column layout, name and email sharing a row and a three-line message to fit; the dropped mock CSS and the unused ink/night light-mode variants.
+- **Status:** his direction; built (PX-73), uncommitted, awaiting his review. Open: the case studies.
+
+## 0174 — Knockouts hug the letters, rounded, with a longer fade
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy, on Contact's plates: “make the safe areas for the text here more of a gradient. and maybe a bit tighter to the text”; then “make it more rounded. too boxy here”.
+- **Decision:** on Contact and the 404 (`hug`), each line's knockout is cut to the measured ink of its text instead of the font's line box, drawn as a rounded rectangle (corner radius up to 8 cells, 1.5 cells clear of the letters), and fades in over 7 cells with no hard pad. Home keeps its knockouts as they were.
+- **Assistant's choices inside it:** measuring ink with canvas `measureText`; the radius, clearance and fade lengths; leaving Home unchanged for now.
+- **Status:** his direction; built (PX-74), uncommitted, awaiting his review.
+
+## 0175 — No knockout behind the big type on Contact and the 404
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “these knockouts are still to big i think. it cover up a ton of the image in the bg”, then “maybe we do no knockout since the text is so big anyway?”
+- **Decision:** Contact and the 404 draw the scene straight behind their headings and copy; only Contact's small footer line keeps a short, rounded knockout (4 cells). The rounded, hugging knockout from 0174 stays in the code for that use.
+- **Assistant's choices inside it:** keeping the footer line's knockout; the labels keep their own solid plates.
+- **Status:** his direction; built (PX-75), uncommitted, awaiting his review.
+
+## 0176 — A toned-down knockout: the texture thins behind the words
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy, after 0175: “maybe we bring the knockout out back but toned down”.
+- **Decision:** on Contact and the 404 the headings and copy get the rounded, ink-hugging knockout again, but it only takes away 60% of the field (`depth`), fading over 3 cells; the picture stays visible behind the type.
+- **Assistant's choices inside it:** 60% and 3 cells.
+- **Status:** his direction; built (PX-76), uncommitted, awaiting his review.
+
+## 0177 — Small labels over the picture: no plate, a full rounded knockout
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy, pointing at the boxed “Timothy Ali / Denver, CO” label over the planet: “what about here”.
+- **Decision:** on Contact and the 404 the small labels lose their solid paper plates and get the rounded, ink-hugging knockout at full strength (`clear`), so they read over the planet; the big type keeps the 60% knockout (0176). The yellow chips (“Let’s talk”, “404”) keep their fills.
+- **Assistant's choices inside it:** full strength for small type; which labels count (the Contact channel label and footer line, the 404 status text).
+- **Status:** his prompt, the assistant's fix; built (PX-77), uncommitted, awaiting his review.
+
+## 0178 — Each case study opens on a strip of the landing's world
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “yup case studies now” (option 1 of 0173: each page its own shot; for the studies the assistant had proposed a scene strip in the head only, the reading left plain).
+- **Decision:** a study's head (back link, meta line, title) is a scene strip about 384px tall (280px on phones): the needle peaks along its foot, fading out, and the giant rising behind them on the right; the lead, the meta and every point below stay on the plain ground. The title gets the 60% knockout, the small labels the full rounded one. Each study's planet differs a little (seeded by its number).
+- **Assistant's choices inside it:** the strip's height and composition; hanging the range from its highest peak at 38% of the strip; per-study seeds.
+- **Status:** his go-ahead on the assistant's proposal; built (PX-78), uncommitted, awaiting his review.
+
+## 0179 — A scene of its own for each case study
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “lets make different scenes for each case study. maybe based loosely on the case study”. On the assistant's list he kept Sonde (a weather balloon), Toolbox (a planet being assembled), PARC (a rowboat off a palm island), First Ledger (candlestick towers under the giant), Jade (still water under a jade moon), FirstStrike (a lightning strike) and Do Androids Dream? (a sun with beams behind a lone figure), and changed two: Pocketwatch “no. lets do a city scape”, xrp.cafe “big coffee cup instead. with coffee animated inside”.
+- **Decision:** each study's head strip draws its own scene in the landing's world (same materials and palettes, glyphs in dark mode, dither in light), drawn in code, no images. Animated with motion on: the balloon sways, city windows come and go and the clock tower's hands turn, the seam sweeps across the planet, the boat bobs, the newest candle trades and the chart steps along, the coffee swirls and steams, the moon's reflection ripples, a bolt strikes every few seconds, the sun's beams turn.
+- **Assistant's choices inside it:** every composition, colour and motion; a clock tower in the cityscape as the nod to the watch; a jade material and an ink material (for the figure's silhouette) added to the palettes; the scenes run on the faster tick.
+- **Status:** his picks; built (PX-79), uncommitted, awaiting his review.
+
+## 0180 — First Ledger: big candlesticks, no planet
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “for first ledger. lets ditch the planet. and just have lerger candlesticks”; then “they can fill more of the header. also can make them taller. they dont all have to 100% in view”.
+- **Decision:** First Ledger's strip is classic candlesticks, wide bodies with wicks above and below, across the whole strip behind the title, tall enough to run off its top and fade off its foot; no giant. Up in the light tone, down in rust; the newest candle trades and the chart steps along.
+- **Assistant's choices inside it:** candle width (0.42 strip heights, bodies 64% of it), body and wick lengths, the 60% title knockout as on the other strips.
+- **Status:** his direction; built (PX-80), uncommitted, awaiting his review.
+
+## 0181 — First Ledger's up candles are green
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “make the black some shade of green for first ledger.”
+- **Decision:** the up candles use the palette's jade green (ink-dark green on the light ground, pale green on the dark); down candles stay rust.
+- **Assistant's choices inside it:** reusing the jade material rather than adding a new green.
+- **Status:** his direction; built, committed with PX-71 to PX-80 on his “commit and push it”.
+
+## 0182 — Pocketwatch's city is drawn, not shaded
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “also in lightmode the pocketwatch city scape is too hard to read”, then “no the title is fine. the city itself is hard to read as a city”.
+- **Decision:** the skyline is drawn: every building outlined, a solid front row with windows on the cell grid (some lit, coming and going), stepped crowns and masts with a lit tip on the roofline, a paler outlined row behind with a few windows. The giant planet behind the city is gone; the clock tower stands right of the title. Both themes.
+- **Assistant's choices inside it:** the weights, heights, crown and mast rules, dropping the giant, moving the tower from 72% to 84% of the width.
+- **Status:** his direction; built, committed with PX-71 to PX-80 on his “commit and push it”.

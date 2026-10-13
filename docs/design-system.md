@@ -51,9 +51,9 @@ component renders reach it with `:global()` anchored on their own `<main>`.
 | Token | Value | Meaning |
 |---|---|---|
 | `--yellow` | `#f2d600` | brand primitive |
-| `--ink` | `#11110e` | near-black primitive |
-| `--white` | `#f4f4f0` | off-white primitive |
-| `--yellow-deep` | `#6f6200` | the accent as text on the light ground (5.6:1 on `--white`; 0075) |
+| `--ink` | `#181814` | near-black primitive (was `#11110e`; 0171) |
+| `--white` | `#efefeb` | off-white primitive (was `#f4f4f0`; 0171) |
+| `--yellow-deep` | `#6f6200` | the accent as text on the light ground (5.3:1 on `--white`; 0075, 0171) |
 | `--yellow-field` | `#c8ac00` | the accent in a field on the light ground: four oklch lightness steps down (0108) |
 | `--u` | `8px` | the spacing unit |
 | `--s1 … --s16` | `8 16 24 32 48 64 96 128px` | the spacing scale; the name is the number of units (`--s4` = 4 × 8) |
@@ -114,7 +114,7 @@ with the theme; `--accent-text` does (0075).
 Consumed by `Ascii.svelte` (`cell`, `tick` defaults), `Decode.svelte` (`step` default),
 `figure.ts` (the 8px height floor for `Picture` / `Clip`), `+layout.svelte` (the `theme-color`
 meta tag) and every Decode/Band call site, so no colour or cadence literal is left in a
-route. `src/app.html` keeps its own `#11110e` because that script runs before any
+route. `src/app.html` keeps its own `#181814` because that script runs before any
 stylesheet or module loads; all three places carry a comment naming the other two.
 
 ## The typeface build (`tools/fonts/extend-parc-pixel.py`, decision 0078)
@@ -270,7 +270,7 @@ past 4px (measured in PX-18).
 - **`.para .note`** uses `var(--ink)` / `var(--yellow)` directly, the one deliberate use of
   primitives outside `tokens.css`: the plate must *not* invert with the theme, or yellow
   lands on the white panel again (decision 0067).
-- **`src/app.html`’s `#11110e`** — runs before CSS and modules exist.
+- **`src/app.html`’s `#181814`** — runs before CSS and modules exist.
 
 Everything that is a padding, margin or gap now uses `--s*`; every `z-index` uses `--z-*`;
 the cursor blink is `var(--tick-cursor) steps(2,jump-none)` with a single `@keyframes

@@ -13,7 +13,7 @@
   import { STEP_SLOW, STEP } from '$lib/tokens';
   import { motion } from '$lib/motion.svelte';
 
-  const LINES = ['Product designer who ships in code.', 'Interface design, design systems, and front-end development.', 'Denver / remote. Open to full-time and contract.'];
+  const LINES = ['Product designer.', 'Interface design, design systems, and front-end development.', 'Denver / remote. Open to full-time and contract.'];
   const STATIC_LINE = LINES.join(' ');
   const HOLD = { hi: 900, name: 700, line: 1600, last: 2600, clear: 600 };
   const erased = (t: string) => [...t].length * STEP_SLOW;

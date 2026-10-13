@@ -11,7 +11,7 @@
   import Invite from '$lib/components/home/Invite.svelte';
   import { TICK_SLOW } from '$lib/tokens';
 </script>
-<svelte:head><title>Timothy Ali / Product designer who ships in code</title><meta name="description" content="Timothy Ali, product designer in Denver who ships in code. Interfaces, design systems, and front ends in TypeScript. Open to full-time and contract work." /></svelte:head>
+<svelte:head><title>Timothy Ali / Product designer</title><meta name="description" content="Timothy Ali, product designer in Denver. Interfaces, design systems, and front ends in TypeScript. Open to full-time and contract work." /></svelte:head>
 <main id="main" tabindex="-1">
   <Band as="div" class="page-sky" mode="scene" seed={3} tick={TICK_SLOW} density={1} palette="scene" cell={8} px={1} lightAs="dither" mountains="a" avoid=".hero-actions, .hero-role, .index-row > span, .row-copy > *, .list .all, .invitation h2 > span, .invitation .cta-row">
     <Hero />
@@ -22,7 +22,4 @@
 <style>
 main :global(.page-sky){--chrome:96px;position:relative;isolation:isolate;overflow:hidden;margin-top:calc(-1 * var(--chrome))}
 @media(max-width:700px){main :global(.page-sky){--chrome:136px}}
-/* light mode, mock: 'night' keeps the hero a dark window on the light page */
-:global(:root[data-theme=light]) main :global(.page-sky.night)::before{content:'';position:absolute;left:0;right:0;top:0;height:round(down,100svh,8px);background:var(--ink);z-index:-1}
-:global(:root[data-theme=light]) main :global(.page-sky.night .hero-sec){--paper:var(--ink);--fg:var(--white);--accent-text:var(--yellow);color:var(--white)}
 </style>

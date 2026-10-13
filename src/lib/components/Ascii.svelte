@@ -13,9 +13,10 @@
   import { GLYPHS, RAMP } from '$lib/glyphs';
   import { knockout, measureBoxes, type Box } from '$lib/knockout';
   import { CELL_TEXTURE, TICK_SLOW } from '$lib/tokens';
-  import { sceneCell, sceneInk, PALETTES, MAT, MOUNTAIN_REFS, layoutMountains, clearMountains, type Palette } from '$lib/scene';
+  import { studyCell } from '$lib/studyScenes';
+  import { sceneCell, PALETTES, MAT, MOUNTAIN_REFS, layoutMountains, shotHasRidge, type Palette, type Shot, type Mountains } from '$lib/scene';
   type Mode = 'noise' | 'fall' | 'scan' | 'sparse' | 'sky' | 'bands' | 'scene';
-  let { mode = 'noise' as Mode, cell = CELL_TEXTURE, px = 2, seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad = 1, feather = 3, interactive = true, reach = 7, flip = false, shade = false, skySpan = 'box', skyRepeat = false, palette = 'scene' as Palette, lightAs = 'same' as 'same' | 'ink' | 'night' | 'dither', mountains = '' as '' | 'a' | 'b' }: { mode?: Mode; cell?: number; px?: number; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; interactive?: boolean; reach?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; lightAs?: 'same' | 'ink' | 'night' | 'dither'; mountains?: '' | 'a' | 'b' } = $props();
+  let { mode = 'noise' as Mode, cell = CELL_TEXTURE, px = 2, seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad = 1, feather = 3, interactive = true, reach = 7, flip = false, shade = false, skySpan = 'box', skyRepeat = false, palette = 'scene' as Palette, lightAs = 'same' as 'same' | 'dither', mountains = '' as '' | 'a' | 'b', shot = 'hero' as Shot, hug = false, depth = 1, clear = '', sceneSpan = 'screen' as 'screen' | 'box', study = '' }: { mode?: Mode; cell?: number; px?: number; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; interactive?: boolean; reach?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; sceneSpan?: 'screen' | 'box'; study?: string } = $props();
   // `shade` colours by weight instead: the heaviest glyph is the accent and every lighter
   // step sinks toward the ground, so a dense field reads as a few bright points on dark.
   // Each mode has one thing that draws in the accent: the rain's droplet, the scan's line,
@@ -48,9 +49,11 @@
   let bursts: { x: number; y: number; t: number }[] = [];
   let sprites = new Map<string, HTMLCanvasElement>(); let accentSprites = new Map<string, HTMLCanvasElement>(); let shadeSprites: Map<string, HTMLCanvasElement>[] = []; let paletteSprites: Map<string, HTMLCanvasElement>[] = []; let spriteKey = ''; let paper = '';
 
+  // a study's strip draws its own scene (0179); every other scene field draws a shot of the landing's world
+  const scene = (x: number, y: number, t: number, c: number, S: number) => (study ? studyCell(study, x, y, t, c, S, seed) : sceneCell(x, y, t, c, S, seed, shot, mtn));
   type Cell = { v: number; ch?: string; hot?: boolean; c?: number; o?: boolean; fade?: number };
   const field = (x: number, y: number, t: number): Cell => {
-    if (mode === 'scene') return (theme.light && lightAs === 'ink' ? sceneInk : sceneCell)(x, y, t, cols, screenRows, seed);
+    if (mode === 'scene') return scene(x, y, t, cols, screenRows);
     if (mode === 'noise') { const v = fbm(x / 6 + t * 0.04, y / 4 - t * 0.015, seed, 2); return { v, hot: v > 0.9 }; }
     if (mode === 'sky') { const d = (x / cols) * 0.55 + vert(y) * 0.6 - 0.28; const v = Math.min(1, Math.max(0, d + (fbm(x / 6 + t * 0.03, y / 5, seed) - 0.5) * 0.45)); return { v, hot: v > 0.92 }; }
     if (mode === 'bands') { const b = Math.sin((y - t * 0.3) / 1.6 + fbm(x / 7, y / 16, seed) * 4) * 0.5 + 0.5; return { v: b * (0.2 + 0.8 * (1 - x / cols)), hot: b > 0.995 }; }
@@ -65,7 +68,8 @@
     return Math.max(0, 1 - y / span);
   };
   const dithering = () => mode === 'scene' && lightAs === 'dither' && theme.light;
-  function measure() { boxes = avoid ? measureBoxes(host.closest('.band') ?? document, avoid, canvas.getBoundingClientRect(), cell) : []; }
+  // `clear` (0177): selectors knocked out in full whatever `depth` is, for small type over the picture
+  function measure() { const root = host.closest('.band') ?? document, r = canvas.getBoundingClientRect(); boxes = [...(avoid ? measureBoxes(root, avoid, r, cell, hug) : []), ...(clear ? measureBoxes(root, clear, r, cell, hug, 1) : [])]; }
 
   // --- pointer heat -------------------------------------------------------
   const local = (e: PointerEvent) => { const r = canvas.getBoundingClientRect(); return { x: (e.clientX - r.left) / cell, y: (e.clientY - r.top) / cell }; };
@@ -122,7 +126,7 @@
   }
   function buildSprites() {
     const key = color + '|' + accentColor + '|' + paper + '|' + shade + '|' + dpr + '|' + mode + palette + lightAs + theme.light; if (key === spriteKey) return; spriteKey = key;
-    paletteSprites = mode === 'scene' ? PALETTES[palette][theme.light && lightAs !== 'night' ? 'light' : 'dark'].map(spriteSet) : [];
+    paletteSprites = mode === 'scene' ? PALETTES[palette][theme.light ? 'light' : 'dark'].map(spriteSet) : [];
     sprites = spriteSet(color); accentSprites = accentColor ? spriteSet(accentColor) : sprites;
     // one set per ramp step: near-ground at the light end, the field colour just under the top, the accent on top
     shadeSprites = shade ? RAMP.split('').map((_, i) => i === RAMP.length - 1 ? accentSprites : spriteSet(mix(color, paper, 0.08 + (0.92 * i) / (RAMP.length - 1)))) : [];
@@ -149,10 +153,10 @@
     const dith = dithering();
     for (let y = y0; y < y1; y++) { if (rowFrame[y] === frame) continue; rowFrame[y] = frame; for (let x = 0; x < cols; x++) {
       const i = y * cols + x;
-      bK[i] = knockout(x + 0.5, y + 0.5, boxes, pad, feather);
+      bK[i] = knockout(x + 0.5, y + 0.5, boxes, pad, feather, hug, depth); // hugged knockouts are rounded too (0174)
       if (dith) {
         for (let j = 0; j < 2; j++) for (let q = 0; q < 2; q++) {
-          const X = 2 * x + q, Y = 2 * y + j, f = sceneCell(X, Y, frame, cols * 2, screenRows * 2, seed), o = i * 4 + j * 2 + q;
+          const X = 2 * x + q, Y = 2 * y + j, f = scene(X, Y, frame, cols * 2, screenRows * 2), o = i * 4 + j * 2 + q;
           // rock is drawn by its shadows, like ink: snow and lit faces stay paper; the planet keeps its colour; the sky is open paper;
           // the page texture below (`tex`) is drawn as it is, in the rock's colours
           const rock = !!f.o && !f.tex && (f.c === MAT.rock || f.c === MAT.shade || f.c === MAT.snow);
@@ -221,15 +225,17 @@
     cols = Math.ceil((r.width + offX) / cell); rows = Math.ceil((r.height + offY) / cell);
     // measured when the width changes, so a phone's toolbar showing and hiding does not move the sky
     if ((skySpan === 'screen' || mode === 'scene') && window.innerWidth !== lastW) { screenRows = Math.max(1, window.innerHeight / cell); lastW = window.innerWidth; }
-    if (mode === 'scene' && mountainImg?.complete && mountainImg.naturalWidth) { const d = dithering() ? 2 : 1; layoutMountains(mountainImg, cols * d, screenRows * d); }
+    if (mode === 'scene' && sceneSpan === 'box') screenRows = Math.max(1, r.height / cell); // a strip composes on its own height (0178)
+    if (mode === 'scene' && mountainImg?.complete && mountainImg.naturalWidth) { const d = dithering() ? 2 : 1; mtn = layoutMountains(mountainImg, cols * d, screenRows * d, shot); }
     if (heat.length !== cols * rows) heat = new Float32Array(cols * rows);
     canvas.width = cols * cell * dpr; canvas.height = rows * cell * dpr; canvas.style.width = cols * cell + 'px'; canvas.style.height = rows * cell + 'px';
     canvas.style.left = -offX + 'px'; canvas.style.top = -offY + 'px';
     ctx = canvas.getContext('2d'); baseDirty = true; if (due) draw(true);
   }
-  let mountainImg: HTMLImageElement | null = null;
+  // each field lays out its own copy of the picture (0173), so two scenes never share one
+  let mountainImg: HTMLImageElement | null = null; let mtn: Mountains | null = null;
   onMount(() => {
-    if (mode === 'scene' && mountains) { mountainImg = new Image(); mountainImg.onload = () => resize(); mountainImg.src = MOUNTAIN_REFS[mountains]; } else if (mode === 'scene') clearMountains();
+    if (mode === 'scene' && mountains && shotHasRidge(shot)) { mountainImg = new Image(); mountainImg.onload = () => resize(); mountainImg.src = MOUNTAIN_REFS[mountains]; }
     const r0 = host.getBoundingClientRect(); visible = due = r0.bottom > -64 && r0.top < window.innerHeight + 64;
     const ro = new ResizeObserver(resize); ro.observe(host); ro.observe(document.body); resize(); document.fonts?.ready.then(resize);
     const io = new IntersectionObserver((es) => es.forEach((e) => { visible = e.isIntersecting; if (visible && !due) { due = true; draw(true); } }), { rootMargin: '64px' }); io.observe(host);

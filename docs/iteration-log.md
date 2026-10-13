@@ -763,3 +763,49 @@ Timothy, after looking at browserbase.com's hero (a pre-rendered dithered video 
 ## PX-70 — Page texture in the mountains' blues (2026-10-13, 0170)
 
 `src/lib/scene.ts` `below()` returns `MAT.rock` above 0.45 and `MAT.shade` below, with `tex: true`; `Ascii.svelte`'s dither skips the rock inversion for `tex` cells. Hover heat over the texture follows the cell's colour. `pnpm check` clean; no page errors. Evidence: `docs/iterations/pixel-v2/70-texture-blue/` (`page-{1440,390}-{dark,light}.png`, `sheet-1440.png`). Uncommitted.
+
+Committed and pushed on Timothy's “commit and push it” (2026-10-13): PX-62 to PX-70 as `3e761dd`; the deploy was live about four minutes after the push (Home carried the settings menu, `/hero/mountains-a.png` and `/work/` answered 200).
+
+## PX-71 — Grounds nudged (2026-10-13, 0171)
+
+`src/lib/styles/primitives.css` `--ink: #181814`, `--white: #efefeb`; the same in `src/lib/tokens.ts` (`INK`, `WHITE`), `src/app.html` (`theme-color`) and `src/lib/scene.ts` (snow in the dark palettes, ink in the light). `docs/design-system.md` updated. Measured on the page: dark ground rgb(24, 24, 20), light rgb(239, 239, 235). No page errors. Then, on his “regenerate the share images”, `pnpm social:generate` re-rendered the eighteen share images, the story and wide stills and the favicon set (the favicon's ink is `INK`, so it follows the new dark); `pnpm build && pnpm social:verify` pass (18 pages, 18 PNGs, icons). The images now also show the settings cog in the header. Preview: `og-sheet.png`. Evidence: `docs/iterations/pixel-v2/71-grounds/` (`before-*`, `after-*`, `sheet.png`). Uncommitted.
+
+## PX-72 — “Product designer” (2026-10-13, 0172)
+
+`src/lib/components/home/Hero.svelte` (first line), `src/routes/+page.svelte` (title, description), `src/lib/social.ts` (Home title, description, alt; `WORK_DESCRIPTION`), `src/lib/seo.ts` (site description), `src/routes/og/[id]/+page.svelte` (Home share line). Share images regenerated; `pnpm build && pnpm social:verify` pass; `px61.mjs` passes; `pnpm check` clean. Résumé: `tracks.product.title` in the private `resume.mjs` is “Product Designer”; all four PDFs rebuilt (one page each); the hosted phone-free copy is synced to `static/resume/Timothy-Ali-Resume.pdf`. The private builder now copies the current track to the top of `RESUME/` as `Timothy-Ali-Resume.pdf`, the name Timothy gave it. Uncommitted.
+
+## PX-73 — Contact and 404 scenes, Contact on one screen (2026-10-13, 0173)
+
+`src/lib/scene.ts`: `SHOTS` (`hero`, `rise`, `moon`: a body in fractions of the window, landscape and portrait; whether the ridge and the texture below show); mountains are laid out per field (`layoutMountains` returns them, `sceneCell(…, shot, M)`), so two scenes never share one; `sceneInk` removed. `Ascii.svelte`/`Band.svelte`: `shot`; `lightAs` is `same | dither` (ink and night dropped). `+page.svelte`: the night mock CSS removed. `src/routes/contact/+page.svelte`: scene `rise`, a two-column grid that fills `main` (`.site` is already a full-height column), form compacted (name and email in one row, 112px message, links in a wrapping row; at ≤860px tall 16px less padding); `.signal` removed; stacks at ≤1100. `src/routes/not-found/+page.svelte`: scene `moon`, the band fills `main`. Measured page heights: Contact 900 at 1440×900, 800 at 1280×800 (no scroll); 404 900 at 1440×900, 864 at 1280×800. No page errors. Evidence: `docs/iterations/pixel-v2/73-contact-404-scenes/`. Uncommitted.
+
+## PX-74 — Rounded, hugging knockouts (2026-10-13, 0174)
+
+`src/lib/knockout.ts`: `measureBoxes(…, hug)` trims each line rect to its text's ink (`measureText`: font ascent less actual ascent, actual descent; uppercase when `text-transform` says so); `knockout(…, round)` measures to a rounded rectangle (radius ≤ 8 cells, 1.5 cells clear). `Ascii`/`Band`: `hug` (also turns on `round`). Contact and 404: `hug pad={0} feather={7}`. A first try with a superellipse grew too wide and was replaced. No page errors. Evidence: `docs/iterations/pixel-v2/74-knockout-hug/`. Uncommitted.
+
+## PX-75 — No knockout behind big type (2026-10-13, 0175)
+
+Contact: `avoid=".contact-foot"`, `feather={4}`; 404: no `avoid`. Readability note: at tablet widths (≈850px, stacked) the intro line sits over the densest part of the planet in light mode. No page errors. Evidence: `docs/iterations/pixel-v2/75-no-knockout/` (`sheet.png`). Uncommitted.
+
+## PX-76 — Partial knockout (2026-10-13, 0176)
+
+`knockout.ts`: `depth` (default 1, unchanged for every other field); a knocked-out cell keeps `1 − depth` of the field. `Ascii`/`Band` forward `depth`. Contact: `avoid=".contact h1 > span, .contact-foot"`, `hug pad={0} feather={3} depth={0.6}`; 404: the same on `.lost h1 > span, .lost p`. `pnpm check` clean; no page errors. Evidence: `docs/iterations/pixel-v2/76-soft-knockout/sheet.png`. Uncommitted.
+
+## PX-77 — Per-box knockout depth (2026-10-13, 0177)
+
+`knockout.ts`: a `Box` may carry `depth`; the factor is the minimum over boxes of `1 − depth·(1 − t²)`. `measureBoxes(…, depth)`. `Ascii`/`Band`: `clear` selectors are measured at depth 1 alongside `avoid` at the field's `depth`. Contact: `clear=".contact-top .channel, .contact-foot .page-foot > *"`, the label plates removed; 404: `clear=".status > span:last-child"`, plates removed. `pnpm check` clean; no page errors. Evidence: `docs/iterations/pixel-v2/77-label-knockout/sheet.png`. Uncommitted.
+
+## PX-78 — Study head strip (2026-10-13, 0178)
+
+`src/lib/scene.ts`: shot `strip` (`top`: the range hung from its highest opaque row at 0.38 of the strip, at least 1.3 strips tall; `foot`: the range fades over the strip's last 30%; giant at 0.8 / 0.95, R 0.85 of the strip); `layoutMountains(…, shot)`. `Ascii`/`Band`: `sceneSpan="box"` composes a scene on the field's own height. `src/routes/work/[slug]/+page.svelte`: the head's link, meta line and title are a `Band` (`.head`, min 384px / 280px ≤700, 96px / 64px below the title); the intro moves to `.head-intro`. Checked at 320, 390, 800 and 1440 in both themes on Sonde, PARC and Do Androids Dream?: no overflow, no page errors; `px61.mjs` passes. Evidence: `docs/iterations/pixel-v2/78-study-strip/` (`sheet-1440.png`, `sheet-390.png`). Uncommitted.
+
+## PX-79 — Nine study scenes (2026-10-13, 0179)
+
+`src/lib/studyScenes.ts` (new): one function per study, measured in strip heights (X 0…cols/S, Y 0…1), focal shapes right of centre; `studyCell(slug, …)` fades each into the page over the strip's last quarter; `hasStudyScene`. `src/lib/scene.ts`: `MAT.jade` and `MAT.night` (ink in both themes) in every palette. `Ascii`/`Band`: `study` (a slug) replaces the shot for that field. `src/routes/work/[slug]/+page.svelte`: the head passes `study={p.slug}` (falls back to the 0178 peaks for a study without a scene), runs on `TICK_FAST`, and the title stretches to the strip again (inside the Band it had shrunk to its text, so the long-word probe never fired and long titles clipped on phones; every title now fits at 320, 390 and 1440). No page errors, no overflow. Evidence: `docs/iterations/pixel-v2/79-study-scenes/` (`sheet-dark.png`, `sheet-light.png`, `sheet-phone.png`). Uncommitted.
+
+## PX-80 — First Ledger candles (2026-10-13, 0180)
+
+`src/lib/studyScenes.ts` `ledger`: no giant; candles every 0.42 strip heights from the left edge; base 0.5 ± 0.28, bodies at least 0.38 tall, wicks 0.1–0.28 beyond. Three rounds (bigger; clear of the title, which at 110px spans most of the strip; full width and taller). No page errors. Evidence: `docs/iterations/pixel-v2/80-ledger-candles/sheet.png`. Uncommitted.
+
+## PX-81 — Pocketwatch's city, drawn (2026-10-13, 0182)
+
+On Timothy's “the city itself is hard to read as a city” (light mode): the `city` scene in `src/lib/studyScenes.ts` now outlines every building (edge cells found by sampling one cell either side), puts windows on the cell grid (every third cell), solid front row at .92 with lit windows in cream/orange, crowns and masts, paler back row (.2 fill, .6 outline). The giant is removed; the clock tower moves to 84%. Before: the rows were .42/.28 dither with no edges and read as texture. Evidence: `docs/iterations/pixel-v2/81-city/compare.png` (1440 light/dark, 390 light/dark).

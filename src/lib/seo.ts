@@ -20,7 +20,7 @@ const person = {
   url: SITE_URL,
   email: `mailto:${EMAIL}`,
   jobTitle: 'Product designer',
-  description: 'Product designer in Denver who ships in code: interfaces, design systems, and front ends in TypeScript. Open to full-time and contract work.',
+  description: 'Product designer in Denver: interfaces, design systems, and front ends in TypeScript. Open to full-time and contract work.',
   knowsAbout: ['Product design', 'Interface design', 'Front-end development', 'Design systems', 'Brand identity', 'Motion design', 'Typography'],
   address: { '@type': 'PostalAddress', addressLocality: 'Denver', addressRegion: 'CO', addressCountry: 'US' },
   sameAs: PROFILES

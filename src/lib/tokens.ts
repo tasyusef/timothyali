@@ -7,8 +7,8 @@
 // stylesheet or module loads. It is the one deliberate duplicate.
 
 /** Colour primitives. */
-export const INK = '#11110e';
-export const WHITE = '#f4f4f0';
+export const INK = '#181814';
+export const WHITE = '#efefeb';
 export const YELLOW = '#f2d600';
 
 /** The spacing unit. Every layout number on the site is a multiple of it. */

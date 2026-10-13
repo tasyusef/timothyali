@@ -5,9 +5,9 @@
 :root{
   /* colour primitives — the whole palette */
   --yellow:#f2d600;
-  --ink:#11110e;
-  --white:#f4f4f0;
-  --yellow-deep:#6f6200;  /* the accent when it is text on the light ground (5.6:1 on --white) */
+  --ink:#181814;   /* was #11110e; a step lighter (0171) */
+  --white:#efefeb; /* was #f4f4f0; a step darker (0171) */
+  --yellow-deep:#6f6200;  /* the accent when it is text on the light ground (5.3:1 on --white) */
   --yellow-field:#c8ac00; /* the accent in a field on the light ground: four oklch lightness steps down, same hue and chroma (0108) */
 
   /* spacing — one unit and the steps actually used on the site.

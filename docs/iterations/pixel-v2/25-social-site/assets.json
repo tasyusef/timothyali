@@ -3,120 +3,120 @@
     "image": "home",
     "width": 1200,
     "height": 630,
-    "bytes": 13401
+    "bytes": 12979
   },
   {
     "image": "work",
     "width": 1200,
     "height": 630,
-    "bytes": 49060
+    "bytes": 66442
   },
   {
     "image": "contact",
     "width": 1200,
     "height": 630,
-    "bytes": 10400
+    "bytes": 10325
   },
   {
     "image": "toolbox",
     "width": 1200,
     "height": 630,
-    "bytes": 12440
+    "bytes": 12238
   },
   {
     "image": "toolbox-agents",
     "width": 1200,
     "height": 630,
-    "bytes": 11992
+    "bytes": 11822
   },
   {
     "image": "toolbox-lockup",
     "width": 1200,
     "height": 630,
-    "bytes": 38909
+    "bytes": 98467
   },
   {
     "image": "toolbox-palette",
     "width": 1200,
     "height": 630,
-    "bytes": 34475
+    "bytes": 85309
   },
   {
     "image": "toolbox-specimen",
     "width": 1200,
     "height": 630,
-    "bytes": 43510
+    "bytes": 95941
   },
   {
     "image": "toolbox-convert",
     "width": 1200,
     "height": 630,
-    "bytes": 39277
+    "bytes": 112139
   },
   {
     "image": "work-sonde",
     "width": 1200,
     "height": 630,
-    "bytes": 41737
+    "bytes": 58617
   },
   {
     "image": "work-pocketwatch",
     "width": 1200,
     "height": 630,
-    "bytes": 65193
+    "bytes": 80030
   },
   {
     "image": "work-toolbox",
     "width": 1200,
     "height": 630,
-    "bytes": 64841
+    "bytes": 87073
   },
   {
     "image": "work-parc",
     "width": 1200,
     "height": 630,
-    "bytes": 24947
+    "bytes": 72234
   },
   {
     "image": "work-firstledger",
     "width": 1200,
     "height": 630,
-    "bytes": 300442
+    "bytes": 316353
   },
   {
     "image": "work-xrpcafe",
     "width": 1200,
     "height": 630,
-    "bytes": 20151
+    "bytes": 25195
   },
   {
     "image": "work-jade-aesthetics",
     "width": 1200,
     "height": 630,
-    "bytes": 157485
+    "bytes": 162149
   },
   {
     "image": "work-firststrike",
     "width": 1200,
     "height": 630,
-    "bytes": 447035
+    "bytes": 438171
   },
   {
     "image": "work-do-androids-dream",
     "width": 1200,
     "height": 630,
-    "bytes": 334649
+    "bytes": 311687
   },
   {
     "image": "story-launch",
     "width": 1080,
     "height": 1920,
-    "bytes": 30106
+    "bytes": 29215
   },
   {
     "image": "wide-launch",
     "width": 1920,
     "height": 1080,
-    "bytes": 27629
+    "bytes": 26702
   }
 ]

@@ -7,18 +7,18 @@
 import { fbm, hash2 } from '$lib/prng';
 
 /** what a cell is made of; the palettes below give each one a colour per theme */
-export const MAT = { cream: 0, orange: 1, rust: 2, brown: 3, rock: 4, shade: 5, snow: 6, star: 7 } as const;
+export const MAT = { cream: 0, orange: 1, rust: 2, brown: 3, rock: 4, shade: 5, snow: 6, star: 7, jade: 8, night: 9 } as const; // night: the ink ground in both themes, for silhouettes
 export type Palette = 'scene' | 'accent';
 // 'scene': the scene's own colours, a handful of tones; 'accent': the site's yellow and three
 // tones around it. The light ground takes darker values of the same hues.
 export const PALETTES: Record<Palette, { dark: string[]; light: string[] }> = {
   scene: {
-    dark: ['#ecd9b0', '#e48a3a', '#b9502b', '#7d4a2a', '#a9b2d6', '#59628a', '#f4f4f0', '#9a9a90'],
-    light: ['#9c7a3c', '#c2601c', '#93391b', '#5c3520', '#33406a', '#7c86aa', '#11110e', '#6a6a62'],
+    dark: ['#ecd9b0', '#e48a3a', '#b9502b', '#7d4a2a', '#a9b2d6', '#59628a', '#efefeb', '#9a9a90', '#8fc4a6', '#181814'],
+    light: ['#9c7a3c', '#c2601c', '#93391b', '#5c3520', '#33406a', '#7c86aa', '#181814', '#6a6a62', '#3b7658', '#181814'],
   },
   accent: {
-    dark: ['#f2d600', '#e0902a', '#b8641c', '#7a6a3a', '#a8a8a0', '#5a5a53', '#f4f4f0', '#8c8c84'],
-    light: ['#c8ac00', '#b8641c', '#8f4a12', '#5e5230', '#3a3a35', '#8a8a82', '#11110e', '#6a6a62'],
+    dark: ['#f2d600', '#e0902a', '#b8641c', '#7a6a3a', '#a8a8a0', '#5a5a53', '#efefeb', '#8c8c84', '#8fc4a6', '#181814'],
+    light: ['#c8ac00', '#b8641c', '#8f4a12', '#5e5230', '#3a3a35', '#8a8a82', '#181814', '#6a6a62', '#3b7658', '#181814'],
   },
 };
 
@@ -37,33 +37,46 @@ const RANGES = [
 ];
 const top = (k: number, u: number) => RANGES[k].base - RANGES[k].amp * ridged(u * RANGES[k].freq, RANGES[k].seed);
 
-/** The same scene for ink on paper (PX-65, mock of light mode): weight comes from shadow, not
- * light, like an engraving; the sky and the stars stay paper. */
-export function sceneInk(x: number, y: number, t: number, cols: number, S: number, seed: number) {
-  const f = sceneCell(x, y, t, cols, S, seed);
-  if (!f.o) return { v: 0, c: f.c };
-  return { v: Math.min(1, 0.1 + 0.9 * (1 - f.v)) * (f.v === 0 && y / S > 1 ? 0 : 1), c: f.c };
-}
 // The mountains can come from a picture instead (PX-65): a generated reference keyed onto
 // transparency, drawn at one pixel per cell by the field (`layoutMountains`), so each cell
 // reads its own average of the rock under it.
 export const MOUNTAIN_REFS = { a: '/hero/mountains-a.png', b: '/hero/mountains-b.png' } as const;
-let M: { x0: number; y0: number; w: number; h: number; data: Uint8ClampedArray } | null = null;
+export type Mountains = { x0: number; y0: number; w: number; h: number; data: Uint8ClampedArray };
+
+// One world, several shots (0173): the hero's giant behind the peaks; the giant high over
+// Contact's “building.” ('rise'); one small moon in an empty sky for the 404. A body is placed in fractions of the window: landscape R × its height, portrait R × its width.
+export type Shot = 'hero' | 'rise' | 'moon' | 'strip';
+type Body = { cx: number; cy: number; R: number; moon?: boolean };
+const SHOTS: Record<Shot, { land: Body; port: Body; ridge: boolean; below: boolean; foot?: number; top?: number }> = {
+  hero: { land: { cx: 0.72, cy: 0.64, R: 0.5 }, port: { cx: 0.64, cy: 0.4, R: 0.54 }, ridge: true, below: true },
+  rise: { land: { cx: 0.56, cy: 0.34, R: 0.34 }, port: { cx: 0.72, cy: 0.2, R: 0.5 }, ridge: false, below: false },
+  moon: { land: { cx: 0.76, cy: 0.36, R: 0.11, moon: true }, port: { cx: 0.72, cy: 0.3, R: 0.17, moon: true }, ridge: false, below: false },
+  // a study's head (0178): measured on the head itself, not the window; the top of the range
+  // from `top` down, fading out over the strip's last 30%, and the giant rising behind them on the right
+  strip: { land: { cx: 0.8, cy: 0.95, R: 0.85 }, port: { cx: 0.75, cy: 0.95, R: 0.62 }, ridge: true, below: false, foot: 0.3, top: 0.38 },
+};
+export const shotHasRidge = (shot: Shot) => SHOTS[shot].ridge;
 /** where the picture sits in cells: as wide as the window or taller on phones, its foot on the first screen's foot */
-export function layoutMountains(img: HTMLImageElement, cols: number, S: number) {
+export function layoutMountains(img: HTMLImageElement, cols: number, S: number, shot: Shot = 'hero'): Mountains | null {
+  const top = SHOTS[shot].top;
   const aspect = img.naturalWidth / img.naturalHeight;
   // landscape: at least as wide as the window, its foot on the first screen's foot; portrait
   // (phones): half again as wide as the window, its foot just above the name, so the peaks stand
   // in the open sky above the copy instead of behind it
   const portrait = cols < S;
-  const h = Math.round(portrait ? (cols / aspect) * 1.5 : Math.max(cols / aspect, 0.8 * S)), w = Math.round(h * aspect);
-  const x0 = Math.round((cols - w) / 2), y0 = Math.round((portrait ? 0.58 : 1) * S - h);
+  const h = Math.round(top !== undefined ? Math.max(cols / aspect, 1.3 * S) : portrait ? (cols / aspect) * 1.5 : Math.max(cols / aspect, 0.8 * S)), w = Math.round(h * aspect);
+  // a strip hangs the picture from `top`, so its peaks, not its foot, are what shows
+  const x0 = Math.round((cols - w) / 2), y0 = Math.round(top !== undefined ? top * S : (portrait ? 0.58 : 1) * S - h);
   const c = document.createElement('canvas'); c.width = w; c.height = h;
-  const g = c.getContext('2d', { willReadFrequently: true }); if (!g) return;
+  const g = c.getContext('2d', { willReadFrequently: true }); if (!g) return null;
   g.imageSmoothingEnabled = true; g.imageSmoothingQuality = 'high'; g.drawImage(img, 0, 0, w, h);
-  M = { x0, y0, w, h, data: g.getImageData(0, 0, w, h).data };
+  const data = g.getImageData(0, 0, w, h).data;
+  if (top === undefined) return { x0, y0, w, h, data };
+  // a strip puts the highest peak, not the picture's empty top, at `top`
+  let first = 0;
+  find: for (; first < h; first++) for (let x = 0; x < w; x++) if (data[(first * w + x) * 4 + 3] > 128) break find;
+  return { x0, y0: y0 - first, w, h, data };
 }
-export function clearMountains() { M = null; }
 
 // Below the scene (PX-68, 0169, 0170): the page keeps the hero's old sky texture (0162), in the
 // mountains' colours, easing back and forth with one bank every two screens. Measured in screens, not
@@ -79,9 +92,9 @@ function below(x: number, y: number, t: number, cols: number, S: number, seed: n
   return { v, c: v > 0.45 ? MAT.rock : MAT.shade, o: true, tex: true };
 }
 
-export function sceneCell(x: number, y: number, t: number, cols: number, S: number, seed: number): { v: number; c: number; o?: boolean; fade?: number; tex?: boolean } {
-  const u = x / Math.max(1, cols), w = y / S;
-  if (M) {
+export function sceneCell(x: number, y: number, t: number, cols: number, S: number, seed: number, shot: Shot = 'hero', M: Mountains | null = null): { v: number; c: number; o?: boolean; fade?: number; tex?: boolean } {
+  const u = x / Math.max(1, cols), w = y / S, sh = SHOTS[shot];
+  if (sh.ridge && M) {
     const ix = x - M.x0, iy = y - M.y0;
     if (ix >= 0 && iy >= 0 && ix < M.w && iy < M.h) {
       const i = (iy * M.w + ix) * 4, a = M.data[i + 3] / 255;
@@ -89,10 +102,11 @@ export function sceneCell(x: number, y: number, t: number, cols: number, S: numb
         const L = M.data[i] / 255;
         const v = Math.min(1, Math.max(0, (L - 0.12) / 0.66)) ** 1.1; // stretched: shadows drop away, lit faces and snow carry the shape
         const fade = Math.min(1, (M.h - iy) / (0.14 * M.h)); // the foot of the picture eases out
-        return { v: Math.max(0.14, v), c: L > 0.66 ? MAT.snow : L > 0.4 ? MAT.rock : MAT.shade, o: true, fade };
+        const foot = sh.foot ? Math.min(1, Math.max(0, (S - y) / (sh.foot * S))) : 1; // a strip eases out at its own foot
+        return { v: Math.max(0.14, v) * foot, c: L > 0.66 ? MAT.snow : L > 0.4 ? MAT.rock : MAT.shade, o: true, fade: fade * foot };
       }
-    } else if (iy >= M.h) return below(x, y, t, cols, S, seed);
-  } else {
+    } else if (iy >= M.h && sh.below) return below(x, y, t, cols, S, seed);
+  } else if (sh.ridge) {
   // mountains, nearest first: the first range the cell is under is the one it shows
   for (let k = RANGES.length - 1; k >= 0; k--) {
     const r = RANGES[k], h = top(k, u);
@@ -114,12 +128,18 @@ export function sceneCell(x: number, y: number, t: number, cols: number, S: numb
   }
   // the planet: huge, low, to the right, lit from the upper left, its round edge in view
   // portrait: sized to the width and raised, so its round edge shows under the chrome
-  const portrait = cols < S;
-  const R = portrait ? 0.54 * cols : 0.5 * S, cx = (portrait ? 0.64 : 0.72) * cols, cy = (portrait ? 0.4 : 0.64) * S;
+  const portrait = cols < S, b = portrait ? sh.port : sh.land;
+  const R = b.R * (portrait ? cols : S), cx = b.cx * cols, cy = b.cy * S;
   const dx = (x + 0.5 - cx) / R, dy = (y + 0.5 - cy) / R, r2 = dx * dx + dy * dy;
   if (r2 < 1) {
     const nz = Math.sqrt(1 - r2);
     const lam = Math.max(0, -0.55 * dx - 0.5 * dy + 0.67 * nz);
+    if (b.moon) {
+      // a moon: no bands, darker seas and a few craters, the same light
+      const sea = fbm(dx * 2.2 + 5, dy * 2.2, seed + 3, 3), pit = fbm(dx * 7, dy * 7, seed + 9, 2);
+      const v = (0.08 + 0.92 * lam) * (sea < 0.47 ? 0.6 : 0.95) * (pit > 0.68 ? 0.7 : 1);
+      return { v: v < 0.07 ? 0 : Math.min(1, v), c: sea < 0.47 ? MAT.brown : MAT.cream, o: true };
+    }
     const lon = Math.atan2(dx, nz);
     const turb = fbm(lon * 2.4 + t * 0.012, dy * 9, seed, 3);
     const band = Math.sin(dy * 15 + turb * 3.2);
