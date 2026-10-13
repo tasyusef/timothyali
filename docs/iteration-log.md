@@ -809,3 +809,5 @@ Contact: `avoid=".contact-foot"`, `feather={4}`; 404: no `avoid`. Readability no
 ## PX-81 — Pocketwatch's city, drawn (2026-10-13, 0182)
 
 On Timothy's “the city itself is hard to read as a city” (light mode): the `city` scene in `src/lib/studyScenes.ts` now outlines every building (edge cells found by sampling one cell either side), puts windows on the cell grid (every third cell), solid front row at .92 with lit windows in cream/orange, crowns and masts, paler back row (.2 fill, .6 outline). The giant is removed; the clock tower moves to 84%. Before: the rows were .42/.28 dither with no edges and read as texture. Evidence: `docs/iterations/pixel-v2/81-city/compare.png` (1440 light/dark, 390 light/dark).
+
+Deploy (2026-10-13): PX-71 to PX-81 pushed as `24ebb46` on Timothy's “commit and push it”; live on https://www.timothyali.com about 3.5 min later. Home, Contact, `/work/pocketwatch/`, `/work/firstledger/` and the hosted résumé answered 200 with the new copy.
