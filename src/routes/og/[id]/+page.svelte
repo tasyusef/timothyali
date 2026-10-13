@@ -11,6 +11,7 @@
   import MetaLine from '$lib/components/MetaLine.svelte';
   import Picture from '$lib/components/Picture.svelte';
   import { projects, last } from '$lib/work';
+  import { hasStudyScene } from '$lib/studyScenes';
   import { APP } from '$lib/toolbox';
   import { STEP, STEP_SLOW } from '$lib/tokens';
   import { onMount } from 'svelte';
@@ -40,7 +41,7 @@
 <svelte:head><title>og/{data.id}</title><meta name="robots" content="noindex" /></svelte:head>
 <main class="og" class:story={data.id === 'story'} class:wide={data.id === 'wide'} id="main" tabindex="-1">
   {#if data.id === 'home'}
-    <Band class="og-home" mode="sky" seed={3} density={1.3} shade avoid=".og-line, .og-name">
+    <Band class="og-home" mode="scene" shot="hero" sceneSpan="box" mountains="a" seed={3} palette="scene" cell={8} px={1} hug pad={0} feather={3} depth={0.6} avoid=".og-line, .og-name > :first-child">
       <p class="display og-line">Product designer.</p>
       <h1 class="blackletter og-name"><Decode text="i’m tim." /><Cursor size="em" /></h1>
     </Band>
@@ -55,7 +56,7 @@
       <Cta href="https://www.timothyali.com" class="lbl story-cta">timothyali.com <Arrow /></Cta>
     </Band>
   {:else if data.id === 'work'}
-    <Band class="og-work" mode="fall" seed={5} density={0.7} shade avoid=".og-head > *, .og-covers">
+    <Band class="og-work" mode="scene" shot="strip" sceneSpan="box" mountains="a" seed={5} palette="scene" cell={8} px={1} hug pad={0} feather={3} depth={0.6} avoid=".og-head h1" clear=".og-head > :last-child">
       <div class="og-head">
         <h1 class="blackletter display-xl">work.</h1>
         <IndexRow label="Project index" value={`01–${last}`} layout="column" accent />
@@ -65,7 +66,7 @@
       </div>
     </Band>
   {:else if data.id === 'contact'}
-    <Band class="og-contact" mode="fall" seed={3} density={0.55} shade avoid=".og-top > span, .og-contact h1 > span">
+    <Band class="og-contact" mode="scene" shot="rise" sceneSpan="box" seed={3} palette="scene" cell={8} px={1} hug pad={0} feather={3} depth={0.6} avoid=".og-contact h1 > span" clear=".og-top > span">
       <div class="og-top lbl"><span>Let’s talk</span><span>Timothy Ali / Denver, CO</span></div>
       <h1><span class="display">Tell me what<br />you’re</span><span class="blackletter display-xl">building.</span></h1>
     </Band>
@@ -101,16 +102,12 @@
     </Band>
   {:else if data.project}
     {@const p = data.project}
-    <Band class="og-study" mode="fall" seed={5} density={0.7} shade avoid=".og-row > *">
-      <div class="row og-row" bind:this={row} style:padding-top="{rowTop}px">
-        <div class="frame"><Picture src={p.cover.src} alt="" width={p.cover.w} height={p.cover.h} eager /></div>
-        <div class="row-body">
-          <MetaLine project={p} />
-          <h1 class="display" class:small bind:this={h1}><span class="probe" aria-hidden="true" bind:this={probe}>{longest}</span>{p.title}</h1>
-          <p class="body">{p.description}</p>
-          <Cta variant="quiet" class="lbl">View case study <Arrow /></Cta>
-        </div>
-      </div>
+    <!-- The study page's head at share size (0183): its own scene across the frame, the meta
+         line, the title, the one-line description. -->
+    <Band class="og-sh" mode="scene" shot="strip" sceneSpan="box" mountains={hasStudyScene(p.slug) ? '' : 'a'} study={hasStudyScene(p.slug) ? p.slug : ''} seed={Number(p.n) || 3} palette="scene" cell={8} px={1} hug pad={0} feather={3} depth={0.6} avoid=".og-sh h1 .t" clear=".og-sh .og-meta, .og-sh .og-desc">
+      <MetaLine project={p} class="og-meta" />
+      <h1 class="display og-sh-title" class:small bind:this={h1}><span class="probe" aria-hidden="true" bind:this={probe}>{longest}</span><span class="t">{p.title}</span></h1>
+      <p class="body og-desc">{p.description}</p>
     </Band>
   {/if}
 </main>
@@ -168,7 +165,14 @@
 /* Tool — the study row with the tool's own head */
 .og-tool-n{color:var(--accent-text);text-wrap:balance}
 
-/* Study — the Work row, centred in the frame */
+/* Study — the study page's head: meta, title at the page's desktop size, description */
+.og :global(.og-sh){display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);padding-top:var(--s4)}
+.og-sh-title{position:relative;align-self:stretch;font-size:110px;line-height:112px;margin-top:var(--s2)}
+.og-sh-title.small{font-size:82.5px;line-height:88px}
+.og-sh-title .probe{position:absolute;visibility:hidden;white-space:nowrap;pointer-events:none}
+.og-desc{max-width:40ch}
+
+/* Study — the Work row, centred in the frame (tool images) */
 .og-row{height:100%;align-content:start}
 .og-row .frame{background:var(--surface-card)}
 .og-row h1{position:relative}

@@ -2239,3 +2239,11 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Decision:** the skyline is drawn: every building outlined, a solid front row with windows on the cell grid (some lit, coming and going), stepped crowns and masts with a lit tip on the roofline, a paler outlined row behind with a few windows. The giant planet behind the city is gone; the clock tower stands right of the title. Both themes.
 - **Assistant's choices inside it:** the weights, heights, crown and mast rules, dropping the giant, moving the tower from 72% to 84% of the width.
 - **Status:** his direction; built, committed with PX-71 to PX-80 on his “commit and push it”.
+
+## 0183 — Share images in the scene world
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “redo the share images” (after the assistant flagged that they still showed the old yellow ASCII field).
+- **Decision:** Home, Work, Contact and the nine study images are drawn on the scene field, each mirroring its page: Home the hero scene behind “Product designer.” and “i’m tim.”; Contact the rising planet; Work the four cards over the mountain strip; each study its page head (meta line, title, one-line description) over its own study scene, in place of the cover-and-text row. Toolbox's six images keep their look, as the Toolbox pages kept theirs. Still rendered dark, by `/og/[id]`.
+- **Assistant's choices inside it:** dropping the cover from the study images, the Work strip, the knockout settings (hug, depth 0.6, the same as the pages).
+- **Status:** his direction; the compositions are assistant proposals, committed and pushed on his “commit and push it” (2026-10-13).
