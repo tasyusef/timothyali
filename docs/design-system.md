@@ -19,7 +19,7 @@ before and after, except for four deliberate changes. See **Parity** at the end.
                                   ring, the dither wipes and view transitions, the scrollbar
    ├─ lib/styles/type.css         the named type roles and their ladders
    ├─ lib/styles/chrome.css       sticky header, status strip, global footer
-   ├─ lib/styles/layout.css       .site, section, .band, the Grid overlay, .inner-page
+   ├─ lib/styles/layout.css       .site, section, .band, .inner-page
    └─ lib/styles/blocks.css       cursor, ctas, quiet link, index row, page foot,
                                   cards, work rows — the CSS half of the components
 
@@ -38,7 +38,6 @@ component renders reach it with `:global()` anchored on their own `<main>`.
 
 ```
   --z-skip     99   .skip-link
-  --z-grid     98   .site.show-grid::after      ← above the nav, on purpose
   --z-nav      50   .nav-chrome (sticky wrapper)
   --z-chrome    2   .site-header, .readout      inside the wrapper
   --z-band      1   a band's content
@@ -99,8 +98,8 @@ properties. The four in use are `420 700 900 1100` (0075 folded 1300 into 1100 a
 | `--surface-card-hover` | same shape at `26%` and `8px 8px` | | the card dither on hover |
 | `--texture-fallback-opacity` | `.35` | | the CSS checker before a canvas has drawn |
 | `--field-ink` | `color-mix(in srgb, var(--fg) 40%, var(--paper))` | | the ASCII field’s colour: recessed, well behind the type (0091) |
-| `--grid-fine` | `color-mix(in srgb,var(--fg) 12%,transparent)` | | Grid overlay, 8px lines |
-| `--grid-major` | `color-mix(in srgb,var(--fg) 22%,transparent)` | | Grid overlay, 64px lines |
+| `--grid-fine` | `color-mix(in srgb,var(--fg) 12%,transparent)` | | fine fg tint (admin tables; the Grid overlay is gone, 0168) |
+| `--grid-major` | `color-mix(in srgb,var(--fg) 22%,transparent)` | | fg tint (admin tables) |
 | `--z-band-bg … --z-skip` | `0 1 2 50 98 99` | | see the layering diagram above |
 
 Theme is applied by `data-theme` on `<html>`, pre-painted by the inline script in

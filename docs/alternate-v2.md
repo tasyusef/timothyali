@@ -4,7 +4,7 @@ Current working version: PX-20 (Pocketwatch restored as index entry 09 with its 
 
 ## The grid
 
-Every font is a bitmap design with a known number of cells per em, so a size is `cells/em × cell`. The table lives at the top of `src/app.css` and is repeated in `docs/design-system.md`. If you change a font-size, keep it on that table or the glyph pixels blur. Spacing is in 8px units. Black and white with a theme toggle (`html[data-theme]`, tokens `--paper`/`--fg`), yellow only as `--accent` on cursors, active nav and action blocks (CTAs, the hero scroll hint); there are no rules or borders — bands are separated by space, filled yellow blocks (`.cta`, `.cta-row`, active nav) and texture. Secondary text uses `.dim` (55% opacity). Cards use `.card` (pixel-pattern surface). A band with a programmatic background is `.band` + `.band-bg`. Turn on **Grid** in the footer to see the 8px/64px overlay.
+Every font is a bitmap design with a known number of cells per em, so a size is `cells/em × cell`. The table lives at the top of `src/app.css` and is repeated in `docs/design-system.md`. If you change a font-size, keep it on that table or the glyph pixels blur. Spacing is in 8px units. Black and white with a theme toggle (`html[data-theme]`, tokens `--paper`/`--fg`), yellow only as `--accent` on cursors, active nav and action blocks (CTAs, the hero scroll hint); there are no rules or borders — bands are separated by space, filled yellow blocks (`.cta`, `.cta-row`, active nav) and texture. Secondary text uses `.dim` (55% opacity). Cards use `.card` (pixel-pattern surface). A band with a programmatic background is `.band` + `.band-bg`.
 
 | face | role | cells/em | sizes used |
 |---|---|---|---|
@@ -22,10 +22,10 @@ Every font is a bitmap design with a known number of cells per em, so a size is 
 - `src/lib/styles/base.css` — element defaults, `.sr-only`, the one `@keyframes blink`.
 - `src/lib/styles/type.css` — the type roles `.blackletter .display-xl .display .display-s .lead .body .lbl .mono .dim` and their responsive ladders. `.display-l` is gone (unused).
 - `src/lib/styles/chrome.css` — sticky header, wordmark, path, status strip, global footer, and their phone rules.
-- `src/lib/styles/layout.css` — `.site`, `section`, `.band` / `.band-bg`, the Grid overlay, `.inner-page`.
+- `src/lib/styles/layout.css` — `.site`, `section`, `.band` / `.band-bg`, `.inner-page`.
 - `src/lib/styles/blocks.css` — the CSS half of the components: `.cursor`, `.cta` / `.cta-row` / `.cta-hint` / `.cta-quiet`, `.quiet-link`, `.plate`, `.index-row`, `.page-foot`, `.cards` / `.card`, `.rows` / `.row` / `.row-body`.
 - `src/lib/tokens.ts` — the same primitives for JavaScript: `INK WHITE YELLOW`, `U CELL_TEXT CELL_IMAGE CELL_TEXTURE`, `TICK_SLOW TICK_FAST` (Ascii), `STEP_SLOW STEP STEP_FAST` (Decode).
-- `src/routes/+layout.svelte` — font imports, top bar (wordmark, path + cursor in a `minmax(0,1fr)` column that clips long routes instead of pushing the nav, numbered nav), inverted readout strip with the live Mountain-time clock, footer with Motion and Grid toggles. Resolves the saved motion choice / OS preference on mount.
+- `src/routes/+layout.svelte` — font imports, top bar (wordmark, path + cursor in a `minmax(0,1fr)` column that clips long routes instead of pushing the nav, numbered nav), inverted readout strip with the live Mountain-time clock, a settings cog at the end of the nav with the Motion and Theme toggles (0168). Resolves the saved motion choice / OS preference on mount.
 - `src/lib/motion.svelte.ts` — shared `motion`, `grid` and `theme` state.
 - `src/app.html` — inline script that applies the stored theme before first paint (dark unless `tim-theme` is `light`).
 - `src/lib/prng.ts` — seeded PRNG, value noise, fBm, Bayer 4×4 and 8×8 matrices.

@@ -2062,3 +2062,84 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Direction:** Timothy, with a screenshot of the footer line: “also this footer is weird.” Offered cutting the tagline, replacing it with a credit, or leaving it, he chose the credit.
 - **Decision:** the footer reads “(C) 2026 Timothy Ali // Designed and built by hand // EOF”. The middle clause is still hidden below 700px (`.hide-m`), as the old one was. “A little human. A little machine.” leaves with it; the wording of the credit is the assistant's.
 - **Status:** Timothy's pick; uncommitted, awaiting his word.
+
+## 0161 — The Home statement is cut
+
+- **Date:** 2026-10-12
+- **Numbering:** 0149–0160 belong to the modernist-v3 work, set aside the same day in `git stash` (“modernist-v3 0149-0160 …”) on Timothy's “back to the live site”; this log continues after them so the numbers never collide.
+- **Direction:** Timothy, refining the landing page from the live PX-61 version: the statement section “just feels weird to me”. Shown three layouts of the same copy (A one voice, B blackletter inline, C the words as headline), he said “just the copy overall doesnt resonate with me. just feels awkward”. Offered cutting the section or finding one plain sentence in his words, he said “cut it”.
+- **Decision:** Home is the terminal hero, the four selected projects and the invitation; the statement (“I design the product and the brand, then build the front end. I care how it looks. moves. works.”, its Interface/Motion/Code chips and the “Freelance since 2019 …” paragraph, 0146) is removed. `Statement.svelte` is deleted.
+- **Assistant's view, recorded as his to weigh:** the sentence could not be said aloud, repeated the hero's “Product designer who ships in code”, and the paragraph counted projects defensively; the hero already says what he does.
+- **Status:** his direction; built (PX-62), uncommitted.
+
+## 0162 — One texture for the whole Home page: the hero's sky
+
+- **Date:** 2026-10-12
+- **Direction:** Timothy, on the joint between the hero's sky and the work rain once the statement was gone: “the texture joint here looks awkward”; shown the assistant's fix (each field thinning toward the seam), “i think it should all just be the same pattern for the whole page”; shown the rain everywhere (the assistant's reading), “nope. other way around. i want the heros old texture. maybe we can tweak it to work better with a full page”; of three ways to run the sky down the page, he picked “2”.
+- **Decision:** Home has one field behind everything, the hero's sky, from under the header through the hero, Selected work and the invitation. The first screen is the hero as it was; below it the sky eases back and forth, one dense bank every two screens. The rain is gone from Home (it stays on Contact).
+- **Assistant's choices inside it:** the three options and their shapes (the cosine repeat, two screens per bank); the recommendation of 2; the sky's other settings unchanged.
+- **Status:** his pick; built (PX-63), uncommitted, awaiting his review.
+
+## 0163 — The fields can be clicked as fast as anyone likes
+
+- **Date:** 2026-10-12
+- **Direction:** Timothy: “i want the patterns to be able to be spam clickable.”
+- **Decision:** every click (or tap) on a field rings out on its own; a new click no longer cancels the ring before it. Up to 24 rings run at once, the oldest giving way. A quick double or triple click on the bare field no longer selects the nearest words; on text, links and controls selection is untouched. Applies to every field (`Ascii.svelte` is shared: Home, Contact, Toolbox, 404).
+- **Assistant's choices inside it:** the cap of 24; the ring's size and speed unchanged; which targets count as bare field.
+- **Status:** his direction; built (PX-64), uncommitted, awaiting his review.
+
+## 0164 — Hero scene: needle peaks, the scene's colours, dither for light mode
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy on the PX-65 mocks: “I like the needle peaks”; light mode, “I don't really want to do the black window … find a solution that kind of works better for light mode. Maybe we do … pixel dithering instead”; colour, “for sure … the scene's own colors. I don't want the yellow-led stuff.”
+- **Decision:** the hero is a scene, a very large gas giant behind a range of needle peaks (reference A, generated with Codex and sampled, never shown). Dark mode draws it in glyphs in the scene's own colours; light mode draws it as 4px ordered-dither pixels on the paper, the planet in its colours and the rock in its shadows (snow and lit faces stay paper). The dark window and the ink-glyph variant are dropped; the yellow-led palette is dropped.
+- **Assistant's choices inside it:** the scene's composition, palettes and contrast curves; the dither treatment (Bayer 8×8, two pixels per 8px cell, rock inverted).
+- **Status:** his picks; dither built as a mock (PX-65) awaiting his review. Open: phone framing (the planet fills the screen), the page below the hero (no texture while the mock is up), asset size.
+
+## 0165 — Hover keeps up with the cursor, in the scene's own colours, sky included
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: phone framing next (“yes, fix the phone framing next”); then the hover “feels like it updates pretty slowly … lags behind the cursor … the polling rate … not high enough”; “I don't think the color should be yellow for … the hover”; “it should also work in the … empty sky … not just … the mountains and the planet.”
+- **Decision:** on portrait screens the planet is sized to the width and raised, and the peaks end just above the name. Every field paints once per display frame (`requestAnimationFrame`) instead of every 33 ms, and only the rows on screen; heat and rings run on elapsed time. On the scene, hover deepens a cell in its own colour, and the empty sky answers in a neutral grey (the stars' tone); no yellow. The other fields (Contact, Toolbox, 404) keep their yellow heat.
+- **Assistant's choices inside it:** the portrait composition; the per-tick, per-row cache of the field; grey for the sky's heat.
+- **Status:** his direction; built (PX-66), uncommitted, awaiting his review. Next: the click, especially in the dither.
+
+## 0166 — A click in the light-mode dither inverts pixel and paper in a ring
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy, on the click “especially for the light mode version, like the dithered version”; offered the options, “try the invert ring”.
+- **Decision:** in the light-mode dither, a click sends out a ring inside which pixel and paper swap: rock and planet open up to paper, the empty sky fills in grey. The ring's edge is dithered. Dark mode's click is unchanged (a ring of heat in the cell's own colour).
+- **Assistant's choices inside it:** ring width (2.5 cells), speed and reach (unchanged from 0163's ring); the offset Bayer threshold for the edge; grey for paper turned on in the sky.
+- **Status:** his pick of option; built (PX-67). Told it barely reads on mid-tone dither (a swapped checkerboard is still a checkerboard) and offered a colour swap, a solid flash or a wipe, he kept it: “eh. this is fine i think”. Uncommitted.
+
+## 0167 — Dark mode's click inverts too
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “why doesnt dark mode do it too?”; shown it, “eh. this is fine i think”.
+- **Decision:** on the scene, the dark-mode click uses the same ring as the dither: inside it a cell's weight flips (full glyphs thin out, the empty sky fills with grey glyphs at up to 0.75), its edge dithered on the Bayer 8×8. Hover heat is unchanged. Other fields keep their heat ring.
+- **Assistant's choices inside it:** the 0.75 ceiling for flipped sky; the per-cell Bayer edge.
+- **Status:** his direction; built (PX-67), kept on his word. Uncommitted.
+
+## 0168 — Settings behind a cog in the nav; the Grid toggle is gone; texture below the hero
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “below the hero theres no texture. lets address that.” “also want to get rid of the grid toggle. and i also want to put the motion and theme toggles in a settings cog drop down in the top nav as a drop down.”
+- **Decision:** the Grid toggle and its overlay are removed (the saved `tim-grid` choice is cleared). Motion and Theme move from the footer to a menu under a cog at the end of the top nav; the footer is the credit line alone. Below the scene, Home keeps the hero's old sky texture (0162's shape: one bank every two screens) in the stars' grey, as glyphs in dark mode and dither in light.
+- **Assistant's choices inside it:** the 8×8 pixel cog; the menu as an inverted block, no rules, rows highlighting in the accent; on phones the cog beside the wordmark; outside click, Escape, scrolling the nav away and navigation close it; the nav loses its 8px gaps between 701 and 900px to fit the cog; reusing 0162's sky for the texture rather than something new.
+- **Status:** his direction; built (PX-68), uncommitted, awaiting his review.
+
+## 0169 — The page texture is lighter and keeps to the right two thirds
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “the page texture is a bit too strong i think. i think it should really only take up about the right two thirds of the screen”, “for both themes”.
+- **Decision:** below the scene the texture is empty in the left third and builds toward the right edge, at roughly half its former weight, in both themes. The scene itself is unchanged.
+- **Assistant's choices inside it:** a smoothstep from one third to the right edge; the weights (0.3 + 0.4 × the bank, less 0.04).
+- **Status:** his direction; built (PX-69), uncommitted, awaiting his review.
+
+## 0170 — The page texture is in the mountains' colours
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “make it the same color as the mountains”.
+- **Decision:** below the scene, the texture is drawn in the rock's two blues instead of the stars' grey, in both themes; in light mode it is printed as it is, not by its shadows like the rock.
+- **Assistant's choices inside it:** denser cells in the rock tone, lighter cells in the shade tone (split at 0.45).
+- **Status:** his direction; built (PX-70), uncommitted, awaiting his review.

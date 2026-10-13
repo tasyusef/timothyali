@@ -3,14 +3,14 @@
   // the line under it types the copy one line at a time behind the cell cursor, holds, clears
   // and loops while the hero is on screen. Motion off, no JavaScript and the prerender show the
   // name and the copy in full. It scrolls with the page (PX-61): the pinned stage and its
-  // dissolve (PX-54) are gone.
+  // dissolve (PX-54) are gone. It has no field of its own: Home's one rain runs behind the
+  // whole page (PX-63), starting under the chrome.
   import { onMount } from 'svelte';
-  import Band from '$lib/components/Band.svelte';
   import Decode from '$lib/components/Decode.svelte';
   import Cta from '$lib/components/Cta.svelte';
   import QuietLink from '$lib/components/QuietLink.svelte';
   import { RESUME_URL } from '$lib/social';
-  import { TICK_SLOW, STEP_SLOW, STEP } from '$lib/tokens';
+  import { STEP_SLOW, STEP } from '$lib/tokens';
   import { motion } from '$lib/motion.svelte';
 
   const LINES = ['Product designer who ships in code.', 'Interface design, design systems, and front-end development.', 'Denver / remote. Open to full-time and contract.'];
@@ -50,7 +50,7 @@
 </script>
 
 <section class="hero-sec" bind:this={sec} aria-labelledby="intro">
-  <Band as="div" class="hero" mode="sky" seed={3} tick={TICK_SLOW} density={1.3} shade avoid=".hero-actions, .hero-role">
+  <div class="hero">
     {#if motion.on}
       <h1 id="intro" class="blackletter hero-name"><span class="sr-only">i’m tim.</span><span aria-hidden="true"><Decode text={slotName} mode="type" step={STEP_SLOW} delay={200} cursor={!slotLine} erase /></span></h1>
       <p class="sr-only">{STATIC_LINE}</p>
@@ -61,13 +61,13 @@
     {/if}
     <!-- PARC Pixel has no É, so the résumé label reads “Resume” -->
     <div class="hero-actions"><Cta variant="hint" class="hero-hint lbl" href="#work">Selected work<svg class="arrow" width="16" height="16" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM3 2h1v1h-1zM3 3h1v1h-1zM3 4h1v1h-1zM3 5h1v1h-1zM3 6h1v1h-1zM3 7h1v1h-1zM0 4h1v1h-1zM1 5h1v1h-1zM2 6h1v1h-1zM4 6h1v1h-1zM5 5h1v1h-1zM6 4h1v1h-1z"/></svg></Cta><QuietLink href={RESUME_URL} label="Resume" class="lbl" /></div>
-  </Band>
+  </div>
 </section>
 
 <style>
-/* The section starts under the chrome, so the sky runs up behind the header; the hero is the
-   first window, its name and copy at the bottom. */
-.hero-sec{--chrome:96px;padding:0;margin-top:calc(-1 * var(--chrome))}
+/* The page's field starts under the chrome (+page.svelte), so the rain runs up behind the
+   header; the hero is the first window, its name and copy at the bottom. */
+.hero-sec{--chrome:96px;padding:0}
 .hero-sec :global(.hero){position:relative;min-height:round(down,100vh,8px);min-height:round(down,100svh,8px);display:flex;flex-direction:column;justify-content:flex-end;padding:calc(var(--chrome) + var(--s8)) var(--gutter) var(--s8);overflow:hidden}
 .hero-name{font-size:344px;line-height:344px}
 /* The typed line: one grid cell holding every copy line, hidden, under the typed one, so the

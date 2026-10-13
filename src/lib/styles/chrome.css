@@ -10,7 +10,7 @@
 .skip-link{position:absolute;z-index:var(--z-skip);top:var(--s1);left:var(--gutter);padding:var(--s1) var(--s2);background:var(--fg);color:var(--paper);transform:translateY(-200%)}
 .skip-link:focus{transform:none}
 
-.site-header{position:relative;z-index:var(--z-chrome);display:grid;grid-template-columns:auto 1fr;gap:var(--s4);align-items:start;height:64px;padding:var(--s1) var(--gutter) 0}
+.site-header{position:relative;z-index:var(--z-chrome);display:grid;grid-template-columns:auto 1fr auto;gap:var(--s4);align-items:start;height:64px;padding:var(--s1) var(--gutter) 0}
 .wordmark{font-size:43px;line-height:43px;white-space:nowrap}
 .path{display:flex;align-items:center;justify-self:start;min-width:0;max-width:100%;margin-top:var(--s2)}
 .path .path-text{overflow:hidden;min-width:0}
@@ -23,6 +23,18 @@
 .site-header nav a[aria-current]{background:var(--accent);color:var(--on-accent)}
 .site-header nav a:hover{background:var(--fg);color:var(--paper)}
 .site-header nav a[aria-current] b,.site-header nav a:hover b{opacity:1}
+
+/* Settings (0168): a 32px cog block at the end of the nav, 8px after Toolbox like the links'
+   own gap; it opens a menu of the two toggles, an inverted block with no rules (0049). */
+.settings{position:relative;margin:var(--s1) 0 0 calc(var(--s1) - var(--s4))}
+.settings:not(.ready){visibility:hidden}
+.settings .cog{display:block;padding:var(--s1)}
+.settings .cog svg{display:block}
+.settings .cog:hover,.settings .cog[aria-expanded=true]{background:var(--fg);color:var(--paper)}
+.settings-menu{position:absolute;top:calc(100% + var(--s1));right:0;display:flex;flex-direction:column;width:192px;background:var(--fg);color:var(--paper)}
+.settings-menu[hidden]{display:none}
+.settings-menu button{display:flex;justify-content:space-between;padding:9px 14px 7px 16px;text-align:left}
+.settings-menu button:hover,.settings-menu button:focus-visible{background:var(--accent);color:var(--on-accent)}
 
 /* One flexible gap, not space-between: leftover width split four ways lands the items on
    thirds of a pixel and blurs the bitmap face (0089). Place and time sit with the path;
@@ -47,19 +59,20 @@
 /* The nav numbers go at 900, not only 700 (PX-49): between 702 and 776 the four numbered
    labels ran up to 57px past the gutter and the page scrolled sideways. */
 @media(max-width:900px){.site-header nav a b{display:none}}
+/* With the cog (0168) the row ran 19px into the right gutter at 702: the links lose their
+   8px gaps here; their own 16px padding still keeps the labels apart. */
+@media(max-width:900px) and (min-width:701px){.site-header nav{gap:0}}
 @media(max-width:480px){.st-clock{display:none}} /* 480, not 420 (0127): a 430px phone was clipping the path to ~/T… */
 
-.global-footer{display:grid;grid-template-columns:1fr auto;gap:var(--s2);align-items:center;padding:var(--s2) var(--gutter) var(--s3)}
-.global-footer .controls{display:flex;flex-wrap:wrap;gap:var(--s1)}
-.global-footer button{padding:9px 14px 7px 16px}
-.global-footer button:hover{background:var(--fg);color:var(--paper)}
-.global-footer button[aria-pressed=true] b{color:var(--accent-text)}
+.global-footer{display:grid;grid-template-columns:1fr;gap:var(--s2);align-items:center;padding:var(--s2) var(--gutter) var(--s3)}
 
 @media(max-width:700px){
   /* 104 = 8 padding + 48 wordmark row + 8 gap + 32 nav row + 8 padding (decision 0070) */
   .site-header{grid-template-columns:auto 1fr;grid-template-rows:48px 32px;gap:var(--s1);height:104px;padding:var(--s1) var(--gutter)}
   .wordmark{font-size:43px;align-self:end}
-  .site-header nav{grid-column:1/-1;justify-self:stretch;gap:0;margin:0 calc(-1*var(--gutter))}
+  .site-header nav{grid-column:1/-1;grid-row:2;justify-self:stretch;gap:0;margin:0 calc(-1*var(--gutter))}
+  /* the cog moves up beside the wordmark, its icon on the gutter */
+  .settings{grid-column:2;grid-row:1;justify-self:end;align-self:center;margin:0 calc(-1*var(--s1)) 0 0}
   /* Four equal quarters (Toolbox is the fourth item, 0092); the first three are rounded
      to whole 2px cells and the last takes the remainder, centring its label inside an
      even-width track so the text still lands on whole pixels (0089). */
@@ -68,12 +81,7 @@
   /* Four numbered labels do not fit 320: the numbers go, the words stay (0092). */
   .site-header nav a b{display:none}
   .hide-m{display:none}
-  /* Footer as a settings list (decision 0072): each toggle is a 32px row, label left,
-     state right, then the copyright line. Nothing wraps at 320. */
-  .global-footer{grid-template-columns:1fr;gap:var(--s2);padding:var(--s3) var(--gutter) var(--s4)}
-  .global-footer .controls{order:-1;flex-direction:column;gap:0}
-  .global-footer button{display:flex;justify-content:space-between;padding:9px 0 7px}
-  .global-footer button:hover{background:none;color:inherit}
+  .global-footer{padding:var(--s3) var(--gutter) var(--s4)}
 }
 @media(max-width:420px){
   /* CONTACT and TOOLBOX are 82px each, wider than a quarter of 320: below the phone
@@ -81,23 +89,12 @@
   .site-header nav a,.site-header nav a:last-child{flex:1 1 auto;width:auto;display:block;padding:9px 0 7px 2px}
 }
 
-/* PX-22: Home closing controls align with the selected-work columns.
-   This variant leaves the inner-page footer geometry intact. */
-.home-footer{grid-template-columns:round(down,calc((100% - 32px) / 2),8px) minmax(0,1fr);gap:var(--s4);padding-top:var(--s4);padding-bottom:var(--s4)}
-.home-footer .controls{display:grid;grid-template-columns:repeat(2,round(down,calc((100% - 32px) / 3),8px)) minmax(0,1fr);gap:var(--s2)}
-.home-footer button{display:flex;justify-content:space-between;gap:var(--s1);padding:17px 0 15px}
-.home-footer .state{color:var(--accent-text)}
-.home-footer button:hover,.home-footer button:focus-visible{background:var(--fg);color:var(--paper)}
-.home-footer button:hover .state,.home-footer button:focus-visible .state{color:inherit}
-@media(max-width:1100px){.home-footer{grid-template-columns:1fr}.home-footer .controls{order:-1}}
-@media(max-width:700px){
- .home-footer{gap:var(--s3)}
- .home-footer .controls{grid-template-columns:1fr;gap:0}
-}
+/* PX-22: Home's footer sits a step looser; its toggles moved to the nav's cog (0168). */
+.home-footer{padding-top:var(--s4);padding-bottom:var(--s4)}
 
 .home-footer>.dim{text-wrap:balance}
 
 /* --- press (0099) --- the pressed surface is the accent; see blocks.css. Last, so it
    wins over every hover above at equal specificity. */
-.site-header nav a:active,.global-footer button:active,.home-footer button:active,.skip-link:active{background:var(--accent);color:var(--on-accent)}
-.site-header nav a:active b,.home-footer button:active .state{color:inherit;opacity:1}
+.site-header nav a:active,.settings .cog:active,.settings-menu button:active,.skip-link:active{background:var(--accent);color:var(--on-accent)}
+.site-header nav a:active b{color:inherit;opacity:1}

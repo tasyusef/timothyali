@@ -13,7 +13,7 @@ const EXE = '/Users/twocakes/Library/Caches/ms-playwright/chromium_headless_shel
 mkdirSync(OUT, { recursive: true });
 const SHOTS = [
   { name: 'home-hero', path: '/', sel: '.hero' },
-  { name: 'home-rain', path: '/', sel: '.work-rain' },
+  { name: 'home-rain', path: '/', sel: '.list' },
   { name: 'contact', path: '/contact/', sel: '.contact' },
   { name: 'not-found', path: '/not-found.html', sel: '.lost' }
 ];

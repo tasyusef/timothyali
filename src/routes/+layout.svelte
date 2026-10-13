@@ -12,7 +12,7 @@
   import { page } from '$app/state';
   import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
   import { onMount } from 'svelte';
-  import { motion, grid, theme } from '$lib/motion.svelte';
+  import { motion, theme } from '$lib/motion.svelte';
   import Analytics from '$lib/components/Analytics.svelte';
   import SocialMeta from '$lib/components/SocialMeta.svelte';
   import Cursor from '$lib/components/Cursor.svelte';
@@ -31,7 +31,7 @@
   // from wherever the old one was scrolled. The root's behaviour is switched off for the
   // navigation and back on once the kit has placed the new page.
   beforeNavigate((nav) => { if (nav.to?.url.pathname !== nav.from?.url.pathname) document.documentElement.style.scrollBehavior = 'auto'; });
-  afterNavigate(() => { navCollapsed = false; lastScroll = Math.max(0, window.scrollY); readScroll(); requestAnimationFrame(() => { document.documentElement.style.scrollBehavior = ''; }); });
+  afterNavigate(() => { navCollapsed = false; settingsOpen = false; lastScroll = Math.max(0, window.scrollY); readScroll(); requestAnimationFrame(() => { document.documentElement.style.scrollBehavior = ''; }); });
   // A state change arrives through the dither (base.css, 0100 / 0104): the update runs
   // inside a view transition with a class on <html> that picks the wipe. Without the API,
   // or with motion off, it is the plain update — a hard cut.
@@ -68,7 +68,10 @@
   // The flip itself runs inside the wipe so the canvases (which redraw on `theme.light`)
   // read the new colours after `data-theme` has changed, as they do without a transition.
   function toggleTheme() { wipe('vt-theme', () => { theme.light = !theme.light; try { localStorage.setItem('tim-theme', theme.light ? 'light' : 'dark'); } catch {} applyTheme(); }); }
-  function toggleGrid() { grid.on = !grid.on; try { localStorage.setItem('tim-grid', grid.on ? 'on' : 'off'); } catch {} }
+  // Motion and Theme sit behind a cog at the end of the nav (0168); the Grid overlay is gone.
+  let settingsOpen = $state(false);
+  let settingsElement: HTMLElement; let cogElement: HTMLButtonElement;
+  function closeSettings(refocus = false) { if (!settingsOpen) return; settingsOpen = false; if (refocus) cogElement.focus(); }
   onMount(() => {
     lastScroll = Math.max(0, window.scrollY); readScroll();
     const measureHeader = () => { headerHeight = headerElement.offsetHeight; };
@@ -78,16 +81,15 @@
     const onScroll = () => {
       const y = Math.max(0, Math.min(window.scrollY, document.documentElement.scrollHeight - window.innerHeight));
       if (y <= headerHeight || y < lastScroll) navCollapsed = false;
-      else if (y > lastScroll && !headerElement.contains(document.activeElement)) navCollapsed = true;
+      else if (y > lastScroll && !headerElement.contains(document.activeElement)) { navCollapsed = true; settingsOpen = false; }
       lastScroll = y; readScroll();
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     const media = matchMedia('(prefers-reduced-motion: reduce)');
-    let saved: string | null = null; let g: string | null = null;
-    try { saved = localStorage.getItem('tim-motion'); g = localStorage.getItem('tim-grid'); } catch {}
+    let saved: string | null = null;
+    try { saved = localStorage.getItem('tim-motion'); localStorage.removeItem('tim-grid'); } catch {}
     explicit = saved === 'on' || saved === 'off';
     motion.on = explicit ? saved === 'on' : !media.matches;
-    grid.on = g === 'on';
     theme.light = document.documentElement.dataset.theme === 'light';
     motion.ready = true;
     const update = () => { if (!explicit) motion.on = !media.matches; };
@@ -110,7 +112,8 @@
 <svelte:head>{#each preload as href}<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" {href} />{/each}</svelte:head>
 <SocialMeta />
 <Analytics />
-<div class="site" class:motion={motion.on} class:show-grid={grid.on} data-motion={motion.on ? 'on' : 'off'}>
+<svelte:window onpointerdown={(e) => { if (settingsOpen && !settingsElement.contains(e.target as Node)) closeSettings(); }} onkeydown={(e) => { if (e.key === 'Escape') closeSettings(true); }} />
+<div class="site" class:motion={motion.on} data-motion={motion.on ? 'on' : 'off'}>
   <a class="skip-link lbl" href="#main" onclick={skipToContent}>Skip to content</a>
   <div class="nav-chrome" class:collapsed={navCollapsed} style={`--header-height:${headerHeight}px`}>
   <header class="site-header" bind:this={headerElement}>
@@ -121,6 +124,16 @@
       <a href="/contact/" aria-current={pathname.startsWith('/contact') ? 'page' : undefined}><b>03</b>Contact</a>
       <a href="/toolbox/" aria-current={pathname.startsWith('/toolbox') ? 'page' : undefined}><b>04</b>Toolbox</a>
     </nav>
+    <!-- hidden, not absent, until the saved choices are read: without JavaScript there is nothing to set -->
+    <div class="settings lbl" class:ready={motion.ready} bind:this={settingsElement}>
+      <button type="button" class="cog" bind:this={cogElement} aria-label="Settings" aria-expanded={settingsOpen} aria-controls="settings-menu" onclick={() => (settingsOpen = !settingsOpen)}>
+        <svg viewBox="0 0 8 8" width="16" height="16" aria-hidden="true" shape-rendering="crispEdges"><path d="M3 0h2v1H3zM1 1h6v1H1zM1 2h2v1H1zM5 2h2v1H5zM0 3h3v2H0zM5 3h3v2H5zM1 5h2v1H1zM5 5h2v1H5zM1 6h6v1H1zM3 7h2v1H3z" fill="currentColor" /></svg>
+      </button>
+      <div class="settings-menu" id="settings-menu" role="group" aria-label="Settings" hidden={!settingsOpen}>
+        <button type="button" onclick={toggleMotion} aria-pressed={motion.on}>Motion <span class="state">[{motion.on ? 'on' : 'off'}]</span></button>
+        <button type="button" onclick={toggleTheme} aria-pressed={theme.light}>Theme <span class="state">[{theme.light ? 'light' : 'dark'}]</span></button>
+      </div>
+    </div>
   </header>
   <div class="readout mono" aria-label="Status">
     <span class="path mono" aria-hidden="true"><span class="path-text"><span class="path-full">~/tim/<Decode text={route} step={STEP_FAST} /></span><span class="path-short">{shortPrefix}<Decode text={shortTail} step={STEP_FAST} /></span></span><Cursor /></span><span class="st-scroll">+{scrolled}</span><span class="st-city">Denver, CO</span><span class="st-coords">39.7392N 104.9903W</span><span class="st-clock">{clock || '--:--:--'}</span><span class="st-sys">SYS.OK</span>
@@ -129,6 +142,5 @@
   {@render children()}
   <footer class="global-footer lbl" class:home-footer={page.url.pathname === '/'}>
     <span class="dim">(C) {new Date().getFullYear()} Timothy Ali <span class="hide-m">// Designed and built by hand</span> // EOF</span>
-    {#if motion.ready}<span class="controls"><button type="button" onclick={toggleMotion} aria-pressed={motion.on}>Motion <span class="state">[{motion.on ? 'on' : 'off'}]</span></button><button type="button" onclick={toggleGrid} aria-pressed={grid.on}>Grid <span class="state">[{grid.on ? 'on' : 'off'}]</span></button><button type="button" onclick={toggleTheme} aria-pressed={theme.light}>Theme <span class="state">[{theme.light ? 'light' : 'dark'}]</span></button></span>{/if}
   </footer>
 </div>

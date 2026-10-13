@@ -25,7 +25,7 @@
   --texture-fallback-opacity:.35;  /* the CSS checker shown before a canvas has drawn */
   --field-ink:color-mix(in srgb,var(--fg) 40%,var(--paper));   /* the ASCII field: recessed, well behind the type (0091) */
 
-  /* the Grid overlay */
+  /* fine fg tints (once the Grid overlay's; the admin tables still use them) */
   --grid-fine:color-mix(in srgb,var(--fg) 12%,transparent);
   --grid-major:color-mix(in srgb,var(--fg) 22%,transparent);
 
@@ -34,7 +34,6 @@
   --z-band:1;      /* everything else inside a band */
   --z-chrome:2;    /* header and status strip inside the sticky wrapper */
   --z-nav:50;      /* the sticky wrapper itself */
-  --z-grid:98;     /* the Grid overlay — deliberately above the nav */
   --z-skip:99;     /* the skip link, above everything */
 
   color-scheme:dark;
