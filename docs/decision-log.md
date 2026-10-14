@@ -2357,3 +2357,11 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Decision:** laid out as Contact's head: “Tell me what you're” (Contact's display style, not the lead face) directly over “building.”, the link 448px wide right under them, all from the left. It was split across the page with the word and the link on the right.
 - **Assistant's choices inside it:** matching Contact, the 448px link.
 - **Status:** his direction; committed and pushed on his “commit and push” (2026-10-13).
+
+## 0198 — The Work share image is the card grid
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “redo the work share image”.
+- **Decision:** “work.” at 172px on the left, a 3×3 grid of cards on the right, one per study, the cover on the card mat (no titles, no counter); the mountain strip behind as before. Replaces the head with “Project index 01–09” and four labelled covers.
+- **Assistant's choices inside it:** the composition, covers without titles.
+- **Status:** his direction; committed and pushed on his “push” (2026-10-14).

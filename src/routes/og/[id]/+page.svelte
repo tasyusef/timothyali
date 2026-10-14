@@ -7,10 +7,9 @@
   import Cursor from '$lib/components/Cursor.svelte';
   import Arrow from '$lib/components/Arrow.svelte';
   import Cta from '$lib/components/Cta.svelte';
-  import IndexRow from '$lib/components/IndexRow.svelte';
   import MetaLine from '$lib/components/MetaLine.svelte';
   import Picture from '$lib/components/Picture.svelte';
-  import { projects, last } from '$lib/work';
+  import { projects, index } from '$lib/work';
   import { hasStudyScene } from '$lib/studyScenes';
   import { STEP, STEP_SLOW } from '$lib/tokens';
   import { onMount } from 'svelte';
@@ -55,13 +54,12 @@
       <Cta href="https://www.timothyali.com" class="lbl story-cta">timothyali.com <Arrow /></Cta>
     </Band>
   {:else if data.id === 'work'}
-    <Band class="og-work" mode="scene" shot="strip" sceneSpan="box" mountains="a" seed={5} palette="scene" cell={8} px={1} hug pad={0} feather={3} depth={0.6} avoid=".og-head h1" clear=".og-head > :last-child">
-      <div class="og-head">
-        <h1 class="blackletter display-xl">work.</h1>
-        <IndexRow label="Project index" value={`01–${last}`} layout="column" accent />
-      </div>
-      <div class="og-covers">
-        {#each projects as p}<div class="card og-card"><Picture src={p.cover.src} alt="" width={p.cover.w} height={p.cover.h} eager /><span class="lbl">{p.title}</span></div>{/each}
+    <!-- the Work page at share size (0198): “work.” and a card for every study, the covers on the
+         card mat, no counters -->
+    <Band class="og-work" mode="scene" shot="strip" sceneSpan="box" mountains="a" seed={5} palette="scene" cell={8} px={1} hug pad={0} feather={3} depth={0.6} avoid=".og-work h1">
+      <h1 class="blackletter og-work-title">work.</h1>
+      <div class="og-grid">
+        {#each [...projects, ...index] as p}<div class="card og-card"><Picture src={p.cover.src} alt="" width={p.cover.w} height={p.cover.h} eager /></div>{/each}
       </div>
     </Band>
   {:else if data.id === 'contact'}
@@ -133,10 +131,10 @@
 .og-name{position:absolute;left:var(--gutter);top:calc(20 * var(--u));font-size:344px;line-height:344px;white-space:nowrap}
 
 /* Work — the page head, then the selected four as cards */
-.og-head{display:flex;justify-content:space-between;align-items:flex-start}
-.og-covers{display:grid;grid-template-columns:repeat(4,calc((100% - 3 * var(--s2)) / 4));gap:var(--s2);margin-top:var(--s2)}
-.og-card{gap:var(--s1)}
-.og-card .lbl{display:block;background:var(--paper);margin:0 calc(-1 * var(--s1)) calc(-1 * var(--s1));padding:var(--s1)}
+.og :global(.og-work){display:grid;grid-template-columns:minmax(0,1fr) 688px;gap:var(--s4);align-items:center}
+.og-work-title{font-size:172px;line-height:176px;margin:0}
+.og-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s1)}
+.og-card{padding:var(--s1);gap:0;background:var(--surface-card),var(--paper)}
 
 /* Contact — the page's own head */
 .og :global(.og-contact h1){display:flex;flex-direction:column;gap:var(--s2)}
