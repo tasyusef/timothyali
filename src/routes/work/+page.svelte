@@ -16,14 +16,14 @@
   <section>
     <header class="work-header">
       <h1 class="page-head"><span class="blackletter display-xl"><Decode text="work." step={STEP} /></span></h1>
-      <IndexRow label="Project index" value={`01–${last}`} layout="column" accent />
+      <span class="head-index"><IndexRow label="Project index" value={`01–${last}`} layout="column" accent /></span>
     </header>
     <div class="rows">
       {#each projects as p, i}
         <a id={p.slug} class="row" href={`/work/${p.slug}/`}>
           <div class="frame"><Picture src={p.cover.src} alt={p.cover.alt} eager={i < 2} sizes="(min-width: 1440px) 816px, (min-width: 901px) calc((100vw - 96px) * 3 / 5), calc(100vw - 32px)" /></div>
           <div class="row-body">
-            <MetaLine project={p} />
+            <MetaLine project={p} class="row-meta" />
             <h2 class="display" use:fitTitle>{p.title}</h2>
             <p class="body">{p.description}</p>
             <Cta variant="quiet" class="lbl">View case study <Arrow /></Cta>
@@ -83,5 +83,7 @@
   .entries{gap:var(--s3)}
   .entry{grid-template-columns:100%;gap:var(--s1)}
   .entry-year,.entry-scope{grid-column:1}
+  /* phones (0188): the rows and entries are their title and description; each is a link already */
+  .head-index,.row :global(.row-meta),.entry-year,.entry-scope,.entry-main :global(.cta-quiet){display:none}
 }
 </style>

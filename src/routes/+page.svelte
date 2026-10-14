@@ -21,5 +21,5 @@
 </main>
 <style>
 main :global(.page-sky){--chrome:96px;position:relative;isolation:isolate;overflow:hidden;margin-top:calc(-1 * var(--chrome))}
-@media(max-width:700px){main :global(.page-sky){--chrome:136px}}
+@media(max-width:700px){main :global(.page-sky){--chrome:104px}}
 </style>

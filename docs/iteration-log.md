@@ -817,3 +817,23 @@ Deploy (2026-10-13): PX-71 to PX-81 pushed as `24ebb46` on Timothy's “commit a
 `src/routes/og/[id]/+page.svelte`: `home`, `work`, `contact` and every `work-<slug>` Band is `mode="scene"` with `sceneSpan="box"` and the pages' knockout settings; study images are the study head (MetaLine, title at 110/112 or 82.5/88 when its longest word will not fit, description) over `study={slug}`. A `clear` of `:first-child` would have matched the Band's own field container and blanked it, so the meta line carries `og-meta`. Twelve PNGs regenerated (`pnpm social:generate`); Toolbox's six, the favicon set and the story/wide stills are unchanged. `pnpm build && pnpm social:verify` pass. Contact sheet: `docs/iterations/pixel-v2/82-share-scenes/contact-sheet.png`.
 
 Deploy (2026-10-13): PX-82 pushed as `6330725`; the new `work-pocketwatch.png` was served byte-identical about 5.5 min later; `/og/home.png`, `/og/work.png`, `/og/contact.png` answered 200. Platforms cache share images, so old previews may linger until they re-scrape.
+
+## PX-83 — Study scenes under the title on phones (2026-10-13, 0184)
+
+`src/routes/work/[slug]/+page.svelte`: at ≤900 the head's `.band-bg` is pinned to the bottom at `--scene-h: 160px` (first 240; compared with 128 in `heights.png`) and the head pads by that much, so the field composes on its own strip (`sceneSpan="box"` measures the canvas). `studyCell` widens any strip under 2.4 heights by whole cells and draws its right part. Checked at 320, 390, 768 and 1440, both themes, no overflow or page errors. Evidence: `docs/iterations/pixel-v2/83-phone-heads/` (`before-after.png` 390 dark, `after-dark.png`, `after-light.png`, `check-768.png`).
+
+## PX-84 — Calmer phones: no strip, the study head is the title (2026-10-13, 0185)
+
+`chrome.css` hides `.readout` at ≤700; `Hero.svelte` and `+page.svelte` take `--chrome: 104px` on phones. `work/[slug]`: PX-83's strip-under-title rule is removed; at ≤700 `.head-back` and `.head-meta` are hidden and the head is `min-height: 240px`, `justify-content: flex-end`. Before (PX-83) and after in `docs/iterations/pixel-v2/84-phone-calm/` (`sheet-light.png`, `sheet-dark.png`, 390px, nine studies and Home). No overflow or page errors.
+
+## PX-85 — Tight title cutout on studies (2026-10-13, 0186)
+
+`work/[slug]` head Band: `feather={1} depth={0.85}` (from 3 / 0.6). Tried depth 1 with feather 3 first (`full-depth-rejected.png`): a hole. Evidence: `docs/iterations/pixel-v2/85-title-cutout/sheet.png` (390 light/dark, 1440 light: Pocketwatch, xrp.cafe, Do Androids Dream?).
+
+## PX-86 — Study head: the title alone (2026-10-13, 0187)
+
+`work/[slug]`: the `QuietLink` back link and `MetaLine` are removed from the head (and the `MetaLine` import, the head's `clear`, and the ≤700 hide rule with them). Checked at 1440 (light/dark), 1024 and 390; no overflow or page errors. Evidence: `docs/iterations/pixel-v2/86-title-only/desktop.png`.
+
+## PX-87 — Phone pass on Home, Work and Contact (2026-10-13, 0188)
+
+`scene.ts` `below()`: × a portrait fade (cols/S < 0.9: 1 until 1.0 screen, 0 by 1.3). `home/WorkList.svelte`: ≤700 hides `.bar`, `.meta` and the row CTA, shows a quiet “Case study” link. `work/+page.svelte`: ≤700 hides `.head-index`, `.row-meta`, `.entry-year`, `.entry-scope` and the entries' quiet CTA. `contact/+page.svelte`: ≤700 hides `.contact-foot`. Page heights at 390: Home 3808 → 3328, Work 4336 → 3616, Contact 1344 → 1264. No overflow at 320/390/900/1440; no page errors. Evidence: `docs/iterations/pixel-v2/87-phone-pages/` (`sheet-light.png`, `sheet-dark.png`, full pages at 390 and 320).

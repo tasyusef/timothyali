@@ -81,6 +81,9 @@
   /* Four numbered labels do not fit 320: the numbers go, the words stay (0092). */
   .site-header nav a b{display:none}
   .hide-m{display:none}
+  /* no status strip on phones (0185): there it was a clipped path and a scroll count, 32px of
+     decoration on every page; the header alone is the chrome, 104px */
+  .readout{display:none}
   .global-footer{padding:var(--s3) var(--gutter) var(--s4)}
 }
 @media(max-width:420px){

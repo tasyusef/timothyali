@@ -63,6 +63,7 @@ h1{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);margi
 @media(max-width:700px){
   main :global(.contact){padding-top:var(--s3);gap:var(--s4)}
   .channel{display:none}
+  .contact-foot{display:none} /* the scope line and “See my work” repeat the nav (0188) */
   .building{font-size:129px;line-height:136px}
   .contact-note :global(.cta-row){padding:17px 14px 15px 16px;gap:var(--s2)}
   .contact-note :global(.contact-form){gap:var(--s1)}

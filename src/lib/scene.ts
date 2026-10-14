@@ -87,7 +87,9 @@ function below(x: number, y: number, t: number, cols: number, S: number, seed: n
   const n = fbm(u * (cols / S) * 9 + t * 0.03, w * 11, seed + 51);
   // only the right two thirds (0169): nothing in the left third, building to the right edge, lighter overall
   const r = Math.min(1, Math.max(0, (u - 1 / 3) * 1.5)), h = r * r * (3 - 2 * r);
-  const v = Math.min(1, Math.max(0, h * (0.3 + 0.4 * vert + (n - 0.5) * 0.4) - 0.04));
+  // on a portrait screen (a phone) it ends a third of a screen past the hero (0188): there it ran behind every card
+  const portrait = cols / S < 0.9 ? Math.min(1, Math.max(0, (1.3 - w) / 0.3)) : 1;
+  const v = Math.min(1, Math.max(0, h * (0.3 + 0.4 * vert + (n - 0.5) * 0.4) - 0.04)) * portrait;
   // in the mountains' own blues (0170): the denser cells in the rock's tone, the lighter in its shade
   return { v, c: v > 0.45 ? MAT.rock : MAT.shade, o: true, tex: true };
 }

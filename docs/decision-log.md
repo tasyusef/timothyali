@@ -2247,3 +2247,42 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Decision:** Home, Work, Contact and the nine study images are drawn on the scene field, each mirroring its page: Home the hero scene behind “Product designer.” and “i’m tim.”; Contact the rising planet; Work the four cards over the mountain strip; each study its page head (meta line, title, one-line description) over its own study scene, in place of the cover-and-text row. Toolbox's six images keep their look, as the Toolbox pages kept theirs. Still rendered dark, by `/og/[id]`.
 - **Assistant's choices inside it:** dropping the cover from the study images, the Work strip, the knockout settings (hug, depth 0.6, the same as the pages).
 - **Status:** his direction; the compositions are assistant proposals, committed and pushed on his “commit and push it” (2026-10-13).
+
+## 0184 — On phones and tablets, a study's scene sits under its title
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “lets work on mobile then”, on the assistant's note that the study scenes sat mostly behind the titles on phones.
+- **Decision:** at 900px and below the study head's scene is its own 160px strip under the title (240 at first; “this takes up too much vertical space”), not the field behind it; a strip narrower than 2.4 heights shows the right part of a 2.4-wide scene, so subjects placed for the desktop strip (the clock tower, the cup, the figure) stay whole. Desktop unchanged.
+- **Assistant's choices inside it:** the strip below rather than above the title, its height, the 900px breakpoint, the 2.4 minimum.
+- **Status:** superseded the same evening by 0185 before it was committed (“this takes up too much vertical space”, then the calmer phone head). The 2.4-height widening in `studyCell` stays.
+
+## 0185 — Phones get less chrome; a study opens on its title
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy, on phones: get rid of the status bar under the nav; get rid of the year-and-scope line (“it just takes up a ton of vertical space”); the title overlapping the scene is “not a huge deal”; the back-to-Work link is maybe redundant; “on mobile it's kind of busy”. Agreed to the assistant's plan with “Yeah”.
+- **Decision:** at ≤700px the status strip is gone sitewide (phone chrome 136 → 104px); a study's head is its title over its scene again, without the “← Work” link or the meta line, 240px tall at least, the title at its foot. The year and scope stay below in the intro's Role/Timeline; Work stays one tap away in the nav. Desktop unchanged.
+- **Assistant's choices inside it:** the 700px breakpoint, the 240px head, the title at the foot, keeping the 2.4 widening so subjects stay whole.
+- **Status:** his direction; committed and pushed with PX-84 to PX-87 on his word.
+
+## 0186 — A tight cutout behind study titles
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “need some very subtle cutouts for the project names on case studies. Like what we did before”.
+- **Decision:** the study title's knockout is tight and nearly full: depth 0.85, feather 1 cell (was 0.6 and 3), still hugging the ink with rounded corners. At 0.6 the scene ran through the letters on phones; full depth with the old feather cut a visible hole. All widths; the labels' clears unchanged.
+- **Assistant's choices inside it:** 0.85 and 1.
+- **Status:** his direction; committed and pushed with PX-84 to PX-87 on his word.
+
+## 0187 — The study head is the title alone, at every width
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy, on the desktop head's “← Work” link and year-and-scope line: “honestly. get rid of this on desktop too”.
+- **Decision:** the study head drops the back link and the meta line at all widths (0185 had dropped them on phones only); it is the title over its scene. Year and scope remain in the intro's Role/Timeline; Work stays in the nav; the share images keep their meta line.
+- **Status:** his direction; committed and pushed with PX-84 to PX-87 on his word.
+
+## 0188 — Home, Work and Contact edited down on phones
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy picked the assistant's eight phone cuts (“2”, then “go”), after “on mobile it's kind of busy”.
+- **Decision:** at ≤700px: Home's page texture ends a third of a screen past the hero (portrait screens); the cards lose their path bar and the year/scope line; the yellow “Case study” bar becomes a quiet text link (the card is a link too). Work loses the “Project index 01–09” label, the meta line on the four rows, and the year, scope and “View case study” on the index entries (each entry is a link). Contact loses its scope line and “See my work”. Desktop unchanged.
+- **Assistant's choices inside it:** the eight cuts (proposed, then picked by him), the texture's fade (portrait = width under 0.9 of the height, over 1.0–1.3 screens).
+- **Status:** his direction; committed and pushed with PX-84 to PX-87 on his word (“2”: do these, then push together).

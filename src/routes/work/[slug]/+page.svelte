@@ -4,7 +4,6 @@
   import Decode from '$lib/components/Decode.svelte';
   import Arrow from '$lib/components/Arrow.svelte';
   import Cta from '$lib/components/Cta.svelte';
-  import MetaLine from '$lib/components/MetaLine.svelte';
   import PageFoot from '$lib/components/PageFoot.svelte';
   import QuietLink from '$lib/components/QuietLink.svelte';
   import Band from '$lib/components/Band.svelte';
@@ -77,10 +76,8 @@
 
 <main class="inner-page study" id="main" tabindex="-1">
   <!-- the head is a strip of the landing's world (0178), a scene of its own for each study (0179);
-       the reading below stays on the plain ground -->
-  <Band class="head" mode="scene" shot="strip" sceneSpan="box" mountains={hasStudyScene(p.slug) ? '' : 'a'} study={hasStudyScene(p.slug) ? p.slug : ''} seed={Number(p.n) || 3} tick={TICK_FAST} palette="scene" cell={8} px={1} lightAs="dither" hug pad={0} feather={3} depth={0.6} avoid=".head .title .decode" clear=".head > .lbl, .head > a">
-    <QuietLink href="/work/" label="Work" dir="left" pad class="lbl" />
-    <MetaLine project={p} />
+       the reading below stays on the plain ground; the head is the title alone (0187) -->
+  <Band class="head" mode="scene" shot="strip" sceneSpan="box" mountains={hasStudyScene(p.slug) ? '' : 'a'} study={hasStudyScene(p.slug) ? p.slug : ''} seed={Number(p.n) || 3} tick={TICK_FAST} palette="scene" cell={8} px={1} lightAs="dither" hug pad={0} feather={1} depth={0.85} avoid=".head .title .decode">
     <h1 class="display title" class:small bind:this={h1}><span class="probe" aria-hidden="true" bind:this={probe}>{longest}</span><Decode text={p.word} step={STEP} /></h1>
   </Band>
   <section class="head-intro">
@@ -170,7 +167,8 @@ main :global(.head){position:relative;isolation:isolate;overflow:hidden;display:
 @media(max-width:900px){.title{font-size:55px;line-height:56px}.title.small :global(.decode){font-size:41.25px;line-height:48px}.intro,.point,.list{grid-template-columns:100%}}
 @media(max-width:700px){.title{font-size:41.25px;line-height:48px}.title.small :global(.decode){font-size:27.5px;line-height:32px}}
 @media(max-width:700px){
-  main :global(.head){padding-top:var(--s3);padding-bottom:var(--s8);min-height:280px}
+  /* on phones the head is 240px at least, its title at the foot (0185) */
+  main :global(.head){padding-top:var(--s3);padding-bottom:var(--s8);min-height:240px;justify-content:flex-end}
   .intro{margin-top:var(--s3);gap:var(--s3)}
   .grow{grid-template-columns:100%}
   /* phone screenshots and squares two to a line, not one per screen (PX-49) */

@@ -17,10 +17,11 @@
   {#each projects as q, k}
     <div class="row">
       <div class="row-copy">
-        <span class="lbl dim">{q.n} / {q.year} / {q.scope}</span>
+        <span class="lbl dim meta">{q.n} / {q.year} / {q.scope}</span>
         <h3 class="display title" use:fitTitle>{q.title.toUpperCase()}</h3>
         <p class="read blurb">{q.description}</p>
         <Cta variant="row" href={`/work/${q.slug}/`} class="lbl">Case study <Arrow /></Cta>
+        <Cta variant="quiet" href={`/work/${q.slug}/`} class="lbl quiet">Case study <Arrow /></Cta>
       </div>
       <a class="card" href={`/work/${q.slug}/`} tabindex="-1" aria-hidden="true">
         <span class="bar lbl"><span>~/tim/work/{q.slug}</span><span>[{q.n}/{LAST}]</span></span>
@@ -52,5 +53,13 @@
   .bar>span:last-child{display:none}.bar>span:first-child{overflow:hidden;text-overflow:ellipsis}
   .title{font-size:27.5px;line-height:32px}
   .blurb{font-size:15px;line-height:24px}
+}
+.row-copy :global(.cta-quiet){display:none}
+/* phones (0188): no path bar on the card, no year/scope line, and a quiet link in place of the
+   yellow bar; the card itself is a link too */
+@media(max-width:700px){
+  .bar,.meta{display:none}
+  .row-copy :global(.cta-row){display:none}
+  .row-copy :global(.cta-quiet){display:inline-flex;align-self:flex-start;margin-left:calc(-1 * var(--s2))}
 }
 </style>

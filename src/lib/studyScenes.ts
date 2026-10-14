@@ -251,7 +251,10 @@ export const hasStudyScene = (slug: string) => slug in SCENES;
 /** one cell of a study's strip; fades out over the strip's last quarter into the page */
 export function studyCell(slug: string, x: number, y: number, t: number, cols: number, S: number, seed: number): Cell {
   const scene = SCENES[slug]; if (!scene) return NONE;
-  const Y = (y + 0.5) / S, f = scene((x + 0.5) / S, Y, cols / S, t, seed, x, y);
+  // a strip narrower than 2.4 heights (a phone) shows the right part of a 2.4-wide scene, so
+  // subjects placed for the desktop strip stay whole (0184); shifted by whole cells, so cell-grid detail stays put
+  const off = Math.max(0, Math.round(2.4 * S) - cols), X = x + off;
+  const Y = (y + 0.5) / S, f = scene((X + 0.5) / S, Y, (cols + off) / S, t, seed, X, y);
   const foot = clamp((1 - Y) / 0.25);
   return foot < 1 ? { ...f, v: f.v * foot } : f;
 }
