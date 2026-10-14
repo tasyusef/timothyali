@@ -893,3 +893,7 @@ Deploy (2026-10-14): PX-96 pushed as `6896e52`; the new `og/work.png` was served
 `toolbox/agents/+page.svelte`: `.text` is a flex column (was ⅓ | ⅔ grid), `.side` 64ch; the ≤900 override for `.text`/`.rules` removed. `Code.svelte`: each line a `.ln` block, words split so short ones are `.w` (nowrap) and a one-character word joins the word before; the alignment spaces before a comment are `.pad`. `blocks.css` `.code`: `white-space:pre-wrap; overflow-wrap:anywhere` (was `pre` + `overflow-x:auto`), `.ln` hanging indent 2ch, ≤700 `.pad` hidden and `.c` a block. No code block scrolls sideways (8 on CLI & MCP, 1 per tool page) at 1440 or 390; no page overflow; check passes. Evidence: `docs/iterations/pixel-v2/98-cli-layout/`.
 
 Deploy (2026-10-14): PX-97 and PX-98 pushed as `ddae56b` on Timothy's “1”; live about 4 min later (CLI & MCP serves the wrapping code lines; a tool page answered 200).
+
+## PX-99 — Settings menu hit area (2026-10-14, 0201)
+
+`chrome.css`: `.site-header` z-index `calc(var(--z-chrome) + 1)` (was equal to `.readout`'s). Hit test: nine points on each menu row at 1440, 900, 700 and 390 on Home, Work and CLI & MCP all land on the row (before: Motion blocked by `.readout`/`.st-clock` at 900 and 1440); a real mouse click on Motion toggles it. Evidence: `docs/iterations/pixel-v2/99-settings-hit/menu-open.png`.

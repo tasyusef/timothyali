@@ -10,7 +10,8 @@
 .skip-link{position:absolute;z-index:var(--z-skip);top:var(--s1);left:var(--gutter);padding:var(--s1) var(--s2);background:var(--fg);color:var(--paper);transform:translateY(-200%)}
 .skip-link:focus{transform:none}
 
-.site-header{position:relative;z-index:var(--z-chrome);display:grid;grid-template-columns:auto 1fr auto;gap:var(--s4);align-items:start;height:64px;padding:var(--s1) var(--gutter) 0}
+/* the header sits one above the status strip: its settings menu opens down over the strip (0201) */
+.site-header{position:relative;z-index:calc(var(--z-chrome) + 1);display:grid;grid-template-columns:auto 1fr auto;gap:var(--s4);align-items:start;height:64px;padding:var(--s1) var(--gutter) 0}
 .wordmark{font-size:43px;line-height:43px;white-space:nowrap}
 .path{display:flex;align-items:center;justify-self:start;min-width:0;max-width:100%;margin-top:var(--s2)}
 .path .path-text{overflow:hidden;min-width:0}

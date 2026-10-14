@@ -2381,3 +2381,11 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Decision:** each CLI & MCP section is one column: heading and explanation (64ch), then the commands at full width under them. Code blocks wrap instead of scrolling; a wrapped line hangs two characters in under its start; flags and short values never break inside (`--out .` stays whole); a long path or JSON array may break anywhere. On phones a `# comment` drops under its command. Applies to every `Code` block, so the CLI section on each tool page wraps too.
 - **Assistant's choices inside it:** one column (over a wider code column), the hanging indent, the word rules, comments under commands on phones.
 - **Status:** his direction; committed and pushed on his “1” (2026-10-14).
+
+## 0201 — The settings menu opens over the status strip
+
+- **Date:** 2026-10-14
+- **Direction:** Timothy: “the hit box for the motion toggle is broken”.
+- **Decision:** above 700px the status strip (same z-index as the header, later in the page) sat over the open settings menu and took the clicks on Motion and the top of Theme. The header is now one layer above the strip, so the menu covers the clock and both rows take clicks across their whole box.
+- **Assistant's choices inside it:** the fix (stacking order).
+- **Status:** a bug fix on his report; committed and pushed on his “commit and push” (2026-10-14).
