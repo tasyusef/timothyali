@@ -37,32 +37,25 @@
 .settings-menu button:hover,.settings-menu button:focus-visible{background:var(--accent);color:var(--on-accent)}
 
 /* One flexible gap, not space-between: leftover width split four ways lands the items on
-   thirds of a pixel and blurs the bitmap face (0089). Place and time sit with the path;
-   the clock and SYS.OK sit at the right. */
+   thirds of a pixel and blurs the bitmap face (0089). The place sits with the path, the
+   clock at the right; the scroll count, coordinates and SYS.OK are gone (0192). */
 .readout{position:relative;z-index:var(--z-chrome);display:flex;gap:var(--s4);padding:var(--s1) var(--gutter);height:32px;overflow:hidden;white-space:nowrap}
 .readout .st-clock{margin-left:auto}
-/* The scroll readout (0105): the page offset in cells of the unit, four digits, after the
-   path. 5 characters at 16px; it fits every step of the strip, so it is never shed. */
-.readout .st-scroll{font-variant-numeric:tabular-nums}
 .readout>span{flex:none;opacity:var(--dim)}
 .readout .path{margin-top:0;opacity:1;flex:0 1 auto;min-width:0}
 .readout .path-text{white-space:nowrap;text-overflow:ellipsis} /* a path with no room ends in the strip's own … rather than mid-word (0105) */
 .readout .path .decode{display:inline} /* inline, not inline-block, or the ellipsis cannot reach into it */
 .readout .path{font-size:inherit;line-height:inherit}
-/* The strip never shrinks below 16px. It sheds items by priority instead (decision 0072):
-   ≤1100 coordinates go, ≤900 Denver and SYS.OK go and the path keeps only its last
-   segment, ≤420 the clock goes. Press Start advances one em per character, so at 16px
-   the five items need about 1,040px; the steps are what fits with the gutters. */
+/* The strip never shrinks below 16px. It sheds items instead (0072, 0192): ≤900 Denver goes
+   and the path keeps only its last segment; ≤700 the strip itself goes (0185). */
 .path-short{display:none}
-@media(max-width:1100px){.st-coords{display:none}}
-@media(max-width:900px){.st-city,.st-sys,.path-full{display:none}.path-short{display:inline}}
+@media(max-width:900px){.st-city,.path-full{display:none}.path-short{display:inline}}
 /* The nav numbers go at 900, not only 700 (PX-49): between 702 and 776 the four numbered
    labels ran up to 57px past the gutter and the page scrolled sideways. */
 @media(max-width:900px){.site-header nav a b{display:none}}
 /* With the cog (0168) the row ran 19px into the right gutter at 702: the links lose their
    8px gaps here; their own 16px padding still keeps the labels apart. */
 @media(max-width:900px) and (min-width:701px){.site-header nav{gap:0}}
-@media(max-width:480px){.st-clock{display:none}} /* 480, not 420 (0127): a 430px phone was clipping the path to ~/T… */
 
 .global-footer{display:grid;grid-template-columns:1fr;gap:var(--s2);align-items:center;padding:var(--s2) var(--gutter) var(--s3)}
 

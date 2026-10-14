@@ -34,16 +34,12 @@ await page.clock.setFixedTime(FROZEN);
 const errors = []; page.on('pageerror', (e) => errors.push(String(e)));
 
 mkdirSync('static/og', { recursive: true });
-// Every route in socialPages, one image each. The strip's scroll readout (0105) is a live
-// offset, meaningless in a still, so it is hidden the way the clock is frozen; with it
-// gone the four short paths keep their coordinates and the rest shed them, the way the
-// strip does below 1100px.
+// Every route in socialPages, one image each. The strip is the path, Denver and the frozen
+// clock (0192).
 const ids = ['home', 'work', 'contact', 'toolbox', 'toolbox-agents', ...tools.map((t) => `toolbox-${t.slug}`), ...studies.map((p) => `work-${p.slug}`)];
 const report = [];
 for (const id of ids) {
   await page.goto(`${ORIGIN}/og/${id}`, { waitUntil: 'networkidle' });
-  await page.addStyleTag({ content: '.st-scroll{display:none}' });
-  if (!['home', 'work', 'contact', 'toolbox'].includes(id)) await page.addStyleTag({ content: '.st-coords{display:none}' });
   await page.evaluate(async () => {
     await document.fonts.ready;
     await Promise.all([...document.images].map((i) => i.decode().catch(() => {})));

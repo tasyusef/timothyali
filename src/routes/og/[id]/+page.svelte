@@ -66,8 +66,7 @@
       </div>
     </Band>
   {:else if data.id === 'contact'}
-    <Band class="og-contact" mode="scene" shot="rise" sceneSpan="box" seed={3} palette="scene" cell={8} px={1} hug pad={0} feather={3} depth={0.6} avoid=".og-contact h1 > span" clear=".og-top > span">
-      <div class="og-top lbl"><span>Let’s talk</span><span>Timothy Ali / Denver, CO</span></div>
+    <Band class="og-contact" mode="scene" shot="rise" sceneSpan="box" seed={3} palette="scene" cell={8} px={1} hug pad={0} feather={3} depth={0.6} avoid=".og-contact h1 > span">
       <h1><span class="display">Tell me what<br />you’re</span><span class="blackletter display-xl">building.</span></h1>
     </Band>
   {:else if data.id === 'toolbox'}
@@ -143,9 +142,6 @@
 .og-card .lbl{display:block;background:var(--paper);margin:0 calc(-1 * var(--s1)) calc(-1 * var(--s1));padding:var(--s1)}
 
 /* Contact — the page's own head */
-.og-top{display:flex;justify-content:space-between;margin-bottom:var(--s3)}
-.og-top>span{background:var(--paper);padding:var(--s1)}
-.og-top>span:first-child{background:var(--accent);color:var(--on-accent)}
 .og :global(.og-contact h1){display:flex;flex-direction:column;gap:var(--s2)}
 .og :global(.og-contact .display){line-height:64px}
 

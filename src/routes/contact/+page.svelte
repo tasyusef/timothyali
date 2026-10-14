@@ -11,9 +11,8 @@
 <!-- One screen, no scroll on a desktop (0173): the copy on the left over the giant rising from
      the foot of the window, the form on the right. Below 1101px the two stack and the page scrolls. -->
 <main id="main" class="contact-main" tabindex="-1">
-  <Band class="contact" mode="scene" shot="rise" seed={3} tick={TICK_SLOW} palette="scene" cell={8} px={1} lightAs="dither" hug pad={0} feather={3} depth={0.6} avoid=".contact h1 > span" clear=".contact-top .channel, .contact-foot .page-foot > *">
+  <Band class="contact" mode="scene" shot="rise" seed={3} tick={TICK_SLOW} palette="scene" cell={8} px={1} lightAs="dither" hug pad={0} feather={3} depth={0.6} avoid=".contact h1 > span" clear=".contact-foot .page-foot > *">
     <div class="contact-copy">
-      <div class="contact-top lbl"><span>Let’s talk</span><span class="channel">Timothy Ali / Denver, CO</span></div>
       <h1><span class="display intro">Tell me what<br />you’re</span><span class="blackletter display-xl building"><Decode text="building." step={STEP_FAST} /></span></h1>
       <div class="contact-foot"><PageFoot note="Interface / motion / code" href="/work/" label="See my work" /></div>
     </div>
@@ -31,11 +30,8 @@
 </main>
 <style>
 .contact-main{display:flex;flex-direction:column}
-main :global(.contact){flex:1;position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) 448px;gap:var(--s4);padding-top:var(--s3);padding-bottom:var(--s3)}
+main :global(.contact){flex:1;position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) 448px;gap:var(--s4);padding-top:var(--s6);padding-bottom:var(--s3)} /* s6 at the top: the label row above the headline is gone (0189) */
 .contact-copy{display:flex;flex-direction:column;justify-content:space-between;gap:var(--s4);min-width:0}
-.contact-top{display:flex;justify-content:space-between;gap:var(--s2)}
-.contact-top>span{padding:var(--s1)}
-.contact-top>span:first-child{background:var(--accent);color:var(--on-accent)}
 h1{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);margin:0}
 .intro{line-height:64px}
 .building{font-size:258px;line-height:264px}
@@ -62,8 +58,7 @@ h1{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);margi
 }
 @media(max-width:700px){
   main :global(.contact){padding-top:var(--s3);gap:var(--s4)}
-  .channel{display:none}
-  .contact-foot{display:none} /* the scope line and “See my work” repeat the nav (0188) */
+    .contact-foot{display:none} /* the scope line and “See my work” repeat the nav (0188) */
   .building{font-size:129px;line-height:136px}
   .contact-note :global(.cta-row){padding:17px 14px 15px 16px;gap:var(--s2)}
   .contact-note :global(.contact-form){gap:var(--s1)}

@@ -95,17 +95,9 @@ console.log('readout');
   const samples = []; for (let i = 0; i < 24; i++) { samples.push(await p.evaluate(() => document.querySelector('.path-full [aria-hidden]').textContent)); await p.waitForTimeout(40); }
   const distinct = [...new Set(samples)];
   check(distinct.length > 2 && samples.at(-1) === 'work', `path scrambled then settled: ${distinct.slice(0, 5).join(' | ')} … ${samples.at(-1)}`);
-  await p.evaluate(() => window.scrollTo({ top: 808, behavior: 'instant' })); await p.waitForTimeout(150);
-  check(await p.evaluate(() => document.querySelector('.st-scroll').textContent) === '+0101', 'scroll readout +0101 at 808px');
-  await p.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' })); await p.waitForTimeout(150);
-  check(await p.evaluate(() => document.querySelector('.st-scroll').textContent) === '+0000', 'back to +0000');
   await p.screenshot({ path: OUT + 'readout-1440.png', clip: { x: 0, y: 64, width: 1440, height: 32 } });
   await c.close();
-  const [c2, p2] = await ctx('dark', 'on', 390); await go(p2, '/work/parc/');
-  const s = await p2.evaluate(() => ({ readout: document.querySelector('.readout').getBoundingClientRect().height, text: document.querySelector('.path-short').textContent.replace(/^(.*?)(\S+)$/, '$1'), scroll: document.querySelector('.st-scroll').textContent, right: document.querySelector('.st-scroll').getBoundingClientRect().right }));
-  check(s.readout === 32 && s.right <= 390 - 16, 'at 390 the strip is 32 and the scroll readout fits: ' + JSON.stringify(s));
-  await p2.screenshot({ path: OUT + 'readout-390.png', clip: { x: 0, y: 104, width: 390, height: 32 } });
-  await c2.close();
+  // the scroll readout is gone (0192) and phones have no strip (0185)
 }
 
 // --- image arrival (0101) ----------------------------------------------------

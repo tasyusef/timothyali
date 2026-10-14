@@ -2286,3 +2286,35 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Decision:** at ≤700px: Home's page texture ends a third of a screen past the hero (portrait screens); the cards lose their path bar and the year/scope line; the yellow “Case study” bar becomes a quiet text link (the card is a link too). Work loses the “Project index 01–09” label, the meta line on the four rows, and the year, scope and “View case study” on the index entries (each entry is a link). Contact loses its scope line and “See my work”. Desktop unchanged.
 - **Assistant's choices inside it:** the eight cuts (proposed, then picked by him), the texture's fade (portrait = width under 0.9 of the height, over 1.0–1.3 screens).
 - **Status:** his direction; committed and pushed with PX-84 to PX-87 on his word (“2”: do these, then push together).
+
+## 0189 — No “Let’s talk”, no “Timothy Ali / Denver, CO”
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “get rid of the lets talk on the contact page.”, then of the “Timothy Ali / Denver, CO” label: “drop these site wide”.
+- **Decision:** both labels are gone from Contact at every width and from Contact's share image; the headline takes the top of the column (48px under the strip on desktop, was 24 under the label row). The status strip's “Denver, CO” and Toolbox's “By Timothy Ali” are other elements and stay.
+- **Assistant's choices inside it:** the 48px top, leaving the strip and Toolbox alone.
+- **Status:** his direction; committed on his “commit” (2026-10-13), not pushed.
+
+## 0190 — Home's knockouts match the rest of the site
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “need to make the knockouts on the landing page match the rest of the site now”.
+- **Decision:** Home's field takes the study settings: hugging, rounded cutouts, pad 0, depth 0.85; the edge fades in over 12 cells, 96px (first built at 1, the studies' value; Timothy: “its too solid rn. it should fade in”, then at 5: “looks basically the same”), and the fade's curve is now (1 − t)², so the field starts returning at the cutout's edge instead of staying cleared most of the way out (site-wide; Contact and 404 thin a little less near their type). Big type (“i’m tim.” and the invitation's lines) thins the field to 15% behind it (depth 0.85; “i’m tim.” had no knockout before); small type, the actions, the work rows' copy and “Get in touch” clear it fully (were square, padded holes).
+- **Assistant's choices inside it:** which elements count as big type, adding the name, the 12-cell fade, the curve.
+- **Status:** his direction; committed on his “commit” (2026-10-13), not pushed.
+
+## 0191 — Home's cutouts fit their words
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “when "hi." gets typed out. the knock out gets taller than it normally is. also the knockouts for the resume and selected work button feel too big. same with the subheading box”.
+- **Decision:** the name's cutout is measured on the letters on screen at the height of “i’m tim.” (`data-ink`), so “hi.” no longer grows it (the tall “h” and the hidden screen-reader copy had); with `hug`, flex and grid elements are measured by their words, so Resume, Selected work and the subheading cut out around their text, not their padding or the 46ch column; small type's cutouts fade over 3 cells (`clearFeather`) while the big type keeps 12.
+- **Assistant's choices inside it:** `data-ink`, the per-box feather, 3 cells, applying the word measuring to every hugging field (Contact, 404, studies look the same).
+- **Status:** his direction; committed on his “commit” (2026-10-13), not pushed.
+
+## 0192 — The status strip is the path, the place and the time
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “lets clean up the status bar as well. theres some fluff that isnt necessary”.
+- **Decision:** the scroll count (“+0000”, 0105), the coordinates and “SYS.OK” are gone; the strip keeps the path, “Denver, CO” and the Mountain-time clock (where he is and his hour, for someone hiring remotely). ≤900 Denver goes and the path shortens, as before; ≤700 there is no strip (0185). Share images regenerated.
+- **Assistant's choices inside it:** which items were fluff and which stay.
+- **Status:** his direction; committed on his “commit” (2026-10-13), not pushed.

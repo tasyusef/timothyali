@@ -839,3 +839,19 @@ Deploy (2026-10-13): PX-82 pushed as `6330725`; the new `work-pocketwatch.png` w
 `scene.ts` `below()`: × a portrait fade (cols/S < 0.9: 1 until 1.0 screen, 0 by 1.3). `home/WorkList.svelte`: ≤700 hides `.bar`, `.meta` and the row CTA, shows a quiet “Case study” link. `work/+page.svelte`: ≤700 hides `.head-index`, `.row-meta`, `.entry-year`, `.entry-scope` and the entries' quiet CTA. `contact/+page.svelte`: ≤700 hides `.contact-foot`. Page heights at 390: Home 3808 → 3328, Work 4336 → 3616, Contact 1344 → 1264. No overflow at 320/390/900/1440; no page errors. Evidence: `docs/iterations/pixel-v2/87-phone-pages/` (`sheet-light.png`, `sheet-dark.png`, full pages at 390 and 320).
 
 Deploy (2026-10-13): PX-83 to PX-87 pushed as `cb2826d` on Timothy's word; the new Home markup was live about 3.5 min later; Home, Work, Contact and `/work/sonde/` answered 200.
+
+## PX-88 — Contact without its label row (2026-10-13, 0189)
+
+`contact/+page.svelte`: `.contact-top` (“Let’s talk” and “Timothy Ali / Denver, CO”) and its styles are removed, the clear selector with it; desktop `padding-top` s3 → s6. `og/[id]`: the contact image's `.og-top` row removed; `static/og/contact.png` regenerated. Still one viewport at 1440×900 and 1280×800. No overflow or page errors. Evidence: `docs/iterations/pixel-v2/88-contact-tag/` (`sheet.png`).
+
+## PX-89 — Home knockouts like the studies' (2026-10-13, 0190)
+
+`src/routes/+page.svelte` page-sky Band: `hug pad={0} feather={12} depth={0.85} avoid=".hero-name, .invitation h2 > span" clear=".hero-actions > *, .hero-role, .index-row > span, .row-copy > *, .list .all, .invitation .cta-row"` (was every selector in `avoid` at the default pad 1, feather 3, depth 1). Feather 1 first (`after.png`), then 5 on “too solid … it should fade in” (`fade/`), then on “looks basically the same” `knockout.ts` eases by (1 − t)² instead of 1 − t² and Home's feather is 12 (`fade3/`, `compare.png`). `px61` passes. No page errors. Evidence: `docs/iterations/pixel-v2/89-home-knockouts/` (`before.png`, `after.png`, `hero-zoom.png`, `invite-zoom.png`, `phone.png`).
+
+## PX-90 — Home cutouts fit their words (2026-10-13, 0191)
+
+`knockout.ts`: `Box.feather`; `measureBoxes(…, feather)`; `ink()` reads `data-ink` from the element or an ancestor; with `hug`, flex/grid elements go through the Range path. `Ascii`/`Band`: `clearFeather`. `Hero.svelte`: `data-ink="i’m tim."` on both `h1`s. `+page.svelte`: `clearFeather={3}`; avoid `.hero-name .decode > [aria-hidden]:not(.cursor), .hero-name:not(:has(.decode))`; clear the same pair for `.hero-role`. Motion-on frames through a loop (`loop.png`, `loop2-hi.png`: “hi.” on the second loop at the name's height; the first loop's “hi.” types before the field's first measuring tick), Contact/404/Sonde unchanged (`fix/others.png`). `px61` passes. Evidence: `docs/iterations/pixel-v2/89-home-knockouts/`.
+
+## PX-91 — Status strip trimmed (2026-10-13, 0192)
+
+`+layout.svelte`: `.st-scroll`, `.st-coords`, `.st-sys` and the scroll readout's state and `readScroll` removed. `chrome.css`: their rules and the 1100/480 steps removed. `tools/social/generate.mjs` no longer hides the scroll readout or sheds coordinates; `tools/review/tactility.mjs` drops the readout checks and the 390 strip block. All 18 share images regenerated; `social:verify` passes. Evidence: `docs/iterations/pixel-v2/90-status-strip/strips.png` (1440 light/dark, 1024, 768).

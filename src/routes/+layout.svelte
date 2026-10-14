@@ -21,8 +21,6 @@
   let { children } = $props();
   let explicit = false;
   let clock = $state('');
-  let scrolled = $state('0000'); // the page offset in cells of the unit (0105)
-  const readScroll = () => { scrolled = String(Math.min(9999, Math.floor(Math.max(0, window.scrollY) / 8))).padStart(4, '0'); };
   let navCollapsed = $state(false);
   let headerHeight = $state(64);
   let headerElement: HTMLElement;
@@ -31,7 +29,7 @@
   // from wherever the old one was scrolled. The root's behaviour is switched off for the
   // navigation and back on once the kit has placed the new page.
   beforeNavigate((nav) => { if (nav.to?.url.pathname !== nav.from?.url.pathname) document.documentElement.style.scrollBehavior = 'auto'; });
-  afterNavigate(() => { navCollapsed = false; settingsOpen = false; lastScroll = Math.max(0, window.scrollY); readScroll(); requestAnimationFrame(() => { document.documentElement.style.scrollBehavior = ''; }); });
+  afterNavigate(() => { navCollapsed = false; settingsOpen = false; lastScroll = Math.max(0, window.scrollY); requestAnimationFrame(() => { document.documentElement.style.scrollBehavior = ''; }); });
   // A state change arrives through the dither (base.css, 0100 / 0104): the update runs
   // inside a view transition with a class on <html> that picks the wipe. Without the API,
   // or with motion off, it is the plain update — a hard cut.
@@ -73,7 +71,7 @@
   let settingsElement: HTMLElement; let cogElement: HTMLButtonElement;
   function closeSettings(refocus = false) { if (!settingsOpen) return; settingsOpen = false; if (refocus) cogElement.focus(); }
   onMount(() => {
-    lastScroll = Math.max(0, window.scrollY); readScroll();
+    lastScroll = Math.max(0, window.scrollY);
     const measureHeader = () => { headerHeight = headerElement.offsetHeight; };
     measureHeader();
     const headerObserver = new ResizeObserver(measureHeader);
@@ -82,7 +80,7 @@
       const y = Math.max(0, Math.min(window.scrollY, document.documentElement.scrollHeight - window.innerHeight));
       if (y <= headerHeight || y < lastScroll) navCollapsed = false;
       else if (y > lastScroll && !headerElement.contains(document.activeElement)) { navCollapsed = true; settingsOpen = false; }
-      lastScroll = y; readScroll();
+      lastScroll = y;
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     const media = matchMedia('(prefers-reduced-motion: reduce)');
@@ -136,7 +134,7 @@
     </div>
   </header>
   <div class="readout mono" aria-label="Status">
-    <span class="path mono" aria-hidden="true"><span class="path-text"><span class="path-full">~/tim/<Decode text={route} step={STEP_FAST} /></span><span class="path-short">{shortPrefix}<Decode text={shortTail} step={STEP_FAST} /></span></span><Cursor /></span><span class="st-scroll">+{scrolled}</span><span class="st-city">Denver, CO</span><span class="st-coords">39.7392N 104.9903W</span><span class="st-clock">{clock || '--:--:--'}</span><span class="st-sys">SYS.OK</span>
+    <span class="path mono" aria-hidden="true"><span class="path-text"><span class="path-full">~/tim/<Decode text={route} step={STEP_FAST} /></span><span class="path-short">{shortPrefix}<Decode text={shortTail} step={STEP_FAST} /></span></span><Cursor /></span><span class="st-city">Denver, CO</span><span class="st-clock">{clock || '--:--:--'}</span>
   </div>
   </div>
   {@render children()}

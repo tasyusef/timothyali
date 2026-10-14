@@ -10,11 +10,11 @@
   import { TICK_SLOW } from '$lib/tokens';
   import type { Palette, Shot } from '$lib/scene';
   type Mode = 'noise' | 'fall' | 'scan' | 'sparse' | 'sky' | 'bands' | 'scene';
-  let { as = 'section', class: klass = '', mode = 'noise', seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad, feather, flip, shade, skySpan, skyRepeat, palette, cell, px, lightAs, mountains, shot, hug, depth, clear, sceneSpan, study, children, ...rest }:
-    { as?: string; class?: string; mode?: Mode; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; cell?: number; px?: number; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; sceneSpan?: 'screen' | 'box'; study?: string; children: Snippet; [key: string]: unknown } = $props();
+  let { as = 'section', class: klass = '', mode = 'noise', seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad, feather, flip, shade, skySpan, skyRepeat, palette, cell, px, lightAs, mountains, shot, hug, depth, clear, clearFeather, sceneSpan, study, children, ...rest }:
+    { as?: string; class?: string; mode?: Mode; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; cell?: number; px?: number; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; clearFeather?: number; sceneSpan?: 'screen' | 'box'; study?: string; children: Snippet; [key: string]: unknown } = $props();
   const cls = $derived(['band', klass].filter(Boolean).join(' '));
 </script>
 <svelte:element this={as} class={cls} {...rest}>
-  <div class="band-bg"><Ascii {mode} {seed} {tick} {density} {avoid} {pad} {feather} {flip} {shade} {skySpan} {skyRepeat} {palette} {cell} {px} {lightAs} {mountains} {shot} {hug} {depth} {clear} {sceneSpan} {study} /></div>
+  <div class="band-bg"><Ascii {mode} {seed} {tick} {density} {avoid} {pad} {feather} {flip} {shade} {skySpan} {skyRepeat} {palette} {cell} {px} {lightAs} {mountains} {shot} {hug} {depth} {clear} {clearFeather} {sceneSpan} {study} /></div>
   {@render children()}
 </svelte:element>
