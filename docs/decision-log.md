@@ -2417,3 +2417,11 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Decision:** `fitTitle` gets one more step after 27.5: 20.625/24 (`data-fit="20"`), the PARC Pixel Bold pixel at 1.5px, whole device pixels on the 2× screens 320px phones have. At 320 it applies to Pocketwatch, Jade Aesthetics and FirstStrike Research (each had a word wider than the card); from 360 up nothing changes. Hyphenating was tried first: the browser has no break for “Pocketwatch” and split it “POCKETWAT / CH”.
 - **Assistant's choices inside it:** the step and its size.
 - **Status:** his direction; committed and pushed on his “commit and push” (2026-10-14).
+
+## 0205 — The tool pages' CLI section in one column
+
+- **Date:** 2026-10-14
+- **Direction:** Timothy: “put the tool pages' CLI section in one column too”.
+- **Decision:** on each tool page, CLI & MCP is the heading, the explanation (64ch), then the example command, the options table and the setup link under it, as on the CLI & MCP page (0200). “When to use it” and “Exported files” keep their two columns. In the options table a choice list breaks only after a “|”, never inside a choice (“library-remove” stays whole).
+- **Assistant's choices inside it:** the break rule in the options table.
+- **Status:** his direction; committed on his “commit” (2026-10-14), not pushed.

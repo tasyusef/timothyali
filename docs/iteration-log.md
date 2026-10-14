@@ -913,3 +913,7 @@ Deploy (2026-10-14): PX-99 pushed as `3d6e532` (live, `.site-header` z-index ser
 `fit.ts` ladder `41, 27, 20`; `blocks.css` `.card-body [data-fit="20"], .row-body h2[data-fit="20"]` 20.625/24. At 320 on Home and Work no title overflows (before: Pocketwatch 286px in 256, plus Jade Aesthetics and FirstStrike Research on Work); 360 and 390 unchanged; no page overflow. Evidence: `docs/iterations/pixel-v2/102-pocketwatch-320/` (2× captures).
 
 Deploy (2026-10-14): PX-102 pushed as `71c24c8` on Timothy's “commit and push”; live about 4 min later (the `data-fit="20"` rule served; Work answered 200).
+
+## PX-103 — Tool pages' CLI section in one column (2026-10-14, 0205)
+
+`toolbox/[tool]/+page.svelte`: `#cli` is `.text.stack` (flex column; `.paras > .body` 64ch). `toolbox/Options.svelte`: each choice in a signature is a nowrap `.opt` with `<wbr>` after its `|`; `dt` `overflow-wrap:break-word` (was `anywhere`). Convert, Lockup, Palette and Specimen at 1440, 900, 390 and 320: no page overflow, no code block scrolling, no flag wider than its cell. Evidence: `docs/iterations/pixel-v2/103-tool-cli/` (`convert-cli-1440.png`, `convert-cli-390.png`).
