@@ -3,13 +3,13 @@
     "image": "home",
     "width": 1200,
     "height": 630,
-    "bytes": 24799
+    "bytes": 24760
   },
   {
     "image": "work",
     "width": 1200,
     "height": 630,
-    "bytes": 81120
+    "bytes": 81187
   },
   {
     "image": "contact",
@@ -21,13 +21,13 @@
     "image": "toolbox",
     "width": 1200,
     "height": 630,
-    "bytes": 12109
+    "bytes": 12334
   },
   {
     "image": "toolbox-agents",
     "width": 1200,
     "height": 630,
-    "bytes": 12080
+    "bytes": 11951
   },
   {
     "image": "toolbox-lockup",

@@ -2326,3 +2326,34 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Decision:** the mountain pictures are grey WebP (quality 90, lossless alpha), 351 → 73 KB each; the field reads only brightness and alpha, so nothing is lost (rendered Home differs by 0.1/255 on average). The PNGs are removed. The footer reads “(C) 2026 Timothy Ali” (the 0148 credit and “EOF” are gone).
 - **Assistant's choices inside it:** WebP at 90, grey, removing the PNGs, dropping “EOF” with the credit.
 - **Status:** his direction; committed and pushed on his “commit and push” (2026-10-13).
+
+## 0194 — Toolbox edited down
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “tool box page needs some of the same simplification we did elsewhere. theres tons of fluff etc that just adds noise”; he picked all twelve of the assistant's cuts (“1”).
+- **Decision:** Landing: no “By Timothy Ali / App / CLI / MCP” row, no “macOS · Linux” beside the action, no “[01] / Lockup” or format tags in the tool story, no note under the demo, no eyebrow over “Automate your exports.” or “Terminal” on the command, “Release 1.1.1” and the “Released” plate become “v1.1.1”, the closing row is just “Get in touch”. Tool pages: no back link or number line over the title, no format tags under Exported files, no “[04] / 04” at the foot. CLI & MCP: no back link or label over the title. The Toolbox and CLI & MCP share images lose the same labels. Toolbox keeps its own look (0172).
+- **Assistant's choices inside it:** the twelve cuts (proposed, picked by him), the share images following.
+- **Status:** his direction; committed and pushed on his “commit and push” (2026-10-13).
+
+## 0195 — Toolbox hero cutouts like Home's
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “toolbox hero needs similar treatment for the knockouts”.
+- **Decision:** the Toolbox hero's field takes Home's settings (0190, 0191): hugging, rounded, fading in; “toolbox.” thins it to 15% over a 12-cell fade (height fixed by `data-ink`), the lead and the button clear it over 3. The large rectangle around the hero copy is gone. The Toolbox share image follows. The field itself (bands, yellow) is unchanged.
+- **Status:** his direction; committed and pushed on his “commit and push” (2026-10-13).
+
+## 0196 — Selected work and Work as grids of cards; the eyebrows go everywhere
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “i mean the weird eyebrow stuff. also. i think both the selected works and the work page should use a grid instead of a list of cards”, and yes to all six of the assistant's desktop cuts. “texture is fine as is.”
+- **Decision:** Home's selected four, and on the Work page every study (Timothy: “for the work page. every case study should have a card.”; the selected four first, then the rest), are the design system's `.cards` grid (two columns, one on phones): cover on the dither mat, title with its arrow, the one-line description; the whole card is the link. Gone at every width: the path bar and “[01/04]” on the cards, the year-and-scope lines, “Selected work 01–04”, “Project index 01–09”, the index entries' numbers, year, scope and “View case study”, “End of index / 009”. The index tier (0077) survives only as order: its five follow the selected four in the same grid. Card titles step down a size when a word would not fit (`fitTitle`). On Home the cards keep the page's field around them (paper under their mat).
+- **Assistant's choices inside it:** reusing `.cards`/`.card` rather than a new block, two columns, dropping the yellow Case study bar for the card's own arrow.
+- **Status:** his direction; committed and pushed on his “commit and push” (2026-10-13).
+
+## 0197 — The invitation as one block
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy, on Home's “Tell me what you're / building. / Get in touch”: “lets refine this. feels disjointed”.
+- **Decision:** laid out as Contact's head: “Tell me what you're” (Contact's display style, not the lead face) directly over “building.”, the link 448px wide right under them, all from the left. It was split across the page with the word and the link on the right.
+- **Assistant's choices inside it:** matching Contact, the 448px link.
+- **Status:** his direction; committed and pushed on his “commit and push” (2026-10-13).

@@ -4,7 +4,6 @@
   import Decode from '$lib/components/Decode.svelte';
   import Code from '$lib/components/Code.svelte';
   import PageFoot from '$lib/components/PageFoot.svelte';
-  import QuietLink from '$lib/components/QuietLink.svelte';
   import Options from '$lib/components/toolbox/Options.svelte';
   import { binaries, tools } from '$lib/toolbox';
   import { STEP } from '$lib/tokens';
@@ -54,8 +53,6 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
 <svelte:head><title>CLI & MCP / Toolbox / Timothy Ali</title><meta name="description" content={description} /></svelte:head>
 <main class="inner-page agents" id="main" tabindex="-1">
   <section class="head">
-    <QuietLink href="/toolbox/" label="Toolbox" dir="left" pad class="lbl" />
-    <span class="lbl">Toolbox / the command line and MCP</span>
     <h1 class="display title"><Decode text="CLI & MCP" step={STEP} /></h1>
     <div class="intro">
       <div class="paras">
@@ -121,7 +118,7 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
 </main>
 <style>
 .head{display:flex;flex-direction:column;gap:var(--s2);padding-top:var(--s4)}
-.title{font-size:82.5px;line-height:88px;margin-top:var(--s2)}
+.title{font-size:82.5px;line-height:88px}
 .title :global(.decode){display:inline;white-space:normal} /* the title may wrap between words */
 .intro{display:grid;grid-template-columns:round(down,calc((100% - 32px) * 2 / 3),8px) 1fr;gap:var(--s4);margin-top:var(--s4);align-items:start}
 .intro .lead{max-width:24ch}.intro .body{max-width:60ch}

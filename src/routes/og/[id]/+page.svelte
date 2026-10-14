@@ -12,7 +12,6 @@
   import Picture from '$lib/components/Picture.svelte';
   import { projects, last } from '$lib/work';
   import { hasStudyScene } from '$lib/studyScenes';
-  import { APP } from '$lib/toolbox';
   import { STEP, STEP_SLOW } from '$lib/tokens';
   import { onMount } from 'svelte';
   import { page } from '$app/state';
@@ -71,19 +70,17 @@
     </Band>
   {:else if data.id === 'toolbox'}
     <!-- The Toolbox hero at share size: the same field, the name, the lead, the actions. -->
-    <Band class="og-toolbox" mode="bands" seed={7} density={0.7} flip shade avoid=".og-hero-top > span, .og-toolbox h1, .og-toolbox .lead, .og-actions > *">
-      <div class="og-hero-top lbl"><span>By Timothy Ali</span><span>{APP.interfaces.join(' / ')}</span></div>
-      <h1 class="blackletter display-xl"><Decode text="toolbox." /></h1>
+    <Band class="og-toolbox" mode="bands" seed={7} density={0.7} flip shade hug pad={0} feather={12} depth={0.85} clearFeather={3} avoid=".og-toolbox h1 .decode > [aria-hidden]:not(.cursor)" clear=".og-toolbox .lead, .og-actions > *">
+      <h1 class="blackletter display-xl" data-ink="toolbox."><Decode text="toolbox." /></h1>
       <p class="lead">Prepare your files<br />for handoff.</p>
-      <div class="og-actions"><Cta href="/toolbox/#tools" class="lbl">Explore the tools <Arrow /></Cta><span class="lbl">{APP.platforms.join(' · ')}</span></div>
+      <div class="og-actions"><Cta href="/toolbox/#tools" class="lbl">Explore the tools <Arrow /></Cta></div>
     </Band>
   {:else if data.id === 'toolbox-agents'}
     <!-- The agents page's head, then the landing's command plate: the one line that says it. -->
-    <Band class="og-agents" mode="fall" seed={3} density={0.55} shade avoid=".og-agents .lbl, .og-agents h1, .og-agents .lead, .og-command">
-      <span class="lbl">Toolbox / the command line and MCP</span>
+    <Band class="og-agents" mode="fall" seed={3} density={0.55} shade avoid=".og-agents h1, .og-agents .lead, .og-command">
       <h1 class="display">CLI & MCP</h1>
       <p class="lead">Use Toolbox from a terminal or an AI assistant.</p>
-      <div class="og-command"><span class="lbl dim">Terminal</span><code class="body">toolbox --mcp<Cursor /></code></div>
+      <div class="og-command"><code class="body">toolbox --mcp<Cursor /></code></div>
     </Band>
   {:else if data.tool}
     {@const t = data.tool}
@@ -147,13 +144,11 @@
 
 /* Toolbox — the landing's hero at share size: top row, the name, the lead, the actions */
 .og :global(.og-toolbox){display:flex;flex-direction:column;align-items:flex-start}
-.og-hero-top{display:flex;justify-content:space-between;align-self:stretch;margin-bottom:var(--s4)}
 .og :global(.og-toolbox .lead){font-size:27px;line-height:32px;margin-top:var(--s2)}
 .og-actions{display:flex;align-items:center;gap:var(--s4);margin-top:var(--s4)}
 
 /* Agents — the page head and the command plate */
 .og :global(.og-agents){display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2)}
-.og :global(.og-agents > .lbl){background:var(--paper);padding:var(--s1);margin-bottom:var(--s1)}
 .og :global(.og-agents .lead){margin-top:var(--s2)}
 .og-command{margin-top:var(--s3);padding:var(--s3);background:var(--fg);color:var(--paper);display:flex;flex-direction:column;gap:var(--s2);min-width:calc(48 * var(--u))}
 .og-command code{font-family:var(--face-text)}.og-command :global(.cursor){height:24px;vertical-align:top}

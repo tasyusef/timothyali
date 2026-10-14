@@ -52,10 +52,12 @@
 .card:hover,.card:focus-visible{background:var(--surface-card-hover)}
 .card .pic{background:var(--paper)}
 .card-body{display:grid;grid-template-rows:auto 1fr;grid-template-columns:minmax(0,1fr) auto;gap:var(--s1) var(--s2);align-items:start;flex:1;background:var(--paper);margin:0 calc(-1 * var(--s2)) calc(-1 * var(--s2));padding:var(--s2);min-width:0}
-.card-body h3{min-width:0}
+.card-body h2,.card-body h3{min-width:0}
+.card-body [data-fit="27"]{font-size:27.5px;line-height:32px} /* a word wider than the card steps down (fitTitle, 0196) */
 .card-body>.mono{align-self:start}
 .card:hover .card-body>.mono,.card:focus-visible .card-body>.mono{color:var(--accent-text)}
-.card-body .lbl{grid-column:1/-1}
+.card-body .lbl,.card-body .desc{grid-column:1/-1}
+.card-body .desc{margin:0}
 .card .mono{transform:translateX(0)}
 .motion .card:hover .mono,.motion .card:focus-visible .mono{transform:translateX(var(--nudge))}
 
@@ -79,7 +81,7 @@
 /* a title whose longest word would not fit its column steps down the ladder (fitTitle, 0132) */
 .row-body h2[data-fit="41"]{font-size:41.25px;line-height:48px}
 .row-body h2[data-fit="27"]{font-size:27.5px;line-height:32px}
-@media(max-width:900px){.card-body h3{font-size:27.5px;line-height:32px}.row{grid-template-columns:100%;gap:var(--s2)}.rows{gap:var(--s6)}}
+@media(max-width:900px){.card-body h2,.card-body h3{font-size:27.5px;line-height:32px}.row{grid-template-columns:100%;gap:var(--s2)}.rows{gap:var(--s6)}}
 @media(max-width:700px){
   .cards{grid-template-columns:1fr}
   .page-foot{flex-direction:column;margin:var(--s6) 0 0}

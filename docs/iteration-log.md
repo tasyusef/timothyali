@@ -863,3 +863,15 @@ Deploy (2026-10-13): PX-88 to PX-91 pushed (`56d9aff`, `0b335cd`) on Timothy's �
 `static/hero/mountains-{a,b}.webp` (72.7 / 71.1 KB) replace the PNGs (351 / 347 KB); `MOUNTAIN_REFS` points at them. Only `a` is used on the site. `+layout.svelte` footer is the copyright line; `.hide-m` removed. Home at 1440 light/dark against the PNG render: mean difference 0.1/255. `px61`, build and `social:verify` pass; no page errors. Evidence: `docs/iterations/pixel-v2/91-webp-footer/` (`hero.png`, `footer.png`).
 
 Deploy (2026-10-13): PX-92 pushed as `0a9a310`; live about 4 min later (`/hero/mountains-a.webp` served at 72,668 bytes, Home has no “EOF”).
+
+## PX-93 — Toolbox edited down (2026-10-13, 0194)
+
+`toolbox/+page.svelte`, `toolbox/[tool]/+page.svelte`, `toolbox/agents/+page.svelte` and `og/[id]` (toolbox, toolbox-agents): the twelve cuts in 0194 with their styles; unused imports (`last`, `QuietLink` on agents, `APP` in og) removed. Page heights: landing 2808 → 2632 (1440), 3936 → 3568 (390); a tool page 4352 → 4200, 4440 → 4272. Share images regenerated (toolbox, toolbox-agents; home and work re-rendered with the WebP mountains, unchanged to the eye); `social:verify` passes. No overflow at 320/390/1440; no page errors. Evidence: `docs/iterations/pixel-v2/92-toolbox-calm/` (`before/`, `after/`, `landing-desktop.png` before, `landing-after.png`, `phone.png` before, `phone-after.png`).
+
+## PX-94 — Toolbox hero knockouts (2026-10-13, 0195)
+
+`toolbox/+page.svelte` hero Band: `hug pad={0} feather={12} depth={0.85} clearFeather={3}`, avoid `.hero-copy h1 .decode > [aria-hidden]:not(.cursor)`, clear `.hero-copy .lead, .hero-actions > *` (was `.hero-copy, .hero-actions` at pad 1, feather 3, depth 1); `data-ink="toolbox."` on the `h1`. `og/[id]` toolbox the same; `static/og/toolbox.png` regenerated. No page errors. Evidence: `docs/iterations/pixel-v2/93-toolbox-knockouts/` (`compare.png` before | after, `phone.png`).
+
+## PX-95 — Work grids, no eyebrows; the invitation as one block (2026-10-13, 0196–0197)
+
+`home/WorkList.svelte` rewritten: sr-only heading, `.cards` of `.card` links (Picture, `.card-body` with `h3.display-s` + `Arrow` + `p.body.desc`), “All work”; `.list .card` layers `--surface-card` over `--paper`. `work/+page.svelte`: header is “work.” alone; `.cards` of every visible study (`[...projects, ...index]`, `h2`), the entries list removed; PageFoot note empty; unused imports (`Cta`, `IndexRow`, `MetaLine`, `total`, `last`) removed. `blocks.css`: `.card-body .desc` spans the row; the ≤900 card title size covers `h2`; `[data-fit="27"]` in a card body. `+page.svelte` clear list drops `.index-row > span, .row-copy > *`. `home/Invite.svelte`: column layout, `.intro` 55/64 (41.25/48 ≤1300), link 448px (100% ≤700). No overflow at 320–1440 (a 901px overflow from “POCKETWATCH” fixed by `fitTitle`); `px61` updated to count `.list .card` and passes; no page errors. Work page 2808 → 3664 at 1440 (nine covers). Evidence: `docs/iterations/pixel-v2/94-work-grid/` (`all-sheet.png`) and `95-invite/sheet.png`.

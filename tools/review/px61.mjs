@@ -20,11 +20,11 @@ try {
   for (const width of [1440, 390]) {
     const page = await pageFor({ viewport: { width, height: 844 }, javaScriptEnabled: false });
     assert.equal(await page.locator('#statement-title').count(), 0, 'no statement');
-    assert.equal(await page.locator('.list .row').count(), 4);
+    assert.equal(await page.locator('.list .card').count(), 4); // cards since 0196
     await page.screenshot({ path: `${out}/nojs-${width}.png`, fullPage: true });
     await page.locator('.invitation a').click();
     await page.waitForURL('**/contact/');
-    pass(`No JS ${width}: no statement, four rows, contact link opens Contact`);
+    pass(`No JS ${width}: no statement, four cards, contact link opens Contact`);
     await page.close();
   }
   for (const [width, height] of [[1440, 900], [1100, 800], [700, 900], [390, 844], [320, 700]]) {
