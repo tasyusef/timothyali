@@ -861,3 +861,5 @@ Deploy (2026-10-13): PX-88 to PX-91 pushed (`56d9aff`, `0b335cd`) on Timothy's �
 ## PX-92 — WebP mountains, footer trimmed (2026-10-13, 0193)
 
 `static/hero/mountains-{a,b}.webp` (72.7 / 71.1 KB) replace the PNGs (351 / 347 KB); `MOUNTAIN_REFS` points at them. Only `a` is used on the site. `+layout.svelte` footer is the copyright line; `.hide-m` removed. Home at 1440 light/dark against the PNG render: mean difference 0.1/255. `px61`, build and `social:verify` pass; no page errors. Evidence: `docs/iterations/pixel-v2/91-webp-footer/` (`hero.png`, `footer.png`).
+
+Deploy (2026-10-13): PX-92 pushed as `0a9a310`; live about 4 min later (`/hero/mountains-a.webp` served at 72,668 bytes, Home has no “EOF”).
