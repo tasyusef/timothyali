@@ -2318,3 +2318,11 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Decision:** the scroll count (“+0000”, 0105), the coordinates and “SYS.OK” are gone; the strip keeps the path, “Denver, CO” and the Mountain-time clock (where he is and his hour, for someone hiring remotely). ≤900 Denver goes and the path shortens, as before; ≤700 there is no strip (0185). Share images regenerated.
 - **Assistant's choices inside it:** which items were fluff and which stay.
 - **Status:** his direction; committed and pushed on his “commit” / “and push” (2026-10-13).
+
+## 0193 — Lighter mountains; the footer is the copyright line
+
+- **Date:** 2026-10-13
+- **Direction:** Timothy: “shrink the mountain images and get rid of this” (the footer's “// Designed and built by hand // EOF”).
+- **Decision:** the mountain pictures are grey WebP (quality 90, lossless alpha), 351 → 73 KB each; the field reads only brightness and alpha, so nothing is lost (rendered Home differs by 0.1/255 on average). The PNGs are removed. The footer reads “(C) 2026 Timothy Ali” (the 0148 credit and “EOF” are gone).
+- **Assistant's choices inside it:** WebP at 90, grey, removing the PNGs, dropping “EOF” with the credit.
+- **Status:** his direction; committed and pushed on his “commit and push” (2026-10-13).

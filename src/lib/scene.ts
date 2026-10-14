@@ -40,7 +40,8 @@ const top = (k: number, u: number) => RANGES[k].base - RANGES[k].amp * ridged(u 
 // The mountains can come from a picture instead (PX-65): a generated reference keyed onto
 // transparency, drawn at one pixel per cell by the field (`layoutMountains`), so each cell
 // reads its own average of the rock under it.
-export const MOUNTAIN_REFS = { a: '/hero/mountains-a.png', b: '/hero/mountains-b.png' } as const;
+// grey WebP (0193): the field reads only brightness and alpha, so the colour went; 351 → 73 KB each
+export const MOUNTAIN_REFS = { a: '/hero/mountains-a.webp', b: '/hero/mountains-b.webp' } as const;
 export type Mountains = { x0: number; y0: number; w: number; h: number; data: Uint8ClampedArray };
 
 // One world, several shots (0173): the hero's giant behind the peaks; the giant high over

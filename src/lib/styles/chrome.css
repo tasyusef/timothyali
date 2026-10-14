@@ -73,7 +73,6 @@
   .site-header nav a:last-child{flex:1 1 0;min-width:0;width:auto;white-space:nowrap;display:grid;grid-template-columns:round(down,100%,2px)}
   /* Four numbered labels do not fit 320: the numbers go, the words stay (0092). */
   .site-header nav a b{display:none}
-  .hide-m{display:none}
   /* no status strip on phones (0185): there it was a clipped path and a scroll count, 32px of
      decoration on every page; the header alone is the chrome, 104px */
   .readout{display:none}

@@ -139,6 +139,6 @@
   </div>
   {@render children()}
   <footer class="global-footer lbl" class:home-footer={page.url.pathname === '/'}>
-    <span class="dim">(C) {new Date().getFullYear()} Timothy Ali <span class="hide-m">// Designed and built by hand</span> // EOF</span>
+    <span class="dim">(C) {new Date().getFullYear()} Timothy Ali</span>
   </footer>
 </div>

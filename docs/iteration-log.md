@@ -857,3 +857,7 @@ Deploy (2026-10-13): PX-83 to PX-87 pushed as `cb2826d` on Timothy's word; the n
 `+layout.svelte`: `.st-scroll`, `.st-coords`, `.st-sys` and the scroll readout's state and `readScroll` removed. `chrome.css`: their rules and the 1100/480 steps removed. `tools/social/generate.mjs` no longer hides the scroll readout or sheds coordinates; `tools/review/tactility.mjs` drops the readout checks and the 390 strip block. All 18 share images regenerated; `social:verify` passes. Evidence: `docs/iterations/pixel-v2/90-status-strip/strips.png` (1440 light/dark, 1024, 768).
 
 Deploy (2026-10-13): PX-88 to PX-91 pushed (`56d9aff`, `0b335cd`) on Timothy's “commit” / “and push”; live about 4 min later (Home carries `data-ink`, Contact has no “Let’s talk”, no SYS.OK in the strip).
+
+## PX-92 — WebP mountains, footer trimmed (2026-10-13, 0193)
+
+`static/hero/mountains-{a,b}.webp` (72.7 / 71.1 KB) replace the PNGs (351 / 347 KB); `MOUNTAIN_REFS` points at them. Only `a` is used on the site. `+layout.svelte` footer is the copyright line; `.hide-m` removed. Home at 1440 light/dark against the PNG render: mean difference 0.1/255. `px61`, build and `social:verify` pass; no page errors. Evidence: `docs/iterations/pixel-v2/91-webp-footer/` (`hero.png`, `footer.png`).
