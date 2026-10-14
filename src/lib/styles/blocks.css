@@ -48,7 +48,7 @@
 
 /* --- cards -------------------------------------------------------- */
 .cards{display:grid;grid-template-columns:round(down,calc((100% - 32px) / 2),8px) minmax(0,1fr);gap:var(--s6) var(--s4)}
-.card{display:flex;flex-direction:column;gap:var(--s2);padding:var(--s2);background:var(--surface-card);color:var(--fg)}
+.card{display:flex;flex-direction:column;min-width:0;gap:var(--s2);padding:var(--s2);background:var(--surface-card);color:var(--fg)}
 .card:hover,.card:focus-visible{background:var(--surface-card-hover)}
 .card .pic{background:var(--paper)}
 .card-body{display:grid;grid-template-rows:auto 1fr;grid-template-columns:minmax(0,1fr) auto;gap:var(--s1) var(--s2);align-items:start;flex:1;background:var(--paper);margin:0 calc(-1 * var(--s2)) calc(-1 * var(--s2));padding:var(--s2);min-width:0}
@@ -82,8 +82,10 @@
 .row-body h2[data-fit="41"]{font-size:41.25px;line-height:48px}
 .row-body h2[data-fit="27"]{font-size:27.5px;line-height:32px}
 @media(max-width:900px){.card-body h2,.card-body h3{font-size:27.5px;line-height:32px}.row{grid-template-columns:100%;gap:var(--s2)}.rows{gap:var(--s6)}}
+/* on a narrow phone a long title (“POCKETWATCH”) needs the arrow's column: the whole card is the link (0202) */
+@media(max-width:480px){.card-body>.mono{display:none}.card-body h2,.card-body h3{grid-column:1/-1}}
 @media(max-width:700px){
-  .cards{grid-template-columns:1fr}
+  .cards{grid-template-columns:minmax(0,1fr)} /* not 1fr: a figure holding its old pixel height would keep the card at its old width (0202) */
   .page-foot{flex-direction:column;margin:var(--s6) 0 0}
   .index-row-column{flex-direction:row;align-items:baseline;justify-content:space-between;gap:var(--s2);padding-bottom:0;white-space:nowrap}
   .index-row .index-value.accent{font-size:12.5px;line-height:16px}

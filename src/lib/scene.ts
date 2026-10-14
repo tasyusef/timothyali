@@ -49,7 +49,7 @@ export type Mountains = { x0: number; y0: number; w: number; h: number; data: Ui
 export type Shot = 'hero' | 'rise' | 'moon' | 'strip';
 type Body = { cx: number; cy: number; R: number; moon?: boolean };
 const SHOTS: Record<Shot, { land: Body; port: Body; ridge: boolean; below: boolean; foot?: number; top?: number }> = {
-  hero: { land: { cx: 0.72, cy: 0.64, R: 0.5 }, port: { cx: 0.64, cy: 0.4, R: 0.54 }, ridge: true, below: true },
+  hero: { land: { cx: 0.72, cy: 0.64, R: 0.5 }, port: { cx: 0.64, cy: 0.42, R: 0.54 }, ridge: true, below: true }, // just above the peaks (0203)
   rise: { land: { cx: 0.56, cy: 0.34, R: 0.34 }, port: { cx: 0.72, cy: 0.2, R: 0.5 }, ridge: false, below: false },
   moon: { land: { cx: 0.76, cy: 0.36, R: 0.11, moon: true }, port: { cx: 0.72, cy: 0.3, R: 0.17, moon: true }, ridge: false, below: false },
   // a study's head (0178): measured on the head itself, not the window; the top of the range
@@ -62,12 +62,13 @@ export function layoutMountains(img: HTMLImageElement, cols: number, S: number, 
   const top = SHOTS[shot].top;
   const aspect = img.naturalWidth / img.naturalHeight;
   // landscape: at least as wide as the window, its foot on the first screen's foot; portrait
-  // (phones): half again as wide as the window, its foot just above the name, so the peaks stand
-  // in the open sky above the copy instead of behind it
+  // (phones, tablets): at least 0.8 of the screen tall as on desktop, cropped at the sides, its foot on the first
+  // screen's foot like the landscape shot's, so the copy stands in the picture, not on empty
+  // ground under it (0203; it was sized to the width with its foot at 0.58, above the name)
   const portrait = cols < S;
-  const h = Math.round(top !== undefined ? Math.max(cols / aspect, 1.3 * S) : portrait ? (cols / aspect) * 1.5 : Math.max(cols / aspect, 0.8 * S)), w = Math.round(h * aspect);
+  const h = Math.round(top !== undefined ? Math.max(cols / aspect, 1.3 * S) : portrait ? Math.max((cols / aspect) * 1.5, 0.8 * S) : Math.max(cols / aspect, 0.8 * S)), w = Math.round(h * aspect);
   // a strip hangs the picture from `top`, so its peaks, not its foot, are what shows
-  const x0 = Math.round((cols - w) / 2), y0 = Math.round(top !== undefined ? top * S : (portrait ? 0.58 : 1) * S - h);
+  const x0 = Math.round((cols - w) / 2), y0 = Math.round(top !== undefined ? top * S : S - h);
   const c = document.createElement('canvas'); c.width = w; c.height = h;
   const g = c.getContext('2d', { willReadFrequently: true }); if (!g) return null;
   g.imageSmoothingEnabled = true; g.imageSmoothingQuality = 'high'; g.drawImage(img, 0, 0, w, h);

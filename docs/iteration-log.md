@@ -897,3 +897,11 @@ Deploy (2026-10-14): PX-97 and PX-98 pushed as `ddae56b` on Timothy's “1”; l
 ## PX-99 — Settings menu hit area (2026-10-14, 0201)
 
 `chrome.css`: `.site-header` z-index `calc(var(--z-chrome) + 1)` (was equal to `.readout`'s). Hit test: nine points on each menu row at 1440, 900, 700 and 390 on Home, Work and CLI & MCP all land on the row (before: Motion blocked by `.readout`/`.st-clock` at 900 and 1440); a real mouse click on Motion toggles it. Evidence: `docs/iterations/pixel-v2/99-settings-hit/menu-open.png`.
+
+## PX-100 — Narrow-width fixes (2026-10-14, 0202)
+
+`blocks.css`: `.card{min-width:0}`, ≤700 `.cards{grid-template-columns:minmax(0,1fr)}`, ≤480 `.card-body>.mono` hidden and the title `grid-column:1/-1`. `home/Hero.svelte`: `.hero-actions` static under the copy at ≤900 (the ≤700 copy of the rule removed). `contact/+page.svelte`: Band `feather={12} depth={0.85} clearFeather={3}`. Checks: a live resize from 1280 → 1000 → 700 → 432 and → 320 on all 16 pages leaves nothing wider than the window (before: Home and Work cards stuck at 544px in a 432 window); typed line vs actions overlap measured at 701–1600 (before: overlap at 701–899); fresh loads at 320–1000 overflow-free. Evidence: `docs/iterations/pixel-v2/100-narrow-fixes/`. Note: the in-app pane shows the site's 16px scrollbar; Playwright headless hides scrollbars, which is why earlier width checks did not use the same content width.
+
+## PX-101 — Portrait hero picture (2026-10-14, 0203)
+
+`scene.ts` `layoutMountains`: portrait `h = max(cols/aspect × 1.5, 0.8 S)` (was `cols/aspect × 1.5`), `y0 = S − h` (was `0.58 S − h`); `SHOTS.hero.port.cy` 0.42. Landscape, study strips and the share images are unchanged (study strips hang from `top`; the share images are landscape). Captured with motion on at 330×940, 390×844, 768×1024 and 920×1900. Evidence: `docs/iterations/pixel-v2/101-portrait-hero/` (`before.png`, `after.png`).

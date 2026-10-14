@@ -85,11 +85,12 @@
 :global(.motion .hero-hint) .arrow{animation:nudge var(--tick-cursor) steps(2,jump-none) infinite}
 @keyframes nudge{from{transform:translateY(0)}to{transform:translateY(2px)}}
 @media(max-width:1100px){.hero-name{font-size:258px;line-height:264px}}
+/* below 900 the copy reaches the actions' column, so they join the flow under it (0202) */
+@media(max-width:900px){.hero-actions{position:static;flex-direction:row;margin-top:var(--s2);align-self:flex-start}}
 @media(max-width:700px){
   .hero-sec{--chrome:104px}
   .hero-sec :global(.hero){padding-bottom:var(--s6)}
   .hero-name{font-size:129px;line-height:136px}
-  .hero-actions{position:static;flex-direction:row;margin-top:var(--s2);align-self:flex-start}
   .hero-role{max-width:none}
 }
 </style>

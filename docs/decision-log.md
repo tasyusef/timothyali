@@ -2389,3 +2389,23 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Decision:** above 700px the status strip (same z-index as the header, later in the page) sat over the open settings menu and took the clicks on Motion and the top of Theme. The header is now one layer above the strip, so the menu covers the clock and both rows take clicks across their whole box.
 - **Assistant's choices inside it:** the fix (stacking order).
 - **Status:** a bug fix on his report; committed and pushed on his “commit and push” (2026-10-14).
+
+## 0202 — Narrow-width fixes: cards, hero actions, Contact knockout
+
+- **Date:** 2026-10-14
+- **Direction:** Timothy, with screenshots from a narrow browser pane: “the layout breaks”, “at smaller widths the case study cards overflow off screen”, “contact page hero text is underneath the ascii art here”.
+- **Decision:**
+  - **Cards:** below 700px the card grid is `minmax(0,1fr)` (was `1fr`) and a card has `min-width:0`. A figure holds a pixel height worked out from its width; with `1fr`, after the window narrowed, that height kept the card at its old width, so cards ran off the right edge until a reload.
+  - **Hero actions:** below 900px Selected work and Resume join the flow under the copy (was below 700); from 701 to 899 the typed line ran under them.
+  - **Contact knockout:** the title's cutout matches Home's (depth 0.85, 12-cell fade, was 0.6 / 3), so the title no longer sits on the art on phones.
+  - **Card arrow:** at 480 and below the card's arrow is hidden and the title takes the full width; “POCKETWATCH” ran into the arrow at about 375.
+- **Assistant's choices inside it:** all four fixes and their breakpoints.
+- **Status:** bug fixes on his report; committed and pushed on his “commit and push” (2026-10-14).
+
+## 0203 — On tall screens the hero's picture reaches the text
+
+- **Date:** 2026-10-14
+- **Direction:** Timothy, with phone and tablet screenshots: “hero content still appears outside of the hero”, “does it on tablet as well”.
+- **Decision:** on any screen taller than it is wide, the mountains are sized like the landscape shot's (at least 0.8 of the screen tall, cropped at the sides) with their foot on the first screen's foot, and the planet sits just above the peaks (`cy` 0.4 → 0.42). Before, they were sized to the width with their foot at 0.58 of the screen, so the name and buttons stood on empty ground under a small picture. This reverses the earlier portrait choice to keep the peaks in open sky above the copy.
+- **Assistant's choices inside it:** the sizing and positions (after trying the foot at 0.86 and at 0.74, which buried the peaks or kept the gap).
+- **Status:** his report; committed and pushed with 0202 on his “commit and push” (2026-10-14).

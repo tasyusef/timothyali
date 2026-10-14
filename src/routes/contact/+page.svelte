@@ -11,7 +11,7 @@
 <!-- One screen, no scroll on a desktop (0173): the copy on the left over the giant rising from
      the foot of the window, the form on the right. Below 1101px the two stack and the page scrolls. -->
 <main id="main" class="contact-main" tabindex="-1">
-  <Band class="contact" mode="scene" shot="rise" seed={3} tick={TICK_SLOW} palette="scene" cell={8} px={1} lightAs="dither" hug pad={0} feather={3} depth={0.6} avoid=".contact h1 > span" clear=".contact-foot .page-foot > *">
+  <Band class="contact" mode="scene" shot="rise" seed={3} tick={TICK_SLOW} palette="scene" cell={8} px={1} lightAs="dither" hug pad={0} feather={12} depth={0.85} clearFeather={3} avoid=".contact h1 > span" clear=".contact-foot .page-foot > *">
     <div class="contact-copy">
       <h1><span class="display intro">Tell me what<br />you’re</span><span class="blackletter display-xl building"><Decode text="building." step={STEP_FAST} /></span></h1>
       <div class="contact-foot"><PageFoot note="Interface / motion / code" href="/work/" label="See my work" /></div>
