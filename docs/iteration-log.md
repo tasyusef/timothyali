@@ -891,3 +891,5 @@ Deploy (2026-10-14): PX-96 pushed as `6896e52`; the new `og/work.png` was served
 ## PX-98 — CLI & MCP one column, wrapping code (2026-10-14, 0200)
 
 `toolbox/agents/+page.svelte`: `.text` is a flex column (was ⅓ | ⅔ grid), `.side` 64ch; the ≤900 override for `.text`/`.rules` removed. `Code.svelte`: each line a `.ln` block, words split so short ones are `.w` (nowrap) and a one-character word joins the word before; the alignment spaces before a comment are `.pad`. `blocks.css` `.code`: `white-space:pre-wrap; overflow-wrap:anywhere` (was `pre` + `overflow-x:auto`), `.ln` hanging indent 2ch, ≤700 `.pad` hidden and `.c` a block. No code block scrolls sideways (8 on CLI & MCP, 1 per tool page) at 1440 or 390; no page overflow; check passes. Evidence: `docs/iterations/pixel-v2/98-cli-layout/`.
+
+Deploy (2026-10-14): PX-97 and PX-98 pushed as `ddae56b` on Timothy's “1”; live about 4 min later (CLI & MCP serves the wrapping code lines; a tool page answered 200).
