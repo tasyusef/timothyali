@@ -837,3 +837,5 @@ Deploy (2026-10-13): PX-82 pushed as `6330725`; the new `work-pocketwatch.png` w
 ## PX-87 — Phone pass on Home, Work and Contact (2026-10-13, 0188)
 
 `scene.ts` `below()`: × a portrait fade (cols/S < 0.9: 1 until 1.0 screen, 0 by 1.3). `home/WorkList.svelte`: ≤700 hides `.bar`, `.meta` and the row CTA, shows a quiet “Case study” link. `work/+page.svelte`: ≤700 hides `.head-index`, `.row-meta`, `.entry-year`, `.entry-scope` and the entries' quiet CTA. `contact/+page.svelte`: ≤700 hides `.contact-foot`. Page heights at 390: Home 3808 → 3328, Work 4336 → 3616, Contact 1344 → 1264. No overflow at 320/390/900/1440; no page errors. Evidence: `docs/iterations/pixel-v2/87-phone-pages/` (`sheet-light.png`, `sheet-dark.png`, full pages at 390 and 320).
+
+Deploy (2026-10-13): PX-83 to PX-87 pushed as `cb2826d` on Timothy's word; the new Home markup was live about 3.5 min later; Home, Work, Contact and `/work/sonde/` answered 200.
