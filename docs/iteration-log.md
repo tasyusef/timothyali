@@ -881,3 +881,5 @@ Deploy (2026-10-13): PX-93 to PX-95 pushed as `68005f9` on Timothy's “commit a
 ## PX-96 — Work share image (2026-10-13, 0198)
 
 `og/[id]` work: `.og-work` grid (title column | 688px), `.og-grid` 3 columns of `.card.og-card` over `[...projects, ...index]`; `IndexRow` and `last` imports removed. `static/og/work.png` regenerated; `social:verify` passes. Evidence: `docs/iterations/pixel-v2/96-work-share/work.png`.
+
+Deploy (2026-10-14): PX-96 pushed as `6896e52`; the new `og/work.png` was served byte-identical about 4 min later.
