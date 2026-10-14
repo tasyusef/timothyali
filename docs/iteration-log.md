@@ -883,3 +883,11 @@ Deploy (2026-10-13): PX-93 to PX-95 pushed as `68005f9` on Timothy's “commit a
 `og/[id]` work: `.og-work` grid (title column | 688px), `.og-grid` 3 columns of `.card.og-card` over `[...projects, ...index]`; `IndexRow` and `last` imports removed. `static/og/work.png` regenerated; `social:verify` passes. Evidence: `docs/iterations/pixel-v2/96-work-share/work.png`.
 
 Deploy (2026-10-14): PX-96 pushed as `6896e52`; the new `og/work.png` was served byte-identical about 4 min later.
+
+## PX-97 — CLI & MCP trimmed (2026-10-14, 0199)
+
+`toolbox/agents/+page.svelte`: sections Set up, The command line (three notes, one column), Advanced (`advanced + library` in one `Code`), Options (four `QuietLink`s to `/toolbox/<slug>/#cli`), List, Run (command + result), Serve; `Options` import and `failed` removed. `toolbox/[tool]/+page.svelte`: the CLI section has `id="cli"` and `.text` a 96px scroll margin (the link lands the section just under the header). No overflow; no page errors; build and `social:verify` pass. Evidence: `docs/iterations/pixel-v2/97-cli-trim/` (`desktop-light.png`, `desktop-dark.png`, `phone.png`).
+
+## PX-98 — CLI & MCP one column, wrapping code (2026-10-14, 0200)
+
+`toolbox/agents/+page.svelte`: `.text` is a flex column (was ⅓ | ⅔ grid), `.side` 64ch; the ≤900 override for `.text`/`.rules` removed. `Code.svelte`: each line a `.ln` block, words split so short ones are `.w` (nowrap) and a one-character word joins the word before; the alignment spaces before a comment are `.pad`. `blocks.css` `.code`: `white-space:pre-wrap; overflow-wrap:anywhere` (was `pre` + `overflow-x:auto`), `.ln` hanging indent 2ch, ≤700 `.pad` hidden and `.c` a block. No code block scrolls sideways (8 on CLI & MCP, 1 per tool page) at 1440 or 390; no page overflow; check passes. Evidence: `docs/iterations/pixel-v2/98-cli-layout/`.

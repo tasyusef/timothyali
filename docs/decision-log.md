@@ -2365,3 +2365,19 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Decision:** “work.” at 172px on the left, a 3×3 grid of cards on the right, one per study, the cover on the card mat (no titles, no counter); the mountain strip behind as before. Replaces the head with “Project index 01–09” and four labelled covers.
 - **Assistant's choices inside it:** the composition, covers without titles.
 - **Status:** his direction; committed and pushed on his “push” (2026-10-14).
+
+## 0199 — CLI & MCP trimmed
+
+- **Date:** 2026-10-14
+- **Direction:** Timothy asked how to trim the CLI & MCP page, then “do all of them then show me screenshots” (all five of the assistant's cuts).
+- **Decision:** the four option tables are replaced by links to each tool page's CLI section (`#cli`), where the same tables live; “Print colors & type” and “Preview & saved work” are one “Advanced” section with one code block; Run keeps the command and its result (the failure is described in a sentence); the “Machine mode 01/02/03” eyebrows and the foot note are gone; the command line's seven notes are three (Inputs, Lists and switches, Output), one per row. No command or option is lost. 10,832 → 4,168px at 1440; 17,832 → 6,488px at 390.
+- **Assistant's choices inside it:** the five cuts (proposed, picked by him), the condensed wording.
+- **Status:** his direction; committed and pushed with 0200 on his “1” (2026-10-14).
+
+## 0200 — CLI & MCP in one column; commands wrap
+
+- **Date:** 2026-10-14
+- **Direction:** Timothy: the side-by-side sections “end up with these big blocks of empty space underneath” the shorter column, and “you have to scroll horizontally to read the whole thing”.
+- **Decision:** each CLI & MCP section is one column: heading and explanation (64ch), then the commands at full width under them. Code blocks wrap instead of scrolling; a wrapped line hangs two characters in under its start; flags and short values never break inside (`--out .` stays whole); a long path or JSON array may break anywhere. On phones a `# comment` drops under its command. Applies to every `Code` block, so the CLI section on each tool page wraps too.
+- **Assistant's choices inside it:** one column (over a wider code column), the hanging indent, the word rules, comments under commands on phones.
+- **Status:** his direction; committed and pushed on his “1” (2026-10-14).
