@@ -907,3 +907,7 @@ Deploy (2026-10-14): PX-97 and PX-98 pushed as `ddae56b` on Timothy's “1”; l
 `scene.ts` `layoutMountains`: portrait `h = max(cols/aspect × 1.5, 0.8 S)` (was `cols/aspect × 1.5`), `y0 = S − h` (was `0.58 S − h`); `SHOTS.hero.port.cy` 0.42. Landscape, study strips and the share images are unchanged (study strips hang from `top`; the share images are landscape). Captured with motion on at 330×940, 390×844, 768×1024 and 920×1900. Evidence: `docs/iterations/pixel-v2/101-portrait-hero/` (`before.png`, `after.png`).
 
 Deploy (2026-10-14): PX-99 pushed as `3d6e532` (live, `.site-header` z-index served); PX-100 and PX-101 pushed as `ddff449` on Timothy's “commit and push”, live about 5 min later (the card grid CSS served; Home, Work and Contact answered 200).
+
+## PX-102 — Pocketwatch at 320 (2026-10-14, 0204)
+
+`fit.ts` ladder `41, 27, 20`; `blocks.css` `.card-body [data-fit="20"], .row-body h2[data-fit="20"]` 20.625/24. At 320 on Home and Work no title overflows (before: Pocketwatch 286px in 256, plus Jade Aesthetics and FirstStrike Research on Work); 360 and 390 unchanged; no page overflow. Evidence: `docs/iterations/pixel-v2/102-pocketwatch-320/` (2× captures).

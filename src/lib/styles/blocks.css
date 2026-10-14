@@ -53,7 +53,8 @@
 .card .pic{background:var(--paper)}
 .card-body{display:grid;grid-template-rows:auto 1fr;grid-template-columns:minmax(0,1fr) auto;gap:var(--s1) var(--s2);align-items:start;flex:1;background:var(--paper);margin:0 calc(-1 * var(--s2)) calc(-1 * var(--s2));padding:var(--s2);min-width:0}
 .card-body h2,.card-body h3{min-width:0}
-.card-body [data-fit="27"]{font-size:27.5px;line-height:32px} /* a word wider than the card steps down (fitTitle, 0196) */
+.card-body [data-fit="27"]{font-size:27.5px;line-height:32px}
+.card-body [data-fit="20"],.row-body h2[data-fit="20"]{font-size:20.625px;line-height:24px} /* a word wider than the card steps down (fitTitle, 0196) */
 .card-body>.mono{align-self:start}
 .card:hover .card-body>.mono,.card:focus-visible .card-body>.mono{color:var(--accent-text)}
 .card-body .lbl,.card-body .desc{grid-column:1/-1}

@@ -2409,3 +2409,11 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Decision:** on any screen taller than it is wide, the mountains are sized like the landscape shot's (at least 0.8 of the screen tall, cropped at the sides) with their foot on the first screen's foot, and the planet sits just above the peaks (`cy` 0.4 → 0.42). Before, they were sized to the width with their foot at 0.58 of the screen, so the name and buttons stood on empty ground under a small picture. This reverses the earlier portrait choice to keep the peaks in open sky above the copy.
 - **Assistant's choices inside it:** the sizing and positions (after trying the foot at 0.86 and at 0.74, which buried the peaks or kept the gap).
 - **Status:** his report; committed and pushed with 0202 on his “commit and push” (2026-10-14).
+
+## 0204 — A card title's last step is 20.625
+
+- **Date:** 2026-10-14
+- **Direction:** Timothy: “fix the pocketwatch title at 320”.
+- **Decision:** `fitTitle` gets one more step after 27.5: 20.625/24 (`data-fit="20"`), the PARC Pixel Bold pixel at 1.5px, whole device pixels on the 2× screens 320px phones have. At 320 it applies to Pocketwatch, Jade Aesthetics and FirstStrike Research (each had a word wider than the card); from 360 up nothing changes. Hyphenating was tried first: the browser has no break for “Pocketwatch” and split it “POCKETWAT / CH”.
+- **Assistant's choices inside it:** the step and its size.
+- **Status:** his direction; committed and pushed on his “commit and push” (2026-10-14).
