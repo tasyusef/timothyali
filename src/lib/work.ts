@@ -95,7 +95,8 @@ const source: Source[] = [
     ],
     // The account page's content, cut from the 2560px capture (PX-52, PX-53): the app fills only
     // the middle of its frame, so the full capture showed its type at about 86%.
-    hero: [sc('account-overview', 1786, 1254, 'Sonde account page: balance, smart money score, risk profile, and counterparty graph', [536, 477])],
+    // on phones the hero is the cover, the logo over the portfolio (his correction to 0206); the account page is unreadable at that width
+    hero: [{ ...sc('account-overview', 1786, 1254, 'Sonde account page: balance, smart money score, risk profile, and counterparty graph'), phone: { src: '/work/sonde/cover.png', w: 2880, h: 1620 } }],
     // Six points, each with the screens it talks about (PX-52, 0136). A gallery note is the caption
     // under its screens; the crops keep each screen's type readable beside the text.
     blocks: [

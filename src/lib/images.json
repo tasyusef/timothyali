@@ -110,7 +110,6 @@
   "/work/sonde/cover.png": {"w":2880,"h":1620,"webp":[640,1000,1200,1600,2400]},
   "/work/sonde/cut/account-balance-phone.png": {"w":752,"h":309,"webp":[640,752]},
   "/work/sonde/cut/account-balance.png": {"w":1248,"h":413,"webp":[640,1000,1200,1248]},
-  "/work/sonde/cut/account-overview-phone.png": {"w":536,"h":477,"webp":[536]},
   "/work/sonde/cut/account-overview.png": {"w":1786,"h":1254,"webp":[640,1000,1200,1600,1786]},
   "/work/sonde/cut/ask-phone.png": {"w":861,"h":432,"webp":[640,861]},
   "/work/sonde/cut/ask.png": {"w":1786,"h":432,"webp":[640,1000,1200,1600,1786]},

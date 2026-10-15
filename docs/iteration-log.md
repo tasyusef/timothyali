@@ -941,3 +941,7 @@ Numbers after the fixes:
 - No overflow at 320 or 390, no page errors, the build passes, and `px61` passes. The desktop at 1440 is unchanged apart from the Work end row.
 
 Evidence: `docs/iterations/pixel-v2/104-mobile-audit/` (`shots/` before, `after/`).
+
+Deploy (2026-10-14): PX-103 and PX-104 pushed as `fb6778c` on Timothy's “commit and push”, live about 5 min later (the Toolbox phone note served; Home, Work, xrp.cafe, its phone encode, Lockup and Contact answered 200).
+
+Correction (2026-10-14): Timothy, on the Sonde study at phone width: “this new image for sonde on mobile doesnt belong as the hero image”. The hero's phone crop went back to the PX-53 crop (smart money, account profile and graph, 520×1048); on his “too tall”, a landing-page crop was tried and rejected (“what even is that”); the phone hero is now the Sonde cover, the logo over the portfolio (`cover.png`), his pick (“the cover is fine”). `account-overview-phone.png` is deleted (unused).
