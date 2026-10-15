@@ -972,3 +972,5 @@ Four read-only review agents covered SEO and site health, code audit, simplifica
 - Parity: 0 pixels differ across 37 captures.
 
 Evidence: `docs/iterations/pixel-v2/105-review-fixes/`.
+
+Deploy (2026-10-15): PX-105 pushed as `d788d9b` on Timothy's “Commit and push”, live about 5 min later. The new study titles and the CSP meta were served, `/hero/` was cached, the xrp.cafe file was 0.79 MB, and `/api/analytics` answered without a redirect. 14 live page loads at 1440 and 390 showed no CSP violations and no console errors.
