@@ -15,6 +15,17 @@
     lockup: 'Package your logos.', palette: 'Export your palette.',
     specimen: 'Make a type sheet.', convert: 'Convert and resize.'
   };
+  // A phone cannot install a desktop app (0206): on a touch screen the download section says so
+  // and offers to send the page on, through the share sheet or the clipboard.
+  let sent = $state('');
+  async function sendOn() {
+    const url = `${location.origin}/toolbox/#download`;
+    try {
+      if (navigator.share) { await navigator.share({ title: 'Toolbox', url }); return; }
+      await navigator.clipboard.writeText(url); sent = 'Link copied';
+    } catch { return; }
+    setTimeout(() => (sent = ''), 2400);
+  }
 </script>
 <svelte:head><title>Toolbox / Timothy Ali</title><meta name="description" content={APP.description} /></svelte:head>
 <main class="toolbox-landing" id="main" tabindex="-1">
@@ -51,6 +62,7 @@
     <div class="release-heading"><span class="lbl dim">v{APP.version}</span><h2 id="download-title" class="blackletter">Download.</h2></div>
     <div class="release-copy">
       <p class="body">Choose the build for your computer below. The releases page includes SHA-256 checksums to verify the downloaded file.</p>
+      <div class="on-phone"><p class="body">Toolbox runs on macOS and Linux. Open this page on your computer to install it.</p><button type="button" class="lbl send" onclick={sendOn}>{sent || 'Send the link to your computer'} <Arrow /></button></div>
       <ul class="downloads">
         {#each builds as b}
           <li><span class="lbl dim">{b.os}</span><span class="files">{#each b.files as f}<a class="body" href={f.href}>{f.label}</a>{/each}</span><span class="lbl dim note">{b.note}</span></li>
@@ -70,7 +82,7 @@
 .section-head{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);align-items:end;margin-bottom:var(--s6)}.section-head .body{max-width:34ch}
 .tool-picker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s1);margin-bottom:var(--s4)}
 .tool-picker button{padding:27px 16px 21px;display:flex;flex-direction:column;align-items:flex-start;position:relative;gap:var(--s2);background:var(--surface-card);text-align:left;min-width:0}
-.tool-picker button[aria-pressed=true]{background:var(--accent);color:var(--on-accent)}.tool-picker button:hover{background:var(--fg);color:var(--paper)}.tool-picker button:active{background:var(--accent);color:var(--on-accent)} /* press (0099) */
+.tool-picker button[aria-pressed=true]{background:var(--accent);color:var(--on-accent)}@media(hover:hover){.tool-picker button:hover{background:var(--fg);color:var(--paper)}}.tool-picker button:active{background:var(--accent);color:var(--on-accent)} /* press (0099) */
 .tool-picker .display-s{font-size:27.5px;line-height:32px}
 .tool-showcase{display:grid;grid-template-columns:round(down,calc((100% - 64px) / 3),8px) minmax(0,1fr);gap:var(--s8);align-items:start}
 .tool-story{padding-top:var(--s4);display:flex;flex-direction:column;gap:var(--s3)}.tool-story h3{max-width:16ch}
@@ -79,14 +91,20 @@
 .machine{--accent-text:var(--accent-on-fg);display:grid;grid-template-columns:1fr 1fr;gap:var(--s8);padding-top:var(--s8);padding-bottom:var(--s8);background:var(--fg);color:var(--paper)}
 .machine h2{margin-top:0}.machine-copy{display:flex;flex-direction:column;gap:var(--s3)}
 .command{padding:var(--s3);background:var(--paper);color:var(--fg);display:flex;flex-direction:column;gap:var(--s2)}.command code{font-family:var(--face-text)}.command :global(.cursor){height:24px;vertical-align:top}
-.machine :global(.quiet-link){align-self:flex-start}.machine :global(.quiet-link:hover){color:var(--accent-text)}.machine :global(.quiet-link:active){color:var(--on-accent)}
+.machine :global(.quiet-link){align-self:flex-start}@media(hover:hover){.machine :global(.quiet-link:hover){color:var(--accent-text)}}.machine :global(.quiet-link:active){color:var(--on-accent)}
 .release{padding-top:var(--s8);padding-bottom:var(--s4);display:grid;grid-template-columns:1fr 1fr;gap:var(--s8)}
 .release h2{font-size:129px;line-height:136px;margin-top:var(--s2)}.release-copy{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s3)}.downloads{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s2);align-self:stretch}
 .downloads li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0 var(--s2);align-items:baseline}
 .downloads .files{display:flex;gap:var(--s3);flex-wrap:wrap}
 .downloads .files a{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
-.downloads .files a:hover{color:var(--accent-text)}
+@media(hover:hover){.downloads .files a:hover{color:var(--accent-text)}}
 .downloads .note{grid-column:2}
+.on-phone{display:none;flex-direction:column;align-items:flex-start;gap:var(--s2);padding:var(--s2);background:var(--fg);color:var(--paper)}
+.on-phone .body{margin:0;max-width:38ch}
+.send{display:inline-flex;align-items:center;gap:var(--s1);padding:14px 16px 12px;margin:0 calc(-1 * var(--s2)) calc(-1 * var(--s2));align-self:stretch;background:var(--accent);color:var(--on-accent);border:0}
+.send:active{background:var(--paper);color:var(--fg)}
+@media(pointer:coarse) and (max-width:1100px){.on-phone{display:flex}.downloads .files a{padding:6px 0}} /* 44px to a finger (0206) */
+@media(max-width:700px){.downloads .note{font-family:var(--face-read);font-size:14px;line-height:24px;text-transform:none;-webkit-font-smoothing:antialiased}}
 .end :global(.page-foot){margin-top:var(--s4);margin-bottom:var(--s4)}
 noscript a{text-decoration:underline}
 @media(max-width:1100px){.tool-showcase{grid-template-columns:round(down,calc((100% - 32px) / 3),8px) minmax(0,1fr);gap:var(--s4)}.tool-story h3{font-size:27.5px;line-height:32px}.release h2{font-size:86px;line-height:88px}}

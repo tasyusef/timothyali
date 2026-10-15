@@ -13,7 +13,7 @@
   import { onMount } from 'svelte';
   import { figureHeight, type RowShare } from '$lib/figure';
   import manifest from '$lib/images.json';
-  let { src, x2, alt, width = 1600, height = 900, eager = false, sizes = '(min-width: 1440px) 1376px, calc(100vw - 64px)', row, phone }: { src: string; x2?: string; alt: string; width?: number; height?: number; eager?: boolean; sizes?: string; row?: RowShare; phone?: { src: string; w: number; h: number } } = $props();
+  let { src, x2, alt, width = 1600, height = 900, eager = false, sizes = '(min-width: 1440px) 1376px, calc(100vw - 64px)', row, phone, class: klass = '' }: { class?: string; src: string; x2?: string; alt: string; width?: number; height?: number; eager?: boolean; sizes?: string; row?: RowShare; phone?: { src: string; w: number; h: number } } = $props();
   const PHONE = '(max-width: 700px)';
   type Derived = { w: number; h: number; webp: number[] };
   const table = manifest as Record<string, Derived>;
@@ -35,7 +35,7 @@
     return () => ro.disconnect();
   });
 </script>
-<figure class="pic" class:art={!!phone} bind:this={host} style:--ar={`${width} / ${height}`} style:--ar-phone={phone ? `${phone.w} / ${phone.h}` : undefined}>
+<figure class="pic {klass}" class:art={!!phone} bind:this={host} style:--ar={`${width} / ${height}`} style:--ar-phone={phone ? `${phone.w} / ${phone.h}` : undefined}>
   <picture>{#if phone}{#if phoneWebp}<source media={PHONE} type="image/webp" srcset={phoneWebp} sizes="100vw" width={phone.w} height={phone.h} />{/if}<source media={PHONE} srcset={phone.src} width={phone.w} height={phone.h} />{/if}{#if webp}<source type="image/webp" srcset={webp} {sizes} {width} {height} />{/if}<img bind:this={img} class:arrive {src} srcset={x2 ? `${src} ${width}w, ${x2} ${Math.round(width * 1.75)}w` : undefined} sizes={x2 ? sizes : undefined} {alt} {width} {height} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : undefined} decoding="async" /></picture>
 </figure>
 <style>

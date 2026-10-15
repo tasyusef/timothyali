@@ -35,13 +35,14 @@ main :global(.contact){flex:1;position:relative;isolation:isolate;overflow:hidde
 h1{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);margin:0}
 .intro{line-height:64px}
 .building{font-size:258px;line-height:264px}
-.contact-note{--accent-text:var(--accent-on-fg);align-self:end;background:var(--fg);color:var(--paper);padding:var(--s3);display:flex;flex-direction:column;gap:var(--s2)}
+.contact-note{--accent-text:var(--accent-on-fg);--dim:.65;align-self:end;background:var(--fg);color:var(--paper);padding:var(--s3);display:flex;flex-direction:column;gap:var(--s2)}
 .contact-note .body{max-width:38ch;margin:0}
 .contact-note :global(.cta-row){flex-wrap:nowrap}
-.contact-note :global(.cta-row:hover),.contact-note :global(.cta-row:focus-visible){background:var(--paper);color:var(--fg)}
+.contact-note :global(.cta-row:focus-visible){background:var(--paper);color:var(--fg)}@media(hover:hover){.contact-note :global(.cta-row:hover){background:var(--paper);color:var(--fg)}}
 .contact-note :global(.cta-row:active){background:var(--accent);color:var(--on-accent)} /* press (0099) */
 .contact-note :global(.alt){opacity:var(--dim)}
 .contact-links{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3)}
+@media(pointer:coarse){.contact-links{gap:var(--s3)}} /* room for each link's 40px reach (0206) */
 /* to fit one screen: name and email share a row, the message is three lines */
 .contact-note :global(.contact-form){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--s2)}
 .contact-note :global(.contact-form>*:nth-child(n+3)){grid-column:1/-1}

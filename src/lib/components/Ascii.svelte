@@ -73,11 +73,16 @@
 
   // --- pointer heat -------------------------------------------------------
   const local = (e: PointerEvent) => { const r = canvas.getBoundingClientRect(); return { x: (e.clientX - r.left) / cell, y: (e.clientY - r.top) / cell }; };
-  function onMove(e: PointerEvent) { if (!interactive) return; pointer = local(e); if (!motion.on) cool(); }
-  function onLeave() { pointer = null; if (!motion.on) cool(); }
-  function onDown(e: PointerEvent) { if (!interactive) return; bursts.push({ ...local(e), t: 0 }); if (bursts.length > MAX_BURSTS) bursts.shift(); if (!motion.on) cool(); }
+  function onMove(e: PointerEvent) { if (!interactive) return; pointer = local(e); warm(); if (!motion.on) cool(); }
+  function onLeave() { pointer = null; warm(); if (!motion.on) cool(); }
+  function onDown(e: PointerEvent) { if (!interactive) return; warm(); bursts.push({ ...local(e), t: 0 }); if (bursts.length > MAX_BURSTS) bursts.shift(); if (!motion.on) cool(); }
   // a quick second click on the bare field would select the nearest words; only there, not on text or controls
   function onMouseDown(e: MouseEvent) { if (interactive && e.detail > 1 && !(e.target as Element | null)?.closest('a, button, input, textarea, select, label, p, h1, h2, h3, h4, li, dt, dd, figure, img, span')) e.preventDefault(); }
+  // Heat and rings keep the field painting every frame for a while after the pointer last moved:
+  // 0.94 a frame falls under 0.03 in about two seconds, and a ring crosses its reach in about one.
+  // Past that, a frame repaints only when the field's tick or the scroll position has changed (0206).
+  let warmUntil = 0;
+  const warm = () => { warmUntil = performance.now() + 2500; };
   // heat and rings run on elapsed time, so they look the same at 60 or 120 frames a second
   function stir(dt: number) {
     if (!interactive || heat.length !== cols * rows) return;
@@ -220,6 +225,10 @@
   }
   function resize() {
     const r = host.getBoundingClientRect(); dpr = Math.max(1, Math.min(3, Math.round(window.devicePixelRatio || 1)));
+    // a page-tall field (Home) at 3× was 11–14 Mpx, near the ~16.7 Mpx a canvas may have on iOS
+    // before it draws nothing: past three screens it backs at 2×, and never past 8 Mpx (0206)
+    if (r.height > 3 * window.innerHeight) dpr = Math.min(dpr, 2);
+    while (dpr > 1 && r.width * r.height * dpr * dpr > 8e6) dpr--;
     const pageX = r.left + window.scrollX, pageY = r.top + window.scrollY; const g = cell;
     offX = ((pageX % g) + g) % g; offY = ((pageY % g) + g) % g;
     cols = Math.ceil((r.width + offX) / cell); rows = Math.ceil((r.height + offY) / cell);
@@ -230,25 +239,36 @@
     if (heat.length !== cols * rows) heat = new Float32Array(cols * rows);
     canvas.width = cols * cell * dpr; canvas.height = rows * cell * dpr; canvas.style.width = cols * cell + 'px'; canvas.style.height = rows * cell + 'px';
     canvas.style.left = -offX + 'px'; canvas.style.top = -offY + 'px';
-    ctx = canvas.getContext('2d'); baseDirty = true; if (due) draw(true);
+    ctx = canvas.getContext('2d'); baseDirty = true; if (due) draw(!motion.on); // with motion on the loop paints rows as they scroll in
   }
+  // the observers, the fonts and the picture each asked for a full resize at load (six in 75 ms): one per frame now
+  let resizeQueued = 0;
+  const queueResize = () => { if (!resizeQueued) resizeQueued = requestAnimationFrame(() => { resizeQueued = 0; resize(); }); };
   // each field lays out its own copy of the picture (0173), so two scenes never share one
   let mountainImg: HTMLImageElement | null = null; let mtn: Mountains | null = null;
   onMount(() => {
-    if (mode === 'scene' && mountains && shotHasRidge(shot)) { mountainImg = new Image(); mountainImg.onload = () => resize(); mountainImg.src = MOUNTAIN_REFS[mountains]; }
+    if (mode === 'scene' && mountains && shotHasRidge(shot)) { mountainImg = new Image(); mountainImg.onload = () => queueResize(); mountainImg.src = MOUNTAIN_REFS[mountains]; }
     const r0 = host.getBoundingClientRect(); visible = due = r0.bottom > -64 && r0.top < window.innerHeight + 64;
-    const ro = new ResizeObserver(resize); ro.observe(host); ro.observe(document.body); resize(); document.fonts?.ready.then(resize);
+    const ro = new ResizeObserver(queueResize); ro.observe(host); ro.observe(document.body); resize(); document.fonts?.ready.then(queueResize);
     const io = new IntersectionObserver((es) => es.forEach((e) => { visible = e.isIntersecting; if (visible && !due) { due = true; draw(true); } }), { rootMargin: '64px' }); io.observe(host);
     const band = (host.closest('.band') as HTMLElement | null) ?? host;
     band.addEventListener('pointermove', onMove); band.addEventListener('pointerleave', onLeave); band.addEventListener('pointerdown', onDown); band.addEventListener('mousedown', onMouseDown);
-    return () => { ro.disconnect(); io.disconnect(); band.removeEventListener('pointermove', onMove); band.removeEventListener('pointerleave', onLeave); band.removeEventListener('pointerdown', onDown); band.removeEventListener('mousedown', onMouseDown); if (cooling) clearInterval(cooling); };
+    return () => { cancelAnimationFrame(resizeQueued); ro.disconnect(); io.disconnect(); band.removeEventListener('pointermove', onMove); band.removeEventListener('pointerleave', onLeave); band.removeEventListener('pointerdown', onDown); band.removeEventListener('mousedown', onMouseDown); if (cooling) clearInterval(cooling); };
   });
   $effect(() => { void theme.light; if (!due) return; baseDirty = true; if (mode === 'scene' && ctx) resize(); else draw(true); }); // the scene re-lays its picture for the dither grid
   $effect(() => {
     if (!motion.on) { frame = 0; if (due) draw(true); return; }
-    // one paint per display frame, so the pointer's heat keeps up with the cursor (PX-66)
-    const start = performance.now(); let id = 0;
-    const loop = (now: number) => { id = requestAnimationFrame(loop); if (!visible) return; frame = Math.floor((now - start) / tick); draw(); };
+    // one paint per display frame while the pointer's heat is live, so it keeps up with the cursor
+    // (PX-66); otherwise only when the tick or the scroll moved (0206): a phone has no hover, and
+    // repainting an unchanged field 60–120 times a second cost Home two thirds of a slow phone's main thread
+    const start = performance.now(); let id = 0, paintedFrame = -1, paintedTop = NaN;
+    const loop = (now: number) => {
+      id = requestAnimationFrame(loop); if (!visible) return;
+      frame = Math.floor((now - start) / tick);
+      const top = canvas.getBoundingClientRect().top;
+      if (frame === paintedFrame && top === paintedTop && now > warmUntil && !pointer && !bursts.length) { last = now; return; }
+      paintedFrame = frame; paintedTop = top; draw();
+    };
     id = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(id);
   });

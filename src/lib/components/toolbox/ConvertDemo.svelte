@@ -82,7 +82,7 @@
   });
   const total = $derived(files.reduce((n, f) => n + active.reduce((m, fmt) => m + (sizes[`${f.id}/${fmt}`] ?? 0), 0), 0));
 </script>
-<div class="readout lbl"><span class="path">~/Toolbox/Convert</span><span>{files.length} files</span></div>
+<div class="readout lbl"><span class="path"><span class="pre">~/Toolbox/</span>Convert</span><span>{files.length} files</span></div>
 <div class="split">
   <div class="stage">
     <div class="stack">

@@ -2425,3 +2425,20 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Decision:** on each tool page, CLI & MCP is the heading, the explanation (64ch), then the example command, the options table and the setup link under it, as on the CLI & MCP page (0200). “When to use it” and “Exported files” keep their two columns. In the options table a choice list breaks only after a “|”, never inside a choice (“library-remove” stays whole).
 - **Assistant's choices inside it:** the break rule in the options table.
 - **Status:** his direction; committed on his “commit” (2026-10-14), not pushed.
+
+## 0206 — The mobile audit's 32 fixes
+
+- **Date:** 2026-10-14
+- **Direction:** Timothy: “do a full audit throughout the site on mobile. see if you spot anything that would be bad for users or could be improved”, then on the 32 findings: “do them all”.
+- **Decision:** all 32 findings in `docs/iterations/pixel-v2/104-mobile-audit/findings.md` fixed. The main points:
+  - The texture field redraws only when it changes, and the page-tall Home canvas is capped at 2× density.
+  - Videos have a play button and a pause button. Phones get small encodes (xrp.cafe 8.5 MB → 0.44 MB) and WebP posters.
+  - Study images get phone-sized `sizes`. Phone crops cover Toolbox, Pocketwatch, First Ledger and the three product covers. A study shows its first image on the first screen, with the meta list after the work. Captions sit above their image in the reading face, and reading text is 16/24 on phones.
+  - Hover rules apply only where a device can hover. Main actions, nav, settings and demo controls get 44px touch areas. The dim grey is .65 on light grounds.
+  - Toolbox tells phones it is desktop software and offers to send the link. Tool options fold away on phones. CLI & MCP gets a jump list.
+  - The 404 page loses its label row and its second link. Work ends on the invitation row. Smaller fixes: PARC Pixel is inlined, the Home hero holds its prerendered text before typing, the contact form shows a message without JavaScript, and a grid's card titles share one size.
+- **Assistant's choices inside it:**
+  - The phone crops and which PARC/Jade images are desktop-only.
+  - Captions above images, the 16/24 reading size, and the video button design.
+  - The Toolbox phone note's copy, the 404 cuts, the Work end row, and the jump-list labels.
+- **Status:** his direction; implemented, uncommitted.

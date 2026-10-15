@@ -12,7 +12,7 @@
 //
 // Skipped: `static/og` (share images must stay PNG at 1200×630), the Convert demo's
 // thumbnails (`static/toolbox/convert-*`, 96px), `@2x` masters themselves, and the
-// derivatives this script wrote. The ladder is 640, 1000, 1600 and 2400, capped at the master’s own width: a 1376px frame at 2× is served the 2400.
+// derivatives this script wrote. The ladder is 640, 1000, 1200, 1600 and 2400, capped at the master’s own width: a 1376px frame at 2× is served the 2400.
 import sharp from 'sharp';
 import { readdirSync, statSync, existsSync, writeFileSync, readFileSync } from 'node:fs';
 import { join, relative, dirname, basename, extname } from 'node:path';
@@ -21,7 +21,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 const STATIC = join(ROOT, 'static');
 const MANIFEST = join(ROOT, 'src/lib/images.json');
-const LADDER = [640, 1000, 1600, 2400];
+const LADDER = [640, 1000, 1200, 1600, 2400]; // 1200 (0206): a phone at 3× needs about 1074px, and was served the 1600
 const force = process.argv.includes('--force');
 const check = process.argv.includes('--check');
 

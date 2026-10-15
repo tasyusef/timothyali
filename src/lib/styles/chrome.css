@@ -22,8 +22,8 @@
 .site-header nav a{display:block;padding:9px 14px 7px 16px}
 .site-header nav a b{font-weight:400;opacity:var(--dim);margin-right:var(--s1)}
 .site-header nav a[aria-current]{background:var(--accent);color:var(--on-accent)}
-.site-header nav a:hover{background:var(--fg);color:var(--paper)}
-.site-header nav a[aria-current] b,.site-header nav a:hover b{opacity:1}
+@media(hover:hover){.site-header nav a:hover{background:var(--fg);color:var(--paper)}}
+.site-header nav a[aria-current] b{opacity:1}@media(hover:hover){.site-header nav a:hover b{opacity:1}}
 
 /* Settings (0168): a 32px cog block at the end of the nav, 8px after Toolbox like the links'
    own gap; it opens a menu of the two toggles, an inverted block with no rules (0049). */
@@ -31,11 +31,11 @@
 .settings:not(.ready){visibility:hidden}
 .settings .cog{display:block;padding:var(--s1)}
 .settings .cog svg{display:block}
-.settings .cog:hover,.settings .cog[aria-expanded=true]{background:var(--fg);color:var(--paper)}
+.settings .cog[aria-expanded=true]{background:var(--fg);color:var(--paper)}@media(hover:hover){.settings .cog:hover{background:var(--fg);color:var(--paper)}}
 .settings-menu{position:absolute;top:calc(100% + var(--s1));right:0;display:flex;flex-direction:column;width:192px;background:var(--fg);color:var(--paper)}
 .settings-menu[hidden]{display:none}
 .settings-menu button{display:flex;justify-content:space-between;padding:9px 14px 7px 16px;text-align:left}
-.settings-menu button:hover,.settings-menu button:focus-visible{background:var(--accent);color:var(--on-accent)}
+.settings-menu button:focus-visible{background:var(--accent);color:var(--on-accent)}@media(hover:hover){.settings-menu button:hover{background:var(--accent);color:var(--on-accent)}}
 
 /* One flexible gap, not space-between: leftover width split four ways lands the items on
    thirds of a pixel and blurs the bitmap face (0089). The place sits with the path, the
@@ -82,7 +82,22 @@
 @media(max-width:420px){
   /* CONTACT and TOOLBOX are 82px each, wider than a quarter of 320: below the phone
      floor the four items take their own widths and share what is left (0092). */
-  .site-header nav a,.site-header nav a:last-child{flex:1 1 auto;width:auto;display:block;padding:9px 0 7px 2px}
+  /* The tracks are weighted by their words (INDEX 6, WORK 5, CONTACT 8, the rest TOOLBOX) and
+     floored to 2px, so every label starts on a whole pixel, and the row keeps an 8px margin;
+     shared out by flex they fell on quarter pixels and INDEX sat 6.5px from the edge (0206). */
+  .site-header nav{padding:0 var(--s1)}
+  .site-header nav a{flex:none;display:block;padding:9px 0 7px 2px}
+  .site-header nav a:nth-child(1){width:round(down,calc(100% * 6 / 26),2px)}
+  .site-header nav a:nth-child(2){width:round(down,calc(100% * 5 / 26),2px)}
+  .site-header nav a:nth-child(3){width:round(down,calc(100% * 8 / 26),2px)}
+}
+/* On a touch screen the chrome's 32px rows reach 44px to a finger without changing the look:
+   the nav and the cog grow an invisible margin, and the menu rows grow (0206). */
+@media(pointer:coarse){
+  .site-header nav a,.settings .cog{position:relative}
+  .site-header nav a::after{content:'';position:absolute;inset:-6px 0}
+  .settings .cog::after{content:'';position:absolute;inset:-6px}
+  .settings-menu button{padding-top:15px;padding-bottom:13px}
 }
 
 /* PX-22: Home's footer sits a step looser; its toggles moved to the nav's cog (0168). */

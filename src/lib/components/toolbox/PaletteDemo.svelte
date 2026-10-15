@@ -29,7 +29,7 @@
   const at = (i: number) => colors[i % colors.length].hex;
   const setHex = (i: number, v: string) => { const h = normalizedHex(v); if (h) colors[i].hex = h; };
 </script>
-<div class="readout lbl"><span class="path">~/Toolbox/Palette</span><span>{colors.length} colors</span></div>
+<div class="readout lbl"><span class="path"><span class="pre">~/Toolbox/</span>Palette</span><span>{colors.length} colors</span></div>
 <div class="split">
   <div class="stage">
     <div class="mat art">
@@ -89,7 +89,8 @@
 .sheet{width:100%;padding:var(--s3);font:400 11px/16px 'Helvetica Neue',Helvetica,Arial,sans-serif;color:#737373;-webkit-font-smoothing:auto;display:flex;flex-direction:column;gap:var(--s2)}
 .sheet>b{font-size:20px;line-height:24px;color:#121212;padding-bottom:var(--s1)}.sheet .row{display:flex;gap:var(--s2);align-items:flex-start}.sheet .row i{display:block;width:96px;height:56px;border-radius:6px;box-shadow:inset 0 0 0 .5px rgba(0,0,0,.12);flex:none}.sheet .row div{display:flex;flex-direction:column}.sheet .row b{color:#121212;font-size:13px}
 .reel{display:flex;gap:var(--s1);align-items:center;min-height:16px}
-.color-row{display:flex;align-items:center;gap:var(--s1);min-height:var(--s4)}.color-row .swatch-chip{width:32px;height:32px}.color-row .hex{width:120px;flex:none}.color-row .field-plain{flex:1;min-width:0}.x{padding:var(--s1);opacity:var(--dim)}.x:hover{opacity:1}
-@media(max-width:700px){.art{min-height:0}.poster{width:192px;height:256px}.preview{min-height:0}}
+.color-row{display:flex;align-items:center;gap:var(--s1);min-height:var(--s4)}.color-row .swatch-chip{width:32px;height:32px}.color-row .hex{width:120px;flex:none}.color-row .field-plain{flex:1;min-width:0}.x{padding:var(--s1);opacity:var(--dim)}@media(hover:hover){.x:hover{opacity:1}}
+@media(max-width:700px){.art{min-height:0}.poster{width:192px;height:256px}.preview{min-height:0}.preview pre{white-space:pre-wrap;overflow-wrap:anywhere}} /* the CSS wraps, not clipped at oklch(37 (0206) */
+@media(pointer:coarse){.x{min-width:44px;min-height:44px}}
 @media(max-width:420px){.color-row .hex{width:104px}.sheet .row i{width:64px;height:40px}.sheet{padding:var(--s2)}}
 </style>

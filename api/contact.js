@@ -27,7 +27,7 @@ async function readForm(request) {
 
 function answer(request, status, body) {
   const wantsHtml = !(request.headers.get('accept') ?? '').includes('application/json') && (request.headers.get('accept') ?? '').includes('text/html');
-  if (wantsHtml) return Response.redirect(`${SITE}/contact/?${body.ok ? 'sent=1' : 'error=' + encodeURIComponent(body.error)}#contact-form`, 303);
+  if (wantsHtml) return Response.redirect(`${SITE}/contact/?${body.ok ? 'sent=1' : 'error=' + encodeURIComponent(body.error)}#${body.ok ? 'contact-sent' : 'contact-failed'}`, 303);
   return new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
 }
 

@@ -1,0 +1,2041 @@
+{
+  "/ @390": {
+    "status": 200,
+    "bytes": 2521174,
+    "errors": [],
+    "docH": 3416,
+    "screens": 4,
+    "headerH": 104,
+    "h1": [
+      "i’m tim."
+    ],
+    "title": "Timothy Ali / Product designer",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.cta-hint.hero-hint \"Selected work\" 206x32",
+      "a.quiet-link.lbl \"Resume ->\" 112x16",
+      "a.all.lbl \"All work ->\" 148x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "a.cta-hint.hero-hint \"Selected work\" 12.5px",
+      "a.quiet-link.lbl \"Resume ->\" 12.5px",
+      "a.all.lbl \"All work ->\" 12.5px",
+      "a.cta-row.lbl \"Get in touch ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/ @390": {
+    "status": 200,
+    "bytes": 2486340,
+    "errors": [],
+    "docH": 4728,
+    "screens": 5.6,
+    "headerH": 104,
+    "h1": [
+      "work.work."
+    ],
+    "title": "Work / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "span.s-gTISuujJQvKe \"Tell me what you’re building\" 12.5px",
+      "span.s-gTISuujJQvKe \"Get in touch ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/contact/ @390": {
+    "status": 200,
+    "bytes": 2359349,
+    "errors": [],
+    "docH": 1232,
+    "screens": 1.5,
+    "headerH": 104,
+    "h1": [
+      "Tell me whatyou’rebuilding.building."
+    ],
+    "title": "Get in touch / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "input.s-yJRVY59QT4hJ \"\" 32x48",
+      "a.quiet-link.lbl \"Resume (PDF) ->\" 168x16",
+      "a.quiet-link.lbl \"studio@timothyali.com ->\" 284x16",
+      "a.quiet-link.lbl \"Message me on LinkedIn ->\" 292x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "span.lbl.dim \"Name\" 12.5px",
+      "span.lbl.dim \"Email\" 12.5px",
+      "span.lbl.dim \"Your message\" 12.5px",
+      "span.s-yJRVY59QT4hJ \"Send\" 12.5px",
+      "a.quiet-link.lbl \"Resume (PDF) ->\" 12.5px",
+      "a.quiet-link.lbl \"studio@timothyali.com ->\" 12.5px",
+      "a.quiet-link.lbl \"Message me on LinkedIn ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": [
+      "name type=text autocomplete=name inputmode=- fs=27px label=true",
+      "email type=email autocomplete=email inputmode=- fs=27px label=true",
+      "message type=textarea autocomplete=- inputmode=- fs=27px label=true",
+      "company type=text autocomplete=off inputmode=- fs=27px label=true"
+    ]
+  },
+  "/toolbox/ @390": {
+    "status": 200,
+    "bytes": 2646314,
+    "errors": [],
+    "docH": 3994,
+    "screens": 4.7,
+    "headerH": 104,
+    "h1": [
+      "toolbox.toolbox."
+    ],
+    "title": "Toolbox / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link.pad \"Lockup guide ->\" 180x32",
+      "button.swatch-chip.plate-light \"Light preview background\" 32x32",
+      "button.swatch-chip.plate-dark \"Dark preview background\" 32x32",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "button.s-5bMAQbmc_ofG \"01Upload\" 38x44",
+      "button.s-5bMAQbmc_ofG \"02Outputs\" 38x44",
+      "button.s-5bMAQbmc_ofG \"03Review\" 38x44",
+      "a.quiet-link.pad \"CLI & MCP docs ->\" 196x32",
+      "a.quiet-link.lbl \"All files and checksums ->\" 304x16",
+      "a \"Get in touch ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "a.cta.lbl \"Explore the tools ->\" 12.5px",
+      "span.lbl.s-rP1Fdb5YP7rI \"01\" 12.5px",
+      "span.display-s.s-rP1Fdb5YP7rI \"Lockup\" 12.5px",
+      "span.lbl.s-rP1Fdb5YP7rI \"02\" 12.5px",
+      "span.display-s.s-rP1Fdb5YP7rI \"Palette\" 12.5px",
+      "span.lbl.s-rP1Fdb5YP7rI \"03\" 12.5px",
+      "span.display-s.s-rP1Fdb5YP7rI \"Specimen\" 12.5px",
+      "span.lbl.s-rP1Fdb5YP7rI \"04\" 12.5px",
+      "span.display-s.s-rP1Fdb5YP7rI \"Convert\" 12.5px",
+      "a.quiet-link.pad \"Lockup guide ->\" 12.5px"
+    ],
+    "images": [],
+    "inputs": [
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true"
+    ]
+  },
+  "/toolbox/agents/ @390": {
+    "status": 200,
+    "bytes": 2368602,
+    "errors": [],
+    "docH": 7744,
+    "screens": 9.2,
+    "headerH": 104,
+    "h1": [
+      "CLI & MCPCLI & MCP"
+    ],
+    "title": "CLI & MCP / Toolbox / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.lbl.s-px6uFNj1gk-y \"Run\" 36x44",
+      "a.quiet-link.pad \"Lockup options ->\" 204x32",
+      "a.quiet-link.pad \"Palette options ->\" 216x32",
+      "a.quiet-link.pad \"Specimen options ->\" 228x32",
+      "a.quiet-link.pad \"Convert options ->\" 216x32",
+      "a \"All four tools ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "a.lbl.s-px6uFNj1gk-y \"Set up\" 12.5px",
+      "a.lbl.s-px6uFNj1gk-y \"Command line\" 12.5px",
+      "a.lbl.s-px6uFNj1gk-y \"Advanced\" 12.5px",
+      "a.lbl.s-px6uFNj1gk-y \"Options\" 12.5px",
+      "a.lbl.s-px6uFNj1gk-y \"List\" 12.5px",
+      "a.lbl.s-px6uFNj1gk-y \"Run\" 12.5px",
+      "a.lbl.s-px6uFNj1gk-y \"Serve\" 12.5px",
+      "dt.lbl.dim \"macOS\" 12.5px",
+      "dt.lbl.dim \"Linux\" 12.5px",
+      "dt.lbl.dim \"Inputs\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/toolbox/convert/ @390": {
+    "status": 200,
+    "bytes": 2461139,
+    "errors": [],
+    "docH": 2260,
+    "screens": 2.7,
+    "headerH": 104,
+    "h1": [
+      "ConvertConvert"
+    ],
+    "title": "Convert / Toolbox / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link.body \"Download for macOS or Linux ->\" 328x32",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 208x32",
+      "a \"All four tools ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"In\" 12.5px",
+      "dt.lbl.dim \"Out\" 12.5px",
+      "dt.lbl.dim \"Get it\" 12.5px",
+      "summary.lbl.s-MZ54dG-lxnNq \"All 10 options\" 12.5px",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Next / [01]\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Lockup ->\" 12.5px",
+      "a \"All four tools ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/toolbox/lockup/ @390": {
+    "status": 200,
+    "bytes": 2486863,
+    "errors": [],
+    "docH": 2628,
+    "screens": 3.1,
+    "headerH": 104,
+    "h1": [
+      "LockupLockup"
+    ],
+    "title": "Lockup / Toolbox / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link.body \"Download for macOS or Linux ->\" 328x32",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 208x32",
+      "a \"All four tools ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"In\" 12.5px",
+      "dt.lbl.dim \"Out\" 12.5px",
+      "dt.lbl.dim \"Get it\" 12.5px",
+      "summary.lbl.s-MZ54dG-lxnNq \"All 17 options\" 12.5px",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Next / [02]\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Palette ->\" 12.5px",
+      "a \"All four tools ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/toolbox/palette/ @390": {
+    "status": 200,
+    "bytes": 2492694,
+    "errors": [],
+    "docH": 2524,
+    "screens": 3,
+    "headerH": 104,
+    "h1": [
+      "PalettePalette"
+    ],
+    "title": "Palette / Toolbox / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link.body \"Download for macOS or Linux ->\" 328x32",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 208x32",
+      "a \"All four tools ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"In\" 12.5px",
+      "dt.lbl.dim \"Out\" 12.5px",
+      "dt.lbl.dim \"Get it\" 12.5px",
+      "summary.lbl.s-MZ54dG-lxnNq \"All 11 options\" 12.5px",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Next / [03]\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Specimen ->\" 12.5px",
+      "a \"All four tools ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/toolbox/specimen/ @390": {
+    "status": 200,
+    "bytes": 2481974,
+    "errors": [],
+    "docH": 2188,
+    "screens": 2.6,
+    "headerH": 104,
+    "h1": [
+      "SpecimenSpecimen"
+    ],
+    "title": "Specimen / Toolbox / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link.body \"Download for macOS or Linux ->\" 328x32",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 208x32",
+      "a \"All four tools ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"In\" 12.5px",
+      "dt.lbl.dim \"Out\" 12.5px",
+      "dt.lbl.dim \"Get it\" 12.5px",
+      "summary.lbl.s-MZ54dG-lxnNq \"All 9 options\" 12.5px",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Next / [04]\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Convert ->\" 12.5px",
+      "a \"All four tools ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/sonde/ @390": {
+    "status": 200,
+    "bytes": 2674629,
+    "errors": [],
+    "docH": 7704,
+    "screens": 9.1,
+    "headerH": 104,
+    "h1": [
+      "sondesondesonde"
+    ],
+    "title": "Sonde / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link \"sonde_os on GitHub ->\" 213x24",
+      "a \"Tell me what you’re building ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "dt.lbl.dim \"Source\" 12.5px",
+      "span.lbl.dim \"01 / 07\" 12.5px",
+      "span.lbl.dim \"02 / 07\" 12.5px",
+      "span.lbl.dim \"03 / 07\" 12.5px",
+      "span.lbl.dim \"04 / 07\" 12.5px",
+      "span.lbl.dim \"05 / 07\" 12.5px",
+      "span.lbl.dim \"06 / 07\" 12.5px",
+      "span.lbl.dim \"07 / 07\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/pocketwatch/ @390": {
+    "status": 200,
+    "bytes": 2946858,
+    "errors": [],
+    "docH": 8024,
+    "screens": 9.5,
+    "headerH": 104,
+    "h1": [
+      "pocketwatchpocketwatchpocketwatch"
+    ],
+    "title": "Pocketwatch / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a \"Tell me what you’re building ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Team\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "span.lbl.dim \"01 / 05\" 12.5px",
+      "span.lbl.dim \"02 / 05\" 12.5px",
+      "span.lbl.dim \"03 / 05\" 12.5px",
+      "span.lbl.dim \"04 / 05\" 12.5px",
+      "span.lbl.dim \"05 / 05\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Next / [03]\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Toolbox ->\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/toolbox/ @390": {
+    "status": 200,
+    "bytes": 2642602,
+    "errors": [],
+    "docH": 4488,
+    "screens": 5.3,
+    "headerH": 104,
+    "h1": [
+      "toolboxtoolboxtoolbox"
+    ],
+    "title": "Toolbox / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link \"Downloads and guides ->\" 232x24",
+      "a \"Tell me what you’re building ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Timeline\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "dt.lbl.dim \"Live\" 12.5px",
+      "span.lbl.dim \"01 / 03\" 12.5px",
+      "span.lbl.dim \"02 / 03\" 12.5px",
+      "span.lbl.dim \"03 / 03\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Next / [04]\" 12.5px",
+      "span.s-08vXLfy1MAaU \"PARC ->\" 12.5px",
+      "span \"[03] / 009\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/parc/ @390": {
+    "status": 200,
+    "bytes": 3211510,
+    "errors": [],
+    "docH": 14080,
+    "screens": 16.7,
+    "headerH": 104,
+    "h1": [
+      "parcparcparc"
+    ],
+    "title": "PARC / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link \"parcxrpl.com ->\" 155x24",
+      "a \"Tell me what you’re building ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Team\" 12.5px",
+      "dt.lbl.dim \"Timeline\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "dt.lbl.dim \"Live\" 12.5px",
+      "span.lbl.dim \"01 / 11\" 12.5px",
+      "span.lbl.dim \"02 / 11\" 12.5px",
+      "span.lbl.dim \"03 / 11\" 12.5px",
+      "span.lbl.s-08vXLfy1MAaU \"01\" 12.5px",
+      "span.lbl.s-08vXLfy1MAaU \"02\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/firstledger/ @390": {
+    "status": 200,
+    "bytes": 3160194,
+    "errors": [],
+    "docH": 4888,
+    "screens": 5.8,
+    "headerH": 104,
+    "h1": [
+      "ledgerfirst ledgerfirst ledger"
+    ],
+    "title": "First Ledger / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link \"firstledger.net ->\" 184x24",
+      "a \"Tell me what you’re building ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Timeline\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "dt.lbl.dim \"Live\" 12.5px",
+      "span.lbl.dim \"01 / 05\" 12.5px",
+      "span.lbl.dim \"02 / 05\" 12.5px",
+      "span.lbl.dim \"03 / 05\" 12.5px",
+      "span.lbl.dim \"04 / 05\" 12.5px",
+      "span.lbl.dim \"05 / 05\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Next / [06]\" 12.5px"
+    ],
+    "images": [
+      {
+        "src": "firstledger/guide-01-phone.png",
+        "shown": 358,
+        "natural": 1200,
+        "alt": "First Ledger logo white on black"
+      },
+      {
+        "src": "firstledger/guide-04-phone.png",
+        "shown": 358,
+        "natural": 1200,
+        "alt": "First Ledger logo construction: Pencil + Paper = Ledger diagram"
+      },
+      {
+        "src": "firstledger/guide-03-phone.png",
+        "shown": 358,
+        "natural": 1200,
+        "alt": "First Ledger primary and secondary logo lockups"
+      },
+      {
+        "src": "firstledger/guide-05-phone.png",
+        "shown": 358,
+        "natural": 1200,
+        "alt": "First Ledger primary logo clear-space rules"
+      },
+      {
+        "src": "firstledger/guide-10-phone.png",
+        "shown": 358,
+        "natural": 1200,
+        "alt": "First Ledger typography system spread"
+      },
+      {
+        "src": "firstledger/guide-02-phone.png",
+        "shown": 358,
+        "natural": 1200,
+        "alt": "First Ledger brand pillars: Fun, Reliable, Fast"
+      },
+      {
+        "src": "firstledger/guide-07-phone.png",
+        "shown": 358,
+        "natural": 1200,
+        "alt": "First Ledger and xrp.cafe co-branding guidelines, primary lockup"
+      },
+      {
+        "src": "firstledger/guide-08-phone.png",
+        "shown": 358,
+        "natural": 1200,
+        "alt": "First Ledger and xrp.cafe co-branding guidelines, secondary lockup"
+      }
+    ],
+    "inputs": []
+  },
+  "/work/xrpcafe/ @390": {
+    "status": 200,
+    "bytes": 2886824,
+    "errors": [],
+    "docH": 6336,
+    "screens": 7.5,
+    "headerH": 104,
+    "h1": [
+      "xrp.cafexrp.cafexrp.cafe"
+    ],
+    "title": "xrp.cafe / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link \"xrp.cafe ->\" 117x24",
+      "a \"Tell me what you’re building ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "dt.lbl.dim \"Live\" 12.5px",
+      "span.lbl.dim \"01 / 04\" 12.5px",
+      "span.lbl.dim \"02 / 04\" 12.5px",
+      "span.lbl.dim \"03 / 04\" 12.5px",
+      "span.lbl.dim \"04 / 04\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Next / [07]\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Jade Aesthetics ->\" 12.5px",
+      "span \"[06] / 009\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/jade-aesthetics/ @390": {
+    "status": 200,
+    "bytes": 2752840,
+    "errors": [],
+    "docH": 4928,
+    "screens": 5.8,
+    "headerH": 104,
+    "h1": [
+      "aestheticsjade aestheticsjade aesthetics"
+    ],
+    "title": "Jade Aesthetics / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link \"jadeaesthetics.co ->\" 203x24",
+      "a \"Tell me what you’re building ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Timeline\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "dt.lbl.dim \"Live\" 12.5px",
+      "span.lbl.dim \"01 / 05\" 12.5px",
+      "span.lbl.dim \"02 / 05\" 12.5px",
+      "span.lbl.dim \"03 / 05\" 12.5px",
+      "span.lbl.dim \"04 / 05\" 12.5px",
+      "span.lbl.dim \"05 / 05\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Next / [08]\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/firststrike/ @390": {
+    "status": 200,
+    "bytes": 2738505,
+    "errors": [],
+    "docH": 4592,
+    "screens": 5.4,
+    "headerH": 104,
+    "h1": [
+      "firststrikefirststrike researchfirststri"
+    ],
+    "title": "FirstStrike Research / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a \"Tell me what you’re building ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "span.lbl.dim \"01 / 05\" 12.5px",
+      "span.lbl.dim \"02 / 05\" 12.5px",
+      "span.lbl.dim \"03 / 05\" 12.5px",
+      "span.lbl.dim \"04 / 05\" 12.5px",
+      "span.lbl.dim \"05 / 05\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Next / [09]\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Do Androids Dream? ->\" 12.5px",
+      "span \"[08] / 009\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/do-androids-dream/ @390": {
+    "status": 200,
+    "bytes": 2594518,
+    "errors": [],
+    "docH": 3576,
+    "screens": 4.2,
+    "headerH": 104,
+    "h1": [
+      "androidsdo androids dream?do androids dr"
+    ],
+    "title": "Do Androids Dream? / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link \"Watch on YouTube ->\" 194x24",
+      "a \"Tell me what you’re building ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Timeline\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "dt.lbl.dim \"With sound\" 12.5px",
+      "span.lbl.dim \"01 / 03\" 12.5px",
+      "span.lbl.dim \"02 / 03\" 12.5px",
+      "span.lbl.dim \"03 / 03\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Next / [01]\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Sonde ->\" 12.5px",
+      "span \"[09] / 009\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/no-such-page/ @390": {
+    "status": 404,
+    "bytes": 2286680,
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    ],
+    "docH": 844,
+    "screens": 1,
+    "headerH": 104,
+    "h1": [
+      "lost.lost."
+    ],
+    "title": "Not found / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "a.cta.lbl \"Back to home ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/ @320": {
+    "status": 200,
+    "bytes": 2521174,
+    "errors": [],
+    "docH": 3248,
+    "screens": 5.1,
+    "headerH": 104,
+    "h1": [
+      "i’m tim."
+    ],
+    "title": "Timothy Ali / Product designer",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32",
+      "a.cta-hint.hero-hint \"Selected work\" 206x32",
+      "a.quiet-link.lbl \"Resume ->\" 112x16",
+      "a.all.lbl \"All work ->\" 148x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "a.cta-hint.hero-hint \"Selected work\" 12.5px",
+      "a.quiet-link.lbl \"Resume ->\" 12.5px",
+      "a.all.lbl \"All work ->\" 12.5px",
+      "a.cta-row.lbl \"Get in touch ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/ @320": {
+    "status": 200,
+    "bytes": 2486340,
+    "errors": [],
+    "docH": 4808,
+    "screens": 7.5,
+    "headerH": 104,
+    "h1": [
+      "work.work."
+    ],
+    "title": "Work / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "span.s-gTISuujJQvKe \"Tell me what you’re building\" 12.5px",
+      "span.s-gTISuujJQvKe \"Get in touch ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/contact/ @320": {
+    "status": 200,
+    "bytes": 2359349,
+    "errors": [],
+    "docH": 1280,
+    "screens": 2,
+    "headerH": 104,
+    "h1": [
+      "Tell me whatyou’rebuilding.building."
+    ],
+    "title": "Get in touch / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32",
+      "input.s-yJRVY59QT4hJ \"\" 32x48",
+      "a.quiet-link.lbl \"Resume (PDF) ->\" 168x16",
+      "a.quiet-link.lbl \"studio@timothyali.com ->\" 284x16",
+      "a.quiet-link.lbl \"Message me on LinkedIn ->\" 256x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "span.lbl.dim \"Name\" 12.5px",
+      "span.lbl.dim \"Email\" 12.5px",
+      "span.lbl.dim \"Your message\" 12.5px",
+      "span.s-yJRVY59QT4hJ \"Send\" 12.5px",
+      "a.quiet-link.lbl \"Resume (PDF) ->\" 12.5px",
+      "a.quiet-link.lbl \"studio@timothyali.com ->\" 12.5px",
+      "a.quiet-link.lbl \"Message me on LinkedIn ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": [
+      "name type=text autocomplete=name inputmode=- fs=27px label=true",
+      "email type=email autocomplete=email inputmode=- fs=27px label=true",
+      "message type=textarea autocomplete=- inputmode=- fs=27px label=true",
+      "company type=text autocomplete=off inputmode=- fs=27px label=true"
+    ]
+  },
+  "/toolbox/ @320": {
+    "status": 200,
+    "bytes": 2646314,
+    "errors": [],
+    "docH": 4438,
+    "screens": 6.9,
+    "headerH": 104,
+    "h1": [
+      "toolbox.toolbox."
+    ],
+    "title": "Toolbox / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link.pad \"Lockup guide ->\" 180x32",
+      "button.swatch-chip.plate-light \"Light preview background\" 32x32",
+      "button.swatch-chip.plate-dark \"Dark preview background\" 32x32",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "button.s-5bMAQbmc_ofG \"01Upload\" 38x44",
+      "button.s-5bMAQbmc_ofG \"02Outputs\" 38x44",
+      "button.s-5bMAQbmc_ofG \"03Review\" 38x44",
+      "a.quiet-link.pad \"CLI & MCP docs ->\" 196x32",
+      "a.quiet-link.lbl \"All files and checksums ->\" 288x32",
+      "a \"Get in touch ->\" 288x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "a.cta.lbl \"Explore the tools ->\" 12.5px",
+      "span.lbl.s-rP1Fdb5YP7rI \"01\" 12.5px",
+      "span.display-s.s-rP1Fdb5YP7rI \"Lockup\" 12.5px",
+      "span.lbl.s-rP1Fdb5YP7rI \"02\" 12.5px",
+      "span.display-s.s-rP1Fdb5YP7rI \"Palette\" 12.5px",
+      "span.lbl.s-rP1Fdb5YP7rI \"03\" 12.5px",
+      "span.display-s.s-rP1Fdb5YP7rI \"Specimen\" 12.5px",
+      "span.lbl.s-rP1Fdb5YP7rI \"04\" 12.5px",
+      "span.display-s.s-rP1Fdb5YP7rI \"Convert\" 12.5px",
+      "a.quiet-link.pad \"Lockup guide ->\" 12.5px"
+    ],
+    "images": [],
+    "inputs": [
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true"
+    ]
+  },
+  "/toolbox/agents/ @320": {
+    "status": 200,
+    "bytes": 2368602,
+    "errors": [],
+    "docH": 9084,
+    "screens": 14.2,
+    "headerH": 104,
+    "h1": [
+      "CLI & MCPCLI & MCP"
+    ],
+    "title": "CLI & MCP / Toolbox / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32",
+      "a.lbl.s-px6uFNj1gk-y \"Run\" 36x44",
+      "a.quiet-link.pad \"Lockup options ->\" 204x32",
+      "a.quiet-link.pad \"Palette options ->\" 216x32",
+      "a.quiet-link.pad \"Specimen options ->\" 228x32",
+      "a.quiet-link.pad \"Convert options ->\" 216x32",
+      "a \"All four tools ->\" 288x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "a.lbl.s-px6uFNj1gk-y \"Set up\" 12.5px",
+      "a.lbl.s-px6uFNj1gk-y \"Command line\" 12.5px",
+      "a.lbl.s-px6uFNj1gk-y \"Advanced\" 12.5px",
+      "a.lbl.s-px6uFNj1gk-y \"Options\" 12.5px",
+      "a.lbl.s-px6uFNj1gk-y \"List\" 12.5px",
+      "a.lbl.s-px6uFNj1gk-y \"Run\" 12.5px",
+      "a.lbl.s-px6uFNj1gk-y \"Serve\" 12.5px",
+      "dt.lbl.dim \"macOS\" 12.5px",
+      "dt.lbl.dim \"Linux\" 12.5px",
+      "dt.lbl.dim \"Inputs\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/toolbox/convert/ @320": {
+    "status": 200,
+    "bytes": 2461139,
+    "errors": [],
+    "docH": 2508,
+    "screens": 3.9,
+    "headerH": 104,
+    "h1": [
+      "ConvertConvert"
+    ],
+    "title": "Convert / Toolbox / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 208x32",
+      "a \"All four tools ->\" 288x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"In\" 12.5px",
+      "dt.lbl.dim \"Out\" 12.5px",
+      "dt.lbl.dim \"Get it\" 12.5px",
+      "summary.lbl.s-MZ54dG-lxnNq \"All 10 options\" 12.5px",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Next / [01]\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Lockup ->\" 12.5px",
+      "a \"All four tools ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [
+      {
+        "src": "toolbox/convert-phone.png",
+        "shown": 288,
+        "natural": 993,
+        "alt": "Toolbox in the Convert tool: two posters listed with their measured output sizes per format, and format, compression and edge controls in the right rail."
+      }
+    ],
+    "inputs": []
+  },
+  "/toolbox/lockup/ @320": {
+    "status": 200,
+    "bytes": 2486863,
+    "errors": [],
+    "docH": 2876,
+    "screens": 4.5,
+    "headerH": 104,
+    "h1": [
+      "LockupLockup"
+    ],
+    "title": "Lockup / Toolbox / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 208x32",
+      "a \"All four tools ->\" 288x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"In\" 12.5px",
+      "dt.lbl.dim \"Out\" 12.5px",
+      "dt.lbl.dim \"Get it\" 12.5px",
+      "summary.lbl.s-MZ54dG-lxnNq \"All 17 options\" 12.5px",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Next / [02]\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Palette ->\" 12.5px",
+      "a \"All four tools ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/toolbox/palette/ @320": {
+    "status": 200,
+    "bytes": 2492694,
+    "errors": [],
+    "docH": 2676,
+    "screens": 4.2,
+    "headerH": 104,
+    "h1": [
+      "PalettePalette"
+    ],
+    "title": "Palette / Toolbox / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 208x32",
+      "a \"All four tools ->\" 288x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"In\" 12.5px",
+      "dt.lbl.dim \"Out\" 12.5px",
+      "dt.lbl.dim \"Get it\" 12.5px",
+      "summary.lbl.s-MZ54dG-lxnNq \"All 11 options\" 12.5px",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Next / [03]\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Specimen ->\" 12.5px",
+      "a \"All four tools ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/toolbox/specimen/ @320": {
+    "status": 200,
+    "bytes": 2481974,
+    "errors": [],
+    "docH": 2420,
+    "screens": 3.7,
+    "headerH": 104,
+    "h1": [
+      "SpecimenSpecimen"
+    ],
+    "title": "Specimen / Toolbox / Timothy Ali",
+    "overflow": [
+      "span.decode.s-kHqjyvzjSOoc \"SpecimenSpecimen\"",
+      "span.s-kHqjyvzjSOoc \"Specimen\""
+    ],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 208x32",
+      "a \"All four tools ->\" 288x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"In\" 12.5px",
+      "dt.lbl.dim \"Out\" 12.5px",
+      "dt.lbl.dim \"Get it\" 12.5px",
+      "summary.lbl.s-MZ54dG-lxnNq \"All 9 options\" 12.5px",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Next / [04]\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Convert ->\" 12.5px",
+      "a \"All four tools ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/sonde/ @320": {
+    "status": 200,
+    "bytes": 2674629,
+    "errors": [],
+    "docH": 7896,
+    "screens": 12.3,
+    "headerH": 104,
+    "h1": [
+      "sondesondesonde"
+    ],
+    "title": "Sonde / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link \"sonde_os on GitHub ->\" 213x24",
+      "a \"Tell me what you’re building ->\" 288x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "dt.lbl.dim \"Source\" 12.5px",
+      "span.lbl.dim \"01 / 07\" 12.5px",
+      "span.lbl.dim \"02 / 07\" 12.5px",
+      "span.lbl.dim \"03 / 07\" 12.5px",
+      "span.lbl.dim \"04 / 07\" 12.5px",
+      "span.lbl.dim \"05 / 07\" 12.5px",
+      "span.lbl.dim \"06 / 07\" 12.5px",
+      "span.lbl.dim \"07 / 07\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/pocketwatch/ @320": {
+    "status": 200,
+    "bytes": 2946858,
+    "errors": [],
+    "docH": 7640,
+    "screens": 11.9,
+    "headerH": 104,
+    "h1": [
+      "pocketwatchpocketwatchpocketwatch"
+    ],
+    "title": "Pocketwatch / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32",
+      "a \"Tell me what you’re building ->\" 288x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Team\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "span.lbl.dim \"01 / 05\" 12.5px",
+      "span.lbl.dim \"02 / 05\" 12.5px",
+      "span.lbl.dim \"03 / 05\" 12.5px",
+      "span.lbl.dim \"04 / 05\" 12.5px",
+      "span.lbl.dim \"05 / 05\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Next / [03]\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Toolbox ->\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/toolbox/ @320": {
+    "status": 200,
+    "bytes": 2642602,
+    "errors": [],
+    "docH": 4456,
+    "screens": 7,
+    "headerH": 104,
+    "h1": [
+      "toolboxtoolboxtoolbox"
+    ],
+    "title": "Toolbox / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link \"Downloads and guides ->\" 232x24",
+      "a \"Tell me what you’re building ->\" 288x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Timeline\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "dt.lbl.dim \"Live\" 12.5px",
+      "span.lbl.dim \"01 / 03\" 12.5px",
+      "span.lbl.dim \"02 / 03\" 12.5px",
+      "span.lbl.dim \"03 / 03\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Next / [04]\" 12.5px",
+      "span.s-08vXLfy1MAaU \"PARC ->\" 12.5px",
+      "span \"[03] / 009\" 12.5px"
+    ],
+    "images": [
+      {
+        "src": "toolbox/convert-phone.png",
+        "shown": 288,
+        "natural": 993,
+        "alt": "Toolbox in the Convert tool: two posters listed with their measured output sizes per format, and format, compression and edge controls in the right rail."
+      }
+    ],
+    "inputs": []
+  },
+  "/work/parc/ @320": {
+    "status": 200,
+    "bytes": 3211510,
+    "errors": [],
+    "docH": 14264,
+    "screens": 22.3,
+    "headerH": 104,
+    "h1": [
+      "parcparcparc"
+    ],
+    "title": "PARC / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link \"parcxrpl.com ->\" 155x24",
+      "a \"Tell me what you’re building ->\" 288x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Team\" 12.5px",
+      "dt.lbl.dim \"Timeline\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "dt.lbl.dim \"Live\" 12.5px",
+      "span.lbl.dim \"01 / 11\" 12.5px",
+      "span.lbl.dim \"02 / 11\" 12.5px",
+      "span.lbl.dim \"03 / 11\" 12.5px",
+      "span.lbl.s-08vXLfy1MAaU \"01\" 12.5px",
+      "span.lbl.s-08vXLfy1MAaU \"02\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/firstledger/ @320": {
+    "status": 200,
+    "bytes": 3160194,
+    "errors": [],
+    "docH": 4968,
+    "screens": 7.8,
+    "headerH": 104,
+    "h1": [
+      "ledgerfirst ledgerfirst ledger"
+    ],
+    "title": "First Ledger / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link \"firstledger.net ->\" 184x24",
+      "a \"Tell me what you’re building ->\" 288x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Timeline\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "dt.lbl.dim \"Live\" 12.5px",
+      "span.lbl.dim \"01 / 05\" 12.5px",
+      "span.lbl.dim \"02 / 05\" 12.5px",
+      "span.lbl.dim \"03 / 05\" 12.5px",
+      "span.lbl.dim \"04 / 05\" 12.5px",
+      "span.lbl.dim \"05 / 05\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Next / [06]\" 12.5px"
+    ],
+    "images": [
+      {
+        "src": "firstledger/guide-01-phone.png",
+        "shown": 288,
+        "natural": 1200,
+        "alt": "First Ledger logo white on black"
+      },
+      {
+        "src": "firstledger/guide-04-phone.png",
+        "shown": 288,
+        "natural": 1200,
+        "alt": "First Ledger logo construction: Pencil + Paper = Ledger diagram"
+      },
+      {
+        "src": "firstledger/guide-03-phone.png",
+        "shown": 288,
+        "natural": 1200,
+        "alt": "First Ledger primary and secondary logo lockups"
+      },
+      {
+        "src": "firstledger/guide-05-phone.png",
+        "shown": 288,
+        "natural": 1200,
+        "alt": "First Ledger primary logo clear-space rules"
+      },
+      {
+        "src": "firstledger/guide-10-phone.png",
+        "shown": 288,
+        "natural": 1200,
+        "alt": "First Ledger typography system spread"
+      },
+      {
+        "src": "firstledger/guide-02-phone.png",
+        "shown": 288,
+        "natural": 1200,
+        "alt": "First Ledger brand pillars: Fun, Reliable, Fast"
+      },
+      {
+        "src": "firstledger/guide-07-phone.png",
+        "shown": 288,
+        "natural": 1200,
+        "alt": "First Ledger and xrp.cafe co-branding guidelines, primary lockup"
+      },
+      {
+        "src": "firstledger/guide-08-phone.png",
+        "shown": 288,
+        "natural": 1200,
+        "alt": "First Ledger and xrp.cafe co-branding guidelines, secondary lockup"
+      }
+    ],
+    "inputs": []
+  },
+  "/work/xrpcafe/ @320": {
+    "status": 200,
+    "bytes": 2886824,
+    "errors": [],
+    "docH": 6064,
+    "screens": 9.5,
+    "headerH": 104,
+    "h1": [
+      "xrp.cafexrp.cafexrp.cafe"
+    ],
+    "title": "xrp.cafe / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link \"xrp.cafe ->\" 117x24",
+      "a \"Tell me what you’re building ->\" 288x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "dt.lbl.dim \"Live\" 12.5px",
+      "span.lbl.dim \"01 / 04\" 12.5px",
+      "span.lbl.dim \"02 / 04\" 12.5px",
+      "span.lbl.dim \"03 / 04\" 12.5px",
+      "span.lbl.dim \"04 / 04\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Next / [07]\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Jade Aesthetics ->\" 12.5px",
+      "span \"[06] / 009\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/jade-aesthetics/ @320": {
+    "status": 200,
+    "bytes": 2752840,
+    "errors": [],
+    "docH": 5016,
+    "screens": 7.8,
+    "headerH": 104,
+    "h1": [
+      "aestheticsjade aestheticsjade aesthetics"
+    ],
+    "title": "Jade Aesthetics / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link \"jadeaesthetics.co ->\" 203x24",
+      "a \"Tell me what you’re building ->\" 288x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Timeline\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "dt.lbl.dim \"Live\" 12.5px",
+      "span.lbl.dim \"01 / 05\" 12.5px",
+      "span.lbl.dim \"02 / 05\" 12.5px",
+      "span.lbl.dim \"03 / 05\" 12.5px",
+      "span.lbl.dim \"04 / 05\" 12.5px",
+      "span.lbl.dim \"05 / 05\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Next / [08]\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/firststrike/ @320": {
+    "status": 200,
+    "bytes": 2738505,
+    "errors": [],
+    "docH": 4528,
+    "screens": 7.1,
+    "headerH": 104,
+    "h1": [
+      "firststrikefirststrike researchfirststri"
+    ],
+    "title": "FirstStrike Research / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32",
+      "a \"Tell me what you’re building ->\" 288x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "span.lbl.dim \"01 / 05\" 12.5px",
+      "span.lbl.dim \"02 / 05\" 12.5px",
+      "span.lbl.dim \"03 / 05\" 12.5px",
+      "span.lbl.dim \"04 / 05\" 12.5px",
+      "span.lbl.dim \"05 / 05\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Next / [09]\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Do Androids Dream? ->\" 12.5px",
+      "span \"[08] / 009\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/do-androids-dream/ @320": {
+    "status": 200,
+    "bytes": 2594518,
+    "errors": [],
+    "docH": 3600,
+    "screens": 5.6,
+    "headerH": 104,
+    "h1": [
+      "androidsdo androids dream?do androids dr"
+    ],
+    "title": "Do Androids Dream? / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link \"Watch on YouTube ->\" 194x24",
+      "a \"Tell me what you’re building ->\" 288x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Timeline\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "dt.lbl.dim \"With sound\" 12.5px",
+      "span.lbl.dim \"01 / 03\" 12.5px",
+      "span.lbl.dim \"02 / 03\" 12.5px",
+      "span.lbl.dim \"03 / 03\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Next / [01]\" 12.5px",
+      "span.s-08vXLfy1MAaU \"Sonde ->\" 12.5px",
+      "span \"[09] / 009\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/no-such-page/ @320": {
+    "status": 404,
+    "bytes": 2286680,
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    ],
+    "docH": 640,
+    "screens": 1,
+    "headerH": 104,
+    "h1": [
+      "lost.lost."
+    ],
+    "title": "Not found / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 70x32",
+      "a \"02Work\" 58x32",
+      "a \"03Contact\" 92x32",
+      "a \"04Toolbox\" 84x32",
+      "button.cog \"Settings\" 32x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "a.cta.lbl \"Back to home ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/ @390-light": {
+    "status": 200,
+    "bytes": 2521175,
+    "errors": [],
+    "docH": 3416,
+    "screens": 4,
+    "headerH": 104,
+    "h1": [
+      "i’m tim."
+    ],
+    "title": "Timothy Ali / Product designer",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.cta-hint.hero-hint \"Selected work\" 206x32",
+      "a.quiet-link.lbl \"Resume ->\" 112x16",
+      "a.all.lbl \"All work ->\" 148x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "a.cta-hint.hero-hint \"Selected work\" 12.5px",
+      "a.quiet-link.lbl \"Resume ->\" 12.5px",
+      "a.all.lbl \"All work ->\" 12.5px",
+      "a.cta-row.lbl \"Get in touch ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/ @390-light": {
+    "status": 200,
+    "bytes": 2486340,
+    "errors": [],
+    "docH": 4728,
+    "screens": 5.6,
+    "headerH": 104,
+    "h1": [
+      "work.work."
+    ],
+    "title": "Work / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "span.s-gTISuujJQvKe \"Tell me what you’re building\" 12.5px",
+      "span.s-gTISuujJQvKe \"Get in touch ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/contact/ @390-light": {
+    "status": 200,
+    "bytes": 2359350,
+    "errors": [],
+    "docH": 1232,
+    "screens": 1.5,
+    "headerH": 104,
+    "h1": [
+      "Tell me whatyou’rebuilding.building."
+    ],
+    "title": "Get in touch / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "input.s-yJRVY59QT4hJ \"\" 32x48",
+      "a.quiet-link.lbl \"Resume (PDF) ->\" 168x16",
+      "a.quiet-link.lbl \"studio@timothyali.com ->\" 284x16",
+      "a.quiet-link.lbl \"Message me on LinkedIn ->\" 292x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "span.lbl.dim \"Name\" 12.5px",
+      "span.lbl.dim \"Email\" 12.5px",
+      "span.lbl.dim \"Your message\" 12.5px",
+      "span.s-yJRVY59QT4hJ \"Send\" 12.5px",
+      "a.quiet-link.lbl \"Resume (PDF) ->\" 12.5px",
+      "a.quiet-link.lbl \"studio@timothyali.com ->\" 12.5px",
+      "a.quiet-link.lbl \"Message me on LinkedIn ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": [
+      "name type=text autocomplete=name inputmode=- fs=27px label=true",
+      "email type=email autocomplete=email inputmode=- fs=27px label=true",
+      "message type=textarea autocomplete=- inputmode=- fs=27px label=true",
+      "company type=text autocomplete=off inputmode=- fs=27px label=true"
+    ]
+  },
+  "/toolbox/ @390-light": {
+    "status": 200,
+    "bytes": 2646315,
+    "errors": [],
+    "docH": 3994,
+    "screens": 4.7,
+    "headerH": 104,
+    "h1": [
+      "toolbox.toolbox."
+    ],
+    "title": "Toolbox / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link.pad \"Lockup guide ->\" 180x32",
+      "button.swatch-chip.plate-light \"Light preview background\" 32x32",
+      "button.swatch-chip.plate-dark \"Dark preview background\" 32x32",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "input.sr-only \"\" 1x1",
+      "button.s-5bMAQbmc_ofG \"01Upload\" 38x44",
+      "button.s-5bMAQbmc_ofG \"02Outputs\" 38x44",
+      "button.s-5bMAQbmc_ofG \"03Review\" 38x44",
+      "a.quiet-link.pad \"CLI & MCP docs ->\" 196x32",
+      "a.quiet-link.lbl \"All files and checksums ->\" 304x16",
+      "a \"Get in touch ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "a.cta.lbl \"Explore the tools ->\" 12.5px",
+      "span.lbl.s-rP1Fdb5YP7rI \"01\" 12.5px",
+      "span.display-s.s-rP1Fdb5YP7rI \"Lockup\" 12.5px",
+      "span.lbl.s-rP1Fdb5YP7rI \"02\" 12.5px",
+      "span.display-s.s-rP1Fdb5YP7rI \"Palette\" 12.5px",
+      "span.lbl.s-rP1Fdb5YP7rI \"03\" 12.5px",
+      "span.display-s.s-rP1Fdb5YP7rI \"Specimen\" 12.5px",
+      "span.lbl.s-rP1Fdb5YP7rI \"04\" 12.5px",
+      "span.display-s.s-rP1Fdb5YP7rI \"Convert\" 12.5px",
+      "a.quiet-link.pad \"Lockup guide ->\" 12.5px"
+    ],
+    "images": [],
+    "inputs": [
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true",
+      " type=checkbox autocomplete=- inputmode=- fs=13.3333px label=true"
+    ]
+  },
+  "/toolbox/convert/ @390-light": {
+    "status": 200,
+    "bytes": 2461139,
+    "errors": [],
+    "docH": 2260,
+    "screens": 2.7,
+    "headerH": 104,
+    "h1": [
+      "ConvertConvert"
+    ],
+    "title": "Convert / Toolbox / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link.body \"Download for macOS or Linux ->\" 328x32",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 208x32",
+      "a \"All four tools ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"In\" 12.5px",
+      "dt.lbl.dim \"Out\" 12.5px",
+      "dt.lbl.dim \"Get it\" 12.5px",
+      "summary.lbl.s-MZ54dG-lxnNq \"All 10 options\" 12.5px",
+      "a.quiet-link.pad \"CLI & MCP setup ->\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Next / [01]\" 12.5px",
+      "span.s-A3stMIY-uP-X \"Lockup ->\" 12.5px",
+      "a \"All four tools ->\" 12.5px",
+      "span.dim \"(C) 2026 Timothy Ali\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  },
+  "/work/sonde/ @390-light": {
+    "status": 200,
+    "bytes": 2674630,
+    "errors": [],
+    "docH": 7704,
+    "screens": 9.1,
+    "headerH": 104,
+    "h1": [
+      "sondesondesonde"
+    ],
+    "title": "Sonde / Timothy Ali",
+    "overflow": [],
+    "smallTargets": [
+      "a.skip-link.lbl \"Skip to content\" 204x32",
+      "a.wordmark.blackletter \"Timothy Ali, home\" 165x43",
+      "a \"01Index\" 86x32",
+      "a \"02Work\" 70x32",
+      "a \"03Contact\" 114x32",
+      "a \"04Toolbox\" 104x32",
+      "button.cog \"Settings\" 32x32",
+      "a.quiet-link \"sonde_os on GitHub ->\" 213x24",
+      "a \"Tell me what you’re building ->\" 358x16"
+    ],
+    "tinyText": [
+      "a.skip-link.lbl \"Skip to content\" 12.5px",
+      "a \"01Index\" 12.5px",
+      "a \"02Work\" 12.5px",
+      "a \"03Contact\" 12.5px",
+      "a \"04Toolbox\" 12.5px",
+      "dt.lbl.dim \"Role\" 12.5px",
+      "dt.lbl.dim \"Tools\" 12.5px",
+      "dt.lbl.dim \"Source\" 12.5px",
+      "span.lbl.dim \"01 / 07\" 12.5px",
+      "span.lbl.dim \"02 / 07\" 12.5px",
+      "span.lbl.dim \"03 / 07\" 12.5px",
+      "span.lbl.dim \"04 / 07\" 12.5px",
+      "span.lbl.dim \"05 / 07\" 12.5px",
+      "span.lbl.dim \"06 / 07\" 12.5px",
+      "span.lbl.dim \"07 / 07\" 12.5px"
+    ],
+    "images": [],
+    "inputs": []
+  }
+}

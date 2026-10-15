@@ -917,3 +917,27 @@ Deploy (2026-10-14): PX-102 pushed as `71c24c8` on Timothy's “commit and push�
 ## PX-103 — Tool pages' CLI section in one column (2026-10-14, 0205)
 
 `toolbox/[tool]/+page.svelte`: `#cli` is `.text.stack` (flex column; `.paras > .body` 64ch). `toolbox/Options.svelte`: each choice in a signature is a nowrap `.opt` with `<wbr>` after its `|`; `dt` `overflow-wrap:break-word` (was `anywhere`). Convert, Lockup, Palette and Specimen at 1440, 900, 390 and 320: no page overflow, no code block scrolling, no flag wider than its cell. Evidence: `docs/iterations/pixel-v2/103-tool-cli/` (`convert-cli-1440.png`, `convert-cli-390.png`).
+
+## PX-104 — Mobile audit fixes (2026-10-14, 0206)
+
+Audit: `tools/review/mobile-audit.mjs` (21 pages at 390×844 and 320×640, plus light and motion-on), four touch reviewers and a throttled production profile; findings in `findings.md`.
+
+Fixes:
+- `Ascii.svelte`: draw-skip when nothing changed, dpr ≤ 2 above three screens tall (cap 8 Mpx), and merged resizes. The Toolbox app's copy of `Ascii.svelte` should get the same change.
+- `Clip.svelte`: play and pause buttons, a `small` phone encode, a WebP poster, and Save-Data respected.
+- `work/[slug]`: phone `sizes`; at ≤700 the order is lead → first image → points → meta, with captions above.
+- `work.ts` / `toolbox.ts`: `phone` crops (`tools/images/phone-crops.py`) and `desk` media.
+- `derive.mjs`: a 1200 rung.
+- `@media(hover:hover)` guards and coarse-pointer `::after` hit areas throughout. `--dim` .65 on light grounds.
+- `fitTitles` gives one size per grid.
+- Toolbox: phone note and send button, `Options` in `<details>`, the CLI & MCP jump list, demo wrapping and 44px controls.
+- `ContactForm`: no-JS `:target` messages.
+- PARC Pixel inlined in `base.css`.
+
+Numbers after the fixes:
+- Home repaints 6.3/s, down from 61. The Home canvas is 5.2 Mpx at 390, down from 11.8.
+- A study's first image now starts at 536–640px, down from 856–1192.
+- PARC is 16.7 screens long, down from 21.3. Tool pages are 2.6–3.1 screens, down from 4.4–6.2.
+- No overflow at 320 or 390, no page errors, the build passes, and `px61` passes. The desktop at 1440 is unchanged apart from the Work end row.
+
+Evidence: `docs/iterations/pixel-v2/104-mobile-audit/` (`shots/` before, `after/`).

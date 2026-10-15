@@ -13,3 +13,6 @@
 <div class="demo">
   {#if tool === 'lockup'}<LockupDemo />{:else if tool === 'palette'}<PaletteDemo />{:else if tool === 'specimen'}<SpecimenDemo />{:else}<ConvertDemo />{/if}
 </div>
+<!-- the disabled Export says why in a title, which a touch screen never shows (0206) -->
+<p class="lbl dim export-note">Exports run in the desktop app</p>
+<style>.export-note{display:none;margin:var(--s1) 0 0}@media(pointer:coarse){.export-note{display:block}}</style>

@@ -5,7 +5,7 @@ import { machineParams } from './toolbox-options.ts';
 // Check src/renderer/src/agent/runJob.ts for CLI/MCP limits before changing claims.
 // App source: /Users/twocakes/Desktop/GRAPHIC DESIGN/01_WORK/TOOLBOX/app
 
-export interface Shot { src: string; w: number; h: number; alt: string }
+export interface Shot { src: string; w: number; h: number; alt: string; phone?: { src: string; w: number; h: number } }
 
 /** One command-line option, copied from the app's catalog (src/shared/toolCatalog.ts). */
 export interface Param {
@@ -51,7 +51,9 @@ export interface Tool {
   shot: Shot;
 }
 
-const shot = (name: string, alt: string): Shot => ({ src: `/toolbox/${name}.png`, w: 2880, h: 1744, alt });
+// each screen has a phone crop of its rail or main panel (0206), cut by tools/images/phone-crops.py
+const PHONE: Record<string, [number, number]> = {lockup: [806, 1203], palette: [864, 1255], specimen: [1200, 954], convert: [993, 540], home: [1200, 545]};
+const shot = (name: string, alt: string): Shot => ({ src: `/toolbox/${name}.png`, w: 2880, h: 1744, alt, phone: PHONE[name] && { src: `/toolbox/${name}-phone.png`, w: PHONE[name][0], h: PHONE[name][1] } });
 
 export const APP = {
   name: 'Toolbox',

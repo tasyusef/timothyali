@@ -8,7 +8,7 @@
   import jerseyUrl from '@fontsource/jersey-15/files/jersey-15-latin-400-normal.woff2?url';
   import pressStartUrl from '@fontsource/press-start-2p/files/press-start-2p-latin-400-normal.woff2?url';
   // Every face the chrome and the first fold use, 68KB together, so the first paint is set in them.
-  const preload = [jacquardUrl, pressStartUrl, '/fonts/parc-pixel.woff2', '/fonts/parc-pixel-bold.woff2', jerseyUrl];
+  const preload = [jacquardUrl, pressStartUrl, jerseyUrl]; // PARC Pixel is inlined in base.css (0206)
   import { page } from '$app/state';
   import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
   import { onMount } from 'svelte';
@@ -76,8 +76,14 @@
     measureHeader();
     const headerObserver = new ResizeObserver(measureHeader);
     headerObserver.observe(headerElement);
+    // A scroll that keyboard focus caused (Shift+Tab back up the page) leaves the header as it
+    // is: brought back, it covered 88px of the element just focused (0206).
+    let focusedAt = 0;
+    const onFocusIn = (e: FocusEvent) => { if (!headerElement.contains(e.target as Node)) focusedAt = performance.now(); };
+    document.addEventListener('focusin', onFocusIn);
     const onScroll = () => {
       const y = Math.max(0, Math.min(window.scrollY, document.documentElement.scrollHeight - window.innerHeight));
+      if (y > headerHeight && y < lastScroll && performance.now() - focusedAt < 200) { lastScroll = y; return; }
       if (y <= headerHeight || y < lastScroll) navCollapsed = false;
       else if (y > lastScroll && !headerElement.contains(document.activeElement)) { navCollapsed = true; settingsOpen = false; }
       lastScroll = y;
@@ -95,7 +101,7 @@
     let zone = zoneName();
     const tickClock = () => { const now = new Date(); if (now.getSeconds() === 0) zone = zoneName(); clock = `${zone} ${fmt.format(now)}`.trim(); };
     tickClock(); const id = setInterval(tickClock, 1000);
-    return () => { window.removeEventListener('scroll', onScroll); headerObserver.disconnect(); media.removeEventListener('change', update); clearInterval(id); };
+    return () => { document.removeEventListener('focusin', onFocusIn); window.removeEventListener('scroll', onScroll); headerObserver.disconnect(); media.removeEventListener('change', update); clearInterval(id); };
   });
   // A page may declare the path its chrome should reflect (the dev-only /og/ route renders as another page).
   const pathname = $derived((page.data.chromePath as string | undefined) ?? page.url.pathname);

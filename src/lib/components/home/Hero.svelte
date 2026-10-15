@@ -20,6 +20,9 @@
   let slotName = $state('hi.');
   let slotLine = $state('');
   let inView = $state(true);
+  // The prerender shows the name and the copy; with motion on the loop takes over after one
+  // hold, so the page does not blank and retype what it already showed as JavaScript arrives (0206).
+  let started = $state(false);
   let sec: HTMLElement;
   const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
   const typed = (t: string, step: number, delay = 0) => delay + [...t].length * step + 120;
@@ -33,6 +36,7 @@
     if (!motion.on) return;
     let stopped = false;
     (async () => {
+      if (!started) { await sleep(HOLD.last); while (!inView && !stopped) await sleep(300); if (stopped) return; started = true; }
       while (!stopped) {
         while (!inView && !stopped) await sleep(300);
         slotName = 'hi.'; slotLine = '';
@@ -51,7 +55,7 @@
 
 <section class="hero-sec" bind:this={sec} aria-labelledby="intro">
   <div class="hero">
-    {#if motion.on}
+    {#if motion.on && started}
       <h1 id="intro" class="blackletter hero-name" data-ink="i’m tim."><span class="sr-only">i’m tim.</span><span aria-hidden="true"><Decode text={slotName} mode="type" step={STEP_SLOW} delay={200} cursor={!slotLine} erase /></span></h1>
       <p class="sr-only">{STATIC_LINE}</p>
       <p class="hero-role body" aria-hidden="true">{#each LINES as l}<span class="sizer">{l}</span>{/each}<Decode text={slotLine} mode="type" step={STEP} cursor={!!slotLine} cursorSize="cell" /></p>
@@ -80,17 +84,19 @@
 /* The actions, the work chip and the résumé link (0127): bottom right on desktop with the chip
    outermost; on phones a row under the copy. */
 .hero-actions{position:absolute;right:var(--gutter);bottom:var(--s8);display:flex;flex-direction:row-reverse;align-items:center;gap:var(--s3)}
-.hero-sec :global(.hero-hint:hover),.hero-sec :global(.hero-hint:focus-visible){background:var(--fg);color:var(--paper)}
+.hero-sec :global(.hero-hint:focus-visible){background:var(--fg);color:var(--paper)}@media(hover:hover){.hero-sec :global(.hero-hint:hover){background:var(--fg);color:var(--paper)}}
 :global(.hero-hint) .arrow{display:block;transform:translateY(0);position:relative;top:-1px}
 :global(.motion .hero-hint) .arrow{animation:nudge var(--tick-cursor) steps(2,jump-none) infinite}
 @keyframes nudge{from{transform:translateY(0)}to{transform:translateY(2px)}}
 @media(max-width:1100px){.hero-name{font-size:258px;line-height:264px}}
 /* below 900 the copy reaches the actions' column, so they join the flow under it (0202) */
-@media(max-width:900px){.hero-actions{position:static;flex-direction:row;margin-top:var(--s2);align-self:flex-start}}
+@media(max-width:900px){.hero-actions{position:static;flex-direction:row;flex-wrap:wrap;margin-top:var(--s2);align-self:flex-start}.hero-sec :global(.hero-hint){white-space:nowrap}}
 @media(max-width:700px){
   .hero-sec{--chrome:104px}
   .hero-sec :global(.hero){padding-bottom:var(--s6)}
   .hero-name{font-size:129px;line-height:136px}
   .hero-role{max-width:none}
 }
+/* the typed name cannot wrap: at 129px “i’m tim.” is 321px, wider than the column under 353px (0206) */
+@media(max-width:352px){.hero-name{font-size:86px;line-height:88px}}
 </style>

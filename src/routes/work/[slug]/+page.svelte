@@ -50,7 +50,12 @@
   const pad = (i: number) => String(i).padStart(2, '0');
   // What a screen's slot measures (for srcset): the right two thirds of the frame above 900px,
   // shared by the row; the full frame below, where a row of same-shape portraits is two to a line.
-  const galleryClass = (n: number) => `(min-width: 1440px) ${Math.round(896 / n)}px, (min-width: 901px) calc((100vw - 96px) * 2 / 3 / ${n}), ${n > 1 ? 'calc((100vw - 48px) / 2)' : 'calc(100vw - 32px)'}`;
+  // what each figure is told it will be, so the browser picks a file that fills it: on phones a
+  // row stacks one figure per line unless it tiles two to a line (it said half width for any row
+  // of two or more, and 66 stacked screens loaded at about 0.6× (0206))
+  const phoneSize = (tiles: boolean) => (tiles ? 'calc((100vw - 48px) / 2)' : 'calc(100vw - 32px)');
+  const galleryClass = (n: number, tiles: boolean) => `(min-width: 1440px) ${Math.round(896 / n)}px, (min-width: 901px) calc((100vw - 96px) * 2 / 3 / ${n}), (min-width: 701px) calc((100vw - 64px) / ${n}), ${phoneSize(tiles)}`;
+  const heroClass = (n: number, tiles: boolean) => `(min-width: 1440px) ${Math.round(1376 / n)}px, (min-width: 701px) calc((100vw - 64px) / ${n}), ${phoneSize(tiles)}`;
   // A point's text is held in view only while it fits under the chrome; taller text scrolls
   // with the page, or its last lines would stay hidden until the point's screens ran out.
   const CHROME = 96 + 32 + 32; // header and strip, the gap above, and as much below
@@ -66,9 +71,9 @@
 {#snippet gallery(rows: Row[], eager: boolean)}
   {#each rows as row}
     {@const share = { total: row.reduce((a, m) => a + m.w / m.h, 0), n: row.length }}
-    <div class="grow" class:tiles={rowTiles(row)} style:--cols={rowColumns(row)}>
+    <div class="grow" class:tiles={rowTiles(row)} class:desk={row.every((m) => m.desk)} style:--cols={rowColumns(row)}>
       {#each row as m}
-        {#if m.video}<Clip src={m.src} width={m.w} height={m.h} label={m.alt} poster={m.poster} row={share} />{:else}<Picture src={m.src} x2={m.x2} alt={m.alt} width={m.w} height={m.h} {eager} row={share} phone={m.phone} sizes={eager ? undefined : galleryClass(row.length)} />{/if}
+        {#if m.video}<Clip src={m.src} small={m.small} width={m.w} height={m.h} label={m.alt} poster={m.poster} row={share} />{:else}<Picture class={m.desk ? 'desk' : ''} src={m.src} x2={m.x2} alt={m.alt} width={m.w} height={m.h} {eager} row={share} phone={m.phone} sizes={(eager ? heroClass : galleryClass)(row.length, rowTiles(row))} />{/if}
       {/each}
     </div>
   {/each}
@@ -174,5 +179,17 @@ main :global(.head){position:relative;isolation:isolate;overflow:hidden;display:
   /* phone screenshots and squares two to a line, not one per screen (PX-49) */
   .grow.tiles{grid-template-columns:repeat(2,round(down,calc((100% - 16px) / 2),2px))} /* equal columns, so a line's figures floor to one height */
   .hero-row,.point,.list,.next{padding-top:var(--s6)}
+  /* Mobile audit (0206): the first screen shows the work. The lead, then the hero, then the
+     details; before, a 280–512px details list pushed the first image below the fold. */
+  main.study{display:flex;flex-direction:column}
+  .head-intro,.intro{display:contents}
+  .lead-col{margin-top:var(--s3);padding:0 var(--gutter)} /* out of their section, so they take its gutter */
+  .meta{order:1;padding:var(--s4) var(--gutter) 0}
+  .point,.list,.next{order:2}
+  /* a desktop screen that a phone screen of the same pages replaces, or that repeats one */
+  .grow.desk,.grow :global(.pic.desk){display:none}
+  /* a caption in the reading face, sentence case, above the screens it names: in pixel
+     capitals under a stack of four it read as a fifth label, far from the first image */
+  .cap{order:-1;font-family:var(--face-read);font-size:14px;line-height:24px;text-transform:none;letter-spacing:0;-webkit-font-smoothing:antialiased}
 }
 </style>

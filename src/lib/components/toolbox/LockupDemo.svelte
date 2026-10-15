@@ -12,6 +12,9 @@
   import { allWebFormats, allPrintFormats, allSizes, exportPlanFiles, buildPlanTree, type WebFormat, type PrintFormat } from './plan';
 
   let step: 'outputs' | 'review' = $state('outputs');
+  // the review screen is shorter: after Continue the page could settle with the demo's top
+  // above the screen, so it scrolls back to it (0206)
+  function review(from: HTMLElement) { requestAnimationFrame(() => { const d = from.closest('.demo') as HTMLElement | null; if (d && d.getBoundingClientRect().top < 0) d.scrollIntoView({ block: 'start' }); }); }
   let dark = $state(false);
   let includeWeb = $state(true), includePrint = $state(true);
   let webFormats = $state<Record<WebFormat, boolean>>({ JPEG: true, PNG: true, SVG: true });
@@ -36,7 +39,7 @@
   // the preview shows the colour treatment while it is on, else the ink the plate calls for
   const ink = $derived(treat.Color ? (dark ? '#f2d600' : '#174c43') : dark ? '#fff' : '#111');
 </script>
-<div class="readout lbl"><span class="path">~/Toolbox/Lockup/{step}</span><span>{files.length} files</span></div>
+<div class="readout lbl"><span class="path"><span class="pre">~/Toolbox/</span>Lockup/{step}</span><span>{files.length} files</span></div>
 <div class="split">
   {#if step === 'outputs'}
     <div class="stage center">
@@ -89,7 +92,7 @@
     <button type="button" aria-current={step === 'outputs' ? 'step' : undefined} onclick={() => (step = 'outputs')}><b>02</b><span>Outputs</span></button>
     <button type="button" aria-current={step === 'review' ? 'step' : undefined} onclick={() => (step = 'review')}><b>03</b><span>Review</span></button>
   </div>
-  {#if step === 'outputs'}<button type="button" class="cta lbl" onclick={() => (step = 'review')}>Continue<Arrow /></button>{:else}<button type="button" class="cta lbl" disabled title="Export happens in the app">Export<Arrow /></button>{/if}
+  {#if step === 'outputs'}<button type="button" class="cta lbl" onclick={(e) => { step = 'review'; review(e.currentTarget); }}>Continue<Arrow /></button>{:else}<button type="button" class="cta lbl" disabled title="Export happens in the app">Export<Arrow /></button>{/if}
 </div>
 <style>
 /* the logo sits 96 down in the 288 plate (centred would be 100, off the unit) */
@@ -103,5 +106,5 @@
 h4{margin:0;padding-bottom:var(--s1);font-size:27.5px;line-height:32px} /* the stage is narrower than the app's */
 @media(max-width:1100px){.plate{width:240px;height:240px;padding-top:72px}}
 @media(max-width:900px){.plate{width:288px;height:288px;padding-top:96px}}
-@media(max-width:420px){.plate{width:240px;height:240px;padding-top:72px}}
+@media(max-width:420px){.plate{width:240px;height:240px;padding-top:72px}.logo{gap:var(--s1);width:auto}.logo svg{width:48px;height:26px;margin-top:39px}} /* 238px of logo touched a 240px plate (0206) */
 </style>

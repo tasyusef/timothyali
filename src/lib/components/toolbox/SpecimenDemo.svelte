@@ -17,22 +17,27 @@
   let sample = $state('Make something good.');
   let roles = $state([{ label: 'Display', face: 'jacquard', step: 1 }, { label: 'Heading', face: 'parc', step: 2 }, { label: 'Body', face: 'jersey', step: 2 }]);
   let classic = $state('jacquard');
-  const px = (f: Face, step: number) => f.sizes[step].split('/')[0];
+  // below 420 every sample takes the next size down and the classic sheet shows its smallest
+  // sample only: at 86 and 129px a sample broke mid-word and the sheet ran three screens (0206)
+  let narrow = $state(false);
+  $effect(() => { const m = matchMedia('(max-width: 420px)'); const set = () => (narrow = m.matches); set(); m.addEventListener('change', set); return () => m.removeEventListener('change', set); });
+  const at = (step: number) => Math.min(2, step + (narrow ? 1 : 0));
+  const px = (f: Face, step: number) => f.sizes[at(step)].split('/')[0];
   const line = $derived(sample.trim() === '' ? 'The quick brown fox jumps over the lazy dog' : sample);
 </script>
-<div class="readout lbl"><span class="path">~/Toolbox/Specimen</span><span>{template === 'brand' ? `${roles.length} styles` : byId(classic).label}</span></div>
+<div class="readout lbl"><span class="path"><span class="pre">~/Toolbox/</span>Specimen</span><span>{template === 'brand' ? `${roles.length} styles` : byId(classic).label}</span></div>
 <div class="split">
   <div class="stage">
     <div class="mat"><div class="artboard plate-light sheet">
       {#if template === 'brand'}
         <b class="title">{title || 'Typography'}</b>
         {#each roles as r (r.label)}{@const f = byId(r.face)}
-          <div class="role"><span class="meta">{r.label.toUpperCase()}  ·  {f.label}  ·  {px(f, r.step)}</span><p style:font={`${f.sizes[r.step]} ${f.family}`} style:text-transform={f.caps ? 'uppercase' : 'none'}>{line}</p></div>
+          <div class="role"><span class="meta">{r.label.toUpperCase()}  ·  {f.label}  ·  {px(f, r.step)}</span><p style:font={`${f.sizes[at(r.step)]} ${f.family}`} style:text-transform={f.caps ? 'uppercase' : 'none'}>{line}</p></div>
         {/each}
       {:else}{@const f = byId(classic)}
         <b class="title">{f.label}</b>
         <div class="role"><span class="meta">CHARACTERS</span><p style:font={`${f.sizes[2]} ${f.family}`} style:text-transform={f.caps ? 'uppercase' : 'none'}>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />abcdefghijklmnopqrstuvwxyz<br />0123456789 .,;:!?&amp;@#%()[]</p></div>
-        <div class="role"><span class="meta">SIZES</span>{#each [2, 1, 0] as step (step)}<p style:font={`${f.sizes[step]} ${f.family}`} style:text-transform={f.caps ? 'uppercase' : 'none'}>{line}</p>{/each}</div>
+        <div class="role"><span class="meta">SIZES</span>{#each narrow ? [2] : [2, 1, 0] as step (step)}<p style:font={`${f.sizes[step]} ${f.family}`} style:text-transform={f.caps ? 'uppercase' : 'none'}>{line}</p>{/each}</div>
       {/if}
     </div></div>
   </div>
@@ -75,7 +80,7 @@
 /* the sheet: a white page; its labels are the app's Helvetica, the samples the chosen face */
 .sheet{width:100%;min-height:352px;padding:var(--s3);display:flex;flex-direction:column;gap:var(--s3);color:#121212}
 .title{font:700 20px/24px 'Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:auto}
-.role{display:flex;flex-direction:column;gap:var(--s1)}.role p{margin:0;overflow-wrap:anywhere}
+.role{display:flex;flex-direction:column;gap:var(--s1)}.role p{margin:0;overflow-wrap:break-word}
 .meta{font:400 9px/16px 'Helvetica Neue',Helvetica,Arial,sans-serif;letter-spacing:1.2px;color:#737373;-webkit-font-smoothing:auto;white-space:pre}
 .style-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s1) var(--s2);align-items:center;padding:var(--s1) 0}
 .style-row .select{grid-column:1}.style-row .chips{grid-column:2;flex-wrap:nowrap}
