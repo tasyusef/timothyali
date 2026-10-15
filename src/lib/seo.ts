@@ -1,5 +1,6 @@
 // Structured data for the prerendered pages. One graph per page, emitted by SocialMeta.
-// Person and WebSite on Home; every page is a WebPage (Work a CollectionPage, Contact a
+// Person and WebSite in full on Home, and as a short node (type, id, name, url) on every other
+// page, since a reader of one page does not follow an @id to another (0207); every page is a WebPage (Work a CollectionPage, Contact a
 // ContactPage) that is part of the WebSite, with its share image and a breadcrumb trail on
 // the inner pages; each study is a CreativeWork by that Person and the page's main entity;
 // Toolbox is a SoftwareApplication. Facts here are the site's own copy plus the two public
@@ -8,7 +9,7 @@ import { SITE_URL, socialFor, type SocialPage } from './social';
 import { studies, type Project } from './work';
 import { tools, APP, home as toolboxHome } from './toolbox';
 
-export const PROFILES = ['https://linkedin.com/in/timothyali', 'https://github.com/tasyusef'];
+export const PROFILES = ['https://www.linkedin.com/in/timothyali', 'https://github.com/tasyusef'];
 export const EMAIL = 'studio@timothyali.com';
 const RELEASES = 'https://github.com/tasyusef/toolbox/releases';
 
@@ -17,7 +18,7 @@ const person = {
   '@type': 'Person',
   '@id': id('/', 'person'),
   name: 'Timothy Ali',
-  url: SITE_URL,
+  url: `${SITE_URL}/`,
   email: `mailto:${EMAIL}`,
   jobTitle: 'Product designer',
   description: 'Product designer in Denver: interfaces, design systems, and front ends in TypeScript. Open to full-time and contract work.',
@@ -25,7 +26,10 @@ const person = {
   address: { '@type': 'PostalAddress', addressLocality: 'Denver', addressRegion: 'CO', addressCountry: 'US' },
   sameAs: PROFILES
 };
-const website = { '@type': 'WebSite', '@id': id('/', 'website'), name: 'Timothy Ali', url: SITE_URL, inLanguage: 'en-US', publisher: { '@id': person['@id'] }, author: { '@id': person['@id'] } };
+const website = { '@type': 'WebSite', '@id': id('/', 'website'), name: 'Timothy Ali', url: `${SITE_URL}/`, inLanguage: 'en-US', publisher: { '@id': person['@id'] }, author: { '@id': person['@id'] } };
+// what an inner page says about the person, the site and the app it points to
+const personRef = { '@type': 'Person', '@id': person['@id'], name: person.name, url: person.url, jobTitle: person.jobTitle, sameAs: PROFILES };
+const websiteRef = { '@type': 'WebSite', '@id': website['@id'], name: website.name, url: website.url };
 const image = (src: string, width: number, height: number) => ({ '@type': 'ImageObject', url: `${SITE_URL}${src}`, width, height });
 const crumbs = (path: string, items: [string, string][]) => ({
   '@type': 'BreadcrumbList',
@@ -59,7 +63,7 @@ const work = (p: Project) => ({
   genre: p.scope,
   keywords: p.tools,
   inLanguage: 'en-US',
-  isPartOf: { '@id': id('/work/', 'webpage') },
+  isPartOf: { '@type': 'CollectionPage', '@id': id('/work/', 'webpage'), name: 'Work', url: `${SITE_URL}/work/` },
   author: { '@id': person['@id'] },
   creator: { '@id': person['@id'] },
   ...(p.live ? { sameAs: p.live.href } : {})
@@ -82,20 +86,22 @@ const software = {
   author: { '@id': person['@id'] },
   featureList: tools.map((t) => `${t.name}: ${t.summary}`)
 };
+const softwareRef = { '@type': 'SoftwareApplication', '@id': software['@id'], name: software.name, url: software.url, applicationCategory: software.applicationCategory, operatingSystem: software.operatingSystem };
 
 export function graphFor(path: string): object[] | undefined {
   const meta = socialFor(path);
   if (!meta) return;
   const home: [string, string] = ['Timothy Ali', '/'];
   if (path === '/') return [person, website, webpage(meta, 'WebPage', { about: { '@id': person['@id'] }, mainEntity: { '@id': person['@id'] } })];
-  if (path === '/work/') return [crumbs(path, [home, ['Work', '/work/']]), webpage(meta, 'CollectionPage', { hasPart: studies.map((p) => ({ '@id': id(`/work/${p.slug}/`, 'work') })) })];
-  if (path === '/contact/') return [crumbs(path, [home, ['Contact', '/contact/']]), webpage(meta, 'ContactPage', { mainEntity: { '@id': person['@id'] } })];
-  if (path === '/toolbox/') return [crumbs(path, [home, ['Toolbox', '/toolbox/']]), webpage(meta, 'WebPage', { mainEntity: { '@id': software['@id'] } }), software];
-  if (path === '/toolbox/agents/') return [crumbs(path, [home, ['Toolbox', '/toolbox/'], ['CLI & MCP', '/toolbox/agents/']]), webpage(meta, 'WebPage', { about: { '@id': software['@id'] } })];
+  const refs = [personRef, websiteRef];
+  if (path === '/work/') return [...refs, crumbs(path, [home, ['Work', '/work/']]), webpage(meta, 'CollectionPage', { hasPart: studies.map((p) => ({ '@type': 'CreativeWork', '@id': id(`/work/${p.slug}/`, 'work'), name: p.title, url: `${SITE_URL}/work/${p.slug}/` })) })];
+  if (path === '/contact/') return [...refs, crumbs(path, [home, ['Contact', '/contact/']]), webpage(meta, 'ContactPage', { mainEntity: { '@id': person['@id'] } })];
+  if (path === '/toolbox/') return [...refs, crumbs(path, [home, ['Toolbox', '/toolbox/']]), webpage(meta, 'WebPage', { mainEntity: { '@id': software['@id'] } }), software];
+  if (path === '/toolbox/agents/') return [...refs, softwareRef, crumbs(path, [home, ['Toolbox', '/toolbox/'], ['CLI & MCP', '/toolbox/agents/']]), webpage(meta, 'WebPage', { about: { '@id': software['@id'] } })];
   const t = tools.find((t) => path === `/toolbox/${t.slug}/`);
-  if (t) return [crumbs(path, [home, ['Toolbox', '/toolbox/'], [t.name, path]]), webpage(meta, 'WebPage', { about: { '@id': software['@id'] }, primaryImageOfPage: image(t.shot.src, t.shot.w, t.shot.h) })];
+  if (t) return [...refs, softwareRef, crumbs(path, [home, ['Toolbox', '/toolbox/'], [t.name, path]]), webpage(meta, 'WebPage', { about: { '@id': software['@id'] }, primaryImageOfPage: image(t.shot.src, t.shot.w, t.shot.h) })];
   const p = studies.find((s) => path === `/work/${s.slug}/`);
-  if (p) return [crumbs(path, [home, ['Work', '/work/'], [p.title, path]]), webpage(meta, 'WebPage', { mainEntity: { '@id': id(path, 'work') } }), work(p)];
+  if (p) return [...refs, crumbs(path, [home, ['Work', '/work/'], [p.title, path]]), webpage(meta, 'WebPage', { mainEntity: { '@id': id(path, 'work') } }), work(p)];
 }
 
 /** The <script type="application/ld+json"> for a page, with `</` escaped so the JSON cannot close the tag. */

@@ -73,16 +73,18 @@
 
   // --- pointer heat -------------------------------------------------------
   const local = (e: PointerEvent) => { const r = canvas.getBoundingClientRect(); return { x: (e.clientX - r.left) / cell, y: (e.clientY - r.top) / cell }; };
-  function onMove(e: PointerEvent) { if (!interactive) return; pointer = local(e); warm(); if (!motion.on) cool(); }
-  function onLeave() { pointer = null; warm(); if (!motion.on) cool(); }
-  function onDown(e: PointerEvent) { if (!interactive) return; warm(); bursts.push({ ...local(e), t: 0 }); if (bursts.length > MAX_BURSTS) bursts.shift(); if (!motion.on) cool(); }
+  // with motion off the field stays still under the pointer too: no heat trail, no rings (0207)
+  function onMove(e: PointerEvent) { if (!interactive || !motion.on) return; pointer = local(e); warm(); }
+  function onLeave() { pointer = null; if (motion.on) warm(); }
+  function onDown(e: PointerEvent) { if (!interactive || !motion.on) return; warm(); bursts.push({ ...local(e), t: 0 }); if (bursts.length > MAX_BURSTS) bursts.shift(); }
   // a quick second click on the bare field would select the nearest words; only there, not on text or controls
   function onMouseDown(e: MouseEvent) { if (interactive && e.detail > 1 && !(e.target as Element | null)?.closest('a, button, input, textarea, select, label, p, h1, h2, h3, h4, li, dt, dd, figure, img, span')) e.preventDefault(); }
   // Heat and rings keep the field painting every frame for a while after the pointer last moved:
   // 0.94 a frame falls under 0.03 in about two seconds, and a ring crosses its reach in about one.
   // Past that, a frame repaints only when the field's tick or the scroll position has changed (0206).
   let warmUntil = 0;
-  const warm = () => { warmUntil = performance.now() + 2500; };
+  let wake = () => {}; // the motion loop's, while it runs
+  const warm = () => { warmUntil = performance.now() + 2500; wake(); };
   // heat and rings run on elapsed time, so they look the same at 60 or 120 frames a second
   function stir(dt: number) {
     if (!interactive || heat.length !== cols * rows) return;
@@ -107,8 +109,6 @@
       bursts = bursts.filter((b) => b.t / 4 <= R + 1);
     }
   }
-  let cooling = 0;
-  function cool() { if (cooling || motion.on) return; cooling = window.setInterval(() => { draw(); let m = 0; for (let i = 0; i < heat.length; i++) if (heat[i] > m) m = heat[i]; if (m < 0.03 && !pointer && !bursts.length) { clearInterval(cooling); cooling = 0; draw(true); } }, 16); }
 
   // --- glyph sprites: each ramp glyph rendered once per colour/dpr ---------------
   function spriteSet(fill: string) {
@@ -141,6 +141,9 @@
   // worked out then and kept per cell (PX-66); each animation frame only adds the pointer's heat
   // and repaints the rows on screen. Off-screen rows keep their last paint until they scroll in.
   let baseDirty = true, measuredFrame = -1; let rowFrame = new Int32Array(0);
+  // the knockout only changes when the boxes it steps around do: kept per row and redone when the
+  // measured boxes move (0207), where before every cell on screen was worked out again each tick
+  let boxesKey = '', kVersion = 0; let rowK = new Int32Array(0);
   let bV = new Float32Array(0), bC = new Int8Array(0), bHot = new Uint8Array(0), bK = new Float32Array(0); let bCh: (string | undefined)[] = [];
   let dV = new Float32Array(0), dC = new Int8Array(0); // dither: four pixels per cell
   let last = 0;
@@ -148,17 +151,22 @@
   function rebuild(y0: number, y1: number) {
     const n = cols * rows;
     if (baseDirty || bK.length !== n) {
-      if (bK.length !== n) { bV = new Float32Array(n); bC = new Int8Array(n); bHot = new Uint8Array(n); bK = new Float32Array(n); bCh = new Array(n); dV = new Float32Array(n * 4); dC = new Int8Array(n * 4); rowFrame = new Int32Array(rows); }
-      rowFrame.fill(-1);
+      if (bK.length !== n) { bV = new Float32Array(n); bC = new Int8Array(n); bHot = new Uint8Array(n); bK = new Float32Array(n); bCh = new Array(n); dV = new Float32Array(n * 4); dC = new Int8Array(n * 4); rowFrame = new Int32Array(rows); rowK = new Int32Array(rows); }
+      rowFrame.fill(-1); kVersion++;
       const cs = getComputedStyle(host); color = cs.color; accentColor = cs.getPropertyValue('--accent-text').trim(); paper = cs.getPropertyValue('--paper').trim(); buildSprites();
       baseDirty = false; measuredFrame = -1;
     }
     // the text the field steps around is measured once per tick, not once per frame
-    if (measuredFrame !== frame) { measure(); measuredFrame = frame; rowFrame.fill(-1); }
-    const dith = dithering();
-    for (let y = y0; y < y1; y++) { if (rowFrame[y] === frame) continue; rowFrame[y] = frame; for (let x = 0; x < cols; x++) {
+    if (measuredFrame !== frame) {
+      measure(); measuredFrame = frame; rowFrame.fill(-1);
+      const key = boxes.map((b) => `${b.x0},${b.y0},${b.x1},${b.y1},${b.depth},${b.feather}`).join(';');
+      if (key !== boxesKey) { boxesKey = key; kVersion++; }
+    }
+    const dith = dithering(), P = pad, F = feather, H = hug, D = depth;
+    for (let y = y0; y < y1; y++) {
+      if (rowK[y] !== kVersion) { rowK[y] = kVersion; for (let x = 0; x < cols; x++) bK[y * cols + x] = knockout(x + 0.5, y + 0.5, boxes, P, F, H, D); } // hugged knockouts are rounded too (0174)
+      if (rowFrame[y] === frame) continue; rowFrame[y] = frame; for (let x = 0; x < cols; x++) {
       const i = y * cols + x;
-      bK[i] = knockout(x + 0.5, y + 0.5, boxes, pad, feather, hug, depth); // hugged knockouts are rounded too (0174)
       if (dith) {
         for (let j = 0; j < 2; j++) for (let q = 0; q < 2; q++) {
           const X = 2 * x + q, Y = 2 * y + j, f = scene(X, Y, frame, cols * 2, screenRows * 2), o = i * 4 + j * 2 + q;
@@ -224,11 +232,13 @@
     drawn = true;
   }
   function resize() {
-    const r = host.getBoundingClientRect(); dpr = Math.max(1, Math.min(3, Math.round(window.devicePixelRatio || 1)));
-    // a page-tall field (Home) at 3× was 11–14 Mpx, near the ~16.7 Mpx a canvas may have on iOS
-    // before it draws nothing: past three screens it backs at 2×, and never past 8 Mpx (0206)
-    if (r.height > 3 * window.innerHeight) dpr = Math.min(dpr, 2);
-    while (dpr > 1 && r.width * r.height * dpr * dpr > 8e6) dpr--;
+    if (!alive) return;
+    const r = host.getBoundingClientRect();
+    // Everything the field draws sits on whole CSS pixels (glyph pixels of `px`, dither squares of
+    // half a cell), and the canvas is scaled up `pixelated`, so a 1× backing store looks the same
+    // on a 2× or 3× screen at a ninth of the memory (Home's was 20 MB on a phone, 0207). `dpr`
+    // stays a variable so the sprites and drawing keep their scale arithmetic.
+    dpr = 1;
     const pageX = r.left + window.scrollX, pageY = r.top + window.scrollY; const g = cell;
     offX = ((pageX % g) + g) % g; offY = ((pageY % g) + g) % g;
     cols = Math.ceil((r.width + offX) / cell); rows = Math.ceil((r.height + offY) / cell);
@@ -243,34 +253,44 @@
   }
   // the observers, the fonts and the picture each asked for a full resize at load (six in 75 ms): one per frame now
   let resizeQueued = 0;
-  const queueResize = () => { if (!resizeQueued) resizeQueued = requestAnimationFrame(() => { resizeQueued = 0; resize(); }); };
+  const queueResize = () => { if (alive && !resizeQueued) resizeQueued = requestAnimationFrame(() => { resizeQueued = 0; resize(); }); };
+  // the picture and the fonts can land after the field is gone (a quick page change); they find it gone (0207)
+  let alive = true;
   // each field lays out its own copy of the picture (0173), so two scenes never share one
   let mountainImg: HTMLImageElement | null = null; let mtn: Mountains | null = null;
   onMount(() => {
     if (mode === 'scene' && mountains && shotHasRidge(shot)) { mountainImg = new Image(); mountainImg.onload = () => queueResize(); mountainImg.src = MOUNTAIN_REFS[mountains]; }
     const r0 = host.getBoundingClientRect(); visible = due = r0.bottom > -64 && r0.top < window.innerHeight + 64;
     const ro = new ResizeObserver(queueResize); ro.observe(host); ro.observe(document.body); resize(); document.fonts?.ready.then(queueResize);
-    const io = new IntersectionObserver((es) => es.forEach((e) => { visible = e.isIntersecting; if (visible && !due) { due = true; draw(true); } }), { rootMargin: '64px' }); io.observe(host);
+    const io = new IntersectionObserver((es) => es.forEach((e) => { visible = e.isIntersecting; if (visible && !due) { due = true; draw(true); } if (visible) wake(); }), { rootMargin: '64px' }); io.observe(host);
     const band = (host.closest('.band') as HTMLElement | null) ?? host;
     band.addEventListener('pointermove', onMove); band.addEventListener('pointerleave', onLeave); band.addEventListener('pointerdown', onDown); band.addEventListener('mousedown', onMouseDown);
-    return () => { cancelAnimationFrame(resizeQueued); ro.disconnect(); io.disconnect(); band.removeEventListener('pointermove', onMove); band.removeEventListener('pointerleave', onLeave); band.removeEventListener('pointerdown', onDown); band.removeEventListener('mousedown', onMouseDown); if (cooling) clearInterval(cooling); };
+    return () => { alive = false; if (mountainImg) mountainImg.onload = null; cancelAnimationFrame(resizeQueued); ro.disconnect(); io.disconnect(); band.removeEventListener('pointermove', onMove); band.removeEventListener('pointerleave', onLeave); band.removeEventListener('pointerdown', onDown); band.removeEventListener('mousedown', onMouseDown); };
   });
   $effect(() => { void theme.light; if (!due) return; baseDirty = true; if (mode === 'scene' && ctx) resize(); else draw(true); }); // the scene re-lays its picture for the dither grid
   $effect(() => {
-    if (!motion.on) { frame = 0; if (due) draw(true); return; }
-    // one paint per display frame while the pointer's heat is live, so it keeps up with the cursor
+    if (!motion.on) { frame = 0; heat.fill(0); ring.fill(0); bursts = []; pointer = null; if (due) draw(true); return; }
+    // One paint per display frame while the pointer's heat is live, so it keeps up with the cursor
     // (PX-66); otherwise only when the tick or the scroll moved (0206): a phone has no hover, and
-    // repainting an unchanged field 60–120 times a second cost Home two thirds of a slow phone's main thread
-    const start = performance.now(); let id = 0, paintedFrame = -1, paintedTop = NaN;
+    // repainting an unchanged field 60–120 times a second cost Home two thirds of a slow phone's main thread.
+    // Between paints nothing runs (0207): the loop sleeps until the next tick, a scroll, the
+    // pointer, or the field coming back on screen, and off screen it does not wake at all.
+    const start = performance.now(); let id = 0, timer = 0, paintedFrame = -1, paintedTop = NaN;
+    const schedule = () => { if (!id && visible) { clearTimeout(timer); timer = 0; id = requestAnimationFrame(loop); } };
     const loop = (now: number) => {
-      id = requestAnimationFrame(loop); if (!visible) return;
+      id = 0; if (!visible) return;
       frame = Math.floor((now - start) / tick);
       const top = canvas.getBoundingClientRect().top;
-      if (frame === paintedFrame && top === paintedTop && now > warmUntil && !pointer && !bursts.length) { last = now; return; }
-      paintedFrame = frame; paintedTop = top; draw();
+      const live = now < warmUntil || bursts.length > 0; // a resting pointer keeps its glow at the tick rate
+      if (frame === paintedFrame && top === paintedTop && !live) last = now;
+      else { paintedFrame = frame; paintedTop = top; draw(); }
+      if (live) schedule();
+      else timer = window.setTimeout(schedule, tick - ((now - start) % tick) + 1);
     };
-    id = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(id);
+    wake = schedule;
+    addEventListener('scroll', schedule, { passive: true });
+    schedule();
+    return () => { cancelAnimationFrame(id); clearTimeout(timer); removeEventListener('scroll', schedule); wake = () => {}; };
   });
 </script>
 <div class="ascii" class:drawn bind:this={host} aria-hidden="true"><canvas bind:this={canvas}></canvas></div>

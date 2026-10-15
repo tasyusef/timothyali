@@ -29,8 +29,6 @@
 .cta-row>span{flex:none;max-width:100%}
 @media(hover:hover){.cta-row:hover{background:var(--fg);color:var(--paper)}}
 .cta-hint{display:inline-flex;align-items:center;gap:var(--s1);padding:9px 14px 7px 16px;background:var(--accent);color:var(--on-accent)}
-.cta-quiet{display:inline-flex;align-items:center;gap:var(--s2);padding:17px 14px 15px 16px}
-.cta-quiet .mono{color:var(--accent-text)}
 
 /* --- quiet link (QuietLink.svelte) -------------------------------- */
 .quiet-link{display:inline-flex;align-items:center;gap:var(--s1)}
@@ -38,12 +36,6 @@
 .quiet-link.pad{align-self:flex-start;padding:9px 0 7px}
 /* a 16px link reaches 40px to a finger (the résumé, email and LinkedIn links were 16px tall, 0206) */
 @media(pointer:coarse){.cta-hint,.list .all{position:relative}.cta-hint::after,.list .all::after{content:'';position:absolute;inset:-6px 0}.quiet-link,.page-foot a{position:relative}.quiet-link::after,.page-foot a::after{content:'';position:absolute;inset:-12px -8px}.quiet-link.pad::after{inset:-4px -8px}}
-
-/* --- index row (IndexRow.svelte) ---------------------------------- */
-.index-row{display:flex;gap:var(--s2);padding-bottom:var(--s4)}
-.index-row-row{justify-content:space-between;align-items:flex-end}
-.index-row-column{flex-direction:column;align-items:flex-end}
-.index-row .index-value.accent{font-size:25px;line-height:32px;color:var(--accent-text)}
 
 /* --- page foot (PageFoot.svelte) ---------------------------------- */
 .page-foot{display:flex;justify-content:space-between;gap:var(--s2);margin:var(--s8) 0 0;padding:0}
@@ -56,7 +48,7 @@
 .card-body{display:grid;grid-template-rows:auto 1fr;grid-template-columns:minmax(0,1fr) auto;gap:var(--s1) var(--s2);align-items:start;flex:1;background:var(--paper);margin:0 calc(-1 * var(--s2)) calc(-1 * var(--s2));padding:var(--s2);min-width:0}
 .card-body h2,.card-body h3{min-width:0}
 .card-body [data-fit="27"]{font-size:27.5px;line-height:32px}
-.card-body [data-fit="20"],.row-body h2[data-fit="20"]{font-size:20.625px;line-height:24px} /* a word wider than the card steps down (fitTitle, 0196) */
+.card-body [data-fit="20"]{font-size:20.625px;line-height:24px} /* a word wider than the card steps down (fitTitles, 0196) */
 .card-body>.mono{align-self:start}
 .card:focus-visible .card-body>.mono{color:var(--accent-text)}@media(hover:hover){.card:hover .card-body>.mono{color:var(--accent-text)}}
 .card-body .lbl,.card-body .desc{grid-column:1/-1}
@@ -64,34 +56,12 @@
 .card .mono{transform:translateX(0)}
 .motion .card:focus-visible .mono{transform:translateX(var(--nudge))}@media(hover:hover){.motion .card:hover .mono{transform:translateX(var(--nudge))}}
 
-/* --- work rows (one index entry per project, decision 0074) -------- */
-/* No surface and no plates: the cover and the type sit on the page ground and
-   the 64px gap does the separating. The dither survives only as a hover state,
-   a 16px mat around the cover drawn in the gap by `.frame`'s negative margin,
-   so the image itself stays exactly the column width. */
-.rows{display:flex;flex-direction:column;gap:var(--s8)}
-.row{display:grid;grid-template-columns:round(down,calc((100% - 32px) * 3 / 5),8px) 1fr;gap:var(--s4);align-items:start;scroll-margin-top:var(--s2);color:var(--fg)}
-.row .frame{margin:calc(-1 * var(--s2));padding:var(--s2);min-width:0}
-.row:focus-visible .frame{background:var(--surface-card-hover)}@media(hover:hover){.row:hover .frame{background:var(--surface-card-hover)}}
-.row .pic{background:var(--paper)}
-.row-body{display:flex;flex-direction:column;gap:var(--s2);min-width:0}
-.row-body .cta-quiet{align-self:flex-start;margin-left:calc(-1 * var(--s2))}
-.row:focus-visible .cta-quiet{background:var(--accent);color:var(--on-accent)}@media(hover:hover){.row:hover .cta-quiet{background:var(--accent);color:var(--on-accent)}}
-.row:focus-visible .cta-quiet .mono{color:var(--on-accent)}@media(hover:hover){.row:hover .cta-quiet .mono{color:var(--on-accent)}}
-
-@media(max-width:1100px){.row-body h2{font-size:41.25px;line-height:48px}}
-@media(max-width:420px){.row-body h2{font-size:27.5px;line-height:32px}} /* “ANDROIDS” is 312px at 41.25 */
-/* a title whose longest word would not fit its column steps down the ladder (fitTitle, 0132) */
-.row-body h2[data-fit="41"]{font-size:41.25px;line-height:48px}
-.row-body h2[data-fit="27"]{font-size:27.5px;line-height:32px}
-@media(max-width:900px){.card-body h2,.card-body h3{font-size:27.5px;line-height:32px}.row{grid-template-columns:100%;gap:var(--s2)}.rows{gap:var(--s6)}}
+@media(max-width:900px){.card-body h2,.card-body h3{font-size:27.5px;line-height:32px}}
 /* on a narrow phone a long title (“POCKETWATCH”) needs the arrow's column: the whole card is the link (0202) */
 @media(max-width:480px){.card-body>.mono{display:none}.card-body h2,.card-body h3{grid-column:1/-1}}
 @media(max-width:700px){
   .cards{grid-template-columns:minmax(0,1fr)} /* not 1fr: a figure holding its old pixel height would keep the card at its old width (0202) */
   .page-foot{flex-direction:column;margin:var(--s6) 0 0}
-  .index-row-column{flex-direction:row;align-items:baseline;justify-content:space-between;gap:var(--s2);padding-bottom:0;white-space:nowrap}
-  .index-row .index-value.accent{font-size:12.5px;line-height:16px}
 }
 
 /* --- press (0099) ------------------------------------------------- */
@@ -99,10 +69,10 @@
    hover and to the accent on press, whatever its rest colour, so the pair reads the
    same everywhere; a snap, no easing, on with motion off. A text-only link gets the
    block drawn a cell around it with offset shadows, so nothing reflows; the padded
-   variant already has its rows and takes the cell at the sides only. Cards and rows
+   variant already has its rows and takes the cell at the sides only. Cards
    press their mat. */
-.cta:active,.cta-row:active,.cta-hint:active,.cta-quiet:active,.quiet-link:active,.card:active,.row:active .frame,.row:active .cta-quiet{background:var(--accent);color:var(--on-accent)}
-.cta-quiet:active .mono,.row:active .cta-quiet .mono,.card:active .card-body>.mono{color:inherit}
+.cta:active,.cta-row:active,.cta-hint:active,.quiet-link:active,.card:active{background:var(--accent);color:var(--on-accent)}
+.card:active .card-body>.mono{color:inherit}
 .quiet-link:active{box-shadow:0 0 0 var(--s1) var(--accent)}
 .quiet-link.pad:active{box-shadow:var(--s1) 0 0 var(--accent),calc(-1 * var(--s1)) 0 0 var(--accent)}
 

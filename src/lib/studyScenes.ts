@@ -124,15 +124,25 @@ const toolbox: Scene = (X, Y, A, t, seed, x, y) => {
   return star(x, y, seed);
 };
 
+// the palm's fronds as line segments, worked out once per tick and crown rather than once per cell (0207)
+let fronds: number[][] = [], frondsKey = '';
+function palmFronds(cx: number, cy: number, t: number) {
+  const key = `${cx},${t}`; if (key === frondsKey) return fronds;
+  frondsKey = key; fronds = [];
+  for (let k = 0; k < 6; k++) {
+    const a = (k / 5) * Math.PI * 0.9 + 0.15 + Math.sin(t * 0.04 + k) * 0.04;
+    let px = cx, py = cy;
+    for (let r = 0.025; r <= 0.13; r += 0.025) { const nx = cx + Math.cos(a) * r, ny = cy - Math.sin(a) * r * 0.6 + 2.2 * r * r; fronds.push([px, py, nx, ny]); px = nx; py = ny; }
+  }
+  return fronds;
+}
 const parc: Scene = (X, Y, A, t, seed) => {
   const H = 0.6, ix = A * 0.82;
   // the palm on its island: a bent trunk, fronds drooping from the crown
   const crown = { x: ix + 0.04, y: 0.33 };
-  for (let k = 0; k < 6; k++) {
-    const a = (k / 5) * Math.PI * 0.9 + 0.15 + Math.sin(t * 0.04 + k) * 0.04;
-    let d = Infinity, px = crown.x, py = crown.y;
-    for (let r = 0.025; r <= 0.13; r += 0.025) { const nx = crown.x + Math.cos(a) * r, ny = crown.y - Math.sin(a) * r * 0.6 + 2.2 * r * r; d = Math.min(d, seg(X, Y, px, py, nx, ny)); px = nx; py = ny; }
-    if (d < LINE * 0.9) return ink(0.95, MAT.jade);
+  // the fronds reach 0.13 from the crown, and droop at most 0.04 below it
+  if (Math.abs(X - crown.x) < 0.13 + LINE && Y > crown.y - 0.1 && Y < crown.y + 0.06) {
+    for (const [x0, y0, x1, y1] of palmFronds(crown.x, crown.y, t)) if (seg(X, Y, x0, y0, x1, y1) < LINE * 0.9) return ink(0.95, MAT.jade);
   }
   if (Y > crown.y && Y < H - 0.02) { const tx = ix + 0.04 * ((H - 0.02 - Y) / (H - 0.02 - crown.y)) ** 2; if (Math.abs(X - tx) < LINE * 0.8) return ink(0.9, MAT.brown); }
   const isl = (X - ix) / 0.26;

@@ -17,14 +17,14 @@
   const next = $derived(data.next);
   // The title is PARC Pixel Bold (0079) and may wrap, but a single word cannot. A hidden
   // probe at the heading's own size measures the longest word; when it would not fit,
-  // the title drops one cell down the Bold ladder (110 → 82.5 → 55 → 41.25 → 27.5).
+  // the title takes the next size down at its width (`.small`: 110 → 82.5, then 55 → 41.25 → 27.5 at the breakpoints).
   let h1: HTMLElement; let probe: HTMLElement;
   let small = $state(false);
   const longest = $derived(p.word.split(/\s+/).sort((a, b) => b.length - a.length)[0]);
   function fit() { if (h1 && probe) small = probe.scrollWidth > h1.clientWidth; }
   onMount(() => {
     fit(); document.fonts?.ready.then(fit); document.fonts?.addEventListener('loadingdone', fit);
-    const ro = new ResizeObserver(fit); ro.observe(h1);
+    const ro = new ResizeObserver(fit); ro.observe(h1); ro.observe(probe); // the probe too: it is what the face changes (0207)
     return () => { ro.disconnect(); document.fonts?.removeEventListener('loadingdone', fit); };
   });
 
@@ -66,14 +66,14 @@
     return { destroy: () => { ro.disconnect(); window.removeEventListener('resize', check); } };
   }
 </script>
-<svelte:head><title>{p.title} / Timothy Ali</title><meta name="description" content={p.description} /><link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href={plexUrl} /></svelte:head>
+<svelte:head><link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href={plexUrl} /></svelte:head>
 
 {#snippet gallery(rows: Row[], eager: boolean)}
   {#each rows as row}
     {@const share = { total: row.reduce((a, m) => a + m.w / m.h, 0), n: row.length }}
     <div class="grow" class:tiles={rowTiles(row)} class:desk={row.every((m) => m.desk)} style:--cols={rowColumns(row)}>
       {#each row as m}
-        {#if m.video}<Clip src={m.src} small={m.small} width={m.w} height={m.h} label={m.alt} poster={m.poster} row={share} />{:else}<Picture class={m.desk ? 'desk' : ''} src={m.src} x2={m.x2} alt={m.alt} width={m.w} height={m.h} {eager} row={share} phone={m.phone} sizes={(eager ? heroClass : galleryClass)(row.length, rowTiles(row))} />{/if}
+        {#if m.video}<Clip src={m.src} small={m.small} tap={m.tap} width={m.w} height={m.h} label={m.alt} poster={m.poster} row={share} />{:else}<Picture class={m.desk ? 'desk' : ''} src={m.src} x2={m.x2} alt={m.alt} width={m.w} height={m.h} {eager} row={share} phone={m.phone} sizes={(eager ? heroClass : galleryClass)(row.length, rowTiles(row))} />{/if}
       {/each}
     </div>
   {/each}
@@ -82,7 +82,7 @@
 <main class="inner-page study" id="main" tabindex="-1">
   <!-- the head is a strip of the landing's world (0178), a scene of its own for each study (0179);
        the reading below stays on the plain ground; the head is the title alone (0187) -->
-  <Band class="head" mode="scene" shot="strip" sceneSpan="box" mountains={hasStudyScene(p.slug) ? '' : 'a'} study={hasStudyScene(p.slug) ? p.slug : ''} seed={Number(p.n) || 3} tick={TICK_FAST} palette="scene" cell={8} px={1} lightAs="dither" hug pad={0} feather={1} depth={0.85} avoid=".head .title .decode">
+  <Band class="head" mode="scene" shot="strip" sceneSpan="box" mountains={hasStudyScene(p.slug) ? '' : 'a'} study={hasStudyScene(p.slug) ? p.slug : ''} seed={Number(p.n) || 3} tick={TICK_FAST} lightAs="dither" feather={1} depth={0.85} avoid=".head .title .decode">
     <h1 class="display title" class:small bind:this={h1}><span class="probe" aria-hidden="true" bind:this={probe}>{longest}</span><Decode text={p.word} step={STEP} /></h1>
   </Band>
   <section class="head-intro">
@@ -137,13 +137,10 @@ main :global(.head){position:relative;isolation:isolate;overflow:hidden;display:
    every line of a small two-line title at the base pitch (48px lines under 27.5px caps, PX-49) */
 .title.small :global(.decode){display:block;font-size:82.5px;line-height:88px}
 .title :global(.decode){display:inline;white-space:normal} /* the title may wrap between words */
-.intro{display:grid;grid-template-columns:round(down,calc((100% - 32px) * 2 / 3),8px) 1fr;gap:var(--s4);margin-top:var(--s4);align-items:start}
 /* Reading text (0136, 0137): the lead, the meta values and every paragraph in IBM Plex Mono
    at 18/32; the lead and paragraphs in a 64ch column. A 32px line also keeps a link's 16px
    arrow, centred in its line, on the unit (a 24px line put it 4px off). */
 .lead-col{display:flex;flex-direction:column;gap:var(--s3);max-width:64ch}
-.meta{display:flex;flex-direction:column;gap:var(--s2);margin:0;padding-top:var(--s1)}
-.meta dt{margin-bottom:var(--s1)}.meta dd{margin:0}
 .hero-row{padding-top:var(--s8)}
 .gallery{display:flex;flex-direction:column;gap:var(--s2)}
 .grow{display:grid;grid-template-columns:var(--cols);gap:var(--s2);align-items:start}
@@ -169,7 +166,7 @@ main :global(.head){position:relative;isolation:isolate;overflow:hidden;display:
   .point-text:global(.hold){position:sticky;top:calc(96px + var(--s4))}
 }
 @media(max-width:1100px){.title{font-size:82.5px;line-height:88px}.title.small :global(.decode){font-size:55px;line-height:56px}}
-@media(max-width:900px){.title{font-size:55px;line-height:56px}.title.small :global(.decode){font-size:41.25px;line-height:48px}.intro,.point,.list{grid-template-columns:100%}}
+@media(max-width:900px){.title{font-size:55px;line-height:56px}.title.small :global(.decode){font-size:41.25px;line-height:48px}.point,.list{grid-template-columns:100%}}
 @media(max-width:700px){.title{font-size:41.25px;line-height:48px}.title.small :global(.decode){font-size:27.5px;line-height:32px}}
 @media(max-width:700px){
   /* on phones the head is 240px at least, its title at the foot (0185) */

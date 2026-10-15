@@ -945,3 +945,30 @@ Evidence: `docs/iterations/pixel-v2/104-mobile-audit/` (`shots/` before, `after/
 Deploy (2026-10-14): PX-103 and PX-104 pushed as `fb6778c` on Timothy's “commit and push”, live about 5 min later (the Toolbox phone note served; Home, Work, xrp.cafe, its phone encode, Lockup and Contact answered 200).
 
 Correction (2026-10-14): Timothy, on the Sonde study at phone width: “this new image for sonde on mobile doesnt belong as the hero image”. The hero's phone crop went back to the PX-53 crop (smart money, account profile and graph, 520×1048); on his “too tall”, a landing-page crop was tried and rejected (“what even is that”); the phone hero is now the Sonde cover, the logo over the portfolio (`cover.png`), his pick (“the cover is fine”). `account-overview-phone.png` is deleted (unused).
+
+## PX-105: the overnight review's fixes (2026-10-14, 0207)
+
+Four read-only review agents covered SEO and site health, code audit, simplification and performance. The digest is `docs/reviews/2026-10-14-overnight-review.md` and the full reports are in `2026-10-14-reports.md`. Timothy had all of it done except Jacquard subsetting; for the Home heading he picked the screen-reader name.
+
+**Files touched:**
+- `api/contact.js` and `ContactForm.svelte`
+- `Clip.svelte`, `Ascii.svelte`, `knockout.ts`, `studyScenes.ts`
+- `+layout.server.ts` (new), `SocialMeta.svelte`, `Analytics.svelte`, `social.ts`, `seo.ts`, `site.ts` (new)
+- `Hero.svelte`
+- `+layout.svelte` (latin fonts) and `base.css` (fallback faces)
+- `vercel.json`, `derive.mjs`, `svelte.config.js` (CSP)
+- `Code.svelte`, `AppToggle.svelte` and the two demos
+- `Card.svelte` (new), `Band.svelte`, `layout.css`, `blocks.css`, `chrome.css`, `fit.ts`, `Options.svelte`
+- the og route (row CSS, probe fix)
+- `tools/review/seo.mjs` (duplicate titles) and `parity.mjs` (more routes)
+
+**Share images:** regenerated.
+
+**Results:**
+- Idle CPU on PARC is halved and Home is a third lower.
+- Brotli CSS is halved on every page.
+- Work images on a 2× desktop: 847 → 355 KB.
+- CSP: 0 violations.
+- Parity: 0 pixels differ across 37 captures.
+
+Evidence: `docs/iterations/pixel-v2/105-review-fixes/`.

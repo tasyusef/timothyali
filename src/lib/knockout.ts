@@ -13,6 +13,11 @@ export function knockout(x: number, y: number, boxes: Box[], pad: number, feathe
   if (!boxes.length) return 1;
   let k = 1;
   for (const b of boxes) {
+    const fe = b.feather ?? feather; // a box may fade over its own distance (0191: small type tight, big type wide)
+    // a cell past the fade's reach from the box (its rounded plate never reaches further than the
+    // box plus CLEAR) is untouched by it: most of a page-tall field is, and hypot was a quarter of its time (0207)
+    const c = round ? CLEAR : 0;
+    if (Math.max(b.x0 - c - x, x - b.x1 - c, b.y0 - c - y, y - b.y1 - c) > pad + fe) continue;
     let dist: number;
     if (round) {
       const r = Math.min(RADIUS, (b.y1 - b.y0) / 2 + CLEAR, (b.x1 - b.x0) / 2 + CLEAR);
@@ -24,7 +29,6 @@ export function knockout(x: number, y: number, boxes: Box[], pad: number, feathe
       const dy = Math.max(b.y0 - y, 0, y - b.y1);
       dist = Math.hypot(dx, dy);
     }
-    const fe = b.feather ?? feather; // a box may fade over its own distance (0191: small type tight, big type wide)
     const t = dist <= pad ? 0 : fe <= 0 ? 1 : Math.min(1, (dist - pad) / fe);
     // (1 − t)² (0190): the field starts coming back at the cutout's edge and eases in, so a wide
     // feather reads as a fade rather than a plate (1 − t² held it cleared most of the way out)

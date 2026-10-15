@@ -12,7 +12,7 @@
 //
 // Skipped: `static/og` (share images must stay PNG at 1200×630), the Convert demo's
 // thumbnails (`static/toolbox/convert-*`, 96px), `@2x` masters themselves, and the
-// derivatives this script wrote. The ladder is 640, 1000, 1200, 1600 and 2400, capped at the master’s own width: a 1376px frame at 2× is served the 2400.
+// derivatives this script wrote. The ladder is 640, 1000, 1280, 1600 and 2400, capped at the master’s own width: a 1376px frame at 2× is served the 2400.
 import sharp from 'sharp';
 import { readdirSync, statSync, existsSync, writeFileSync, readFileSync } from 'node:fs';
 import { join, relative, dirname, basename, extname } from 'node:path';
@@ -21,7 +21,9 @@ import { fileURLToPath } from 'node:url';
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 const STATIC = join(ROOT, 'static');
 const MANIFEST = join(ROOT, 'src/lib/images.json');
-const LADDER = [640, 1000, 1200, 1600, 2400]; // 1200 (0206): a phone at 3× needs about 1074px, and was served the 1600
+// 1280 (0207, was 1200 from 0206): a phone at 3× needs about 1074px and a 640px card at 2× needs
+// 1280; both were served the 1600
+const LADDER = [640, 1000, 1280, 1600, 2400];
 const force = process.argv.includes('--force');
 const check = process.argv.includes('--check');
 
@@ -43,12 +45,13 @@ for (const file of sources) {
   const srcTime = Math.max(statSync(master).mtimeMs, statSync(file).mtimeMs);
   for (const w of widths) {
     const out = `${stem}.${w}.webp`;
-    const fresh = existsSync(out) && statSync(out).mtimeMs >= srcTime;
+    const fresh = !force && existsSync(out) && statSync(out).mtimeMs >= srcTime;
     if (!fresh) {
       stale++;
       if (check) { console.log('missing/stale', relative(ROOT, out)); continue; }
-      // UI screens (PNG sources) keep more detail; photographs (JPEG sources) compress further.
-      const quality = /\.png$/i.test(master) ? 90 : 82;
+      // UI screens (PNG sources) keep a little more detail than photographs (JPEG sources); 80 for
+      // screens (0207, was 90) reads the same at 2× zoom and is 25–35% smaller
+      const quality = /\.png$/i.test(master) ? 80 : 82;
       await sharp(master).resize({ width: w, withoutEnlargement: true }).webp({ quality, effort: 6, smartSubsample: true }).toFile(out);
       written++;
     }

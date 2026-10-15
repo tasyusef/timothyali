@@ -20,8 +20,8 @@ before and after, except for four deliberate changes. See **Parity** at the end.
    ├─ lib/styles/type.css         the named type roles and their ladders
    ├─ lib/styles/chrome.css       sticky header, status strip, global footer
    ├─ lib/styles/layout.css       .site, section, .band, .inner-page
-   └─ lib/styles/blocks.css       cursor, ctas, quiet link, index row, page foot,
-                                  cards, work rows — the CSS half of the components
+   └─ lib/styles/blocks.css       cursor, ctas, quiet link, page foot, cards, code,
+                                  press — the CSS half of the components
 
   src/lib/tokens.ts               the same primitives for JavaScript
   src/lib/components/*.svelte     markup that chooses class names from blocks.css
@@ -165,7 +165,8 @@ would hide the arithmetic.
 Route-local sizes that stayed route-local because they are genuinely one-off: `.hero-name`
 (344 / 258 ≤1100 / 129 ≤700), the study `.title` (PARC Pixel Bold 110 / 82.5 ≤1100 / 55 ≤900 / 41.25 ≤700 plus the
 JS-measured `.small` step-down), Home’s `.para` / `.words` / `.w` and
-`.work-statement .blackletter`, and the Work row `h2` step to 41 below 1100.
+`.work-statement .blackletter`. A card title steps down to 27.5 and 20.625 when its longest
+word is wider than the card (`fitTitles`, `$lib/fit`, one size per grid).
 
 ## Components (`src/lib/components/`)
 
@@ -173,12 +174,12 @@ JS-measured `.small` step-down), Home’s `.para` / `.words` / `.w` and
 |---|---|---|---|
 | `Arrow` | `dir='right'\|'left'` | `<span class="mono" aria-hidden>` with `->` / `<-` | Home ×3, Work ×1, study ×2, Contact ×1, and inside `QuietLink` / `PageFoot` |
 | `Cursor` | `size='cell'\|'em'`, `color='accent'\|'currentColor'` | `<span class="cursor …">` | `+layout.svelte` status strip (`cell`), `Decode` (`em`, currentColor) |
-| `Cta` | `variant='block'\|'row'\|'hint'\|'quiet'`, `href`, `class` | `<a>` when `href`, else `<span>`, class `cta` / `cta-row` / `cta-hint` / `cta-quiet` | Contact (`block`), Home invitation + study next (`row`), Home hero hint (`hint`), Work “View case study”, on both the rows and the index entries (`quiet`) |
-| `IndexRow` | `label`, `value`, `accent=false`, `layout='row'\|'column'`, `class` | `<div class="index-row index-row-… lbl">` with two spans | Home `Selected work / 01–04` (`row`), Work `Project index / 01–08` (`column accent`) and `Index 05–08` (`row`) |
+| `Cta` | `variant='block'\|'row'\|'hint'\|'quiet'`, `href`, `class` | `<a>` when `href`, else `<span>`, class `cta` / `cta-row` / `cta-hint` / `cta-quiet` | Contact (`block`), Home invitation + Work end + study next (`row`), Home hero hint (`hint`), the share images' tool row only (`quiet`, its rules in that route since 0207) |
+| `Card` | `p` (a `Project`), `heading='h2'\|'h3'`, `eager=false`, `id` | `<a class="card">`: cover, title + `Arrow`, description | Home's selected four (`h3`), Work's nine (0207) |
 | `MetaLine` | `project`, `short=false`, `class` | `<span class="lbl …">` — `[01] / 2024 / Brand`, or `01 / Brand` when `short` | Work row, study head, Home card (`short`). Takes a `Project`; the Work index tier prints the same fields itself, split across the entry’s four columns |
 | `PageFoot` | `note`, `href`, `label`, `class` | `<footer class="page-foot lbl dim">` — note left, link + `Arrow` right | Work (`End of index / 008`), the eight studies (`[n] / 008`), Contact |
 | `QuietLink` | `href`, `label`, `dir`, `pad=false`, `class` | `<a class="quiet-link …">` with an `Arrow` | study back link (`dir="left" pad`), study “Live” link |
-| `Band` | `as='section'`, `class`, `mode seed tick density avoid pad feather flip shade`, children | `<svelte:element class="band …">` + `.band-bg` + `Ascii` | Home hero (`sky`, `shade`, density 1.3), Home work/invitation rain (`as="div"`, `fall`, `shade`), Contact (`fall`, `shade`), the 404 (`sparse`), the share-image route |
+| `Band` | `as='section'`, `class`, every `Ascii` prop, children | `<svelte:element class="band …">` + `.band-bg` + `Ascii`; a `scene` band defaults to `cell=8 px=1 hug pad=0` (0207) | Home hero (`sky`, `shade`, density 1.3), Home work/invitation rain (`as="div"`, `fall`, `shade`), Contact (`fall`, `shade`), the 404 (`sparse`), the share-image route |
 | `Ascii` | `mode cell px seed tick density avoid pad feather interactive reach flip shade` | the texture canvas; one accent per mode, `shade` colours by ramp step (0091) | via `Band` only. The same file as GRIDFORM Studio’s `ui/Ascii.svelte`; keep them in step |
 | `Decode` | `text mode step delay cursor` | kinetic type + `sr-only` real text | 6 call sites |
 | `Picture` | `src x2 alt width height eager sizes row phone` | a photograph at its own resolution; `phone` is a tighter crop served at ≤700px through a `<picture>` source, the figure taking its aspect (PX-53) | Home cards, Work rows, study galleries |
@@ -211,25 +212,13 @@ The global footer is one row on desktop (copyright left, the three toggles right
 
 ## Block classes (`src/lib/styles/blocks.css`)
 
-`.cursor` (+ `.em`, `.on-fg`) · `.cta` `.cta-row` `.cta-hint` `.cta-quiet` · `.quiet-link`
-(+ `.pad`) · `.index-row` (+ `-row` / `-column`,
-`.index-value.accent`) · `.page-foot` · `.cards` `.card` `.card-body` · `.rows` `.row`
-`.row-body`.
+`.cursor` (+ `.em`, `.on-fg`) · `.cta` `.cta-row` `.cta-hint` · `.quiet-link` (+ `.pad`) ·
+`.page-foot` · `.cards` `.card` `.card-body` · `.code`. The Work rows (`.rows` `.row`
+`.row-body`), `.cta-quiet` and `.index-row` went with the cards (0196); the row and the quiet
+label survive only in the share-image route's own styles (0207).
 
-Two hover directions are kept **on purpose** and are now two named roles rather than an
-accident: `.cta` / `.cta-row` are primary and light *down* to the foreground colour;
-`.cta-quiet` is a label with reserved padding that lights *up* to the accent when its row
-is hovered or focused (decision 0065). Only `.cta` also displaces by `--nudge`.
-
-`.rows` / `.row` / `.row-body` are the **selected** tier of the Work page (0074): cover
-left, type on the page ground right, 64px between rows, the dither only as a 16px hover
-mat around the cover. The **index** tier below it (0077) is route-local CSS in
-`src/routes/work/+page.svelte` — `.index`, `.entries`, `.entry`, `.entry-main` — because
-only Work has it: a four-column grid (48px number / title + one-line body / year / scope)
-that stacks under 900px, with no cover and no hover image. It reuses two shared blocks,
-`.index-row` for its `Index 05–08` counter and `.cta-quiet` for “View case study”, and
-reaches the latter with `:global()` anchored on `.entry` to repeat the row’s reserved
-padding, −16px pull and yellow hover fill.
+The primary blocks, `.cta` / `.cta-row`, light *down* to the foreground colour on hover and
+to the accent on press. Only `.cta` also displaces by `--nudge`.
 
 ## The work data (`src/lib/work.ts`)
 
@@ -243,11 +232,9 @@ index entries, then the two hidden ones (0077). `Entry` is what the Work list ne
 |---|---|---|
 | `all` | every item, hidden included | nothing yet; the record |
 | `studies` | the nine visible `Project`s, in order | `[slug]/+page.ts` entries and the Next chain 01 → 09 → 01 |
-| `projects` | `tier === 'selected'` | Home cards, Work rows |
-| `index` | `tier === 'index'` | the Work index list |
-| `count` | `004` | Home |
-| `total` | `008` | the Work footer and every study footer |
-| `last` | `08` | the `01–08` ranges |
+| `projects` | `tier === 'selected'` | Home cards, the first four Work cards |
+| `index` | `tier === 'index'` | the other five Work cards |
+| `total` | `009` | every study footer |
 
 A study page reads `blocks` as points (0136): each `text` block opens a point and the
 `gallery` blocks after it are its screens, a gallery's `note` the caption under them; a

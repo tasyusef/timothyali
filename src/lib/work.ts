@@ -1,15 +1,16 @@
 // The whole work index: nine visible projects in two tiers plus one hidden entry (decisions 0077, 0132).
-// One source for Home (the selected four), Work (rows + index list) and /work/<slug>/ (all nine).
+// One source for Home (the selected four as cards), Work (all nine as cards, 0196) and /work/<slug>/.
 // Images live in static/work/<slug>/ at 1600px on the long side (plus `@2x.jpg` at 2800px where
 // the source allowed); `w`/`h` are the 1x file's pixel dimensions so every figure holds its aspect.
 
 import { home as tbHome, tools as tbTools } from './toolbox.ts';
 
 /** `poster` is a still from the video, shown until it plays and whenever motion is off; `small` is a
- *  lighter encode of the same video served at ≤700px; `desk` hides a desktop screen on phones, where a
+ *  lighter encode of the same video served at ≤700px, and `tap` makes it wait for a tap there instead of
+ *  playing on its own (a long clip, 0207); `desk` hides a desktop screen on phones, where a
  *  phone screen of the same pages follows or it repeats one already shown (0206) */
 /** `phone` is a tighter crop of the same screen shown at ≤700px instead (PX-53) */
-export interface Media { src: string; w: number; h: number; alt: string; video?: boolean; x2?: string; poster?: string; small?: string; desk?: boolean; phone?: { src: string; w: number; h: number } }
+export interface Media { src: string; w: number; h: number; alt: string; video?: boolean; x2?: string; poster?: string; small?: string; tap?: boolean; desk?: boolean; phone?: { src: string; w: number; h: number } }
 export type Row = Media[];
 export type Block =
   | { type: 'text'; title: string; paras: string[] }
@@ -27,9 +28,9 @@ export interface Entry {
   title: string;
   year: string;
   scope: string;
-  /** index line on Home and Work */
+  /** the card's line on Home and Work, and the page's description */
   description: string;
-  /** `selected` is a card on Home and a wide row on Work; `index` is a line in the Work list (0077) */
+  /** `selected` is a card on Home and one of the first four on Work; `index` follows them on Work (0077, 0196) */
   tier: 'selected' | 'index';
   /** kept in the data, shown nowhere, given no page and no assets (0077) */
   hidden?: boolean;
@@ -277,7 +278,7 @@ const source: Source[] = [
         "Beyond the site, the identity runs through Discord, X, Twitch, merch, and the arcade. After Darc, the club’s Twitch show, has its own graphics and a starting-soon animation for the stream."
       ] },
       { type: 'gallery', rows: [
-        [{ src: '/work/video/parc-after-darc-intro.mp4', small: '/work/video/parc-after-darc-intro.phone.mp4', w: 1920, h: 1080, video: true, poster: '/work/parc/after-darc-poster.jpg', alt: 'PARC After Darc starting-soon screen: a pixel sun over the sea with a rowboat drifting past, looped before the stream' }],
+        [{ src: '/work/video/parc-after-darc-intro.mp4', small: '/work/video/parc-after-darc-intro.phone.mp4', tap: true, w: 1920, h: 1080, video: true, poster: '/work/parc/after-darc-poster.jpg', alt: 'PARC After Darc starting-soon screen: a pixel sun over the sea with a rowboat drifting past, looped before the stream' }],
         [pa('after-darc-announce.png', 1600, 1600, 'PARC After Darc new-stream graphic: the wordmark over a pixel sunset, Saturday 9pm UTC on Twitch'), pa('after-darc-live.png', 1600, 1600, 'PARC After Darc live-now graphic: the wordmark over a pixel night sky and moon'), pa('parcade-scores.jpg', 1600, 1600, 'PARCade high-score board in PARC Pixel Mono'), pa('larc-teaser.jpg', 1600, 1600, 'LARC teaser: glitched terminal text on black announcing the next collection')]
       ] },
       { type: 'text', title: 'The website', paras: [
@@ -581,15 +582,11 @@ const pad = (i: number, width = 2) => String(i).padStart(width, '0');
 let seq = 0;
 /** every project in display order, hidden entries included; `n` counts the visible ones only */
 export const all: Item[] = source.map((e) => ({ ...e, n: e.hidden ? '--' : pad(++seq) })) as Item[];
-/** the eight visible projects in order: the route entries, and the Next chain 01 → 08 → 01 */
+/** the nine visible projects in order: the route entries, and the Next chain 01 → 09 → 01 */
 export const studies: Project[] = all.filter((e): e is Project => !e.hidden && 'blocks' in e);
-/** the selected tier: Home cards and the wide Work rows (0074) */
+/** the selected tier: Home's four cards, and the first four on Work */
 export const projects: Project[] = studies.filter((p) => p.tier === 'selected');
-/** the index tier: the typographic list below the rows on Work (0077) */
+/** the index tier: the other five cards on Work, after the selected four (0196) */
 export const index: Project[] = studies.filter((p) => p.tier === 'index');
-/** count of the selected studies (Home) */
-export const count = pad(projects.length, 3);
-/** count of every visible study (Work footer, study footers) */
+/** count of every visible study (study footers) */
 export const total = pad(studies.length, 3);
-/** the last visible number, for the `01–08` ranges */
-export const last = studies[studies.length - 1].n;

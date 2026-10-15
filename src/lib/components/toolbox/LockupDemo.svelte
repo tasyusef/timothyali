@@ -51,18 +51,18 @@
     <div class="rail">
       <section class="rail-section">
         <div class="rail-head lbl dim"><span>Formats</span></div>
-        <AppToggle on={includeWeb} onchange={(v) => (includeWeb = v)}><span>Web</span><span class="grow"></span><span class="chips" role="group" aria-label="Web file types">{#each allWebFormats as f (f)}<button type="button" class="chip" aria-pressed={webFormats[f]} onclick={(e) => { e.preventDefault(); webFormats[f] = !webFormats[f]; }}>{f}</button>{/each}</span></AppToggle>
-        <AppToggle on={includePrint} onchange={(v) => (includePrint = v)}><span>Print</span><span class="grow"></span><span class="chips" role="group" aria-label="Print file types">{#each allPrintFormats as f (f)}<button type="button" class="chip" aria-pressed={printFormats[f]} onclick={(e) => { e.preventDefault(); printFormats[f] = !printFormats[f]; }}>{f}</button>{/each}</span></AppToggle>
+        <AppToggle name="Web" on={includeWeb} onchange={(v) => (includeWeb = v)}><span>Web</span><span class="grow"></span><span class="chips" role="group" aria-label="Web file types">{#each allWebFormats as f (f)}<button type="button" class="chip" aria-pressed={webFormats[f]} onclick={(e) => { e.preventDefault(); webFormats[f] = !webFormats[f]; }}>{f}</button>{/each}</span></AppToggle>
+        <AppToggle name="Print" on={includePrint} onchange={(v) => (includePrint = v)}><span>Print</span><span class="grow"></span><span class="chips" role="group" aria-label="Print file types">{#each allPrintFormats as f (f)}<button type="button" class="chip" aria-pressed={printFormats[f]} onclick={(e) => { e.preventDefault(); printFormats[f] = !printFormats[f]; }}>{f}</button>{/each}</span></AppToggle>
       </section>
       <section class="rail-section">
         <div class="rail-head lbl dim"><span>Treatments</span></div>
-        <AppToggle on={treat.Color} onchange={(v) => (treat.Color = v)}><span>Color</span><span style="display:inline-flex;gap:4px">{#each palette as hex (hex)}<SwatchDot {hex} size={16} />{/each}</span></AppToggle>
-        <AppToggle on={treat.Black} onchange={(v) => (treat.Black = v)}><span>Black</span><SwatchDot hex="#000000" size={16} /></AppToggle>
-        <AppToggle on={treat.White} onchange={(v) => (treat.White = v)}><span>White</span><SwatchDot hex="#ffffff" size={16} /></AppToggle>
+        <AppToggle name="Color" on={treat.Color} onchange={(v) => (treat.Color = v)}><span>Color</span><span style="display:inline-flex;gap:4px">{#each palette as hex (hex)}<SwatchDot {hex} size={16} />{/each}</span></AppToggle>
+        <AppToggle name="Black" on={treat.Black} onchange={(v) => (treat.Black = v)}><span>Black</span><SwatchDot hex="#000000" size={16} /></AppToggle>
+        <AppToggle name="White" on={treat.White} onchange={(v) => (treat.White = v)}><span>White</span><SwatchDot hex="#ffffff" size={16} /></AppToggle>
       </section>
       <section class="rail-section">
         <div class="rail-head lbl dim"><span>Sizes</span></div>
-        {#each allSizes as size, i (size.name)}<AppToggle on={sizeOn[i]} onchange={(v) => (sizeOn[i] = v)}><span>{size.name}</span><span class="grow"></span><span class="dim">{size.longEdgePx} px</span></AppToggle>{/each}
+        {#each allSizes as size, i (size.name)}<AppToggle name={size.name} on={sizeOn[i]} onchange={(v) => (sizeOn[i] = v)}><span>{size.name}</span><span class="grow"></span><span class="dim">{size.longEdgePx} px</span></AppToggle>{/each}
       </section>
     </div>
   {:else}

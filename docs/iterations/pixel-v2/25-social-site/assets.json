@@ -9,7 +9,7 @@
     "image": "work",
     "width": 1200,
     "height": 630,
-    "bytes": 204523
+    "bytes": 201897
   },
   {
     "image": "contact",
@@ -33,25 +33,25 @@
     "image": "toolbox-lockup",
     "width": 1200,
     "height": 630,
-    "bytes": 98985
+    "bytes": 107056
   },
   {
     "image": "toolbox-palette",
     "width": 1200,
     "height": 630,
-    "bytes": 85908
+    "bytes": 98117
   },
   {
     "image": "toolbox-specimen",
     "width": 1200,
     "height": 630,
-    "bytes": 96611
+    "bytes": 107108
   },
   {
     "image": "toolbox-convert",
     "width": 1200,
     "height": 630,
-    "bytes": 112703
+    "bytes": 123743
   },
   {
     "image": "work-sonde",
@@ -63,7 +63,7 @@
     "image": "work-pocketwatch",
     "width": 1200,
     "height": 630,
-    "bytes": 23912
+    "bytes": 25075
   },
   {
     "image": "work-toolbox",
@@ -99,7 +99,7 @@
     "image": "work-firststrike",
     "width": 1200,
     "height": 630,
-    "bytes": 19107
+    "bytes": 22222
   },
   {
     "image": "work-do-androids-dream",

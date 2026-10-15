@@ -1,16 +1,22 @@
 <script lang="ts">
+  // The page's title, description and share tags, from the root layout's load (0207); the 404,
+  // error, admin and share-image pages have no entry and set their own title.
   import { page } from '$app/state';
-  import { SITE_URL, socialFor } from '$lib/social';
-  import { jsonLdFor } from '$lib/seo';
-  const meta = $derived(socialFor(page.url.pathname));
-  const jsonLd = $derived(meta ? jsonLdFor(meta.path) : '');
+  import { SITE_URL } from '$lib/site';
+  import type { SocialPage } from '$lib/social';
+  const meta = $derived(page.data.meta as SocialPage | null | undefined);
+  const jsonLd = $derived((page.data.jsonLd as string | undefined) ?? '');
+  // a case study is an article; every other page is the site's
+  const type = $derived(meta?.path.startsWith('/work/') && meta.path !== '/work/' ? 'article' : 'website');
 </script>
 <svelte:head>
   {#if meta}
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
     <link rel="canonical" href={`${SITE_URL}${meta.path}`} />
     <meta name="author" content="Timothy Ali" />
     <meta property="og:site_name" content="Timothy Ali" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
     <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={meta.title} />
     <meta property="og:description" content={meta.description} />

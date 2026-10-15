@@ -8,7 +8,6 @@
   import { binaries, tools } from '$lib/toolbox';
   import { STEP } from '$lib/tokens';
   const jumps = [['setup', 'Set up'], ['command-line', 'Command line'], ['advanced', 'Advanced'], ['options', 'Options'], ['list', 'List'], ['run', 'Run'], ['serve', 'Serve']];
-  const description = 'Run Toolbox from a terminal, send jobs as JSON, or connect an AI assistant through MCP. Setup, commands, and options for all four tools.';
   const link = 'sudo ln -s "/Applications/Toolbox.app/Contents/MacOS/Toolbox" /usr/local/bin/toolbox';
   // `toolbox` alone opens the app, as a double-click would; listing is `list` or `help`
   const commands = ['toolbox help                              # show tools and usage', 'toolbox convert --help                    # show Convert options', '', ...tools.map((t) => t.command)].join('\n');
@@ -46,7 +45,6 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
   }
 }`;
 </script>
-<svelte:head><title>CLI & MCP / Toolbox / Timothy Ali</title><meta name="description" content={description} /></svelte:head>
 <main class="inner-page agents" id="main" tabindex="-1">
   <section class="head">
     <h1 class="display title"><Decode text="CLI & MCP" step={STEP} /></h1>
@@ -111,13 +109,11 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
 .head{display:flex;flex-direction:column;gap:var(--s2);padding-top:var(--s4)}
 .title{font-size:82.5px;line-height:88px}
 .title :global(.decode){display:inline;white-space:normal} /* the title may wrap between words */
-.intro{display:grid;grid-template-columns:round(down,calc((100% - 32px) * 2 / 3),8px) 1fr;gap:var(--s4);margin-top:var(--s4);align-items:start}
 .intro .lead{max-width:24ch}.intro .body{max-width:60ch}
 .jump{display:flex;flex-wrap:wrap;gap:0 var(--s3);margin-top:var(--s1)}.jump a{padding:14px 0 14px;text-decoration:underline;text-underline-offset:4px}
 @media(hover:hover){.jump a:hover{color:var(--accent-text)}}
 .text{scroll-margin-top:var(--s4)}
-.meta{display:flex;flex-direction:column;gap:var(--s2);margin:0;padding-top:var(--s1)}
-.meta dt{margin-bottom:var(--s1)}.meta dd{margin:0;overflow-wrap:break-word} /* the path breaks after a slash (0206) */
+.meta dd{overflow-wrap:break-word} /* the path breaks after a slash (0206) */
 /* one column (0200): the heading and its explanation, then the commands at full width under
    them; side by side, the shorter column left a hole and the commands ran off the side */
 .text{padding-top:var(--s8);display:flex;flex-direction:column;gap:var(--s3)}
@@ -127,6 +123,5 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
 .rules dt{margin-bottom:var(--s1)}.rules dd{margin:0}
 .option-links{list-style:none;margin:0;padding:0;gap:0}
 @media(max-width:1100px){.title{font-size:55px;line-height:56px}}
-@media(max-width:900px){.intro{grid-template-columns:100%}}
 @media(max-width:700px){.head{padding-top:var(--s3)}.title{font-size:41.25px;line-height:48px}.text{padding-top:var(--s6)}}
 </style>

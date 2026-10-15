@@ -18,6 +18,7 @@ const pages = walk(OUT).sort();
 const sitemap = readFileSync(join(OUT, 'sitemap.xml'), 'utf8');
 const locs = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]).filter((l) => !/\.(png|jpg|webp)$/.test(l)).map((l) => l.replace(ORIGIN, ''));
 const errors = [], warnings = [], rows = [];
+const titles = new Map(); // title → first route, so two pages cannot share one (0207: /toolbox/ and /work/toolbox/ did)
 const err = (route, msg) => errors.push(`${route}: ${msg}`);
 const warn = (route, msg) => warnings.push(`${route}: ${msg}`);
 const text = (html) => html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -32,6 +33,7 @@ for (const file of pages) {
   const h1 = (html.match(/<h1[\s>]/g) || []).length;
   if (h1 !== 1) err(route, `h1 ×${h1}`);
   if (title && (title.length < 15 || title.length > 60)) warn(route, `title ${title.length} chars`);
+  if (title && !noindex) { if (titles.has(title)) err(route, `title also on ${titles.get(title)}`); else titles.set(title, route); }
   if (desc && (desc.length < 50 || desc.length > 160) && !noindex) err(route, `description ${desc.length} chars`);
   else if (desc && desc.length < 70 && !noindex) warn(route, `description ${desc.length} chars, could say more`);
   if (/&amp;/.test(desc ?? '') === false && /[<>]/.test(desc ?? '')) err(route, 'description has unescaped markup');

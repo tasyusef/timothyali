@@ -1,6 +1,5 @@
 <script lang="ts">
   import Picture from '$lib/components/Picture.svelte';
-  import { toolDescription } from '$lib/social';
   import Decode from '$lib/components/Decode.svelte';
   import Arrow from '$lib/components/Arrow.svelte';
   import Cta from '$lib/components/Cta.svelte';
@@ -13,7 +12,6 @@
   const t = $derived(data.tool);
   const next = $derived(data.next);
 </script>
-<svelte:head><title>{t.name} / Toolbox / Timothy Ali</title><meta name="description" content={toolDescription(t)} /></svelte:head>
 <main class="inner-page tool" id="main" tabindex="-1">
   <section class="head">
     <h1 class="display title"><Decode text={t.name} step={STEP} /></h1>
@@ -37,7 +35,7 @@
     <div class="paras">
       <p class="body">Set up the toolbox command using the linked guide, then run this example with your own inputs. The options below work with both the CLI and MCP.</p>
       <Code label="Example command" text={t.command} />
-      <Options tool={t} heading={false} collapse />
+      <Options tool={t} />
       <QuietLink href="/toolbox/agents/" label="CLI & MCP setup" pad class="lbl" />
     </div>
   </section>
@@ -50,9 +48,6 @@
 <style>
 .head{display:flex;flex-direction:column;gap:var(--s2);padding-top:var(--s4)}
 .title{font-size:110px;line-height:112px} /* the back link and the number line are gone (0194) */
-.intro{display:grid;grid-template-columns:round(down,calc((100% - 32px) * 2 / 3),8px) 1fr;gap:var(--s4);margin-top:var(--s4);align-items:start}
-.meta{display:flex;flex-direction:column;gap:var(--s2);margin:0;padding-top:var(--s1)}
-.meta dt{margin-bottom:var(--s1)}.meta dd{margin:0}
 .shot,.text,.next{padding-top:var(--s8)}
 .text{display:grid;grid-template-columns:round(down,calc((100% - 32px) / 2),8px) 1fr;gap:var(--s4);align-items:start}
 .text{scroll-margin-top:var(--s12)} /* #cli, linked from the CLI & MCP page's options (0199), clears the sticky header */
@@ -61,6 +56,6 @@
 .text.stack{display:flex;flex-direction:column;gap:var(--s3)}.stack .paras>.body{max-width:64ch}
 .paras{display:flex;flex-direction:column;gap:var(--s3);min-width:0}
 @media(max-width:1100px){.title{font-size:82.5px;line-height:88px}}
-@media(max-width:900px){.title{font-size:55px;line-height:56px}.intro,.text{grid-template-columns:100%}}
+@media(max-width:900px){.title{font-size:55px;line-height:56px}.text{grid-template-columns:100%}}
 @media(max-width:700px){.head{padding-top:var(--s3)}.title{font-size:41.25px;line-height:48px}.intro{margin-top:var(--s3);gap:var(--s3)}.shot,.text,.next{padding-top:var(--s6)}}
 </style>

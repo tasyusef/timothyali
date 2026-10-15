@@ -117,8 +117,6 @@ export const tools: Tool[] = [
   }
 ];
 
-export const last = tools[tools.length - 1].n;
-export const toolBySlug = (slug: string) => tools.find((t) => t.slug === slug);
 
 /** Where the installed binary is, per platform (docs/AGENTS.md). */
 export const binaries = [

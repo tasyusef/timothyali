@@ -101,7 +101,7 @@
       ]
     },
     {
-      "source": "/(work|toolbox|og|fonts|cursor)/(.*)\\.(png|jpg|webp|mp4|woff2)",
+      "source": "/(work|toolbox|og|fonts|cursor|hero)/(.*)\\.(png|jpg|webp|mp4|woff2)",
       "headers": [
         {
           "key": "Cache-Control",

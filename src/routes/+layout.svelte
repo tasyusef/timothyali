@@ -1,8 +1,10 @@
 <script lang="ts">
-  import '@fontsource/jacquard-24/400.css';
-  import '@fontsource/jersey-15/400.css';
-  import '@fontsource/press-start-2p/400.css';
-  import '@fontsource/ibm-plex-mono/400.css'; // the study reading face (0137), preloaded by the study page
+  // Latin only (0207): the site's copy has no other script, and the full files carried 13 KB of
+  // Cyrillic and Greek fallbacks inlined into the render-blocking stylesheet
+  import '@fontsource/jacquard-24/latin-400.css';
+  import '@fontsource/jersey-15/latin-400.css';
+  import '@fontsource/press-start-2p/latin-400.css';
+  import '@fontsource/ibm-plex-mono/latin-400.css'; // the study reading face (0137), preloaded by the study page
   import '../app.css';
   import jacquardUrl from '@fontsource/jacquard-24/files/jacquard-24-latin-400-normal.woff2?url';
   import jerseyUrl from '@fontsource/jersey-15/files/jersey-15-latin-400-normal.woff2?url';
@@ -139,7 +141,7 @@
       </div>
     </div>
   </header>
-  <div class="readout mono" aria-label="Status">
+  <div class="readout mono">
     <span class="path mono" aria-hidden="true"><span class="path-text"><span class="path-full">~/tim/<Decode text={route} step={STEP_FAST} /></span><span class="path-short">{shortPrefix}<Decode text={shortTail} step={STEP_FAST} /></span></span><Cursor /></span><span class="st-city">Denver, CO</span><span class="st-clock">{clock || '--:--:--'}</span>
   </div>
   </div>

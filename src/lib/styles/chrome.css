@@ -13,7 +13,7 @@
 /* the header sits one above the status strip: its settings menu opens down over the strip (0201) */
 .site-header{position:relative;z-index:calc(var(--z-chrome) + 1);display:grid;grid-template-columns:auto 1fr auto;gap:var(--s4);align-items:start;height:64px;padding:var(--s1) var(--gutter) 0}
 .wordmark{font-size:43px;line-height:43px;white-space:nowrap}
-.path{display:flex;align-items:center;justify-self:start;min-width:0;max-width:100%;margin-top:var(--s2)}
+.path{display:flex;align-items:center;min-width:0;max-width:100%}
 .path .path-text{overflow:hidden;min-width:0}
 .site-header nav{display:flex;gap:var(--s1);margin-top:var(--s1);justify-self:end}
 /* Centred ink, not centred boxes (0097): PARC Pixel and Press Start sit 1px high in their line
@@ -43,7 +43,7 @@
 .readout{position:relative;z-index:var(--z-chrome);display:flex;gap:var(--s4);padding:var(--s1) var(--gutter);height:32px;overflow:hidden;white-space:nowrap}
 .readout .st-clock{margin-left:auto}
 .readout>span{flex:none;opacity:var(--dim)}
-.readout .path{margin-top:0;opacity:1;flex:0 1 auto;min-width:0}
+.readout .path{opacity:1;flex:0 1 auto;min-width:0}
 .readout .path-text{white-space:nowrap;text-overflow:ellipsis} /* a path with no room ends in the strip's own … rather than mid-word (0105) */
 .readout .path .decode{display:inline} /* inline, not inline-block, or the ellipsis cannot reach into it */
 .readout .path{font-size:inherit;line-height:inherit}
@@ -63,7 +63,7 @@
 @media(max-width:700px){
   /* 104 = 8 padding + 48 wordmark row + 8 gap + 32 nav row + 8 padding (decision 0070) */
   .site-header{grid-template-columns:auto 1fr;grid-template-rows:48px 32px;gap:var(--s1);height:104px;padding:var(--s1) var(--gutter)}
-  .wordmark{font-size:43px;align-self:end}
+  .wordmark{align-self:end}
   .site-header nav{grid-column:1/-1;grid-row:2;justify-self:stretch;gap:0;margin:0 calc(-1*var(--gutter))}
   /* the cog moves up beside the wordmark, its icon on the gutter */
   .settings{grid-column:2;grid-row:1;justify-self:end;align-self:center;margin:0 calc(-1*var(--s1)) 0 0}
@@ -73,7 +73,6 @@
   .site-header nav a{flex:none;width:round(down,calc(100% / 4),2px);text-align:center;padding:9px 0 7px 2px}
   .site-header nav a:last-child{flex:1 1 0;min-width:0;width:auto;white-space:nowrap;display:grid;grid-template-columns:round(down,100%,2px)}
   /* Four numbered labels do not fit 320: the numbers go, the words stay (0092). */
-  .site-header nav a b{display:none}
   /* no status strip on phones (0185): there it was a clipped path and a scroll count, 32px of
      decoration on every page; the header alone is the chrome, 104px */
   .readout{display:none}

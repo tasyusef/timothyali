@@ -34,12 +34,15 @@
     if (h1 && probe) small = probe.scrollWidth > h1.clientWidth;
     if (row) { const r = [...row.children].map((k) => k.getBoundingClientRect()); const h = Math.max(...r.map((b) => b.bottom)) - Math.min(...r.map((b) => b.top)); rowTop = Math.floor((row.clientHeight - h) / 2 / 8) * 8; }
   }
+  // the probe is watched too (0207): PARC Pixel is inlined since 0206, so the fonts are "ready"
+  // before the probe is laid out in them, and a fit on that alone measured the fallback face
   onMount(() => { fit(); document.fonts?.ready.then(fit); });
+  $effect(() => { if (!probe || !h1) return; const ro = new ResizeObserver(fit); ro.observe(probe); ro.observe(h1); return () => ro.disconnect(); });
 </script>
 <svelte:head><title>og/{data.id}</title><meta name="robots" content="noindex" /></svelte:head>
 <main class="og" class:story={data.id === 'story'} class:wide={data.id === 'wide'} id="main" tabindex="-1">
   {#if data.id === 'home'}
-    <Band class="og-home" mode="scene" shot="hero" sceneSpan="box" mountains="a" seed={3} palette="scene" cell={8} px={1} hug pad={0} feather={3} depth={0.6} avoid=".og-line, .og-name > :first-child">
+    <Band class="og-home" mode="scene" shot="hero" sceneSpan="box" mountains="a" seed={3} feather={3} depth={0.6} avoid=".og-line, .og-name > :first-child">
       <p class="display og-line">Product designer.</p>
       <h1 class="blackletter og-name"><Decode text="i’m tim." /><Cursor size="em" /></h1>
     </Band>
@@ -56,14 +59,14 @@
   {:else if data.id === 'work'}
     <!-- the Work page at share size (0198): “work.” and a card for every study, the covers on the
          card mat, no counters -->
-    <Band class="og-work" mode="scene" shot="strip" sceneSpan="box" mountains="a" seed={5} palette="scene" cell={8} px={1} hug pad={0} feather={3} depth={0.6} avoid=".og-work h1">
+    <Band class="og-work" mode="scene" shot="strip" sceneSpan="box" mountains="a" seed={5} feather={3} depth={0.6} avoid=".og-work h1">
       <h1 class="blackletter og-work-title">work.</h1>
       <div class="og-grid">
         {#each [...projects, ...index] as p}<div class="card og-card"><Picture src={p.cover.src} alt="" width={p.cover.w} height={p.cover.h} eager /></div>{/each}
       </div>
     </Band>
   {:else if data.id === 'contact'}
-    <Band class="og-contact" mode="scene" shot="rise" sceneSpan="box" seed={3} palette="scene" cell={8} px={1} hug pad={0} feather={3} depth={0.6} avoid=".og-contact h1 > span">
+    <Band class="og-contact" mode="scene" shot="rise" sceneSpan="box" seed={3} feather={3} depth={0.6} avoid=".og-contact h1 > span">
       <h1><span class="display">Tell me what<br />you’re</span><span class="blackletter display-xl">building.</span></h1>
     </Band>
   {:else if data.id === 'toolbox'}
@@ -98,7 +101,7 @@
     {@const p = data.project}
     <!-- The study page's head at share size (0183): its own scene across the frame, the meta
          line, the title, the one-line description. -->
-    <Band class="og-sh" mode="scene" shot="strip" sceneSpan="box" mountains={hasStudyScene(p.slug) ? '' : 'a'} study={hasStudyScene(p.slug) ? p.slug : ''} seed={Number(p.n) || 3} palette="scene" cell={8} px={1} hug pad={0} feather={3} depth={0.6} avoid=".og-sh h1 .t" clear=".og-sh .og-meta, .og-sh .og-desc">
+    <Band class="og-sh" mode="scene" shot="strip" sceneSpan="box" mountains={hasStudyScene(p.slug) ? '' : 'a'} study={hasStudyScene(p.slug) ? p.slug : ''} seed={Number(p.n) || 3} feather={3} depth={0.6} avoid=".og-sh h1 .t" clear=".og-sh .og-meta, .og-sh .og-desc">
       <MetaLine project={p} class="og-meta" />
       <h1 class="display og-sh-title" class:small bind:this={h1}><span class="probe" aria-hidden="true" bind:this={probe}>{longest}</span><span class="t">{p.title}</span></h1>
       <p class="body og-desc">{p.description}</p>
@@ -158,13 +161,20 @@
 .og :global(.og-sh){display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);padding-top:var(--s4)}
 .og-sh-title{position:relative;align-self:stretch;font-size:110px;line-height:112px;margin-top:var(--s2)}
 .og-sh-title.small{font-size:82.5px;line-height:88px}
-.og-sh-title .probe{position:absolute;visibility:hidden;white-space:nowrap;pointer-events:none}
+.og-sh-title .probe{position:absolute;visibility:hidden;white-space:nowrap;pointer-events:none;font-size:110px} /* the base size: inheriting the step, it would measure itself small and flip back */
 .og-desc{max-width:40ch}
 
-/* Study — the Work row, centred in the frame (tool images) */
+/* Study — the Work row, centred in the frame (tool images). The Work page's rows became cards
+   (0196); their rules live here now, the only place a row is drawn (0207). */
+.row{display:grid;grid-template-columns:round(down,calc((100% - 32px) * 3 / 5),8px) 1fr;gap:var(--s4);align-items:start;color:var(--fg)}
+.row .frame{margin:calc(-1 * var(--s2));padding:var(--s2);min-width:0}
+.row :global(.pic){background:var(--paper)}
+.row-body{display:flex;flex-direction:column;gap:var(--s2);min-width:0}
+.row-body :global(.cta-quiet){display:inline-flex;align-items:center;gap:var(--s2);padding:17px 14px 15px 16px;align-self:flex-start;margin-left:calc(-1 * var(--s2))}
+.row-body :global(.cta-quiet .mono){color:var(--accent-text)}
 .og-row{height:100%;align-content:start}
 .og-row .frame{background:var(--surface-card)}
 .og-row h1{position:relative}
 .og-row h1.small{font-size:41.25px;line-height:48px}
-.og-row .probe{position:absolute;visibility:hidden;white-space:nowrap;pointer-events:none}
+.og-row .probe{position:absolute;visibility:hidden;white-space:nowrap;pointer-events:none;font-size:55px}
 </style>

@@ -64,10 +64,10 @@
     </section>
     <section class="rail-section">
       <div class="rail-head lbl dim"><span>Outputs</span></div>
-      <AppToggle on={out.css} onchange={(v) => (out.css = v)}><span>CSS / SCSS</span></AppToggle>
-      <AppToggle on={out.tokens} onchange={(v) => (out.tokens = v)}><span>Tokens</span></AppToggle>
-      <AppToggle on={out.ase} onchange={(v) => (out.ase = v)}><span>ASE</span></AppToggle>
-      <AppToggle on={out.sheet} onchange={(v) => (out.sheet = v)}><span>Swatch sheet</span></AppToggle>
+      <AppToggle name="CSS / SCSS" on={out.css} onchange={(v) => (out.css = v)}><span>CSS / SCSS</span></AppToggle>
+      <AppToggle name="Tokens" on={out.tokens} onchange={(v) => (out.tokens = v)}><span>Tokens</span></AppToggle>
+      <AppToggle name="ASE" on={out.ase} onchange={(v) => (out.ase = v)}><span>ASE</span></AppToggle>
+      <AppToggle name="Swatch sheet" on={out.sheet} onchange={(v) => (out.sheet = v)}><span>Swatch sheet</span></AppToggle>
     </section>
     <section class="rail-section">
       <div class="rail-head lbl dim"><span>Files</span><span>{pad2(files.length)}</span></div>

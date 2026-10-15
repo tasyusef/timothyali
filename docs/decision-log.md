@@ -2442,3 +2442,67 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
   - Captions above images, the 16/24 reading size, and the video button design.
   - The Toolbox phone note's copy, the 404 cuts, the Work end row, and the jump-list labels.
 - **Status:** his direction; implemented, uncommitted.
+
+## 0207: The overnight review's fixes
+
+- **Date:** 2026-10-14
+- **Direction:** Timothy asked for four review agents (SEO and site health, code audit, simplification, optimization) and a digestible list, then said: “Let’s do all of them except 23. For 30 go with option 2”.
+- **Decision:** every item in `docs/reviews/2026-10-14-overnight-review.md` except subsetting Jacquard 24 (23).
+  - **Contact form:**
+    - limited to 5 messages per address per 10 minutes, through the analytics Redis;
+    - posts from another origin are refused;
+    - the honeypot field is renamed so autofill leaves it alone;
+    - bad input and a failing Resend call get a clean answer.
+  - **Video:**
+    - the Play button now works after a refused autoplay;
+    - the desktop xrp.cafe file was re-encoded (8.7 → 0.79 MB);
+    - PARC's 2:24 clip waits for a tap on phones.
+  - **Texture field:**
+    - with motion off it stays still under the pointer;
+    - its loop sleeps between ticks and off screen;
+    - the knockout is cached per row and skips far boxes;
+    - the canvas backs at 1× (pixel-identical on 2× and 3× screens);
+    - PARC's palm is worked out once per tick.
+  - **Metadata:**
+    - titles and descriptions come from the layout's load;
+    - every study title says what the project is;
+    - each page's structured data names the person and the site;
+    - case studies are `article`;
+    - the share alt text ends its sentence;
+    - the analytics beacon has no redirect;
+    - the Home heading carries “Timothy Ali” for screen readers and search, Timothy's pick (option 2).
+  - **Loading:**
+    - fonts are latin-only, and the two unused font packages are removed;
+    - metric-matched fallback faces stop the text shifting when fonts arrive;
+    - `/hero/` images are cached;
+    - Home's covers are no longer high priority;
+    - WebP screens are encoded at q80;
+    - a 1280 rung replaces 1200, with card `sizes` measured.
+  - **Security:** a Content-Security-Policy from SvelteKit (hashes, no other origins).
+  - **Accessibility:**
+    - code blocks are named figures;
+    - the status strip loses its silent label;
+    - Toolbox switch rows are no longer labels holding buttons, and each switch has its own name.
+  - **Cleanup** (pixel-identical, checked by parity):
+    - a shared `Card`;
+    - `Band` supplies the scene defaults;
+    - one copy of the inner-page intro rules;
+    - the Work-row CSS moved into the share-image route;
+    - removed `IndexRow`, `fitTitle`, unused exports and nine stale review scripts;
+    - stale comments and design-system docs corrected.
+- **Also fixed:**
+  - `derive.mjs --force` ignored the flag;
+  - the share images' title fit, broken since 0206.
+- **Assistant's choices inside it:**
+  - the study taglines in the titles;
+  - the rate limit and its message;
+  - the honeypot's name;
+  - the fallback faces' metrics;
+  - q80;
+  - PARC tap-to-play on phones;
+  - the CSP directives;
+  - which cleanups to do (the review's 13 and 14, demo bars and the invitation head, were left).
+- **Outside the repo, still his:**
+  - the apex → www redirect is a 307 in Vercel's domain settings and should be 308;
+  - the résumé PDF's author field reads “Chromium”.
+- **Status:** his direction; implemented and verified, uncommitted.

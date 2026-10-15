@@ -14,7 +14,7 @@
   import { motion } from '$lib/motion.svelte';
   import { figureHeight, type RowShare } from '$lib/figure';
   import manifest from '$lib/images.json';
-  let { src, small, label, width = 16, height = 9, row, poster }: { src: string; small?: string; label: string; width?: number; height?: number; row?: RowShare; poster?: string } = $props();
+  let { src, small, tap = false, label, width = 16, height = 9, row, poster }: { src: string; small?: string; tap?: boolean; label: string; width?: number; height?: number; row?: RowShare; poster?: string } = $props();
   const table = manifest as Record<string, { webp: number[] }>;
   // the poster's 1000px WebP (or its largest under that), else the original
   const still = $derived.by(() => {
@@ -23,21 +23,27 @@
     return `${poster.replace(/\.[a-z]+$/i, '')}.${w}.webp`;
   });
   let host: HTMLElement; let video: HTMLVideoElement;
-  let visible = $state(false), playing = $state(false), refused = $state(false), saveData = $state(false);
+  let visible = $state(false), playing = $state(false), saveData = $state(false);
   let chosen = $state<boolean | null>(null); // the reader's tap, which wins over motion and Save-Data
   let phone = $state(false);
   const file = $derived(phone && small ? small : src);
-  const wanted = $derived(chosen ?? (motion.on && !saveData));
+  // `tap`: a long clip (PARC's is 2:24, 2.4 MB even as the phone encode) waits for a tap on phones
+  const wanted = $derived(chosen ?? (motion.on && !saveData && !(tap && phone)));
   function size() {
     if (!host.getBoundingClientRect().width) return;
     host.style.height = figureHeight(host, height / width, row) + 'px';
   }
   $effect(() => {
     if (!video) return;
-    if (wanted && visible) video.play().then(() => { refused = false; }, () => { refused = true; });
+    if (wanted && visible) video.play().catch(() => {}); // refused autoplay leaves the play button up
     else video.pause();
   });
-  function toggle() { chosen = !playing; refused = false; }
+  // play() inside the tap itself: after a refused autoplay `wanted` is already true, so the
+  // effect would not run again, and the tap is the gesture the browser waits for
+  function toggle() {
+    chosen = !playing;
+    if (chosen) video.play().catch(() => {}); else video.pause();
+  }
   onMount(() => {
     size();
     saveData = !!(navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;

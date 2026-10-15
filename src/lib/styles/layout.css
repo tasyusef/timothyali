@@ -26,3 +26,12 @@ section{position:relative;padding:0 var(--gutter)}
 
 /* inner pages (Work, the studies, Contact — Home is not one) */
 .inner-page .page-head{padding:var(--s4) 0 0}
+
+/* An inner page's head (study, tool, CLI & MCP; 0207): the lead and the facts beside it, two
+   thirds and one, stacked below 900px. Written once here instead of in each page; :where()
+   keeps it at a single class's weight, so a page's own rules (the study's phone order) win. */
+:where(.inner-page) .intro{display:grid;grid-template-columns:round(down,calc((100% - 32px) * 2 / 3),8px) 1fr;gap:var(--s4);margin-top:var(--s4);align-items:start}
+:where(.inner-page .intro) > .meta{display:flex;flex-direction:column;gap:var(--s2);margin:0;padding-top:var(--s1)}
+:where(.inner-page .intro > .meta) dt{margin-bottom:var(--s1)}
+:where(.inner-page .intro > .meta) dd{margin:0}
+@media(max-width:900px){:where(.inner-page) .intro{grid-template-columns:100%}}

@@ -9,7 +9,7 @@
   import Decode from '$lib/components/Decode.svelte';
   import Cta from '$lib/components/Cta.svelte';
   import QuietLink from '$lib/components/QuietLink.svelte';
-  import { RESUME_URL } from '$lib/social';
+  import { RESUME_URL } from '$lib/site';
   import { STEP_SLOW, STEP } from '$lib/tokens';
   import { motion } from '$lib/motion.svelte';
 
@@ -56,11 +56,12 @@
 <section class="hero-sec" bind:this={sec} aria-labelledby="intro">
   <div class="hero">
     {#if motion.on && started}
-      <h1 id="intro" class="blackletter hero-name" data-ink="i’m tim."><span class="sr-only">i’m tim.</span><span aria-hidden="true"><Decode text={slotName} mode="type" step={STEP_SLOW} delay={200} cursor={!slotLine} erase /></span></h1>
+      <h1 id="intro" class="blackletter hero-name" data-ink="i’m tim."><span class="sr-only">i’m tim. Timothy Ali</span><span aria-hidden="true"><Decode text={slotName} mode="type" step={STEP_SLOW} delay={200} cursor={!slotLine} erase /></span></h1>
       <p class="sr-only">{STATIC_LINE}</p>
       <p class="hero-role body" aria-hidden="true">{#each LINES as l}<span class="sizer">{l}</span>{/each}<Decode text={slotLine} mode="type" step={STEP} cursor={!!slotLine} cursorSize="cell" /></p>
     {:else}
-      <h1 id="intro" class="blackletter hero-name" data-ink="i’m tim.">i’m tim.</h1>
+      <!-- the heading carries the full name for screen readers and search (0207, Timothy’s pick); the page shows “i’m tim.” -->
+      <h1 id="intro" class="blackletter hero-name" data-ink="i’m tim."><span>i’m tim.</span><span class="sr-only"> Timothy Ali</span></h1>
       <p class="hero-role body">{STATIC_LINE}</p>
     {/if}
     <!-- PARC Pixel has no É, so the résumé label reads “Resume” -->

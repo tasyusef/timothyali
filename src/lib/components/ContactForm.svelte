@@ -4,7 +4,7 @@
   // there natively and comes back to ?sent=1 / ?error=. Fields are the body face on a
   // paper ground inside the ink panel; heights are on the unit (48 for a line, 8 + 4 × 32
   // + 8 for the message). Each field shows the site's block cursor at its insertion point
-  // instead of the native caret (0092, `$lib/caret`). `company` is a honeypot the
+  // instead of the native caret (0092, `$lib/caret`). `hp_check` is a honeypot the
   // function drops silently.
   import { page } from '$app/state';
   import Arrow from './Arrow.svelte';
@@ -15,9 +15,11 @@
   // `novalidate` and says it in the site's voice: a note chip under the field that is
   // wrong, the first of them focused. `required` stays on the fields for what it means.
   let notes: Record<string, string> = $state({});
+  // the function's pattern, so the field says what is wrong before the server does
+  const EMAIL = /^[^\s@,;<>"]+@[^\s@,;<>"]+\.[^\s@,;<>"]+$/;
   const NEED: Record<string, (el: HTMLInputElement | HTMLTextAreaElement) => string> = {
     name: (el) => (el.value.trim() ? '' : 'Enter your name.'),
-    email: (el) => (!el.value.trim() ? 'Enter an email address I can reply to.' : el.validity.typeMismatch ? 'Check your email address, for example name@example.com.' : ''),
+    email: (el) => (!el.value.trim() ? 'Enter an email address I can reply to.' : !EMAIL.test(el.value.trim()) ? 'Check your email address, for example name@example.com.' : ''),
     message: (el) => (el.value.trim() ? '' : 'Tell me about the role or project.')
   };
   function validate(form: HTMLFormElement) {
@@ -35,6 +37,7 @@
     invalid: 'Check your name, email address, and message.',
     unconfigured: 'The form is unavailable. Email studio@timothyali.com directly.',
     'send-failed': 'Your message didn’t send. Try again, or email studio@timothyali.com.',
+    'rate-limited': 'That’s a lot of messages at once. Wait a few minutes, or email studio@timothyali.com.',
     network: 'Couldn’t send your message. Check your connection and try again, or email studio@timothyali.com.'
   };
   async function submit(e: SubmitEvent) {
@@ -53,7 +56,7 @@
   <label class="field"><span class="lbl dim">Name</span><span class="box"><input class="body" name="name" aria-invalid={notes.name ? 'true' : undefined} aria-describedby={notes.name ? 'name-note' : undefined} oninput={clear} type="text" autocomplete="name" autocapitalize="words" required maxlength="120" use:blockCaret /><span class="cursor caret" aria-hidden="true"></span></span>{#if notes.name}<span class="lbl note" id="name-note">{notes.name}</span>{/if}</label>
   <label class="field"><span class="lbl dim">Email</span><span class="box"><input class="body" name="email" aria-invalid={notes.email ? 'true' : undefined} aria-describedby={notes.email ? 'email-note' : undefined} oninput={clear} type="email" autocomplete="email" required maxlength="200" use:blockCaret /><span class="cursor caret" aria-hidden="true"></span></span>{#if notes.email}<span class="lbl note" id="email-note">{notes.email}</span>{/if}</label>
   <label class="field"><span class="lbl dim">Your message</span><span class="box"><textarea class="body" name="message" enterkeyhint="enter" aria-invalid={notes.message ? 'true' : undefined} aria-describedby={notes.message ? 'message-note' : undefined} oninput={clear} rows="4" required maxlength="5000" use:blockCaret></textarea><span class="cursor caret" aria-hidden="true"></span></span>{#if notes.message}<span class="lbl note" id="message-note">{notes.message}</span>{/if}</label>
-  <label class="trap" aria-hidden="true"><span>Company</span><input name="company" type="text" tabindex="-1" autocomplete="off" /></label>
+  <label class="trap" aria-hidden="true"><span>Leave this empty</span><input name="hp_check" type="text" tabindex="-1" autocomplete="off" /></label>
   <div class="send">
     <button class="cta-row lbl" type="submit" disabled={phase === 'sending'}><span>{phase === 'sending' ? 'Sending' : 'Send'}</span><Arrow /></button>
     <!-- without JavaScript the function redirects to one of these and :target shows it (0206) -->

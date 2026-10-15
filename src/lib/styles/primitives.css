@@ -29,12 +29,12 @@
 
   /* face stacks — every face is a bitmap design (see the cell table in app.css) except the
      reading face, IBM Plex Mono, which the case studies are read in (0136, 0137) */
-  --face-blackletter:'Jacquard 24',serif;
+  --face-blackletter:'Jacquard 24','Jacquard 24 fallback',serif;
   --face-display:'PARC Pixel Bold Web',sans-serif;   /* caps only; 13.75 cells/em (0078) */
-  --face-text:'Jersey 15',sans-serif;
+  --face-text:'Jersey 15','Jersey 15 fallback',sans-serif;
   --face-label:'PARC Pixel Web',monospace;           /* caps only; 6.25 cells/em (0078) */
-  --face-mono:'Press Start 2P',monospace;
-  --face-root:'Jersey 15',ui-monospace,monospace;
+  --face-mono:'Press Start 2P','Press Start 2P fallback',monospace;
+  --face-root:'Jersey 15','Jersey 15 fallback',ui-monospace,monospace;
   --face-read:'IBM Plex Mono',ui-monospace,monospace;
 
   /* motion — nothing is continuous, everything steps */
@@ -46,12 +46,15 @@
 
 /* ------------------------------------------------------------------
    Breakpoints. CSS media queries cannot read custom properties, so these
-   are documentation, not tokens. Every @media in src/ uses one of these
-   four widths and no others (0075 folded 1300 into 1100 and moved the phone floor
-   from 380 to 420, which the status strip already used):
+   are documentation, not tokens. The four main widths (0075 folded 1300 into
+   1100 and moved the phone floor from 380 to 420):
 
-     420   phone floor — .display-xl drops to 86 (“building.” is 372px at 129); status strip keeps the path alone
+     420   phone floor — .display-xl drops to 86 (“building.” is 372px at 129)
      700   phone — gutter 16, header stacks, display/lead step down
-     900   two-column layouts collapse to one; study title drops to 86
-    1100   .display-xl drops to 172; study title drops to 129; Work row title drops to 41
+     900   two-column layouts collapse to one; study title drops to 55
+    1100   .display-xl drops to 172; study title drops from 110 to 82.5
+
+   and four local ones, each for one block (checked 0207): 352 the Home name
+   (Hero), 480 the card arrow (blocks.css), 1300 the invitation's display line
+   (Invite, Contact).
    ------------------------------------------------------------------ */

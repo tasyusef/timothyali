@@ -27,7 +27,6 @@
     setTimeout(() => (sent = ''), 2400);
   }
 </script>
-<svelte:head><title>Toolbox / Timothy Ali</title><meta name="description" content={APP.description} /></svelte:head>
 <main class="toolbox-landing" id="main" tabindex="-1">
   <Band class="toolbox-hero" mode="bands" seed={7} density={0.7} flip shade hug pad={0} feather={12} depth={0.85} clearFeather={3} avoid=".hero-copy h1 .decode > [aria-hidden]:not(.cursor)" clear=".hero-copy .lead, .hero-actions > *">
     <div class="hero-copy">
@@ -91,7 +90,7 @@
 .machine{--accent-text:var(--accent-on-fg);display:grid;grid-template-columns:1fr 1fr;gap:var(--s8);padding-top:var(--s8);padding-bottom:var(--s8);background:var(--fg);color:var(--paper)}
 .machine h2{margin-top:0}.machine-copy{display:flex;flex-direction:column;gap:var(--s3)}
 .command{padding:var(--s3);background:var(--paper);color:var(--fg);display:flex;flex-direction:column;gap:var(--s2)}.command code{font-family:var(--face-text)}.command :global(.cursor){height:24px;vertical-align:top}
-.machine :global(.quiet-link){align-self:flex-start}@media(hover:hover){.machine :global(.quiet-link:hover){color:var(--accent-text)}}.machine :global(.quiet-link:active){color:var(--on-accent)}
+.machine :global(.quiet-link){align-self:flex-start}
 .release{padding-top:var(--s8);padding-bottom:var(--s4);display:grid;grid-template-columns:1fr 1fr;gap:var(--s8)}
 .release h2{font-size:129px;line-height:136px;margin-top:var(--s2)}.release-copy{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s3)}.downloads{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s2);align-self:stretch}
 .downloads li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0 var(--s2);align-items:baseline}
@@ -108,14 +107,14 @@
 .end :global(.page-foot){margin-top:var(--s4);margin-bottom:var(--s4)}
 noscript a{text-decoration:underline}
 @media(max-width:1100px){.tool-showcase{grid-template-columns:round(down,calc((100% - 32px) / 3),8px) minmax(0,1fr);gap:var(--s4)}.tool-story h3{font-size:27.5px;line-height:32px}.release h2{font-size:86px;line-height:88px}}
-@media(max-width:900px){.hero-copy h1{font-size:172px;line-height:176px} /* “toolbox.” is 822 at 258 */.tool-showcase{grid-template-columns:minmax(0,1fr);gap:var(--s4)}.tool-story{display:grid;grid-template-columns:1fr 1fr;padding-top:0;gap:var(--s2) var(--s4)}.tool-story h3{grid-row:1/3}.tool-story :global(.quiet-link){grid-column:2;margin-top:0}.machine,.release{gap:var(--s4)}.machine h2{font-size:41.25px;line-height:48px}}
+@media(max-width:900px){.hero-copy h1{font-size:172px;line-height:176px} /* “toolbox.” is 822 at 258 */.tool-showcase{grid-template-columns:minmax(0,1fr)}.tool-story{display:grid;grid-template-columns:1fr 1fr;padding-top:0;gap:var(--s2) var(--s4)}.tool-story h3{grid-row:1/3}.tool-story :global(.quiet-link){grid-column:2;margin-top:0}.machine,.release{gap:var(--s4)}.machine h2{font-size:41.25px;line-height:48px}}
 @media(max-width:700px){
  .toolbox-landing :global(.toolbox-hero){padding-top:var(--s3);padding-bottom:var(--s6)}
- .hero-copy{margin-top:var(--s1)}.hero-copy h1{font-size:129px;line-height:136px}.hero-copy .lead{font-size:27px;line-height:32px}.hero-actions{gap:var(--s3);margin-top:var(--s3)}
+ .hero-copy{margin-top:var(--s1)}.hero-copy h1{font-size:129px;line-height:136px}.hero-actions{gap:var(--s3);margin-top:var(--s3)}
  .section-head{grid-template-columns:1fr;gap:var(--s3);margin-bottom:var(--s4)}.showcase{padding-top:var(--s6);padding-bottom:var(--s6)}
  .tool-picker{grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:var(--s3)}.tool-picker button{padding:17px 16px 15px;gap:var(--s1)}.tool-picker .display-s{font-family:var(--face-label);font-size:12.5px;line-height:16px}
  .tool-story{display:flex;gap:var(--s2)}.tool-story h3{max-width:100%}.tool-story :global(.quiet-link){margin-top:var(--s1)}.tool-showcase{gap:var(--s3)}
- .machine,.release{grid-template-columns:minmax(0,1fr);padding-top:var(--s6);padding-bottom:var(--s6);gap:var(--s4)}.machine h2{font-size:41.25px;line-height:48px}.release h2{font-size:86px;line-height:88px}.command{padding:var(--s2)}.end :global(.page-foot){margin-top:0}
+ .machine,.release{grid-template-columns:minmax(0,1fr);padding-top:var(--s6);padding-bottom:var(--s6)}.command{padding:var(--s2)}.end :global(.page-foot){margin-top:0}
 }
 @media(max-width:420px){.machine h2{font-size:27.5px;line-height:32px}.hero-copy h1{font-size:86px;line-height:88px}.release h2{font-size:43px;line-height:48px}} /* “Download.” takes the next whole-cell step to fit a 320px phone. */
 </style>
