@@ -974,3 +974,9 @@ Four read-only review agents covered SEO and site health, code audit, simplifica
 Evidence: `docs/iterations/pixel-v2/105-review-fixes/`.
 
 Deploy (2026-10-15): PX-105 pushed as `d788d9b` on Timothy's “Commit and push”, live about 5 min later. The new study titles and the CSP meta were served, `/hero/` was cached, the xrp.cafe file was 0.79 MB, and `/api/analytics` answered without a redirect. 14 live page loads at 1440 and 390 showed no CSP violations and no console errors.
+
+### The review's outside-the-repo items (2026-10-15, Timothy: “can you not do the three that are ‘still mine’”)
+
+- **Résumé PDF author:** the résumé source's `build.mjs` and `build-cover.mjs` now sign every PDF they print (`pdf-info.mjs`, an incremental update that adds Author and Creator “Timothy Ali” without touching the pages). All seven PDFs in its `out/` are signed; `static/resume/Timothy-Ali-Resume.pdf` here is the signed copy. Uncommitted.
+- **Toolbox app texture:** the 0206/0207 speed fixes ported into the app's `src/renderer/src/ui/Ascii.svelte` and `lib/knockout.ts`: still with motion off, a sleeping loop (idle redraws 90 → 19 per 3 s), knockout cached per cell plus the early-out, a 1× canvas, the late-load guard. Typecheck clean, 369/369 tests; checked in the renderer. Uncommitted in the app repo.
+- **Apex redirect 307 → 308:** not done. It is a Vercel domain setting; it needs the Vercel connector authorised or a confirmed change through Timothy's browser.
