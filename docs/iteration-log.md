@@ -980,3 +980,11 @@ Deploy (2026-10-15): PX-105 pushed as `d788d9b` on Timothy's “Commit and push�
 - **Résumé PDF author:** the résumé source's `build.mjs` and `build-cover.mjs` now sign every PDF they print (`pdf-info.mjs`, an incremental update that adds Author and Creator “Timothy Ali” without touching the pages). All seven PDFs in its `out/` are signed; `static/resume/Timothy-Ali-Resume.pdf` here is the signed copy. Uncommitted.
 - **Toolbox app texture:** the 0206/0207 speed fixes ported into the app's `src/renderer/src/ui/Ascii.svelte` and `lib/knockout.ts`: still with motion off, a sleeping loop (idle redraws 90 → 19 per 3 s), knockout cached per cell plus the early-out, a 1× canvas, the late-load guard. Typecheck clean, 369/369 tests; checked in the renderer. Uncommitted in the app repo.
 - **Apex redirect 307 → 308:** done 2026-10-15 on Timothy's “yes do it in chrome”, in the timothyali Vercel account (Domains → timothyali.com → 308 Permanent Redirect). `curl -I https://timothyali.com/work/` answers 308 to `https://www.timothyali.com/work/`. The Toolbox port is pushed as `fbaa4d9` in the app repo.
+
+## PX-106: the hero's typing and its grid (2026-10-16, 0208)
+
+On Timothy's phone review: the typed line and the name now type onto a field that has already cleared for them (hidden whole-line copies are measured, and the field measures at once on a change); the name is 86px on phones and 172px on tablets so its glyph pixels match light mode's 4px dither (his pick of three mocks), with the baseline on that grid.
+
+**Files:** `Hero.svelte`, `+page.svelte` (knockout selectors), `Ascii.svelte` (`field-measure`).
+
+Evidence: `docs/iterations/pixel-v2/106-hero-grid/` (options, before/after close-up, a typing frame).

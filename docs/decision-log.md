@@ -2506,3 +2506,19 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
   - the apex → www redirect is a 307 in Vercel's domain settings and should be 308;
   - the résumé PDF's author field reads “Chromium”.
 - **Status:** his direction; implemented and verified, uncommitted.
+
+## 0208: the hero types onto a clear field, and its name sits on the dither's grid (2026-10-16)
+
+- **Timothy's direction** (on his phone): the hero's typed line and name sat on top of the texture for a moment as they typed and "you can't really read it for a second"; and the hero copy no longer looked aligned to the same pixel grid as the background, most visibly in light mode's dither.
+- **Typing:**
+  - the knockout is measured on hidden copies of the whole name and the whole current line (`.ghost` in `Hero.svelte`), so the field clears before the first letter lands;
+  - the name's thinned plate is the size of "i'm tim." throughout the loop, so it does not move behind the cursor;
+  - a `field-measure` event on the band makes `Ascii` measure at once instead of at its next 160 ms tick.
+- **Grid:**
+  - cause: light mode dithers in 4px squares; the phone name at 129px has 3px glyph pixels and the tablet name at 258px has 6px, and neither can line up with 4. The phone baseline also sat on a half pixel;
+  - Timothy's pick, of three mocked options (86px, 172px on two lines, keep 129): **86px on phones** (2px pixels);
+  - by the same rule the tablet name (≤1100) is 172px (4px pixels); desktop stays 344px (8px);
+  - line height equals the size, so Jacquard's baseline (34/43 of the size) lands on the 4px grid; padding makes the box up to the next 8px unit (88, 176).
+- **Verified:** baseline and left edge on the 4px grid at eight widths, 320–1440, motion on and off; no overflow; `pnpm check`, 24 tests and `px61` pass.
+- **Assistant's choices inside it:** the tablet size (follows his rule rather than a pick), the event name.
+- **Status:** his direction and pick; committed and pushed on his word (2026-10-16). Evidence: `docs/iterations/pixel-v2/106-hero-grid/`.

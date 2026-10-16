@@ -27,6 +27,11 @@
   const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
   const typed = (t: string, step: number, delay = 0) => delay + [...t].length * step + 120;
 
+  // The field steps around the words before they are typed, not after (0208): the knockout is
+  // measured on hidden copies of the whole name and the whole current line (`.ghost`), so the
+  // plate is in place when the first letter lands and does not grow behind the cursor. Each
+  // change asks the field to measure now rather than at its next tick.
+  $effect(() => { void slotLine; void started; sec?.dispatchEvent(new CustomEvent('field-measure', { bubbles: true })); });
   onMount(() => {
     const io = new IntersectionObserver((es) => es.forEach((e) => { inView = e.isIntersecting; }), { threshold: 0.2 });
     io.observe(sec);
@@ -56,9 +61,9 @@
 <section class="hero-sec" bind:this={sec} aria-labelledby="intro">
   <div class="hero">
     {#if motion.on && started}
-      <h1 id="intro" class="blackletter hero-name" data-ink="i’m tim."><span class="sr-only">i’m tim. Timothy Ali</span><span aria-hidden="true"><Decode text={slotName} mode="type" step={STEP_SLOW} delay={200} cursor={!slotLine} erase /></span></h1>
+      <h1 id="intro" class="blackletter hero-name" data-ink="i’m tim."><span class="sr-only">i’m tim. Timothy Ali</span><span class="slot" aria-hidden="true"><span class="ghost">i’m tim.</span><Decode text={slotName} mode="type" step={STEP_SLOW} delay={200} cursor={!slotLine} erase /></span></h1>
       <p class="sr-only">{STATIC_LINE}</p>
-      <p class="hero-role body" aria-hidden="true">{#each LINES as l}<span class="sizer">{l}</span>{/each}<Decode text={slotLine} mode="type" step={STEP} cursor={!!slotLine} cursorSize="cell" /></p>
+      <p class="hero-role body" aria-hidden="true">{#each LINES as l}<span class="sizer">{l}</span>{/each}<span class="sizer ghost">{slotLine}</span><Decode text={slotLine} mode="type" step={STEP} cursor={!!slotLine} cursorSize="cell" /></p>
     {:else}
       <!-- the heading carries the full name for screen readers and search (0207, Timothy’s pick); the page shows “i’m tim.” -->
       <h1 id="intro" class="blackletter hero-name" data-ink="i’m tim."><span>i’m tim.</span><span class="sr-only"> Timothy Ali</span></h1>
@@ -75,13 +80,20 @@
 .hero-sec{--chrome:96px;padding:0}
 .hero-sec :global(.hero){position:relative;min-height:round(down,100vh,8px);min-height:round(down,100svh,8px);display:flex;flex-direction:column;justify-content:flex-end;padding:calc(var(--chrome) + var(--s8)) var(--gutter) var(--s8);overflow:hidden}
 .hero-name{font-size:344px;line-height:344px}
+/* The name's glyph pixels match the dither's grid (0208): light mode dithers in 4px squares, so
+   the name is set where a glyph pixel is a whole number of squares or a whole fraction of one:
+   344 (8px pixels) on desktop, 172 (4px) on tablets, 86 (2px) on phones. 129 and 258 (3px, 6px)
+   could never line up. Jacquard's baseline sits 34/43 of the size below the top of its em, so
+   with the line height equal to the size it lands on the 4px grid (272, 136, 68); the padding
+   makes up the box to the next 8px unit. */
 /* The typed line: one grid cell holding every copy line, hidden, under the typed one, so the
    box is as tall as the tallest line at this width and the field's knockout measures one
    stable box, not the changing words (0132). */
 .hero-role{display:grid;max-width:46ch;min-height:64px;margin-top:var(--s2);text-wrap:pretty}
 .hero-role>:global(*){grid-area:1/1}
-.sizer{visibility:hidden}
-.hero-role :global(.decode){white-space:pre-wrap}
+.sizer,.ghost{visibility:hidden}
+.slot{display:inline-grid}.slot>:global(*){grid-area:1/1}
+.hero-role :global(.decode),.hero-role .ghost{white-space:pre-wrap}
 /* The actions, the work chip and the résumé link (0127): bottom right on desktop with the chip
    outermost; on phones a row under the copy. */
 .hero-actions{position:absolute;right:var(--gutter);bottom:var(--s8);display:flex;flex-direction:row-reverse;align-items:center;gap:var(--s3)}
@@ -89,15 +101,13 @@
 :global(.hero-hint) .arrow{display:block;transform:translateY(0);position:relative;top:-1px}
 :global(.motion .hero-hint) .arrow{animation:nudge var(--tick-cursor) steps(2,jump-none) infinite}
 @keyframes nudge{from{transform:translateY(0)}to{transform:translateY(2px)}}
-@media(max-width:1100px){.hero-name{font-size:258px;line-height:264px}}
+@media(max-width:1100px){.hero-name{font-size:172px;line-height:172px;padding-bottom:4px}}
 /* below 900 the copy reaches the actions' column, so they join the flow under it (0202) */
 @media(max-width:900px){.hero-actions{position:static;flex-direction:row;flex-wrap:wrap;margin-top:var(--s2);align-self:flex-start}.hero-sec :global(.hero-hint){white-space:nowrap}}
 @media(max-width:700px){
   .hero-sec{--chrome:104px}
   .hero-sec :global(.hero){padding-bottom:var(--s6)}
-  .hero-name{font-size:129px;line-height:136px}
+  .hero-name{font-size:86px;line-height:86px;padding-bottom:2px}
   .hero-role{max-width:none}
 }
-/* the typed name cannot wrap: at 129px “i’m tim.” is 321px, wider than the column under 353px (0206) */
-@media(max-width:352px){.hero-name{font-size:86px;line-height:88px}}
 </style>

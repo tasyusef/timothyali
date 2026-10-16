@@ -12,7 +12,7 @@
   import Invite from '$lib/components/home/Invite.svelte';
 </script>
 <main id="main" tabindex="-1">
-  <Band as="div" class="page-sky" mode="scene" seed={3} lightAs="dither" mountains="a" feather={12} depth={0.85} clearFeather={3} avoid=".hero-name .decode > [aria-hidden]:not(.cursor), .hero-name:not(:has(.decode)) > :not(.sr-only), .invitation h2 > span" clear=".hero-actions > *, .hero-role .decode > [aria-hidden]:not(.cursor), .hero-role:not(:has(.decode)), .list .all, .invitation .cta-row">
+  <Band as="div" class="page-sky" mode="scene" seed={3} lightAs="dither" mountains="a" feather={12} depth={0.85} clearFeather={3} avoid=".hero-name .ghost, .hero-name:not(:has(.decode)) > :not(.sr-only), .invitation h2 > span" clear=".hero-actions > *, .hero-role .ghost, .hero-role:not(:has(.decode)), .list .all, .invitation .cta-row">
     <Hero />
     <WorkList />
     <Invite />

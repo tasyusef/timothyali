@@ -85,6 +85,10 @@
   let warmUntil = 0;
   let wake = () => {}; // the motion loop's, while it runs
   const warm = () => { warmUntil = performance.now() + 2500; wake(); };
+  // Text that changes between ticks (the hero's typed lines) asks for a measure now with a
+  // `field-measure` event on the band, so its knockout does not wait up to a tick (0208).
+  let remeasure = false;
+  const onMeasure = () => { measuredFrame = -1; remeasure = true; if (motion.on) wake(); else if (due) draw(true); };
   // heat and rings run on elapsed time, so they look the same at 60 or 120 frames a second
   function stir(dt: number) {
     if (!interactive || heat.length !== cols * rows) return;
@@ -264,8 +268,8 @@
     const ro = new ResizeObserver(queueResize); ro.observe(host); ro.observe(document.body); resize(); document.fonts?.ready.then(queueResize);
     const io = new IntersectionObserver((es) => es.forEach((e) => { visible = e.isIntersecting; if (visible && !due) { due = true; draw(true); } if (visible) wake(); }), { rootMargin: '64px' }); io.observe(host);
     const band = (host.closest('.band') as HTMLElement | null) ?? host;
-    band.addEventListener('pointermove', onMove); band.addEventListener('pointerleave', onLeave); band.addEventListener('pointerdown', onDown); band.addEventListener('mousedown', onMouseDown);
-    return () => { alive = false; if (mountainImg) mountainImg.onload = null; cancelAnimationFrame(resizeQueued); ro.disconnect(); io.disconnect(); band.removeEventListener('pointermove', onMove); band.removeEventListener('pointerleave', onLeave); band.removeEventListener('pointerdown', onDown); band.removeEventListener('mousedown', onMouseDown); };
+    band.addEventListener('pointermove', onMove); band.addEventListener('pointerleave', onLeave); band.addEventListener('pointerdown', onDown); band.addEventListener('mousedown', onMouseDown); band.addEventListener('field-measure', onMeasure);
+    return () => { band.removeEventListener('field-measure', onMeasure); alive = false; if (mountainImg) mountainImg.onload = null; cancelAnimationFrame(resizeQueued); ro.disconnect(); io.disconnect(); band.removeEventListener('pointermove', onMove); band.removeEventListener('pointerleave', onLeave); band.removeEventListener('pointerdown', onDown); band.removeEventListener('mousedown', onMouseDown); };
   });
   $effect(() => { void theme.light; if (!due) return; baseDirty = true; if (mode === 'scene' && ctx) resize(); else draw(true); }); // the scene re-lays its picture for the dither grid
   $effect(() => {
@@ -282,8 +286,8 @@
       frame = Math.floor((now - start) / tick);
       const top = canvas.getBoundingClientRect().top;
       const live = now < warmUntil || bursts.length > 0; // a resting pointer keeps its glow at the tick rate
-      if (frame === paintedFrame && top === paintedTop && !live) last = now;
-      else { paintedFrame = frame; paintedTop = top; draw(); }
+      if (frame === paintedFrame && top === paintedTop && !live && !remeasure) last = now;
+      else { paintedFrame = frame; paintedTop = top; remeasure = false; draw(); }
       if (live) schedule();
       else timer = window.setTimeout(schedule, tick - ((now - start) % tick) + 1);
     };
