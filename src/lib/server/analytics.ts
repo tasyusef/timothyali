@@ -1,7 +1,7 @@
 import { createHmac } from 'node:crypto';
 import { env } from '$env/dynamic/private';
 import { redis } from './redis';
-import { dateRange, summarize, ranking, type AnalyticsEvent, type DailyCounts } from '$lib/analytics';
+import { dateRange, summarize, ranking, daysOf, type AnalyticsEvent, type DailyCounts } from '$lib/analytics';
 export const analyticsReady = () => Boolean(redis() && env.ANALYTICS_SECRET);
 export function visitorKey(day: string, ip: string, userAgent: string) {
   if (!env.ANALYTICS_SECRET) throw new Error('Analytics is not configured');
@@ -44,5 +44,5 @@ export async function readAnalytics(days: number) {
   const counts = summarize(daily.map((row) => row.counts));
   return { started: values.at(-1) as string | null, views: counts.views || 0, clicks: counts.clicks || 0,
     daily: daily.map(({ day, counts, visitors }) => ({ day, views: Number(counts?.views) || 0, visitors })),
-    pages: ranking(counts, 'page:'), downloads: ranking(counts, 'download:'), referrers: ranking(counts, 'referrer:'), devices: ranking(counts, 'device:') };
+    pages: ranking(counts, 'page:'), downloads: ranking(counts, 'download:'), referrers: ranking(counts, 'referrer:').map((row) => ({ ...row, days: daysOf(daily, `referrer:${row.name}`) })), devices: ranking(counts, 'device:') };
 }

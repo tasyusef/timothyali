@@ -988,3 +988,7 @@ On Timothy's phone review: the typed line and the name now type onto a field tha
 **Files:** `Hero.svelte`, `+page.svelte` (knockout selectors), `Ascii.svelte` (`field-measure`).
 
 Evidence: `docs/iterations/pixel-v2/106-hero-grid/` (options, before/after close-up, a typing frame).
+
+## PX-107: referral dates and tagged links (2026-10-18, 0209)
+
+The admin's Referrals table shows each source's visit days and last visit, from the per-day counts already stored. A `?via=name` link counts a visit, and the pages after it in that tab, under "Link / name". Files: `src/lib/analytics.ts` (`daysOf`, `VIA`), `src/lib/server/analytics.ts`, `Analytics.svelte`, `admin/+page.svelte`, `tests/analytics.test.ts`.

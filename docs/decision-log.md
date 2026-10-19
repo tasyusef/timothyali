@@ -2522,3 +2522,16 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Verified:** baseline and left edge on the 4px grid at eight widths, 320–1440, motion on and off; no overflow; `pnpm check`, 24 tests and `px61` pass.
 - **Assistant's choices inside it:** the tablet size (follows his rule rather than a pick), the event name.
 - **Status:** his direction and pick; committed and pushed on his word (2026-10-16). Evidence: `docs/iterations/pixel-v2/106-hero-grid/`.
+
+## 0209: visit dates on the referrals, and tagged links for job applications (2026-10-18)
+
+- **Timothy's direction:** "can we add dates to when these visits happened?" (the admin's Referrals table), and "a specific link i can use in job apps to know when people visit from a job app".
+- **Dates:**
+  - counts were already kept per UTC day, so each source now lists the days it was counted on, newest first (eight, then "+N more days"), with a Last visit column;
+  - a day is the finest time there is: no times are stored, by the original privacy choice.
+- **Tagged links:**
+  - `https://www.timothyali.com/?via=acme` (any page; lowercase letters, digits and hyphens, up to 40) counts under the source "Link / acme";
+  - the tag holds for the rest of that tab's visit, so every page the visitor views counts under it; a new tab does not carry it;
+  - it works where a job site strips the referrer.
+- **Assistant's choices inside it:** the `via` name, the "Link / " label, tab-long attribution, eight dates per row.
+- **Status:** his direction; committed and pushed on his word (2026-10-18).

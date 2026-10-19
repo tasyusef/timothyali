@@ -7,6 +7,13 @@
   import { page } from '$app/state';
   import { onMount } from 'svelte';
   let lastPath = '';
+  // A tagged link (`?via=acme`) marks the rest of the tab's visit: every page it views counts under
+  // that tag. The pattern matches the endpoint's VIA, which this bundle does not import (0207).
+  function tag() {
+    let via = new URLSearchParams(window.location.search).get('via')?.toLowerCase() ?? '';
+    try { if (/^[a-z0-9][a-z0-9-]{0,39}$/.test(via)) sessionStorage.setItem('tim-via', via); else via = sessionStorage.getItem('tim-via') ?? ''; } catch {}
+    return via || undefined;
+  }
   function send(value: object) {
     void fetch('/api/analytics', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(value), keepalive: true }).catch(() => {});
   }
@@ -14,7 +21,7 @@
     const path = window.location.pathname;
     if (document.visibilityState !== 'visible' || lastPath === path || !page.data.meta) return;
     const referrer = lastPath ? window.location.origin + lastPath : document.referrer;
-    lastPath = path; send({ type: 'view', path, referrer });
+    lastPath = path; send({ type: 'view', path, referrer, via: tag() });
   }
   afterNavigate(visit);
   onMount(() => {

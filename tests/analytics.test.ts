@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { dateRange, parseEvent, summarize, ranking, downloadFiles } from '../src/lib/analytics';
+import { dateRange, parseEvent, summarize, ranking, daysOf, downloadFiles, type DailyCounts } from '../src/lib/analytics';
 import { isOwner, isPrivatePath } from '../src/lib/server/access';
 
 describe('analytics inputs', () => {
@@ -38,5 +38,14 @@ describe('owner access', () => {
   it('covers nested admin and auth routes', () => {
     for (const path of ['/admin', '/admin/', '/admin/export/', '/admin/__data.json', '/auth/callback/resend/']) expect(isPrivatePath(path)).toBe(true);
     expect(isPrivatePath('/work/')).toBe(false);
+  });
+  it('lists the days a referrer was counted on, newest first', () => {
+    const daily: { day: string; counts: DailyCounts | null }[] = [{ day: '2026-10-01', counts: { 'referrer:www.linkedin.com': 2 } }, { day: '2026-10-02', counts: null }, { day: '2026-10-03', counts: { 'referrer:www.linkedin.com': 1, 'referrer:x.com': 4 } }];
+    expect(daysOf(daily, 'referrer:www.linkedin.com')).toEqual([{ day: '2026-10-03', count: 1 }, { day: '2026-10-01', count: 2 }]);
+    expect(daysOf(daily, 'referrer:nowhere')).toEqual([]);
+  });
+  it('counts a tagged link under its tag, and ignores a malformed one', () => {
+    expect(parseEvent({ type: 'view', path: '/', referrer: 'https://boards.greenhouse.io/x', via: 'acme-2' })).toEqual({ type: 'view', path: '/', referrer: 'Link / acme-2' });
+    for (const via of ['Acme', '-x', 'a'.repeat(41), 'a b', 'a/b', 3]) expect(parseEvent({ type: 'view', path: '/', referrer: '', via })).toEqual({ type: 'view', path: '/', referrer: 'Direct / unknown' });
   });
 });
