@@ -2557,4 +2557,4 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
   - Toolbox's "Send to my computer" is a row action with the row hover.
 - **Not done, on purpose:** image `w`/`h` vs `width`/`height`, the several meanings of `.pad` and `.intro`, anchor offsets, `PageFoot`'s link.
 - **Assistant's choices inside it:** every name (`.panel`, `.display-title`, `BuildingHead`, `NextFoot`, `PixelIcon`, `--tint-*`, `shared.js`), what was merged and what was left.
-- **Status:** his direction; implementation is the assistant's proposal, uncommitted, awaiting his word.
+- **Status:** his direction; committed and pushed on his word (2026-10-20, `d3f0ad4`).
