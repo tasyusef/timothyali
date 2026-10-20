@@ -56,8 +56,7 @@ component renders reach it with `:global()` anchored on their own `<main>`.
 | `--yellow-deep` | `#6f6200` | the accent as text on the light ground (5.3:1 on `--white`; 0075, 0171) |
 | `--yellow-field` | `#c8ac00` | the accent in a field on the light ground: four oklch lightness steps down (0108) |
 | `--u` | `8px` | the spacing unit |
-| `--s1 … --s16` | `8 16 24 32 48 64 96 128px` | the spacing scale; the name is the number of units (`--s4` = 4 × 8) |
-| `--cell-text` | `var(--u)` | layout and type snap unit |
+| `--s1 … --s12` | `8 16 24 32 48 64 96px` | the spacing scale; the name is the number of units (`--s4` = 4 × 8). `--s16` and `--cell-text` had no consumer and went in 0210 |
 | `--cell-image` | `2px` | gallery column snap unit (0054); figure heights snap to `--u` since 0089 |
 | `--cell-texture` | `16px` | one ASCII cell |
 | `--face-blackletter` | `'Jacquard 24',serif` | emphasis words, wordmark |
@@ -70,15 +69,12 @@ component renders reach it with `:global()` anchored on their own `<main>`.
 | `--nudge` | `8px` | hover displacement — exactly one cell |
 | `--step` / `--step-fast` | `70ms` / `55ms` | one step of a dither wipe; `STEP` / `STEP_FAST` in `tokens.ts` (0100) |
 
-`--s12` (96) and `--s16` (128) are declared for scale completeness but have no reference:
-96 appears only inside `round(down,calc(100vh - 96px),8px)` and 128 only as a line-height,
-and both classes of value are deliberately left literal (see **What stayed literal**).
-`--cell-image` likewise has no CSS consumer — `rowColumns()` is JavaScript and writes the
-`2px` into its `round()` formula. `Picture` and `Clip` floor their heights to `U` (8) through
+`--cell-image` has no CSS consumer: `rowColumns()` is JavaScript and writes `CELL_IMAGE`
+into its `round()` formula. `Picture` and `Clip` floor their heights to `U` (8) through
 `src/lib/figure.ts` (0089), so what follows a figure is on the layout grid.
 
-Breakpoints are a comment block, not tokens — CSS media queries cannot read custom
-properties. The four in use are `420 700 900 1100` (0075 folded 1300 into 1100 and moved the phone floor from 380 to 420, shared with the status strip).
+Breakpoints are a comment block in CSS (media queries cannot read custom properties) and
+`BP` / `below()` in `tokens.ts` for `matchMedia` and `<source media>` (0210). The four in use are `420 700 900 1100` (0075 folded 1300 into 1100 and moved the phone floor from 380 to 420, shared with the status strip).
 
 ### Layer 2 — semantic (`src/lib/styles/tokens.css`)
 
@@ -91,15 +87,20 @@ properties. The four in use are `420 700 900 1100` (0075 folded 1300 into 1100 a
 | `--on-accent` | `var(--ink)` | `var(--ink)` | type on accent |
 | `--accent-field` | `var(--yellow)` | `var(--yellow-field)` | the accent an ASCII field draws: `.band-bg` sets `--accent-text` to it (0108) |
 | `--accent-on-fg` | `var(--yellow-deep)` | `var(--yellow)` | the accent as type on a `--fg` panel — the other ground, the other value; `.who`, `.machine`, `.contact-note`, `.code` set `--accent-text` to it (0106) |
-| `--dim` | `.55` | `.55` | secondary-text opacity (a number, not a colour) |
+| `--dim` | `.55` | `.65` | secondary-text opacity (a number, not a colour) |
+| `--dim-on-fg` | `.65` | `.55` | the dim level on a `.panel` (0210) |
+| `--pad-s` / `--pad-m` | `9px 14px 7px 16px` / `17px 14px 15px 16px` | | the label-block paddings: chips and small buttons, rows (0097, named in 0210) |
+| `--col-side` | `448px` | | the side column beside Contact's head and Home's invitation |
+| `--chrome-height` | `96px` → `104px` ≤700 | | the sticky header and strip: Home's sky starts under it, a held study point sits below it (0210) |
+| `--focus-ring` | `2px solid var(--accent-text)` | | the keyboard focus outline |
+| `--wipe-in` | `dither-in calc(3 * var(--step)) steps(3) both` | | the three-frame wipe images and themes arrive with |
 | `--gutter` | `32px` → `16px` ≤700 | same | page side margin |
 | `--header-height` | `64px` | same | default; the layout overrides it inline with the measured height |
 | `--surface-card` | `repeating-conic-gradient(color-mix(in srgb,var(--fg) 14%,transparent) 0 25%,transparent 0 50%) 0 0/4px 4px` | | the card dither at rest |
 | `--surface-card-hover` | same shape at `26%` and `8px 8px` | | the card dither on hover |
 | `--texture-fallback-opacity` | `.35` | | the CSS checker before a canvas has drawn |
 | `--field-ink` | `color-mix(in srgb, var(--fg) 40%, var(--paper))` | | the ASCII field’s colour: recessed, well behind the type (0091) |
-| `--grid-fine` | `color-mix(in srgb,var(--fg) 12%,transparent)` | | fine fg tint (admin tables; the Grid overlay is gone, 0168) |
-| `--grid-major` | `color-mix(in srgb,var(--fg) 22%,transparent)` | | fg tint (admin tables) |
+| `--tint-fine` / `--tint-rim` / `--tint-major` / `--tint-rule` | `--fg` at `12 / 14 / 22 / 30%` over transparent | | fg tints: admin rules, the card dither and the examples' rims, the admin chart base, the examples' field rules (were `--grid-*`, named after the removed Grid; 0210) |
 | `--z-band-bg … --z-skip` | `0 1 2 50 98 99` | | see the layering diagram above |
 
 Theme is applied by `data-theme` on `<html>`, pre-painted by the inline script in
@@ -108,7 +109,7 @@ with the theme; `--accent-text` does (0075).
 
 ### JavaScript (`src/lib/tokens.ts`)
 
-`INK WHITE YELLOW` · `U CELL_TEXT CELL_IMAGE CELL_TEXTURE` · `TICK_SLOW=160 TICK_FAST=90`
+`INK WHITE YELLOW YELLOW_DEEP YELLOW_FIELD rgb()` · `U GALLERY_GAP CELL_IMAGE CELL_TEXTURE` · `BP below()` · `TICK_SLOW=160 TICK_FAST=90`
 (Ascii ambient cadence) · `STEP_SLOW=110 STEP=70 STEP_FAST=55` (Decode cadence).
 
 Consumed by `Ascii.svelte` (`cell`, `tick` defaults), `Decode.svelte` (`step` default),
@@ -173,16 +174,19 @@ word is wider than the card (`fitTitles`, `$lib/fit`, one size per grid).
 | Component | Props | Renders | Used by |
 |---|---|---|---|
 | `Arrow` | `dir='right'\|'left'` | `<span class="mono" aria-hidden>` with `->` / `<-` | Home ×3, Work ×1, study ×2, Contact ×1, and inside `QuietLink` / `PageFoot` |
-| `Cursor` | `size='cell'\|'em'`, `color='accent'\|'currentColor'` | `<span class="cursor …">` | `+layout.svelte` status strip (`cell`), `Decode` (`em`, currentColor) |
-| `Cta` | `variant='block'\|'row'\|'hint'\|'quiet'`, `href`, `class` | `<a>` when `href`, else `<span>`, class `cta` / `cta-row` / `cta-hint` / `cta-quiet` | Contact (`block`), Home invitation + Work end + study next (`row`), Home hero hint (`hint`), the share images' tool row only (`quiet`, its rules in that route since 0207) |
+| `Cursor` | `size='cell'\|'em'\|'line'`, `color='accent'\|'currentColor'`, `class` | `<span class="cursor …">` | status strip (`cell`), `Decode` (`em`), command plates (`line`), the contact form's carets (`class="caret"`) |
+| `Cta` | `variant='block'\|'row'\|'hint'\|'quiet'`, `href`, `type`, `class` | `<a>` when `href`, `<button>` when `type`, else `<span>`; class `cta` / `cta-row` / `cta-hint` / `cta-quiet`, plus `lbl` (0210) | Contact (`block`), Home invitation + Work end + study next (`row`), Home hero hint (`hint`), the share images' tool row only (`quiet`, its rules in that route since 0207) |
 | `Card` | `p` (a `Project`), `heading='h2'\|'h3'`, `eager=false`, `id` | `<a class="card">`: cover, title + `Arrow`, description | Home's selected four (`h3`), Work's nine (0207) |
-| `MetaLine` | `project`, `short=false`, `class` | `<span class="lbl …">` — `[01] / 2024 / Brand`, or `01 / Brand` when `short` | Work row, study head, Home card (`short`). Takes a `Project`; the Work index tier prints the same fields itself, split across the entry’s four columns |
+| `MetaLine` | `project`, `class` | `<span class="lbl …">` — `[01] / 2024 / Brand` | the study share images' head only (the short form went in 0210) |
 | `PageFoot` | `note`, `href`, `label`, `class` | `<footer class="page-foot lbl dim">` — note left, link + `Arrow` right | Work (`End of index / 008`), the eight studies (`[n] / 008`), Contact |
-| `QuietLink` | `href`, `label`, `dir`, `pad=false`, `class` | `<a class="quiet-link …">` with an `Arrow` | study back link (`dir="left" pad`), study “Live” link |
+| `QuietLink` | `href`, `label`, `dir`, `pad=false`, `text='lbl'\|'body'\|'inherit'`, `class` | `<a class="quiet-link …">` with an `Arrow` | Home “All work”, Contact's links, the studies' meta links (`inherit`), Toolbox guides |
+| `PixelIcon` | `name='down'\|'cog'\|'play'\|'pause'`, `size=16\|24`, `class` | an 8×8 crisp SVG in `currentColor` | the hero hint, the settings cog, `Clip`'s buttons (0210) |
+| `BuildingHead` | `level='h1'\|'h2'`, `id`, `tight` | “Tell me what you’re / building.” | Home's invitation, Contact (`tight`: 172 from 1101 to 1300 beside the form), the Contact share image (0210) |
+| `NextFoot` | `href n title note back backLabel` | the Next row and the `PageFoot` | studies and tool pages; loaders use `withNext` (`$lib/chain`) (0210) |
 | `Band` | `as='section'`, `class`, every `Ascii` prop, children | `<svelte:element class="band …">` + `.band-bg` + `Ascii`; a `scene` band defaults to `cell=8 px=1 hug pad=0` (0207) | Home hero (`sky`, `shade`, density 1.3), Home work/invitation rain (`as="div"`, `fall`, `shade`), Contact (`fall`, `shade`), the 404 (`sparse`), the share-image route |
 | `Ascii` | `mode cell px seed tick density avoid pad feather interactive reach flip shade` | the texture canvas; one accent per mode, `shade` colours by ramp step (0091) | via `Band` only. The same file as GRIDFORM Studio’s `ui/Ascii.svelte`; keep them in step |
 | `Decode` | `text mode step delay cursor` | kinetic type + `sr-only` real text | 6 call sites |
-| `Picture` | `src x2 alt width height eager sizes row phone` | a photograph at its own resolution; `phone` is a tighter crop served at ≤700px through a `<picture>` source, the figure taking its aspect (PX-53) | Home cards, Work rows, study galleries |
+| `Picture` | `src x2 alt width height eager sizes row phone` (`sizes` defaults to `frameSizes()`, figure.ts) | a photograph at its own resolution; `phone` is a tighter crop served at ≤700px through a `<picture>` source, the figure taking its aspect (PX-53) | Home cards, Work rows, study galleries |
 | `Clip` | `src label width height row` | a muted looping video | study galleries |
 
 Deleted: `Dither.svelte` and `Ticker.svelte` (unused since PX-04/PX-07; confirmed by grep
@@ -212,8 +216,9 @@ The global footer is one row on desktop (copyright left, the three toggles right
 
 ## Block classes (`src/lib/styles/blocks.css`)
 
-`.cursor` (+ `.em`, `.on-fg`) · `.cta` `.cta-row` `.cta-hint` · `.quiet-link` (+ `.pad`) ·
-`.page-foot` · `.cards` `.card` `.card-body` · `.code`. The Work rows (`.rows` `.row`
+`.cursor` (+ `.em`, `.line`, `.on-fg`) · `.cta` `.cta-row` `.cta-hint` (+ `button.` and `:disabled`) · `.quiet-link` (+ `.pad`) ·
+`.building-head` · `.page-foot` · `.pic` (Picture and Clip's figure) · `.cards` `.card` `.card-body` · `.panel` (the inverted
+ground: accent, dim, selection and row hovers flip once, 0210) · `.command-plate` · `.code`. The Work rows (`.rows` `.row`
 `.row-body`), `.cta-quiet` and `.index-row` went with the cards (0196); the row and the quiet
 label survive only in the share-image route's own styles (0207).
 
@@ -458,3 +463,22 @@ eases; every change is a colour, a whole cell, or a stepped dither.
 mouse down on seventeen controls, tabs through both themes, and checks the readout, the
 cursor files and the motion-off paths.
 
+
+## Design-system audit (0210, PX-108, 2026-10-19)
+
+Two reviewers (Opus, Codex) listed 35 leaks (`docs/reviews/2026-10-19-design-system-audit.md`); all
+three batches were applied on Timothy's “do all three”. What moved where:
+
+- **Type roles** (`type.css`): `.display-title` (+ `.lesser`, `.small` set by `fitWord` in `fit.ts`), `.read-s`, `.phone-read`.
+- **Layout** (`layout.css`): `.band` isolation, `.fill-main`, the inner page's `.head` and `.paras`, the phone `.intro`.
+- **JavaScript**: `figure` action and `FRAME` / `frameSizes()` (`figure.ts`), `withNext` (`chain.ts`), `pad` (`format.ts`).
+- **Constants**: `src/lib/shared.js` (plain JS, imported by `api/contact.js` too) holds the origin, the address and the
+  form's limits and pattern; `$lib/site` re-exports them with the hostnames, LinkedIn, GitHub and the `?via` pattern.
+  The share-image generator, verifier and `/og/[id]` route all read `socialPages`.
+- **Toolbox examples**: `DemoReadout`, `DemoToolbar`, `DestinationRow`; class names `demo-readout` / `demo-path` /
+  `demo-act` / `thumb` so they no longer inherit the strip's `.readout` / `.path` or the figure's `.pic`;
+  `--face-sheet` for the exported sheets' Helvetica.
+- **Band**: a `scene` band defaults to `feather 12`, `lightAs dither`, `depth .85`, `clearFeather 3`; forwards `interactive` and `reach`.
+
+Left as they were: images keep `w`/`h` in the data and `width`/`height` as props; `.pad` and `.intro` keep their
+several meanings; anchor offsets (16 to 96px) were not unified; `PageFoot` keeps its own link.

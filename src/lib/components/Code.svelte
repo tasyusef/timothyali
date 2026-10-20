@@ -23,4 +23,4 @@
     return { words, lead, pad: i < 0 ? '' : line.slice(code.length, i + 1), note: i < 0 ? '' : line.slice(i + 1) };
   }));
 </script>
-<pre class="code" role={label ? 'figure' : undefined} aria-label={label}>{#each lines as l}<span class="ln" style:--lead={l.lead || undefined}>{#each l.words as w}{#if /^\s+$/.test(w)}{w}{:else if w.length > 24}{#each w.split(/(?<=[/,:])/) as part, k}{#if k}<wbr />{/if}{#if part.length > 24}{part}{:else}<span class="w">{part}</span>{/if}{/each}{:else}<span class="w">{w}</span>{/if}{/each}{#if l.note}<span class="pad">{l.pad}</span><span class="c">{l.note}</span>{/if}</span>{/each}</pre>
+<pre class="code body panel" role={label ? 'figure' : undefined} aria-label={label}>{#each lines as l}<span class="ln" style:--lead={l.lead || undefined}>{#each l.words as w}{#if /^\s+$/.test(w)}{w}{:else if w.length > 24}{#each w.split(/(?<=[/,:])/) as part, k}{#if k}<wbr />{/if}{#if part.length > 24}{part}{:else}<span class="w">{part}</span>{/if}{/each}{:else}<span class="w">{w}</span>{/if}{/each}{#if l.note}<span class="pad">{l.pad}</span><span class="c">{l.note}</span>{/if}</span>{/each}</pre>

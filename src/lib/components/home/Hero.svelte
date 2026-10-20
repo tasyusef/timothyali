@@ -9,6 +9,7 @@
   import Decode from '$lib/components/Decode.svelte';
   import Cta from '$lib/components/Cta.svelte';
   import QuietLink from '$lib/components/QuietLink.svelte';
+  import PixelIcon from '$lib/components/PixelIcon.svelte';
   import { RESUME_URL } from '$lib/site';
   import { STEP_SLOW, STEP } from '$lib/tokens';
   import { motion } from '$lib/motion.svelte';
@@ -70,15 +71,15 @@
       <p class="hero-role body">{STATIC_LINE}</p>
     {/if}
     <!-- PARC Pixel has no É, so the résumé label reads “Resume” -->
-    <div class="hero-actions"><Cta variant="hint" class="hero-hint lbl" href="#work">Selected work<svg class="arrow" width="16" height="16" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><path d="M3 0h1v1h-1zM3 1h1v1h-1zM3 2h1v1h-1zM3 3h1v1h-1zM3 4h1v1h-1zM3 5h1v1h-1zM3 6h1v1h-1zM3 7h1v1h-1zM0 4h1v1h-1zM1 5h1v1h-1zM2 6h1v1h-1zM4 6h1v1h-1zM5 5h1v1h-1zM6 4h1v1h-1z"/></svg></Cta><QuietLink href={RESUME_URL} label="Resume" class="lbl" /></div>
+    <div class="hero-actions"><Cta variant="hint" class="hero-hint" href="#work">Selected work<PixelIcon name="down" class="arrow" /></Cta><QuietLink href={RESUME_URL} label="Resume" /></div>
   </div>
 </section>
 
 <style>
 /* The page's field starts under the chrome (+page.svelte), so the rain runs up behind the
    header; the hero is the first window, its name and copy at the bottom. */
-.hero-sec{--chrome:96px;padding:0}
-.hero-sec :global(.hero){position:relative;min-height:round(down,100vh,8px);min-height:round(down,100svh,8px);display:flex;flex-direction:column;justify-content:flex-end;padding:calc(var(--chrome) + var(--s8)) var(--gutter) var(--s8);overflow:hidden}
+.hero-sec{padding:0}
+.hero-sec :global(.hero){position:relative;min-height:round(down,100vh,8px);min-height:round(down,100svh,8px);display:flex;flex-direction:column;justify-content:flex-end;padding:calc(var(--chrome-height) + var(--s8)) var(--gutter) var(--s8);overflow:hidden}
 .hero-name{font-size:344px;line-height:344px}
 /* The name's glyph pixels match the dither's grid (0208): light mode dithers in 4px squares, so
    the name is set where a glyph pixel is a whole number of squares or a whole fraction of one:
@@ -97,15 +98,13 @@
 /* The actions, the work chip and the résumé link (0127): bottom right on desktop with the chip
    outermost; on phones a row under the copy. */
 .hero-actions{position:absolute;right:var(--gutter);bottom:var(--s8);display:flex;flex-direction:row-reverse;align-items:center;gap:var(--s3)}
-.hero-sec :global(.hero-hint:focus-visible){background:var(--fg);color:var(--paper)}@media(hover:hover){.hero-sec :global(.hero-hint:hover){background:var(--fg);color:var(--paper)}}
-:global(.hero-hint) .arrow{display:block;transform:translateY(0);position:relative;top:-1px}
-:global(.motion .hero-hint) .arrow{animation:nudge var(--tick-cursor) steps(2,jump-none) infinite}
+:global(.hero-hint) :global(.arrow){display:block;transform:translateY(0);position:relative;top:-1px}
+:global(.motion .hero-hint) :global(.arrow){animation:nudge var(--tick-cursor) steps(2,jump-none) infinite}
 @keyframes nudge{from{transform:translateY(0)}to{transform:translateY(2px)}}
 @media(max-width:1100px){.hero-name{font-size:172px;line-height:172px;padding-bottom:4px}}
 /* below 900 the copy reaches the actions' column, so they join the flow under it (0202) */
 @media(max-width:900px){.hero-actions{position:static;flex-direction:row;flex-wrap:wrap;margin-top:var(--s2);align-self:flex-start}.hero-sec :global(.hero-hint){white-space:nowrap}}
 @media(max-width:700px){
-  .hero-sec{--chrome:104px}
   .hero-sec :global(.hero){padding-bottom:var(--s6)}
   .hero-name{font-size:86px;line-height:86px;padding-bottom:2px}
   .hero-role{max-width:none}

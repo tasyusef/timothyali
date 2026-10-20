@@ -21,12 +21,12 @@
   };
 </script>
 {#if isFile(node)}
-  <div class="tree-row" style:padding-left={`${depth * 16}px`}><span class="mono"></span><span class="body name dim">{node.name}</span></div>
+  <div class="tree-row" style:padding-left={`calc(${depth} * var(--s2))`}><span class="mono"></span><span class="body name dim">{node.name}</span></div>
 {:else}
-  <button type="button" class="tree-row" onclick={toggle} aria-expanded={expanded} style:padding-left={`${depth * 16}px`}>
+  <button type="button" class="tree-row" onclick={toggle} aria-expanded={expanded} style:padding-left={`calc(${depth} * var(--s2))`}>
     <span class="mono dim" aria-hidden="true">{expanded ? 'v' : '>'}</span>
     <span class="lbl name" class:dim={depth !== 1}>{node.name}/</span>
-    {#if swatches.length}<span style="display:inline-flex;gap:4px">{#each swatches as hex, i (`${hex}-${i}`)}<SwatchDot {hex} size={16} />{/each}</span>{/if}
+    {#if swatches.length}<span class="swatches">{#each swatches as hex, i (`${hex}-${i}`)}<SwatchDot {hex} size={16} />{/each}</span>{/if}
     <span class="lbl dim">{node.fileCount}</span>
   </button>
   {#if expanded}{#each node.children as child (child.id)}<PlanRow node={child} depth={depth + 1} {userExpanded} {userCollapsed} {palette} />{/each}{/if}

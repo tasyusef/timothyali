@@ -1,7 +1,6 @@
-import { studies, projects } from './work';
-import { tools, APP } from './toolbox';
-import { SITE_URL } from './site';
-export { SITE_URL, RESUME_URL } from './site';
+import { studies, projects } from './work.ts';
+import { tools, APP } from './toolbox.ts';
+export { SITE_URL, RESUME_URL } from './site.ts';
 // Descriptions the page and its share tags both carry (PX-59): Work names the selected
 // four, and a tool page says what the tool is part of, so neither stops at one short line.
 export const WORK_DESCRIPTION = `Case studies by Timothy Ali, a product designer in Denver: ${studies.filter((p) => p.tier === 'selected').map((p) => p.title).join(', ')}, and more product, front-end, and brand work.`;

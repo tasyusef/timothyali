@@ -4,7 +4,8 @@
 //   node tools/cursor/make.mjs   → static/cursor/field-{dark,light}[@2x].png
 import { PNG } from 'pngjs';
 import { writeFileSync } from 'node:fs';
-const INK = [0x11, 0x11, 0x0e], WHITE = [0xf4, 0xf4, 0xf0]; // primitives.css --ink / --white
+import { INK as INK_HEX, WHITE as WHITE_HEX, rgb } from '../../src/lib/tokens.ts';
+const INK = rgb(INK_HEX), WHITE = rgb(WHITE_HEX); // the site's --ink / --white (were the pre-0171 values until 0210)
 const ROWS = [
   '...X....',
   '...X....',

@@ -2535,3 +2535,26 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
   - it works where a job site strips the referrer.
 - **Assistant's choices inside it:** the `via` name, the "Link / " label, tab-long attribution, eight dates per row.
 - **Status:** his direction; committed and pushed on his word (2026-10-18).
+
+## 0210: design-system audit, all three batches (2026-10-19)
+
+- **Timothy's direction:** "lets go through the entire codebase. want to make sure everything is using design tokens and components. opportunities to merge things etc. 1 opus agent and 1 codex agent." (Codex on `gpt-6-astra`, on his "either astra or 6.1 sol"). Shown the merged list of 35, he said "do all three".
+- **The list:** `docs/reviews/2026-10-19-design-system-audit.md`; both reports in `…-reports.md`.
+- **Visible fixes (batch A):**
+  - text selection shows on the inverted panels (Contact note, Toolbox install, phone and command panels, admin totals) through one `.panel` block;
+  - the Toolbox examples' buttons no longer slide on hover; Home's cards and hero chip show the yellow press;
+  - the field cursors and three tools use the current ink and white;
+  - admin notes and dates on cell-table sizes; the Options marker at its 16px cell;
+  - the examples' file path truncates with "…"; the toolbar is held to whole pixels.
+- **Merges and tokens (batch B):** `Cta` renders buttons; `QuietLink` for "All work" and the admin links; `.display-title` and `fitWord` for the page titles; shared figure styles and sizing; inner-page head rules in `layout.css`; `DemoReadout`, `DemoToolbar`, `DestinationRow`, `NextFoot`, `BuildingHead`, `PixelIcon`; `Cursor` takes a class and a `line` size; `--chrome-height`, `--focus-ring`, `--wipe-in`, `--pad-s/m`, `--col-side`, `--dim-on-fg`, a `--tint-*` scale; scene palettes and the gallery gap from `tokens.ts`; JavaScript breakpoints; image `sizes` without the 1440 cap.
+- **Constants and cleanup (batch C):** site constants and the contact rules in one place (`src/lib/shared.js`, `$lib/site`); share images listed once (`socialPages`); one `pad`; dead code removed; `Cta` and `QuietLink` add `lbl` themselves.
+- **Changes a visitor can see beyond the fixes:**
+  - the error page is rebuilt on the 404's field and blocks;
+  - the dim level on a light-theme panel is .55 (was .65);
+  - "All work" on Home is a QuietLink (its arrow sits 8px from the words);
+  - the CLI & MCP page's intro takes the tool pages' phone spacing (24px shorter);
+  - the hero's down arrow is drawn in the text colour;
+  - Toolbox's "Send to my computer" is a row action with the row hover.
+- **Not done, on purpose:** image `w`/`h` vs `width`/`height`, the several meanings of `.pad` and `.intro`, anchor offsets, `PageFoot`'s link.
+- **Assistant's choices inside it:** every name (`.panel`, `.display-title`, `BuildingHead`, `NextFoot`, `PixelIcon`, `--tint-*`, `shared.js`), what was merged and what was left.
+- **Status:** his direction; implementation is the assistant's proposal, uncommitted, awaiting his word.

@@ -7,8 +7,7 @@
 import { chromium } from '@playwright/test';
 import { spawn } from 'node:child_process';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
-import { studies } from '../../src/lib/work.ts';
-import { tools } from '../../src/lib/toolbox.ts';
+import { socialPages } from '../../src/lib/social.ts';
 import { INK, YELLOW } from '../../src/lib/tokens.ts';
 
 const PORT = Number(process.env.OG_PORT) || 4174, ORIGIN = `http://127.0.0.1:${PORT}`;
@@ -28,7 +27,7 @@ for (let i = 0; ; i++) {
 
 const b = await chromium.launch(launch);
 const ctx = await b.newContext({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1, reducedMotion: 'reduce' });
-await ctx.addInitScript(() => { try { localStorage.setItem('tim-motion', 'off'); localStorage.setItem('tim-theme', 'dark'); localStorage.setItem('tim-grid', 'off'); } catch {} });
+await ctx.addInitScript(() => { try { localStorage.setItem('tim-motion', 'off'); localStorage.setItem('tim-theme', 'dark'); } catch {} });
 const page = await ctx.newPage();
 await page.clock.setFixedTime(FROZEN);
 const errors = []; page.on('pageerror', (e) => errors.push(String(e)));
@@ -36,7 +35,7 @@ const errors = []; page.on('pageerror', (e) => errors.push(String(e)));
 mkdirSync('static/og', { recursive: true });
 // Every route in socialPages, one image each. The strip is the path, Denver and the frozen
 // clock (0192).
-const ids = ['home', 'work', 'contact', 'toolbox', 'toolbox-agents', ...tools.map((t) => `toolbox-${t.slug}`), ...studies.map((p) => `work-${p.slug}`)];
+const ids = socialPages.map((p) => p.image);
 const report = [];
 for (const id of ids) {
   await page.goto(`${ORIGIN}/og/${id}`, { waitUntil: 'networkidle' });

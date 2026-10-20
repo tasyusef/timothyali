@@ -8,15 +8,17 @@
   // function drops silently.
   import { page } from '$app/state';
   import Arrow from './Arrow.svelte';
+  import Cta from './Cta.svelte';
   import { blockCaret } from '$lib/caret';
+  import Cursor from './Cursor.svelte';
+  import { EMAIL as ADDRESS, LIMITS, EMAIL_PATTERN as EMAIL } from '$lib/site';
   let phase: 'idle' | 'sending' | 'sent' | 'error' = $state('idle');
   let reason = $state('');
   // The browser's own validation bubbles cannot be styled, so the form runs with
   // `novalidate` and says it in the site's voice: a note chip under the field that is
   // wrong, the first of them focused. `required` stays on the fields for what it means.
   let notes: Record<string, string> = $state({});
-  // the function's pattern, so the field says what is wrong before the server does
-  const EMAIL = /^[^\s@,;<>"]+@[^\s@,;<>"]+\.[^\s@,;<>"]+$/;
+  // EMAIL is the function's own pattern ($lib/shared.js), so the field says what is wrong before the server does
   const NEED: Record<string, (el: HTMLInputElement | HTMLTextAreaElement) => string> = {
     name: (el) => (el.value.trim() ? '' : 'Enter your name.'),
     email: (el) => (!el.value.trim() ? 'Enter an email address I can reply to.' : !EMAIL.test(el.value.trim()) ? 'Check your email address, for example name@example.com.' : ''),
@@ -35,10 +37,10 @@
   });
   const NOTE: Record<string, string> = {
     invalid: 'Check your name, email address, and message.',
-    unconfigured: 'The form is unavailable. Email studio@timothyali.com directly.',
-    'send-failed': 'Your message didn’t send. Try again, or email studio@timothyali.com.',
-    'rate-limited': 'That’s a lot of messages at once. Wait a few minutes, or email studio@timothyali.com.',
-    network: 'Couldn’t send your message. Check your connection and try again, or email studio@timothyali.com.'
+    unconfigured: `The form is unavailable. Email ${ADDRESS} directly.`,
+    'send-failed': `Your message didn’t send. Try again, or email ${ADDRESS}.`,
+    'rate-limited': `That’s a lot of messages at once. Wait a few minutes, or email ${ADDRESS}.`,
+    network: `Couldn’t send your message. Check your connection and try again, or email ${ADDRESS}.`
   };
   async function submit(e: SubmitEvent) {
     e.preventDefault();
@@ -53,37 +55,34 @@
   }
 </script>
 <form id="contact-form" class="contact-form" action="/api/contact" method="post" novalidate onsubmit={submit} aria-describedby="contact-status">
-  <label class="field"><span class="lbl dim">Name</span><span class="box"><input class="body" name="name" aria-invalid={notes.name ? 'true' : undefined} aria-describedby={notes.name ? 'name-note' : undefined} oninput={clear} type="text" autocomplete="name" autocapitalize="words" required maxlength="120" use:blockCaret /><span class="cursor caret" aria-hidden="true"></span></span>{#if notes.name}<span class="lbl note" id="name-note">{notes.name}</span>{/if}</label>
-  <label class="field"><span class="lbl dim">Email</span><span class="box"><input class="body" name="email" aria-invalid={notes.email ? 'true' : undefined} aria-describedby={notes.email ? 'email-note' : undefined} oninput={clear} type="email" autocomplete="email" required maxlength="200" use:blockCaret /><span class="cursor caret" aria-hidden="true"></span></span>{#if notes.email}<span class="lbl note" id="email-note">{notes.email}</span>{/if}</label>
-  <label class="field"><span class="lbl dim">Your message</span><span class="box"><textarea class="body" name="message" enterkeyhint="enter" aria-invalid={notes.message ? 'true' : undefined} aria-describedby={notes.message ? 'message-note' : undefined} oninput={clear} rows="4" required maxlength="5000" use:blockCaret></textarea><span class="cursor caret" aria-hidden="true"></span></span>{#if notes.message}<span class="lbl note" id="message-note">{notes.message}</span>{/if}</label>
+  <label class="field"><span class="lbl dim">Name</span><span class="box"><input class="body" name="name" aria-invalid={notes.name ? 'true' : undefined} aria-describedby={notes.name ? 'name-note' : undefined} oninput={clear} type="text" autocomplete="name" autocapitalize="words" required maxlength={LIMITS.name} use:blockCaret /><Cursor class="caret" /></span>{#if notes.name}<span class="lbl note" id="name-note">{notes.name}</span>{/if}</label>
+  <label class="field"><span class="lbl dim">Email</span><span class="box"><input class="body" name="email" aria-invalid={notes.email ? 'true' : undefined} aria-describedby={notes.email ? 'email-note' : undefined} oninput={clear} type="email" autocomplete="email" required maxlength={LIMITS.email} use:blockCaret /><Cursor class="caret" /></span>{#if notes.email}<span class="lbl note" id="email-note">{notes.email}</span>{/if}</label>
+  <label class="field"><span class="lbl dim">Your message</span><span class="box"><textarea class="body" name="message" enterkeyhint="enter" aria-invalid={notes.message ? 'true' : undefined} aria-describedby={notes.message ? 'message-note' : undefined} oninput={clear} rows="4" required maxlength={LIMITS.message} use:blockCaret></textarea><Cursor class="caret" /></span>{#if notes.message}<span class="lbl note" id="message-note">{notes.message}</span>{/if}</label>
   <label class="trap" aria-hidden="true"><span>Leave this empty</span><input name="hp_check" type="text" tabindex="-1" autocomplete="off" /></label>
   <div class="send">
-    <button class="cta-row lbl" type="submit" disabled={phase === 'sending'}><span>{phase === 'sending' ? 'Sending' : 'Send'}</span><Arrow /></button>
+    <Cta variant="row" type="submit" disabled={phase === 'sending'}><span>{phase === 'sending' ? 'Sending' : 'Send'}</span><Arrow /></Cta>
     <!-- without JavaScript the function redirects to one of these and :target shows it (0206) -->
-    <p id="contact-sent" class="lbl status on nojs">Sent. I’ll reply from studio@timothyali.com.</p>
-    <p id="contact-failed" class="lbl status on nojs">Your message didn’t send. Try again, or email studio@timothyali.com.</p>
+    <p id="contact-sent" class="lbl status on nojs">Sent. I’ll reply from {ADDRESS}.</p>
+    <p id="contact-failed" class="lbl status on nojs">Your message didn’t send. Try again, or email {ADDRESS}.</p>
     <p id="contact-status" class="lbl status" class:on={phase === 'sent' || phase === 'error'} aria-live="polite">
-      {#if phase === 'sent'}Sent. I’ll reply from studio@timothyali.com.{:else if phase === 'error'}{NOTE[reason] ?? NOTE['send-failed']}{/if}
+      {#if phase === 'sent'}Sent. I’ll reply from {ADDRESS}.{:else if phase === 'error'}{NOTE[reason] ?? NOTE['send-failed']}{/if}
     </p>
   </div>
 </form>
 <style>
 .contact-form{display:flex;flex-direction:column;gap:var(--s2)}
 .field{display:flex;flex-direction:column;gap:var(--s1)}
-.field .lbl{opacity:var(--dim)}
 input,textarea{display:block;width:100%;margin:0;border:0;border-radius:0;padding:var(--s1) var(--s2);background:var(--paper);color:var(--fg);font:inherit;resize:none}
 /* the block caret is JavaScript's: without it the native caret stays and no caret block shows (0206) */
 :global(html.js) input,:global(html.js) textarea{caret-color:transparent}
-:global(html:not(.js)) .caret{display:none}
+:global(html:not(.js)) .box :global(.caret){display:none}
 .nojs{display:none}.nojs:target{display:block}:global(html.js) .nojs{display:none}
 .box{position:relative;display:block}
-.caret{position:absolute;margin:0;pointer-events:none}
+.box :global(.caret){position:absolute;margin:0;pointer-events:none}
 input{height:48px}
 textarea{height:144px} /* 8 + 4 lines of 32 + 8 */
 .trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
 .send{display:flex;flex-direction:column;gap:var(--s2);margin-top:var(--s1)}
-.send button{width:100%;text-align:left}
-.send button:disabled{cursor:default;opacity:var(--dim)}
 .note,.status{min-height:16px}
 .note,.field .note{background:var(--accent);color:var(--on-accent);padding:var(--s1);align-self:flex-start;opacity:1}
 .status.on{background:var(--accent);color:var(--on-accent);padding:var(--s1);align-self:flex-start}

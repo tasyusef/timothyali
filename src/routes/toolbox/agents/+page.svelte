@@ -47,7 +47,7 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
 </script>
 <main class="inner-page agents" id="main" tabindex="-1">
   <section class="head">
-    <h1 class="display title"><Decode text="CLI & MCP" step={STEP} /></h1>
+    <h1 class="display-title lesser"><Decode text="CLI & MCP" step={STEP} /></h1>
     <div class="intro">
       <div class="paras">
         <p class="lead">Use Toolbox from a terminal or an AI assistant.</p>
@@ -85,7 +85,7 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
   <section class="text" id="options">
     <div class="side"><h2 class="display-s">Options</h2><p class="body">Each tool’s page lists its flags and defaults. To check your installed version, run toolbox &lt;tool&gt; --help, or toolbox list for the option schemas as JSON.</p></div>
     <!-- links, not the four tables again: each table is on its tool's page (0199) -->
-    <ul class="paras option-links">{#each tools as t (t.slug)}<li><QuietLink href={`/toolbox/${t.slug}/#cli`} label={`${t.name} options`} class="lbl" pad /></li>{/each}</ul>
+    <ul class="paras option-links">{#each tools as t (t.slug)}<li><QuietLink href={`/toolbox/${t.slug}/#cli`} label={`${t.name} options`} pad /></li>{/each}</ul>
   </section>
 
   <section class="text" id="list">
@@ -106,9 +106,6 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
   <section><PageFoot note="" href="/toolbox/" label="All four tools" /></section>
 </main>
 <style>
-.head{display:flex;flex-direction:column;gap:var(--s2);padding-top:var(--s4)}
-.title{font-size:82.5px;line-height:88px}
-.title :global(.decode){display:inline;white-space:normal} /* the title may wrap between words */
 .intro .lead{max-width:24ch}.intro .body{max-width:60ch}
 .jump{display:flex;flex-wrap:wrap;gap:0 var(--s3);margin-top:var(--s1)}.jump a{padding:14px 0 14px;text-decoration:underline;text-underline-offset:4px}
 @media(hover:hover){.jump a:hover{color:var(--accent-text)}}
@@ -118,10 +115,8 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
    them; side by side, the shorter column left a hole and the commands ran off the side */
 .text{padding-top:var(--s8);display:flex;flex-direction:column;gap:var(--s3)}
 .side{display:flex;flex-direction:column;gap:var(--s2);max-width:64ch}.side h2{margin-bottom:var(--s1)}
-.paras{display:flex;flex-direction:column;gap:var(--s3);min-width:0}
 .rules{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s3);margin:0;max-width:72ch}
 .rules dt{margin-bottom:var(--s1)}.rules dd{margin:0}
 .option-links{list-style:none;margin:0;padding:0;gap:0}
-@media(max-width:1100px){.title{font-size:55px;line-height:56px}}
-@media(max-width:700px){.head{padding-top:var(--s3)}.title{font-size:41.25px;line-height:48px}.text{padding-top:var(--s6)}}
+@media(max-width:700px){.text{padding-top:var(--s6)}}
 </style>

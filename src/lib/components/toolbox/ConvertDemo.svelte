@@ -1,10 +1,12 @@
 <script lang="ts">
+  import DemoReadout from './DemoReadout.svelte';
+  import DemoToolbar from './DemoToolbar.svelte';
+  import DestinationRow from './DestinationRow.svelte';
   // Convert: two posters in the stack, the formats, compression and longest edge in
   // the rail. The outputs are real: the browser encodes each poster at the chosen
   // settings the way the app does (canvas for PNG, JPEG and WebP) and the sizes and
   // percentages are measured. TIFF is the app's uncompressed writer (4 bytes a pixel)
   // and PDF is the JPEG placed on one page, both computed the same way.
-  import Arrow from '$lib/components/Arrow.svelte';
   import { fileSize, delta } from './plan';
   type Fmt = 'png' | 'jpeg' | 'webp' | 'tiff' | 'pdf';
   const meta: Record<Fmt, { label: string; ext: string; quality: boolean; note: string }> = {
@@ -82,13 +84,13 @@
   });
   const total = $derived(files.reduce((n, f) => n + active.reduce((m, fmt) => m + (sizes[`${f.id}/${fmt}`] ?? 0), 0), 0));
 </script>
-<div class="readout lbl"><span class="path"><span class="pre">~/Toolbox/</span>Convert</span><span>{files.length} files</span></div>
+<DemoReadout path="Convert" count={`${files.length} files`} />
 <div class="split">
   <div class="stage">
     <div class="stack">
       {#each files as f (f.id)}
         <div class="stack-row">
-          <div class="pic artboard plate-light"><img src={f.thumb} alt="" width="96" height="128" /></div>
+          <div class="thumb artboard plate-light"><img src={f.thumb} alt="" width="96" height="128" /></div>
           <div class="text"><span class="body">{f.name}</span><span class="lbl dim">PNG / {W}×{H} / {fileSize(f.bytes)}{#if outSize.w !== W} / resized to {outSize.w}×{outSize.h}{/if}</span></div>
           <div class="figures">{#each active as fmt (fmt)}{@const n = sizes[`${f.id}/${fmt}`] ?? null}<div class="figure"><span class="body">.{meta[fmt].ext}</span><span class="lbl dim">{n === null ? '—' : fileSize(n)}</span><span class="lbl dim">{n === null ? '' : delta(f.bytes, n)}</span></div>{/each}</div>
         </div>
@@ -97,28 +99,21 @@
     </div>
   </div>
   <div class="rail">
-    <section class="rail-section" style="gap:var(--s1)">
+    <section class="rail-section tight">
       <div class="rail-head lbl dim"><span>Formats</span></div>
       <div class="chips lbl">{#each all as f (f)}<button type="button" class="chip" aria-pressed={formats[f]} title={meta[f].note} onclick={() => { if (formats[f] && active.length === 1) return; formats[f] = !formats[f]; }}>{meta[f].label}</button>{/each}</div>
     </section>
     {#if usesQuality}
-      <section class="rail-section" style="gap:var(--s1)">
+      <section class="rail-section tight">
         <div class="rail-head lbl dim"><span>Compression</span></div>
-        <div style="display:flex;align-items:center;gap:var(--s2)"><input type="range" min="0" max="100" step="5" aria-label="Compression" bind:value={compression} style="flex:1" /><span class="lbl" style="width:48px;text-align:right">{compression}%</span></div>
+        <div class="range-row"><input type="range" min="0" max="100" step="5" aria-label="Compression" bind:value={compression} /><span class="lbl">{compression}%</span></div>
       </section>
     {/if}
-    <section class="rail-section" style="gap:var(--s1)">
+    <section class="rail-section tight">
       <div class="rail-head lbl dim"><span>Longest edge</span></div>
       <div class="chips lbl">{#each edges as e (e.label)}<button type="button" class="chip" aria-pressed={maxEdge === e.value} onclick={() => (maxEdge = e.value)}>{e.label}</button>{/each}</div>
     </section>
-    <section class="rail-section">
-      <div class="rail-head lbl dim"><span>Destination</span></div>
-      <button type="button" class="btn body" style="width:100%;justify-content:space-between" disabled><span class="nowrap">Choose where to save…</span><Arrow /></button>
-    </section>
+    <DestinationRow />
   </div>
 </div>
-<div class="toolbar lbl">
-  <button type="button" class="btn lbl" disabled><Arrow dir="left" />Back</button>
-  <span class="dim">{files.length * active.length} files / {fileSize(total)}{measuring ? '…' : ''}</span>
-  <button type="button" class="cta lbl" disabled title="Export happens in the app">Convert<Arrow /></button>
-</div>
+<DemoToolbar label="Convert"><span class="dim">{files.length * active.length} files / {fileSize(total)}{measuring ? '…' : ''}</span></DemoToolbar>

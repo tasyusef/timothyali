@@ -22,7 +22,7 @@ for (const [width, theme] of [[1440, 'dark'], [1440, 'light'], [390, 'dark']]) {
   for (const s of SHOTS) {
     if (width === 390 && s.name !== 'contact' && s.name !== 'home-hero') continue;
     const ctx = await b.newContext({ viewport: { width, height: 900 }, deviceScaleFactor: 1, reducedMotion: 'reduce' });
-    await ctx.addInitScript(([t]) => { try { localStorage.setItem('tim-motion', 'off'); localStorage.setItem('tim-theme', t); localStorage.setItem('tim-grid', 'off'); } catch {} }, [theme]);
+    await ctx.addInitScript(([t]) => { try { localStorage.setItem('tim-motion', 'off'); localStorage.setItem('tim-theme', t); } catch {} }, [theme]);
     const p = await ctx.newPage();
     const errors = [];
     p.on('pageerror', (e) => errors.push(String(e)));

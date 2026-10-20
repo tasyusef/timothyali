@@ -1,6 +1,7 @@
 import { dev } from '$app/environment';
 import { env } from '$env/dynamic/private';
 import { parseEvent } from '$lib/analytics';
+import { SITE_URL } from '$lib/site';
 import { analyticsReady, recordEvent } from '$lib/server/analytics';
 import type { RequestHandler } from './$types';
 export const prerender = false;
@@ -8,7 +9,7 @@ export const POST: RequestHandler = async ({ request, url, cookies, getClientAdd
   const headers = { 'Cache-Control': 'no-store' };
   const empty = () => new Response(null, { status: 204, headers });
   const origin = request.headers.get('origin');
-  if (origin !== url.origin || (!dev && origin !== 'https://www.timothyali.com')) return new Response(null, { status: 403, headers });
+  if (origin !== url.origin || (!dev && origin !== SITE_URL)) return new Response(null, { status: 403, headers });
   if (Number(request.headers.get('content-length') || 0) > 4096) return new Response(null, { status: 413, headers });
   if (!request.headers.get('content-type')?.startsWith('application/json')) return new Response(null, { status: 415, headers });
   if (cookies.get('tim-analytics-exclude') === '1' || !analyticsReady() || (dev && env.ANALYTICS_DEV !== '1')) return empty();

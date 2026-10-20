@@ -18,6 +18,12 @@ section{position:relative;padding:0 var(--gutter)}
 .band-bg{position:absolute;inset:0;z-index:var(--z-band-bg);pointer-events:none;color:var(--field-ink);--accent-text:var(--accent-field)}
 .band-bg>*{height:100%}
 .band>:not(.band-bg){position:relative;z-index:var(--z-band)}
+/* every band holds its field to its own box and stacking context (0210; each page wrote this) */
+.band{position:relative;isolation:isolate;overflow:hidden}
+/* a page that is one screen (Contact, the 404, the error page, 0173): the band takes what the
+   header and footer leave */
+.fill-main{display:flex;flex-direction:column}
+.fill-main>.band{flex:1}
 /* Over a field the pointer is the site's own: a 16px bitmap crosshair, hotspot in its open
    centre cell, drawn in the foreground colour of the theme (0103). Links, buttons and fields
    inside a band keep the browser's hand and I-beam. */
@@ -26,6 +32,11 @@ section{position:relative;padding:0 var(--gutter)}
 
 /* inner pages (Work, the studies, Contact — Home is not one) */
 .inner-page .page-head{padding:var(--s4) 0 0}
+/* the head of a tool page, the CLI & MCP page and (as a Band, with its own scene rules) a study,
+   and the column of paragraphs under each section heading (0210; three pages wrote them) */
+:where(.inner-page) .head{display:flex;flex-direction:column;gap:var(--s2);padding-top:var(--s4)}
+:where(.inner-page) .paras{display:flex;flex-direction:column;gap:var(--s3);min-width:0}
+@media(max-width:700px){:where(.inner-page) .head{padding-top:var(--s3)}}
 
 /* An inner page's head (study, tool, CLI & MCP; 0207): the lead and the facts beside it, two
    thirds and one, stacked below 900px. Written once here instead of in each page; :where()
@@ -35,3 +46,4 @@ section{position:relative;padding:0 var(--gutter)}
 :where(.inner-page .intro > .meta) dt{margin-bottom:var(--s1)}
 :where(.inner-page .intro > .meta) dd{margin:0}
 @media(max-width:900px){:where(.inner-page) .intro{grid-template-columns:100%}}
+@media(max-width:700px){:where(.inner-page) .intro{margin-top:var(--s3);gap:var(--s3)}}

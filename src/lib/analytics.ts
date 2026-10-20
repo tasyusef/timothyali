@@ -1,5 +1,6 @@
 import { socialPages } from './social';
 import { builds } from './toolbox';
+import { HOSTS, VIA } from './site';
 export const publicPaths = socialPages.map((page) => page.path);
 export const downloadFiles = builds.flatMap((build) => build.files.map((file) => ({
   name: new URL(file.href).pathname.split('/').at(-1)!, label: `${build.os} · ${file.label}`, href: file.href
@@ -7,7 +8,6 @@ export const downloadFiles = builds.flatMap((build) => build.files.map((file) =>
 export type Visit = { type: 'view'; path: string; referrer: string };
 // A tagged link (`?via=acme`), for a link given out somewhere a referrer is not passed on, such
 // as a job application: its visits count under their own source instead of Direct / unknown.
-export const VIA = /^[a-z0-9][a-z0-9-]{0,39}$/;
 export const viaSource = (via: string) => `Link / ${via}`;
 export type Download = { type: 'download'; path: string; file: string };
 export type AnalyticsEvent = Visit | Download;
@@ -19,7 +19,7 @@ export function parseEvent(value: unknown): AnalyticsEvent | null {
     let referrer = 'Direct / unknown';
     if (typeof v.via === 'string' && VIA.test(v.via)) return { type: 'view', path: v.path, referrer: viaSource(v.via) };
     if (typeof v.referrer === 'string' && v.referrer.length <= 2048) {
-      try { const url = new URL(v.referrer); if (/^https?:$/.test(url.protocol) && !['www.timothyali.com', 'timothyali.com'].includes(url.hostname)) referrer = url.hostname.slice(0, 150); } catch {}
+      try { const url = new URL(v.referrer); if (/^https?:$/.test(url.protocol) && !HOSTS.includes(url.hostname)) referrer = url.hostname.slice(0, 150); } catch {}
     }
     return { type: 'view', path: v.path, referrer };
   }

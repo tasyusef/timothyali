@@ -22,7 +22,7 @@ for (const width of [1440, 390]) {
     if (only && !path.includes(only)) continue;
     const ctx = await b.newContext({ viewport: { width, height: 900 }, deviceScaleFactor: 1, reducedMotion: 'reduce' });
     await ctx.addInitScript(() => {
-      try { localStorage.setItem('tim-motion', 'off'); localStorage.setItem('tim-theme', 'dark'); localStorage.setItem('tim-grid', 'off'); } catch {}
+      try { localStorage.setItem('tim-motion', 'off'); localStorage.setItem('tim-theme', 'dark'); } catch {}
     });
     const page = await ctx.newPage();
     const errors = [];

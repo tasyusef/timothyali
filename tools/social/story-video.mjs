@@ -18,7 +18,7 @@ const stop = () => { if (!dev.killed) dev.kill(); }; process.on('exit', stop);
 for (let i = 0; ; i++) { try { if ((await fetch(`${ORIGIN}/og/${ID}`)).ok) break; } catch {} if (i > 200) { stop(); throw new Error('dev server did not start'); } await new Promise((r) => setTimeout(r, 100)); }
 const b = await chromium.launch(existsSync(cached) ? { executablePath: cached } : {});
 const ctx = await b.newContext({ viewport: { width: W, height: H } });
-await ctx.addInitScript(() => { try { localStorage.setItem('tim-motion', 'on'); localStorage.setItem('tim-theme', 'dark'); localStorage.setItem('tim-grid', 'off'); } catch {} });
+await ctx.addInitScript(() => { try { localStorage.setItem('tim-motion', 'on'); localStorage.setItem('tim-theme', 'dark'); } catch {} });
 const page = await ctx.newPage();
 const T0 = new Date('2026-09-10T12:00:00-06:00');
 await page.clock.install({ time: T0 });

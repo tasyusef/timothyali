@@ -7,13 +7,13 @@
    are the site's tokens, which the app shares. Sizes are geometry: 32px rows,
    24px swatches, a 376px rail (47 cells, the app's).
    ------------------------------------------------------------------ */
-.demo{scroll-margin-top:var(--s2);--rim:color-mix(in srgb,var(--fg) 14%,transparent);display:flex;flex-direction:column;background:var(--paper);color:var(--fg);min-width:0}
+.demo{scroll-margin-top:var(--s2);--rim:var(--tint-rim);display:flex;flex-direction:column;background:var(--paper);color:var(--fg);min-width:0}
 
 /* the readout: the path, then what the screen is doing, one flexible gap */
-.demo .readout{display:flex;gap:var(--s4);height:32px;padding:var(--s1) var(--s3);white-space:nowrap;overflow:hidden}
+.demo .demo-readout{display:flex;gap:var(--s4);height:32px;padding:var(--s1) var(--s3);white-space:nowrap;overflow:hidden}
 /* the count is pushed right, not placed after the path: the tilde's advance is fractional at 12.5 */
-.demo .readout>span{flex:none;opacity:var(--dim);margin-left:auto}
-.demo .readout .path{opacity:1;margin-left:0;flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.demo .demo-readout>span{flex:none;opacity:var(--dim);margin-left:auto}
+.demo .demo-readout .demo-path{opacity:1;margin-left:0;flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}
 
 /* a stage beside a rail */
 .demo .split{display:grid;grid-template-columns:minmax(0,1fr) 376px;align-items:start}
@@ -21,23 +21,26 @@
 .demo .stage.center{align-items:center;justify-content:center}
 .demo .rail{display:flex;flex-direction:column;gap:var(--s3);min-width:0;padding:var(--s2) var(--s3) var(--s2) 0}
 .demo .rail-section{display:flex;flex-direction:column}
+.demo .rail-section.tight{gap:var(--s1)} /* a heading over one control (0210; was an inline style) */
 .demo .rail-head{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s2);padding:var(--s1) 0}
 .demo .rail p.lbl{padding-top:var(--s1)}
 
-/* the bottom bar: the way back left, steps or a count centre, the action right */
-.demo .toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s2);padding:var(--s2) var(--s3)}
+/* the bottom bar: the way back left, steps or a count centre, the action right. The bar is an
+   even number of pixels wide and its items are too (2px glyph pixels, even padding), so the two
+   gaps `space-between` leaves are whole pixels and the centre lands on one (0089, 0210). */
+.demo .toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s2);padding:var(--s2) var(--s3);width:round(down,100%,2px)}
 .demo .steps{display:flex;gap:var(--s1)}
-.demo .steps button{padding:9px 14px 7px 16px;opacity:var(--dim)}
+.demo .steps button{padding:var(--pad-s);opacity:var(--dim)}
 .demo .steps button b{font-weight:400;margin-right:var(--s1)}
 .demo .steps button[aria-current]{opacity:1;background:var(--accent);color:var(--on-accent)}
 .demo .steps button:disabled{opacity:.25}
 @media(hover:hover){.demo .steps button:not(:disabled):not([aria-current]):hover{opacity:1;background:var(--fg);color:var(--paper)}}
 
 /* the two button voices */
-.demo .cta{display:inline-flex;align-items:center;gap:var(--s2);padding:9px 12px 7px 16px;background:var(--accent);color:var(--on-accent);white-space:nowrap;transform:none}
-.demo .cta:focus-visible{background:var(--fg);color:var(--paper)}@media(hover:hover){.demo .cta:hover:not(:disabled){background:var(--fg);color:var(--paper)}}
-.demo .cta:disabled{background:var(--surface-card);color:var(--fg);opacity:var(--dim);cursor:default}
-.demo .btn{display:inline-flex;align-items:center;gap:var(--s1);padding:9px 14px 7px 16px;white-space:nowrap;min-width:0;flex:none}
+.demo .demo-act{display:inline-flex;align-items:center;gap:var(--s2);padding:9px 12px 7px 16px;background:var(--accent);color:var(--on-accent);white-space:nowrap}
+.demo .demo-act:focus-visible{background:var(--fg);color:var(--paper)}@media(hover:hover){.demo .demo-act:hover:not(:disabled){background:var(--fg);color:var(--paper)}}
+.demo .demo-act:disabled{background:var(--surface-card);color:var(--fg);opacity:var(--dim);cursor:default}
+.demo .btn{display:inline-flex;align-items:center;gap:var(--s1);padding:var(--pad-s);white-space:nowrap;min-width:0;flex:none}
 .demo .btn:focus-visible,.demo .btn[aria-pressed=true]{background:var(--fg);color:var(--paper)}@media(hover:hover){.demo .btn:hover:not(:disabled){background:var(--fg);color:var(--paper)}}
 .demo .btn:disabled{opacity:var(--dim);cursor:default}
 .demo .btn .mono{color:var(--accent-text)}
@@ -45,7 +48,7 @@
 .demo .plus{color:var(--accent-text)}
 
 /* chips: a choice; the chosen one is the accent block */
-.demo .chips{display:flex;flex-wrap:wrap;gap:var(--s1)}
+.demo .chips{display:flex;flex-wrap:wrap;gap:var(--s1)}.demo .chips.fill .chip{flex:1}
 .demo .chip{display:inline-flex;align-items:center;justify-content:center;gap:var(--s1);padding:9px 6px 7px 8px;min-width:var(--s4);white-space:nowrap}
 .demo .switch .chips{gap:8px 4px;flex-wrap:nowrap}.demo .switch .chip{padding:9px 4px 7px 6px}
 @media(hover:hover){.demo .chip:hover:not(:disabled){background:var(--fg);color:var(--paper)}}
@@ -58,31 +61,30 @@
 .demo .switch .row>span:first-child{white-space:nowrap}.demo .switch .dim{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .demo .switch.on .state{color:var(--accent-text);opacity:1}
 @media(hover:hover){.demo .switch:hover .state{opacity:1}}
-.demo .switch input:focus-visible~.state{outline:2px solid var(--accent-text);outline-offset:2px}
+.demo .switch input:focus-visible~.state{outline:var(--focus-ring);outline-offset:2px}
 .demo .grow{flex:1}
 
 /* fields: text on the ground with a dithered baseline */
-.demo .field{display:block;width:100%;height:var(--s4);margin:0;padding:0 var(--s1);border:0;border-radius:0;outline:0;color:var(--fg);background:none;background-image:repeating-conic-gradient(color-mix(in srgb,var(--fg) 30%,transparent) 0 25%,transparent 0 50%);background-size:4px 4px;background-repeat:repeat-x;background-position:0 100%;caret-color:var(--accent)}
+.demo .field{display:block;width:100%;height:var(--s4);margin:0;padding:0 var(--s1);border:0;border-radius:0;outline:0;color:var(--fg);background:none;background-image:repeating-conic-gradient(var(--tint-rule) 0 25%,transparent 0 50%);background-size:4px 4px;background-repeat:repeat-x;background-position:0 100%;caret-color:var(--accent)}
 @media(hover:hover){.demo .field:hover{background-image:repeating-conic-gradient(color-mix(in srgb,var(--fg) 50%,transparent) 0 25%,transparent 0 50%)}}
-.demo .field:focus{outline:2px solid var(--accent-text);outline-offset:0;background-image:none}
+.demo .field:focus{outline:var(--focus-ring);outline-offset:0;background-image:none}
 .demo .field::placeholder{color:var(--fg);opacity:var(--dim)}
 .demo .field-plain{display:block;width:100%;margin:0;padding:0;border:0;outline:0;color:var(--fg);background:none;caret-color:var(--accent)}
-.demo .field-plain:focus{outline:2px solid var(--accent-text);outline-offset:2px}
+.demo .field-plain:focus{outline:var(--focus-ring);outline-offset:2px}
 .demo .select{position:relative;display:block;min-width:0}
 .demo .select select{appearance:none;padding-right:var(--s4);text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
 .demo .select::after{content:'v';position:absolute;right:var(--s1);top:var(--s1);font-family:var(--face-mono);font-size:16px;line-height:16px;pointer-events:none;opacity:var(--dim)}
 @media(hover:hover){.demo .select:hover::after{opacity:1}}
 .demo select option{background:var(--paper);color:var(--fg)}
-.demo .body.field,.demo .body.field-plain,.demo select.body{font-family:var(--face-text);font-size:27px;line-height:32px}
 
 /* the slider: the thumb is the block cursor */
 .demo input[type=range]{appearance:none;width:100%;height:16px;margin:0;background:none}
-.demo input[type=range]::-webkit-slider-runnable-track{height:2px;background:color-mix(in srgb,var(--fg) 30%,transparent)}
+.demo input[type=range]::-webkit-slider-runnable-track{height:2px;background:var(--tint-rule)}
 .demo input[type=range]::-webkit-slider-thumb{appearance:none;width:8px;height:16px;margin-top:-7px;background:var(--accent);cursor:pointer}
-.demo input[type=range]::-moz-range-track{height:2px;background:color-mix(in srgb,var(--fg) 30%,transparent)}
+.demo input[type=range]::-moz-range-track{height:2px;background:var(--tint-rule)}
 .demo input[type=range]::-moz-range-thumb{width:8px;height:16px;border:0;border-radius:0;background:var(--accent);cursor:pointer}
 @media(hover:hover){.demo input[type=range]:hover::-webkit-slider-thumb{background:var(--fg)}}
-.demo input[type=range]:focus-visible{outline:2px solid var(--accent-text);outline-offset:2px}
+.demo input[type=range]:focus-visible{outline:var(--focus-ring);outline-offset:2px}
 
 /* swatches */
 .demo .swatch{display:inline-block;flex:none;outline:1px solid var(--rim)}
@@ -115,8 +117,8 @@
 .demo .stack-row{display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--s1) var(--s2);align-items:start;padding:var(--s2);background:var(--surface-card)}
 .demo .stack-row .figures{grid-column:2}
 @media(hover:hover){.demo .stack-row:hover{background:var(--surface-card-hover)}}
-.demo .stack-row .pic{width:64px;height:64px;padding:var(--s1);overflow:hidden}
-.demo .stack-row .pic canvas,.demo .stack-row .pic img{display:block;width:100%;height:100%;object-fit:contain}
+.demo .stack-row .thumb{width:64px;height:64px;padding:var(--s1);overflow:hidden}
+.demo .stack-row .thumb canvas,.demo .stack-row .thumb img{display:block;width:100%;height:100%;object-fit:contain}
 .demo .stack-row .text,.demo .stack-row .figures{background:var(--paper);padding:0 var(--s1);min-width:0;display:flex;flex-direction:column}
 .demo .stack-row .text .body,.demo .stack-row .text .lbl{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .demo .figure{display:grid;grid-template-columns:minmax(0,1fr) 72px 56px;gap:var(--s1);align-items:center}
@@ -125,18 +127,18 @@
 
 /* press (0099): the pressed surface is the accent, as everywhere on the site. A settings
    row takes the cell at its sides with offset shadows, into the rail's padding. */
-.demo .btn:active:not(:disabled),.demo .chip:active:not(:disabled),.demo .steps button:active:not(:disabled),.demo .cta:active:not(:disabled),.demo button.tree-row:active,.demo .file-row:active,.demo .switch:active{background:var(--accent);color:var(--on-accent)}
+.demo .btn:active:not(:disabled),.demo .chip:active:not(:disabled),.demo .steps button:active:not(:disabled),.demo .demo-act:active:not(:disabled),.demo button.tree-row:active,.demo .file-row:active,.demo .switch:active{background:var(--accent);color:var(--on-accent)}
 .demo .btn:active:not(:disabled) .mono,.demo .switch:active .state,.demo .switch:active .plus,.demo .switch:active .dim{color:inherit;opacity:1}
 .demo .switch:active{box-shadow:var(--s1) 0 0 var(--accent),calc(-1 * var(--s1)) 0 0 var(--accent)}
 .demo .swatch-chip:active{outline:2px solid var(--accent);outline-offset:2px}
 /* Convert's thumbnails arrive through the dither once encoded (0101). */
-.motion .demo .stack-row .pic img{animation:dither-in calc(3 * var(--step)) steps(3) both}
+.motion .demo .stack-row .thumb img{animation:var(--wipe-in)}
 
 /* a nowrap label */
 .demo .nowrap{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 
 /* code on the plate: the app's body face, as Code.svelte does on the site */
-.demo pre.body{margin:0;white-space:pre;overflow-x:auto;font-family:var(--face-text);font-size:27px;line-height:32px}
+.demo pre.body{margin:0;white-space:pre;overflow-x:auto}
 
 @media(max-width:1100px){.demo .split{grid-template-columns:minmax(0,1fr) 296px}.demo .switch .chips{flex-wrap:wrap}.demo .switch:has(.chips),.demo .switch:has(.chips) .row{align-items:flex-start}
   /* the wizard's three steps take their own row once the demo is narrower than the app */
@@ -146,7 +148,7 @@
   .demo .split{grid-template-columns:minmax(0,1fr)}
   .demo .stage{padding:var(--s2);min-height:0}
   .demo .rail{padding:var(--s2)}
-  .demo .readout,.demo .toolbar{padding:var(--s1) var(--s2)}
+  .demo .demo-readout,.demo .toolbar{padding:var(--s1) var(--s2)}
   .demo .toolbar{padding:var(--s2)}
   .demo .stack-row .figures{grid-column:1/-1}
   .demo .steps button{padding:9px 6px 7px 8px}
@@ -160,7 +162,7 @@
    look: chips, buttons, steps and rows grow to 44px tall, a swatch grows an invisible margin,
    and the slider's thumb is a 24×32 target around its 8×16 block. */
 @media(pointer:coarse){
-  .demo .chip,.demo .btn,.demo .steps button,.demo .cta,.demo .switch,.demo .file-row,.demo button.tree-row{min-height:44px}
+  .demo .chip,.demo .btn,.demo .steps button,.demo .demo-act,.demo .switch,.demo .file-row,.demo button.tree-row{min-height:44px}
   .demo .chip{min-width:44px}
   .demo .swatch-chip{position:relative}.demo .swatch-chip::after{content:'';position:absolute;inset:-10px}
   .demo input[type=range]{height:44px}
@@ -171,5 +173,14 @@
 /* Phones (0206): the readout drops its ~/Toolbox/ prefix below 420, where the path was cut
    mid-word; Convert's file name and source line wrap rather than clip the size the savings are
    measured against */
-@media(max-width:420px){.demo .readout .pre{display:none}}
+@media(max-width:420px){.demo .demo-readout .pre{display:none}}
 @media(max-width:700px){.demo .stack-row .text .body,.demo .stack-row .text .lbl{white-space:normal;overflow-wrap:anywhere}}
+
+/* small layout classes for what the examples wrote inline (0210) */
+.demo .dest{width:100%;justify-content:space-between} /* DestinationRow */
+.demo .start{align-self:flex-start}
+.demo .swatches{display:inline-flex;gap:calc(var(--s1) / 2)}
+.demo .range-row{display:flex;align-items:center;gap:var(--s2)}.demo .range-row input{flex:1}.demo .range-row .lbl{width:var(--s6);text-align:right}
+/* the exported sheets' face: the app sets its client pages in Helvetica, the one place on
+   the site without a pixel face (Palette's swatch sheet, Specimen's labels) */
+.demo{--face-sheet:'Helvetica Neue',Helvetica,Arial,sans-serif}

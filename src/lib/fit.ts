@@ -26,3 +26,33 @@ export function fitTitles(node: HTMLElement, selector = '.card-body h2, .card-bo
   ro.observe(node);
   return { destroy: () => ro.disconnect() };
 }
+
+/**
+ * A title may wrap between words but must not break one (0079, 0207; one action since 0210, for
+ * the study title, its share image and the tool share images). A hidden probe inside the
+ * heading, at the heading's base size, measures the longest word; when it is wider than the
+ * heading, `.small` is set for the stylesheet to step the title down a rung. The probe's size
+ * is read with `.small` off, so the step cannot shrink the probe and flip the result back; the
+ * probe is observed too, because the face it is set in can arrive after `fonts.ready` (0207).
+ */
+export function fitWord(node: HTMLElement, text: string) {
+  const probe = document.createElement('span');
+  probe.setAttribute('aria-hidden', 'true');
+  probe.style.cssText = 'position:absolute;left:0;top:0;width:0;overflow:hidden;visibility:hidden;white-space:pre;pointer-events:none';
+  if (getComputedStyle(node).position === 'static') node.style.position = 'relative';
+  node.prepend(probe);
+  const set = (t: string) => { probe.textContent = t.split(/\s+/).sort((a, b) => b.length - a.length)[0] ?? ''; };
+  const fit = () => {
+    node.classList.remove('small');
+    probe.style.fontSize = getComputedStyle(node).fontSize;
+    node.classList.toggle('small', probe.scrollWidth > node.clientWidth);
+  };
+  set(text); fit();
+  document.fonts?.ready.then(fit);
+  document.fonts?.addEventListener('loadingdone', fit);
+  const ro = new ResizeObserver(fit); ro.observe(node); ro.observe(probe);
+  return {
+    update(t: string) { set(t); fit(); },
+    destroy() { ro.disconnect(); document.fonts?.removeEventListener('loadingdone', fit); probe.remove(); }
+  };
+}

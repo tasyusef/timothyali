@@ -6,12 +6,13 @@
   import { afterNavigate } from '$app/navigation';
   import { page } from '$app/state';
   import { onMount } from 'svelte';
+  import { VIA } from '$lib/site';
   let lastPath = '';
   // A tagged link (`?via=acme`) marks the rest of the tab's visit: every page it views counts under
-  // that tag. The pattern matches the endpoint's VIA, which this bundle does not import (0207).
+  // that tag. VIA is $lib/site's, which imports nothing (the bundle stays without the work index, 0207).
   function tag() {
     let via = new URLSearchParams(window.location.search).get('via')?.toLowerCase() ?? '';
-    try { if (/^[a-z0-9][a-z0-9-]{0,39}$/.test(via)) sessionStorage.setItem('tim-via', via); else via = sessionStorage.getItem('tim-via') ?? ''; } catch {}
+    try { if (VIA.test(via)) sessionStorage.setItem('tim-via', via); else via = sessionStorage.getItem('tim-via') ?? ''; } catch {}
     return via || undefined;
   }
   function send(value: object) {

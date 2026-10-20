@@ -12,7 +12,6 @@
   let { text, mode = 'scramble' as 'type' | 'scramble', step = STEP, delay = 0, cursor = false, cursorSize = 'em' as 'em' | 'cell', erase = false }: { text: string; mode?: 'type' | 'scramble'; step?: number; delay?: number; cursor?: boolean; cursorSize?: 'em' | 'cell'; erase?: boolean } = $props();
   let el: HTMLElement;
   let shown = $state(untrack(() => text));
-  let live = $state(false);
   let done = false;
   let timer: ReturnType<typeof setInterval> | undefined;
   let pending: ReturnType<typeof setTimeout> | undefined;
@@ -28,14 +27,13 @@
     const rnd = mulberry32(text.length * 7919 + 13);
     const chars = [...text];
     let i = 0;
-    live = true;
     const start = () => {
       pending = undefined;
       const id = setInterval(() => {
         i++;
         if (mode === 'type') shown = chars.slice(0, i).join('');
         else shown = chars.map((c, k) => (k < i || c === ' ' ? c : POOL[Math.floor(rnd() * POOL.length)])).join('');
-        if (i >= chars.length) { clearInterval(id); if (timer === id) timer = undefined; shown = chars.join(''); live = false; done = true; }
+        if (i >= chars.length) { clearInterval(id); if (timer === id) timer = undefined; shown = chars.join(''); done = true; }
       }, step);
       timer = id;
     };
@@ -59,7 +57,7 @@
     const on = motion.on, vis = visible;
     untrack(() => {
       if (on && vis && !done) run();
-      if (!on) { stop(); shown = text; live = false; }
+      if (!on) { stop(); shown = text; }
     });
   });
   // A new text decodes again (the readout's path on a route change, a study's title on
@@ -70,7 +68,7 @@
     untrack(() => { if (t === last) return; last = t; done = false; if (motion.on && visible) run(true); else shown = t; });
   });
 </script>
-<span class="decode" bind:this={el} class:live><span class="sr-only">{text}</span><span aria-hidden="true">{shown}</span>{#if cursor}<Cursor size={cursorSize} color={cursorSize === 'em' ? 'currentColor' : 'accent'} />{/if}</span>
+<span class="decode" bind:this={el}><span class="sr-only">{text}</span><span aria-hidden="true">{shown}</span>{#if cursor}<Cursor size={cursorSize} color={cursorSize === 'em' ? 'currentColor' : 'accent'} />{/if}</span>
 <style>
 .decode{display:inline-block;white-space:pre}
 </style>

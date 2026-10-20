@@ -1,3 +1,5 @@
+import { GALLERY_GAP, CELL_IMAGE } from './tokens.ts';
+import { pad } from './format.ts';
 // The whole work index: nine visible projects in two tiers plus one hidden entry (decisions 0077, 0132).
 // One source for Home (the selected four as cards), Work (all nine as cards, 0196) and /work/<slug>/.
 // Images live in static/work/<slug>/ at 1600px on the long side (plus `@2x.jpg` at 2800px where
@@ -56,7 +58,7 @@ export interface Project extends Entry {
 }
 
 /** one row of the index: a project with a study, or a hidden entry without one */
-export type Item = Project | Entry;
+type Item = Project | Entry;
 
 // files that also exist as `<name>@2x.jpg` (2800px on the long side) for dense screens
 const X2 = new Set(['parc/first-direction', 'firstledger/guide-01', 'firstledger/guide-02', 'firstledger/guide-03', 'firstledger/guide-04', 'firstledger/guide-05', 'firstledger/guide-07', 'firstledger/guide-08', 'firstledger/guide-10', 'firstledger/hero', 'parc/club-masthead-sky', 'parc/sign-sky', 'xrpcafe/backdrop', 'xrpcafe/banner', 'xrpcafe/booth-table', 'xrpcafe/booth-tablet', 'xrpcafe/booth-team', 'xrpcafe/jeopardy', 'xrpcafe/just-mint', 'xrpcafe/logo', 'xrpcafe/marketplace', 'xrpcafe/mug-bbq', 'xrpcafe/mug-pumpkin', 'xrpcafe/mug-saiyan', 'xrpcafe/vesea-charity', 'firststrike/billboard', 'firststrike/business-card', 'firststrike/color', 'firststrike/construction', 'firststrike/hero', 'firststrike/logo-primary', 'firststrike/logo-secondary', 'firststrike/pillars', 'firststrike/type']);
@@ -569,19 +571,18 @@ export function rowTiles(row: Row): boolean {
 }
 
 /** grid-template-columns for a gallery row: widths proportional to aspect, snapped to the 2px image cell (galleries hold no text, so the 8px text grid does not apply), the last column taking the small remainder so every image in the row is within a few pixels of the same height */
-export function rowColumns(row: Row, gap = 16): string {
+export function rowColumns(row: Row, gap = GALLERY_GAP): string {
   if (row.length === 1) return '100%';
   const aspects = row.map((m) => m.w / m.h);
   const total = aspects.reduce((a, b) => a + b, 0);
   const inner = `(100% - ${gap * (row.length - 1)}px)`;
-  return aspects.slice(0, -1).map((a) => `round(nearest, calc(${inner} * ${(a / total).toFixed(6)}), 2px)`).join(' ') + ' 1fr';
+  return aspects.slice(0, -1).map((a) => `round(nearest, calc(${inner} * ${(a / total).toFixed(6)}), ${CELL_IMAGE}px)`).join(' ') + ' 1fr';
 }
 
 /** the number a project prints in the chrome, `01`, and the counts, `004` / `008` */
-const pad = (i: number, width = 2) => String(i).padStart(width, '0');
 let seq = 0;
 /** every project in display order, hidden entries included; `n` counts the visible ones only */
-export const all: Item[] = source.map((e) => ({ ...e, n: e.hidden ? '--' : pad(++seq) })) as Item[];
+const all: Item[] = source.map((e) => ({ ...e, n: e.hidden ? '--' : pad(++seq) })) as Item[];
 /** the nine visible projects in order: the route entries, and the Next chain 01 → 09 → 01 */
 export const studies: Project[] = all.filter((e): e is Project => !e.hidden && 'blocks' in e);
 /** the selected tier: Home's four cards, and the first four on Work */

@@ -179,4 +179,4 @@ export const delta = (from: number, to: number): string => {
   const pct = Math.trunc((ratio - 1) * 100);
   return `${pct >= 0 ? '+' : ''}${pct}%`;
 };
-export const pad2 = (n: number): string => String(n).padStart(2, '0');
+export { pad as pad2 } from '../../format.ts';

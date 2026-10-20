@@ -20,10 +20,8 @@
   --s6:48px;
   --s8:64px;
   --s12:96px;
-  --s16:128px;
 
   /* grid cells — three snap units coexist by design (decision 0054) */
-  --cell-text:var(--u);   /* layout and type: 8px */
   --cell-image:2px;       /* photographs and video: 2px */
   --cell-texture:16px;    /* one ASCII cell: a 5×7 glyph drawn with 2px pixels */
 

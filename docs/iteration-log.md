@@ -992,3 +992,17 @@ Evidence: `docs/iterations/pixel-v2/106-hero-grid/` (options, before/after close
 ## PX-107: referral dates and tagged links (2026-10-18, 0209)
 
 The admin's Referrals table shows each source's visit days and last visit, from the per-day counts already stored. A `?via=name` link counts a visit, and the pages after it in that tab, under "Link / name". Files: `src/lib/analytics.ts` (`daysOf`, `VIA`), `src/lib/server/analytics.ts`, `Analytics.svelte`, `admin/+page.svelte`, `tests/analytics.test.ts`.
+
+## PX-108: design-system pass (2026-10-19, 0210)
+
+All 35 audit items applied except the four left on purpose (see 0210). New: `src/lib/{shared.js,format.ts,chain.ts}`, `BuildingHead`, `PixelIcon`, `NextFoot`, `toolbox/{DemoReadout,DemoToolbar,DestinationRow}.svelte`; `docs/design-system.md` gains a 0210 section and current tables.
+
+- **Checks:** `pnpm check` 0/0; 26 tests; build; `px61`; `seo:check`; `social:verify`; `toolbox-demo.mjs` 48 states (its stale footer wait and "About" link label fixed).
+- **Parity** (`tools/review/parity.mjs`, 37 captures, before taken tonight): 30 identical. The rest:
+  - Home's "All work" arrow and hero arrow;
+  - the tool pages' Options marker;
+  - the CLI & MCP phone intro (24px shorter);
+  - the strip's clock.
+- **Regression caught and fixed:** Contact's "building." went to 172px on phones (the 1101–1300 rule outranked the phone ladder); the rule is now a range.
+- **Share images:** regenerated, only `contact.png` changed (one row of field cells behind the heading).
+- **Evidence:** `docs/iterations/pixel-v2/108-design-system/` (`tools/review/px108.mjs`): selection on the Toolbox panel and the Contact note, Contact at 390.

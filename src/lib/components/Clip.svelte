@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { below } from '$lib/tokens';
   // A looping, muted video at its own resolution. It plays only while on screen with
   // motion on and pauses otherwise, so reduced motion gets a still frame. The figure
   // sets an integer height from its width, floored to the 8px unit, like Picture.
@@ -12,7 +13,8 @@
   // and at ≤700px the `small` encode plays instead of the full file (xrp.cafe 8.5 MB → 0.44 MB).
   import { onMount } from 'svelte';
   import { motion } from '$lib/motion.svelte';
-  import { figureHeight, type RowShare } from '$lib/figure';
+  import PixelIcon from './PixelIcon.svelte';
+  import { figure, type RowShare } from '$lib/figure';
   import manifest from '$lib/images.json';
   let { src, small, tap = false, label, width = 16, height = 9, row, poster }: { src: string; small?: string; tap?: boolean; label: string; width?: number; height?: number; row?: RowShare; poster?: string } = $props();
   const table = manifest as Record<string, { webp: number[] }>;
@@ -29,10 +31,6 @@
   const file = $derived(phone && small ? small : src);
   // `tap`: a long clip (PARC's is 2:24, 2.4 MB even as the phone encode) waits for a tap on phones
   const wanted = $derived(chosen ?? (motion.on && !saveData && !(tap && phone)));
-  function size() {
-    if (!host.getBoundingClientRect().width) return;
-    host.style.height = figureHeight(host, height / width, row) + 'px';
-  }
   $effect(() => {
     if (!video) return;
     if (wanted && visible) video.play().catch(() => {}); // refused autoplay leaves the play button up
@@ -45,26 +43,22 @@
     if (chosen) video.play().catch(() => {}); else video.pause();
   }
   onMount(() => {
-    size();
     saveData = !!(navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
-    phone = matchMedia('(max-width: 700px)').matches;
+    phone = matchMedia(below('phone')).matches;
     const io = new IntersectionObserver((entries) => entries.forEach((e) => { visible = e.isIntersecting; }), { rootMargin: '64px' });
     io.observe(host);
-    const ro = new ResizeObserver(size); ro.observe(host);
-    return () => { io.disconnect(); ro.disconnect(); };
+    return () => io.disconnect();
   });
 </script>
-<figure class="pic clip" bind:this={host} style:aspect-ratio={`${width} / ${height}`}>
+<figure class="pic clip" bind:this={host} use:figure={{ ratio: () => height / width, row }} style:aspect-ratio={`${width} / ${height}`}>
   <video bind:this={video} src={file} poster={still} muted loop playsinline preload={poster ? 'none' : 'auto'} aria-label={label} onplay={() => (playing = true)} onpause={() => (playing = false)}></video>
   {#if !playing}
-    <button type="button" class="play" onclick={toggle} aria-label={`Play video: ${label}`}><svg viewBox="0 0 8 8" width="24" height="24" aria-hidden="true" shape-rendering="crispEdges"><path d="M2 1h1v6H2zM3 2h1v4H3zM4 3h1v2H4zM5 3.5h1v1H5z" fill="currentColor" /></svg></button>
+    <button type="button" class="play" onclick={toggle} aria-label={`Play video: ${label}`}><PixelIcon name="play" size={24} /></button>
   {:else}
-    <button type="button" class="pause" onclick={toggle} aria-label={`Pause video: ${label}`}><svg viewBox="0 0 8 8" width="16" height="16" aria-hidden="true" shape-rendering="crispEdges"><path d="M2 1h1v6H2zM5 1h1v6H5z" fill="currentColor" /></svg></button>
+    <button type="button" class="pause" onclick={toggle} aria-label={`Pause video: ${label}`}><PixelIcon name="pause" /></button>
   {/if}
 </figure>
 <style>
-.pic{position:relative;margin:0;width:100%;overflow:hidden;background:var(--paper)}
-video{display:block;width:100%;height:100%;object-fit:cover}
 /* a still that can play shows it: a 64px block in the middle; a playing clip keeps a 48px pause in its corner */
 button{position:absolute;display:grid;place-items:center;border:0;padding:0;background:var(--fg);color:var(--paper);cursor:pointer}
 .play{left:50%;top:50%;width:64px;height:64px;transform:translate(-50%,-50%)}

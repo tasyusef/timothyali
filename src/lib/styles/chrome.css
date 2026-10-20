@@ -19,7 +19,7 @@
 /* Centred ink, not centred boxes (0097): PARC Pixel and Press Start sit 1px high in their line
    and carry a 2px trailing bearing, so a button's padding is 9/7 (or 17/15, 25/23) and 2 less on
    the right. Box heights are unchanged. */
-.site-header nav a{display:block;padding:9px 14px 7px 16px}
+.site-header nav a{display:block;padding:var(--pad-s)}
 .site-header nav a b{font-weight:400;opacity:var(--dim);margin-right:var(--s1)}
 .site-header nav a[aria-current]{background:var(--accent);color:var(--on-accent)}
 @media(hover:hover){.site-header nav a:hover{background:var(--fg);color:var(--paper)}}
@@ -34,7 +34,7 @@
 .settings .cog[aria-expanded=true]{background:var(--fg);color:var(--paper)}@media(hover:hover){.settings .cog:hover{background:var(--fg);color:var(--paper)}}
 .settings-menu{position:absolute;top:calc(100% + var(--s1));right:0;display:flex;flex-direction:column;width:192px;background:var(--fg);color:var(--paper)}
 .settings-menu[hidden]{display:none}
-.settings-menu button{display:flex;justify-content:space-between;padding:9px 14px 7px 16px;text-align:left}
+.settings-menu button{display:flex;justify-content:space-between;padding:var(--pad-s);text-align:left}
 .settings-menu button:focus-visible{background:var(--accent);color:var(--on-accent)}@media(hover:hover){.settings-menu button:hover{background:var(--accent);color:var(--on-accent)}}
 
 /* One flexible gap, not space-between: leftover width split four ways lands the items on

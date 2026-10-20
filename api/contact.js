@@ -14,16 +14,14 @@ export const config = { runtime: 'nodejs' };
 import { createHash } from 'node:crypto';
 import { Redis } from '@upstash/redis';
 
-const TO = process.env.CONTACT_TO ?? 'studio@timothyali.com';
+import { SITE_URL as SITE, EMAIL as ADDRESS, LIMITS, EMAIL_PATTERN as EMAIL } from '../src/lib/shared.js';
+
+const TO = process.env.CONTACT_TO ?? ADDRESS;
 const FROM = process.env.CONTACT_FROM ?? 'timothyali.com <onboarding@resend.dev>';
-const SITE = 'https://www.timothyali.com';
-const LIMITS = { name: 120, email: 200, message: 5000 };
 
 const clean = (v, max) => (typeof v === 'string' ? v.replace(/\r\n?/g, '\n').trim().slice(0, max) : '');
 // one line, no control characters: the name goes into the subject
 const line = (v, max) => clean(v, max).replace(/[\u0000-\u001f\u007f]+/g, ' ').trim();
-// no spaces, commas, semicolons, quotes or angle brackets: a reply-to that is one address (the form checks the same pattern)
-const EMAIL = /^[^\s@,;<>"]+@[^\s@,;<>"]+\.[^\s@,;<>"]+$/;
 const RATE = { max: 5, seconds: 600 };
 const escape = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 

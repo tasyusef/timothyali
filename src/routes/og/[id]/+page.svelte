@@ -2,6 +2,7 @@
   // 1200×630 share images. The chrome above is the real header and status strip
   // (the layout reflects `chromePath`); the 534px below is one Band per page,
   // composed from the same blocks the pages use, at the desktop cell sizes.
+  import BuildingHead from '$lib/components/BuildingHead.svelte';
   import Band from '$lib/components/Band.svelte';
   import Decode from '$lib/components/Decode.svelte';
   import Cursor from '$lib/components/Cursor.svelte';
@@ -11,7 +12,9 @@
   import Picture from '$lib/components/Picture.svelte';
   import { projects, index } from '$lib/work';
   import { hasStudyScene } from '$lib/studyScenes';
-  import { STEP, STEP_SLOW } from '$lib/tokens';
+  import { STEP_SLOW } from '$lib/tokens';
+  import { fitWord } from '$lib/fit';
+  import { SITE_URL } from '$lib/site';
   import { onMount } from 'svelte';
   import { page } from '$app/state';
   let { data } = $props();
@@ -22,22 +25,15 @@
   const storySeed = $derived(Number(q.get('seed') ?? 7));
   const storyFlip = $derived((q.get('flip') ?? '1') !== '0');
   const storyDensity = $derived(Number(q.get('density') ?? 0.7));
-  // Same rule as the study page: a title may wrap, a word may not. When the longest
-  // word will not fit the column at 55px, the title drops one cell to 41.25/48.
-  let h1: HTMLElement | undefined = $state(); let probe: HTMLElement | undefined = $state();
-  let small = $state(false);
-  const longest = $derived((data.project?.title ?? data.tool?.name ?? '').split(/\s+/).sort((a, b) => b.length - a.length)[0]);
+  // Same rule as the study page (fitWord): a title may wrap, a word may not.
   // The study row is centred in the 534px frame by hand: (frame − row) / 2 rounded down to
   // the unit, so the row's top stays on the 8px grid whatever the cover's height.
   let row: HTMLElement | undefined = $state(); let rowTop = $state(0);
   function fit() {
-    if (h1 && probe) small = probe.scrollWidth > h1.clientWidth;
     if (row) { const r = [...row.children].map((k) => k.getBoundingClientRect()); const h = Math.max(...r.map((b) => b.bottom)) - Math.min(...r.map((b) => b.top)); rowTop = Math.floor((row.clientHeight - h) / 2 / 8) * 8; }
   }
-  // the probe is watched too (0207): PARC Pixel is inlined since 0206, so the fonts are "ready"
-  // before the probe is laid out in them, and a fit on that alone measured the fallback face
   onMount(() => { fit(); document.fonts?.ready.then(fit); });
-  $effect(() => { if (!probe || !h1) return; const ro = new ResizeObserver(fit); ro.observe(probe); ro.observe(h1); return () => ro.disconnect(); });
+  $effect(() => { if (!row) return; const ro = new ResizeObserver(fit); for (const k of row.children) ro.observe(k); return () => ro.disconnect(); });
 </script>
 <svelte:head><title>og/{data.id}</title><meta name="robots" content="noindex" /></svelte:head>
 <main class="og" class:story={data.id === 'story'} class:wide={data.id === 'wide'} id="main" tabindex="-1">
@@ -54,7 +50,7 @@
          story safe zone (y 270–1540). The generator hides the chrome for this one. -->
     <Band class="og-story" mode={storyMode} seed={storySeed} density={storyDensity} flip={storyFlip} shade={storyMode !== 'scan'}>
       <h1 class="blackletter story-name"><Decode text="i’m tim." mode="type" step={STEP_SLOW} delay={500} cursor /></h1>
-      <Cta href="https://www.timothyali.com" class="lbl story-cta">timothyali.com <Arrow /></Cta>
+      <Cta href={SITE_URL} class="story-cta">timothyali.com <Arrow /></Cta>
     </Band>
   {:else if data.id === 'work'}
     <!-- the Work page at share size (0198): “work.” and a card for every study, the covers on the
@@ -67,21 +63,21 @@
     </Band>
   {:else if data.id === 'contact'}
     <Band class="og-contact" mode="scene" shot="rise" sceneSpan="box" seed={3} feather={3} depth={0.6} avoid=".og-contact h1 > span">
-      <h1><span class="display">Tell me what<br />you’re</span><span class="blackletter display-xl">building.</span></h1>
+      <BuildingHead level="h1" />
     </Band>
   {:else if data.id === 'toolbox'}
     <!-- The Toolbox hero at share size: the same field, the name, the lead, the actions. -->
     <Band class="og-toolbox" mode="bands" seed={7} density={0.7} flip shade hug pad={0} feather={12} depth={0.85} clearFeather={3} avoid=".og-toolbox h1 .decode > [aria-hidden]:not(.cursor)" clear=".og-toolbox .lead, .og-actions > *">
       <h1 class="blackletter display-xl" data-ink="toolbox."><Decode text="toolbox." /></h1>
       <p class="lead">Prepare your files<br />for handoff.</p>
-      <div class="og-actions"><Cta href="/toolbox/#tools" class="lbl">Explore the tools <Arrow /></Cta></div>
+      <div class="og-actions"><Cta href="/toolbox/#tools">Explore the tools <Arrow /></Cta></div>
     </Band>
   {:else if data.id === 'toolbox-agents'}
     <!-- The agents page's head, then the landing's command plate: the one line that says it. -->
     <Band class="og-agents" mode="fall" seed={3} density={0.55} shade avoid=".og-agents h1, .og-agents .lead, .og-command">
       <h1 class="display">CLI & MCP</h1>
       <p class="lead">Use Toolbox from a terminal or an AI assistant.</p>
-      <div class="og-command"><code class="body">toolbox --mcp<Cursor /></code></div>
+      <div class="og-command command-plate panel"><code class="body">toolbox --mcp<Cursor size="line" /></code></div>
     </Band>
   {:else if data.tool}
     {@const t = data.tool}
@@ -91,9 +87,9 @@
         <div class="frame"><Picture src={t.shot.src} alt="" width={t.shot.w} height={t.shot.h} eager /></div>
         <div class="row-body">
           <span class="lbl og-tool-n">[{t.n}] / {t.blurb}</span>
-          <h1 class="display" class:small bind:this={h1}><span class="probe" aria-hidden="true" bind:this={probe}>{longest}</span>{t.name}</h1>
+          <h1 class="display" use:fitWord={t.name}><span>{t.name}</span></h1>
           <p class="body">{t.summary}</p>
-          <Cta variant="quiet" class="lbl">{t.name} guide <Arrow /></Cta>
+          <Cta variant="quiet">{t.name} guide <Arrow /></Cta>
         </div>
       </div>
     </Band>
@@ -103,7 +99,7 @@
          line, the title, the one-line description. -->
     <Band class="og-sh" mode="scene" shot="strip" sceneSpan="box" mountains={hasStudyScene(p.slug) ? '' : 'a'} study={hasStudyScene(p.slug) ? p.slug : ''} seed={Number(p.n) || 3} feather={3} depth={0.6} avoid=".og-sh h1 .t" clear=".og-sh .og-meta, .og-sh .og-desc">
       <MetaLine project={p} class="og-meta" />
-      <h1 class="display og-sh-title" class:small bind:this={h1}><span class="probe" aria-hidden="true" bind:this={probe}>{longest}</span><span class="t">{p.title}</span></h1>
+      <h1 class="display og-sh-title" use:fitWord={p.title}><span class="t">{p.title}</span></h1>
       <p class="body og-desc">{p.description}</p>
     </Band>
   {/if}
@@ -114,7 +110,7 @@
    Nothing is anchored to its bottom edge: the name is placed from the top and the study
    row's centring is rounded to the unit in `fit()` (0089). */
 .og{height:534px;overflow:hidden}
-.og :global(.band){position:relative;isolation:isolate;overflow:hidden;height:534px;padding:var(--s4) var(--gutter)}
+.og :global(.band){height:534px;padding:var(--s4) var(--gutter)}
 
 /* Story — full frame, no chrome (the generator hides it), content in the safe zone */
 .og.story{height:1920px}
@@ -137,11 +133,12 @@
 .og :global(.og-work){display:grid;grid-template-columns:minmax(0,1fr) 688px;gap:var(--s4);align-items:center}
 .og-work-title{font-size:172px;line-height:176px;margin:0}
 .og-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s1)}
-.og-card{padding:var(--s1);gap:0;background:var(--surface-card),var(--paper)}
+.og-card{padding:var(--s1);gap:0}
+
+/* Contact — the page's own head, its lead at the desktop size the 1200px frame would step down */
+.og :global(.og-contact .building-lead){font-size:55px;line-height:64px}
 
 /* Contact — the page's own head */
-.og :global(.og-contact h1){display:flex;flex-direction:column;gap:var(--s2)}
-.og :global(.og-contact .display){line-height:64px}
 
 /* Toolbox — the landing's hero at share size: top row, the name, the lead, the actions */
 .og :global(.og-toolbox){display:flex;flex-direction:column;align-items:flex-start}
@@ -151,30 +148,25 @@
 /* Agents — the page head and the command plate */
 .og :global(.og-agents){display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2)}
 .og :global(.og-agents .lead){margin-top:var(--s2)}
-.og-command{margin-top:var(--s3);padding:var(--s3);background:var(--fg);color:var(--paper);display:flex;flex-direction:column;gap:var(--s2);min-width:calc(48 * var(--u))}
-.og-command code{font-family:var(--face-text)}.og-command :global(.cursor){height:24px;vertical-align:top}
+.og-command{margin-top:var(--s3);min-width:calc(48 * var(--u))}
 
 /* Tool — the study row with the tool's own head */
 .og-tool-n{color:var(--accent-text);text-wrap:balance}
 
 /* Study — the study page's head: meta, title at the page's desktop size, description */
 .og :global(.og-sh){display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);padding-top:var(--s4)}
-.og-sh-title{position:relative;align-self:stretch;font-size:110px;line-height:112px;margin-top:var(--s2)}
-.og-sh-title.small{font-size:82.5px;line-height:88px}
-.og-sh-title .probe{position:absolute;visibility:hidden;white-space:nowrap;pointer-events:none;font-size:110px} /* the base size: inheriting the step, it would measure itself small and flip back */
+.og-sh-title{align-self:stretch;font-size:110px;line-height:112px;margin-top:var(--s2)}
+.og-sh-title:global(.small){font-size:82.5px;line-height:88px}
 .og-desc{max-width:40ch}
 
 /* Study — the Work row, centred in the frame (tool images). The Work page's rows became cards
    (0196); their rules live here now, the only place a row is drawn (0207). */
 .row{display:grid;grid-template-columns:round(down,calc((100% - 32px) * 3 / 5),8px) 1fr;gap:var(--s4);align-items:start;color:var(--fg)}
 .row .frame{margin:calc(-1 * var(--s2));padding:var(--s2);min-width:0}
-.row :global(.pic){background:var(--paper)}
 .row-body{display:flex;flex-direction:column;gap:var(--s2);min-width:0}
-.row-body :global(.cta-quiet){display:inline-flex;align-items:center;gap:var(--s2);padding:17px 14px 15px 16px;align-self:flex-start;margin-left:calc(-1 * var(--s2))}
+.row-body :global(.cta-quiet){display:inline-flex;align-items:center;gap:var(--s2);padding:var(--pad-m);align-self:flex-start;margin-left:calc(-1 * var(--s2))}
 .row-body :global(.cta-quiet .mono){color:var(--accent-text)}
 .og-row{height:100%;align-content:start}
 .og-row .frame{background:var(--surface-card)}
-.og-row h1{position:relative}
-.og-row h1.small{font-size:41.25px;line-height:48px}
-.og-row .probe{position:absolute;visibility:hidden;white-space:nowrap;pointer-events:none;font-size:55px}
+.og-row h1:global(.small){font-size:41.25px;line-height:48px}
 </style>

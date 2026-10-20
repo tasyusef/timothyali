@@ -2,6 +2,7 @@
   // Latin only (0207): the site's copy has no other script, and the full files carried 13 KB of
   // Cyrillic and Greek fallbacks inlined into the render-blocking stylesheet
   import '@fontsource/jacquard-24/latin-400.css';
+  import PixelIcon from '$lib/components/PixelIcon.svelte';
   import '@fontsource/jersey-15/latin-400.css';
   import '@fontsource/press-start-2p/latin-400.css';
   import '@fontsource/ibm-plex-mono/latin-400.css'; // the study reading face (0137), preloaded by the study page
@@ -93,7 +94,7 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     const media = matchMedia('(prefers-reduced-motion: reduce)');
     let saved: string | null = null;
-    try { saved = localStorage.getItem('tim-motion'); localStorage.removeItem('tim-grid'); } catch {}
+    try { saved = localStorage.getItem('tim-motion'); } catch {}
     explicit = saved === 'on' || saved === 'off';
     motion.on = explicit ? saved === 'on' : !media.matches;
     theme.light = document.documentElement.dataset.theme === 'light';
@@ -133,7 +134,7 @@
     <!-- hidden, not absent, until the saved choices are read: without JavaScript there is nothing to set -->
     <div class="settings lbl" class:ready={motion.ready} bind:this={settingsElement}>
       <button type="button" class="cog" bind:this={cogElement} aria-label="Settings" aria-expanded={settingsOpen} aria-controls="settings-menu" onclick={() => (settingsOpen = !settingsOpen)}>
-        <svg viewBox="0 0 8 8" width="16" height="16" aria-hidden="true" shape-rendering="crispEdges"><path d="M3 0h2v1H3zM1 1h6v1H1zM1 2h2v1H1zM5 2h2v1H5zM0 3h3v2H0zM5 3h3v2H5zM1 5h2v1H1zM5 5h2v1H5zM1 6h6v1H1zM3 7h2v1H3z" fill="currentColor" /></svg>
+        <PixelIcon name="cog" />
       </button>
       <div class="settings-menu" id="settings-menu" role="group" aria-label="Settings" hidden={!settingsOpen}>
         <button type="button" onclick={toggleMotion} aria-pressed={motion.on}>Motion <span class="state">[{motion.on ? 'on' : 'off'}]</span></button>

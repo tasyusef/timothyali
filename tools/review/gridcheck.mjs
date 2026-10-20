@@ -1,9 +1,10 @@
+import { INK, WHITE, YELLOW, rgb } from '../../src/lib/tokens.ts';
 import { chromium } from '/Users/twocakes/Desktop/PROJECTS/timothyali2/node_modules/@playwright/test/index.mjs';
 import { PNG } from '/Users/twocakes/Desktop/PROJECTS/timothyali2/node_modules/pngjs/lib/png.js';
 import fs from 'node:fs';
 const exe='/Users/twocakes/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell';
 const b=await chromium.launch(fs.existsSync(exe)?{executablePath:exe}:{});
-const near=(a,b)=>Math.abs(a[0]-b[0])<12&&Math.abs(a[1]-b[1])<12&&Math.abs(a[2]-b[2])<12; const Y=[244,244,240],K=[17,17,14],A=[242,214,0];
+const near=(a,b)=>Math.abs(a[0]-b[0])<12&&Math.abs(a[1]-b[1])<12&&Math.abs(a[2]-b[2])<12; const Y=rgb(WHITE),K=rgb(INK),A=rgb(YELLOW);
 const ROUTES=['/','/work/','/contact/','/work/parc/','/work/xrpcafe/','/work/firstledger/','/work/do-androids-dream/','/work/firststrike/','/work/sonde/','/work/jade-aesthetics/','/work/pocketwatch/','/not-found.html'];
 const ALL={};
 for(const width of [1440,1100,700,390]){ for(const path of ROUTES){

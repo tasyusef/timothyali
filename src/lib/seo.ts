@@ -7,11 +7,10 @@
 // profiles the old site already listed. Extended in PX-59 (0145).
 import { SITE_URL, socialFor, type SocialPage } from './social';
 import { studies, type Project } from './work';
-import { tools, APP, home as toolboxHome } from './toolbox';
+import { tools, APP, RELEASES, home as toolboxHome } from './toolbox';
+import { EMAIL, LINKEDIN, GITHUB } from './site';
 
-export const PROFILES = ['https://www.linkedin.com/in/timothyali', 'https://github.com/tasyusef'];
-export const EMAIL = 'studio@timothyali.com';
-const RELEASES = 'https://github.com/tasyusef/toolbox/releases';
+export const PROFILES = [LINKEDIN, GITHUB];
 
 const id = (path: string, hash: string) => `${SITE_URL}${path}#${hash}`;
 const person = {

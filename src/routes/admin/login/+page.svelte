@@ -1,6 +1,8 @@
 <script lang="ts">
   import { signIn } from '@auth/sveltekit/client';
   import { page } from '$app/state';
+  import Cta from '$lib/components/Cta.svelte';
+  import QuietLink from '$lib/components/QuietLink.svelte';
   let { data } = $props();
   let email = $state(''); let sending = $state(false); let failed = $state(false);
   async function submit(event: SubmitEvent) {
@@ -18,22 +20,21 @@
   {:else if page.url.searchParams.has('sent')}
     <h2 class="display-s">Check your email.</h2>
     <p>Use the sign-in link within 15 minutes. Each link works once.</p>
-    <a href="/admin/login/">Back to sign-in</a>
+    <QuietLink href="/admin/login/" label="Back to sign-in" dir="left" />
   {:else}
     <p>Sign in with your email. Access is limited to the site owner.</p>
     <form onsubmit={submit}>
       <label class="lbl" for="admin-email">Email address</label>
       <input id="admin-email" type="email" bind:value={email} autocomplete="email" required disabled={sending} />
-      <button class="lbl" type="submit" disabled={sending}>{sending ? 'Sending…' : 'Email me a sign-in link'}</button>
+      <Cta type="submit" disabled={sending}>{sending ? 'Sending…' : 'Email me a sign-in link'}</Cta>
     </form>
     {#if failed || page.url.searchParams.has('error')}<p role="alert">Couldn’t sign you in. Check your email address and try again in a minute. If your link has expired, request a new one.</p>{/if}
   {/if}
-  <a class="lbl" href="/">Back to the site ↗</a>
+  <QuietLink href="/" label="Back to the site" />
 </main>
 <style>
   .login{width:100%;min-width:0;max-width:720px;min-height:70vh;padding:var(--s8) var(--gutter);margin:auto;display:flex;flex-direction:column;gap:var(--s4)}
   form{display:flex;flex-direction:column;gap:var(--s2)}
   input{font:inherit;padding:var(--s2);border:2px solid var(--fg);background:var(--paper);color:var(--fg);min-width:0;width:100%}
-  button{padding:var(--s2);min-height:48px;background:var(--accent);color:var(--on-accent);cursor:pointer;text-align:left}
-  button:disabled{opacity:.6;cursor:wait}a{text-decoration:underline;text-underline-offset:4px}
+  form :global(.cta){align-self:flex-start}
 </style>

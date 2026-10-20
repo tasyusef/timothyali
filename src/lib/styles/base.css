@@ -24,7 +24,7 @@ h1,h2,h3,p,figure,dl,dd{margin:0}h1,h2,h3{font-weight:400}
 a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
 ::selection{background:var(--fg);color:var(--paper)}
 /* One focus ring: the accent as type on whatever ground the element sits on (0106). */
-:focus-visible{outline:2px solid var(--accent-text);outline-offset:2px}
+:focus-visible{outline:var(--focus-ring);outline-offset:2px}
 canvas{image-rendering:pixelated}
 pre{margin:0;font:inherit}
 main{display:block}
@@ -59,7 +59,7 @@ main{display:block}
 ::view-transition-image-pair(root){isolation:auto}
 ::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
 /* Theme (0100): the new page dithers in over the old, three steps at the Decode cadence. */
-:root.vt-theme::view-transition-new(root){animation:dither-in calc(3 * var(--step)) steps(3) both}
+:root.vt-theme::view-transition-new(root){animation:var(--wipe-in)}
 /* Route (0104): the old page dithers out to the field at full density, the new one dithers
    in from it; six fast steps, one beat. The field is the texture's own 16px checker. */
 :root.vt-route::view-transition{background:var(--paper) repeating-conic-gradient(var(--field-ink) 0 25%,transparent 0 50%) 0 0/var(--cell-texture) var(--cell-texture)}

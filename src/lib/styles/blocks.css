@@ -11,6 +11,7 @@
    48×136 with 16 in at 344, 36×102/12 at 258, 18×51/6 at 129 (0089). */
 .cursor{display:inline-block;flex:none;width:8px;height:16px;background:var(--accent);margin-left:var(--s1)}
 .cursor.em{width:calc(6em / 43);height:calc(17em / 43);vertical-align:baseline;margin-left:calc(2em / 43)}
+.cursor.line{height:24px;vertical-align:top}
 .cursor.on-fg{background:currentColor}
 .motion .cursor{animation:blink var(--tick-cursor) steps(2,jump-none) infinite}
 
@@ -27,31 +28,47 @@
 @media(hover:hover){.motion .cta:hover{transform:translate(var(--nudge),0)}}
 .cta-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--s2);padding:25px 22px 23px 24px;background:var(--accent);color:var(--on-accent);transform:translate(0,0)}
 .cta-row>span{flex:none;max-width:100%}
+button.cta-row{width:100%;text-align:left}
+:is(.cta,.cta-row,.cta-hint):disabled{cursor:default;opacity:var(--dim);pointer-events:none}
 @media(hover:hover){.cta-row:hover{background:var(--fg);color:var(--paper)}}
-.cta-hint{display:inline-flex;align-items:center;gap:var(--s1);padding:9px 14px 7px 16px;background:var(--accent);color:var(--on-accent)}
+.cta-hint{display:inline-flex;align-items:center;gap:var(--s1);padding:var(--pad-s);background:var(--accent);color:var(--on-accent)}
+.cta-hint:focus-visible{background:var(--fg);color:var(--paper)}@media(hover:hover){.cta-hint:hover{background:var(--fg);color:var(--paper)}}
 
 /* --- quiet link (QuietLink.svelte) -------------------------------- */
 .quiet-link{display:inline-flex;align-items:center;gap:var(--s1)}
 @media(hover:hover){.quiet-link:hover{color:var(--accent-text)}}
 .quiet-link.pad{align-self:flex-start;padding:9px 0 7px}
 /* a 16px link reaches 40px to a finger (the résumé, email and LinkedIn links were 16px tall, 0206) */
-@media(pointer:coarse){.cta-hint,.list .all{position:relative}.cta-hint::after,.list .all::after{content:'';position:absolute;inset:-6px 0}.quiet-link,.page-foot a{position:relative}.quiet-link::after,.page-foot a::after{content:'';position:absolute;inset:-12px -8px}.quiet-link.pad::after{inset:-4px -8px}}
+@media(pointer:coarse){.cta-hint{position:relative}.cta-hint::after{content:'';position:absolute;inset:-6px 0}.quiet-link,.page-foot a{position:relative}.quiet-link::after,.page-foot a::after{content:'';position:absolute;inset:-12px -8px}.quiet-link.pad::after{inset:-4px -8px}}
+
+/* --- building head (BuildingHead.svelte) ---------------------------- */
+.building-head{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);margin:0}
+.building-lead{line-height:64px}
+@media(max-width:1300px){.building-lead{font-size:41.25px;line-height:48px}}
+/* beside Contact's form column the word takes display-xl's next rung early; below 1101 the ladder does it anyway */
+@media(min-width:1101px) and (max-width:1300px){.building-head.tight .building-word{font-size:172px;line-height:176px}}
 
 /* --- page foot (PageFoot.svelte) ---------------------------------- */
 .page-foot{display:flex;justify-content:space-between;gap:var(--s2);margin:var(--s8) 0 0;padding:0}
 
+/* --- figures (Picture.svelte, Clip.svelte) ------------------------- */
+/* a photograph or clip at its own resolution, its height set on the unit by `figure` (figure.ts) */
+.pic{position:relative;margin:0;width:100%;overflow:hidden;background:var(--paper)}
+.pic picture{display:contents}
+.pic img,.pic video{display:block;width:100%;height:100%;object-fit:cover}
+
 /* --- cards -------------------------------------------------------- */
 .cards{display:grid;grid-template-columns:round(down,calc((100% - 32px) / 2),8px) minmax(0,1fr);gap:var(--s6) var(--s4)}
-.card{display:flex;flex-direction:column;min-width:0;gap:var(--s2);padding:var(--s2);background:var(--surface-card);color:var(--fg)}
-.card:focus-visible{background:var(--surface-card-hover)}@media(hover:hover){.card:hover{background:var(--surface-card-hover)}}
-.card .pic{background:var(--paper)}
+/* the mat is a dither over the page ground, so a card over a field (Home) hides the field */
+.card{display:flex;flex-direction:column;min-width:0;gap:var(--s2);padding:var(--s2);background:var(--surface-card),var(--paper);color:var(--fg)}
+.card:focus-visible{background:var(--surface-card-hover),var(--paper)}@media(hover:hover){.card:hover{background:var(--surface-card-hover),var(--paper)}}
 .card-body{display:grid;grid-template-rows:auto 1fr;grid-template-columns:minmax(0,1fr) auto;gap:var(--s1) var(--s2);align-items:start;flex:1;background:var(--paper);margin:0 calc(-1 * var(--s2)) calc(-1 * var(--s2));padding:var(--s2);min-width:0}
 .card-body h2,.card-body h3{min-width:0}
 .card-body [data-fit="27"]{font-size:27.5px;line-height:32px}
 .card-body [data-fit="20"]{font-size:20.625px;line-height:24px} /* a word wider than the card steps down (fitTitles, 0196) */
 .card-body>.mono{align-self:start}
 .card:focus-visible .card-body>.mono{color:var(--accent-text)}@media(hover:hover){.card:hover .card-body>.mono{color:var(--accent-text)}}
-.card-body .lbl,.card-body .desc{grid-column:1/-1}
+.card-body .desc{grid-column:1/-1}
 .card-body .desc{margin:0}
 .card .mono{transform:translateX(0)}
 .motion .card:focus-visible .mono{transform:translateX(var(--nudge))}@media(hover:hover){.motion .card:hover .mono{transform:translateX(var(--nudge))}}
@@ -76,11 +93,29 @@
 .quiet-link:active{box-shadow:0 0 0 var(--s1) var(--accent)}
 .quiet-link.pad:active{box-shadow:var(--s1) 0 0 var(--accent),calc(-1 * var(--s1)) 0 0 var(--accent)}
 
+/* --- panel ------------------------------------------------------- */
+/* The inverted ground (0210): the contact note, the code block, Toolbox's install and phone
+   panels, the admin's totals. Everything that changes with the ground changes here once: the
+   accent as type, the dim level, the text selection (the page's own selection is these two
+   colours, so on a panel it vanished) and a row action's hover, which lights to the panel's
+   ground instead of its own. */
+.panel{--accent-text:var(--accent-on-fg);--dim:var(--dim-on-fg);background:var(--fg);color:var(--paper)}
+.panel::selection,.panel ::selection{background:var(--paper);color:var(--fg)}
+.panel :is(.cta,.cta-row,.cta-hint):focus-visible{background:var(--paper);color:var(--fg)}@media(hover:hover){.panel :is(.cta,.cta-row,.cta-hint):hover{background:var(--paper);color:var(--fg)}}
+.panel :is(.cta,.cta-row,.cta-hint):active{background:var(--accent);color:var(--on-accent)}
+
+/* --- command plate --------------------------------------------------- */
+/* one command with the block cursor after it (Toolbox's “Automate” panel, the agents share
+   image; 0210, written twice). On a panel it is the page's ground again, and so is its selection. */
+.command-plate{display:flex;flex-direction:column;gap:var(--s2);padding:var(--s3)}
+.panel .command-plate{background:var(--paper);color:var(--fg)}
+.panel .command-plate::selection,.panel .command-plate ::selection{background:var(--fg);color:var(--paper)}
+@media(max-width:700px){.command-plate{padding:var(--s2)}}
+
 /* --- code (Code.svelte) ------------------------------------------- */
 /* Commands and JSON, on the inverted plate the contact note uses. Jersey, not the
-   mono role: a command keeps its case. `.c` is a comment, dimmed (0092). */
-.code{--accent-text:var(--accent-on-fg);--dim:.65;font-family:var(--face-text);font-size:27px;line-height:32px;white-space:pre-wrap;overflow-wrap:anywhere;margin:0;padding:var(--s2) var(--s3);background:var(--fg);color:var(--paper)}
-.code ::selection{background:var(--paper);color:var(--fg)}
+   mono role: a command keeps its case; Code.svelte gives it `.body`. `.c` is a comment, dimmed (0092). */
+.code{white-space:pre-wrap;overflow-wrap:anywhere;margin:0;padding:var(--s2) var(--s3)}
 .code .c{opacity:var(--dim)}
 .code .ln{--lead:0;display:block;min-height:32px;padding-left:calc((var(--lead) + 2) * 1ch);text-indent:calc((var(--lead) + 2) * -1ch)} /* a wrapped line hangs under its start (0200) */
 .code .w{white-space:nowrap}

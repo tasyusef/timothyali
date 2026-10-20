@@ -4,7 +4,7 @@
 // from a hidden mirror of the field's text up to the selection end, so it holds through
 // wrapping in the textarea and through horizontal scroll in an input.
 //
-//   <span class="box"><input use:blockCaret /><span class="cursor caret"></span></span>
+//   <span class="box"><input use:blockCaret /><Cursor class="caret" /></span>
 //
 // The action finds the `.caret` sibling that follows the field. The `.box` is the
 // positioning root and must be `position:relative`.

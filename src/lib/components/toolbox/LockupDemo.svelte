@@ -1,4 +1,8 @@
 <script lang="ts">
+  import { pad } from '$lib/format';
+  import DemoReadout from './DemoReadout.svelte';
+  import DemoToolbar from './DemoToolbar.svelte';
+  import DestinationRow from './DestinationRow.svelte';
   // Lockup, steps 02 and 03 of the app's wizard: the logo on its plate with the
   // formats, treatments and sizes rail, then the exact folder tree the export writes.
   // The count and the tree come from the app's planner (`plan.ts`), one version, no
@@ -39,7 +43,7 @@
   // the preview shows the colour treatment while it is on, else the ink the plate calls for
   const ink = $derived(treat.Color ? (dark ? '#f2d600' : '#174c43') : dark ? '#fff' : '#111');
 </script>
-<div class="readout lbl"><span class="path"><span class="pre">~/Toolbox/</span>Lockup/{step}</span><span>{files.length} files</span></div>
+<DemoReadout path={`Lockup/${step}`} count={`${files.length} files`} />
 <div class="split">
   {#if step === 'outputs'}
     <div class="stage center">
@@ -56,7 +60,7 @@
       </section>
       <section class="rail-section">
         <div class="rail-head lbl dim"><span>Treatments</span></div>
-        <AppToggle name="Color" on={treat.Color} onchange={(v) => (treat.Color = v)}><span>Color</span><span style="display:inline-flex;gap:4px">{#each palette as hex (hex)}<SwatchDot {hex} size={16} />{/each}</span></AppToggle>
+        <AppToggle name="Color" on={treat.Color} onchange={(v) => (treat.Color = v)}><span>Color</span><span class="swatches">{#each palette as hex (hex)}<SwatchDot {hex} size={16} />{/each}</span></AppToggle>
         <AppToggle name="Black" on={treat.Black} onchange={(v) => (treat.Black = v)}><span>Black</span><SwatchDot hex="#000000" size={16} /></AppToggle>
         <AppToggle name="White" on={treat.White} onchange={(v) => (treat.White = v)}><span>White</span><SwatchDot hex="#ffffff" size={16} /></AppToggle>
       </section>
@@ -67,7 +71,7 @@
     </div>
   {:else}
     <div class="stage">
-      <div class="rail-head lbl"><span class="dim">Package</span><span>{String(root.fileCount).padStart(3, '0')}</span></div>
+      <div class="rail-head lbl"><span class="dim">Package</span><span>{pad(root.fileCount, 3)}</span></div>
       <h4 class="display-s">{root.name}</h4>
       <div class="tree">{#each root.children as child (child.id)}<PlanRow node={child} depth={0} {userExpanded} {userCollapsed} {palette} />{/each}</div>
     </div>
@@ -78,25 +82,21 @@
         <p class="lbl dim">1 variation / {files.length} {files.length === 1 ? 'file' : 'files'}</p>
         <p class="lbl dim">{formats} / {treatments.join(', ') || 'no treatment'} / {sizes.map((s) => s.name).join(', ') || 'no size'}</p>
       </section>
-      <section class="rail-section">
-        <div class="rail-head lbl dim"><span>Destination</span></div>
-        <button type="button" class="btn body" style="width:100%;justify-content:space-between" disabled><span class="nowrap">Choose where to save…</span><Arrow /></button>
-      </section>
+      <DestinationRow />
     </div>
   {/if}
 </div>
-<div class="toolbar lbl">
-  <button type="button" class="btn lbl" disabled={step === 'outputs'} onclick={() => (step = 'outputs')}><Arrow dir="left" />Back</button>
+<DemoToolbar backDisabled={step === 'outputs'} onback={() => (step = 'outputs')}>
   <div class="steps" role="group" aria-label="Steps">
     <button type="button" disabled><b>01</b><span>Upload</span></button>
     <button type="button" aria-current={step === 'outputs' ? 'step' : undefined} onclick={() => (step = 'outputs')}><b>02</b><span>Outputs</span></button>
     <button type="button" aria-current={step === 'review' ? 'step' : undefined} onclick={() => (step = 'review')}><b>03</b><span>Review</span></button>
   </div>
-  {#if step === 'outputs'}<button type="button" class="cta lbl" onclick={(e) => { step = 'review'; review(e.currentTarget); }}>Continue<Arrow /></button>{:else}<button type="button" class="cta lbl" disabled title="Export happens in the app">Export<Arrow /></button>{/if}
-</div>
+  {#snippet act()}{#if step === 'outputs'}<button type="button" class="demo-act lbl" onclick={(e) => { step = 'review'; review(e.currentTarget); }}>Continue<Arrow /></button>{:else}<button type="button" class="demo-act lbl" disabled title="Export happens in the app">Export<Arrow /></button>{/if}{/snippet}
+</DemoToolbar>
 <style>
 /* the logo sits 96 down in the 288 plate (centred would be 100, off the unit) */
-.plate{width:288px;height:288px;display:flex;align-items:flex-start;justify-content:center;padding-top:96px}
+.plate{width:288px;height:288px;display:flex;align-items:flex-start;justify-content:center;padding-top:var(--s12)}
 /* the mark is 32 cells at 2px beside Jacquard at 86 (43 cells/em): 64 + 16 + 158 = 238 */
 /* The mark and the wordmark align by ink, not by box (0111): "acme." in Jacquard at 86 is all
    x-height letters, ink rows 35–68 of the 88px line, so the anvil is 17 pixels tall (34px, the
@@ -104,7 +104,7 @@
 .logo{display:flex;align-items:flex-start;gap:var(--s2);width:238px}.logo svg{width:64px;height:34px;flex:none;margin-top:35px}.logo span{font:86px/88px var(--face-blackletter)}
 .stage :global(.swatch-chip){width:32px;height:32px}
 h4{margin:0;padding-bottom:var(--s1);font-size:27.5px;line-height:32px} /* the stage is narrower than the app's */
-@media(max-width:1100px){.plate{width:240px;height:240px;padding-top:72px}}
-@media(max-width:900px){.plate{width:288px;height:288px;padding-top:96px}}
+/* the rail beside the stage is widest from 901 to 1100, so the plate steps down there only, and on the smallest phones */
+@media(min-width:901px) and (max-width:1100px){.plate{width:240px;height:240px;padding-top:72px}}
 @media(max-width:420px){.plate{width:240px;height:240px;padding-top:72px}.logo{gap:var(--s1);width:auto}.logo svg{width:48px;height:26px;margin-top:39px}} /* 238px of logo touched a 240px plate (0206) */
 </style>

@@ -57,7 +57,7 @@ async function capture(dir) {
         try {
           localStorage.setItem('tim-motion', 'off');
           localStorage.setItem('tim-theme', theme);
-          localStorage.setItem('tim-grid', 'off');
+         
         } catch {}
       }, [s.theme]);
     }

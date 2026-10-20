@@ -3,6 +3,7 @@ import { env } from '$env/dynamic/private';
 import type { Handle } from '@sveltejs/kit';
 import { authHandle, authReady } from './auth';
 import { isOwner, isPrivatePath } from '$lib/server/access';
+import { SITE_URL } from '$lib/site';
 
 export const handle: Handle = async ({ event, resolve }) => {
   const path = event.url.pathname;
@@ -19,8 +20,8 @@ export const handle: Handle = async ({ event, resolve }) => {
   };
   let response: Response;
   // Auth.js trusts the deployment host; reject unexpected hosts before it creates links/cookies.
-  if (!dev && event.url.origin !== 'https://www.timothyali.com') {
-    response = new Response('Admin is available at https://www.timothyali.com/admin/', { status: 403 });
+  if (!dev && event.url.origin !== SITE_URL) {
+    response = new Response(`Admin is available at ${SITE_URL}/admin/`, { status: 403 });
   } else if (path.startsWith('/auth/') && !authReady()) {
     response = new Response('Sign-in is not configured yet.', { status: 503 });
   } else {

@@ -18,7 +18,7 @@
       {#each [...projects, ...index] as p, i (p.slug)}<Card {p} id={p.slug} eager={i < 2} />{/each}
     </div>
     <!-- the longest page ended on a 16px dim link; it ends on the action row Home ends on (0206) -->
-    <div class="end"><Cta variant="row" href="/contact/" class="lbl"><span>Tell me what you’re building</span><span>Get in touch <Arrow /></span></Cta></div>
+    <div class="end"><Cta variant="row" href="/contact/"><span>Tell me what you’re building</span><span>Get in touch <Arrow /></span></Cta></div>
   </section>
 </main>
 <style>

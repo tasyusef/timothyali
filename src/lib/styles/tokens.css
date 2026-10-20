@@ -14,20 +14,37 @@
   --accent-field:var(--yellow);        /* the accent drawn in an ASCII field; a touch darker on the light ground (0108) */
   --on-accent:var(--ink);
   --dim:.55;              /* opacity, not a colour; .65 on the light ground, where .55 was 3.8:1 at 12.5px (0206) */
+  --dim-on-fg:.65;        /* --dim on a --fg panel: the other ground, the other value (0210) */
+
+  /* Button padding (0097, named 0210): a label's ink sits 1px high and carries a 2px trailing
+     bearing, so the padding is 1 more below than above and 2 less on the right. Small is a 32px
+     block (nav items, the hint chip, the demo's buttons), medium a 48px one. */
+  --pad-s:9px 14px 7px 16px;
+  --pad-m:17px 14px 15px 16px;
 
   /* page frame */
   --gutter:32px;
+  --col-side:448px;       /* the side column: Contact's form, Home's closing action (0210) */
   --header-height:64px;   /* default; the layout overrides it inline with the measured height */
 
   /* surfaces */
-  --surface-card:repeating-conic-gradient(color-mix(in srgb,var(--fg) 14%,transparent) 0 25%,transparent 0 50%) 0 0/4px 4px;
+  --surface-card:repeating-conic-gradient(var(--tint-rim) 0 25%,transparent 0 50%) 0 0/4px 4px;
   --surface-card-hover:repeating-conic-gradient(color-mix(in srgb,var(--fg) 26%,transparent) 0 25%,transparent 0 50%) 0 0/8px 8px;
   --texture-fallback-opacity:.35;  /* the CSS checker shown before a canvas has drawn */
   --field-ink:color-mix(in srgb,var(--fg) 40%,var(--paper));   /* the ASCII field: recessed, well behind the type (0091) */
 
-  /* fine fg tints (once the Grid overlay's; the admin tables still use them) */
-  --grid-fine:color-mix(in srgb,var(--fg) 12%,transparent);
-  --grid-major:color-mix(in srgb,var(--fg) 22%,transparent);
+  /* fg tints, light to strong (0210: the fine and major ones were the Grid overlay's, named --grid-*) */
+  --tint-fine:color-mix(in srgb,var(--fg) 12%,transparent);   /* the admin tables' rules */
+  --tint-rim:color-mix(in srgb,var(--fg) 14%,transparent);    /* the card dither, the examples' rims */
+  --tint-major:color-mix(in srgb,var(--fg) 22%,transparent);  /* the admin chart's base */
+  --tint-rule:color-mix(in srgb,var(--fg) 30%,transparent);   /* the examples' field and slider rules */
+
+  /* the sticky chrome: header 64 and status strip 32; on phones the two-row header alone, 104 (0210) */
+  --chrome-height:96px;
+  /* the three-frame dither wipe an image or theme arrives with (@keyframes dither-in, base.css) */
+  --wipe-in:dither-in calc(3 * var(--step)) steps(3) both;
+  /* the keyboard focus ring (base.css, the Toolbox examples' fields) */
+  --focus-ring:2px solid var(--accent-text);
 
   /* layering, low to high */
   --z-band-bg:0;   /* a band's programmatic background */
@@ -38,5 +55,5 @@
 
   color-scheme:dark;
 }
-:root[data-theme=light]{--dim:.65;--paper:var(--white);--fg:var(--ink);color-scheme:light;--accent-text:var(--yellow-deep);--accent-on-fg:var(--yellow);--accent-field:var(--yellow-field)}
-@media(max-width:700px){:root{--gutter:16px}}
+:root[data-theme=light]{--dim:.65;--dim-on-fg:.55;--paper:var(--white);--fg:var(--ink);color-scheme:light;--accent-text:var(--yellow-deep);--accent-on-fg:var(--yellow);--accent-field:var(--yellow-field)}
+@media(max-width:700px){:root{--gutter:16px;--chrome-height:104px}}

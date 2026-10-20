@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { below } from '$lib/tokens';
   // One tool's command-line options, flag left and what it does right: the same rows
   // the app's `toolbox <tool> --help` prints, from the params copied into $lib/toolbox.
   import { signature, type Tool } from '$lib/toolbox';
@@ -6,7 +7,7 @@
   // On a phone the table folds behind its count (0206): it was most of each tool page there,
   // flag reference few phone readers need. Open in the prerender and without JavaScript.
   let open = $state(true);
-  $effect(() => { if (matchMedia('(max-width: 700px)').matches) open = false; });
+  $effect(() => { if (matchMedia(below('phone')).matches) open = false; });
 </script>
 <div class="tool-options">
   <details bind:open class="collapse"><summary class="lbl">All {tool.params.length} options</summary>
@@ -20,7 +21,7 @@
 <style>
 summary{display:none}
 details:not([open])>summary{display:flex;align-items:center;gap:var(--s1);min-height:44px;cursor:pointer}
-@media(max-width:700px){.collapse summary{display:flex;align-items:center;gap:var(--s1);min-height:44px;cursor:pointer;list-style:none}.collapse summary::-webkit-details-marker{display:none}.collapse summary::before{content:'+';font-family:var(--face-mono);color:var(--accent-text)}.collapse[open] summary::before{content:'-'}.collapse[open] summary{margin-bottom:var(--s2)}}
+@media(max-width:700px){.collapse summary{display:flex;align-items:center;gap:var(--s1);min-height:44px;cursor:pointer;list-style:none}.collapse summary::-webkit-details-marker{display:none}.collapse summary::before{content:'+';font-family:var(--face-mono);font-size:16px;line-height:16px;color:var(--accent-text)}.collapse[open] summary::before{content:'-'}.collapse[open] summary{margin-bottom:var(--s2)}}
 .tool-options{display:flex;flex-direction:column;gap:var(--s2)}
 dl{margin:0;display:flex;flex-direction:column;gap:var(--s2)}
 /* flag left, what it does right: the two read as one table without rules */
