@@ -21,7 +21,7 @@
   // EMAIL is the function's own pattern ($lib/shared.js), so the field says what is wrong before the server does
   const NEED: Record<string, (el: HTMLInputElement | HTMLTextAreaElement) => string> = {
     name: (el) => (el.value.trim() ? '' : 'Enter your name.'),
-    email: (el) => (!el.value.trim() ? 'Enter an email address I can reply to.' : !EMAIL.test(el.value.trim()) ? 'Check your email address, for example name@example.com.' : ''),
+    email: (el) => (!el.value.trim() ? 'Enter an email address I can reply to.' : !EMAIL.test(el.value.trim()) ? 'That doesn’t look like an email address. Try something like name@example.com.' : ''),
     message: (el) => (el.value.trim() ? '' : 'Tell me about the role or project.')
   };
   function validate(form: HTMLFormElement) {

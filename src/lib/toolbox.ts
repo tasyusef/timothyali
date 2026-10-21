@@ -61,7 +61,7 @@ export const APP = {
   platforms: ['macOS', 'Linux'],
   interfaces: ['App', 'CLI', 'MCP'],
   status: 'Released',
-  description: 'Package logos, export color palettes, make type specimens, and convert images. Toolbox runs on macOS and Linux, with command-line and MCP access.'
+  description: 'A desktop app for macOS and Linux that packages logos, exports palettes, makes type specimens, and converts images. It also works from a terminal and over MCP.'
 };
 
 export const home: Shot = shot('home', 'Toolbox on launch: the four tools, Lockup, Palette, Specimen and Convert, listed as a numbered index over a pixel sky.');
@@ -70,32 +70,32 @@ export const tools: Tool[] = [
   {
     n: '01', slug: 'lockup', name: 'Lockup',
     blurb: 'Package logos for print and web',
-    summary: 'Export your logo variations as an organized set of print and web files.',
-    whenToUse: 'Use Lockup to prepare a set of logo files for a client, developer, or printer. Add an SVG for each logo variation, then choose the formats, colors, and sizes you need. You can assign CMYK and Pantone print colors in the app, CLI, or MCP. To convert individual images, use Convert.',
-    produces: 'Your export contains WEB and PRINT folders, organized by logo variation, color treatment, and size. A README explains what’s included. Web formats are PNG, JPEG, and SVG; print formats are JPEG, PDF, and EPS.',
+    summary: 'Turn your logo variations into a set of print and web files.',
+    whenToUse: 'Lockup is for preparing a set of logo files for a client, developer, or printer. Add an SVG for each logo variation, then pick the formats, colors, and sizes you need. You can assign CMYK and Pantone print colors in the app, the CLI, or MCP. For one-off image conversions, use Convert.',
+    produces: 'You get WEB and PRINT folders, sorted by logo variation, color treatment, and size, plus a README that explains what’s in them. Web files come as PNG, JPEG, and SVG, and print files as JPEG, PDF, and EPS.',
     input: 'Vector SVGs',
     outputs: ['PNG', 'JPEG', 'SVG', 'PDF', 'EPS', 'README'],
     command: 'toolbox lockup logo.svg --print none --padding 0.1 --out .',
     params: machineParams.lockup,
-    shot: shot('lockup', 'Toolbox in the Lockup tool: a logo on a white plate, with format, treatment and size switches in the right rail and a count of 73 files.')
+    shot: shot('lockup', 'Toolbox in the Lockup tool: a logo on a white plate, with format, treatment and size switches on the right and a count of 73 files.')
   },
   {
     n: '02', slug: 'palette', name: 'Palette',
     blurb: 'Export palettes as code and swatches',
     summary: 'Export a color palette as code, Adobe swatches, or a reference sheet.',
-    whenToUse: 'Use Palette to prepare colors for a website, an Adobe project, or a brand guide. Enter hex values or import artwork. Toolbox reads fill colors from SVGs and extracts dominant colors from raster images.',
+    whenToUse: 'Palette gets colors ready for a website, an Adobe project, or a brand guide. Type in hex values or import artwork: Toolbox reads the fill colors from SVGs and pulls the dominant colors out of raster images.',
     produces: 'Choose CSS and SCSS variables, design tokens in JSON, Adobe swatches in ASE, or a palette sheet in PDF and PNG. Each export goes into a new folder.',
     input: 'Hex values, or artwork',
     outputs: ['CSS', 'SCSS', 'JSON', 'ASE', 'PDF', 'PNG'],
     command: "toolbox palette '#D32F05' '#003A5D' --name Acme --out .",
     params: machineParams.palette,
-    shot: shot('palette', 'Toolbox in the Palette tool: a poster filling the canvas, its colors sampled into a row of swatches, with the output files listed in the right rail.')
+    shot: shot('palette', 'Toolbox in the Palette tool: a poster filling the canvas, its colors sampled into a row of swatches, with the output files listed on the right.')
   },
   {
     n: '03', slug: 'specimen', name: 'Specimen',
     blurb: 'Make type specimen sheets',
     summary: 'Make a type specimen sheet from fonts installed on your computer.',
-    whenToUse: 'Use Specimen to show a typeface at different sizes or compare fonts for a brand guide. Install the fonts first, then choose a family, style, and size for each role, such as heading, body, or caption. The same settings are available in the app, CLI, and MCP.',
+    whenToUse: 'Specimen shows a typeface at different sizes, or puts fonts side by side for a brand guide. Install the fonts first, then pick a family, style, and size for each role, like heading, body, or caption. The app, the CLI, and MCP all have the same settings.',
     produces: 'A PDF and a PNG of the specimen sheet.',
     input: 'Installed fonts',
     outputs: ['PDF', 'PNG'],
@@ -107,13 +107,13 @@ export const tools: Tool[] = [
     n: '04', slug: 'convert', name: 'Convert',
     blurb: 'Convert and resize images',
     summary: 'Change image formats, resize images, and adjust compression.',
-    whenToUse: 'Use Convert to change image formats, resize files, or adjust compression. Both platforms can read PNG, JPEG, WebP, GIF, BMP, ICO, AVIF, and SVG. HEIC, TIFF, and PSD input requires macOS. For a full package of logo variations, use Lockup.',
-    produces: 'Each source image is exported in every format you select. If you select more than one format, the files are grouped into folders such as PNG and WebP.',
+    whenToUse: 'Convert changes image formats, resizes files, and adjusts compression. On both platforms it reads PNG, JPEG, WebP, GIF, BMP, ICO, AVIF, and SVG. HEIC, TIFF, and PSD need macOS. For a full package of logo variations, use Lockup.',
+    produces: 'You get each source image in every format you pick. Pick more than one format and the files are sorted into folders, like PNG and WebP.',
     input: 'PNG, JPEG, WebP, GIF, BMP, ICO, AVIF, SVG; HEIC, TIFF, PSD on macOS',
     outputs: ['PNG', 'JPEG', 'WebP', 'TIFF', 'PDF'],
     command: 'toolbox convert a.heic b.png --formats webp --compression 40 --out ~/Desktop',
     params: machineParams.convert,
-    shot: shot('convert', 'Toolbox in the Convert tool: two posters listed with their measured output sizes per format, and format, compression and edge controls in the right rail.')
+    shot: shot('convert', 'Toolbox in the Convert tool: two posters listed with their measured output sizes per format, and format, compression and edge controls on the right.')
   }
 ];
 

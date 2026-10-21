@@ -60,7 +60,7 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
   </section>
 
   <section class="text" id="setup">
-    <div class="side"><h2 class="display-s">Set up the command</h2><p class="body">Install Toolbox first. You can run it using the full executable path shown above, or set up the toolbox shortcut used in these examples. On macOS, run the command here to create that shortcut. Run the executable directly rather than using the macOS open command, which won’t return results to your terminal.</p></div>
+    <div class="side"><h2 class="display-s">Set up the command</h2><p class="body">Install Toolbox first. You can run it from the full executable path shown above, or set up the toolbox shortcut these examples use. On macOS, the command here creates that shortcut. Run the executable directly. The macOS open command won’t send results back to your terminal.</p></div>
     <div class="paras"><Code label="macOS shortcut" text={link} /></div>
   </section>
 
@@ -70,7 +70,7 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
       <Code label="Commands" text={commands} />
       <!-- three notes where there were seven (0199) -->
       <dl class="rules">
-        <div><dt class="lbl dim">Inputs</dt><dd class="body">Pass file paths to convert and lockup, or hex colors to palette, without a flag. Relative paths start from your current folder; quote paths that contain spaces.</dd></div>
+        <div><dt class="lbl dim">Inputs</dt><dd class="body">Pass file paths to convert and lockup, or hex colors to palette, without a flag. Relative paths start from your current folder. Put quotes around paths with spaces.</dd></div>
         <div><dt class="lbl dim">Lists and switches</dt><dd class="body">Separate values with spaces or commas: --formats webp png or --formats=webp,png. Use none to skip a group (--print none) and --no- to turn a switch off (--no-social).</dd></div>
         <div><dt class="lbl dim">Output</dt><dd class="body">--out writes into a new folder inside the destination, leaving existing files alone. Add --json for a JSON result. Exit codes: 0 success, 1 failed, 2 invalid; errors go to stderr.</dd></div>
       </dl>
@@ -78,7 +78,7 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
   </section>
 
   <section class="text" id="advanced">
-    <div class="side"><h2 class="display-s">Advanced</h2><p class="body">Assign print colors, adjust logo variations, and define font roles (from version 1.1.0). Structured flags such as --palette and --roles take a quoted JSON array; MCP takes the same arrays without quoting. Use inspect to find the colors in your artwork and fonts to list installed families.</p><p class="body">--action inspect shows what will be exported without writing files; --action preview with --out saves previews. Add --save to keep the settings in the app’s library, then reopen them with the savedID the result returns.</p></div>
+    <div class="side"><h2 class="display-s">Advanced</h2><p class="body">From version 1.1.0 you can also assign print colors, adjust logo variations, and set font roles. Structured flags like --palette and --roles take a JSON array in quotes. Over MCP, pass the same arrays without quotes. Use inspect to find the colors in your artwork and fonts to list installed families.</p><p class="body">--action inspect shows what will be exported without writing files. --action preview with --out saves previews. Add --save to keep the settings in the app’s library, then reopen them with the savedID in the result.</p></div>
     <div class="paras"><Code label="Print colors, type, and saved work" text={advanced + '\n' + library} /></div>
   </section>
 
@@ -89,7 +89,7 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
   </section>
 
   <section class="text" id="list">
-    <div class="side"><h2 class="display-s">List</h2><p class="body">Run toolbox list for a JSON catalog of all four tools, with descriptions, argument schemas, and examples. Use toolbox describe followed by a tool name for a single tool.</p></div>
+    <div class="side"><h2 class="display-s">List</h2><p class="body">Run toolbox list to get a JSON catalog of all four tools, with descriptions, argument schemas, and examples. For one tool, run toolbox describe and the tool’s name.</p></div>
     <div class="paras"><Code label="List" text={list} /></div>
   </section>
 
@@ -99,7 +99,7 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
   </section>
 
   <section class="text" id="serve">
-    <div class="side"><h2 class="display-s">Serve</h2><p class="body">To connect an AI assistant, add this server configuration to its MCP settings, using the executable path for your platform. --mcp serves the tools over standard input and output. Claude Code reads project settings from .mcp.json.</p><p class="body">Then ask your assistant to convert screenshots to WebP, package logo SVGs, or extract colors from artwork, with the source files and destination folder in your request.</p></div>
+    <div class="side"><h2 class="display-s">Serve</h2><p class="body">To connect an AI assistant, add this server configuration to its MCP settings, using the executable path for your platform. --mcp serves the tools over standard input and output. Claude Code reads project settings from .mcp.json.</p><p class="body">Then ask your assistant to convert screenshots to WebP, package logo SVGs, or pull colors from artwork. Tell it where the source files are and which folder to save to.</p></div>
     <div class="paras"><Code label="Serve the tools" text="toolbox --mcp" /><Code label=".mcp.json" text={mcp} /></div>
   </section>
 

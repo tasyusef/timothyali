@@ -90,12 +90,16 @@
         <div><dt class="lbl dim">Tools</dt><dd class="read">{p.tools}</dd></div>
         {#if p.live}<div><dt class="lbl dim">Live</dt><dd class="read"><QuietLink text="inherit" href={p.live.href} label={p.live.label} /></dd></div>{/if}
         {#if p.source}<div><dt class="lbl dim">Source</dt><dd class="read"><QuietLink text="inherit" href={p.source.href} label={p.source.label} /></dd></div>{/if}
-        {#if p.watch}<div><dt class="lbl dim">With sound</dt><dd class="read"><QuietLink text="inherit" href={p.watch.href} label={p.watch.label} /></dd></div>{/if}
+        {#if p.watch}<div class:by-clip={p.hero.some((m) => m.video)}><dt class="lbl dim">With sound</dt><dd class="read"><QuietLink text="inherit" href={p.watch.href} label={p.watch.label} /></dd></div>{/if}
       </dl>
     </div>
   </section>
 
-  <section class="gallery hero-row">{@render gallery([p.hero], true)}</section>
+  <section class="gallery hero-row">
+    {@render gallery([p.hero], true)}
+    <!-- the clip here is silent; the cut with its soundtrack is on YouTube (0139, 0216) -->
+    {#if p.watch && p.hero.some((m) => m.video)}<p class="read"><QuietLink text="inherit" href={p.watch.href} label="Watch it with sound on YouTube" /></p>{/if}
+  </section>
 
   {#each parts as part, i}
     {#if part.kind === 'list'}
@@ -173,5 +177,7 @@ main :global(.head){display:flex;flex-direction:column;align-items:flex-start;ga
   /* a caption in the reading face, sentence case, above the screens it names: in pixel
      capitals under a stack of four it read as a fifth label, far from the first image */
   .cap{order:-1}
+  /* the sound link sits under the clip, just above the details here; one is enough (0216) */
+  .meta .by-clip{display:none}
 }
 </style>

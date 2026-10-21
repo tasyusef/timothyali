@@ -88,12 +88,12 @@ const source: Source[] = [
     role: 'Designer & developer, sole creator',
     tools: 'Figma, Next.js, TypeScript, Tailwind CSS, Recharts, PostgreSQL, ClickHouse, Neo4j, WebSockets, SSE',
     source: { href: 'https://github.com/tasyusef/sonde_os', label: 'sonde_os on GitHub' },
-    description: 'An XRP Ledger explorer I designed, built, and ran, with portfolio tracking, wallet scoring, and fund tracing. Now open source.',
+    description: 'An XRP Ledger explorer I designed, built, and ran by myself. It had portfolio tracking, wallet scoring, and fund tracing, and the code is open source now.',
     // Covers for the three products are the app large on its own dark ground under its logo
     // (direction B, 2026-09-29), rendered by tools/covers/generate.mjs.
     cover: ph(so('cover.png', 2880, 1620, 'The Sonde logo over its portfolio page: total portfolio value, a performance chart, and allocation'), 1200, 675),
     lead: [
-      "Sonde was an XRP Ledger explorer with network analytics, portfolio tracking, and tools for investigating account activity. I designed, built, and ran it myself."
+      "Sonde was an XRP Ledger explorer with network analytics, portfolio tracking, and tools for investigating account activity. I designed and built it myself and kept it running."
     ],
     // The account page's content, cut from the 2560px capture (PX-52, PX-53): the app fills only
     // the middle of its frame, so the full capture showed its type at about 86%.
@@ -107,35 +107,35 @@ const source: Source[] = [
       ] },
       { type: 'gallery', note: 'Balance, value, reserve, and account age sit above the tabs.', rows: [[sc('account-balance', 1248, 413, 'Sonde account balance card: 157.199903 XRP, total value, reserve, and age above the account tabs', [752, 309])]] },
       { type: 'text', title: 'Different levels of detail', paras: [
-        "Someone new to the ledger might only need an account’s holdings. A trader might want profit and loss, cost basis, and allocation. An analyst might need raw transactions or fund tracing. I organized the tabs so people could get to the level of detail they needed."
+        "I organized the tabs by how much detail people wanted. Someone new to the ledger might only care about an account’s holdings. A trader wants profit and loss, cost basis, and allocation, and an analyst wants raw transactions or fund tracing."
       ] },
-      { type: 'gallery', note: 'For a trader: portfolio value, performance over time, and allocation.', rows: [[sc('portfolio', 1786, 1168, 'Sonde portfolio: total value, performance chart, allocation, and watchlist', [797, 520])]] },
-      { type: 'gallery', note: 'For an analyst: a transaction’s balance changes and the ledger nodes it touched.', rows: [[sc('transaction', 1786, 704, 'Sonde transaction detail: balance changes and affected ledger nodes', [1021, 352])]] },
+      { type: 'gallery', note: 'Traders could see portfolio value, performance over time, and allocation.', rows: [[sc('portfolio', 1786, 1168, 'Sonde portfolio: total value, performance chart, allocation, and watchlist', [797, 520])]] },
+      { type: 'gallery', note: 'Analysts could see a transaction’s balance changes and the ledger nodes it touched.', rows: [[sc('transaction', 1786, 704, 'Sonde transaction detail: balance changes and affected ledger nodes', [1021, 352])]] },
       { type: 'text', title: 'Loading and live updates', paras: [
-        "Search accepted addresses, transaction IDs, ledger numbers, and token names. Account pages had twelve tabs covering transactions, holdings, NFTs, liquidity pools, offers, and escrows. Each section loaded separately, so people could read the balance and holdings while the rest loaded. During live updates, existing data stayed visible until the new results arrived.",
-        "Beyond account pages, I built network metrics, price charts, trading views, a wallet-connected portfolio, and a token directory. The app, analytics, and fund-tracing tools used separate databases."
+        "You could search by address, transaction ID, ledger number, or token name. Account pages had twelve tabs, from transactions and holdings to NFTs, liquidity pools, offers, and escrows. Each section loaded on its own, so people could read the balance and holdings while the rest came in. During live updates, the old data stayed on screen until the new results arrived.",
+        "Outside the account pages, I built network metrics, price charts, trading views, a wallet-connected portfolio, and a token directory. The app, the analytics, and the fund-tracing tools each had their own database."
       ] },
-      { type: 'gallery', note: 'Network insights: the live price, market figures, and the price chart.', rows: [[sc('network', 1786, 1024, 'Sonde network insights: live XRP price, market cap, and a candlestick chart', [989, 400])]] },
-      { type: 'gallery', note: 'A token page for Sologenic (SOLO): price, market figures, the price chart, the order book, and top holders.', rows: [[sc('token', 1770, 1330, 'Sonde token page for Sologenic (SOLO): price, market cap, volume, holders, a price chart, the order book, and top holders', [870, 650])]] },
+      { type: 'gallery', note: 'Network insights, with the live price and market figures above the price chart.', rows: [[sc('network', 1786, 1024, 'Sonde network insights: live XRP price, market cap, and a candlestick chart', [989, 400])]] },
+      { type: 'gallery', note: 'The token page for Sologenic (SOLO) shows its price, market figures, price chart, order book, and top holders.', rows: [[sc('token', 1770, 1330, 'Sonde token page for Sologenic (SOLO): price, market cap, volume, holders, a price chart, the order book, and top holders', [870, 650])]] },
       { type: 'text', title: 'Scoring wallets, tracing funds', paras: [
-        "Investigation tools scored wallets by profitability and consistency, traced funds through up to six transfers, and flagged possible wash trading."
+        "The investigation tools scored wallets on profitability and consistency, traced funds through up to six transfers, and flagged possible wash trading."
       ] },
-      { type: 'gallery', note: 'One wallet’s score out of 100, the factors behind it, and its history.', rows: [[sc('smart-money-detail', 1786, 728, 'Sonde Smart Money detail: a score of 64 out of 100, its score factors, and score history', [887, 728])]] },
-      { type: 'gallery', note: 'The leaderboard: scored wallets ranked by PnL, win rate, and Sharpe.', rows: [[sc('smart-money', 1786, 592, 'Sonde Smart Money leaderboard: scored wallets ranked by PnL, win rate, and Sharpe', [989, 592])]] },
+      { type: 'gallery', note: 'A wallet’s score out of 100, what went into it, and how it has changed.', rows: [[sc('smart-money-detail', 1786, 728, 'Sonde Smart Money detail: a score of 64 out of 100, its score factors, and score history', [887, 728])]] },
+      { type: 'gallery', note: 'The leaderboard ranks scored wallets by PnL, win rate, and Sharpe.', rows: [[sc('smart-money', 1786, 592, 'Sonde Smart Money leaderboard: scored wallets ranked by PnL, win rate, and Sharpe', [989, 592])]] },
       { type: 'text', title: 'Questions in plain English', paras: [
         "Ask the Ledger let people ask questions in plain English. The AI assistant could query the investigation tools as part of the conversation."
       ] },
-      { type: 'gallery', note: 'Ask the Ledger opens on suggested questions.', rows: [[sc('ask', 1786, 432, 'Ask the Ledger: natural-language queries over the XRP Ledger, with suggested questions', [861, 432])]] },
+      { type: 'gallery', note: 'Ask the Ledger opens on suggested questions.', rows: [[sc('ask', 1786, 432, 'Ask the Ledger, with suggested questions about the XRP Ledger to start from', [861, 432])]] },
       { type: 'text', title: 'Name and visual identity', paras: [
         "A sonde is a measuring probe, which felt like a good name for a ledger explorer. I used dark slate backgrounds with a salmon accent (#E8856C) for key metrics and live indicators.",
-        "I used Satoshi for headings, DM Sans for interface text, and IBM Plex Mono for addresses, hashes, and amounts. Small colored tags identify transaction types, including payments, trades, NFTs, trust lines, and liquidity-pool activity."
+        "Headings are in Satoshi and interface text in DM Sans. Addresses, hashes, and amounts are in IBM Plex Mono. Each transaction type gets a small colored tag, so payments, trades, NFTs, trust lines, and liquidity-pool activity are easy to tell apart."
       ] },
       { type: 'gallery', note: 'The landing page uses the same salmon accent as the app.', rows: [[sc('landing', 1344, 416, 'Sonde landing page: Decode the XRPL, with Ask the Ledger and Portfolio buttons', [768, 368])]] },
-      { type: 'gallery', note: 'A ledger’s 70 transactions, each type marked by a small colored tag.', rows: [[sc('ledger', 1770, 780, 'Sonde ledger page: ledger 105484434, its close time and 70 transactions, each tagged OfferCreate or Payment', [870, 780])]] },
+      { type: 'gallery', note: 'A ledger’s 70 transactions, each with a small colored tag for its type.', rows: [[sc('ledger', 1770, 780, 'Sonde ledger page: ledger 105484434, its close time and 70 transactions, each tagged OfferCreate or Payment', [870, 780])]] },
       { type: 'text', title: 'Outcome', paras: [
-        "Sonde launched with a public explorer, analytics, and paid portfolio and investigation tools. Subscriptions accepted fiat and crypto. I later made the full explorer free, with Claude-powered questions available on the $5-a-month Pro plan. I handled design, development, and operations. When infrastructure costs exceeded subscription revenue, I closed the hosted app and released the code on GitHub under the MIT license."
+        "Sonde launched with a public explorer and analytics, plus paid portfolio and investigation tools. People could pay in fiat or crypto. Later I made the whole explorer free and put the Claude-powered questions on a $5-a-month Pro plan. I did the design, the development, and the day-to-day running of it. When the infrastructure cost more than subscriptions brought in, I shut down the hosted app and put the code on GitHub under the MIT license."
       ] },
-      { type: 'gallery', note: 'July 2026 pricing: a free explorer and a $5-a-month Pro plan for Claude-powered questions.', rows: [[sc('pricing', 990, 1030, 'Sonde pricing: Explorer free with the full explorer; Pro at $5 a month for natural-language queries powered by Claude')]] }
+      { type: 'gallery', note: 'By July 2026 the explorer was free, and Claude-powered questions were on the $5-a-month Pro plan.', rows: [[sc('pricing', 990, 1030, 'Sonde pricing: Explorer free with the full explorer; Pro at $5 a month for natural-language queries powered by Claude')]] }
     ]
   },
   {
@@ -151,36 +151,36 @@ const source: Source[] = [
     description: 'A personal finance app for budgets, accounts, and investments. I designed the product and brand and built the front end.',
     cover: ph(pw('cover.png', 2880, 1620, 'The Pocketwatch logo over its dashboard: money agenda, net-worth composition, investments, and spending pace'), 1200, 675),
     lead: [
-      "Pocketwatch brought budgeting, net worth, and investments into one app. I handled product design, branding, and the front end. My partner Chris built the backend, including authentication, and ran the business side."
+      "Pocketwatch put budgeting, net worth, and investments in one app. I designed the product and the brand and built the front end. My partner Chris built the backend, including authentication, and ran the business side."
     ],
     // The product leads (PX-52); the launch graphics move to Brand identity.
     hero: [ph(pw('app-dashboard.png', 1600, 1121, 'Pocketwatch dashboard: money agenda, composition, investments, wealth velocity, and cash flow'), 480, 583)],
     blocks: [
       { type: 'text', title: 'Accounts, budgets, and investments', paras: [
-        "Pocketwatch combined zero-based budgeting, a transaction ledger for cash and credit accounts, investment tracking, manually entered assets, and net worth. I needed to make the relationship between those views clear, so people could tell which accounts and balances they were looking at.",
+        "Pocketwatch had zero-based budgeting, one transaction ledger for cash and credit accounts, investment tracking, manually entered assets, and net worth. With that many views, the hard part was making it obvious which accounts and balances you were looking at.",
         "I designed and built the front end in SvelteKit 2 and Svelte 5, including mobile layouts and loading, empty, and error states. Chris built the backend with Express, Drizzle, and Postgres."
       ] },
       { type: 'gallery', note: 'One transaction ledger across cash and credit accounts.', rows: [[ph(pw('app-accounts.png', 1600, 1000, 'Pocketwatch accounts: one transaction ledger across cash and credit accounts'), 560, 630)]] },
-      { type: 'gallery', note: 'Investments and net worth, derived from every account, holding, and manual asset.', rows: [[ph(pw('app-investments.png', 1600, 1230, 'Pocketwatch investments: total return, portfolio value, allocation, and dividend income'), 576, 701), pw('app-networth.png', 1600, 1198, 'Pocketwatch net worth, derived from every account, holding, and manual asset')]] },
+      { type: 'gallery', note: 'Investments and net worth, worked out from every account, holding, and manual asset.', rows: [[ph(pw('app-investments.png', 1600, 1230, 'Pocketwatch investments: total return, portfolio value, allocation, and dividend income'), 576, 701), pw('app-networth.png', 1600, 1198, 'Pocketwatch net worth, derived from every account, holding, and manual asset')]] },
       { type: 'text', title: 'Color in the app', paras: [
         "Inside the app, I kept the interface neutral so category colors, gains, losses, and warnings were easy to pick out. People chose an emoji and one of ten colors for each category. The citron green was mostly reserved for marketing.",
-        "I defined shared styles for type, color, spacing, and motion. Headings use Satoshi, interface text uses Inter, and figures use JetBrains Mono so balances line up in tables. The motion settings also include a reduced-motion mode."
+        "I set up shared styles for type, color, spacing, and motion. Headings are in Satoshi and interface text in Inter. Figures use JetBrains Mono so balances line up in tables. The motion settings have a reduced-motion mode too."
       ] },
-      { type: 'gallery', note: 'The budget: every dollar assigned, with a Ready-to-Assign figure.', rows: [[ph(pw('app-budget.png', 1600, 1000, 'Pocketwatch budget: every dollar assigned, with a Ready-to-Assign figure'), 576, 670)]] },
+      { type: 'gallery', note: 'The budget assigns every dollar and shows a Ready-to-Assign figure.', rows: [[ph(pw('app-budget.png', 1600, 1000, 'Pocketwatch budget: every dollar assigned, with a Ready-to-Assign figure'), 576, 670)]] },
       { type: 'text', title: 'Brand identity', paras: [
         "The logo is an eye peeking out of a pocket. I wanted a slightly odd little character that worked as both an app icon and part of the wordmark.",
         "I paired it with a Satoshi wordmark and a near-black, white, and citron-green palette."
       ] },
       { type: 'gallery', note: 'Launch graphics on electric lime and violet.', rows: [[pw('hero.png', 1200, 1200, 'Pocketwatch: all your money in one place. Dashboard with net worth, investments, and money agenda on electric lime'), pw('hero-invest.png', 1200, 628, 'Pocketwatch campaign: watch your investments move, live position tickers on violet')]] },
       { type: 'text', title: 'The campaign', paras: [
-        "The campaign used saturated lime, violet, and pink backgrounds with large condensed type. Each ad focused on one feature, such as budgeting or investments. The eye-in-a-pocket mark connected those brighter graphics to the app."
+        "For the campaign I used saturated lime, violet, and pink backgrounds with big condensed type. Each ad was about one feature, like budgeting or investments. The eye-in-a-pocket mark tied the louder graphics back to the app."
       ] },
-      { type: 'gallery', note: 'One feature per ad, each on its own color.', rows: [
+      { type: 'gallery', note: 'Each ad covers one feature on its own color.', rows: [
         [pw('ad-both.png', 1200, 628, 'Pocketwatch campaign: budgeting and investing in one place, on electric lime'), pw('ad-analytics.png', 1200, 628, 'Pocketwatch campaign: see where it all goes, category breakdown on pink')],
         [pw('ad-networth.png', 1200, 1200, 'Pocketwatch campaign: know exactly what you are worth, net worth tracking on sky blue'), pw('ad-invest.png', 960, 1200, 'Pocketwatch campaign: your portfolio, priced live, investments on violet'), pw('ad-budget.png', 1200, 1200, 'Pocketwatch campaign: every dollar, accounted for, zero-based budget on orange'), pw('ad-ledger.png', 1200, 1200, 'Pocketwatch campaign: every account in one place, unified ledger on mint green')]
       ] },
       { type: 'text', title: 'Outcome', paras: [
-        "Pocketwatch launched as a subscription web app with a free trial and billing through Stripe. We shut it down in 2026: it was too expensive to keep running, and we never worked out how to market it."
+        "Pocketwatch launched as a subscription web app with a free trial and billing through Stripe. We shut it down in 2026 because it cost too much to run and we never worked out how to market it."
       ] }
     ]
   },
@@ -196,23 +196,23 @@ const source: Source[] = [
     timeline: 'Started August 2026; version 1.1.1 released September 2026',
     tools: 'Electron, Svelte 5, TypeScript, Effect, Claude Code',
     live: { href: '/toolbox/', label: 'Downloads and guides' },
-    description: 'A desktop app I designed and built to prepare brand files for handoff: logo packages, color palettes, type specimens, and converted images.',
+    description: 'A desktop app I designed and built for getting brand files ready to hand off. It packages logos, exports palettes, makes type sheets, and converts images.',
     cover: { src: '/work/toolbox/cover.png', phone: { src: '/work/toolbox/cover-phone.png', w: 1200, h: 675 }, w: 2880, h: 1620, alt: 'The toolbox wordmark over the app’s home screen: Lockup, Palette, Specimen, and Convert' },
     lead: [
-      "I designed and built Toolbox to handle the file preparation that comes with brand work. It packages logos for print and web, exports color palettes, makes type specimens, and converts images. It runs on macOS and Linux, with the same tools available from the app, command line, or an AI assistant through MCP."
+      "I designed and built Toolbox for the file prep that comes with brand work. It packages logos for print and web, exports color palettes, makes type specimens, and converts images. It runs on macOS and Linux, and every tool also works from the command line or through an AI assistant over MCP."
     ],
     // The app shares this site's chrome, so the home screen would read as part of the page; the
     // Lockup screen leads and the home screen sits in the gallery at half width.
     hero: [tbTools[0].shot],
     blocks: [
       { type: 'text', title: 'Four tools', paras: [
-        "Lockup turns logo SVGs into a folder of print and web files, with color, black, and white versions, multiple sizes, optional social images, and a README. PDF and EPS exports support named Pantone spot colors. Palette makes code, swatches, and reference sheets from a set of colors. Specimen makes type sheets from installed fonts. Convert handles image formats, resizing, and compression.",
-        "Projects keep each client or job together. You can save the settings, reopen the work, and export it again. Each export gets a new folder, so earlier deliveries stay intact. The project library and exported files are stored on your computer."
+        "Lockup turns logo SVGs into a folder of print and web files. You get color, black, and white versions in several sizes, a README, and social images if you want them. PDF and EPS exports can carry named Pantone spot colors. Palette turns a set of colors into code, swatches, and reference sheets. Specimen makes type sheets from your installed fonts, and Convert changes image formats, sizes, and compression.",
+        "Projects keep each client or job together. You can save the settings, reopen the work later, and export it again. Every export goes in a new folder, so earlier deliveries are left alone. The library and the exported files stay on your computer."
       ] },
       { type: 'gallery', note: 'Palette extracts colors from artwork. Specimen previews a type sheet.', rows: [[tbTools[1].shot, tbTools[2].shot]] },
       { type: 'gallery', note: 'Convert shows the output size for each format. The home screen lists all four tools.', rows: [[tbTools[3].shot, tbHome]] },
       { type: 'text', title: 'App, command line, and agents', paras: [
-        "The command line and MCP server support the same settings as the app. Scripts and AI assistants can inspect source files, preview results, reopen saved work, and export without opening a window.",
+        "The command line and the MCP server take the same settings as the app, so a script or an AI assistant can inspect source files, preview results, reopen saved work, and export without opening a window.",
         "The app shares its terminal look and several components with this site."
       ] },
       { type: 'text', title: 'Outcome', paras: [
@@ -235,17 +235,17 @@ const source: Source[] = [
     description: 'A new identity and website for the NFT club I cofounded in 2021, including a custom pixel typeface, live collection stats, and a rowing game.',
     cover: { src: '/work/parc.png', w: 1600, h: 900, alt: 'PARC’s four-color pixel letters on a white sign floating in a pixel-cloud sky' },
     lead: [
-      "I cofounded Pixel Ape Rowboat Club in 2021 and have led its branding and art direction since. In 2026, I redesigned the identity around the apes’ 5×5 grid, made the PARC Pixel typeface, and built a new website with live stats, a gallery, merch, and a rowing game."
+      "I cofounded Pixel Ape Rowboat Club in 2021 and have led its branding and art direction since. In 2026, I redesigned the identity around the apes’ 5×5 grid and made a typeface for it, PARC Pixel. Then I built a new website with live stats, a gallery, merch, and a rowing game."
     ],
     hero: [pa('sign-sky.png', 1600, 900, 'The new PARC box logo: four-color pixel letters on a white sign with notched corners, floating in a pixel-cloud sky')],
     blocks: [
       { type: 'text', title: 'Where it started', paras: [
         'PARC started in November 2021 as a joke. People were treating pixel apes as status symbols, and we thought that was ridiculous. Bored Apes had yachts. Ours had rowboats. 10,000 pixel apes on the XRP Ledger, no clout included.',
         "People stayed anyway. By 2026, PARC had four collections, a Twitch show, an arcade, merch, and its own lore. I run it with xrpl_adam on development, sloppy on marketing, and stove drawing the apes with me. The old identity no longer matched what we were making.",
-        "The apes started with the Game Boy Advance Pokémon games as a reference: flat color, chunky pixels, sprites you could recognize at a glance. We built a world around them with islands, rowboats, volcanoes, and wooden huts. The rebrand needed to belong in that world."
+        "The apes were drawn with the Game Boy Advance Pokémon games in mind: flat color, chunky pixels, sprites you could recognize at a glance. We built them a world of islands, rowboats, volcanoes, and wooden huts, and the rebrand had to look like it belonged there."
       ] },
       { type: 'text', title: 'An earlier direction', paras: [
-        "Around 2024, I explored splitting the club into three branches: The Rowboat Club, The Parcade, and The Nightclub. Each had a black pixel wordmark and an icon: an oar, a red joystick, or a red microphone. We liked the design, but it felt too serious and dark for PARC. We set it aside."
+        "Around 2024, I tried splitting the club into three branches: The Rowboat Club with an oar, The Parcade with a red joystick, and The Nightclub with a red microphone, each with a black pixel wordmark. We liked how it looked, but it felt too serious and dark for PARC, so we set it aside."
       ] },
       { type: 'gallery', note: 'Set aside, around 2024', rows: [
         [pa('first-direction.png', 1600, 1000, 'The earlier direction: three black pixel lockups on white, The Nightclub with a red microphone, The Parcade with a red joystick, and The Rowboat Club with an oar')]
@@ -263,12 +263,12 @@ const source: Source[] = [
         '“Love it, great website update, looks amazing” / @BrandoWoodz, X'
       ] },
       { type: 'text', title: 'Logo, color, and spacing', paras: [
-        "I made a wide logo, a square lockup, and an oar badge. They share a cell grid and notched corners, with two cells of clear space on every side. The final artwork uses merged paths so it can go straight into print and web files.",
-        "The palette has five colors. Individual elements use a single color; the logo uses four. I specified hex values for web and CMYK for print, and ruled out yellow type on white because it’s hard to read.",
+        "I made a wide logo, a square lockup, and an oar badge, all on the same cell grid with notched corners and two cells of clear space around them. The final artwork is merged paths, so it goes straight into print and web files.",
+        "The palette has five colors. The logo uses four of them, and everything else uses one at a time. I gave hex values for web and CMYK for print, and ruled out yellow type on white because it’s hard to read.",
         "The oar works as a favicon, a badge, and a divider. I also put it on the typeface’s equals key so it’s easy to use in a line of text."
       ] },
       { type: 'text', title: 'The typeface', paras: [
-        "I built PARC Pixel from the four letters in the logo: one-cell strokes, open counters, and stepped diagonals. Scripts derive the family from the logo’s grid: three weights and a monospaced version for scores and prices, 56 glyphs in each. It took four days from the first glyph to the finished family.",
+        "I built PARC Pixel from the four letters in the logo, keeping their one-cell strokes, open counters, and stepped diagonals. Scripts generate the family from the logo’s grid: three weights and a monospaced version for scores and prices, with 56 glyphs in each. It took four days from the first glyph to the finished family.",
         "The scripts struggled with some characters, especially the number 2. I built a small editor to place pixels by hand, then used the scripts to compile the fonts. I drew 29 glyphs across the family this way, including the bold 2, the oar, and all three at-signs, and checked them in words at reading size."
       ] },
       { type: 'gallery', rows: [
@@ -276,22 +276,22 @@ const source: Source[] = [
         [pa('three-weights-a.png', 1600, 1200, 'PARC Pixel specimen on white: the letter A in Bold 700, Regular 400, and Light 300'), pa('anatomy-sheet.png', 1600, 1200, 'PARC Pixel specimen on white: the Bold R on its 11 by 11 cell grid'), pa('mono-numerals-sky.png', 1600, 1200, 'PARC Pixel Mono numerals 0 to 9 on the sky colorway')]
       ] },
       { type: 'text', title: 'Streams, merch, and social', paras: [
-        "Beyond the site, the identity runs through Discord, X, Twitch, merch, and the arcade. After Darc, the club’s Twitch show, has its own graphics and a starting-soon animation for the stream."
+        "Outside the site, the identity shows up on Discord, X, Twitch, merch, and the arcade. After Darc, the club’s Twitch show, has its own graphics and a starting-soon animation."
       ] },
       { type: 'gallery', rows: [
         [{ src: '/work/video/parc-after-darc-intro.mp4', small: '/work/video/parc-after-darc-intro.phone.mp4', tap: true, w: 1920, h: 1080, video: true, poster: '/work/parc/after-darc-poster.jpg', alt: 'PARC After Darc starting-soon screen: a pixel sun over the sea with a rowboat drifting past, looped before the stream' }],
         [pa('after-darc-announce.png', 1600, 1600, 'PARC After Darc new-stream graphic: the wordmark over a pixel sunset, Saturday 9pm UTC on Twitch'), pa('after-darc-live.png', 1600, 1600, 'PARC After Darc live-now graphic: the wordmark over a pixel night sky and moon'), pa('parcade-scores.jpg', 1600, 1600, 'PARCade high-score board in PARC Pixel Mono'), pa('larc-teaser.jpg', 1600, 1600, 'LARC teaser: glitched terminal text on black announcing the next collection')]
       ] },
       { type: 'text', title: 'The website', paras: [
-        "PARC had outgrown its Squarespace site. The club now had four collections, a token, a Twitch show, an arcade, and merch. I designed a new site to bring them together and built it with Claude Code, directing the implementation and reviewing each screen.",
+        "PARC had outgrown its Squarespace site. The club now had four collections, a token, a Twitch show, an arcade, and merch. I designed a new site to bring them together and built it with Claude Code, directing the work and reviewing every screen.",
         "I built the site around the logo’s pixel grid and the club’s island setting. The Clubhouse, Gallery, and PARCade each have their own place in that world. The home page opens with the wordmark on a notched paper card. Inner pages use a jungle canopy, drifting clouds, and a wooden sign for the title and introduction.",
-        "The notch runs through the whole site: 6px on buttons, 10px on cards, and 12px on panels. Buttons sit above a darker base, lift on hover, and drop when pressed. Movement follows the pixels too: buttons move in steps, water shifts one cell at a time, and dropdowns open line by line. The animated backgrounds switch to still versions with reduced motion."
+        "The notch shows up everywhere: 6px on buttons, 10px on cards, 12px on panels. Buttons sit on a darker base, lift on hover, and drop when you press them. The motion is pixel-based too. Buttons move in steps, water shifts one cell at a time, and dropdowns open line by line. With reduced motion on, the animated backgrounds hold still."
       ] },
       { type: 'gallery', rows: [
-        [ps('home-hero.png', 1440, 900, 'parcxrpl.com home: the Pixel Ape Rowboat Club sign on a notched paper card over the scatter texture, under the green nav'), desk(ps('home-collections.png', 1440, 900, 'parcxrpl.com collections: PARC, Monkey Phunks, and PARC Customs as paper cards on the sky'))]
+        [ps('home-hero.png', 1440, 900, 'parcxrpl.com home: the Pixel Ape Rowboat Club sign on a notched paper card over a scattered texture, under the green navigation'), desk(ps('home-collections.png', 1440, 900, 'parcxrpl.com collections: PARC, Monkey Phunks, and PARC Customs as paper cards on the sky'))]
       ] },
       { type: 'text', title: 'Stats first', paras: [
-        "I put Stats first in the navigation so holders could get to it quickly. It shows floor prices, trading volume, holders, and listings for the collections, alongside $OAR token data. The numbers come from the ledger and marketplace APIs. Daily snapshots feed the charts, with history starting at launch."
+        "I put Stats first in the navigation so holders could find it fast. It has floor prices, trading volume, holders, and listings for each collection, plus $OAR token data. The numbers come from the ledger and marketplace APIs, and daily snapshots feed the charts, going back to launch."
       ] },
       { type: 'gallery', rows: [
         [ps('stats-top.png', 1440, 900, 'parcxrpl.com Club Stats: the $OAR card with price, volume, market cap, holders, and two pixel bar charts')]
@@ -301,25 +301,25 @@ const source: Source[] = [
         "The Clubhouse took three layouts to get right. It ended up with a TV playing the Twitch stream, a trophy shelf, and a corkboard for events, suspended from branches. I checked the ropes at different screen widths to keep them attached."
       ] },
       { type: 'gallery', rows: [
-        [ps('gallery-top.png', 1440, 900, 'parcxrpl.com Gallery: the hanging sign with collection chips, and the generative apes on clotheslines between two trees'), desk(ps('community-top.png', 1440, 900, 'parcxrpl.com Clubhouse: the hanging sign, the TV on its branch, and the cork notice board'))]
+        [ps('gallery-top.png', 1440, 900, 'parcxrpl.com Gallery: the hanging sign with a button for each collection, and the generative apes on clotheslines between two trees'), desk(ps('community-top.png', 1440, 900, 'parcxrpl.com Clubhouse: the hanging sign, the TV on its branch, and the cork notice board'))]
       ] },
       { type: 'text', title: 'PARCade', paras: [
-        "PARCade is an arcade cabinet with a green CRT screen, scanlines, a joystick, and buttons that control the menu. On the homepage, a smaller screen shows the game cover beside live high scores, surrounded by scenery built from the game’s sprites.",
-        "I also made Rowboat Racer: an ape rowing down a five-lane river, dodging logs, reefs, and ziggurats. I drew the sprites on a 3px grid. The riverbanks change between beach, jungle, rock, and village scenery on each run. The server replays a run before accepting its score on the leaderboard."
+        "PARCade is an arcade cabinet with a green CRT, scanlines, a joystick, and buttons that work the menu. On the homepage, a smaller screen shows the game cover next to live high scores, with scenery built from the game’s sprites around it.",
+        "I also made Rowboat Racer, where an ape rows down a five-lane river dodging logs, reefs, and ziggurats. I drew the sprites on a 3px grid. The riverbanks change between beach, jungle, rock, and village scenery on each run. The server replays a run before accepting its score on the leaderboard."
       ] },
       { type: 'gallery', rows: [
-        [ps('home-arcade.png', 1440, 900, 'parcxrpl.com PARCade band: the Rowboat Racer cover on a CRT and live high scores over the game’s island'), desk(ps('parcade-library.png', 1440, 900, 'parcxrpl.com PARCade booted: the game library with Rowboat Racer live and two cabinets coming soon'))],
+        [ps('home-arcade.png', 1440, 900, 'The PARCade section of parcxrpl.com: the Rowboat Racer cover on a CRT and live high scores over the game’s island'), desk(ps('parcade-library.png', 1440, 900, 'parcxrpl.com PARCade switched on: the game library, with Rowboat Racer playable and two cabinets coming soon'))],
         [ps('game-run.png', 1280, 900, 'Rowboat Racer mid-run: the boat between a beach bank and a jungle bank, coins ahead, obstacles in their lanes'), desk(ps('game-sprites.png', 832, 1000, 'Rowboat Racer sprite sheet: the boat, obstacles, pickups, and bank props on the 3px grid'))]
       ] },
       { type: 'text', title: 'Merch & community', paras: [
-        "I originally planned to link out to the merch store. Using its API meant I could put the catalog on the site and send people to the store only for checkout. Other sections have their own details: TV static for After Darc, drifting chat bubbles for Discord, and a working terminal for the LARC teaser. The 404 sign says you rowed off the map."
+        "I originally planned to link out to the merch store. Using its API meant I could put the catalog on the site and send people to the store only for checkout. Each section got a small detail of its own. After Darc has TV static, chat bubbles drift past the Discord section, and the LARC teaser has a working terminal. The 404 sign says you rowed off the map."
       ] },
       { type: 'gallery', rows: [
         [ps('merch.png', 1440, 900, 'parcxrpl.com Merch: the PARC Vibes tee and hoodie as pixel product cards with carousels and dropdowns'), ps('larc.png', 1440, 900, 'parcxrpl.com LARC teaser: the boathouse terminal mid-corruption, an unknown vessel detected')],
-        [desk(ps('home-bands.png', 1440, 900, 'parcxrpl.com After Darc band in Twitch purple and Discord band in blurple')), desk(ps('not-found.png', 1440, 900, 'parcxrpl.com 404: a hanging sign reading Rowed off the map'))]
+        [desk(ps('home-bands.png', 1440, 900, 'The After Darc section of parcxrpl.com in Twitch purple and the Discord section in blurple')), desk(ps('not-found.png', 1440, 900, 'parcxrpl.com 404: a hanging sign reading Rowed off the map'))]
       ] },
       { type: 'gallery', note: 'On a phone', rows: [
-        [ps('phone-home.png', 390, 844, 'parcxrpl.com home on a phone: the hero card with stacked pixel buttons'), ps('phone-stats.png', 390, 844, 'parcxrpl.com Club Stats on a phone'), ps('phone-gallery.png', 390, 844, 'parcxrpl.com Gallery on a phone: one portrait per clothesline'), ps('phone-parcade.png', 390, 844, 'parcxrpl.com PARCade on a phone: the game library on the CRT')]
+        [ps('phone-home.png', 390, 844, 'parcxrpl.com home on a phone: the sign card with pixel buttons stacked under it'), ps('phone-stats.png', 390, 844, 'parcxrpl.com Club Stats on a phone'), ps('phone-gallery.png', 390, 844, 'parcxrpl.com Gallery on a phone: one portrait per clothesline'), ps('phone-parcade.png', 390, 844, 'parcxrpl.com PARCade on a phone: the game library on the CRT')]
       ] },
       { type: 'list', title: 'Outcome', items: [
         'A logo library in print and web formats: the wide logo, the square lockup, and the oar',
@@ -340,15 +340,15 @@ const source: Source[] = [
     timeline: 'About a year',
     tools: 'Illustrator',
     live: { href: 'https://firstledger.net/', label: 'firstledger.net' },
-    description: 'Logo, typography, and brand guidelines for an XRP Ledger trading platform.',
+    description: 'I designed the logo, type, and brand guidelines for a trading platform on the XRP Ledger.',
     cover: { src: '/work/firstledger.jpg', w: 1600, h: 900, alt: 'First Ledger billboard mockup: The fastest way to trade' },
     lead: [
-      "I spent about a year designing the identity for First Ledger, a token trading platform from the team behind xrp.cafe. The work covered the logo, typography, brand guidelines, and layouts for use alongside xrp.cafe and partner logos."
+      "I spent about a year on the identity for First Ledger, a token trading platform from the team behind xrp.cafe. I designed the logo, the type, and the brand guidelines, plus layouts for putting it next to xrp.cafe and partner logos."
     ],
     hero: [fl('hero.jpg', 1600, 1200, 'First Ledger billboard mockup: The fastest way to trade')],
     blocks: [
       { type: 'text', title: 'Pencil + paper = ledger', paras: [
-        "First Ledger gives people access to the XRP Ledger’s decentralized exchange through a Telegram bot and a web app. The mark combines a diagonal pencil with a rounded square of paper. Together they suggest a ledger: a place to record transactions.",
+        "First Ledger gives people access to the XRP Ledger’s decentralized exchange through a Telegram bot and a web app. The mark is a diagonal pencil on a rounded square of paper. Pencil and paper make a ledger, a place to record transactions.",
         "It had to read in a Telegram chat, a browser tab, and a small mobile header. I kept the shape simple enough to recognize at those sizes, then used it across the rest of the identity."
       ] },
       { type: 'gallery', rows: [
@@ -356,7 +356,7 @@ const source: Source[] = [
       ] },
       { type: 'text', title: 'Lockups & typography', paras: [
         "The primary lockup pairs the icon with “FIRST LEDGER” in heavy, extended type. A shorter “FL” version fits smaller spaces. Both have clear-space rules measured from the icon.",
-        "I used Helvetica Neue Extended throughout: Heavy for headlines, Medium for subheads, and Roman for body copy."
+        "Everything is set in Helvetica Neue Extended, with Heavy for headlines, Medium for subheads, and Roman for body copy."
       ] },
       { type: 'gallery', rows: [
         [ph(fl('guide-03.png', 1600, 900, 'First Ledger primary and secondary logo lockups'), 1200, 788), ph(fl('guide-05.png', 1600, 900, 'First Ledger primary logo clear-space rules'), 1200, 506)],
@@ -364,18 +364,18 @@ const source: Source[] = [
       ] },
       { type: 'text', title: 'Brand pillars', paras: [
         'Fun: “a lil meme never hurt anyone.” Reliable: “passion and years of experience.” Fast: “we’re first for a reason.”',
-        "The brand needed room for jokes and memes as well as product announcements and partnership decks. Those three traits helped me keep the tone consistent across both."
+        "The brand had to work for jokes and memes as well as product announcements and partnership decks. Those three traits kept the tone the same across both."
       ] },
       { type: 'text', title: 'Co-branding guidelines', paras: [
         "First Ledger and xrp.cafe often appear together. I documented the logo sizes and spacing for those layouts so the team could reuse them.",
-        "The guidelines also cover partner logos, giving the team a reference for listings, reports, and joint campaigns."
+        "The guidelines cover partner logos too, so the team has something to check when they put together listings, reports, and joint campaigns."
       ] },
       { type: 'gallery', rows: [
         [ph(fl('guide-02.png', 1600, 900, 'First Ledger brand pillars: Fun, Reliable, Fast'), 1200, 522)],
         [ph(fl('guide-07.png', 1600, 900, 'First Ledger and xrp.cafe co-branding guidelines, primary lockup'), 1200, 400), ph(fl('guide-08.png', 1600, 900, 'First Ledger and xrp.cafe co-branding guidelines, secondary lockup'), 1200, 543)]
       ] },
       { type: 'text', title: 'Outcome', paras: [
-        "I delivered the logo, lockups, type system, and guidelines, including the co-branding layouts. By mid-2026, First Ledger had passed $1.2B in transaction volume, 165K peak users, and more than 2M wallets created."
+        "I handed over the logo, the lockups, the type system, and the guidelines, co-branding layouts included. By mid-2026, First Ledger had passed $1.2B in transaction volume, 165K peak users, and more than 2M wallets created."
       ] }
     ]
   },
@@ -389,10 +389,10 @@ const source: Source[] = [
     role: 'Founding designer',
     tools: 'Illustrator, After Effects',
     live: { href: 'https://xrp.cafe/', label: 'xrp.cafe' },
-    description: 'Visual identity, motion design, and marketing for an NFT marketplace on the XRP Ledger.',
+    description: 'As founding designer of an NFT marketplace on the XRP Ledger, I made its identity, animations, and marketing.',
     cover: { src: '/work/xrpcafe/logo.png', w: 1600, h: 900, alt: 'xrp.cafe coffee-mug logo lockup' },
     lead: [
-      "As cofounder and founding designer of xrp.cafe, I developed the identity for an NFT marketplace on the XRP Ledger. From 2021 to 2024, I also made its campaign graphics, animations, event booths, and community content."
+      "I cofounded xrp.cafe, an NFT marketplace on the XRP Ledger, and was its founding designer. I made the identity, and from 2021 to 2024 I made its campaign graphics, animations, event booths, and community content too."
     ],
     hero: [
       { src: '/work/video/xrpcafe-explore-create-trade.mp4', small: '/work/video/xrpcafe-explore-create-trade.phone.mp4', w: 1080, h: 1920, video: true, poster: '/work/xrpcafe/explore-poster.jpg', alt: 'xrp.cafe Explore Create Trade motion graphic' },
@@ -405,15 +405,15 @@ const source: Source[] = [
         "The same mug became a Halloween pumpkin, went to a beach BBQ, and turned Super Saiyan. I could make something for each occasion while keeping the character recognizable."
       ] },
       { type: 'gallery', rows: [
-        [xc('mug-saiyan.png', 1600, 900, 'xrp.cafe Super Saiyan mug mascot character'), xc('mug-bbq.png', 1600, 900, 'xrp.cafe beach-BBQ mug mascot character'), xc('mug-pumpkin.png', 1600, 900, 'xrp.cafe Halloween pumpkin mug mascot')],
+        [xc('mug-saiyan.png', 1600, 900, 'The xrp.cafe mug as a Super Saiyan'), xc('mug-bbq.png', 1600, 900, 'The xrp.cafe mug at a beach BBQ'), xc('mug-pumpkin.png', 1600, 900, 'xrp.cafe Halloween pumpkin mug mascot')],
         [xc('marketplace.png', 1600, 900, 'xrp.cafe illustration: two mug characters in front of a stylized marketplace screen')]
       ] },
       { type: 'text', title: 'Motion graphics', paras: [
-        "I made “Explore, Create, Trade” for social feeds: a short vertical animation with large type, moving characters, and the brand’s blue background. It needed to read on a phone while someone was scrolling.",
+        "“Explore, Create, Trade” is a short vertical animation I made for social feeds, with big type, moving characters, and the brand’s blue background. It had to read on a phone while someone scrolled past.",
         "Other animations covered product launches, feature announcements, and event recaps."
       ] },
       { type: 'text', title: 'Social & events', paras: [
-        "Most of the work went to Twitter/X, Instagram, and Discord. Several posts a week meant a steady mix of custom graphics and copy for launches, partnerships, seasonal posts, and community milestones.",
+        "Most of it went out on Twitter/X, Instagram, and Discord. With several posts a week, I kept making new graphics and writing copy for launches, partnerships, seasonal posts, and community milestones.",
         "I also designed booths, backdrops, banners, and merch for Consensus, Permissionless, and ETH Denver, using the same mug characters people knew from our posts."
       ] },
       { type: 'gallery', note: 'Campaigns', rows: [
@@ -439,7 +439,7 @@ const source: Source[] = [
     timeline: 'Ongoing · project-based freelance',
     tools: 'Framer (V1), Next.js, Tailwind CSS, Vercel, Claude Code (V2)',
     live: { href: 'https://www.jadeaesthetics.co/', label: 'jadeaesthetics.co' },
-    description: 'Two websites for a medical spa: a Framer launch, followed by a Next.js rebuild with dedicated treatment pages.',
+    description: 'Two websites for a medical spa. I launched the first in Framer, then rebuilt it in Next.js with a page for each treatment.',
     cover: { src: '/work/jade-aesthetics/cover.png', w: 2880, h: 1620, alt: 'The Jade Aesthetics logo over its homepage: Naturally Elevated, Timeless Beauty over the treatment lounge' },
     lead: [
       "I designed and built two websites for Jade Aesthetics, a medical spa in Wheaton, Illinois. The first launched in Framer. When the practice needed individual treatment pages, I rebuilt it in Next.js, keeping the visual style I’d developed for the first site."
@@ -447,29 +447,29 @@ const source: Source[] = [
     hero: [ja('nav-services.jpg', 1600, 900, 'The services menu open over the homepage: Face, Body, Injectables, and Wellness with their treatment counts')],
     blocks: [
       { type: 'text', title: 'Version one: the launch site', paras: [
-        "The practice came to me with a logo. I built the site’s visual style around it: jade green, warm gold, and cream backgrounds, with photographs of the treatment rooms so visitors could get a feel for the place.",
-        "The Framer site introduced the practice, its services, and its approach to care. It gave the team a first website while the business was getting started."
+        "The practice came to me with a logo, and I built the look of the site around it: jade green and warm gold on cream backgrounds, with photos of the treatment rooms so visitors could get a feel for the place.",
+        "The Framer site introduced the practice, its services, and its approach to care. It gave the team a website while the business was getting off the ground."
       ] },
       { type: 'text', title: 'Why I rebuilt it', paras: [
         "The practice needed individual treatment pages that people could find through search. I built a shared template in Next.js so each page could have its own content, metadata, and structured data.",
         "The template also made it easier to add treatments. Each gets its own URL and follows the same structure, so the team doesn’t need a new page design for every service."
       ] },
       { type: 'text', title: 'Version two: treatment pages', paras: [
-        "I used Next.js and Tailwind CSS for the rebuild. I designed the page structure and components, then worked with Claude Code on the implementation and reviewed the results. The site uses server-rendered pages, individual metadata, structured data, breadcrumbs, and a generated sitemap.",
-        "The rebuild includes more than 30 pages, with service categories, 16 treatment pages, two skincare lines, team bios, FAQs, financing, and contact information. Treatment pages explain what the procedure is, who it’s for, what to expect, and recovery. Visitors can find those details before deciding to book."
+        "I used Next.js and Tailwind CSS for the rebuild. I designed the page structure and components, then worked with Claude Code to build them and reviewed the results. The site uses server-rendered pages, individual metadata, structured data, breadcrumbs, and a generated sitemap.",
+        "The rebuild has more than 30 pages: service categories, 16 treatment pages, two skincare lines, team bios, FAQs, financing, and contact details. Each treatment page explains what the procedure is, who it’s for, what to expect, and how recovery goes, so people can read all of that before they book."
       ] },
       { type: 'gallery', rows: [
-        [desk(ja('services-face.jpg', 1600, 1000, 'The Face Treatments category page: the headline over a facial photograph, with the breadcrumb and the introduction below')), desk(ja('service-botox.jpg', 1600, 1000, 'The Botox Cosmetic treatment page: the injectables eyebrow, the headline, and the Overview section'))],
-        [ja('phone-home.jpg', 739, 1600, 'The homepage on a phone: the wordmark, the hamburger, and the hero headline over the lounge'), ja('phone-nav.jpg', 739, 1600, 'The mobile menu open: Services expanded to Face, Body, Injectables, and Wellness'), ja('phone-services-face.jpg', 739, 1600, 'Face Treatments on a phone'), ja('phone-service-botox.jpg', 739, 1600, 'The Botox Cosmetic page on a phone')]
+        [desk(ja('services-face.jpg', 1600, 1000, 'The Face Treatments category page: the headline over a facial photograph, with the breadcrumb and the introduction below')), desk(ja('service-botox.jpg', 1600, 1000, 'The Botox Cosmetic treatment page: the Injectables label, the headline, and the Overview section'))],
+        [ja('phone-home.jpg', 739, 1600, 'The homepage on a phone: the wordmark, the menu button, and the headline over the lounge'), ja('phone-nav.jpg', 739, 1600, 'The mobile menu open: Services expanded to Face, Body, Injectables, and Wellness'), ja('phone-services-face.jpg', 739, 1600, 'Face Treatments on a phone'), ja('phone-service-botox.jpg', 739, 1600, 'The Botox Cosmetic page on a phone')]
       ] },
       { type: 'text', title: 'Keeping the visual identity', paras: [
-        "The rebuild kept the look of the first site. Headings are set in Space Grotesk and text in Sora. Service cards, FAQ accordions, testimonial carousels, and contact blocks became reusable components, which kept the growing set of pages consistent."
+        "The rebuild kept the first site’s look, with Space Grotesk for headings and Sora for text. I turned the service cards, FAQ accordions, testimonial carousels, and contact blocks into reusable components, which kept the pages consistent as there got to be more of them."
       ] },
       { type: 'gallery', rows: [
         [ja('products.jpg', 1600, 1000, 'The Biologique Recherche product page: the brand story and a row of exfoliants, moisturizers, serums, and cleansers'), ja('faq.jpg', 1600, 1000, 'The FAQ page: Frequently Asked Questions over eucalyptus, with the General Questions accordion below')]
       ] },
       { type: 'text', title: 'Outcome', paras: [
-        "The rebuild launched in about two months with more than 30 pages, including 16 treatment pages. Redirects connect the old URLs to the new pages, and the site keeps the visual identity from the Framer version."
+        "The rebuild went live in about two months with more than 30 pages, 16 of them treatment pages. The old URLs redirect to the new ones, and the site still looks like the Framer version."
       ] }
     ]
   },
@@ -482,15 +482,15 @@ const source: Source[] = [
     scope: 'Brand & art direction',
     role: 'Sole brand designer',
     tools: 'Illustrator, Figma',
-    description: 'Brand identity for a veteran-owned financial research blog: wordmark, color system, typography, and guidelines.',
-    cover: { src: '/work/firststrike.jpg', w: 1600, h: 900, alt: 'The FirstStrike Research wordmark in white italic type on the blue gradient-and-grain field' },
+    description: 'I designed the wordmark, colors, type, and brand guidelines for a veteran-owned financial research blog.',
+    cover: { src: '/work/firststrike.jpg', w: 1600, h: 900, alt: 'The FirstStrike Research wordmark in white italic type on a grainy blue gradient' },
     lead: [
-      "FirstStrike Research is a veteran-owned financial research blog covering American markets. I designed its logo, color palette, typography, and guidelines."
+      "FirstStrike Research is a veteran-owned financial research blog about American markets. I designed its logo, colors, type, and brand guidelines."
     ],
-    hero: [fst('hero.jpg', 1600, 900, 'The FirstStrike Research wordmark in white italic type on the brand’s blue gradient-and-grain field')],
+    hero: [fst('hero.jpg', 1600, 900, 'The FirstStrike Research wordmark in white italic type on the brand’s grainy blue gradient')],
     blocks: [
       { type: 'text', title: 'The brief', paras: [
-        "The client brought a rough mood board of retro print references and wanted the brand to feel direct and credible. I developed a heavy wordmark, halftone details, and a blue palette from that starting point."
+        "The client brought a rough mood board of retro print references and wanted the brand to feel direct and credible. From there I worked out a heavy wordmark, halftone details, and a blue palette."
       ] },
       { type: 'text', title: 'Logo & wordmark', paras: [
         "The wordmark uses heavy italic type with a halftone pattern trailing off the F. The forward lean suits the name, and the dots bring in the newsprint reference from the brief.",
@@ -501,7 +501,7 @@ const source: Source[] = [
         [fst('construction.png', 1600, 900, 'The wordmark on its construction grid, white on electric blue')]
       ] },
       { type: 'text', title: 'Color & type', paras: [
-        "Electric Blue (#003DFF) is the main brand color, paired with Midnight Black and Ice White. Soft Mint, Signal Coral, and Amber Pulse give charts and graphics a wider palette. Helvetica Heavy handles headlines; Helvetica Medium handles body copy."
+        "Electric Blue (#003DFF) is the main color, with Midnight Black and Ice White. Soft Mint, Signal Coral, and Amber Pulse widen the palette for charts and graphics. Headlines are in Helvetica Heavy and body copy in Helvetica Medium."
       ] },
       { type: 'gallery', rows: [
         [fst('color.png', 1600, 900, 'The color system as swatches: Soft Mint, Signal Coral, Amber Pulse, Electric Blue, Ice White, and Midnight Black with their hex values'), fst('type.png', 1600, 900, 'The type system: the Helvetica Heavy and Helvetica Medium alphabets and numerals in blue')]
@@ -510,11 +510,11 @@ const source: Source[] = [
         "I added grain to a blue-to-cyan gradient for a printed texture, then used it across social cards, editorial layouts, and billboard mockups."
       ] },
       { type: 'gallery', rows: [
-        [fst('pillars.jpg', 1600, 900, 'The brand pillars, Retro. Strong. Versatile., in white capitals on the blue gradient-and-grain field')],
+        [fst('pillars.jpg', 1600, 900, 'The brand pillars, Retro. Strong. Versatile., in white capitals on the grainy blue gradient')],
         [fst('billboard.jpg', 1600, 1066, 'A billboard mockup reading Real News. Real Research. Real Insights. in blue and white above a city street'), fst('business-card.jpg', 1600, 1200, 'Two blue business cards on concrete, the wordmark on one and the contact details on the other')]
       ] },
       { type: 'text', title: 'Outcome', paras: [
-        "I delivered the logo files and guidelines for color, typography, and backgrounds, with examples showing how to use them on business cards, social graphics, and billboards."
+        "I handed over the logo files and guidelines for color, typography, and backgrounds, with examples on business cards, social graphics, and billboards."
       ] }
     ]
   },
@@ -538,19 +538,19 @@ const source: Source[] = [
     hero: [{ src: '/work/video/do-androids-dream-title-sequence-silent.mp4', small: '/work/video/do-androids-dream-title-sequence-silent.phone.mp4', w: 1280, h: 720, video: true, poster: '/work/do-androids-dream/hero.jpg', alt: 'Do Androids Dream title sequence, about forty seconds, black on yellow, silent here' }],
     blocks: [
       { type: 'text', title: 'The concept', paras: [
-        "I started by reducing the city to silhouettes. Towers, roads, a sun, and a lone figure gave me enough to build the sequence around.",
+        "I started by reducing the city to silhouettes. Towers, roads, a sun, and a lone figure were enough to build the sequence on.",
         "Against the yellow sky, the black buildings feel heavy. I used changes in scale and composition to give the sequence variety within those two colors."
       ] },
       { type: 'gallery', rows: [
         [dad('still-title.jpg', 1280, 720, 'Act one: the title in heavy black type on a flat yellow field'), dad('still-cityscape.jpg', 1280, 720, 'Act two: a black city skyline against yellow with a lone figure at right, edges fringed by chromatic aberration')]
       ] },
       { type: 'text', title: 'Visual language', paras: [
-        "I drew the skyline in Illustrator as flat vector shapes, then animated it in After Effects. The buildings dwarf the figure, giving the city a sense of scale without adding much detail.",
-        "A small amount of chromatic aberration adds colored fringes to the edges, like electronic interference. It makes the otherwise clean shapes feel slightly unstable."
+        "I drew the skyline in Illustrator as flat vector shapes, then animated it in After Effects. The buildings dwarf the figure, which gives the city its scale without much detail.",
+        "A little chromatic aberration fringes the edges with color, like electronic interference, so the clean shapes feel slightly unstable."
       ] },
       { type: 'text', title: 'Motion & pacing', paras: [
         "The 40-second sequence moves from the title into the skyline, then breaks the perspective with an inverted city and road. The final shots bring in the sun and a figure surrounded by radiating architecture.",
-        "Changes in perspective connect the scenes and make the city feel disorienting. I cut the sequence to The Doors’ “End of the Night.” The video here is silent; you can watch it with sound on YouTube."
+        "Changes in perspective connect the scenes and make the city feel disorienting. I cut the sequence to The Doors’ “End of the Night.” The video here is silent. You can watch it with sound on YouTube."
       ] },
       { type: 'gallery', rows: [
         [dad('still-road.jpg', 1280, 720, 'Act three: the perspective breaks and a black road converges between yellow city blocks'), dad('still-sunrise.jpg', 1280, 720, 'Act three: a yellow sun rising into a black sky')]

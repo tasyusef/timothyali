@@ -2619,3 +2619,18 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Other (16, 17):** the contact form counts a sender in one atomic call, with one retry and a 1.5-second limit past which the message goes through; the six PARC Pixel files the font tool writes moved from `static/fonts/` to `tools/fonts/out/` (nothing loaded them; `base.css` inlines two).
 - **Assistant's choices inside it:** every number (2.4 s, 0.02, 4 KB, quality 70, CRF 27 with aq-mode 3, 1.5 s), idle-time loading of the other demos, keeping the PARC clip autoplaying instead of tap-to-play, moving the font files rather than deleting them.
 - **Status:** his direction; committed and pushed on his word (2026-10-20).
+
+## 0215: the copy pass (2026-10-21)
+
+- **Timothy's direction:** have a Codex agent go through the copy across the whole site so it "seems human written, sounds like natural language, doesn't feel robotic"; after reading the review (`docs/reviews/2026-10-21-copy-review.html`, 112 edits plus three lines Timothy had set), "apply all, and yes to O1–O3".
+- **Change:** all 112 edits across the studies (cards, leads, paragraphs, captions, alt text), Toolbox (summaries, guides, options, CLI and MCP lines), search and share descriptions, the contact form's email hint and the 404's description. O1 and O2: the hero reads "Product designer. I design interfaces and design systems, and build the front end. Based in Denver and open to remote work, full-time or contract." O3: the Toolbox heading reads "Four tools / in one app."
+- **Kept:** facts, numbers, names, quotes, commands, the 0146 statement and the slogans.
+- **Assistant's choices inside it:** Codex (gpt-6-astra, two passes) found the lines; Claude wrote every rewrite; the Toolbox description was cut to 159 characters so `seo:check` passes.
+- **Status:** Timothy's direction; committed and pushed on Timothy's word (2026-10-21).
+
+## 0216: the sound link under the Do Androids Dream? clip (2026-10-21)
+
+- **Timothy's question:** "need a way to play audio for the androids video no?" The clip on the site is silent (0139); the only way to the sound was the "With sound" row in the study's details, far from the video. Shown three options (a link under the clip, a YouTube embed, leave it), Timothy chose the link: "do 1".
+- **Change:** "Watch it with sound on YouTube →" under the study's hero clip, for any study whose hero is a video and that has a `watch` link. On phones, where that link sits right above the details, the details' "With sound" row is hidden so the link shows once.
+- **Assistant's choices inside it:** the wording, hiding the duplicate on phones only.
+- **Status:** Timothy's direction; committed and pushed on Timothy's word (2026-10-21).

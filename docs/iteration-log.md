@@ -1027,3 +1027,17 @@ All 17 items of `docs/reviews/2026-10-20-performance-audit.md`.
 - **JavaScript:** Home 20 files, 71 KB compressed (was 36 files); no client chunk on Home, Work or a study carries the catalog.
 - **Checks:** `pnpm check` 0/0, 26 tests, build, `seo:check`, `toolbox-demo.mjs` (48 states); the hero's loop paused off screen and resumed where it stopped; the contact rate limit against a mock store (sixth message refused, a hung store lets it through after 1.5 s).
 - **Evidence:** `docs/iterations/pixel-v2/111-performance/` (also `after-*`: a click on each field after the change).
+
+## PX-112: copy pass (2026-10-21, 0215)
+
+The 112 edits and O1–O3 from `docs/reviews/2026-10-21-copy-review.html`.
+
+- **Checks:** `pnpm check` 0/0, 26 tests, build, `tools/review/px61.mjs`, `seo:check`, `social:verify`, `toolbox-demo.mjs` (48 states). Seven share images regenerated (`static/og/`).
+- **Layout:** Home hero, Toolbox heading and Work cards at 1440, 390 and 320, no horizontal overflow, no bad breaks.
+- **Evidence:** `docs/iterations/pixel-v2/112-copy/`.
+
+## PX-113: sound link under the clip (2026-10-21, 0216)
+
+- `src/routes/work/[slug]/+page.svelte`: a link under a video hero when the project has `watch`; the details row hidden at ≤700px.
+- **Checks:** `pnpm check` 0/0, build; one visible YouTube link at 375, no horizontal overflow.
+- **Evidence:** `docs/iterations/pixel-v2/113-sound-link/` (desktop, phone 375).

@@ -37,7 +37,7 @@
   </Band>
 
   <section class="showcase" id="tools" aria-labelledby="tools-title">
-    <div class="section-head"><h2 id="tools-title" class="display">Four tools.<br />One app.</h2><p class="body">Package logos, export palettes, make type sheets, and convert images. Try each tool below.</p></div>
+    <div class="section-head"><h2 id="tools-title" class="display">Four tools<br />in one app.</h2><p class="body">Package logos, export palettes, make type sheets, and convert images. Try each tool below.</p></div>
     <div class="tool-picker" role="group" aria-label="Choose a tool to preview">
       {#each tools as t}<button type="button" aria-pressed={selected === t.slug} aria-controls="tool-preview" onclick={() => selected = t.slug}><span class="lbl">{t.n}</span><span class="display-s">{t.name}</span></button>{/each}
     </div>
@@ -54,13 +54,13 @@
 
   <section class="machine panel" aria-labelledby="machine-title">
     <div><h2 id="machine-title" class="display">Automate<br />your exports.</h2></div>
-    <div class="machine-copy"><p class="body">Use the same tools from your terminal or an AI assistant through MCP. Inspect files, preview exports, and reopen saved work without opening the app.</p><div class="command-plate"><code class="body">toolbox --mcp<Cursor size="line" /></code></div><QuietLink href="/toolbox/agents/" label="CLI & MCP docs" pad /></div>
+    <div class="machine-copy"><p class="body">Use the same tools from your terminal, or from an AI assistant over MCP. You can inspect files, preview exports, and reopen saved work without opening the app.</p><div class="command-plate"><code class="body">toolbox --mcp<Cursor size="line" /></code></div><QuietLink href="/toolbox/agents/" label="CLI & MCP docs" pad /></div>
   </section>
 
   <section class="release" id="download" aria-labelledby="download-title">
     <div class="release-heading"><span class="lbl dim">v{APP.version}</span><h2 id="download-title" class="blackletter">Download.</h2></div>
     <div class="release-copy">
-      <p class="body">Choose the build for your computer below. The releases page includes SHA-256 checksums to verify the downloaded file.</p>
+      <p class="body">Pick the download for your computer below. The releases page lists SHA-256 checksums if you want to check the file.</p>
       <div class="on-phone panel"><p class="body">Toolbox runs on macOS and Linux. Open this page on your computer to install it.</p><Cta variant="row" type="button" class="send" onclick={sendOn}><span>{sent || 'Send the link to your computer'}</span><Arrow /></Cta></div>
       <ul class="downloads">
         {#each builds as b}
