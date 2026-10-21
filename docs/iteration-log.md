@@ -1048,5 +1048,5 @@ The 112 edits and O1–O3 from `docs/reviews/2026-10-21-copy-review.html`.
 - **Checks:** `pnpm check` 0/0, build; Home in dark and light with the pointer moving and 2.5 s after it stopped.
 - **Second pass** (Timothy: stronger bend, smaller): `reach` 7 → 4.5, `SWELL.lens` 0.6 → 0.85.
 - **Rings** (Timothy: more lens on the waves): `WAVE.bend` 2.6 → 4.2, `WAVE.most` 4 → 6; `click-*.png` 450 ms after a click.
-- **Toolbox app** (`0721699`): the swell and lens ported; typecheck 0/0, 369 tests, build; captured on the Specimen tool's empty stage (`toolbox-app-*.png`).
+- **Toolbox app** (`0721699`): the swell and lens ported; typecheck 0/0, 369 tests, build; captured on the Specimen tool's empty stage (`toolbox-app-*.png`). Then the water rings (`174e1e3`): typecheck 0/0, 369 tests, build; two clicks 350 ms on (`toolbox-app-click.png`).
 - **Evidence:** `docs/iterations/pixel-v2/114-swell/` (the first pass in `first/`).
