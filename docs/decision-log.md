@@ -2558,3 +2558,38 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Not done, on purpose:** image `w`/`h` vs `width`/`height`, the several meanings of `.pad` and `.intro`, anchor offsets, `PageFoot`'s link.
 - **Assistant's choices inside it:** every name (`.panel`, `.display-title`, `BuildingHead`, `NextFoot`, `PixelIcon`, `--tint-*`, `shared.js`), what was merged and what was left.
 - **Status:** his direction; committed and pushed on his word (2026-10-20, `d3f0ad4`).
+
+## 0211: the click ring goes as far and as fast as the Toolbox hero's (2026-10-20)
+
+- **Timothy's direction:** the Toolbox hero's ripple is "so much more responsive and like clean… I'd like to have that same behavior for all of these. It also… goes much further… And stays… rounder." Shown it with the accent ring everywhere: "I liked the inversion, though. But the animation feels smoother… I don't want it to just be yellow."
+- **Cause:** the ring was sized and timed in field cells. The Toolbox hero's cells are 16px and the scenes' are 8px, so a scene's ring went half as far (123px against 246px) at half the speed.
+- **Then:** "any way we can make it more of a water ripple? more fluid? take a look at my beyond the login project for the sign in page background click". The reference is `ascii-touch.ts`, uncommitted in that project's `ascii-interact` worktree: a ring with a soft, bell-shaped crest that fades as it spreads, fast and far, bending the landscape rather than painting over it.
+- **Change:**
+  - a click is a drop in water, measured in CSS pixels and seconds so every field ripples alike: a packet of crests 40px apart (at least four cells) runs out at 420px a second for two seconds, its strength falling with the square of its age;
+  - the picture bends under it: each cell shows the field one or two cells along the water's slope;
+  - a scene's crests invert the picture (0166, 0167); elsewhere crests light in the accent and troughs sink the field.
+- **Then:** "slower, and more bend": 280px a second for 2.8 seconds (was 420 for 2), and the bend doubled, reaching up to four cells (was two).
+- **Assistant's choices inside it:** every number (speed, life, crest spacing, packet width, bend), and keeping the inversion on crests only.
+- **Status:** his direction; committed and pushed on his word (2026-10-20).
+
+## 0212: every ring its own, and rings that interfere (2026-10-20)
+
+- **Timothy's direction** (a pasted spec):
+  - every press makes a ring, with no debounce; the cap goes up to 24, and past it the oldest ring fades out quickly instead of vanishing;
+  - each ring is random: speed, lifetime, thickness, and shape (circle, diamond, square or stretched ellipse, at a random angle, with an optional wobbly edge);
+  - real overlap: each ring is a wave with a crest and a trough, so a fast ring passing a slow one builds up or cancels out, like ripples in water.
+- **Change (`Ascii.svelte`):**
+  - each ring is the slope of a bell curve, a crest ahead and a trough behind, and rings add;
+  - per ring: speed 180–380px a second, life 2–3.6 seconds, thickness 14–40px, an even pick of the four shapes at a random angle, a stretch of 1.5–2.4 for the ellipse, and an even chance of a wobble with 3–7 lobes;
+  - past 24 running rings the oldest fades over 0.3 seconds;
+  - the bend (0211) and a scene's inversion on crests carry over.
+- **Verified:** with 24 rings running, the slowest frame was 17ms on Home (light and dark) and on Toolbox (headless Chrome, dev build). To keep it there, the water is worked out only for the rows on screen.
+- **Assistant's choices inside it:** every range above, the even odds, and the 0.3-second fade.
+- **Status:** his direction; committed and pushed on his word (2026-10-20).
+
+## 0213: smaller ripples on phones (2026-10-20)
+
+- **Timothy's direction:** "on mobile theyre too big i think".
+- **Change:** a ring's speed and thickness scale with the field's width over 1200px, down to 0.4 on a phone, and its thickness never goes below one and a half cells. On a 390px phone a ring now runs 70–150px a second and is 12–16px thick; desktop is unchanged.
+- **Assistant's choices inside it:** 1200px as full size, the 0.4 floor, scaling speed and thickness but not lifetime.
+- **Status:** his direction; committed and pushed on his word (2026-10-20).

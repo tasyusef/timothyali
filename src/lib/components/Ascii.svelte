@@ -29,6 +29,34 @@
   // back and forth, one dense bank every two screens.
   const FRAME = 33; // ms between redraws while animating or cooling
   const DECAY = 0.94; // heat kept per redraw
+  // A click is a drop in water (0211, from the sign-in field of Timothy's Beyond the Login,
+  // ascii-touch.ts): a wave runs out from the point, a crest with a trough behind it, fading as
+  // it spreads and bending the picture under it. Each ring draws its own speed, life, thickness
+  // and shape from these ranges (0212); waves add, so rings that meet build up or cancel out.
+  // Measured in CSS pixels and seconds, so an 8px scene and a 16px field ripple alike.
+  const WAVE = { speed: [180, 380], life: [2, 3.6], thick: [14, 40], stretch: [1.5, 2.4], wobble: [0.05, 0.12], lobes: [3, 7], bend: 2.6, most: 4, cap: 24, out: 0.3 };
+  const pick = ([a, b]: number[]) => a + Math.random() * (b - a);
+  const SHAPES = ['circle', 'diamond', 'square', 'ellipse'] as const;
+  type Burst = { x: number; y: number; t: number; speed: number; life: number; thick: number; shape: (typeof SHAPES)[number]; cos: number; sin: number; stretch: number; wobble: number; lobes: number; phase: number; span: number; die?: number };
+  // The ranges are for a desktop window; a narrower field scales a ring's speed and thickness down
+  // with its width, to under half on a phone (0213: at full size one ring crossed the whole screen),
+  // never thinner than one and a half cells.
+  const ringScale = () => Math.min(1, Math.max(0.4, canvas.getBoundingClientRect().width / 1200));
+  function burstAt(p: { x: number; y: number }): Burst {
+    const k = ringScale();
+    const shape = SHAPES[Math.floor(Math.random() * SHAPES.length)], a = Math.random() * Math.PI, stretch = shape === 'ellipse' ? pick(WAVE.stretch) : 1;
+    const wobble = Math.random() < 0.5 ? pick(WAVE.wobble) : 0;
+    // how far, at most, a point at a given distance by this shape's measure lies from the click: the loop's reach
+    const span = (shape === 'diamond' ? 1.2 : shape === 'square' ? 1.3 : stretch) / (1 - wobble);
+    return { ...p, t: 0, speed: pick(WAVE.speed) * k, life: pick(WAVE.life), thick: Math.max(1.5 * cell, pick(WAVE.thick) * k), shape, cos: Math.cos(a), sin: Math.sin(a), stretch, wobble, lobes: Math.round(pick(WAVE.lobes)), phase: Math.random() * 2 * Math.PI, span };
+  }
+  // a point's distance from the click, by the ring's shape, turned to its angle
+  function shapeDist(b: Burst, dx: number, dy: number) {
+    const u = dx * b.cos + dy * b.sin, v = -dx * b.sin + dy * b.cos;
+    let d = b.shape === 'diamond' ? (Math.abs(u) + Math.abs(v)) / 1.2 : b.shape === 'square' ? Math.max(Math.abs(u), Math.abs(v)) * 1.1 : b.shape === 'ellipse' ? Math.hypot(u / b.stretch, v) : Math.hypot(u, v);
+    if (b.wobble) d *= 1 + b.wobble * Math.sin(b.lobes * Math.atan2(v, u) + b.phase);
+    return d;
+  }
   let canvas: HTMLCanvasElement; let host: HTMLElement;
   let ctx: CanvasRenderingContext2D | null = null;
   let cols = 0, rows = 0, screenRows = 1, lastW = 0, dpr = 1, frame = 0, color = '', accentColor = '', offX = 0, offY = 0;
@@ -40,13 +68,13 @@
   let visible = true; let due = true;
   let boxes: Box[] = [];
   let heat = new Float32Array(0);
-  // a scene keeps its clicks apart from the hover: a ring there inverts the picture (0166, 0167)
+  // the water's height under each cell, from every click still running: crests above 0, troughs
+  // below. A scene's crests invert the picture (0166, 0167); every other field's light in the accent
   let ring = new Float32Array(0);
   let pointer: { x: number; y: number } | null = null;
-  // every click rings out on its own, so the field can be clicked as fast as anyone likes (PX-64);
-  // the oldest ring gives way past MAX_BURSTS
-  const MAX_BURSTS = 24;
-  let bursts: { x: number; y: number; t: number }[] = [];
+  // every press rings out on its own, no matter how fast (PX-64); past WAVE.cap running rings the
+  // oldest fades out over WAVE.out seconds rather than vanishing (0212)
+  let bursts: Burst[] = [];
   let sprites = new Map<string, HTMLCanvasElement>(); let accentSprites = new Map<string, HTMLCanvasElement>(); let shadeSprites: Map<string, HTMLCanvasElement>[] = []; let paletteSprites: Map<string, HTMLCanvasElement>[] = []; let spriteKey = ''; let paper = '';
 
   // a study's strip draws its own scene (0179); every other scene field draws a shot of the landing's world
@@ -76,7 +104,12 @@
   // with motion off the field stays still under the pointer too: no heat trail, no rings (0207)
   function onMove(e: PointerEvent) { if (!interactive || !motion.on) return; pointer = local(e); warm(); }
   function onLeave() { pointer = null; if (motion.on) warm(); }
-  function onDown(e: PointerEvent) { if (!interactive || !motion.on) return; warm(); bursts.push({ ...local(e), t: 0 }); if (bursts.length > MAX_BURSTS) bursts.shift(); }
+  function onDown(e: PointerEvent) {
+    if (!interactive || !motion.on) return;
+    warm(); bursts.push(burstAt(local(e)));
+    const running = bursts.filter((b) => b.die === undefined);
+    if (running.length > WAVE.cap) running[0].die = (running[0].t * FRAME) / 1000;
+  }
   // a quick second click on the bare field would select the nearest words; only there, not on text or controls
   function onMouseDown(e: MouseEvent) { if (interactive && e.detail > 1 && !(e.target as Element | null)?.closest('a, button, input, textarea, select, label, p, h1, h2, h3, h4, li, dt, dd, figure, img, span')) e.preventDefault(); }
   // Heat and rings keep the field painting every frame for a while after the pointer last moved:
@@ -84,7 +117,7 @@
   // Past that, a frame repaints only when the field's tick or the scroll position has changed (0206).
   let warmUntil = 0;
   let wake = () => {}; // the motion loop's, while it runs
-  const warm = () => { warmUntil = performance.now() + 2500; wake(); };
+  const warm = () => { warmUntil = performance.now() + WAVE.life[1] * 1000 + 500; wake(); };
   // Text that changes between ticks (the hero's typed lines) asks for a measure now with a
   // `field-measure` event on the band, so its knockout does not wait up to a tick (0208).
   let remeasure = false;
@@ -98,20 +131,39 @@
       const r = reach; const x0 = Math.max(0, Math.floor(pointer.x - r)), x1 = Math.min(cols - 1, Math.ceil(pointer.x + r)), y0 = Math.max(0, Math.floor(pointer.y - r)), y1 = Math.min(rows - 1, Math.ceil(pointer.y + r));
       for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) { const d = Math.hypot(x + 0.5 - pointer.x, y + 0.5 - pointer.y) / r; if (d < 1) { const g = (1 - d) * (1 - d); const i = y * cols + x; if (g > heat[i]) heat[i] = g; } }
     }
-    const inv = mode === 'scene';
-    if (inv) { if (ring.length !== heat.length) ring = new Float32Array(heat.length); else ring.fill(0); }
+    if (ring.length !== heat.length) ring = new Float32Array(heat.length); else ring.fill(0);
     if (bursts.length) {
-      const R = reach * 2.2;
-      const into = inv ? ring : heat, width = inv ? 2.5 : 1.5;
-      for (const burst of bursts) {
-        const rad = burst.t / 4; // ring grows a quarter cell per 33 ms
-        if (rad > R + 1) continue;
-        const x0 = Math.max(0, Math.floor(burst.x - R)), x1 = Math.min(cols - 1, Math.ceil(burst.x + R)), y0 = Math.max(0, Math.floor(burst.y - R)), y1 = Math.min(rows - 1, Math.ceil(burst.y + R));
-        for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) { const d = Math.hypot(x + 0.5 - burst.x, y + 0.5 - burst.y); const g = Math.max(0, 1 - Math.abs(d - rad) / width); const i = y * cols + x; if (g > into[i]) into[i] = g; }
-        burst.t += dt / FRAME;
+      // only the rows on screen and a few beyond (the bend looks up to WAVE.most cells away): a
+      // page-tall field with two dozen rings would otherwise work out every cell for each of them
+      const r = canvas.getBoundingClientRect();
+      const vy0 = Math.max(0, Math.floor(-r.top / cell) - 6), vy1 = Math.min(rows - 1, Math.ceil((window.innerHeight - r.top) / cell) + 6);
+      for (const b of bursts) {
+        const age = (b.t * FRAME) / 1000, s = b.thick / cell, front = (b.speed * age) / cell;
+        // fades with the square of its age, and over WAVE.out seconds once it is past the cap
+        const fade = (1 - age / b.life) ** 2 * (b.die === undefined ? 1 : Math.max(0, 1 - (age - b.die) / WAVE.out));
+        b.t += dt / FRAME;
+        if (fade <= 0) continue;
+        const R = (front + 3.5 * s) * b.span;
+        const x0 = Math.max(0, Math.floor(b.x - R)), x1 = Math.min(cols - 1, Math.ceil(b.x + R)), y0 = Math.max(vy0, Math.floor(b.y - R)), y1 = Math.min(vy1, Math.ceil(b.y + R));
+        for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) {
+          // a crest ahead and a trough behind (the slope of a bell curve), 1 at the crest's top
+          const off = (shapeDist(b, x + 0.5 - b.x, y + 0.5 - b.y) - front) / s; if (off > 3.5 || off < -3.5) continue;
+          ring[y * cols + x] += fade * off * Math.exp(0.5 - (off * off) / 2);
+        }
       }
-      bursts = bursts.filter((b) => b.t / 4 <= R + 1);
+      bursts = bursts.filter((b) => { const age = (b.t * FRAME) / 1000; return age < b.life && (b.die === undefined || age - b.die < WAVE.out); });
     }
+  }
+
+  // Where a cell looks through the water: the field up to four cells along the water's slope, as
+  // a ripple bends what lies under it. Kept to the rows being drawn, which are the ones worked out.
+  function bent(i: number, x: number, y: number, y0: number, y1: number) {
+    if (!ring[i] && !(x > 0 && ring[i - 1]) && !(x < cols - 1 && ring[i + 1])) return i;
+    const gx = (x < cols - 1 ? ring[i + 1] : ring[i]) - (x > 0 ? ring[i - 1] : ring[i]);
+    const gy = (y < rows - 1 ? ring[i + cols] : ring[i]) - (y > 0 ? ring[i - cols] : ring[i]);
+    const ox = Math.max(-WAVE.most, Math.min(WAVE.most, Math.round(gx * WAVE.bend))), oy = Math.max(-WAVE.most, Math.min(WAVE.most, Math.round(gy * WAVE.bend)));
+    if (!ox && !oy) return i;
+    return Math.max(y0, Math.min(y1 - 1, y + oy)) * cols + Math.max(0, Math.min(cols - 1, x + ox));
   }
 
   // --- glyph sprites: each ramp glyph rendered once per colour/dpr ---------------
@@ -204,9 +256,9 @@
       const hs = s / 2, pal = PALETTES[palette].light;
       for (let y = y0; y < y1; y++) for (let x = 0; x < cols; x++) {
         const i = y * cols + x, k = bK[i]; if (k <= 0) continue;
-        const h = heat[i] || 0, rg = ring[i] || 0;
+        const h = heat[i] || 0, rg = ring[i] || 0, src = bent(i, x, y, y0, y1);
         for (let j = 0; j < 2; j++) for (let q = 0; q < 2; q++) {
-          const o = i * 4 + j * 2 + q, X = 2 * x + q, Y = 2 * y + j;
+          const o = src * 4 + j * 2 + q, X = 2 * x + q, Y = 2 * y + j;
           const v = (dV[o] * density + h * 0.9) * k;
           let on = v > (BAYER8[Y % 8][X % 8] + 0.5) / 64;
           // a click's ring swaps pixel and paper as it passes, its edge dithered too
@@ -220,17 +272,19 @@
     }
     for (let y = y0; y < y1; y++) for (let x = 0; x < cols; x++) {
       const i = y * cols + x;
-      const h = heat[i] || 0, rg = ring[i] || 0;
-      let b = bV[i] * density;
-      // a click's ring in a scene swaps full and empty as it passes: glyphs thin out, the sky fills in
-      if (rg > 0 && rg > (BAYER8[y % 8][x % 8] + 0.5) / 64) b = 0.75 * (1 - Math.min(1, b));
-      const v = (b + h * 0.9) * bK[i];
+      const h = heat[i] || 0, rg = ring[i] || 0, src = bent(i, x, y, y0, y1);
+      let b = bV[src] * density;
+      // a crest in a scene swaps full and empty as it passes: glyphs thin out, the sky fills in;
+      // elsewhere a crest lifts the field and a trough sinks it
+      if (mode === 'scene') { if (rg > 0 && rg > (BAYER8[y % 8][x % 8] + 0.5) / 64) b = 0.75 * (1 - Math.min(1, b)); }
+      else if (rg < 0) b *= 1 + 0.7 * Math.max(-1, rg);
+      const v = (b + (mode === 'scene' ? h : Math.max(h, rg)) * 0.9) * bK[i];
       const level = Math.min(RAMP.length - 1, Math.floor(v * RAMP.length));
-      const ch = bCh[i] && v > 0.05 ? bCh[i]! : RAMP[level];
+      const ch = bCh[src] && v > 0.05 ? bCh[src]! : RAMP[level];
       if (ch === ' ') continue;
-      // a scene keeps its own colours under the pointer; the other fields light up in the accent as before
-      const c = bC[i] >= 0 ? bC[i] : heatC;
-      const set = mode === 'scene' ? paletteSprites[c] ?? sprites : bHot[i] || h > 0.5 ? accentSprites : shade ? shadeSprites[level] : sprites;
+      // a scene keeps its own colours under the pointer and its ripple; the other fields light up in the accent
+      const c = bC[src] >= 0 ? bC[src] : heatC;
+      const set = mode === 'scene' ? paletteSprites[c] ?? sprites : bHot[src] || h > 0.5 || rg > 0.5 ? accentSprites : shade ? shadeSprites[level] : sprites;
       const sp = set.get(ch); if (sp) ctx.drawImage(sp, x * s, y * s);
     }
     drawn = true;

@@ -1006,3 +1006,7 @@ All 35 audit items applied except the four left on purpose (see 0210). New: `src
 - **Regression caught and fixed:** Contact's "building." went to 172px on phones (the 1101–1300 rule outranked the phone ladder); the rule is now a range.
 - **Share images:** regenerated, only `contact.png` changed (one row of field cells behind the heading).
 - **Evidence:** `docs/iterations/pixel-v2/108-design-system/` (`tools/review/px108.mjs`): selection on the Toolbox panel and the Contact note, Contact at 390.
+
+## PX-109: the click ring (2026-10-20, 0211)
+
+`Ascii.svelte`. First step: the ring's reach and speed scaled to 16px cells (`before-*`, `after-*`, `compare.png`: the live site against the dev server, 900ms after a click). Second step, the water ripple: `WAVE` (speed, life, band, length, bend) in CSS pixels and seconds; `ring` holds the water's signed height each frame from every running click; `bent()` samples the field along its slope. Evidence: `water-*` at 300, 700 and 1200ms and `water-sequence.png` (`tools/review/px109.mjs`). After "slower, and more bend": `slow-*` and `slow-sequence.png`. Then 0212, per-ring randomness and interference: `many-*` and `many-sequence.png`, six quick presses 0.5s later, and slowest-frame timings (`tools/review/px109-many.mjs`). Then 0213, phones: `phone-*` and `phone-sequence.png`, two taps on a 390px Home (`tools/review/px109-phone.mjs`).
