@@ -1041,3 +1041,12 @@ The 112 edits and O1–O3 from `docs/reviews/2026-10-21-copy-review.html`.
 - `src/routes/work/[slug]/+page.svelte`: a link under a video hero when the project has `watch`; the details row hidden at ≤700px.
 - **Checks:** `pnpm check` 0/0, build; one visible YouTube link at 375, no horizontal overflow.
 - **Evidence:** `docs/iterations/pixel-v2/113-sound-link/` (desktop, phone 375).
+
+## PX-114: the pointer's swell (2026-10-21, 0217)
+
+- `Ascii.svelte`: `SWELL` replaces the heat trail (`DECAY`, `HEAT_LIFE`, `HEAT_MIN`); `bent()` adds the swell's lens to the ring's bend; the loop stays live while the swell is up or the pointer moved in the last 900 ms.
+- **Checks:** `pnpm check` 0/0, build; Home in dark and light with the pointer moving and 2.5 s after it stopped.
+- **Second pass** (Timothy: stronger bend, smaller): `reach` 7 → 4.5, `SWELL.lens` 0.6 → 0.85.
+- **Rings** (Timothy: more lens on the waves): `WAVE.bend` 2.6 → 4.2, `WAVE.most` 4 → 6; `click-*.png` 450 ms after a click.
+- **Toolbox app** (`0721699`): the swell and lens ported; typecheck 0/0, 369 tests, build; captured on the Specimen tool's empty stage (`toolbox-app-*.png`).
+- **Evidence:** `docs/iterations/pixel-v2/114-swell/` (the first pass in `first/`).

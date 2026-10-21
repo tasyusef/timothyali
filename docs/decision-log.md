@@ -2634,3 +2634,16 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Change:** "Watch it with sound on YouTube →" under the study's hero clip, for any study whose hero is a video and that has a `watch` link. On phones, where that link sits right above the details, the details' "With sound" row is hidden so the link shows once.
 - **Assistant's choices inside it:** the wording, hiding the duplicate on phones only.
 - **Status:** Timothy's direction; committed and pushed on Timothy's word (2026-10-21).
+
+## 0217: the pointer's swell, after Beyond the Login (2026-10-21)
+
+- **Timothy's direction:** "lets take a lok at the hover interaction for the ascii stuff", "take a look at the beyond the login projects sign in page for inspo", "i want something similar here".
+- **Change** (`Ascii.svelte`, ported from `ascii-touch.ts` in Beyond the Login):
+  - the cooling trail is gone; one soft swell eases after the pointer, rises while it moves and settles about a second after it stops or leaves;
+  - it thickens the field a little and bends the picture outward round it, like a lens, in the field's own colours;
+  - hovering no longer turns fields yellow; a click's ring still does.
+- **Assistant's choices inside it:** the swell's size (112px across fields of either cell size), the lens strength, half the old brightening, dropping the yellow on hover, and keeping Beyond the Login's follow, rise, fall and rest timings.
+- **Then, on Timothy's pick "2 and make it smaller as well":** the swell is 72px across (was 112; the `reach` default is 4.5 cells of a 16px field) and its lens 0.85 (was 0.6), so what is under the pointer is magnified about five times at the centre.
+- **Then, on "lets also add a bit more lens to the click interaction as well. to the waves":** a ring bends the picture under it more, `WAVE.bend` 2.6 → 4.2 and its most 4 → 6 cells (the assistant's numbers).
+- **Toolbox app:** ported on "port it to toolbox" (`src/renderer/src/ui/Ascii.svelte`, app commit `0721699`). The app's field never had the site's water rings, so only the swell went across; its own simple click ring is unchanged.
+- **Status:** Timothy's direction; committed and pushed on Timothy's word (2026-10-21), site and app.

@@ -2,7 +2,7 @@
   // ASCII field. Each texture cell holds a 5×7 bitmap glyph drawn with 2px pixels, chosen
   // from a density ramp by a scalar field. The canvas origin snaps to the page grid.
   // `avoid` knocks the field out around text.
-  // The pointer heats nearby cells and leaves a cooling trail; a click sends a ring.
+  // A soft swell follows the pointer and bends the picture round it; a click sends a ring.
   // While motion is on the canvas redraws at ~30fps for the interaction, but the
   // ambient field only advances one step every `tick` ms, so it keeps its cadence.
   // This file and GRIDFORM Studio's src/renderer/src/ui/Ascii.svelte are the same
@@ -16,25 +16,31 @@
   import { studyCell } from '$lib/studyScenes';
   import { sceneCell, PALETTES, MAT, MOUNTAIN_REFS, layoutMountains, shotHasRidge, type Palette, type Shot, type Mountains } from '$lib/scene';
   type Mode = 'noise' | 'fall' | 'scan' | 'sparse' | 'sky' | 'bands' | 'scene';
-  let { mode = 'noise' as Mode, cell = CELL_TEXTURE, px = 2, seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad = 1, feather = 3, interactive = true, reach = 7, flip = false, shade = false, skySpan = 'box', skyRepeat = false, palette = 'scene' as Palette, lightAs = 'same' as 'same' | 'dither', mountains = '' as '' | 'a' | 'b', shot = 'hero' as Shot, hug = false, depth = 1, clear = '', clearFeather = undefined as number | undefined, sceneSpan = 'screen' as 'screen' | 'box', study = '' }: { mode?: Mode; cell?: number; px?: number; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; interactive?: boolean; reach?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; clearFeather?: number; sceneSpan?: 'screen' | 'box'; study?: string } = $props();
+  let { mode = 'noise' as Mode, cell = CELL_TEXTURE, px = 2, seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad = 1, feather = 3, interactive = true, reach = 4.5, flip = false, shade = false, skySpan = 'box', skyRepeat = false, palette = 'scene' as Palette, lightAs = 'same' as 'same' | 'dither', mountains = '' as '' | 'a' | 'b', shot = 'hero' as Shot, hug = false, depth = 1, clear = '', clearFeather = undefined as number | undefined, sceneSpan = 'screen' as 'screen' | 'box', study = '' }: { mode?: Mode; cell?: number; px?: number; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; interactive?: boolean; reach?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; clearFeather?: number; sceneSpan?: 'screen' | 'box'; study?: string } = $props();
   // `shade` colours by weight instead: the heaviest glyph is the accent and every lighter
   // step sinks toward the ground, so a dense field reads as a few bright points on dark.
   // Each mode has one thing that draws in the accent: the rain's droplet, the scan's line,
-  // a band's crest, the noise's peaks, the sky's densest cells. The pointer's heat lights
-  // the same way, so touching a field is what makes it yellow.
+  // a band's crest, the noise's peaks, the sky's densest cells. A click's ring lights the
+  // same way, so pressing a field is what makes it yellow.
   // `flip` mirrors the field left-to-right (the pattern, not the glyphs).
   // The sky's fall-off runs over the whole box by default; `skySpan: 'screen'` runs it over one
   // window height instead, so a page-tall sky keeps the hero's look in its first screen
   // (PX-63). Past that it thins to the quiet right-hand scatter, or with `skyRepeat` it eases
   // back and forth, one dense bank every two screens.
   const FRAME = 33; // ms between redraws while animating or cooling
-  const DECAY = 0.94; // heat kept per redraw
+  // The pointer's swell (0217, after the sign-in field of Timothy's Beyond the Login,
+  // ascii-touch.ts): one soft bump a few cells across eases after the pointer, rising while it
+  // moves and settling about a second after it stops or leaves; no trail. It thickens the field
+  // a little and bends the picture outward round it, like a lens, in the field's own colours.
+  // `follow`, `rise` and `fall` are kept per `step` ms; `reach` is the bump's size in CSS px
+  // (the `reach` prop is cells of a 16px field), `rest` how long a still pointer keeps it up.
+  const SWELL = { follow: 0.3, rise: 0.25, fall: 0.85, step: 40, rest: 900, lift: 0.5, lens: 0.85 };
   // A click is a drop in water (0211, from the sign-in field of Timothy's Beyond the Login,
   // ascii-touch.ts): a wave runs out from the point, a crest with a trough behind it, fading as
   // it spreads and bending the picture under it. Each ring draws its own speed, life, thickness
   // and shape from these ranges (0212); waves add, so rings that meet build up or cancel out.
   // Measured in CSS pixels and seconds, so an 8px scene and a 16px field ripple alike.
-  const WAVE = { speed: [180, 380], life: [2, 3.6], thick: [14, 40], stretch: [1.5, 2.4], wobble: [0.05, 0.12], lobes: [3, 7], bend: 2.6, most: 4, cap: 24, out: 0.3 };
+  const WAVE = { speed: [180, 380], life: [2, 3.6], thick: [14, 40], stretch: [1.5, 2.4], wobble: [0.05, 0.12], lobes: [3, 7], bend: 4.2, most: 6, cap: 24, out: 0.3 };
   const pick = ([a, b]: number[]) => a + Math.random() * (b - a);
   const SHAPES = ['circle', 'diamond', 'square', 'ellipse'] as const;
   type Burst = { x: number; y: number; t: number; speed: number; life: number; thick: number; shape: (typeof SHAPES)[number]; cos: number; sin: number; stretch: number; wobble: number; lobes: number; phase: number; span: number; die?: number };
@@ -67,7 +73,9 @@
   // paints in its first frame; off screen, the grid fallback shows until the field is due.
   let visible = true; let due = true;
   let boxes: Box[] = [];
+  // the swell's height under each cell, 0 to 1, inside its box (`hb`) and 0 everywhere else
   let heat = new Float32Array(0);
+  let swell = { x: 0, y: 0, s: 0 }, movedAt = 0;
   // the water's height under each cell, from every click still running: crests above 0, troughs
   // below. A scene's crests invert the picture (0166, 0167); every other field's light in the accent
   let ring = new Float32Array(0);
@@ -99,11 +107,16 @@
   // `clear` (0177): selectors knocked out in full whatever `depth` is, for small type over the picture
   function measure() { const root = host.closest('.band') ?? document, r = canvas.getBoundingClientRect(); boxes = [...(avoid ? measureBoxes(root, avoid, r, cell, hug) : []), ...(clear ? measureBoxes(root, clear, r, cell, hug, 1, clearFeather) : [])]; } // `clearFeather` (0191): the cleared small type fades over its own, shorter distance
 
-  // --- pointer heat -------------------------------------------------------
+  // --- the pointer's swell ------------------------------------------------
   const local = (e: PointerEvent) => { const r = canvas.getBoundingClientRect(); return { x: (e.clientX - r.left) / cell, y: (e.clientY - r.top) / cell }; };
-  // with motion off the field stays still under the pointer too: no heat trail, no rings (0207)
-  function onMove(e: PointerEvent) { if (!interactive || !motion.on) return; pointer = local(e); warm(); }
-  function onLeave() { pointer = null; if (motion.on) warm(); }
+  // with motion off the field stays still under the pointer too: no swell, no rings (0207)
+  function onMove(e: PointerEvent) {
+    if (!interactive || !motion.on) return;
+    pointer = local(e); movedAt = performance.now();
+    if (!swell.s) { swell.x = pointer.x; swell.y = pointer.y; } // a new swell starts under the pointer, not where the last one sank
+    wake();
+  }
+  function onLeave() { pointer = null; if (motion.on) wake(); }
   function onDown(e: PointerEvent) {
     if (!interactive || !motion.on) return;
     wake(); bursts.push(burstAt(local(e)));
@@ -112,39 +125,39 @@
   }
   // a quick second click on the bare field would select the nearest words; only there, not on text or controls
   function onMouseDown(e: MouseEvent) { if (interactive && e.detail > 1 && !(e.target as Element | null)?.closest('a, button, input, textarea, select, label, p, h1, h2, h3, h4, li, dt, dd, figure, img, span')) e.preventDefault(); }
-  // The trail keeps the field painting every frame for HEAT_LIFE after the pointer last moved:
-  // 0.94 a frame falls under HEAT_MIN, where a cell's heat is dropped, in about two seconds. A ring
-  // keeps it painting while it runs, and for the frame after, which clears it. Past that, a frame
-  // repaints only when the field's tick or the scroll position has changed (0206). (0214: the
-  // window was a ring's whole life after any move, 4.1 s, and every frame repainted the screen.)
-  const HEAT_LIFE = 2400, HEAT_MIN = 0.02;
-  let warmUntil = 0;
+  // The swell keeps the field painting every frame while it is up, and while the pointer has moved
+  // in the last SWELL.rest; a ring while it runs; each for the frame after, which clears it. Past
+  // that, a frame repaints only when the field's tick or the scroll position has changed (0206).
   let wake = () => {}; // the motion loop's, while it runs
-  const warm = () => { warmUntil = performance.now() + HEAT_LIFE; wake(); };
   // Text that changes between ticks (the hero's typed lines) asks for a measure now with a
   // `field-measure` event on the band, so its knockout does not wait up to a tick (0208).
   let remeasure = false;
   const onMeasure = () => { measuredFrame = -1; remeasure = true; invalidate(); };
-  // What changed since the last paint, in cells: the heat's and the rings' boxes this frame and the
+  // What changed since the last paint, in cells: the swell's and the rings' boxes this frame and the
   // last (so cells that have just cooled or calmed are painted once more). A paint between ticks
   // repaints only these, not the screen (0214).
   type Rect = [number, number, number, number]; // x0, y0, x1, y1, inclusive; empty when x1 < x0
   const none = (): Rect => [Infinity, Infinity, -1, -1];
   const grow = (b: Rect, x0: number, y0: number, x1: number, y1: number) => { if (x0 < b[0]) b[0] = x0; if (y0 < b[1]) b[1] = y0; if (x1 > b[2]) b[2] = x1; if (y1 > b[3]) b[3] = y1; };
   let hb = none(), hbLast = none(), rb = none(), rbLast = none(), db = none();
-  // heat and rings run on elapsed time, so they look the same at 60 or 120 frames a second
+  // the swell and rings run on elapsed time, so they look the same at 60 or 120 frames a second
   function stir(dt: number) {
     hbLast = hb; rbLast = rb; hb = none(); rb = none(); db = none();
     if (!interactive || heat.length !== cols * rows) return;
-    const keep = Math.pow(DECAY, dt / FRAME);
-    for (let y = 0, i = 0; y < rows; y++) for (let x = 0; x < cols; x++, i++) {
-      const h = heat[i]; if (!h) continue;
-      if (h * keep < HEAT_MIN) heat[i] = 0; else { heat[i] = h * keep; grow(hb, x, y, x, y); }
-    }
-    if (pointer && pointer.x >= 0 && pointer.y >= 0 && pointer.x < cols && pointer.y < rows) {
-      const r = reach; const x0 = Math.max(0, Math.floor(pointer.x - r)), x1 = Math.min(cols - 1, Math.ceil(pointer.x + r)), y0 = Math.max(0, Math.floor(pointer.y - r)), y1 = Math.min(rows - 1, Math.ceil(pointer.y + r));
-      for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) { const d = Math.hypot(x + 0.5 - pointer.x, y + 0.5 - pointer.y) / r; if (d < 1) { const g = (1 - d) * (1 - d); const i = y * cols + x; if (g > heat[i]) heat[i] = g; } }
-      grow(hb, x0, y0, x1, y1);
+    // last frame's swell is cleared, then laid down where it is now
+    if (hbLast[2] >= 0) for (let y = hbLast[1]; y <= hbLast[3]; y++) heat.fill(0, y * cols + hbLast[0], y * cols + hbLast[2] + 1);
+    const k = dt / SWELL.step, still = !pointer || performance.now() - movedAt > SWELL.rest;
+    if (pointer) { const f = 1 - Math.pow(1 - SWELL.follow, k); swell.x += (pointer.x - swell.x) * f; swell.y += (pointer.y - swell.y) * f; }
+    swell.s = still ? (swell.s < 0.02 ? 0 : swell.s * Math.pow(SWELL.fall, k)) : swell.s + (1 - swell.s) * (1 - Math.pow(1 - SWELL.rise, k));
+    if (swell.s) {
+      // a bell 1 at the centre; past 2.2 radii it is under a hundredth and left out
+      const R = (reach * CELL_TEXTURE) / cell, M = 2.2 * R;
+      const x0 = Math.max(0, Math.floor(swell.x - M)), x1 = Math.min(cols - 1, Math.ceil(swell.x + M)), y0 = Math.max(0, Math.floor(swell.y - M)), y1 = Math.min(rows - 1, Math.ceil(swell.y + M));
+      for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) {
+        const d2 = ((x + 0.5 - swell.x) ** 2 + (y + 0.5 - swell.y) ** 2) / (R * R);
+        if (d2 < 4.84) heat[y * cols + x] = swell.s * Math.exp(-d2);
+      }
+      if (x1 >= x0 && y1 >= y0) grow(hb, x0, y0, x1, y1);
     }
     if (ring.length !== heat.length) ring = new Float32Array(heat.length); else ring.fill(0);
     if (bursts.length) {
@@ -172,13 +185,19 @@
     for (const r of [hb, hbLast, rb, rbLast]) if (r[2] >= 0) grow(db, r[0], r[1], r[2], r[3]);
   }
 
-  // Where a cell looks through the water: the field up to four cells along the water's slope, as
-  // a ripple bends what lies under it. Kept to the rows being drawn, which are the ones worked out.
+  // Where a cell looks through the water: the field up to six cells along the water's slope, as
+  // a ripple bends what lies under it; under the swell, a little nearer its centre, so what is
+  // under the pointer swells outward. Kept to the rows being drawn, which are the ones worked out.
   function bent(i: number, x: number, y: number, y0: number, y1: number) {
-    if (!ring[i] && !(x > 0 && ring[i - 1]) && !(x < cols - 1 && ring[i + 1])) return i;
-    const gx = (x < cols - 1 ? ring[i + 1] : ring[i]) - (x > 0 ? ring[i - 1] : ring[i]);
-    const gy = (y < rows - 1 ? ring[i + cols] : ring[i]) - (y > 0 ? ring[i - cols] : ring[i]);
-    const ox = Math.max(-WAVE.most, Math.min(WAVE.most, Math.round(gx * WAVE.bend))), oy = Math.max(-WAVE.most, Math.min(WAVE.most, Math.round(gy * WAVE.bend)));
+    const h = heat[i], wet = ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]);
+    if (!h && !wet) return i;
+    let gx = 0, gy = 0;
+    if (wet) {
+      gx = ((x < cols - 1 ? ring[i + 1] : ring[i]) - (x > 0 ? ring[i - 1] : ring[i])) * WAVE.bend;
+      gy = ((y < rows - 1 ? ring[i + cols] : ring[i]) - (y > 0 ? ring[i - cols] : ring[i])) * WAVE.bend;
+    }
+    if (h) { gx += (swell.x - x - 0.5) * SWELL.lens * h; gy += (swell.y - y - 0.5) * SWELL.lens * h; }
+    const ox = Math.max(-WAVE.most, Math.min(WAVE.most, Math.round(gx))), oy = Math.max(-WAVE.most, Math.min(WAVE.most, Math.round(gy)));
     if (!ox && !oy) return i;
     return Math.max(y0, Math.min(y1 - 1, y + oy)) * cols + Math.max(0, Math.min(cols - 1, x + ox));
   }
@@ -211,10 +230,10 @@
   }
   // --- drawing --------------------------------------------------------------
   // The field itself only changes once per `tick` (or on a resize or theme change), so it is
-  // worked out then and kept per cell (PX-66); each animation frame only adds the pointer's heat
+  // worked out then and kept per cell (PX-66); each animation frame only adds the pointer's swell
   // and repaints the rows on screen. Off-screen rows keep their last paint until they scroll in.
   // A row is painted again only when something in it changed (0214): its values at this tick, its
-  // knockout, or the heat and rings passing over it (`db`); most of a scene is still from one tick
+  // knockout, or the swell and rings passing over it (`db`); most of a scene is still from one tick
   // to the next, and every paint used to repaint the screen.
   let baseDirty = true, measuredFrame = -1; let rowFrame = new Int32Array(0); let rowDirty = new Uint8Array(0);
   // the knockout only changes when the boxes it steps around do: kept per row and redone when the
@@ -283,11 +302,11 @@
       const h = heat[i] || 0, rg = ring[i] || 0, src = bent(i, x, y, ry0, ry1);
       for (let j = 0; j < 2; j++) for (let q = 0; q < 2; q++) {
         const o = src * 4 + j * 2 + q, X = 2 * x + q, Y = 2 * y + j;
-        const v = (dV[o] * density + h * 0.9) * k;
+        const v = (dV[o] * density + h * SWELL.lift) * k;
         let on = v > (BAYER8[Y % 8][X % 8] + 0.5) / 64;
         // a click's ring swaps pixel and paper as it passes, its edge dithered too
         if (rg > 0 && rg > (BAYER8[(Y + 4) % 8][(X + 4) % 8] + 0.5) / 64) on = !on;
-        // the pointer's heat shows in the cell's own colour, or the sky's where there is nothing (0165)
+        // the swell shows in the cell's own colour, or the sky's where there is nothing (0165)
         const col = on ? pal32[dC[o] >= 0 ? dC[o] : MAT.star] ?? 0 : 0;
         for (let p = 0, at = j * hs * W + x * s + q * hs; p < hs; p++, at += W) for (let u = 0; u < hs; u++) rowPx[at + u] = col;
       }
@@ -306,21 +325,21 @@
       // elsewhere a crest lifts the field and a trough sinks it
       if (mode === 'scene') { if (rg > 0 && rg > (BAYER8[y % 8][x % 8] + 0.5) / 64) b = 0.75 * (1 - Math.min(1, b)); }
       else if (rg < 0) b *= 1 + 0.7 * Math.max(-1, rg);
-      const v = (b + (mode === 'scene' ? h : Math.max(h, rg)) * 0.9) * bK[i];
+      const v = (b + (mode === 'scene' ? h * SWELL.lift : Math.max(h * SWELL.lift, rg * 0.9))) * bK[i];
       const level = Math.min(RAMP.length - 1, Math.floor(v * RAMP.length));
       const ch = bCh[src] && v > 0.05 ? bCh[src]! : RAMP[level];
       if (ch === ' ') continue;
-      // a scene keeps its own colours under the pointer and its ripple; the other fields light up in the accent
+      // a scene keeps its own colours under the swell and its ripple; the other fields light up in the accent under a ring
       const c = bC[src] >= 0 ? bC[src] : heatC;
-      const set = mode === 'scene' ? paletteSprites[c] ?? sprites : bHot[src] || h > 0.5 || rg > 0.5 ? accentSprites : shade ? shadeSprites[level] : sprites;
+      const set = mode === 'scene' ? paletteSprites[c] ?? sprites : bHot[src] || rg > 0.5 ? accentSprites : shade ? shadeSprites[level] : sprites;
       const sp = set.get(ch); if (sp) ctx.drawImage(sp, x * s, y * s);
     }
   }
-  // Paints rows [y0, y1): whole where they changed, and where the heat and rings are; the water's
-  // bend looks up to WAVE.most rows away, so those rows are worked out too while a ring runs.
+  // Paints rows [y0, y1): whole where they changed, and where the swell and rings are; their bend
+  // looks up to WAVE.most rows away, so those rows are worked out too while either is up.
   function paintRows(y0: number, y1: number) {
     if (!ctx || !cols || !rows) return;
-    const wet = rb[2] >= 0 || rbLast[2] >= 0, ry0 = wet ? Math.max(0, y0 - WAVE.most) : y0, ry1 = wet ? Math.min(rows, y1 + WAVE.most) : y1;
+    const wet = rb[2] >= 0 || rbLast[2] >= 0 || hb[2] >= 0, ry0 = wet ? Math.max(0, y0 - WAVE.most) : y0, ry1 = wet ? Math.min(rows, y1 + WAVE.most) : y1;
     rebuild(ry0, ry1);
     const row = dithering() ? ditherRow : glyphRow;
     for (let y = y0; y < y1; y++) {
@@ -329,7 +348,7 @@
     }
     drawn = true;
   }
-  // one frame of the field: the heat and rings move on, and the rows on screen are painted
+  // one frame of the field: the swell and rings move on, and the rows on screen are painted
   function draw() {
     if (!ctx || !cols || !rows) return;
     const now = performance.now(); const dt = last ? Math.min(100, now - last) : FRAME; last = now;
@@ -417,18 +436,18 @@
   $effect(() => { const l = theme.light; if (seenLight === null || l === seenLight) { seenLight = l; return; } seenLight = l; baseDirty = true; if (mode === 'scene' && ctx) resize(); invalidate(); });
   $effect(() => {
     if (!motion.on) {
-      frame = 0; heat.fill(0); ring.fill(0); bursts = []; pointer = null; hb = none(); rb = none(); invalidate(true);
+      frame = 0; heat.fill(0); ring.fill(0); bursts = []; pointer = null; swell.s = 0; hb = none(); rb = none(); invalidate(true);
       // still, rows that scroll in before the idle fill reaches them are painted as they come
       const onScroll = () => paint(); addEventListener('scroll', onScroll, { passive: true });
       return () => removeEventListener('scroll', onScroll);
     }
-    // One paint per display frame while the pointer's heat or a ring is live, so it keeps up with the
+    // One paint per display frame while the pointer's swell or a ring is live, so it keeps up with the
     // cursor (PX-66); otherwise only when the tick or the scroll moved (0206): a phone has no hover, and
     // repainting an unchanged field 60–120 times a second cost Home two thirds of a slow phone's main thread.
     // Between paints nothing runs (0207): the loop sleeps until the next tick, a scroll, the
     // pointer, or the field coming back on screen, and off screen or in a hidden tab it does not wake at all.
     const start = performance.now(); let id = 0, timer = 0, paintedFrame = -1, paintedTop = NaN;
-    const live = () => performance.now() < warmUntil || bursts.length > 0 || rb[2] >= 0;
+    const live = () => swell.s > 0 || hb[2] >= 0 || (pointer !== null && performance.now() - movedAt < SWELL.rest) || bursts.length > 0 || rb[2] >= 0;
     const schedule = () => { if (!id && visible && !document.hidden) { clearTimeout(timer); timer = 0; id = requestAnimationFrame(loop); } };
     const loop = (now: number) => {
       id = 0; if (!visible || document.hidden) return;
