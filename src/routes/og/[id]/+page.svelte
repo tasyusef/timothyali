@@ -36,8 +36,13 @@
   $effect(() => { if (!row) return; const ro = new ResizeObserver(fit); for (const k of row.children) ro.observe(k); return () => ro.disconnect(); });
 </script>
 <svelte:head><title>og/{data.id}</title><meta name="robots" content="noindex" /></svelte:head>
-<main class="og" class:story={data.id === 'story'} class:wide={data.id === 'wide'} id="main" tabindex="-1">
-  {#if data.id === 'home'}
+<main class="og" class:story={data.id === 'story'} class:wide={data.id === 'wide'} class:stage={data.id === 'stage'} class:no-cursor={q.get('cursor') === 'none'} id="main" tabindex="-1">
+  {#if data.id === 'stage'}
+    <!-- /og/stage (PX-110): Home's sky, mountains and planet filling the window with nothing
+         over them (no chrome, no name, no buttons), to click about in and record. Motion and
+         theme are whatever the site last saved; ?cursor=none hides the pointer. -->
+    <Band as="div" class="og-stage" mode="scene" seed={3} mountains="a" />
+  {:else if data.id === 'home'}
     <Band class="og-home" mode="scene" shot="hero" sceneSpan="box" mountains="a" seed={3} feather={3} depth={0.6} avoid=".og-line, .og-name > :first-child">
       <p class="display og-line">Product designer.</p>
       <h1 class="blackletter og-name"><Decode text="i’m tim." /><Cursor size="em" /></h1>
@@ -111,6 +116,13 @@
    row's centring is rounded to the unit in `fit()` (0089). */
 .og{height:534px;overflow:hidden}
 .og :global(.band){height:534px;padding:var(--s4) var(--gutter)}
+
+/* Stage — the window, nothing else: the layout's chrome, skip link and footer are hidden */
+:global(.site:has(.og.stage)) :global(:is(.nav-chrome,.global-footer,.skip-link)){display:none}
+:global(html:has(.og.stage)){overflow:hidden}
+.og.stage{height:100vh;height:100dvh}
+.og.stage :global(.band){height:100vh;height:100dvh;padding:0} /* not 100%: main is a flex item, and a percentage of it resolves to nothing */
+.og.no-cursor,.og.no-cursor :global(*){cursor:none !important}
 
 /* Story — full frame, no chrome (the generator hides it), content in the safe zone */
 .og.story{height:1920px}

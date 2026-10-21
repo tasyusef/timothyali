@@ -11,6 +11,8 @@ export function load({ params }) {
   const id = params.id;
   // the Instagram story and the Twitter/X frame are Home's, at other sizes
   if (id === 'story' || id === 'wide') return { id, chromePath: '/' };
+  // the hero's field alone, the full window, to click about in and record (PX-110)
+  if (id === 'stage') return { id, chromePath: '/' };
   // every other image is a page's (socialPages, 0210): tools are `toolbox-<slug>` and studies
   // `work-<slug>` (0132), so a tool, a study and the Toolbox page never share a file name
   const at = socialPages.find((p) => p.image === id);

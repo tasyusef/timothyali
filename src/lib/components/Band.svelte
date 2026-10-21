@@ -14,11 +14,11 @@
   import type { Palette, Shot } from '$lib/scene';
   type Mode = 'noise' | 'fall' | 'scan' | 'sparse' | 'sky' | 'bands' | 'scene';
   let { as = 'section', class: klass = '', mode, seed, tick, density, avoid, pad, feather, flip, shade, skySpan, skyRepeat, palette, cell, px, lightAs, mountains, shot, hug, depth, clear, clearFeather, sceneSpan, study, interactive, reach, children, ...rest }:
-    { as?: string; class?: string; mode?: Mode; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; cell?: number; px?: number; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; clearFeather?: number; sceneSpan?: 'screen' | 'box'; study?: string; interactive?: boolean; reach?: number; children: Snippet; [key: string]: unknown } = $props();
+    { as?: string; class?: string; mode?: Mode; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; cell?: number; px?: number; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; clearFeather?: number; sceneSpan?: 'screen' | 'box'; study?: string; interactive?: boolean; reach?: number; children?: Snippet; [key: string]: unknown } = $props();
   const cls = $derived(['band', klass].filter(Boolean).join(' '));
   const scene = $derived(mode === 'scene');
 </script>
 <svelte:element this={as} class={cls} {...rest}>
   <div class="band-bg"><Ascii {mode} {seed} {tick} {density} {avoid} pad={pad ?? (scene ? 0 : undefined)} feather={feather ?? (scene ? 12 : undefined)} {flip} {shade} {skySpan} {skyRepeat} {palette} cell={cell ?? (scene ? 8 : undefined)} px={px ?? (scene ? 1 : undefined)} lightAs={lightAs ?? (scene ? 'dither' : undefined)} {mountains} {shot} hug={hug ?? (scene ? true : undefined)} depth={depth ?? (scene ? 0.85 : undefined)} {clear} clearFeather={clearFeather ?? (scene ? 3 : undefined)} {sceneSpan} {study} {interactive} {reach} /></div>
-  {@render children()}
+  {@render children?.()}
 </svelte:element>
