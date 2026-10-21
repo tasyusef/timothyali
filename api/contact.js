@@ -22,24 +22,28 @@ const FROM = process.env.CONTACT_FROM ?? 'timothyali.com <onboarding@resend.dev>
 const clean = (v, max) => (typeof v === 'string' ? v.replace(/\r\n?/g, '\n').trim().slice(0, max) : '');
 // one line, no control characters: the name goes into the subject
 const line = (v, max) => clean(v, max).replace(/[\u0000-\u001f\u007f]+/g, ' ').trim();
-const RATE = { max: 5, seconds: 600 };
+const RATE = { max: 5, seconds: 600, wait: 1500 };
 const escape = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
 // A flood would fill the inbox and spend the Resend quota, so real messages would fail.
 // The counter is keyed by a hash of the address (no raw IPs are stored); without Redis
-// the form still sends.
+// the form still sends. One call counts and starts the window together (0214: it was two
+// round trips, retried five times with backoff and never timed out), at most one retry,
+// and a store slower than RATE.wait lets the message through rather than hold it up.
+const COUNT = "local n = redis.call('INCR', KEYS[1]) if n == 1 then redis.call('EXPIRE', KEYS[1], ARGV[1]) end return n";
 async function allowed(request) {
   const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
   const ip = (request.headers.get('x-forwarded-for') ?? '').split(',')[0].trim() || request.headers.get('x-real-ip') || '';
   if (!url || !token || !ip) return true;
+  const stop = new AbortController(); const timer = setTimeout(() => stop.abort(), RATE.wait);
   try {
-    const db = new Redis({ url, token });
+    const db = new Redis({ url, token, retry: { retries: 1, backoff: () => 150 }, signal: stop.signal });
     const key = `tim:contact:${createHash('sha256').update(ip).digest('hex').slice(0, 32)}`;
-    const count = await db.incr(key);
-    if (count === 1) await db.expire(key, RATE.seconds);
-    return count <= RATE.max;
+    const count = await db.eval(COUNT, [key], [String(RATE.seconds)]);
+    return Number(count) <= RATE.max;
   } catch (e) { console.error('contact rate', e); return true; }
+  finally { clearTimeout(timer); }
 }
 
 // A browser sends Origin on every POST; one from another site is refused.

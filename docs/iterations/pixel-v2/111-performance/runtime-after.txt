@@ -1,0 +1,22 @@
+== phone / motion=on canvases=392x3336 long=[[36,119],[190,93],[289,57]]
+  total {"canvas":242,"drawImage":37062,"getImageData":1,"fillRect":2388,"clearRect":1200}
+== desktop / motion=on canvases=1440x2920 long=[[8,228]]
+  total {"canvas":242,"drawImage":112567,"getImageData":1,"fillRect":2388,"clearRect":1382}
+== desktop / motion=on canvases=1440x2920=16.0MB pageHeight=3000
+idle, top of page (hero typing)    task    69 ms/s  script    36 ms/s  layout    1 ms/s (37)  frames  60/s heap 5.0 MB
+pointer resting on field           task    74 ms/s  script    38 ms/s  layout    2 ms/s (27)  frames  60/s heap 4.1 MB
+pointer moving over hero           task   171 ms/s  script    76 ms/s  layout    2 ms/s (51)  frames  60/s heap 3.0 MB
+6 clicks on field (ripples) + 4 s  task   396 ms/s  script   193 ms/s  layout    1 ms/s (42)  frames  60/s heap 4.0 MB
+after ripples die (idle 3 s)       task   109 ms/s  script    55 ms/s  layout    1 ms/s (16)  frames  60/s heap 3.7 MB
+scroll to bottom in 30 steps       task   128 ms/s  script    64 ms/s  layout    1 ms/s (28)  frames  60/s heap 3.1 MB
+idle at bottom                     task   114 ms/s  script    57 ms/s  layout    0 ms/s (3)  frames  60/s heap 4.3 MB
+idle after theme flip (light)      task   120 ms/s  script    90 ms/s  layout    4 ms/s (44)  frames  60/s heap 4.7 MB
+== phone / motion=on canvases=392x3336=5.0MB pageHeight=3416
+idle, top of page (hero typing)    task    67 ms/s  script    32 ms/s  layout    2 ms/s (33)  frames  60/s heap 4.0 MB
+pointer resting on field           task    66 ms/s  script    29 ms/s  layout    1 ms/s (23)  frames  60/s heap 4.7 MB
+pointer moving over hero           task   128 ms/s  script    56 ms/s  layout    2 ms/s (42)  frames  60/s heap 4.9 MB
+6 clicks on field (ripples) + 4 s  task   299 ms/s  script   127 ms/s  layout    3 ms/s (45)  frames  60/s heap 5.1 MB
+after ripples die (idle 3 s)       task    67 ms/s  script    28 ms/s  layout    1 ms/s (11)  frames  60/s heap 3.2 MB
+scroll to bottom in 30 steps       task    41 ms/s  script    20 ms/s  layout    1 ms/s (26)  frames  60/s heap 3.7 MB
+idle at bottom                     task    19 ms/s  script    13 ms/s  layout    0 ms/s (0)  frames  60/s heap 3.5 MB
+idle after theme flip (light)      task    69 ms/s  script    52 ms/s  layout    2 ms/s (42)  frames  60/s heap 4.3 MB

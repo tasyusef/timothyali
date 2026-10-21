@@ -17,6 +17,10 @@ export default {
   preprocess: vitePreprocess(),
   kit: {
     adapter: adapter({ regions: ['iad1'], runtime: 'nodejs24.x' }),
+    // Every page's stylesheets go into its HTML (0214): five files blocked the first paint, about
+    // 430 ms on a phone and 890 ms on Toolbox, and the largest is 26 KB (6 KB compressed).
+    // Pages reached by a link still load them as files.
+    inlineStyleThreshold: Infinity,
     csp: {
       mode: 'hash',
       directives: {

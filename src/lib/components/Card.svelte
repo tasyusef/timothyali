@@ -4,8 +4,8 @@
   // fold, so only Work's first two load eagerly.
   import Arrow from './Arrow.svelte';
   import Picture from './Picture.svelte';
-  import type { Project } from '$lib/work';
-  let { p, heading = 'h2', eager = false, id }: { p: Project; heading?: 'h2' | 'h3'; eager?: boolean; id?: string } = $props();
+  import type { Card } from '$lib/work';
+  let { p, heading = 'h2', eager = false, id }: { p: Card; heading?: 'h2' | 'h3'; eager?: boolean; id?: string } = $props();
   // the cover's rendered width, measured (0207): the card's padding takes 32px a side of the column
   const SIZES = '(min-width: 701px) calc((100vw - 160px) / 2), calc(100vw - 64px)';
 </script>

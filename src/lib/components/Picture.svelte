@@ -6,7 +6,8 @@
   // (`row` shares one height across a multi-image gallery row; see figure.ts, 0089).
   // `x2` is an optional higher-resolution file (1.75× the base, 2800px on the long side).
   // `phone` is a tighter crop of the same screen for phones (PX-53): a `<picture>` source at
-  // ≤700px, so a phone downloads only its crop and the figure takes that crop's aspect.
+  // ≤700px, so a phone downloads only its crop and the figure takes that crop's aspect. It is
+  // chosen by the same `sizes`, whose last clause is the phone's (0214: it said 100vw).
   // WebP (PX-59, 0145): when tools/images/derive.mjs has written derivatives for `src` (and
   // for the phone crop), they go first as `<source type="image/webp">` at the ladder of
   // widths in src/lib/images.json, chosen by `sizes`; the original stays the fallback `src`.
@@ -29,7 +30,7 @@
   onMount(() => { if (!img.complete) img.addEventListener('load', () => { arrive = true; }, { once: true }); });
 </script>
 <figure class="pic {klass}" class:art={!!phone} use:figure={{ ratio, row }} style:--ar={`${width} / ${height}`} style:--ar-phone={phone ? `${phone.w} / ${phone.h}` : undefined}>
-  <picture>{#if phone}{#if phoneWebp}<source media={PHONE} type="image/webp" srcset={phoneWebp} sizes="100vw" width={phone.w} height={phone.h} />{/if}<source media={PHONE} srcset={phone.src} width={phone.w} height={phone.h} />{/if}{#if webp}<source type="image/webp" srcset={webp} {sizes} {width} {height} />{/if}<img bind:this={img} class:arrive {src} srcset={x2 ? `${src} ${width}w, ${x2} ${Math.round(width * 1.75)}w` : undefined} sizes={x2 ? sizes : undefined} {alt} {width} {height} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : undefined} decoding="async" /></picture>
+  <picture>{#if phone}{#if phoneWebp}<source media={PHONE} type="image/webp" srcset={phoneWebp} {sizes} width={phone.w} height={phone.h} />{/if}<source media={PHONE} srcset={phone.src} width={phone.w} height={phone.h} />{/if}{#if webp}<source type="image/webp" srcset={webp} {sizes} {width} {height} />{/if}<img bind:this={img} class:arrive {src} srcset={x2 ? `${src} ${width}w, ${x2} ${Math.round(width * 1.75)}w` : undefined} sizes={x2 ? sizes : undefined} {alt} {width} {height} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : undefined} decoding="async" /></picture>
 </figure>
 <style>
 .pic{aspect-ratio:var(--ar)}

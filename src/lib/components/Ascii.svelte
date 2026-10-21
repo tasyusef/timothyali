@@ -106,30 +106,45 @@
   function onLeave() { pointer = null; if (motion.on) warm(); }
   function onDown(e: PointerEvent) {
     if (!interactive || !motion.on) return;
-    warm(); bursts.push(burstAt(local(e)));
+    wake(); bursts.push(burstAt(local(e)));
     const running = bursts.filter((b) => b.die === undefined);
     if (running.length > WAVE.cap) running[0].die = (running[0].t * FRAME) / 1000;
   }
   // a quick second click on the bare field would select the nearest words; only there, not on text or controls
   function onMouseDown(e: MouseEvent) { if (interactive && e.detail > 1 && !(e.target as Element | null)?.closest('a, button, input, textarea, select, label, p, h1, h2, h3, h4, li, dt, dd, figure, img, span')) e.preventDefault(); }
-  // Heat and rings keep the field painting every frame for a while after the pointer last moved:
-  // 0.94 a frame falls under 0.03 in about two seconds, and a ring crosses its reach in about one.
-  // Past that, a frame repaints only when the field's tick or the scroll position has changed (0206).
+  // The trail keeps the field painting every frame for HEAT_LIFE after the pointer last moved:
+  // 0.94 a frame falls under HEAT_MIN, where a cell's heat is dropped, in about two seconds. A ring
+  // keeps it painting while it runs, and for the frame after, which clears it. Past that, a frame
+  // repaints only when the field's tick or the scroll position has changed (0206). (0214: the
+  // window was a ring's whole life after any move, 4.1 s, and every frame repainted the screen.)
+  const HEAT_LIFE = 2400, HEAT_MIN = 0.02;
   let warmUntil = 0;
   let wake = () => {}; // the motion loop's, while it runs
-  const warm = () => { warmUntil = performance.now() + WAVE.life[1] * 1000 + 500; wake(); };
+  const warm = () => { warmUntil = performance.now() + HEAT_LIFE; wake(); };
   // Text that changes between ticks (the hero's typed lines) asks for a measure now with a
   // `field-measure` event on the band, so its knockout does not wait up to a tick (0208).
   let remeasure = false;
-  const onMeasure = () => { measuredFrame = -1; remeasure = true; if (motion.on) wake(); else if (due) draw(true); };
+  const onMeasure = () => { measuredFrame = -1; remeasure = true; invalidate(); };
+  // What changed since the last paint, in cells: the heat's and the rings' boxes this frame and the
+  // last (so cells that have just cooled or calmed are painted once more). A paint between ticks
+  // repaints only these, not the screen (0214).
+  type Rect = [number, number, number, number]; // x0, y0, x1, y1, inclusive; empty when x1 < x0
+  const none = (): Rect => [Infinity, Infinity, -1, -1];
+  const grow = (b: Rect, x0: number, y0: number, x1: number, y1: number) => { if (x0 < b[0]) b[0] = x0; if (y0 < b[1]) b[1] = y0; if (x1 > b[2]) b[2] = x1; if (y1 > b[3]) b[3] = y1; };
+  let hb = none(), hbLast = none(), rb = none(), rbLast = none(), db = none();
   // heat and rings run on elapsed time, so they look the same at 60 or 120 frames a second
   function stir(dt: number) {
+    hbLast = hb; rbLast = rb; hb = none(); rb = none(); db = none();
     if (!interactive || heat.length !== cols * rows) return;
     const keep = Math.pow(DECAY, dt / FRAME);
-    for (let i = 0; i < heat.length; i++) heat[i] *= keep;
+    for (let y = 0, i = 0; y < rows; y++) for (let x = 0; x < cols; x++, i++) {
+      const h = heat[i]; if (!h) continue;
+      if (h * keep < HEAT_MIN) heat[i] = 0; else { heat[i] = h * keep; grow(hb, x, y, x, y); }
+    }
     if (pointer && pointer.x >= 0 && pointer.y >= 0 && pointer.x < cols && pointer.y < rows) {
       const r = reach; const x0 = Math.max(0, Math.floor(pointer.x - r)), x1 = Math.min(cols - 1, Math.ceil(pointer.x + r)), y0 = Math.max(0, Math.floor(pointer.y - r)), y1 = Math.min(rows - 1, Math.ceil(pointer.y + r));
       for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) { const d = Math.hypot(x + 0.5 - pointer.x, y + 0.5 - pointer.y) / r; if (d < 1) { const g = (1 - d) * (1 - d); const i = y * cols + x; if (g > heat[i]) heat[i] = g; } }
+      grow(hb, x0, y0, x1, y1);
     }
     if (ring.length !== heat.length) ring = new Float32Array(heat.length); else ring.fill(0);
     if (bursts.length) {
@@ -145,6 +160,7 @@
         if (fade <= 0) continue;
         const R = (front + 3.5 * s) * b.span;
         const x0 = Math.max(0, Math.floor(b.x - R)), x1 = Math.min(cols - 1, Math.ceil(b.x + R)), y0 = Math.max(vy0, Math.floor(b.y - R)), y1 = Math.min(vy1, Math.ceil(b.y + R));
+        if (x1 >= x0 && y1 >= y0) grow(rb, Math.max(0, x0 - 1), Math.max(0, y0 - 1), Math.min(cols - 1, x1 + 1), Math.min(rows - 1, y1 + 1)); // a cell beside the water bends too
         for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) {
           // a crest ahead and a trough behind (the slope of a bell curve), 1 at the crest's top
           const off = (shapeDist(b, x + 0.5 - b.x, y + 0.5 - b.y) - front) / s; if (off > 3.5 || off < -3.5) continue;
@@ -153,6 +169,7 @@
       }
       bursts = bursts.filter((b) => { const age = (b.t * FRAME) / 1000; return age < b.life && (b.die === undefined || age - b.die < WAVE.out); });
     }
+    for (const r of [hb, hbLast, rb, rbLast]) if (r[2] >= 0) grow(db, r[0], r[1], r[2], r[3]);
   }
 
   // Where a cell looks through the water: the field up to four cells along the water's slope, as
@@ -196,7 +213,10 @@
   // The field itself only changes once per `tick` (or on a resize or theme change), so it is
   // worked out then and kept per cell (PX-66); each animation frame only adds the pointer's heat
   // and repaints the rows on screen. Off-screen rows keep their last paint until they scroll in.
-  let baseDirty = true, measuredFrame = -1; let rowFrame = new Int32Array(0);
+  // A row is painted again only when something in it changed (0214): its values at this tick, its
+  // knockout, or the heat and rings passing over it (`db`); most of a scene is still from one tick
+  // to the next, and every paint used to repaint the screen.
+  let baseDirty = true, measuredFrame = -1; let rowFrame = new Int32Array(0); let rowDirty = new Uint8Array(0);
   // the knockout only changes when the boxes it steps around do: kept per row and redone when the
   // measured boxes move (0207), where before every cell on screen was worked out again each tick
   let boxesKey = '', kVersion = 0; let rowK = new Int32Array(0);
@@ -207,72 +227,80 @@
   function rebuild(y0: number, y1: number) {
     const n = cols * rows;
     if (baseDirty || bK.length !== n) {
-      if (bK.length !== n) { bV = new Float32Array(n); bC = new Int8Array(n); bHot = new Uint8Array(n); bK = new Float32Array(n); bCh = new Array(n); dV = new Float32Array(n * 4); dC = new Int8Array(n * 4); rowFrame = new Int32Array(rows); rowK = new Int32Array(rows); }
-      rowFrame.fill(-1); kVersion++;
-      const cs = getComputedStyle(host); color = cs.color; accentColor = cs.getPropertyValue('--accent-text').trim(); paper = cs.getPropertyValue('--paper').trim(); buildSprites();
+      if (bK.length !== n) { bV = new Float32Array(n); bC = new Int8Array(n); bHot = new Uint8Array(n); bK = new Float32Array(n); bCh = new Array(n); dV = new Float32Array(n * 4); dC = new Int8Array(n * 4); rowFrame = new Int32Array(rows); rowK = new Int32Array(rows); rowDirty = new Uint8Array(rows); }
+      rowFrame.fill(-1); rowDirty.fill(1); kVersion++;
+      const cs = getComputedStyle(host); color = cs.color; accentColor = cs.getPropertyValue('--accent-text').trim(); paper = cs.getPropertyValue('--paper').trim(); buildSprites(); pal32 = null;
       baseDirty = false; measuredFrame = -1;
     }
     // the text the field steps around is measured once per tick, not once per frame
     if (measuredFrame !== frame) {
-      measure(); measuredFrame = frame; rowFrame.fill(-1);
+      measure(); measuredFrame = frame;
       const key = boxes.map((b) => `${b.x0},${b.y0},${b.x1},${b.y1},${b.depth},${b.feather}`).join(';');
       if (key !== boxesKey) { boxesKey = key; kVersion++; }
     }
     const dith = dithering(), P = pad, F = feather, H = hug, D = depth;
     for (let y = y0; y < y1; y++) {
-      if (rowK[y] !== kVersion) { rowK[y] = kVersion; for (let x = 0; x < cols; x++) bK[y * cols + x] = knockout(x + 0.5, y + 0.5, boxes, P, F, H, D); } // hugged knockouts are rounded too (0174)
-      if (rowFrame[y] === frame) continue; rowFrame[y] = frame; for (let x = 0; x < cols; x++) {
-      const i = y * cols + x;
-      if (dith) {
-        for (let j = 0; j < 2; j++) for (let q = 0; q < 2; q++) {
-          const X = 2 * x + q, Y = 2 * y + j, f = scene(X, Y, frame, cols * 2, screenRows * 2), o = i * 4 + j * 2 + q;
-          // rock is drawn by its shadows, like ink: snow and lit faces stay paper; the planet keeps its colour; the sky is open paper;
-          // the page texture below (`tex`) is drawn as it is, in the rock's colours
-          const rock = !!f.o && !f.tex && (f.c === MAT.rock || f.c === MAT.shade || f.c === MAT.snow);
-          dV[o] = f.c === MAT.star && !f.o ? 0 : rock ? 0.9 * (1 - f.v) * (f.fade ?? 1) : f.v;
-          dC[o] = rock ? (f.v < 0.4 ? MAT.rock : MAT.shade) : f.o ? f.c : -1;
-        }
-      } else {
-        const f = field(flip ? cols - 1 - x : x, y, frame);
-        bV[i] = f.v; bC[i] = f.c ?? -1; bHot[i] = f.hot ? 1 : 0; bCh[i] = f.ch;
-      }
-    } }
-  }
-  function draw(full = false) {
-    if (!ctx || !cols || !rows) return;
-    const now = performance.now(); const dt = last ? Math.min(100, now - last) : FRAME; last = now;
-    stir(dt);
-    const s = cell * dpr;
-    let y0 = 0, y1 = rows;
-    if (!full) { const r = canvas.getBoundingClientRect(); y0 = Math.max(0, Math.floor(-r.top / cell) - 1); y1 = Math.min(rows, Math.ceil((window.innerHeight - r.top) / cell) + 1); if (y1 <= y0) return; }
-    rebuild(y0, y1);
-    ctx.clearRect(0, y0 * s, canvas.width, (y1 - y0) * s);
-    // the pointer's heat shows in the cell's own colour, or the sky's where there is nothing (0165)
-    const heatC = mode === 'scene' ? MAT.star : -1;
-    // light mode, the scene as pixel dither (PX-65): each cell is four square pixels at half the
-    // cell, lit if they beat the Bayer threshold, in their material's colour; no glyphs and no
-    // stars, so it reads as a print on the paper
-    if (dithering()) {
-      const hs = s / 2, pal = PALETTES[palette].light;
-      for (let y = y0; y < y1; y++) for (let x = 0; x < cols; x++) {
-        const i = y * cols + x, k = bK[i]; if (k <= 0) continue;
-        const h = heat[i] || 0, rg = ring[i] || 0, src = bent(i, x, y, y0, y1);
-        for (let j = 0; j < 2; j++) for (let q = 0; q < 2; q++) {
-          const o = src * 4 + j * 2 + q, X = 2 * x + q, Y = 2 * y + j;
-          const v = (dV[o] * density + h * 0.9) * k;
-          let on = v > (BAYER8[Y % 8][X % 8] + 0.5) / 64;
-          // a click's ring swaps pixel and paper as it passes, its edge dithered too
-          if (rg > 0 && rg > (BAYER8[(Y + 4) % 8][(X + 4) % 8] + 0.5) / 64) on = !on;
-          if (!on) continue;
-          const c = dC[o] >= 0 ? dC[o] : heatC;
-          ctx.fillStyle = pal[c]; ctx.fillRect(x * s + q * hs, y * s + j * hs, hs, hs);
+      if (rowK[y] !== kVersion) { rowK[y] = kVersion; for (let x = 0; x < cols; x++) { const i = y * cols + x, k = Math.fround(knockout(x + 0.5, y + 0.5, boxes, P, F, H, D)); if (k !== bK[i]) { bK[i] = k; rowDirty[y] = 1; } } } // hugged knockouts are rounded too (0174)
+      if (rowFrame[y] === frame) continue; rowFrame[y] = frame; let moved = 0;
+      for (let x = 0; x < cols; x++) {
+        const i = y * cols + x;
+        if (dith) {
+          for (let j = 0; j < 2; j++) for (let q = 0; q < 2; q++) {
+            const X = 2 * x + q, Y = 2 * y + j, f = scene(X, Y, frame, cols * 2, screenRows * 2), o = i * 4 + j * 2 + q;
+            // rock is drawn by its shadows, like ink: snow and lit faces stay paper; the planet keeps its colour; the sky is open paper;
+            // the page texture below (`tex`) is drawn as it is, in the rock's colours
+            const rock = !!f.o && !f.tex && (f.c === MAT.rock || f.c === MAT.shade || f.c === MAT.snow);
+            const v = Math.fround(f.c === MAT.star && !f.o ? 0 : rock ? 0.9 * (1 - f.v) * (f.fade ?? 1) : f.v);
+            const c = rock ? (f.v < 0.4 ? MAT.rock : MAT.shade) : f.o ? f.c! : -1;
+            if (v !== dV[o] || c !== dC[o]) { dV[o] = v; dC[o] = c; moved = 1; }
+          }
+        } else {
+          const f = field(flip ? cols - 1 - x : x, y, frame), v = Math.fround(f.v), c = f.c ?? -1, hot = f.hot ? 1 : 0;
+          if (v !== bV[i] || c !== bC[i] || hot !== bHot[i] || f.ch !== bCh[i]) { bV[i] = v; bC[i] = c; bHot[i] = hot; bCh[i] = f.ch; moved = 1; }
         }
       }
-      drawn = true; return;
+      if (moved) rowDirty[y] = 1;
     }
-    for (let y = y0; y < y1; y++) for (let x = 0; x < cols; x++) {
+  }
+  // Light mode's dither is written as pixels into one row's image and put down at once (0214):
+  // four fills a cell, each setting its own colour, made the light field cost twice the dark one.
+  let rowImg: ImageData | null = null, rowPx = new Uint32Array(0), pal32: Uint32Array | null = null; let swatch: CanvasRenderingContext2D | null = null;
+  function palette32(list: string[]) {
+    swatch ??= document.createElement('canvas').getContext('2d', { willReadFrequently: true });
+    return Uint32Array.from(list, (c) => { if (!swatch) return 0; swatch.clearRect(0, 0, 1, 1); swatch.fillStyle = c; swatch.fillRect(0, 0, 1, 1); const d = swatch.getImageData(0, 0, 1, 1).data; return ((d[3] << 24) | (d[2] << 16) | (d[1] << 8) | d[0]) >>> 0; });
+  }
+  // light mode, the scene as pixel dither (PX-65): each cell is four square pixels at half the
+  // cell, lit if they beat the Bayer threshold, in their material's colour; no glyphs and no
+  // stars, so it reads as a print on the paper
+  function ditherRow(y: number, x0: number, x1: number, ry0: number, ry1: number) {
+    if (!ctx) return;
+    const s = cell * dpr, hs = s / 2, W = cols * s;
+    if (!rowImg || rowImg.width !== W || rowImg.height !== s) { rowImg = ctx.createImageData(W, s); rowPx = new Uint32Array(rowImg.data.buffer); }
+    pal32 ??= palette32(PALETTES[palette].light);
+    for (let x = x0; x < x1; x++) {
+      const i = y * cols + x, k = bK[i];
+      if (k <= 0) { for (let p = 0; p < s; p++) rowPx.fill(0, p * W + x * s, p * W + x * s + s); continue; }
+      const h = heat[i] || 0, rg = ring[i] || 0, src = bent(i, x, y, ry0, ry1);
+      for (let j = 0; j < 2; j++) for (let q = 0; q < 2; q++) {
+        const o = src * 4 + j * 2 + q, X = 2 * x + q, Y = 2 * y + j;
+        const v = (dV[o] * density + h * 0.9) * k;
+        let on = v > (BAYER8[Y % 8][X % 8] + 0.5) / 64;
+        // a click's ring swaps pixel and paper as it passes, its edge dithered too
+        if (rg > 0 && rg > (BAYER8[(Y + 4) % 8][(X + 4) % 8] + 0.5) / 64) on = !on;
+        // the pointer's heat shows in the cell's own colour, or the sky's where there is nothing (0165)
+        const col = on ? pal32[dC[o] >= 0 ? dC[o] : MAT.star] ?? 0 : 0;
+        for (let p = 0, at = j * hs * W + x * s + q * hs; p < hs; p++, at += W) for (let u = 0; u < hs; u++) rowPx[at + u] = col;
+      }
+    }
+    ctx.putImageData(rowImg, 0, y * s, x0 * s, 0, (x1 - x0) * s, s);
+  }
+  function glyphRow(y: number, x0: number, x1: number, ry0: number, ry1: number) {
+    if (!ctx) return;
+    const s = cell * dpr, heatC = mode === 'scene' ? MAT.star : -1;
+    ctx.clearRect(x0 * s, y * s, (x1 - x0) * s, s);
+    for (let x = x0; x < x1; x++) {
       const i = y * cols + x;
-      const h = heat[i] || 0, rg = ring[i] || 0, src = bent(i, x, y, y0, y1);
+      const h = heat[i] || 0, rg = ring[i] || 0, src = bent(i, x, y, ry0, ry1);
       let b = bV[src] * density;
       // a crest in a scene swaps full and empty as it passes: glyphs thin out, the sky fills in;
       // elsewhere a crest lifts the field and a trough sinks it
@@ -287,8 +315,57 @@
       const set = mode === 'scene' ? paletteSprites[c] ?? sprites : bHot[src] || h > 0.5 || rg > 0.5 ? accentSprites : shade ? shadeSprites[level] : sprites;
       const sp = set.get(ch); if (sp) ctx.drawImage(sp, x * s, y * s);
     }
+  }
+  // Paints rows [y0, y1): whole where they changed, and where the heat and rings are; the water's
+  // bend looks up to WAVE.most rows away, so those rows are worked out too while a ring runs.
+  function paintRows(y0: number, y1: number) {
+    if (!ctx || !cols || !rows) return;
+    const wet = rb[2] >= 0 || rbLast[2] >= 0, ry0 = wet ? Math.max(0, y0 - WAVE.most) : y0, ry1 = wet ? Math.min(rows, y1 + WAVE.most) : y1;
+    rebuild(ry0, ry1);
+    const row = dithering() ? ditherRow : glyphRow;
+    for (let y = y0; y < y1; y++) {
+      if (rowDirty[y]) { rowDirty[y] = 0; row(y, 0, cols, ry0, ry1); }
+      else if (y >= db[1] && y <= db[3]) row(y, Math.max(0, db[0]), Math.min(cols, db[2] + 1), ry0, ry1);
+    }
     drawn = true;
   }
+  // one frame of the field: the heat and rings move on, and the rows on screen are painted
+  function draw() {
+    if (!ctx || !cols || !rows) return;
+    const now = performance.now(); const dt = last ? Math.min(100, now - last) : FRAME; last = now;
+    stir(dt);
+    const r = canvas.getBoundingClientRect();
+    const y0 = Math.max(0, Math.floor(-r.top / cell) - 1), y1 = Math.min(rows, Math.ceil((window.innerHeight - r.top) / cell) + 1);
+    if (y1 > y0) paintRows(y0, y1);
+  }
+  // Every change asks for a paint here, and they share one (0214). With motion on, the loop paints
+  // in its next frame. With it off, the rows on screen are painted in the next frame and the rest of
+  // the field in idle time, a few rows at a go. Home's page-tall field used to be drawn whole four
+  // times as the page started (a resize, the theme, the motion setting and the hero's measure): one
+  // 449 ms task on a slow phone.
+  let paintQueued = 0, repaint = false; let idleStop = () => {};
+  function invalidate(all = false) {
+    if (all) rowDirty.fill(1);
+    if (!alive || !due) return;
+    if (motion.on) { repaint = true; wake(); } else paint();
+  }
+  function paint() { if (!paintQueued && alive && due) paintQueued = requestAnimationFrame(() => { paintQueued = 0; draw(); fillLater(); }); }
+  const stale = (y: number) => rowDirty[y] === 1 || rowK[y] !== kVersion || rowFrame[y] !== frame;
+  function fillLater() {
+    if (motion.on || !alive) return;
+    idleStop();
+    const run = (left: () => number) => {
+      idleStop = () => {}; if (motion.on || !alive) return;
+      let y = 0;
+      do { while (y < rows && !stale(y)) y++; if (y >= rows) return; const e = Math.min(rows, y + 8); paintRows(y, e); y = e; } while (left() > 2);
+      fillLater();
+    };
+    if (typeof requestIdleCallback === 'function') { const id = requestIdleCallback((d) => run(() => d.timeRemaining()), { timeout: 1000 }); idleStop = () => cancelIdleCallback(id); }
+    else { const id = window.setTimeout(() => { const end = performance.now() + 8; run(() => end - performance.now()); }, 32); idleStop = () => clearTimeout(id); }
+  }
+  // Only a real change resizes the canvas, lays the picture out again or works the field out again
+  // (0214): the observers, the fonts and the picture fire with nothing changed as often as not.
+  let sizeKey = '', baseKey = '', placeKey = '', mtnKey = '';
   function resize() {
     if (!alive) return;
     const r = host.getBoundingClientRect();
@@ -303,11 +380,19 @@
     // measured when the width changes, so a phone's toolbar showing and hiding does not move the sky
     if ((skySpan === 'screen' || mode === 'scene') && window.innerWidth !== lastW) { screenRows = Math.max(1, window.innerHeight / cell); lastW = window.innerWidth; }
     if (mode === 'scene' && sceneSpan === 'box') screenRows = Math.max(1, r.height / cell); // a strip composes on its own height (0178)
-    if (mode === 'scene' && mountainImg?.complete && mountainImg.naturalWidth) { const d = dithering() ? 2 : 1; mtn = layoutMountains(mountainImg, cols * d, screenRows * d, shot); }
+    let changed = false;
+    if (`${cols}x${rows}` !== sizeKey) { sizeKey = `${cols}x${rows}`; canvas.width = cols * cell * dpr; canvas.height = rows * cell * dpr; canvas.style.width = cols * cell + 'px'; canvas.style.height = rows * cell + 'px'; baseDirty = changed = true; }
+    if (`${screenRows}` !== baseKey) { baseKey = `${screenRows}`; baseDirty = changed = true; }
+    // the text inside moves with the box: measured again
+    const place = `${r.width},${r.height},${offX},${offY}`;
+    if (place !== placeKey) { placeKey = place; canvas.style.left = -offX + 'px'; canvas.style.top = -offY + 'px'; measuredFrame = -1; changed = true; }
+    if (mode === 'scene' && mountainImg?.complete && mountainImg.naturalWidth) {
+      const d = dithering() ? 2 : 1, key = `${cols * d},${screenRows * d}`;
+      if (key !== mtnKey) { mtnKey = key; mtn = layoutMountains(mountainImg, cols * d, screenRows * d, shot); baseDirty = changed = true; }
+    }
     if (heat.length !== cols * rows) heat = new Float32Array(cols * rows);
-    canvas.width = cols * cell * dpr; canvas.height = rows * cell * dpr; canvas.style.width = cols * cell + 'px'; canvas.style.height = rows * cell + 'px';
-    canvas.style.left = -offX + 'px'; canvas.style.top = -offY + 'px';
-    ctx = canvas.getContext('2d'); baseDirty = true; if (due) draw(!motion.on); // with motion on the loop paints rows as they scroll in
+    ctx ??= canvas.getContext('2d');
+    if (changed) invalidate();
   }
   // the observers, the fonts and the picture each asked for a full resize at load (six in 75 ms): one per frame now
   let resizeQueued = 0;
@@ -319,36 +404,45 @@
   onMount(() => {
     if (mode === 'scene' && mountains && shotHasRidge(shot)) { mountainImg = new Image(); mountainImg.onload = () => queueResize(); mountainImg.src = MOUNTAIN_REFS[mountains]; }
     const r0 = host.getBoundingClientRect(); visible = due = r0.bottom > -64 && r0.top < window.innerHeight + 64;
-    const ro = new ResizeObserver(queueResize); ro.observe(host); ro.observe(document.body); resize(); document.fonts?.ready.then(queueResize);
-    const io = new IntersectionObserver((es) => es.forEach((e) => { visible = e.isIntersecting; if (visible && !due) { due = true; draw(true); } if (visible) wake(); }), { rootMargin: '64px' }); io.observe(host);
+    // the body too: a change above the field moves it on the page grid without resizing it
+    const ro = new ResizeObserver(queueResize); ro.observe(host); ro.observe(document.body); resize(); document.fonts?.ready.then(() => { queueResize(); onMeasure(); });
+    const io = new IntersectionObserver((es) => es.forEach((e) => { visible = e.isIntersecting; if (visible && !due) { due = true; invalidate(); } if (visible) wake(); }), { rootMargin: '64px' }); io.observe(host);
     const band = (host.closest('.band') as HTMLElement | null) ?? host;
     band.addEventListener('pointermove', onMove); band.addEventListener('pointerleave', onLeave); band.addEventListener('pointerdown', onDown); band.addEventListener('mousedown', onMouseDown); band.addEventListener('field-measure', onMeasure);
-    return () => { band.removeEventListener('field-measure', onMeasure); alive = false; if (mountainImg) mountainImg.onload = null; cancelAnimationFrame(resizeQueued); ro.disconnect(); io.disconnect(); band.removeEventListener('pointermove', onMove); band.removeEventListener('pointerleave', onLeave); band.removeEventListener('pointerdown', onDown); band.removeEventListener('mousedown', onMouseDown); };
+    return () => { band.removeEventListener('field-measure', onMeasure); alive = false; if (mountainImg) mountainImg.onload = null; cancelAnimationFrame(resizeQueued); cancelAnimationFrame(paintQueued); idleStop(); ro.disconnect(); io.disconnect(); band.removeEventListener('pointermove', onMove); band.removeEventListener('pointerleave', onLeave); band.removeEventListener('pointerdown', onDown); band.removeEventListener('mousedown', onMouseDown); };
   });
-  $effect(() => { void theme.light; if (!due) return; baseDirty = true; if (mode === 'scene' && ctx) resize(); else draw(true); }); // the scene re-lays its picture for the dither grid
+  // A theme change recolours the field; the scene lays its picture out again for the dither grid.
+  // The first run is the theme the field is about to be drawn in, so it draws nothing (0214).
+  let seenLight: boolean | null = null;
+  $effect(() => { const l = theme.light; if (seenLight === null || l === seenLight) { seenLight = l; return; } seenLight = l; baseDirty = true; if (mode === 'scene' && ctx) resize(); invalidate(); });
   $effect(() => {
-    if (!motion.on) { frame = 0; heat.fill(0); ring.fill(0); bursts = []; pointer = null; if (due) draw(true); return; }
-    // One paint per display frame while the pointer's heat is live, so it keeps up with the cursor
-    // (PX-66); otherwise only when the tick or the scroll moved (0206): a phone has no hover, and
+    if (!motion.on) {
+      frame = 0; heat.fill(0); ring.fill(0); bursts = []; pointer = null; hb = none(); rb = none(); invalidate(true);
+      // still, rows that scroll in before the idle fill reaches them are painted as they come
+      const onScroll = () => paint(); addEventListener('scroll', onScroll, { passive: true });
+      return () => removeEventListener('scroll', onScroll);
+    }
+    // One paint per display frame while the pointer's heat or a ring is live, so it keeps up with the
+    // cursor (PX-66); otherwise only when the tick or the scroll moved (0206): a phone has no hover, and
     // repainting an unchanged field 60–120 times a second cost Home two thirds of a slow phone's main thread.
     // Between paints nothing runs (0207): the loop sleeps until the next tick, a scroll, the
-    // pointer, or the field coming back on screen, and off screen it does not wake at all.
+    // pointer, or the field coming back on screen, and off screen or in a hidden tab it does not wake at all.
     const start = performance.now(); let id = 0, timer = 0, paintedFrame = -1, paintedTop = NaN;
-    const schedule = () => { if (!id && visible) { clearTimeout(timer); timer = 0; id = requestAnimationFrame(loop); } };
+    const live = () => performance.now() < warmUntil || bursts.length > 0 || rb[2] >= 0;
+    const schedule = () => { if (!id && visible && !document.hidden) { clearTimeout(timer); timer = 0; id = requestAnimationFrame(loop); } };
     const loop = (now: number) => {
-      id = 0; if (!visible) return;
+      id = 0; if (!visible || document.hidden) return;
       frame = Math.floor((now - start) / tick);
       const top = canvas.getBoundingClientRect().top;
-      const live = now < warmUntil || bursts.length > 0; // a resting pointer keeps its glow at the tick rate
-      if (frame === paintedFrame && top === paintedTop && !live && !remeasure) last = now;
-      else { paintedFrame = frame; paintedTop = top; remeasure = false; draw(); }
-      if (live) schedule();
+      if (frame !== paintedFrame || top !== paintedTop || remeasure || repaint || live()) { paintedFrame = frame; paintedTop = top; remeasure = repaint = false; draw(); }
+      else last = now;
+      if (live()) schedule();
       else timer = window.setTimeout(schedule, tick - ((now - start) % tick) + 1);
     };
     wake = schedule;
-    addEventListener('scroll', schedule, { passive: true });
+    addEventListener('scroll', schedule, { passive: true }); document.addEventListener('visibilitychange', schedule);
     schedule();
-    return () => { cancelAnimationFrame(id); clearTimeout(timer); removeEventListener('scroll', schedule); wake = () => {}; };
+    return () => { cancelAnimationFrame(id); clearTimeout(timer); removeEventListener('scroll', schedule); document.removeEventListener('visibilitychange', schedule); wake = () => {}; };
   });
 </script>
 <div class="ascii" class:drawn bind:this={host} aria-hidden="true"><canvas bind:this={canvas}></canvas></div>

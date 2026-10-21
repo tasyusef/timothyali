@@ -3,9 +3,9 @@
   import Decode from '$lib/components/Decode.svelte';
   import Arrow from '$lib/components/Arrow.svelte';
   import Cta from '$lib/components/Cta.svelte';
-  import { projects, index } from '$lib/work';
   import { STEP } from '$lib/tokens';
   import { fitTitles } from '$lib/fit';
+  let { data } = $props();
 </script>
 <main class="inner-page" id="main" tabindex="-1">
   <section>
@@ -15,7 +15,7 @@
     <!-- every study as a card (0196, Timothy: “every case study should have a card”): the selected
          four first, then the rest, in one grid; no counters, no year and scope -->
     <div class="cards" use:fitTitles>
-      {#each [...projects, ...index] as p, i (p.slug)}<Card {p} id={p.slug} eager={i < 2} />{/each}
+      {#each data.cards as p, i (p.slug)}<Card {p} id={p.slug} eager={i < 2} />{/each}
     </div>
     <!-- the longest page ended on a 16px dim link; it ends on the action row Home ends on (0206) -->
     <div class="end"><Cta variant="row" href="/contact/"><span>Tell me what you’re building</span><span>Get in touch <Arrow /></span></Cta></div>

@@ -1,0 +1,108 @@
+== desktop / motion=on canvases=1440x2920=16.0MB pageHeight=3000
+idle, top of page (hero typing)    task    68 ms/s  script    30 ms/s  layout    1 ms/s (38)  frames  60/s  long []  heap 3.1 MB
+pointer resting on field           task   450 ms/s  script   165 ms/s  layout    1 ms/s (25)  frames  60/s  long []  heap 4.5 MB
+pointer moving over hero           task   433 ms/s  script   161 ms/s  layout    1 ms/s (52)  frames  60/s  long []  heap 4.6 MB
+6 clicks on field (ripples) + 4 s  task   480 ms/s  script   209 ms/s  layout    1 ms/s (44)  frames  60/s  long []  heap 4.6 MB
+after ripples die (idle 3 s)       task    69 ms/s  script    30 ms/s  layout    1 ms/s (16)  frames  60/s  long []  heap 3.1 MB
+scroll to bottom in 30 steps       task   272 ms/s  script   101 ms/s  layout    0 ms/s (29)  frames  60/s  long []  heap 4.6 MB
+idle at bottom                     task    52 ms/s  script    23 ms/s  layout    0 ms/s (3)  frames  60/s  long []  heap 3.2 MB
+theme toggle: event durations [{"name":"pointerout","dur":24,"target":"H1.blackletter hero-name svelte-tc3uts"},{"name":"pointerleave","dur":24,"target":""},{"name":"pointerleave","dur":24,"target":""},{"name":"pointerleave","dur":24,"target":""},{"name":"pointerleave","dur":24,"target":"DIV.band page-sky"},{"name":"pointerleave","dur":24,"target":""},{"name":"pointerover","dur":24,"target":"svg.[object SVGAnimatedString]"},{"name":"pointerenter","dur":24,"target":""},{"name":"pointerenter","dur":24,"target":""},{"name":"pointerenter","dur":24,"target":""},{"name":"pointerenter","dur":24,"target":""},{"name":"pointerenter","dur":24,"target":""},{"name":"mouseout","dur":24,"target":"H1.blackletter hero-name svelte-tc3uts"},{"name":"mouseover","dur":24,"target":"svg.[object SVGAnimatedString]"},{"name":"pointerdown","dur":24,"target":"svg.[object SVGAnimatedString]"},{"name":"mousedown","dur":24,"target":"svg.[object SVGAnimatedString]"},{"name":"pointerup","dur":24,"target":"svg.[object SVGAnimatedString]"},{"name":"mouseup","dur":24,"target":"svg.[object SVGAnimatedString]"},{"name":"click","dur":24,"target":"svg.[object SVGAnimatedString]"},{"name":"pointerout","dur":24,"target":"svg.[object SVGAnimatedString]"},{"name":"pointerleave","dur":24,"target":""},{"name":"pointerleave","dur":24,"target":""},{"name":"pointerover","dur":24,"target":"BUTTON."},{"name":"pointerenter","dur":24,"target":""},{"name":"pointerenter","dur":24,"target":""},{"name":"mouseout","dur":24,"target":"svg.[object SVGAnimatedString]"},{"name":"mouseover","dur":24,"target":"BUTTON."},{"name":"pointerdown","dur":24,"target":"BUTTON."},{"name":"mousedown","dur":24,"target":"BUTTON."},{"name":"pointerup","dur":24,"target":"BUTTON."},{"name":"mouseup","dur":24,"target":"BUTTON."},{"name":"click","dur":24,"target":"BUTTON."},{"name":"pointerout","dur":16,"target":"BUTTON."},{"name":"pointerleave","dur":16,"target":""},{"name":"pointerleave","dur":16,"target":""},{"name":"pointerleave","dur":16,"target":""},{"name":"pointerleave","dur":16,"target":""},{"name":"pointerleave","dur":16,"target":""},{"name":"pointerleave","dur":16,"target":""},{"name":"pointerleave","dur":16,"target":""},{"name":"pointerleave","dur":16,"target":""},{"name":"pointerover","dur":16,"target":"HTML.js vt-theme"},{"name":"pointerenter","dur":16,"target":""},{"name":"mouseout","dur":16,"target":"BUTTON."},{"name":"mouseover","dur":16,"target":"HTML.js vt-theme"},{"name":"pointerout","dur":16,"target":"HTML.js vt-theme"},{"name":"pointerleave","dur":16,"target":""},{"name":"pointerover","dur":16,"target":"HTML.js vt-theme"},{"name":"mouseout","dur":16,"target":"HTML.js vt-theme"},{"name":"mouseover","dur":16,"target":"HTML.js vt-theme"}] long []
+idle after theme flip (light)      task   154 ms/s  script   119 ms/s  layout    1 ms/s (22)  frames  60/s  long []  heap 5.1 MB
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('#settings-menu button:nth-child(2)')
+    - locator resolved to <button type="button" aria-pressed="true">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+    56 × waiting for element to be visible, enabled and stable
+       - element is not visible
+     - retrying click action
+       - waiting 500ms
+
+    at /private/tmp/claude-501/-Users-twocakes-Desktop-PROJECTS-timothyali2/eefd56a4-67ba-4837-b87b-30d1d2e1d151/scratchpad/perf/fable/runtime.mjs:45:76 {
+  log: [
+    "  - waiting for locator('#settings-menu button:nth-child(2)')",
+    '    - locator resolved to <button type="button" aria-pressed="true">…</button>',
+    '  - attempting click action',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is not visible',
+    '    - retrying click action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is not visible',
+    '    - retrying click action',
+    '      - waiting 100ms',
+    '    56 × waiting for element to be visible, enabled and stable',
+    '       - element is not visible',
+    '     - retrying click action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v26.7.0
+== phone / motion=on canvases=392x3336=5.0MB pageHeight=3416
+idle, top of page (hero typing)    task    86 ms/s  script    37 ms/s  layout    2 ms/s (33)  frames  60/s  long []  heap 4.9 MB
+pointer resting on field           task    94 ms/s  script    37 ms/s  layout    2 ms/s (22)  frames  60/s  long []  heap 3.8 MB
+pointer moving over hero           task   507 ms/s  script   190 ms/s  layout    3 ms/s (47)  frames  60/s  long []  heap 2.8 MB
+6 clicks on field (ripples) + 4 s  task   486 ms/s  script   186 ms/s  layout    2 ms/s (41)  frames  60/s  long []  heap 4.0 MB
+after ripples die (idle 3 s)       task    78 ms/s  script    33 ms/s  layout    1 ms/s (13)  frames  60/s  long []  heap 2.8 MB
+scroll to bottom in 30 steps       task   120 ms/s  script    52 ms/s  layout    1 ms/s (25)  frames  60/s  long []  heap 3.0 MB
+idle at bottom                     task    33 ms/s  script    17 ms/s  layout    0 ms/s (0)  frames  60/s  long []  heap 3.1 MB
+theme toggle: event durations [{"name":"pointerover","dur":16,"target":"BUTTON.cog"},{"name":"pointerenter","dur":16,"target":""},{"name":"pointerenter","dur":16,"target":""},{"name":"pointerenter","dur":16,"target":""},{"name":"pointerenter","dur":16,"target":""},{"name":"pointerenter","dur":16,"target":""},{"name":"pointerenter","dur":16,"target":""},{"name":"pointerenter","dur":16,"target":""},{"name":"pointerenter","dur":16,"target":""},{"name":"pointerenter","dur":16,"target":""},{"name":"pointerenter","dur":16,"target":""},{"name":"mouseover","dur":16,"target":"BUTTON.cog"},{"name":"pointerdown","dur":16,"target":"BUTTON.cog"},{"name":"mousedown","dur":16,"target":"BUTTON.cog"},{"name":"pointerup","dur":16,"target":"BUTTON.cog"},{"name":"mouseup","dur":16,"target":"BUTTON.cog"},{"name":"click","dur":16,"target":"BUTTON.cog"},{"name":"pointerout","dur":16,"target":"BUTTON.cog"},{"name":"pointerleave","dur":16,"target":""},{"name":"pointerleave","dur":16,"target":""},{"name":"pointerover","dur":16,"target":"BUTTON."},{"name":"pointerenter","dur":16,"target":""},{"name":"pointerenter","dur":16,"target":""},{"name":"mouseout","dur":16,"target":"BUTTON.cog"},{"name":"mouseover","dur":16,"target":"BUTTON."},{"name":"pointerdown","dur":16,"target":"BUTTON."},{"name":"mousedown","dur":16,"target":"BUTTON."},{"name":"pointerup","dur":16,"target":"BUTTON."},{"name":"mouseup","dur":16,"target":"BUTTON."},{"name":"click","dur":16,"target":"BUTTON."},{"name":"pointerout","dur":16,"target":"HTML.js vt-theme"},{"name":"pointerleave","dur":16,"target":""},{"name":"pointerover","dur":16,"target":"HTML.js vt-theme"},{"name":"mouseout","dur":16,"target":"HTML.js vt-theme"},{"name":"mouseover","dur":16,"target":"HTML.js vt-theme"}] long []
+idle after theme flip (light)      task    83 ms/s  script    57 ms/s  layout    2 ms/s (23)  frames  60/s  long []  heap 5.3 MB
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+page.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('#settings-menu button:nth-child(2)')
+    - locator resolved to <button type="button" aria-pressed="true">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+    56 × waiting for element to be visible, enabled and stable
+       - element is not visible
+     - retrying click action
+       - waiting 500ms
+
+    at /private/tmp/claude-501/-Users-twocakes-Desktop-PROJECTS-timothyali2/eefd56a4-67ba-4837-b87b-30d1d2e1d151/scratchpad/perf/fable/runtime.mjs:45:76 {
+  log: [
+    "  - waiting for locator('#settings-menu button:nth-child(2)')",
+    '    - locator resolved to <button type="button" aria-pressed="true">…</button>',
+    '  - attempting click action',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is not visible',
+    '    - retrying click action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is not visible',
+    '    - retrying click action',
+    '      - waiting 100ms',
+    '    56 × waiting for element to be visible, enabled and stable',
+    '       - element is not visible',
+    '     - retrying click action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v26.7.0

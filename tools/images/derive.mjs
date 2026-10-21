@@ -50,8 +50,10 @@ for (const file of sources) {
       stale++;
       if (check) { console.log('missing/stale', relative(ROOT, out)); continue; }
       // UI screens (PNG sources) keep a little more detail than photographs (JPEG sources); 80 for
-      // screens (0207, was 90) reads the same at 2× zoom and is 25–35% smaller
-      const quality = /\.png$/i.test(master) ? 80 : 82;
+      // screens (0207, was 90) reads the same at 2× zoom and is 25–35% smaller. A photograph's
+      // 2400 is only ever seen at 2×, where 70 looks the same as 82 and is a third smaller: First
+      // Strike's hero was 978 KB (0214)
+      const quality = /\.png$/i.test(master) ? 80 : w >= 2400 ? 70 : 82;
       await sharp(master).resize({ width: w, withoutEnlargement: true }).webp({ quality, effort: 6, smartSubsample: true }).toFile(out);
       written++;
     }

@@ -1,0 +1,4 @@
+== phone / motion=on canvases=392x3336 long=[[55,89],[164,207],[378,63]]
+  total {"canvas":243,"fillRect":2388,"clearRect":27,"drawImage":65418,"getImageData":2}
+== desktop / motion=on canvases=1440x2920 long=[[24,220],[251,152]]
+  total {"canvas":243,"fillRect":2388,"clearRect":27,"drawImage":333874,"getImageData":2}

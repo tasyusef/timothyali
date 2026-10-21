@@ -11,7 +11,9 @@
   import jerseyUrl from '@fontsource/jersey-15/files/jersey-15-latin-400-normal.woff2?url';
   import pressStartUrl from '@fontsource/press-start-2p/files/press-start-2p-latin-400-normal.woff2?url';
   // Every face the chrome and the first fold use, 68KB together, so the first paint is set in them.
-  const preload = [jacquardUrl, pressStartUrl, jerseyUrl]; // PARC Pixel is inlined in base.css (0206)
+  // PARC Pixel is inlined in base.css (0206). A study sets no Jersey 15 at all (its reading face is
+  // Plex Mono, which the study preloads), so it does not ask for it (0214).
+  const preload = $derived(page.route.id === '/work/[slug]' ? [jacquardUrl, pressStartUrl] : [jacquardUrl, pressStartUrl, jerseyUrl]);
   import { page } from '$app/state';
   import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
   import { onMount } from 'svelte';
@@ -103,8 +105,11 @@
     media.addEventListener('change', update);
     let zone = zoneName();
     const tickClock = () => { const now = new Date(); if (now.getSeconds() === 0) zone = zoneName(); clock = `${zone} ${fmt.format(now)}`.trim(); };
-    tickClock(); const id = setInterval(tickClock, 1000);
-    return () => { document.removeEventListener('focusin', onFocusIn); window.removeEventListener('scroll', onScroll); headerObserver.disconnect(); media.removeEventListener('change', update); clearInterval(id); };
+    // the clock ticks only where it shows: not in a hidden tab, and not on a phone, where the strip is gone (0185, 0214)
+    const phone = matchMedia('(max-width: 700px)'); let id = 0;
+    const clockOn = () => { clearInterval(id); id = 0; if (document.hidden || phone.matches) return; tickClock(); id = window.setInterval(tickClock, 1000); };
+    clockOn(); document.addEventListener('visibilitychange', clockOn); phone.addEventListener('change', clockOn);
+    return () => { document.removeEventListener('focusin', onFocusIn); window.removeEventListener('scroll', onScroll); headerObserver.disconnect(); media.removeEventListener('change', update); clearInterval(id); document.removeEventListener('visibilitychange', clockOn); phone.removeEventListener('change', clockOn); };
   });
   // A page may declare the path its chrome should reflect (the dev-only /og/ route renders as another page).
   const pathname = $derived((page.data.chromePath as string | undefined) ?? page.url.pathname);

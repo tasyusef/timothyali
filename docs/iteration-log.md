@@ -1010,3 +1010,20 @@ All 35 audit items applied except the four left on purpose (see 0210). New: `src
 ## PX-109: the click ring (2026-10-20, 0211)
 
 `Ascii.svelte`. First step: the ring's reach and speed scaled to 16px cells (`before-*`, `after-*`, `compare.png`: the live site against the dev server, 900ms after a click). Second step, the water ripple: `WAVE` (speed, life, band, length, bend) in CSS pixels and seconds; `ring` holds the water's signed height each frame from every running click; `bent()` samples the field along its slope. Evidence: `water-*` at 300, 700 and 1200ms and `water-sequence.png` (`tools/review/px109.mjs`). After "slower, and more bend": `slow-*` and `slow-sequence.png`. Then 0212, per-ring randomness and interference: `many-*` and `many-sequence.png`, six quick presses 0.5s later, and slowest-frame timings (`tools/review/px109-many.mjs`). Then 0213, phones: `phone-*` and `phone-sequence.png`, two taps on a 390px Home (`tools/review/px109-phone.mjs`).
+
+## PX-110: a stage to record the ripple (2026-10-20)
+
+On Timothy's "make a page locally, thats just the landing page hero with no ui or anything else. so i can click around in it and make a video for insta and twitter": `/og/stage` on the dev server (the dev-only share-image route, so it never ships) is Home's sky, planet and mountains filling the window, with the header, status strip, footer, name and buttons hidden. Motion and theme follow the site's saved settings; `?cursor=none` hides the pointer. `Band` now takes no content. Not a design decision; committed with PX-111 on his “commit and push” (2026-10-20).
+
+## PX-111: performance pass (2026-10-20, 0214)
+
+All 17 items of `docs/reviews/2026-10-20-performance-audit.md`.
+
+- **Lighthouse** (local preview, `lighthouse.md`): phone scores Home 83 → 96, Work 93 → 97, Sonde 94 → 96, Contact 95 → 98, Toolbox 94 → 97; desktop 100 everywhere. Home's phone blocking time 400 → 0 ms; phone LCP 2.8–3.1 → 2.4–2.7 s; no render-blocking requests left.
+- **The field** (`runtime-before.txt`, `runtime-after.txt`, Fable's scripts): the slow-phone start-up block 449 → about 110 ms; desktop Home with the pointer resting 450 → about 70 ms of work a second, pointer moving 433 → about 150, six ripples 480 → about 390; phone pointer moving 507 → about 130, ripples 486 → about 300. Idle is about where it was (about 50 ms a second): most of the scene's rows move every tick.
+- **Field correctness:** `tools/review/px111.mjs` drives two builds on one hand-stepped clock with seeded rings and compares the canvas pixel for pixel. With the heat cut-off switched off, the new paint matched the old full repaint at every moment (dark and light, 1440 and 390) apart from 8 pixels that also differ between two runs of one build. With the cut-off, 32–196 pixels differ while the trail fades (faint heat ends sooner), up to about 8,000 once it has.
+- **Parity** (`tools/review/parity.mjs`, motion off): identical after the field and loading changes; after the image changes, PARC and xrp.cafe at 1440 differ only inside two gallery images now served a larger file (`parc-gallery-sizes.png`).
+- **Images and video:** `photo-2400-q82-vs-q70.png` (First Strike's hero, 978 → 649 KB; 31 files 4.3 → 2.9 MB); `parc-clip-frame.png` (original left, new encode right).
+- **JavaScript:** Home 20 files, 71 KB compressed (was 36 files); no client chunk on Home, Work or a study carries the catalog.
+- **Checks:** `pnpm check` 0/0, 26 tests, build, `seo:check`, `toolbox-demo.mjs` (48 states); the hero's loop paused off screen and resumed where it stopped; the contact rate limit against a mock store (sixth message refused, a hung store lets it through after 1.5 s).
+- **Evidence:** `docs/iterations/pixel-v2/111-performance/` (also `after-*`: a click on each field after the change).

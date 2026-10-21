@@ -2593,3 +2593,29 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Change:** a ring's speed and thickness scale with the field's width over 1200px, down to 0.4 on a phone, and its thickness never goes below one and a half cells. On a 390px phone a ring now runs 70–150px a second and is 12–16px thick; desktop is unchanged.
 - **Assistant's choices inside it:** 1200px as full size, the 0.4 floor, scaling speed and thickness but not lifetime.
 - **Status:** his direction; committed and pushed on his word (2026-10-20).
+
+## 0214: the performance pass (2026-10-20)
+
+- **Timothy's direction:** "lets now run a comprehensive performance optimization pass on the site. one fable agent and one astra agent", with Lighthouse where useful; shown the merged list (`docs/reviews/2026-10-20-performance-audit.md`, 17 items), "do all of it".
+- **The field (`Ascii.svelte`, items 1–5):**
+  - every change asks for one paint, shared: with motion off, the rows on screen paint in the next frame and the rest in idle time; the theme's first run draws nothing (Home used to draw its page-tall field whole four times as it started);
+  - a row is painted again only when its values, its knockout, or the heat and rings over it changed; between ticks only the heat's and the rings' boxes repaint;
+  - a resize acts only on a real change (canvas size, screen rows, place on the grid, the picture's layout);
+  - the pointer keeps the field painting every frame for 2.4 seconds after it moves (was 4.1, a ring's whole life); heat under 0.02 is dropped; rings keep it painting while they run;
+  - the loop sleeps in a hidden tab;
+  - light mode's dither is written as pixels a row at a time.
+- **Off screen (item 6):** the hero's typing loop waits wherever it is while the hero is off screen or the tab is hidden, and goes on from there (it ran its line out, then polled every 300 ms); the strip's clock stops in a hidden tab and on phones, where the strip is hidden.
+- **Loading (items 7–12):**
+  - every page's CSS is inlined in its HTML (`inlineStyleThreshold`);
+  - the project catalog is read in server loads at prerender: Home, Work and each study ship only what they show;
+  - Home preloads the hero's mountains;
+  - Toolbox loads Lockup with the page and the other three demos in idle time or when picked; Convert no longer encodes a JPEG for WebP alone;
+  - studies stop preloading Jersey 15, which they never set;
+  - chunks under 4 KB merge.
+- **Visible (items 13–15, the assistant's calls under "do all of it"):**
+  - a photograph's 2400px WebP is encoded at quality 70 (was 82; it is only seen at 2×); screens keep 80;
+  - PARC's clip is re-encoded at 3.7 MB (was 5.2 MB) and still plays on its own; a plain lighter encode lost the faint clouds, this one keeps them;
+  - phone crops are chosen by the page's phone width (was the full window), and a figure in an uneven row by its own share of the row (PARC's wide sign now gets a larger file).
+- **Other (16, 17):** the contact form counts a sender in one atomic call, with one retry and a 1.5-second limit past which the message goes through; the six PARC Pixel files the font tool writes moved from `static/fonts/` to `tools/fonts/out/` (nothing loaded them; `base.css` inlines two).
+- **Assistant's choices inside it:** every number (2.4 s, 0.02, 4 KB, quality 70, CRF 27 with aq-mode 3, 1.5 s), idle-time loading of the other demos, keeping the PARC clip autoplaying instead of tap-to-play, moving the font files rather than deleting them.
+- **Status:** his direction; committed and pushed on his word (2026-10-20).

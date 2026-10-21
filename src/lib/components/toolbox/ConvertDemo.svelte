@@ -73,7 +73,8 @@
           let n: number;
           if (fmt === 'png') n = await encode(c, 'image/png');
           else if (fmt === 'tiff') n = 8 + size.w * size.h * 4 + 210;
-          else { jpeg ??= await encode(c, 'image/jpeg', q); n = fmt === 'jpeg' ? jpeg : fmt === 'pdf' ? jpeg + 920 : await encode(c, 'image/webp', q); }
+          else if (fmt === 'webp') n = await encode(c, 'image/webp', q); // WebP alone no longer encodes a JPEG first (0214)
+          else { jpeg ??= await encode(c, 'image/jpeg', q); n = fmt === 'jpeg' ? jpeg : jpeg + 920; }
           if (gen !== mine) return;
           next[`${f.id}/${fmt}`] = n;
         }

@@ -5,7 +5,8 @@
   import NextFoot from '$lib/components/NextFoot.svelte';
   import QuietLink from '$lib/components/QuietLink.svelte';
   import Band from '$lib/components/Band.svelte';
-  import { rowColumns, rowTiles, total, type Row } from '$lib/work';
+  import { rowColumns, rowTiles } from '$lib/rows';
+  import type { Row } from '$lib/work';
   import { STEP, TICK_FAST, U } from '$lib/tokens';
   import { fitWord } from '$lib/fit';
   import { FRAME } from '$lib/figure';
@@ -43,8 +44,10 @@
   // of two or more, and 66 stacked screens loaded at about 0.6× (0206))
   // (no clause for wide screens: the page has no maximum width; 0210)
   const phoneSize = (tiles: boolean) => (tiles ? `calc((${FRAME.phone} - 16px) / 2)` : FRAME.phone);
-  const gallerySizes = (n: number, tiles: boolean) => `(min-width: 901px) calc((${FRAME.desk} - 32px) * 2 / 3 / ${n}), (min-width: 701px) calc(${FRAME.desk} / ${n}), ${phoneSize(tiles)}`;
-  const heroSizes = (n: number, tiles: boolean) => `(min-width: 701px) calc(${FRAME.desk} / ${n}), ${phoneSize(tiles)}`;
+  // A figure's share of its row is its aspect over the row's (0214): PARC's pair is a quarter and three
+  // quarters of the line, and the even split asked for files half the size of the wide one.
+  const gallerySizes = (share: number, tiles: boolean) => `(min-width: 901px) calc((${FRAME.desk} - 32px) * 2 / 3 * ${share}), (min-width: 701px) calc(${FRAME.desk} * ${share}), ${phoneSize(tiles)}`;
+  const heroSizes = (share: number, tiles: boolean) => `(min-width: 701px) calc(${FRAME.desk} * ${share}), ${phoneSize(tiles)}`;
   // A point's text is held in view only while it fits under the chrome; taller text scrolls
   // with the page, or its last lines would stay hidden until the point's screens ran out.
   // (the chrome is --chrome-height; the gap above it is --s4, and as much is kept below)
@@ -65,7 +68,7 @@
     {@const share = { total: row.reduce((a, m) => a + m.w / m.h, 0), n: row.length }}
     <div class="grow" class:tiles={rowTiles(row)} class:desk={row.every((m) => m.desk)} style:--cols={rowColumns(row)}>
       {#each row as m}
-        {#if m.video}<Clip src={m.src} small={m.small} tap={m.tap} width={m.w} height={m.h} label={m.alt} poster={m.poster} row={share} />{:else}<Picture class={m.desk ? 'desk' : ''} src={m.src} x2={m.x2} alt={m.alt} width={m.w} height={m.h} {eager} row={share} phone={m.phone} sizes={(eager ? heroSizes : gallerySizes)(row.length, rowTiles(row))} />{/if}
+        {#if m.video}<Clip src={m.src} small={m.small} tap={m.tap} width={m.w} height={m.h} label={m.alt} poster={m.poster} row={share} />{:else}<Picture class={m.desk ? 'desk' : ''} src={m.src} x2={m.x2} alt={m.alt} width={m.w} height={m.h} {eager} row={share} phone={m.phone} sizes={(eager ? heroSizes : gallerySizes)(+(m.w / m.h / share.total).toFixed(4), rowTiles(row))} />{/if}
       {/each}
     </div>
   {/each}
@@ -116,7 +119,7 @@
   {/each}
 
   <section class="next">
-    <NextFoot href={`/work/${next.slug}/`} n={next.n} title={next.title} note={`[${p.n}] / ${total}`} back="/contact/" backLabel="Tell me what you’re building" />
+    <NextFoot href={`/work/${next.slug}/`} n={next.n} title={next.title} note={`[${p.n}] / ${data.total}`} back="/contact/" backLabel="Tell me what you’re building" />
   </section>
 </main>
 <style>

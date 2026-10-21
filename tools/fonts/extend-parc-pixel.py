@@ -1,5 +1,5 @@
 """Add the seven glyphs the site needs to PARC Pixel Regular and Bold (decision 0078).
-Source: ../timothyali/static/parc/PARC_Pixel{,-Bold}.woff2 (untouched). Output: static/fonts/.
+Source: ../timothyali/static/parc/PARC_Pixel{,-Bold}.woff2 (untouched). Output: tools/fonts/out/ (0214: was static/fonts/, which shipped six files nothing loads; base.css inlines Regular and Bold).
 Each glyph is drawn on the weight's own grid: Regular = 160-unit cells, 1-cell strokes, 1-cell
 side gap; Bold = 800/11-unit cells, 3-cell strokes, 2-cell side gap. Rectangles only, like the
 originals. Run with a venv that has fonttools + brotli:  python tools/fonts/extend-parc-pixel.py
@@ -8,7 +8,7 @@ from fontTools.ttLib import TTFont
 from fontTools.pens.ttGlyphPen import TTGlyphPen
 
 SRC = '../timothyali/static/parc/'
-OUT = 'static/fonts/'
+OUT = 'tools/fonts/out/'
 
 def rects_to_glyph(pen_rects, glyphset):
     pen = TTGlyphPen(glyphset)

@@ -20,7 +20,13 @@
   const erased = (t: string) => [...t].length * STEP_SLOW;
   let slotName = $state('hi.');
   let slotLine = $state('');
-  let inView = $state(true);
+  let inView = true;
+  // The loop waits wherever it is while the hero is off screen or the tab is hidden, and picks up
+  // from there (0214); it used to run its line out and then ask every 300 ms whether to go on.
+  let waiting: (() => void)[] = [];
+  const seen = () => inView && !document.hidden;
+  const shown = () => new Promise<void>((r) => { if (seen()) r(); else waiting.push(r); });
+  const release = () => { if (seen()) { const w = waiting; waiting = []; w.forEach((r) => r()); } };
   // The prerender shows the name and the copy; with motion on the loop takes over after one
   // hold, so the page does not blank and retype what it already showed as JavaScript arrives (0206).
   let started = $state(false);
@@ -34,28 +40,32 @@
   // change asks the field to measure now rather than at its next tick.
   $effect(() => { void slotLine; void started; sec?.dispatchEvent(new CustomEvent('field-measure', { bubbles: true })); });
   onMount(() => {
-    const io = new IntersectionObserver((es) => es.forEach((e) => { inView = e.isIntersecting; }), { threshold: 0.2 });
-    io.observe(sec);
-    return () => io.disconnect();
+    const io = new IntersectionObserver((es) => es.forEach((e) => { inView = e.isIntersecting; release(); }), { threshold: 0.2 });
+    io.observe(sec); document.addEventListener('visibilitychange', release);
+    return () => { io.disconnect(); document.removeEventListener('visibilitychange', release); };
   });
   $effect(() => {
     if (!motion.on) return;
     let stopped = false;
     (async () => {
-      if (!started) { await sleep(HOLD.last); while (!inView && !stopped) await sleep(300); if (stopped) return; started = true; }
-      while (!stopped) {
-        while (!inView && !stopped) await sleep(300);
-        slotName = 'hi.'; slotLine = '';
-        await sleep(typed('hi.', STEP_SLOW, 200) + HOLD.hi); if (stopped) break;
-        slotName = 'i’m tim.';
-        await sleep(erased('hi.') + typed('i’m tim.', STEP_SLOW, 200) + HOLD.name); if (stopped) break;
-        for (const l of LINES) { slotLine = l; await sleep(typed(l, STEP) + (l === LINES[LINES.length - 1] ? HOLD.last : HOLD.line)); if (stopped) break; }
-        if (stopped) break;
+      // each change waits for the hero to be seen; one already typing finishes, under three seconds.
+      // Both say whether the loop has been stopped meanwhile.
+      const wait = async () => { await shown(); return stopped; };
+      const hold = async (ms: number) => { await sleep(ms); return stopped; };
+      if (!started) { if (await hold(HOLD.last) || await wait()) return; started = true; }
+      while (true) {
+        if (await wait()) break; slotName = 'hi.'; slotLine = '';
+        if (await hold(typed('hi.', STEP_SLOW, 200) + HOLD.hi)) break;
+        if (await wait()) break; slotName = 'i’m tim.';
+        if (await hold(erased('hi.') + typed('i’m tim.', STEP_SLOW, 200) + HOLD.name)) break;
+        let out = false;
+        for (const l of LINES) { if ((out = await wait())) break; slotLine = l; if ((out = await hold(typed(l, STEP) + (l === LINES[LINES.length - 1] ? HOLD.last : HOLD.line)))) break; }
+        if (out || await wait()) break;
         slotLine = ''; slotName = '';
-        await sleep(erased('i’m tim.') + HOLD.clear);
+        if (await hold(erased('i’m tim.') + HOLD.clear)) break;
       }
     })();
-    return () => { stopped = true; slotName = 'hi.'; slotLine = ''; };
+    return () => { stopped = true; const w = waiting; waiting = []; w.forEach((r) => r()); slotName = 'hi.'; slotLine = ''; };
   });
 </script>
 

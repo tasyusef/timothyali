@@ -4,8 +4,9 @@
   // year and scope, no counter row (the eyebrows went with 0196). The cards sit on the page's rain.
   import QuietLink from '$lib/components/QuietLink.svelte';
   import Card from '$lib/components/Card.svelte';
-  import { projects } from '$lib/work';
+  import type { Card as CardData } from '$lib/work';
   import { fitTitles } from '$lib/fit';
+  let { projects }: { projects: CardData[] } = $props();
 </script>
 
 <section class="list" id="work" aria-labelledby="work-title">

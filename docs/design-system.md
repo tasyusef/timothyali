@@ -120,9 +120,9 @@ stylesheet or module loads; all three places carry a comment naming the other tw
 
 ## The typeface build (`tools/fonts/extend-parc-pixel.py`, decision 0078)
 
-PARC Pixel is Timothy's own family from the PARC brand. The site ships its own build in
-`static/fonts/` (`parc-pixel.woff2`, `parc-pixel-bold.woff2`; the Light and Mono cuts are
-built too but unused), generated from the untouched originals in `../timothyali/static/parc/`:
+PARC Pixel is Timothy's own family from the PARC brand. The site uses its own build, kept in
+`tools/fonts/out/` (`parc-pixel.woff2`, `parc-pixel-bold.woff2`, inlined into `base.css`; the
+Light and Mono cuts are built too but unused; until 0214 the folder was `static/fonts/`), generated from the untouched originals in `../timothyali/static/parc/`:
 seven added glyphs (`[ ] · – — ’ ×`) drawn on each weight's grid, the ampersand redrawn in
 every cut (the cut's own 3 mirrored, stubs out the top and bottom), and the Bold rescaled to an
 1100-unit em so its cell is exactly 80 units and every advance lands on whole pixels at 41.25,
