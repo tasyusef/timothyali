@@ -86,6 +86,8 @@ export function layoutMountains(img: HTMLImageElement, cols: number, S: number, 
 // cells, so the glyphs and the dither (twice the cells) draw the same shape.
 function below(x: number, y: number, t: number, cols: number, S: number, seed: number) {
   const u = x / Math.max(1, cols), w = y / S;
+  // nothing in the left third, nor past the end on a portrait screen: empty for good, and no noise worked out (0218)
+  if (u <= 1 / 3 || (cols / S < 0.9 && w >= 1.3)) return { v: 0, c: MAT.shade, o: true, tex: true, s: 1 };
   const vert = 0.5 + 0.5 * Math.cos(Math.PI * w);
   const n = fbm(u * (cols / S) * 9 + t * 0.03, w * 11, seed + 51);
   // only the right two thirds (0169): nothing in the left third, building to the right edge, lighter overall
@@ -97,7 +99,9 @@ function below(x: number, y: number, t: number, cols: number, S: number, seed: n
   return { v, c: v > 0.45 ? MAT.rock : MAT.shade, o: true, tex: true };
 }
 
-export function sceneCell(x: number, y: number, t: number, cols: number, S: number, seed: number, shot: Shot = 'hero', M: Mountains | null = null): { v: number; c: number; o?: boolean; fade?: number; tex?: boolean } {
+// `s: 1` marks a cell that never changes with `t` (the picture, the ridges, the moon, the haze, the stars and
+// the empty sky), so the field works it out once (0218). Anything that reads `t` must leave it unset.
+export function sceneCell(x: number, y: number, t: number, cols: number, S: number, seed: number, shot: Shot = 'hero', M: Mountains | null = null): { v: number; c: number; o?: boolean; fade?: number; tex?: boolean; s?: number } {
   const u = x / Math.max(1, cols), w = y / S, sh = SHOTS[shot];
   if (sh.ridge && M) {
     const ix = x - M.x0, iy = y - M.y0;
@@ -108,7 +112,7 @@ export function sceneCell(x: number, y: number, t: number, cols: number, S: numb
         const v = Math.min(1, Math.max(0, (L - 0.12) / 0.66)) ** 1.1; // stretched: shadows drop away, lit faces and snow carry the shape
         const fade = Math.min(1, (M.h - iy) / (0.14 * M.h)); // the foot of the picture eases out
         const foot = sh.foot ? Math.min(1, Math.max(0, (S - y) / (sh.foot * S))) : 1; // a strip eases out at its own foot
-        return { v: Math.max(0.14, v) * foot, c: L > 0.66 ? MAT.snow : L > 0.4 ? MAT.rock : MAT.shade, o: true, fade: fade * foot };
+        return { v: Math.max(0.14, v) * foot, c: L > 0.66 ? MAT.snow : L > 0.4 ? MAT.rock : MAT.shade, o: true, fade: fade * foot, s: 1 };
       }
     } else if (iy >= M.h && sh.below) return below(x, y, t, cols, S, seed);
   } else if (sh.ridge) {
@@ -126,9 +130,9 @@ export function sceneCell(x: number, y: number, t: number, cols: number, S: numb
     const depth = w - h;
     // the ridge catches the light: a bright rim one or two cells deep, snow on the tallest peaks
     const high = 1 - (h - (r.base - r.amp)) / r.amp; // 1 at the tallest peaks
-    if (depth * S < 1.6 + 2.5 * high * high) return { v: Math.min(1, (lit ? 0.92 : 0.6) + grain) * fadeOut, c: high > 0.62 ? MAT.snow : MAT.rock, o };
+    if (depth * S < 1.6 + 2.5 * high * high) return { v: Math.min(1, (lit ? 0.92 : 0.6) + grain) * fadeOut, c: high > 0.62 ? MAT.snow : MAT.rock, o, s: 1 };
     const v = (lit ? r.lit : r.dark) + grain;
-    return { v: Math.max(0, Math.min(1, v)) * fadeOut, c: lit ? MAT.rock : MAT.shade, o };
+    return { v: Math.max(0, Math.min(1, v)) * fadeOut, c: lit ? MAT.rock : MAT.shade, o, s: 1 };
   }
   }
   // the planet: huge, low, to the right, lit from the upper left, its round edge in view
@@ -143,7 +147,7 @@ export function sceneCell(x: number, y: number, t: number, cols: number, S: numb
       // a moon: no bands, darker seas and a few craters, the same light
       const sea = fbm(dx * 2.2 + 5, dy * 2.2, seed + 3, 3), pit = fbm(dx * 7, dy * 7, seed + 9, 2);
       const v = (0.08 + 0.92 * lam) * (sea < 0.47 ? 0.6 : 0.95) * (pit > 0.68 ? 0.7 : 1);
-      return { v: v < 0.07 ? 0 : Math.min(1, v), c: sea < 0.47 ? MAT.brown : MAT.cream, o: true };
+      return { v: v < 0.07 ? 0 : Math.min(1, v), c: sea < 0.47 ? MAT.brown : MAT.cream, o: true, s: 1 };
     }
     const lon = Math.atan2(dx, nz);
     const turb = fbm(lon * 2.4 + t * 0.012, dy * 9, seed, 3);
@@ -154,9 +158,9 @@ export function sceneCell(x: number, y: number, t: number, cols: number, S: numb
     return { v: v < 0.07 ? 0 : Math.min(1, v), c, o: true };
   }
   // a thin haze just outside the lit limb
-  if (r2 < 1.06 * 1.06) { const lam = Math.max(0, -0.55 * dx - 0.5 * dy); if (lam > 0.2) return { v: 0.16 * lam, c: MAT.cream }; }
+  if (r2 < 1.06 * 1.06) { const lam = Math.max(0, -0.55 * dx - 0.5 * dy); if (lam > 0.2) return { v: 0.16 * lam, c: MAT.cream, s: 1 }; }
   // the sky: a few stars, more of them higher up
   const s = hash2(x, y, seed + 99);
-  if (s > 0.992 - 0.01 * Math.max(0, 0.5 - w)) return { v: 0.18 + 0.2 * hash2(x, y, seed + 7), c: MAT.star };
-  return { v: 0, c: MAT.star };
+  if (s > 0.992 - 0.01 * Math.max(0, 0.5 - w)) return { v: 0.18 + 0.2 * hash2(x, y, seed + 7), c: MAT.star, s: 1 };
+  return { v: 0, c: MAT.star, s: 1 };
 }

@@ -1050,3 +1050,28 @@ The 112 edits and O1–O3 from `docs/reviews/2026-10-21-copy-review.html`.
 - **Rings** (Timothy: more lens on the waves): `WAVE.bend` 2.6 → 4.2, `WAVE.most` 4 → 6; `click-*.png` 450 ms after a click.
 - **Toolbox app** (`0721699`): the swell and lens ported; typecheck 0/0, 369 tests, build; captured on the Specimen tool's empty stage (`toolbox-app-*.png`). Then the water rings (`174e1e3`): typecheck 0/0, 369 tests, build; two clicks 350 ms on (`toolbox-app-click.png`).
 - **Evidence:** `docs/iterations/pixel-v2/114-swell/` (the first pass in `first/`).
+
+## PX-115: the field paints only what changed (2026-10-22, 0218)
+
+- **Pixel parity:**
+  - `tools/review/px111.mjs` is now deterministic (virtual timers and IntersectionObserver, transitions off; Opus's harness), and passes baseline against itself.
+  - The new build against the previous one: identical at every moment on Home (3 and 14 rings, dark and light, 1440 and 390), Contact, Toolbox, the 404 and three studies.
+  - Motion off: every canvas identical on Home, Work, Contact, Toolbox and Sonde, both themes, both widths, top, middle and bottom.
+- **Runtime** (`runtime.mjs`, `runtime.txt`, main-thread task ms/s, median of two runs; phone is 390×844 at 4× CPU slowdown):
+
+  | Scenario | Before | After |
+  |---|---|---|
+  | Desktop dark, idle top of Home | 69 | 32 |
+  | Desktop dark, pointer moving | 123 | 60 |
+  | Desktop dark, 1 ripple | 325 | 104 |
+  | Desktop dark, 6 ripples | 370 | 127 |
+  | Desktop dark, idle at bottom | 116 | 48 |
+  | Desktop light, idle top | 73 | 40 |
+  | Desktop light, 6 ripples | 223 | 144 |
+  | Phone dark, idle top | 70 | 39 |
+  | Phone dark, 6 ripples | 428 | 92 |
+  | Phone light, 6 ripples | 244 | 133 |
+
+  Light mode gains least: its dither already wrote pixels (0214).
+- **Toolbox app:** typecheck 0/0, 369 tests, build. Driven in Electron: hover, two clicks, settled, light theme; no errors (`toolbox-app-after.png`). Codex Astra measured the same logic at pointer moving 160 → 37 ms/s and 6 ripples 78 → 33, with 216 app snapshots identical.
+- **Agent reports:** `docs/iterations/pixel-v2/115-field-paint/agents/`.

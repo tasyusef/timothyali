@@ -1,0 +1,160 @@
+## before desktop dark run1
+== desktop dark / motion=on theme=dark canvases=1440x2920 pageHeight=3000
+idle, top of page                    task    70 ms/s  script    38 ms/s  layout    1 ms/s (36)  frames  60/s  long []  heap 5.0 MB
+pointer resting on field             task   114 ms/s  script    56 ms/s  layout    2 ms/s (28)  frames  60/s  long []  heap 5.2 MB
+pointer moving over hero             task   109 ms/s  script    50 ms/s  layout    1 ms/s (51)  frames  60/s  long []  heap 4.0 MB
+1 click (ripple) + 3 s               task   310 ms/s  script   135 ms/s  layout    2 ms/s (39)  frames  60/s  long []  heap 2.9 MB
+6 clicks (ripples) + 4 s             task   377 ms/s  script   184 ms/s  layout    1 ms/s (26)  frames  60/s  long []  heap 3.7 MB
+after ripples die (idle 3 s)         task    49 ms/s  script    20 ms/s  layout    1 ms/s (24)  frames  60/s  long []  heap 4.4 MB
+scroll to bottom in 30 steps         task   130 ms/s  script    60 ms/s  layout    3 ms/s (80)  frames  60/s  long []  heap 4.1 MB
+idle at bottom                       task   114 ms/s  script    57 ms/s  layout    0 ms/s (3)  frames  60/s  long []  heap 3.0 MB
+6 clicks at bottom + 4 s             task   298 ms/s  script   139 ms/s  layout    0 ms/s (5)  frames  60/s  long []  heap 4.9 MB
+## after desktop dark run1
+== desktop dark / motion=on theme=dark canvases=1440x2920 pageHeight=3000
+idle, top of page                    task    29 ms/s  script    12 ms/s  layout    1 ms/s (37)  frames  60/s  long []  heap 4.9 MB
+pointer resting on field             task    40 ms/s  script    19 ms/s  layout    2 ms/s (27)  frames  60/s  long []  heap 5.1 MB
+pointer moving over hero             task    63 ms/s  script    33 ms/s  layout    2 ms/s (53)  frames  60/s  long []  heap 4.6 MB
+1 click (ripple) + 3 s               task    92 ms/s  script    57 ms/s  layout    3 ms/s (36)  frames  60/s  long []  heap 4.9 MB
+6 clicks (ripples) + 4 s             task   114 ms/s  script    87 ms/s  layout    1 ms/s (26)  frames  60/s  long []  heap 6.1 MB
+after ripples die (idle 3 s)         task    57 ms/s  script    21 ms/s  layout    3 ms/s (23)  frames  60/s  long []  heap 5.2 MB
+scroll to bottom in 30 steps         task    75 ms/s  script    33 ms/s  layout    4 ms/s (81)  frames  60/s  long []  heap 6.5 MB
+idle at bottom                       task    43 ms/s  script    19 ms/s  layout    0 ms/s (3)  frames  60/s  long []  heap 5.9 MB
+6 clicks at bottom + 4 s             task   106 ms/s  script    80 ms/s  layout    0 ms/s (5)  frames  60/s  long []  heap 5.7 MB
+## before desktop dark run2
+== desktop dark / motion=on theme=dark canvases=1440x2920 pageHeight=3000
+idle, top of page                    task    68 ms/s  script    35 ms/s  layout    1 ms/s (37)  frames  60/s  long []  heap 5.1 MB
+pointer resting on field             task   101 ms/s  script    53 ms/s  layout    1 ms/s (27)  frames  60/s  long []  heap 4.1 MB
+pointer moving over hero             task   137 ms/s  script    64 ms/s  layout    2 ms/s (51)  frames  60/s  long []  heap 4.0 MB
+1 click (ripple) + 3 s               task   340 ms/s  script   149 ms/s  layout    2 ms/s (37)  frames  60/s  long []  heap 2.9 MB
+6 clicks (ripples) + 4 s             task   362 ms/s  script   168 ms/s  layout    1 ms/s (25)  frames  60/s  long []  heap 4.5 MB
+after ripples die (idle 3 s)         task   107 ms/s  script    54 ms/s  layout    2 ms/s (24)  frames  60/s  long []  heap 3.5 MB
+scroll to bottom in 30 steps         task   141 ms/s  script    67 ms/s  layout    3 ms/s (80)  frames  60/s  long []  heap 3.9 MB
+idle at bottom                       task   119 ms/s  script    60 ms/s  layout    0 ms/s (3)  frames  60/s  long []  heap 4.4 MB
+6 clicks at bottom + 4 s             task   363 ms/s  script   190 ms/s  layout    0 ms/s (4)  frames  60/s  long []  heap 4.4 MB
+## after desktop dark run2
+== desktop dark / motion=on theme=dark canvases=1440x2920 pageHeight=3000
+idle, top of page                    task    34 ms/s  script    15 ms/s  layout    2 ms/s (37)  frames  60/s  long []  heap 4.1 MB
+pointer resting on field             task    61 ms/s  script    25 ms/s  layout    3 ms/s (28)  frames  60/s  long []  heap 4.2 MB
+pointer moving over hero             task    56 ms/s  script    29 ms/s  layout    2 ms/s (51)  frames  60/s  long []  heap 5.5 MB
+1 click (ripple) + 3 s               task   115 ms/s  script    80 ms/s  layout    3 ms/s (37)  frames  60/s  long []  heap 5.2 MB
+6 clicks (ripples) + 4 s             task   140 ms/s  script   110 ms/s  layout    2 ms/s (25)  frames  60/s  long []  heap 6.2 MB
+after ripples die (idle 3 s)         task    57 ms/s  script    20 ms/s  layout    3 ms/s (24)  frames  60/s  long []  heap 5.3 MB
+scroll to bottom in 30 steps         task    85 ms/s  script    36 ms/s  layout    5 ms/s (81)  frames  60/s  long []  heap 7.1 MB
+idle at bottom                       task    52 ms/s  script    22 ms/s  layout    0 ms/s (3)  frames  60/s  long []  heap 6.0 MB
+6 clicks at bottom + 4 s             task   123 ms/s  script    98 ms/s  layout    0 ms/s (5)  frames  60/s  long []  heap 6.2 MB
+## before desktop light run1
+== desktop light / motion=on theme=light canvases=1440x2920 pageHeight=3000
+idle, top of page                    task    75 ms/s  script    62 ms/s  layout    1 ms/s (37)  frames  60/s  long []  heap 4.3 MB
+pointer resting on field             task    91 ms/s  script    73 ms/s  layout    1 ms/s (27)  frames  60/s  long []  heap 3.9 MB
+pointer moving over hero             task   104 ms/s  script    82 ms/s  layout    2 ms/s (52)  frames  60/s  long []  heap 4.8 MB
+1 click (ripple) + 3 s               task   186 ms/s  script   166 ms/s  layout    2 ms/s (36)  frames  60/s  long []  heap 5.6 MB
+6 clicks (ripples) + 4 s             task   210 ms/s  script   194 ms/s  layout    1 ms/s (25)  frames  60/s  long []  heap 6.2 MB
+after ripples die (idle 3 s)         task    86 ms/s  script    68 ms/s  layout    1 ms/s (24)  frames  60/s  long []  heap 5.4 MB
+scroll to bottom in 30 steps         task   108 ms/s  script    84 ms/s  layout    2 ms/s (81)  frames  60/s  long []  heap 5.3 MB
+idle at bottom                       task    81 ms/s  script    67 ms/s  layout    0 ms/s (3)  frames  60/s  long []  heap 7.0 MB
+6 clicks at bottom + 4 s             task   227 ms/s  script   212 ms/s  layout    0 ms/s (5)  frames  60/s  long []  heap 6.7 MB
+## after desktop light run1
+== desktop light / motion=on theme=light canvases=1440x2920 pageHeight=3000
+idle, top of page                    task    40 ms/s  script    26 ms/s  layout    1 ms/s (37)  frames  60/s  long []  heap 4.7 MB
+pointer resting on field             task    65 ms/s  script    37 ms/s  layout    2 ms/s (28)  frames  60/s  long []  heap 4.7 MB
+pointer moving over hero             task    76 ms/s  script    46 ms/s  layout    2 ms/s (51)  frames  60/s  long []  heap 5.5 MB
+1 click (ripple) + 3 s               task   109 ms/s  script    79 ms/s  layout    3 ms/s (37)  frames  60/s  long []  heap 4.8 MB
+6 clicks (ripples) + 4 s             task   139 ms/s  script   119 ms/s  layout    1 ms/s (26)  frames  60/s  long []  heap 5.6 MB
+after ripples die (idle 3 s)         task    60 ms/s  script    36 ms/s  layout    2 ms/s (24)  frames  60/s  long []  heap 6.6 MB
+scroll to bottom in 30 steps         task    96 ms/s  script    53 ms/s  layout    4 ms/s (80)  frames  60/s  long []  heap 7.1 MB
+idle at bottom                       task    70 ms/s  script    43 ms/s  layout    0 ms/s (3)  frames  60/s  long []  heap 7.2 MB
+6 clicks at bottom + 4 s             task   129 ms/s  script   107 ms/s  layout    0 ms/s (5)  frames  60/s  long []  heap 7.9 MB
+## before desktop light run2
+== desktop light / motion=on theme=light canvases=1440x2920 pageHeight=3000
+idle, top of page                    task    71 ms/s  script    57 ms/s  layout    1 ms/s (37)  frames  60/s  long []  heap 4.5 MB
+pointer resting on field             task    92 ms/s  script    75 ms/s  layout    2 ms/s (27)  frames  60/s  long []  heap 4.3 MB
+pointer moving over hero             task   118 ms/s  script    94 ms/s  layout    2 ms/s (52)  frames  60/s  long []  heap 4.2 MB
+1 click (ripple) + 3 s               task   189 ms/s  script   174 ms/s  layout    2 ms/s (36)  frames  60/s  long []  heap 6.1 MB
+6 clicks (ripples) + 4 s             task   236 ms/s  script   219 ms/s  layout    1 ms/s (26)  frames  60/s  long []  heap 5.4 MB
+after ripples die (idle 3 s)         task    95 ms/s  script    71 ms/s  layout    2 ms/s (23)  frames  60/s  long []  heap 6.2 MB
+scroll to bottom in 30 steps         task   120 ms/s  script    89 ms/s  layout    3 ms/s (81)  frames  60/s  long []  heap 6.5 MB
+idle at bottom                       task   100 ms/s  script    79 ms/s  layout    0 ms/s (3)  frames  60/s  long []  heap 6.6 MB
+6 clicks at bottom + 4 s             task   217 ms/s  script   205 ms/s  layout    0 ms/s (5)  frames  60/s  long []  heap 6.4 MB
+## after desktop light run2
+== desktop light / motion=on theme=light canvases=1440x2920 pageHeight=3000
+idle, top of page                    task    40 ms/s  script    26 ms/s  layout    1 ms/s (37)  frames  60/s  long []  heap 3.9 MB
+pointer resting on field             task    56 ms/s  script    33 ms/s  layout    2 ms/s (27)  frames  60/s  long []  heap 4.4 MB
+pointer moving over hero             task    74 ms/s  script    46 ms/s  layout    2 ms/s (52)  frames  60/s  long []  heap 4.2 MB
+1 click (ripple) + 3 s               task   105 ms/s  script    72 ms/s  layout    3 ms/s (38)  frames  60/s  long []  heap 4.6 MB
+6 clicks (ripples) + 4 s             task   148 ms/s  script   127 ms/s  layout    1 ms/s (26)  frames  60/s  long []  heap 6.0 MB
+after ripples die (idle 3 s)         task    67 ms/s  script    37 ms/s  layout    2 ms/s (24)  frames  60/s  long []  heap 6.0 MB
+scroll to bottom in 30 steps         task    91 ms/s  script    53 ms/s  layout    3 ms/s (79)  frames  60/s  long []  heap 6.3 MB
+idle at bottom                       task    73 ms/s  script    45 ms/s  layout    0 ms/s (3)  frames  60/s  long []  heap 5.4 MB
+6 clicks at bottom + 4 s             task   133 ms/s  script   112 ms/s  layout    0 ms/s (5)  frames  60/s  long []  heap 5.5 MB
+## before phone dark run1
+== phone dark / motion=on theme=dark canvases=392x3400 pageHeight=3480
+idle, top of page                    task    63 ms/s  script    31 ms/s  layout    1 ms/s (33)  frames  60/s  long []  heap 4.0 MB
+1 click (ripple) + 3 s               task   387 ms/s  script   167 ms/s  layout    2 ms/s (26)  frames  60/s  long []  heap 4.0 MB
+6 clicks (ripples) + 4 s             task   387 ms/s  script   171 ms/s  layout    3 ms/s (43)  frames  60/s  long []  heap 2.7 MB
+after ripples die (idle 3 s)         task    69 ms/s  script    28 ms/s  layout    2 ms/s (39)  frames  60/s  long []  heap 3.4 MB
+scroll to bottom in 30 steps         task    40 ms/s  script    19 ms/s  layout    0 ms/s (12)  frames  60/s  long []  heap 4.1 MB
+idle at bottom                       task    17 ms/s  script    12 ms/s  layout    0 ms/s (0)  frames  60/s  long []  heap 3.7 MB
+6 clicks at bottom + 4 s             task   121 ms/s  script    89 ms/s  layout    0 ms/s (0)  frames  60/s  long []  heap 3.6 MB
+## after phone dark run1
+== phone dark / motion=on theme=dark canvases=392x3400 pageHeight=3480
+idle, top of page                    task    51 ms/s  script    16 ms/s  layout    2 ms/s (33)  frames  60/s  long []  heap 4.0 MB
+1 click (ripple) + 3 s               task   111 ms/s  script    50 ms/s  layout    2 ms/s (26)  frames  60/s  long []  heap 5.4 MB
+6 clicks (ripples) + 4 s             task   113 ms/s  script    62 ms/s  layout    4 ms/s (43)  frames  60/s  long []  heap 4.4 MB
+after ripples die (idle 3 s)         task    64 ms/s  script    14 ms/s  layout    4 ms/s (39)  frames  60/s  long []  heap 5.8 MB
+scroll to bottom in 30 steps         task    30 ms/s  script     9 ms/s  layout    0 ms/s (12)  frames  60/s  long []  heap 5.2 MB
+idle at bottom                       task    15 ms/s  script     4 ms/s  layout    0 ms/s (0)  frames  60/s  long []  heap 4.8 MB
+6 clicks at bottom + 4 s             task    61 ms/s  script    36 ms/s  layout    0 ms/s (0)  frames  60/s  long []  heap 5.1 MB
+## before phone dark run2
+== phone dark / motion=on theme=dark canvases=392x3400 pageHeight=3480
+idle, top of page                    task    78 ms/s  script    32 ms/s  layout    3 ms/s (33)  frames  60/s  long []  heap 4.6 MB
+1 click (ripple) + 3 s               task   464 ms/s  script   191 ms/s  layout    3 ms/s (26)  frames  60/s  long []  heap 5.1 MB
+6 clicks (ripples) + 4 s             task   469 ms/s  script   223 ms/s  layout    3 ms/s (43)  frames  60/s  long []  heap 2.7 MB
+after ripples die (idle 3 s)         task   100 ms/s  script    32 ms/s  layout    5 ms/s (39)  frames  60/s  long []  heap 3.4 MB
+scroll to bottom in 30 steps         task    44 ms/s  script    19 ms/s  layout    0 ms/s (12)  frames  60/s  long []  heap 4.1 MB
+idle at bottom                       task    19 ms/s  script    12 ms/s  layout    0 ms/s (0)  frames  60/s  long []  heap 3.7 MB
+6 clicks at bottom + 4 s             task   117 ms/s  script    85 ms/s  layout    0 ms/s (0)  frames  60/s  long []  heap 4.2 MB
+## after phone dark run2
+== phone dark / motion=on theme=dark canvases=392x3400 pageHeight=3480
+idle, top of page                    task    27 ms/s  script    13 ms/s  layout    2 ms/s (33)  frames  60/s  long []  heap 4.5 MB
+1 click (ripple) + 3 s               task    77 ms/s  script    41 ms/s  layout    2 ms/s (26)  frames  60/s  long []  heap 4.6 MB
+6 clicks (ripples) + 4 s             task    71 ms/s  script    47 ms/s  layout    3 ms/s (42)  frames  60/s  long []  heap 4.4 MB
+after ripples die (idle 3 s)         task    43 ms/s  script    13 ms/s  layout    3 ms/s (39)  frames  60/s  long []  heap 5.8 MB
+scroll to bottom in 30 steps         task    23 ms/s  script     8 ms/s  layout    0 ms/s (12)  frames  60/s  long []  heap 5.3 MB
+idle at bottom                       task    25 ms/s  script     5 ms/s  layout    0 ms/s (0)  frames  60/s  long []  heap 2.6 MB
+6 clicks at bottom + 4 s             task    80 ms/s  script    43 ms/s  layout    0 ms/s (0)  frames  60/s  long []  heap 3.2 MB
+## before phone light run1
+== phone light / motion=on theme=light canvases=392x3400 pageHeight=3480
+idle, top of page                    task    79 ms/s  script    57 ms/s  layout    2 ms/s (33)  frames  60/s  long []  heap 3.5 MB
+1 click (ripple) + 3 s               task   223 ms/s  script   175 ms/s  layout    3 ms/s (26)  frames  60/s  long []  heap 4.2 MB
+6 clicks (ripples) + 4 s             task   247 ms/s  script   204 ms/s  layout    3 ms/s (42)  frames  60/s  long []  heap 5.4 MB
+after ripples die (idle 3 s)         task    84 ms/s  script    54 ms/s  layout    4 ms/s (39)  frames  60/s  long []  heap 4.6 MB
+scroll to bottom in 30 steps         task    76 ms/s  script    48 ms/s  layout    0 ms/s (12)  frames  60/s  long []  heap 5.2 MB
+idle at bottom                       task    45 ms/s  script    31 ms/s  layout    0 ms/s (0)  frames  60/s  long []  heap 5.2 MB
+6 clicks at bottom + 4 s             task   206 ms/s  script   173 ms/s  layout    0 ms/s (0)  frames  60/s  long []  heap 6.0 MB
+## after phone light run1
+== phone light / motion=on theme=light canvases=392x3400 pageHeight=3480
+idle, top of page                    task    65 ms/s  script    33 ms/s  layout    3 ms/s (33)  frames  60/s  long []  heap 4.1 MB
+1 click (ripple) + 3 s               task   115 ms/s  script    58 ms/s  layout    3 ms/s (26)  frames  60/s  long []  heap 3.9 MB
+6 clicks (ripples) + 4 s             task   133 ms/s  script    87 ms/s  layout    3 ms/s (42)  frames  60/s  long []  heap 4.8 MB
+after ripples die (idle 3 s)         task    68 ms/s  script    30 ms/s  layout    5 ms/s (39)  frames  60/s  long []  heap 5.4 MB
+scroll to bottom in 30 steps         task    54 ms/s  script    16 ms/s  layout    0 ms/s (12)  frames  60/s  long []  heap 5.0 MB
+idle at bottom                       task    23 ms/s  script     4 ms/s  layout    0 ms/s (0)  frames  60/s  long []  heap 5.2 MB
+6 clicks at bottom + 4 s             task    78 ms/s  script    54 ms/s  layout    0 ms/s (0)  frames  60/s  long []  heap 4.8 MB
+## before phone light run2
+== phone light / motion=on theme=light canvases=392x3400 pageHeight=3480
+idle, top of page                    task    70 ms/s  script    54 ms/s  layout    2 ms/s (33)  frames  60/s  long []  heap 3.9 MB
+1 click (ripple) + 3 s               task   214 ms/s  script   170 ms/s  layout    3 ms/s (26)  frames  60/s  long []  heap 3.7 MB
+6 clicks (ripples) + 4 s             task   240 ms/s  script   205 ms/s  layout    3 ms/s (43)  frames  60/s  long []  heap 4.1 MB
+after ripples die (idle 3 s)         task    78 ms/s  script    52 ms/s  layout    4 ms/s (39)  frames  60/s  long []  heap 4.9 MB
+scroll to bottom in 30 steps         task    61 ms/s  script    42 ms/s  layout    0 ms/s (12)  frames  60/s  long []  heap 4.4 MB
+idle at bottom                       task    35 ms/s  script    28 ms/s  layout    0 ms/s (0)  frames  60/s  long []  heap 5.9 MB
+6 clicks at bottom + 4 s             task   220 ms/s  script   186 ms/s  layout    0 ms/s (0)  frames  60/s  long []  heap 5.3 MB
+## after phone light run2
+== phone light / motion=on theme=light canvases=392x3400 pageHeight=3480
+idle, top of page                    task    62 ms/s  script    31 ms/s  layout    3 ms/s (33)  frames  60/s  long []  heap 5.0 MB
+1 click (ripple) + 3 s               task   145 ms/s  script    79 ms/s  layout    3 ms/s (26)  frames  60/s  long []  heap 3.9 MB
+6 clicks (ripples) + 4 s             task   133 ms/s  script    82 ms/s  layout    4 ms/s (43)  frames  60/s  long []  heap 4.3 MB
+after ripples die (idle 3 s)         task    77 ms/s  script    33 ms/s  layout    5 ms/s (39)  frames  60/s  long []  heap 4.7 MB
+scroll to bottom in 30 steps         task    54 ms/s  script    17 ms/s  layout    0 ms/s (12)  frames  60/s  long []  heap 5.2 MB
+idle at bottom                       task    21 ms/s  script     4 ms/s  layout    0 ms/s (0)  frames  60/s  long []  heap 5.5 MB
+6 clicks at bottom + 4 s             task    87 ms/s  script    51 ms/s  layout    0 ms/s (0)  frames  60/s  long []  heap 5.0 MB

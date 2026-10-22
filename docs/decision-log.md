@@ -2647,3 +2647,27 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Then, on "lets also add a bit more lens to the click interaction as well. to the waves":** a ring bends the picture under it more, `WAVE.bend` 2.6 → 4.2 and its most 4 → 6 cells (the assistant's numbers).
 - **Toolbox app:** ported on "port it to toolbox" (`src/renderer/src/ui/Ascii.svelte`, app commit `0721699`). Then, on "port the ripples to the app too", the site's water rings replaced the app's single ring (app commit `174e1e3`): same `WAVE` ranges, bend and cap.
 - **Status:** Timothy's direction; committed and pushed on Timothy's word (2026-10-21), site and app.
+
+## 0218: the field paints only what changed, as pixels (2026-10-22)
+
+- **Timothy's direction:**
+  - "anyway we can optimize these background animations to make them significantly more performant? launch an opus, a fable, and a codex agent";
+  - then "let's rerun codex and prompt it better", "I want to make sure it has enough freedom", and "let's also run a sol 6.1 agent";
+  - shown the merged list (`docs/iterations/pixel-v2/115-field-paint/agents/`), "2": items 1–5, no frame cap.
+- **What the four agents found** (Opus, Fable, Codex Astra, Codex Sol 6.1, each with a measured prototype):
+  - the field repainted ~60 times the cells that changed, one `drawImage` per glyph;
+  - "idle ~50 ms/s is inherent" (0214) was wrong: at the top of Home about 0.4% of cells change a tick.
+- **Change, site** (`Ascii.svelte`, `scene.ts`; built on the Opus prototype):
+  - each cell remembers what it shows and is written only when that changes;
+  - glyphs are pixel tiles made from their bits, written into the row's image (no sprite canvases);
+  - each ring keeps its cells' distances and walks only its band;
+  - `sceneCell` marks cells that never change (`s: 1`) and the field works them out once, and the page texture's empty third skips its noise;
+  - props are read once a row, the canvas's place once a frame, the knockout is redone only near text that moved, and only the rows rings wrote are cleared.
+- **Change, Toolbox app** (`Ascii.svelte`, from the Codex Astra prototype):
+  - the field is worked out once a tick, not every redraw;
+  - each cell is drawn only when its sprite changes;
+  - colours are read on a theme change or resize;
+  - ring distances are kept.
+- **Not done, on Timothy's pick:** no frame cap. **Not recommended by all four:** WebGL, lower-resolution noise or approximate maths (pixel changes), a worker.
+- **Assistant's choices inside it:** which prototype to build on, keeping per-cell `drawImage` in the app (16px cells, few of them), the 24-row margin of the ring distance cache.
+- **Status:** Timothy's direction; committed and pushed on Timothy's word (2026-10-22), site and app (`596cf8c`).

@@ -43,7 +43,7 @@
   const WAVE = { speed: [180, 380], life: [2, 3.6], thick: [14, 40], stretch: [1.5, 2.4], wobble: [0.05, 0.12], lobes: [3, 7], bend: 4.2, most: 6, cap: 24, out: 0.3 };
   const pick = ([a, b]: number[]) => a + Math.random() * (b - a);
   const SHAPES = ['circle', 'diamond', 'square', 'ellipse'] as const;
-  type Burst = { x: number; y: number; t: number; speed: number; life: number; thick: number; shape: (typeof SHAPES)[number]; cos: number; sin: number; stretch: number; wobble: number; lobes: number; phase: number; span: number; die?: number };
+  type Burst = { x: number; y: number; t: number; speed: number; life: number; thick: number; shape: (typeof SHAPES)[number]; cos: number; sin: number; stretch: number; wobble: number; lobes: number; phase: number; span: number; die?: number; map?: Float64Array; my0?: number; my1?: number; mc?: number };
   // The ranges are for a desktop window; a narrower field scales a ring's speed and thickness down
   // with its width, to under half on a phone (0213: at full size one ring crossed the whole screen),
   // never thinner than one and a half cells.
@@ -83,11 +83,11 @@
   // every press rings out on its own, no matter how fast (PX-64); past WAVE.cap running rings the
   // oldest fades out over WAVE.out seconds rather than vanishing (0212)
   let bursts: Burst[] = [];
-  let sprites = new Map<string, HTMLCanvasElement>(); let accentSprites = new Map<string, HTMLCanvasElement>(); let shadeSprites: Map<string, HTMLCanvasElement>[] = []; let paletteSprites: Map<string, HTMLCanvasElement>[] = []; let spriteKey = ''; let paper = '';
+  let paper = '';
 
   // a study's strip draws its own scene (0179); every other scene field draws a shot of the landing's world
   const scene = (x: number, y: number, t: number, c: number, S: number) => (study ? studyCell(study, x, y, t, c, S, seed) : sceneCell(x, y, t, c, S, seed, shot, mtn));
-  type Cell = { v: number; ch?: string; hot?: boolean; c?: number; o?: boolean; fade?: number };
+  type Cell = { v: number; ch?: string; hot?: boolean; c?: number; o?: boolean; fade?: number; tex?: boolean; s?: number };
   const field = (x: number, y: number, t: number): Cell => {
     if (mode === 'scene') return scene(x, y, t, cols, screenRows);
     if (mode === 'noise') { const v = fbm(x / 6 + t * 0.04, y / 4 - t * 0.015, seed, 2); return { v, hot: v > 0.9 }; }
@@ -139,9 +139,9 @@
   type Rect = [number, number, number, number]; // x0, y0, x1, y1, inclusive; empty when x1 < x0
   const none = (): Rect => [Infinity, Infinity, -1, -1];
   const grow = (b: Rect, x0: number, y0: number, x1: number, y1: number) => { if (x0 < b[0]) b[0] = x0; if (y0 < b[1]) b[1] = y0; if (x1 > b[2]) b[2] = x1; if (y1 > b[3]) b[3] = y1; };
-  let hb = none(), hbLast = none(), rb = none(), rbLast = none(), db = none();
+  let hb = none(), hbLast = none(), rb = none(), rbLast = none(), db = none(), wetLo = 0, wetHi = -1;
   // the swell and rings run on elapsed time, so they look the same at 60 or 120 frames a second
-  function stir(dt: number) {
+  function stir(dt: number, r: DOMRect) {
     hbLast = hb; rbLast = rb; hb = none(); rb = none(); db = none();
     if (!interactive || heat.length !== cols * rows) return;
     // last frame's swell is cleared, then laid down where it is now
@@ -159,11 +159,12 @@
       }
       if (x1 >= x0 && y1 >= y0) grow(hb, x0, y0, x1, y1);
     }
-    if (ring.length !== heat.length) ring = new Float32Array(heat.length); else ring.fill(0);
+    // only the rows the rings wrote last frame are cleared, not the page-tall buffer (0218)
+    if (ring.length !== heat.length) ring = new Float32Array(heat.length); else if (wetHi >= wetLo) ring.fill(0, wetLo * cols, (wetHi + 1) * cols);
+    wetLo = rows; wetHi = -1;
     if (bursts.length) {
       // only the rows on screen and a few beyond (the bend looks up to WAVE.most cells away): a
       // page-tall field with two dozen rings would otherwise work out every cell for each of them
-      const r = canvas.getBoundingClientRect();
       const vy0 = Math.max(0, Math.floor(-r.top / cell) - 6), vy1 = Math.min(rows - 1, Math.ceil((window.innerHeight - r.top) / cell) + 6);
       for (const b of bursts) {
         const age = (b.t * FRAME) / 1000, s = b.thick / cell, front = (b.speed * age) / cell;
@@ -173,11 +174,28 @@
         if (fade <= 0) continue;
         const R = (front + 3.5 * s) * b.span;
         const x0 = Math.max(0, Math.floor(b.x - R)), x1 = Math.min(cols - 1, Math.ceil(b.x + R)), y0 = Math.max(vy0, Math.floor(b.y - R)), y1 = Math.min(vy1, Math.ceil(b.y + R));
+        if (y0 < wetLo) wetLo = y0; if (y1 > wetHi) wetHi = y1;
         if (x1 >= x0 && y1 >= y0) grow(rb, Math.max(0, x0 - 1), Math.max(0, y0 - 1), Math.min(cols - 1, x1 + 1), Math.min(rows - 1, y1 + 1)); // a cell beside the water bends too
-        for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) {
-          // a crest ahead and a trough behind (the slope of a bell curve), 1 at the crest's top
-          const off = (shapeDist(b, x + 0.5 - b.x, y + 0.5 - b.y) - front) / s; if (off > 3.5 || off < -3.5) continue;
-          ring[y * cols + x] += fade * off * Math.exp(0.5 - (off * off) / 2);
+        // only the ring's band is walked, not its box (0218): a shape's distance is at most `hi` times the
+        // plain distance, so a cell nearer than (front − 3.5 s) / hi is still dry; a cell of margin each side
+        const hi = (b.shape === 'diamond' ? Math.SQRT2 / 1.2 : b.shape === 'square' ? 1.1 : 1) * (1 + b.wobble);
+        const rIn = Math.max(0, (front - 3.5 * s) / hi - 1), rOut = R + 1, rIn2 = rIn * rIn, rOut2 = rOut * rOut;
+        // a cell's distance from the click by this ring's shape never changes: worked out once and kept
+        // per ring for the rows on screen and 24 either side (about 180 KB a ring on a desktop)
+        if (!b.map || b.mc !== cols || b.my0! > vy0 || b.my1! < vy1) { b.my0 = Math.max(0, vy0 - 24); b.my1 = Math.min(rows - 1, vy1 + 24); b.mc = cols; b.map = new Float64Array((b.my1 - b.my0 + 1) * cols).fill(NaN); }
+        const dm = b.map, my0 = b.my0!;
+        for (let y = y0; y <= y1; y++) {
+          const dy = y + 0.5 - b.y, dy2 = dy * dy; if (dy2 > rOut2) continue;
+          const xo = Math.sqrt(rOut2 - dy2), xi = dy2 < rIn2 ? Math.sqrt(rIn2 - dy2) : -1;
+          const xa = Math.max(x0, Math.floor(b.x - xo - 0.5)), xb = Math.min(x1, Math.ceil(b.x + xo - 0.5));
+          const la = xi < 0 ? xb : Math.min(xb, Math.floor(b.x - xi - 0.5)), ra = xi < 0 ? xb + 1 : Math.max(xa, Math.ceil(b.x + xi - 0.5));
+          for (let x = xa; x <= xb; x++) {
+            if (x > la && x < ra) { x = ra - 1; continue; }
+            // a crest ahead and a trough behind (the slope of a bell curve), 1 at the crest's top
+            const k = (y - my0) * cols + x; let d = dm[k]; if (d !== d) dm[k] = d = shapeDist(b, x + 0.5 - b.x, dy);
+            const off = (d - front) / s; if (off > 3.5 || off < -3.5) continue;
+            ring[y * cols + x] += fade * off * Math.exp(0.5 - (off * off) / 2);
+          }
         }
       }
       bursts = bursts.filter((b) => { const age = (b.t * FRAME) / 1000; return age < b.life && (b.die === undefined || age - b.die < WAVE.out); });
@@ -202,17 +220,7 @@
     return Math.max(y0, Math.min(y1 - 1, y + oy)) * cols + Math.max(0, Math.min(cols - 1, x + ox));
   }
 
-  // --- glyph sprites: each ramp glyph rendered once per colour/dpr ---------------
-  function spriteSet(fill: string) {
-    const out = new Map<string, HTMLCanvasElement>();
-    const p = px * dpr, s = cell * dpr; const ox = Math.floor((cell * dpr - 5 * p) / 2 / p) * p, oy = Math.floor((cell * dpr - 7 * p) / 2 / p) * p;
-    for (const ch of Object.keys(GLYPHS)) {
-      const c = document.createElement('canvas'); c.width = s; c.height = s; const g = c.getContext('2d'); if (!g) continue; g.fillStyle = fill;
-      const bits = GLYPHS[ch]; for (let r = 0; r < 7; r++) for (let k = 0; k < 5; k++) if (bits[r] & (16 >> k)) g.fillRect(ox + k * p, oy + r * p, p, p);
-      out.set(ch, c);
-    }
-    return out;
-  }
+  // --- glyph tiles ----------------------------------------------------------
   // Canvas fills want a resolved colour; let CSS do the mixing. The probe is made on
   // first use: this component is prerendered, and there is no document then.
   let probe: HTMLSpanElement | null = null;
@@ -221,12 +229,33 @@
     probe.style.color = `color-mix(in oklab, ${a} ${Math.round(t * 100)}%, ${b})`;
     host.appendChild(probe); const out = getComputedStyle(probe).color; probe.remove(); return out;
   }
-  function buildSprites() {
-    const key = color + '|' + accentColor + '|' + paper + '|' + shade + '|' + dpr + '|' + mode + palette + lightAs + theme.light; if (key === spriteKey) return; spriteKey = key;
-    paletteSprites = mode === 'scene' ? PALETTES[palette][theme.light ? 'light' : 'dark'].map(spriteSet) : [];
-    sprites = spriteSet(color); accentSprites = accentColor ? spriteSet(accentColor) : sprites;
-    // one set per ramp step: near-ground at the light end, the field colour just under the top, the accent on top
-    shadeSprites = shade ? RAMP.split('').map((_, i) => i === RAMP.length - 1 ? accentSprites : spriteSet(mix(color, paper, 0.08 + (0.92 * i) / (RAMP.length - 1)))) : [];
+  // A glyph is drawn as a tile: its pixels in one colour, a Uint32Array a cell square, made from
+  // its bits the first time it is needed and copied into the row's image (0218; it was one sprite
+  // canvas per glyph and colour, 240 of them in a scene, and one drawImage per cell). A tile's
+  // colour is a set: 0 the field's colour, 1 the accent, 2 + level a `shade` step; in a scene
+  // 1 + c, the palette's colour c. Tiles are dropped whenever the colours may have changed.
+  const GKEYS = Object.keys(GLYPHS), GI = new Map(GKEYS.map((k, i) => [k, i])), RAMPGI = RAMP.split('').map((c) => GI.get(c) ?? 0), BLANK = GI.get(' ');
+  let tiles: (Uint32Array | undefined)[] = [], setCols: (number | undefined)[] = [], palLen = 0, tileKey = '';
+  function resetTiles() {
+    const key = color + '|' + accentColor + '|' + paper + '|' + shade + '|' + dpr + '|' + mode + palette + lightAs + theme.light; if (key === tileKey) return; tileKey = key;
+    tiles = []; setCols = []; palLen = mode === 'scene' ? PALETTES[palette][theme.light ? 'light' : 'dark'].length : 0;
+  }
+  function setColour(id: number) {
+    let c = setCols[id]; if (c !== undefined) return c;
+    let css: string;
+    if (mode === 'scene') css = id === 0 ? color : PALETTES[palette][theme.light ? 'light' : 'dark'][id - 1];
+    // the heaviest shade step is the accent; every lighter one sinks toward the ground
+    else css = id === 0 ? color : id === 1 || id === 2 + RAMP.length - 1 ? accentColor || color : mix(color, paper, 0.08 + (0.92 * (id - 2)) / (RAMP.length - 1));
+    c = palette32([css])[0]; setCols[id] = c; return c;
+  }
+  // a tile's code: set × 32 + glyph + 1; 0 is a blank cell
+  function tileOf(code: number) {
+    let t = tiles[code]; if (t) return t;
+    const col = setColour(code >> 5), bits = GLYPHS[GKEYS[(code & 31) - 1]];
+    const p = px * dpr, s = cell * dpr, ox = Math.floor((s - 5 * p) / 2 / p) * p, oy = Math.floor((s - 7 * p) / 2 / p) * p;
+    t = new Uint32Array(s * s);
+    for (let r = 0; r < 7; r++) for (let k = 0; k < 5; k++) if (bits[r] & (16 >> k)) for (let a = 0; a < p; a++) for (let b = 0; b < p; b++) { const X = ox + k * p + b, Y = oy + r * p + a; if (X >= 0 && Y >= 0 && X < s && Y < s) t[Y * s + X] = col; }
+    tiles[code] = t; return t;
   }
   // --- drawing --------------------------------------------------------------
   // The field itself only changes once per `tick` (or on a resize or theme change), so it is
@@ -238,26 +267,44 @@
   let baseDirty = true, measuredFrame = -1; let rowFrame = new Int32Array(0); let rowDirty = new Uint8Array(0);
   // the knockout only changes when the boxes it steps around do: kept per row and redone when the
   // measured boxes move (0207), where before every cell on screen was worked out again each tick
-  let boxesKey = '', kVersion = 0; let rowK = new Int32Array(0);
+  let boxesKey = '', kVersion = 0; let rowK = new Int32Array(0); let boxKeys: string[] = [], lastBoxes: Box[] = [];
   let bV = new Float32Array(0), bC = new Int8Array(0), bHot = new Uint8Array(0), bK = new Float32Array(0); let bCh: (string | undefined)[] = [];
   let dV = new Float32Array(0), dC = new Int8Array(0); // dither: four pixels per cell
+  // What each cell shows on the canvas now, as one code (-1 unknown): a tile's code, or in light mode
+  // its four pixels' palette indices. A cell is written only when its code changes (0218): rows used
+  // to be repainted whole when any value in them moved, ~60 times the cells that changed.
+  let shown = new Int32Array(0);
+  // cells drawn wet last time (under the swell or a ring), so they are drawn once more when dry; and
+  // cells and dither pixels whose scene value never changes, worked out once (`s` from sceneCell)
+  let aff = new Uint8Array(0), bS = new Uint8Array(0), dS = new Uint8Array(0);
   let last = 0;
   // rows are worked out as they are painted, so a tick costs only the rows on screen
   function rebuild(y0: number, y1: number) {
     const n = cols * rows;
     if (baseDirty || bK.length !== n) {
-      if (bK.length !== n) { bV = new Float32Array(n); bC = new Int8Array(n); bHot = new Uint8Array(n); bK = new Float32Array(n); bCh = new Array(n); dV = new Float32Array(n * 4); dC = new Int8Array(n * 4); rowFrame = new Int32Array(rows); rowK = new Int32Array(rows); rowDirty = new Uint8Array(rows); }
-      rowFrame.fill(-1); rowDirty.fill(1); kVersion++;
-      const cs = getComputedStyle(host); color = cs.color; accentColor = cs.getPropertyValue('--accent-text').trim(); paper = cs.getPropertyValue('--paper').trim(); buildSprites(); pal32 = null;
+      if (bK.length !== n) { bV = new Float32Array(n); bC = new Int8Array(n); bHot = new Uint8Array(n); bK = new Float32Array(n); bCh = new Array(n); dV = new Float32Array(n * 4); dC = new Int8Array(n * 4); rowFrame = new Int32Array(rows); rowK = new Int32Array(rows); rowDirty = new Uint8Array(rows); shown = new Int32Array(n); aff = new Uint8Array(n); bS = new Uint8Array(n); dS = new Uint8Array(n * 4); }
+      rowFrame.fill(-1); rowDirty.fill(1); kVersion++; shown.fill(-1); bS.fill(0); dS.fill(0);
+      const cs = getComputedStyle(host); color = cs.color; accentColor = cs.getPropertyValue('--accent-text').trim(); paper = cs.getPropertyValue('--paper').trim(); resetTiles(); pal32 = null;
       baseDirty = false; measuredFrame = -1;
     }
     // the text the field steps around is measured once per tick, not once per frame
     if (measuredFrame !== frame) {
       measure(); measuredFrame = frame;
-      const key = boxes.map((b) => `${b.x0},${b.y0},${b.x1},${b.y1},${b.depth},${b.feather}`).join(';');
-      if (key !== boxesKey) { boxesKey = key; kVersion++; }
+      const keys = boxes.map((b) => `${b.x0},${b.y0},${b.x1},${b.y1},${b.depth},${b.feather}`), key = keys.join(';');
+      if (key !== boxesKey) {
+        // only the rows a box that came, went or moved can reach are worked out again (0218): the hero
+        // types a letter every few hundred ms, and every row on screen was worked out again for it
+        const now = new Set(keys), before = new Set(boxKeys), c = hug ? 1.5 : 0;
+        const touch = (b: Box) => { const r = c + pad + (b.feather ?? feather) + 1; for (let y = Math.max(0, Math.floor(b.y0 - r)); y <= Math.min(rows - 1, Math.ceil(b.y1 + r)); y++) rowK[y] = -1; };
+        lastBoxes.forEach((b, i) => { if (!now.has(boxKeys[i])) touch(b); });
+        boxes.forEach((b, i) => { if (!before.has(keys[i])) touch(b); });
+        boxesKey = key; boxKeys = keys; lastBoxes = boxes;
+      }
     }
     const dith = dithering(), P = pad, F = feather, H = hug, D = depth;
+    // props read once here, not once a cell: each is a getter
+    const md = mode, st = study, sd = seed, sh = shot, fl = flip, M = mtn, C = cols, SR = screenRows;
+    const sc: (x: number, y: number, t: number, c: number, S: number) => Cell = st ? (x, y, t, c, S) => studyCell(st, x, y, t, c, S, sd) : (x, y, t, c, S) => sceneCell(x, y, t, c, S, sd, sh, M);
     for (let y = y0; y < y1; y++) {
       if (rowK[y] !== kVersion) { rowK[y] = kVersion; for (let x = 0; x < cols; x++) { const i = y * cols + x, k = Math.fround(knockout(x + 0.5, y + 0.5, boxes, P, F, H, D)); if (k !== bK[i]) { bK[i] = k; rowDirty[y] = 1; } } } // hugged knockouts are rounded too (0174)
       if (rowFrame[y] === frame) continue; rowFrame[y] = frame; let moved = 0;
@@ -265,7 +312,8 @@
         const i = y * cols + x;
         if (dith) {
           for (let j = 0; j < 2; j++) for (let q = 0; q < 2; q++) {
-            const X = 2 * x + q, Y = 2 * y + j, f = scene(X, Y, frame, cols * 2, screenRows * 2), o = i * 4 + j * 2 + q;
+            const o = i * 4 + j * 2 + q; if (dS[o]) continue;
+            const X = 2 * x + q, Y = 2 * y + j, f = sc(X, Y, frame, C * 2, SR * 2); if (f.s) dS[o] = 1;
             // rock is drawn by its shadows, like ink: snow and lit faces stay paper; the planet keeps its colour; the sky is open paper;
             // the page texture below (`tex`) is drawn as it is, in the rock's colours
             const rock = !!f.o && !f.tex && (f.c === MAT.rock || f.c === MAT.shade || f.c === MAT.snow);
@@ -274,7 +322,9 @@
             if (v !== dV[o] || c !== dC[o]) { dV[o] = v; dC[o] = c; moved = 1; }
           }
         } else {
-          const f = field(flip ? cols - 1 - x : x, y, frame), v = Math.fround(f.v), c = f.c ?? -1, hot = f.hot ? 1 : 0;
+          if (bS[i]) continue;
+          const f = md === 'scene' ? sc(fl ? C - 1 - x : x, y, frame, C, SR) : field(fl ? C - 1 - x : x, y, frame), v = Math.fround(f.v), c = f.c ?? -1, hot = f.hot ? 1 : 0;
+          if (f.s) bS[i] = 1;
           if (v !== bV[i] || c !== bC[i] || hot !== bHot[i] || f.ch !== bCh[i]) { bV[i] = v; bC[i] = c; bHot[i] = hot; bCh[i] = f.ch; moved = 1; }
         }
       }
@@ -291,49 +341,68 @@
   // light mode, the scene as pixel dither (PX-65): each cell is four square pixels at half the
   // cell, lit if they beat the Bayer threshold, in their material's colour; no glyphs and no
   // stars, so it reads as a print on the paper
-  function ditherRow(y: number, x0: number, x1: number, ry0: number, ry1: number) {
+  function ditherRow(y: number, x0: number, x1: number, ry0: number, ry1: number, part = false) {
     if (!ctx) return;
-    const s = cell * dpr, hs = s / 2, W = cols * s;
+    const s = cell * dpr, hs = s / 2, W = cols * s, dens = density;
     if (!rowImg || rowImg.width !== W || rowImg.height !== s) { rowImg = ctx.createImageData(W, s); rowPx = new Uint32Array(rowImg.data.buffer); }
     pal32 ??= palette32(PALETTES[palette].light);
+    let lo = Infinity, hi = -1;
     for (let x = x0; x < x1; x++) {
-      const i = y * cols + x, k = bK[i];
-      if (k <= 0) { for (let p = 0; p < s; p++) rowPx.fill(0, p * W + x * s, p * W + x * s + s); continue; }
-      const h = heat[i] || 0, rg = ring[i] || 0, src = bent(i, x, y, ry0, ry1);
+      const i = y * cols + x, k = bK[i]; let code = 1 << 20;
+      const wet = heat[i] || ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]) ? 1 : 0; if (part && !wet && !aff[i]) continue; aff[i] = wet;
+      if (k > 0) {
+        const h = heat[i] || 0, rg = ring[i] || 0, src = bent(i, x, y, ry0, ry1);
+        for (let j = 0; j < 2; j++) for (let q = 0; q < 2; q++) {
+          const o = src * 4 + j * 2 + q, X = 2 * x + q, Y = 2 * y + j;
+          const v = (dV[o] * dens + h * SWELL.lift) * k;
+          let on = v > (BAYER8[Y % 8][X % 8] + 0.5) / 64;
+          if (rg > 0 && rg > (BAYER8[(Y + 4) % 8][(X + 4) % 8] + 0.5) / 64) on = !on;
+          if (on) code |= ((dC[o] >= 0 ? dC[o] : MAT.star) + 1) << (5 * (j * 2 + q));
+        }
+      }
+      if (code !== shown[i]) { shown[i] = code; if (x < lo) lo = x; hi = x; }
+    }
+    if (hi < 0) return;
+    for (let x = lo; x <= hi; x++) {
+      const code = shown[y * cols + x];
       for (let j = 0; j < 2; j++) for (let q = 0; q < 2; q++) {
-        const o = src * 4 + j * 2 + q, X = 2 * x + q, Y = 2 * y + j;
-        const v = (dV[o] * density + h * SWELL.lift) * k;
-        let on = v > (BAYER8[Y % 8][X % 8] + 0.5) / 64;
-        // a click's ring swaps pixel and paper as it passes, its edge dithered too
-        if (rg > 0 && rg > (BAYER8[(Y + 4) % 8][(X + 4) % 8] + 0.5) / 64) on = !on;
-        // the swell shows in the cell's own colour, or the sky's where there is nothing (0165)
-        const col = on ? pal32[dC[o] >= 0 ? dC[o] : MAT.star] ?? 0 : 0;
+        const ix = (code >> (5 * (j * 2 + q))) & 31, col = ix ? pal32[ix - 1] ?? 0 : 0;
         for (let p = 0, at = j * hs * W + x * s + q * hs; p < hs; p++, at += W) for (let u = 0; u < hs; u++) rowPx[at + u] = col;
       }
     }
-    ctx.putImageData(rowImg, 0, y * s, x0 * s, 0, (x1 - x0) * s, s);
+    ctx.putImageData(rowImg, 0, y * s, lo * s, 0, (hi - lo + 1) * s, s);
   }
-  function glyphRow(y: number, x0: number, x1: number, ry0: number, ry1: number) {
+  function glyphRow(y: number, x0: number, x1: number, ry0: number, ry1: number, part = false) {
     if (!ctx) return;
-    const s = cell * dpr, heatC = mode === 'scene' ? MAT.star : -1;
-    ctx.clearRect(x0 * s, y * s, (x1 - x0) * s, s);
+    const s = cell * dpr, W = cols * s, scn = mode === 'scene', heatC = scn ? MAT.star : -1, dens = density, shd = shade;
+    let lo = Infinity, hi = -1;
     for (let x = x0; x < x1; x++) {
       const i = y * cols + x;
+      const wet = heat[i] || ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]) ? 1 : 0; if (part && !wet && !aff[i]) continue; aff[i] = wet;
       const h = heat[i] || 0, rg = ring[i] || 0, src = bent(i, x, y, ry0, ry1);
-      let b = bV[src] * density;
-      // a crest in a scene swaps full and empty as it passes: glyphs thin out, the sky fills in;
-      // elsewhere a crest lifts the field and a trough sinks it
-      if (mode === 'scene') { if (rg > 0 && rg > (BAYER8[y % 8][x % 8] + 0.5) / 64) b = 0.75 * (1 - Math.min(1, b)); }
+      let b = bV[src] * dens;
+      if (scn) { if (rg > 0 && rg > (BAYER8[y % 8][x % 8] + 0.5) / 64) b = 0.75 * (1 - Math.min(1, b)); }
       else if (rg < 0) b *= 1 + 0.7 * Math.max(-1, rg);
-      const v = (b + (mode === 'scene' ? h * SWELL.lift : Math.max(h * SWELL.lift, rg * 0.9))) * bK[i];
+      const v = (b + (scn ? h * SWELL.lift : Math.max(h * SWELL.lift, rg * 0.9))) * bK[i];
       const level = Math.min(RAMP.length - 1, Math.floor(v * RAMP.length));
-      const ch = bCh[src] && v > 0.05 ? bCh[src]! : RAMP[level];
-      if (ch === ' ') continue;
-      // a scene keeps its own colours under the swell and its ripple; the other fields light up in the accent under a ring
-      const c = bC[src] >= 0 ? bC[src] : heatC;
-      const set = mode === 'scene' ? paletteSprites[c] ?? sprites : bHot[src] || rg > 0.5 ? accentSprites : shade ? shadeSprites[level] : sprites;
-      const sp = set.get(ch); if (sp) ctx.drawImage(sp, x * s, y * s);
+      const cch = bCh[src];
+      const gi = cch && v > 0.05 ? GI.get(cch)! : RAMPGI[level];
+      let code = 0;
+      if (gi !== BLANK) {
+        const c = bC[src] >= 0 ? bC[src] : heatC;
+        const set = scn ? (c >= 0 && c < palLen ? 1 + c : 0) : bHot[src] || rg > 0.5 ? 1 : shd ? 2 + level : 0;
+        code = set * 32 + gi + 1;
+      }
+      if (code !== shown[i]) { shown[i] = code; if (x < lo) lo = x; hi = x; }
     }
+    if (hi < 0) return;
+    if (!rowImg || rowImg.width !== W || rowImg.height !== s) { rowImg = ctx.createImageData(W, s); rowPx = new Uint32Array(rowImg.data.buffer); }
+    for (let x = lo; x <= hi; x++) {
+      const code = shown[y * cols + x], t = code ? tileOf(code) : null;
+      if (t) { for (let p = 0, at = x * s, k = 0; p < s; p++, at += W) for (let u = 0; u < s; u++) rowPx[at + u] = t[k++]; }
+      else for (let p = 0, at = x * s; p < s; p++, at += W) rowPx.fill(0, at, at + s);
+    }
+    ctx.putImageData(rowImg, 0, y * s, lo * s, 0, (hi - lo + 1) * s, s);
   }
   // Paints rows [y0, y1): whole where they changed, and where the swell and rings are; their bend
   // looks up to WAVE.most rows away, so those rows are worked out too while either is up.
@@ -344,16 +413,16 @@
     const row = dithering() ? ditherRow : glyphRow;
     for (let y = y0; y < y1; y++) {
       if (rowDirty[y]) { rowDirty[y] = 0; row(y, 0, cols, ry0, ry1); }
-      else if (y >= db[1] && y <= db[3]) row(y, Math.max(0, db[0]), Math.min(cols, db[2] + 1), ry0, ry1);
+      else if (y >= db[1] && y <= db[3]) row(y, Math.max(0, db[0]), Math.min(cols, db[2] + 1), ry0, ry1, true);
     }
     drawn = true;
   }
   // one frame of the field: the swell and rings move on, and the rows on screen are painted
-  function draw() {
+  // the canvas's place is read once a frame and shared (0218): it was read three times
+  function draw(r = canvas.getBoundingClientRect()) {
     if (!ctx || !cols || !rows) return;
     const now = performance.now(); const dt = last ? Math.min(100, now - last) : FRAME; last = now;
-    stir(dt);
-    const r = canvas.getBoundingClientRect();
+    stir(dt, r);
     const y0 = Math.max(0, Math.floor(-r.top / cell) - 1), y1 = Math.min(rows, Math.ceil((window.innerHeight - r.top) / cell) + 1);
     if (y1 > y0) paintRows(y0, y1);
   }
@@ -391,7 +460,7 @@
     // Everything the field draws sits on whole CSS pixels (glyph pixels of `px`, dither squares of
     // half a cell), and the canvas is scaled up `pixelated`, so a 1× backing store looks the same
     // on a 2× or 3× screen at a ninth of the memory (Home's was 20 MB on a phone, 0207). `dpr`
-    // stays a variable so the sprites and drawing keep their scale arithmetic.
+    // stays a variable so the tiles and drawing keep their scale arithmetic.
     dpr = 1;
     const pageX = r.left + window.scrollX, pageY = r.top + window.scrollY; const g = cell;
     offX = ((pageX % g) + g) % g; offY = ((pageY % g) + g) % g;
@@ -452,8 +521,8 @@
     const loop = (now: number) => {
       id = 0; if (!visible || document.hidden) return;
       frame = Math.floor((now - start) / tick);
-      const top = canvas.getBoundingClientRect().top;
-      if (frame !== paintedFrame || top !== paintedTop || remeasure || repaint || live()) { paintedFrame = frame; paintedTop = top; remeasure = repaint = false; draw(); }
+      const r = canvas.getBoundingClientRect(), top = r.top;
+      if (frame !== paintedFrame || top !== paintedTop || remeasure || repaint || live()) { paintedFrame = frame; paintedTop = top; remeasure = repaint = false; draw(r); }
       else last = now;
       if (live()) schedule();
       else timer = window.setTimeout(schedule, tick - ((now - start) % tick) + 1);
