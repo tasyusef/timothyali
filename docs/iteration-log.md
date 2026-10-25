@@ -1075,3 +1075,9 @@ The 112 edits and O1–O3 from `docs/reviews/2026-10-21-copy-review.html`.
   Light mode gains least: its dither already wrote pixels (0214).
 - **Toolbox app:** typecheck 0/0, 369 tests, build. Driven in Electron: hover, two clicks, settled, light theme; no errors (`toolbox-app-after.png`). Codex Astra measured the same logic at pointer moving 160 → 37 ms/s and 6 ripples 78 → 33, with 216 app snapshots identical.
 - **Agent reports:** `docs/iterations/pixel-v2/115-field-paint/agents/`.
+
+## PX-116: Sonde and Pocketwatch hidden (2026-10-24, 0219)
+
+- `hidden: true` on both studies; nothing else in the site needed a change, since Home, Work, the sitemap, share images and the Next chain all read the visible set.
+- Checked: `pnpm check` clean; on the dev server Home shows two cards (Toolbox, PARC, side by side at 1024) before Jade and First Ledger were promoted, Work lists seven studies, `/work/sonde/` is a 404 locally (the Vercel redirect applies in production).
+- Then promoted Jade Aesthetics and First Ledger to the selected four; Home is a 2×2 grid at 1440, no overflow at 320; share images regenerated (Work collage, study numbers); `pnpm build`, `social:verify` and `seo:check` pass.

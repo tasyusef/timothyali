@@ -74,12 +74,14 @@ const fst = media('firststrike'), so = media('sonde'), ps = media('parc-site'), 
 const desk = (m: Media): Media => ({ ...m, desk: true });
 const ph = (m: Media, w: number, h: number): Media => ({ ...m, phone: { src: m.src.replace(/(\.\w+)$/, '-phone$1'), w, h } });
 
-/** Every project in display order: the selected four (Sonde, Pocketwatch, Toolbox, PARC, decision 0132), the index five, then the hidden one.
+/** Every project in display order: the selected four (Toolbox, PARC, Jade Aesthetics, First Ledger, 0219; Sonde and Pocketwatch hidden for now), the index three, then the hidden one.
  *  `n` is assigned from the position in the visible set at the bottom of this file. */
 type Source = Omit<Project, 'n'> | Omit<Entry, 'n'>;
 const source: Source[] = [
   {
     tier: 'selected',
+    // hidden for now on Timothy's word (0219); the study stays here to come back
+    hidden: true,
     slug: 'sonde',
     title: 'Sonde',
     word: 'sonde',
@@ -140,6 +142,8 @@ const source: Source[] = [
   },
   {
     tier: 'selected',
+    // hidden for now on Timothy's word (0219); the study stays here to come back
+    hidden: true,
     slug: 'pocketwatch',
     title: 'Pocketwatch',
     word: 'pocketwatch',
@@ -330,7 +334,52 @@ const source: Source[] = [
     ]
   },
   {
-    tier: 'index',
+    tier: 'selected',
+    slug: 'jade-aesthetics',
+    title: 'Jade Aesthetics',
+    word: 'jade aesthetics',
+    year: '2025–present',
+    scope: 'Web & code',
+    role: 'Designer & developer',
+    timeline: 'Ongoing · project-based freelance',
+    tools: 'Framer (V1), Next.js, Tailwind CSS, Vercel, Claude Code (V2)',
+    live: { href: 'https://www.jadeaesthetics.co/', label: 'jadeaesthetics.co' },
+    description: 'Two websites for a medical spa. I launched the first in Framer, then rebuilt it in Next.js with a page for each treatment.',
+    cover: { src: '/work/jade-aesthetics/cover.png', w: 2880, h: 1620, alt: 'The Jade Aesthetics logo over its homepage: Naturally Elevated, Timeless Beauty over the treatment lounge' },
+    lead: [
+      "I designed and built two websites for Jade Aesthetics, a medical spa in Wheaton, Illinois. The first launched in Framer. When the practice needed individual treatment pages, I rebuilt it in Next.js, keeping the visual style I’d developed for the first site."
+    ],
+    hero: [ja('nav-services.jpg', 1600, 900, 'The services menu open over the homepage: Face, Body, Injectables, and Wellness with their treatment counts')],
+    blocks: [
+      { type: 'text', title: 'Version one: the launch site', paras: [
+        "The practice came to me with a logo, and I built the look of the site around it: jade green and warm gold on cream backgrounds, with photos of the treatment rooms so visitors could get a feel for the place.",
+        "The Framer site introduced the practice, its services, and its approach to care. It gave the team a website while the business was getting off the ground."
+      ] },
+      { type: 'text', title: 'Why I rebuilt it', paras: [
+        "The practice needed individual treatment pages that people could find through search. I built a shared template in Next.js so each page could have its own content, metadata, and structured data.",
+        "The template also made it easier to add treatments. Each gets its own URL and follows the same structure, so the team doesn’t need a new page design for every service."
+      ] },
+      { type: 'text', title: 'Version two: treatment pages', paras: [
+        "I used Next.js and Tailwind CSS for the rebuild. I designed the page structure and components, then worked with Claude Code to build them and reviewed the results. The site uses server-rendered pages, individual metadata, structured data, breadcrumbs, and a generated sitemap.",
+        "The rebuild has more than 30 pages: service categories, 16 treatment pages, two skincare lines, team bios, FAQs, financing, and contact details. Each treatment page explains what the procedure is, who it’s for, what to expect, and how recovery goes, so people can read all of that before they book."
+      ] },
+      { type: 'gallery', rows: [
+        [desk(ja('services-face.jpg', 1600, 1000, 'The Face Treatments category page: the headline over a facial photograph, with the breadcrumb and the introduction below')), desk(ja('service-botox.jpg', 1600, 1000, 'The Botox Cosmetic treatment page: the Injectables label, the headline, and the Overview section'))],
+        [ja('phone-home.jpg', 739, 1600, 'The homepage on a phone: the wordmark, the menu button, and the headline over the lounge'), ja('phone-nav.jpg', 739, 1600, 'The mobile menu open: Services expanded to Face, Body, Injectables, and Wellness'), ja('phone-services-face.jpg', 739, 1600, 'Face Treatments on a phone'), ja('phone-service-botox.jpg', 739, 1600, 'The Botox Cosmetic page on a phone')]
+      ] },
+      { type: 'text', title: 'Keeping the visual identity', paras: [
+        "The rebuild kept the first site’s look, with Space Grotesk for headings and Sora for text. I turned the service cards, FAQ accordions, testimonial carousels, and contact blocks into reusable components, which kept the pages consistent as there got to be more of them."
+      ] },
+      { type: 'gallery', rows: [
+        [ja('products.jpg', 1600, 1000, 'The Biologique Recherche product page: the brand story and a row of exfoliants, moisturizers, serums, and cleansers'), ja('faq.jpg', 1600, 1000, 'The FAQ page: Frequently Asked Questions over eucalyptus, with the General Questions accordion below')]
+      ] },
+      { type: 'text', title: 'Outcome', paras: [
+        "The rebuild went live in about two months with more than 30 pages, 16 of them treatment pages. The old URLs redirect to the new ones, and the site still looks like the Framer version."
+      ] }
+    ]
+  },
+  {
+    tier: 'selected',
     slug: 'firstledger',
     title: 'First Ledger',
     word: 'first ledger',
@@ -425,51 +474,6 @@ const source: Source[] = [
       ] },
       { type: 'text', title: 'Outcome', paras: [
         "The work included more than ten social campaigns, motion graphics, and event booths, plus campaign graphics for a VeSea charity event that raised $33K for St. Jude. By mid-2026, the marketplace had 32K followers, $16.2M in volume, and 6.7M transactions."
-      ] }
-    ]
-  },
-  {
-    tier: 'index',
-    slug: 'jade-aesthetics',
-    title: 'Jade Aesthetics',
-    word: 'jade aesthetics',
-    year: '2025–present',
-    scope: 'Web & code',
-    role: 'Designer & developer',
-    timeline: 'Ongoing · project-based freelance',
-    tools: 'Framer (V1), Next.js, Tailwind CSS, Vercel, Claude Code (V2)',
-    live: { href: 'https://www.jadeaesthetics.co/', label: 'jadeaesthetics.co' },
-    description: 'Two websites for a medical spa. I launched the first in Framer, then rebuilt it in Next.js with a page for each treatment.',
-    cover: { src: '/work/jade-aesthetics/cover.png', w: 2880, h: 1620, alt: 'The Jade Aesthetics logo over its homepage: Naturally Elevated, Timeless Beauty over the treatment lounge' },
-    lead: [
-      "I designed and built two websites for Jade Aesthetics, a medical spa in Wheaton, Illinois. The first launched in Framer. When the practice needed individual treatment pages, I rebuilt it in Next.js, keeping the visual style I’d developed for the first site."
-    ],
-    hero: [ja('nav-services.jpg', 1600, 900, 'The services menu open over the homepage: Face, Body, Injectables, and Wellness with their treatment counts')],
-    blocks: [
-      { type: 'text', title: 'Version one: the launch site', paras: [
-        "The practice came to me with a logo, and I built the look of the site around it: jade green and warm gold on cream backgrounds, with photos of the treatment rooms so visitors could get a feel for the place.",
-        "The Framer site introduced the practice, its services, and its approach to care. It gave the team a website while the business was getting off the ground."
-      ] },
-      { type: 'text', title: 'Why I rebuilt it', paras: [
-        "The practice needed individual treatment pages that people could find through search. I built a shared template in Next.js so each page could have its own content, metadata, and structured data.",
-        "The template also made it easier to add treatments. Each gets its own URL and follows the same structure, so the team doesn’t need a new page design for every service."
-      ] },
-      { type: 'text', title: 'Version two: treatment pages', paras: [
-        "I used Next.js and Tailwind CSS for the rebuild. I designed the page structure and components, then worked with Claude Code to build them and reviewed the results. The site uses server-rendered pages, individual metadata, structured data, breadcrumbs, and a generated sitemap.",
-        "The rebuild has more than 30 pages: service categories, 16 treatment pages, two skincare lines, team bios, FAQs, financing, and contact details. Each treatment page explains what the procedure is, who it’s for, what to expect, and how recovery goes, so people can read all of that before they book."
-      ] },
-      { type: 'gallery', rows: [
-        [desk(ja('services-face.jpg', 1600, 1000, 'The Face Treatments category page: the headline over a facial photograph, with the breadcrumb and the introduction below')), desk(ja('service-botox.jpg', 1600, 1000, 'The Botox Cosmetic treatment page: the Injectables label, the headline, and the Overview section'))],
-        [ja('phone-home.jpg', 739, 1600, 'The homepage on a phone: the wordmark, the menu button, and the headline over the lounge'), ja('phone-nav.jpg', 739, 1600, 'The mobile menu open: Services expanded to Face, Body, Injectables, and Wellness'), ja('phone-services-face.jpg', 739, 1600, 'Face Treatments on a phone'), ja('phone-service-botox.jpg', 739, 1600, 'The Botox Cosmetic page on a phone')]
-      ] },
-      { type: 'text', title: 'Keeping the visual identity', paras: [
-        "The rebuild kept the first site’s look, with Space Grotesk for headings and Sora for text. I turned the service cards, FAQ accordions, testimonial carousels, and contact blocks into reusable components, which kept the pages consistent as there got to be more of them."
-      ] },
-      { type: 'gallery', rows: [
-        [ja('products.jpg', 1600, 1000, 'The Biologique Recherche product page: the brand story and a row of exfoliants, moisturizers, serums, and cleansers'), ja('faq.jpg', 1600, 1000, 'The FAQ page: Frequently Asked Questions over eucalyptus, with the General Questions accordion below')]
-      ] },
-      { type: 'text', title: 'Outcome', paras: [
-        "The rebuild went live in about two months with more than 30 pages, 16 of them treatment pages. The old URLs redirect to the new ones, and the site still looks like the Framer version."
       ] }
     ]
   },

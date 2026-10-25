@@ -73,6 +73,26 @@
       "permanent": true
     },
     {
+      "source": "/work/sonde",
+      "destination": "/work/",
+      "permanent": false
+    },
+    {
+      "source": "/work/sonde/",
+      "destination": "/work/",
+      "permanent": false
+    },
+    {
+      "source": "/work/pocketwatch",
+      "destination": "/work/",
+      "permanent": false
+    },
+    {
+      "source": "/work/pocketwatch/",
+      "destination": "/work/",
+      "permanent": false
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "permanent": true

@@ -2671,3 +2671,16 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Not done, on Timothy's pick:** no frame cap. **Not recommended by all four:** WebGL, lower-resolution noise or approximate maths (pixel changes), a worker.
 - **Assistant's choices inside it:** which prototype to build on, keeping per-cell `drawImage` in the app (16px cells, few of them), the 24-row margin of the ring distance cache.
 - **Status:** Timothy's direction; committed and pushed on Timothy's word (2026-10-22), site and app (`596cf8c`).
+
+## 0219: Sonde and Pocketwatch hidden for now (2026-10-24)
+
+- **Timothy's direction:**
+  - after an interview where he "choked on presenting one of my projects": "i think basically all the others arent really telling the story of the design process or the evolution of the design", with PARC and Toolbox the exceptions;
+  - shown a question sheet for rewriting Sonde around its history (consolidation, pricing changes, shutdown, revival), "honestly. i think we just hide sonde and pocketwatch for now."
+- **Change:**
+  - both entries carry `hidden: true` in `src/lib/work.ts`; studies, covers and copy stay in the data to come back;
+  - on "promote two, commit and push", the selected four are Toolbox, PARC, Jade Aesthetics and First Ledger (the assistant's picks, in that order); the index is xrp.cafe, FirstStrike and Do Androids Dream?; every count renumbers from the visible set (01–07);
+  - `/work/sonde/` and `/work/pocketwatch/` redirect to `/work/` with temporary (307) redirects in `vercel.json`, for links already sent out.
+- **Reverses for now:** 0132's selected four. The assistant had argued Sonde's history is its strongest product story; the call to hide is Timothy's.
+- **Reverses:** 0132's index placement of Jade and First Ledger. The assistant had recommended keeping two cards.
+- **Open:** the résumé and LinkedIn still name both hidden products; Jade and First Ledger studies still lack process (next rewrite candidates).
