@@ -6,3 +6,7 @@ it('counts installer assets and historical Windows releases, excluding metadata 
   const rows = releaseDownloads([{ tag_name: 'v1', draft: false, prerelease: false, assets }, { tag_name: 'v2', draft: true, prerelease: false, assets }]);
   expect(rows).toHaveLength(2); expect(rows.reduce((sum, row) => sum + row.count, 0)).toBe(5); expect(rows[0].architecture).toBe('ARM64'); expect(rows[1].platform).toBe('Windows (historical)');
 });
+it('counts Windows installers from 1.2.0 on as current, not historical', () => {
+  const rows = releaseDownloads([{ tag_name: 'v1.2.0', draft: false, prerelease: false, assets: [{ name: 'Toolbox.Setup.1.2.0.exe', download_count: 4 }] }, { tag_name: 'v1.0.0', draft: false, prerelease: false, assets: [{ name: 'Toolbox-Setup-1.0.0.exe', download_count: 1 }] }]);
+  expect(rows.map((row) => row.platform)).toEqual(['Windows', 'Windows (historical)']);
+});

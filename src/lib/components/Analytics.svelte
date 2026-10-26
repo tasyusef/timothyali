@@ -29,7 +29,7 @@
     const click = (event: MouseEvent) => {
       const anchor = event.target instanceof Element ? event.target.closest('a') : null;
       const href = anchor?.href ?? '';
-      if (href.includes('/releases/download/')) send({ type: 'download', path: window.location.pathname, file: new URL(href).pathname.split('/').at(-1) });
+      if (href.includes('/releases/download/')) send({ type: 'download', path: window.location.pathname, file: decodeURIComponent(new URL(href).pathname.split('/').at(-1) ?? '') });
     };
     document.addEventListener('visibilitychange', visit);
     document.addEventListener('click', click);

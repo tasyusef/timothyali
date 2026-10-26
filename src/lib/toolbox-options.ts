@@ -1,4 +1,4 @@
-// Generated from Toolbox’s shared tool catalog. Run tools/toolbox/sync-options.mjs to update.
+// Generated from Toolbox 1.2.0's tool catalog (toolbox list). Run tools/toolbox/sync-options.mjs to update.
 import type { Param } from "./toolbox";
 export const machineParams: Record<string, Param[]> = {
   "convert": [
@@ -37,7 +37,6 @@ export const machineParams: Record<string, Param[]> = {
     {
       "name": "formats",
       "type": "string[]",
-      "description": "Output formats. Every input is written in each one.",
       "choices": [
         "png",
         "jpeg",
@@ -47,15 +46,16 @@ export const machineParams: Record<string, Param[]> = {
       ],
       "default": [
         "png"
-      ]
+      ],
+      "description": "Output formats. Every input is written in each one."
     },
     {
       "name": "compression",
       "type": "number",
-      "description": "How hard to compress, 0 to 100. 0 uses the highest encoder quality; conversion still re-encodes the image. 100 applies the strongest compression offered. Applies to JPEG, WebP and PDF; PNG and TIFF are lossless and ignore it.",
       "default": 10,
       "min": 0,
-      "max": 100
+      "max": 100,
+      "description": "How hard to compress, 0 to 100. 0 uses the highest encoder quality; conversion still re-encodes the image. 100 applies the strongest compression offered. Applies to JPEG, WebP and PDF; PNG and TIFF are lossless and ignore it."
     },
     {
       "name": "originalSize",
@@ -66,13 +66,24 @@ export const machineParams: Record<string, Param[]> = {
     {
       "name": "longestEdge",
       "type": "number",
+      "min": 1,
       "description": "Cap the longest side, in pixels, keeping the aspect ratio. Omit to keep each image at its own size. Images already smaller are left alone."
     },
     {
       "name": "background",
       "type": "string",
-      "description": "Fill behind transparency: 'none' keeps it wherever the format allows, or give a hex colour like '#ffffff'. JPEG and PDF have no transparency and fill with white when this is 'none'.",
-      "default": "none"
+      "default": "none",
+      "description": "Fill behind transparency: 'none' keeps it wherever the format allows, or give a hex colour like '#ffffff'. JPEG and PDF have no transparency and fill with white when this is 'none'."
+    },
+    {
+      "name": "edgeSmoothing",
+      "type": "string",
+      "choices": [
+        "smooth",
+        "hard"
+      ],
+      "default": "smooth",
+      "description": "Edges of an SVG input as it is drawn: 'smooth' anti-aliases them; 'hard' turns anti-aliasing off, so every pixel is fully in or out. Bitmap inputs are unchanged."
     },
     {
       "name": "out",
@@ -131,9 +142,9 @@ export const machineParams: Record<string, Param[]> = {
     {
       "name": "socialPadding",
       "type": "number",
+      "default": 0.12,
       "min": 0,
       "max": 0.25,
-      "default": 0.12,
       "description": "Padding for square social versions; per-variation settings override this value."
     },
     {
@@ -152,7 +163,6 @@ export const machineParams: Record<string, Param[]> = {
     {
       "name": "web",
       "type": "string[]",
-      "description": "Web file types to include. Pass an empty array to skip web output.",
       "choices": [
         "jpeg",
         "png",
@@ -162,12 +172,12 @@ export const machineParams: Record<string, Param[]> = {
         "jpeg",
         "png",
         "svg"
-      ]
+      ],
+      "description": "Web file types to include. Pass an empty array to skip web output."
     },
     {
       "name": "print",
       "type": "string[]",
-      "description": "Print file types to include. Pass an empty array to skip print output.",
       "choices": [
         "eps",
         "jpeg",
@@ -177,12 +187,12 @@ export const machineParams: Record<string, Param[]> = {
         "eps",
         "jpeg",
         "pdf"
-      ]
+      ],
+      "description": "Print file types to include. Pass an empty array to skip print output."
     },
     {
       "name": "treatments",
       "type": "string[]",
-      "description": "Colourways to build.",
       "choices": [
         "color",
         "black",
@@ -192,12 +202,12 @@ export const machineParams: Record<string, Param[]> = {
         "color",
         "black",
         "white"
-      ]
+      ],
+      "description": "Colourways to build."
     },
     {
       "name": "sizes",
       "type": "string[]",
-      "description": "Raster sizes: large is 3000px, medium 1500px, small 600px on the long edge.",
       "choices": [
         "large",
         "medium",
@@ -207,21 +217,32 @@ export const machineParams: Record<string, Param[]> = {
         "large",
         "medium",
         "small"
-      ]
+      ],
+      "description": "Raster sizes: large is 3000px, medium 1500px, small 600px on the long edge."
     },
     {
       "name": "padding",
       "type": "number",
-      "description": "Clear space around the mark, as a fraction of the long edge (0 to 0.25).",
       "default": 0,
       "min": 0,
-      "max": 0.25
+      "max": 0.25,
+      "description": "Clear space around the mark, as a fraction of the long edge (0 to 0.25)."
     },
     {
       "name": "social",
       "type": "boolean",
-      "description": "Also emit a square profile-picture version of each variation (web only).",
-      "default": false
+      "default": false,
+      "description": "Also emit a square profile-picture version of each variation (web only)."
+    },
+    {
+      "name": "edgeSmoothing",
+      "type": "string",
+      "choices": [
+        "smooth",
+        "hard"
+      ],
+      "default": "smooth",
+      "description": "Edges in the PNG and JPEG files: 'smooth' anti-aliases them; 'hard' turns anti-aliasing off, so every pixel is fully in or out. SVG, PDF and EPS are unchanged."
     },
     {
       "name": "out",
@@ -286,13 +307,12 @@ export const machineParams: Record<string, Param[]> = {
     {
       "name": "name",
       "type": "string",
-      "description": "Palette name, used for the file names and the sheet heading.",
-      "default": "Palette"
+      "default": "Palette",
+      "description": "Palette name, used for the file names and the sheet heading."
     },
     {
       "name": "outputs",
       "type": "string[]",
-      "description": "Which files to write.",
       "choices": [
         "css",
         "tokens",
@@ -304,7 +324,18 @@ export const machineParams: Record<string, Param[]> = {
         "tokens",
         "ase",
         "sheet"
-      ]
+      ],
+      "description": "Which files to write."
+    },
+    {
+      "name": "edgeSmoothing",
+      "type": "string",
+      "choices": [
+        "smooth",
+        "hard"
+      ],
+      "default": "smooth",
+      "description": "Edges on the swatch sheet (PNG, and the image inside its PDF): 'smooth' anti-aliases them; 'hard' turns anti-aliasing off."
     },
     {
       "name": "out",
@@ -348,29 +379,39 @@ export const machineParams: Record<string, Param[]> = {
     {
       "name": "template",
       "type": "string",
-      "description": "'brand' lays out named roles (heading, body, caption); 'classic' shows one family at a range of sizes.",
       "choices": [
         "brand",
         "classic"
       ],
-      "default": "brand"
+      "default": "brand",
+      "description": "'brand' lays out named roles (heading, body, caption); 'classic' shows one family at a range of sizes."
     },
     {
       "name": "title",
       "type": "string",
-      "description": "Heading printed on the sheet.",
-      "default": "Typography"
+      "default": "Typography",
+      "description": "Heading printed on the sheet."
     },
     {
       "name": "sample",
       "type": "string",
-      "description": "The sentence set in each face.",
-      "default": "The quick brown fox jumps over the lazy dog"
+      "default": "The quick brown fox jumps over the lazy dog",
+      "description": "The sentence set in each face."
     },
     {
       "name": "family",
       "type": "string",
       "description": "Font family for the 'classic' template, for example 'Helvetica'. Ignored by 'brand'."
+    },
+    {
+      "name": "edgeSmoothing",
+      "type": "string",
+      "choices": [
+        "smooth",
+        "hard"
+      ],
+      "default": "smooth",
+      "description": "Edges on the type sheet (PNG, and the image inside its PDF): 'smooth' anti-aliases shapes and text; 'hard' turns anti-aliasing off."
     },
     {
       "name": "out",

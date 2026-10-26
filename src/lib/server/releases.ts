@@ -1,10 +1,12 @@
 import { redis } from './redis';
 export type ReleaseAsset = { name: string; download_count: number };
 export type Release = { tag_name: string; draft: boolean; prerelease: boolean; assets: ReleaseAsset[] };
+// Windows builds stopped at 1.1.0 and came back, unsigned, in 1.2.0; earlier ones stay historical.
+const beforeWindowsReturned = (tag: string) => { const [major = 0, minor = 0] = tag.replace(/^v/, '').split('.').map(Number); return major < 1 || (major === 1 && minor < 2); };
 export function releaseDownloads(releases: Release[]) {
   return releases.filter((release) => !release.draft && !release.prerelease).flatMap((release) => release.assets.filter((asset) => /\.(dmg|zip|appimage|deb|exe)$/i.test(asset.name)).map((asset) => ({
     version: release.tag_name, file: asset.name, count: asset.download_count,
-    platform: /\.(dmg|zip)$/i.test(asset.name) ? 'macOS' : /\.exe$/i.test(asset.name) ? 'Windows (historical)' : 'Linux',
+    platform: /\.(dmg|zip)$/i.test(asset.name) ? 'macOS' : /\.exe$/i.test(asset.name) ? (beforeWindowsReturned(release.tag_name) ? 'Windows (historical)' : 'Windows') : 'Linux',
     architecture: /arm64/i.test(asset.name) ? 'ARM64' : 'Intel / x64',
     format: asset.name.split('.').at(-1)!
   })));

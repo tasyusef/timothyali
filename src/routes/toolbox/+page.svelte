@@ -61,10 +61,10 @@
     <div class="release-heading"><span class="lbl dim">v{APP.version}</span><h2 id="download-title" class="blackletter">Download.</h2></div>
     <div class="release-copy">
       <p class="body">Pick the download for your computer below. The releases page lists SHA-256 checksums if you want to check the file.</p>
-      <div class="on-phone panel"><p class="body">Toolbox runs on macOS and Linux. Open this page on your computer to install it.</p><Cta variant="row" type="button" class="send" onclick={sendOn}><span>{sent || 'Send the link to your computer'}</span><Arrow /></Cta></div>
+      <div class="on-phone panel"><p class="body">Toolbox runs on macOS, Windows, and Linux. Open this page on your computer to install it.</p><Cta variant="row" type="button" class="send" onclick={sendOn}><span>{sent || 'Send the link to your computer'}</span><Arrow /></Cta></div>
       <ul class="downloads">
         {#each builds as b}
-          <li><span class="lbl dim">{b.os}</span><span class="files">{#each b.files as f}<a class="body" href={f.href}>{f.label}</a>{/each}</span><span class="lbl dim note phone-read">{b.note}</span></li>
+          <li><span class="lbl dim">{b.os}</span><span class="files">{#each b.files as f}<a class="body" href={f.href}>{f.label}</a>{/each}</span><span class="lbl dim note phone-read">{#if b.version !== APP.version}Version {b.version}. {/if}{b.note}</span></li>
         {/each}
       </ul>
       <QuietLink href={RELEASES} label="All files and checksums" />

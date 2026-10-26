@@ -19,7 +19,7 @@
         <div><dt class="lbl dim">In</dt><dd class="body">{t.input}</dd></div>
         <div><dt class="lbl dim">Out</dt><dd class="body">{t.outputs.join(', ')}</dd></div>
         <!-- the page had no way to the app (0206) -->
-        <div><dt class="lbl dim">Get it</dt><dd><QuietLink href="/toolbox/#download" label="Download for macOS or Linux" text="body" /></dd></div>
+        <div><dt class="lbl dim">Get it</dt><dd><QuietLink href="/toolbox/#download" label="Download for macOS, Windows, or Linux" text="body" /></dd></div>
       </dl>
     </div>
   </section>

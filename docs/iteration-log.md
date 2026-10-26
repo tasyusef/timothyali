@@ -1081,3 +1081,13 @@ The 112 edits and O1–O3 from `docs/reviews/2026-10-21-copy-review.html`.
 - `hidden: true` on both studies; nothing else in the site needed a change, since Home, Work, the sitemap, share images and the Next chain all read the visible set.
 - Checked: `pnpm check` clean; on the dev server Home shows two cards (Toolbox, PARC, side by side at 1024) before Jade and First Ledger were promoted, Work lists seven studies, `/work/sonde/` is a 404 locally (the Vercel redirect applies in production).
 - Then promoted Jade Aesthetics and First Ledger to the selected four; Home is a 2×2 grid at 1440, no overflow at 320; share images regenerated (Work collage, study numbers); `pnpm build`, `social:verify` and `seo:check` pass.
+
+## PX-117: Toolbox 1.2.0 (2026-10-26, 0220)
+
+Approved by Timothy and published on 2026-10-26.
+
+- **Downloads:** `APP.version` 1.2.0; per-platform `VERSIONS` (Linux and Windows separate, both 1.2.0); Windows back as unsigned x64 and arm64 installers (`WINDOWS_INSTALLER`, `WINDOWS_INSTALLER_ARM64`) with a SmartScreen note; the admin click check uses the 1.2.0 DMG; Windows from 1.2.0 counts as current in the admin table.
+- **Copy:** the Toolbox study (Rust, Tauri, Leptos; the 1.2.0 Outcome), Windows wherever the platforms are named, CLI & MCP gains `--version`, `--edgeSmoothing` and "Organize a folder"; `sync-options.mjs` reads the 1.2.0 binary.
+- **Screens:** all five recaptured from the 1.2.0 UI in the app's hidden WebKit harness (Lockup with PARC's stacked logo, on Timothy's pick), phone crops recut, the study cover regenerated from the new home; five share images regenerated (the Work collage and the four tool images), the rest byte-identical.
+- **Checks:** `pnpm check` 0/0, 27 tests, build, `seo:check`; local preview of `/toolbox/` (v1.2.0, eight installer links), `/toolbox/agents/` (the new sections) and `/work/toolbox/`, no overflow at 1440 and 390.
+- **Evidence:** `docs/iterations/pixel-v2/117-toolbox-1.2.0/` (`screens-old-vs-new.png`, `verification.json`, `capture/`).

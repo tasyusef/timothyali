@@ -4,7 +4,7 @@ export { SITE_URL, RESUME_URL } from './site.ts';
 // Descriptions the page and its share tags both carry (PX-59): Work names the selected
 // four, and a tool page says what the tool is part of, so neither stops at one short line.
 export const WORK_DESCRIPTION = `Case studies by Timothy Ali, a product designer in Denver, including ${studies.filter((p) => p.tier === 'selected').map((p) => p.title).join(', ')}, plus more product, front-end, and brand work.`;
-export const toolDescription = (t: { summary: string }) => `${t.summary} Part of Toolbox, Timothy Ali’s free desktop app for macOS and Linux.`;
+export const toolDescription = (t: { summary: string }) => `${t.summary} Part of Toolbox, Timothy Ali’s free desktop app for macOS, Windows, and Linux.`;
 // What each study is, in a few words, so its title says more than the project's name (0207;
 // the Toolbox study also needs a title of its own beside the Toolbox page's)
 const TAGLINE: Record<string, string> = {

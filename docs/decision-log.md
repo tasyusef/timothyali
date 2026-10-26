@@ -2684,3 +2684,11 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Reverses for now:** 0132's selected four. The assistant had argued Sonde's history is its strongest product story; the call to hide is Timothy's.
 - **Reverses:** 0132's index placement of Jade and First Ledger. The assistant had recommended keeping two cards.
 - **Open:** the résumé and LinkedIn still name both hidden products; Jade and First Ledger studies still lack process (next rewrite candidates).
+
+## 0220: Toolbox 1.2.0 on the site (2026-10-26)
+
+- **Timothy's direction:** update the site for Toolbox 1.2.0, the first Rust/Tauri release, with new screenshots of the 1.2.0 app; keep macOS and Linux versions separate (Linux may stay on 1.1.1); Windows is back for 1.2.0, unsigned, with a note on SmartScreen. Prepare only.
+- **Facts used** (app repo `docs/port/DECISIONS.md`, `docs/AGENTS.md`): the console and the model layer left in 1.2.0; the organizer became `organize_scan`, `organize_apply` (with `dryRun`), `organize_undo`, `organize_history` and `toolbox organize …`; Edges (`edgeSmoothing`) on every tool; `toolbox --version`; the app opens on the projects index.
+- **Timothy's answers:** the Lockup screen shows PARC's stacked logo (`PARC_BOGO-02.svg`) instead of the Pocketwatch mark, since Pocketwatch is hidden (0219); regenerate the Work collage share image; the Windows installers are `Toolbox-Setup-<version>.exe` and `Toolbox-Setup-<version>-arm64.exe`.
+- **Assistant's choices inside it:** the study's new paragraphs and timeline wording; the seeded projects on the home screen (Less Noise, Acme, Cobalt Studio, Birch & Co); motion on in the screens; the Organize section after Serve; showing natively measured sizes in the Convert screen (the browser stand-in can't encode WebP); regenerating the study cover from the new home.
+- **Status:** approved by Timothy and published on 2026-10-26 with the v1.2.0 GitHub release.

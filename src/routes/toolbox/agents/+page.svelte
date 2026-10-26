@@ -7,10 +7,10 @@
   import QuietLink from '$lib/components/QuietLink.svelte';
   import { binaries, tools } from '$lib/toolbox';
   import { STEP } from '$lib/tokens';
-  const jumps = [['setup', 'Set up'], ['command-line', 'Command line'], ['advanced', 'Advanced'], ['options', 'Options'], ['list', 'List'], ['run', 'Run'], ['serve', 'Serve']];
+  const jumps = [['setup', 'Set up'], ['command-line', 'Command line'], ['advanced', 'Advanced'], ['options', 'Options'], ['list', 'List'], ['run', 'Run'], ['serve', 'Serve'], ['organize', 'Organize']];
   const link = 'sudo ln -s "/Applications/Toolbox.app/Contents/MacOS/Toolbox" /usr/local/bin/toolbox';
   // `toolbox` alone opens the app, as a double-click would; listing is `list` or `help`
-  const commands = ['toolbox help                              # show tools and usage', 'toolbox convert --help                    # show Convert options', '', ...tools.map((t) => t.command)].join('\n');
+  const commands = ['toolbox help                              # show tools and usage', 'toolbox convert --help                    # show Convert options', 'toolbox --version                         # show the version', '', ...tools.map((t) => t.command)].join('\n');
   const list = 'toolbox list                              # every tool, as JSON\ntoolbox describe convert                  # one tool, as JSON';
   const run = `toolbox --run '{"tool":"convert","args":{
   "input":["/Users/me/Pictures/IMG_0001.heic"],
@@ -31,11 +31,26 @@
 toolbox lockup logo.svg --name Acme --out ./exports --palette '[{"sourceHex":"#D32F05","cmyk":[0,78,98,17],"pantone":"1665 C"}]'
 
 toolbox specimen --action fonts --json
-toolbox specimen --title "Acme type" --out ./exports --roles '[{"label":"Heading","family":"Helvetica","face":"Bold","size":40}]'`;
+toolbox specimen --title "Acme type" --out ./exports --roles '[{"label":"Heading","family":"Helvetica","face":"Bold","size":40}]'
+
+toolbox lockup logo.svg --edgeSmoothing hard --out ./exports`;
   const library = `toolbox lockup logo.svg --print none --save --out ./exports --json
 toolbox lockup --action library-list --json
 toolbox lockup --saved RECORD_ID --action inspect --json
 toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
+  // the organizer's four steps (docs/AGENTS.md, "Organize a folder"; 1.2.0)
+  const organize = `toolbox organize scan ~/Clients/Acme
+
+toolbox organize apply ~/Clients/Acme --dryRun \\
+  --moves '[{"from":"IMG_0042.jpg","to":"Photos/IMG_0042.jpg"}]' \\
+  --keep '[{"path":"logo.svg"}]'
+
+toolbox organize apply ~/Clients/Acme \\
+  --moves '[{"from":"IMG_0042.jpg","to":"Photos/IMG_0042.jpg"}]' \\
+  --keep '[{"path":"logo.svg"}]'
+
+toolbox organize history ~/Clients/Acme
+toolbox organize undo JOURNAL_ID`;
   const mcp = `{
   "mcpServers": {
     "toolbox": {
@@ -78,8 +93,8 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
   </section>
 
   <section class="text" id="advanced">
-    <div class="side"><h2 class="display-s">Advanced</h2><p class="body">From version 1.1.0 you can also assign print colors, adjust logo variations, and set font roles. Structured flags like --palette and --roles take a JSON array in quotes. Over MCP, pass the same arrays without quotes. Use inspect to find the colors in your artwork and fonts to list installed families.</p><p class="body">--action inspect shows what will be exported without writing files. --action preview with --out saves previews. Add --save to keep the settings in the app’s library, then reopen them with the savedID in the result.</p></div>
-    <div class="paras"><Code label="Print colors, type, and saved work" text={advanced + '\n' + library} /></div>
+    <div class="side"><h2 class="display-s">Advanced</h2><p class="body">From version 1.1.0 you can also assign print colors, adjust logo variations, and set font roles. Structured flags like --palette and --roles take a JSON array in quotes. Over MCP, pass the same arrays without quotes. Use inspect to find the colors in your artwork and fonts to list installed families.</p><p class="body">--action inspect shows what will be exported without writing files. --action preview with --out saves previews. Add --save to keep the settings in the app’s library, then reopen them with the savedID in the result.</p><p class="body">Version 1.2.0 adds --edgeSmoothing to every tool. hard turns off anti-aliasing in the raster files, so every pixel is fully in or out. Vector files don’t change. smooth is the default.</p></div>
+    <div class="paras"><Code label="Print colors, type, edges, and saved work" text={advanced + '\n' + library} /></div>
   </section>
 
   <section class="text" id="options">
@@ -89,7 +104,7 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
   </section>
 
   <section class="text" id="list">
-    <div class="side"><h2 class="display-s">List</h2><p class="body">Run toolbox list to get a JSON catalog of all four tools, with descriptions, argument schemas, and examples. For one tool, run toolbox describe and the tool’s name.</p></div>
+    <div class="side"><h2 class="display-s">List</h2><p class="body">Run toolbox list to get a JSON catalog of all four tools and the organize steps, with descriptions, argument schemas, and examples. For one tool, run toolbox describe and the tool’s name.</p></div>
     <div class="paras"><Code label="List" text={list} /></div>
   </section>
 
@@ -99,8 +114,21 @@ toolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json`;
   </section>
 
   <section class="text" id="serve">
-    <div class="side"><h2 class="display-s">Serve</h2><p class="body">To connect an AI assistant, add this server configuration to its MCP settings, using the executable path for your platform. --mcp serves the tools over standard input and output. Claude Code reads project settings from .mcp.json.</p><p class="body">Then ask your assistant to convert screenshots to WebP, package logo SVGs, or pull colors from artwork. Tell it where the source files are and which folder to save to.</p></div>
+    <div class="side"><h2 class="display-s">Serve</h2><p class="body">To connect an AI assistant, add this server configuration to its MCP settings, using the executable path for your platform. --mcp serves the tools over standard input and output. Claude Code reads project settings from .mcp.json.</p><p class="body">Then ask your assistant to convert screenshots to WebP, package logo SVGs, pull colors from artwork, or tidy a client folder. Tell it where the source files are and which folder to save to.</p></div>
     <div class="paras"><Code label="Serve the tools" text="toolbox --mcp" /><Code label=".mcp.json" text={mcp} /></div>
+  </section>
+
+  <section class="text" id="organize">
+    <div class="side"><h2 class="display-s">Organize a folder</h2><p class="body">Toolbox can sort a client folder, but it doesn’t decide where things go. Your assistant plans the moves. Toolbox lists the folder, checks the plan, moves the files, and keeps a record so you can undo it. Over MCP the steps are organize_scan, organize_apply, organize_undo, and organize_history. In a terminal they’re toolbox organize scan, apply, undo, and history. Each one prints JSON.</p></div>
+    <div class="paras">
+      <Code label="Scan, dry run, apply, undo" text={organize} />
+      <dl class="rules">
+        <div><dt class="lbl dim">1. Scan</dt><dd class="body">Lists what’s in the folder, numbered, with duplicate files grouped. Nothing moves.</dd></div>
+        <div><dt class="lbl dim">2. Dry run</dt><dd class="body">Send the planned moves with --dryRun, or dryRun: true over MCP. Toolbox checks them and changes nothing. Show the user the result.</dd></div>
+        <div><dt class="lbl dim">3. Apply</dt><dd class="body">Only after they agree, send the same plan without --dryRun. Toolbox checks the folder again first and leaves out any unsafe move, with the reason. Duplicate copies go to a .toolbox-recovery folder inside it. Nothing is deleted.</dd></div>
+        <div><dt class="lbl dim">4. Undo</dt><dd class="body">Every apply returns a journal ID. toolbox organize undo with that ID puts everything back, and history lists past runs. Undo the newest first.</dd></div>
+      </dl>
+    </div>
   </section>
 
   <section><PageFoot note="" href="/toolbox/" label="All four tools" /></section>

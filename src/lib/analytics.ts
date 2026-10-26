@@ -3,7 +3,7 @@ import { builds } from './toolbox';
 import { HOSTS, VIA } from './site';
 export const publicPaths = socialPages.map((page) => page.path);
 export const downloadFiles = builds.flatMap((build) => build.files.map((file) => ({
-  name: new URL(file.href).pathname.split('/').at(-1)!, label: `${build.os} · ${file.label}`, href: file.href
+  name: decodeURIComponent(new URL(file.href).pathname.split('/').at(-1)!), label: `${build.os} · ${file.label}`, href: file.href
 })));
 export type Visit = { type: 'view'; path: string; referrer: string };
 // A tagged link (`?via=acme`), for a link given out somewhere a referrer is not passed on, such

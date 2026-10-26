@@ -1,0 +1,54 @@
+{
+  "iteration": "PX-117",
+  "status": "Prepared only: not committed, pushed or deployed; awaiting Timothy's approval",
+  "versions": {
+    "display": "1.2.0",
+    "macOS": "1.2.0",
+    "Windows": "1.2.0",
+    "Linux": "1.2.0"
+  },
+  "windowsInstaller": "Toolbox-Setup-1.2.0.exe and Toolbox-Setup-1.2.0-arm64.exe (names set by Timothy)",
+  "siteCheck": "0 errors, 0 warnings",
+  "siteTests": 27,
+  "siteBuild": "passed",
+  "seoCheck": "PASS: 17 pages, derivatives current (147 sources)",
+  "renderedLinks": [
+    "https://github.com/tasyusef/toolbox/releases/download/v1.2.0/Toolbox-1.2.0-arm64.dmg",
+    "https://github.com/tasyusef/toolbox/releases/download/v1.2.0/Toolbox-1.2.0.dmg",
+    "https://github.com/tasyusef/toolbox/releases/download/v1.2.0/Toolbox-Setup-1.2.0.exe",
+    "https://github.com/tasyusef/toolbox/releases/download/v1.2.0/Toolbox-Setup-1.2.0-arm64.exe",
+    "https://github.com/tasyusef/toolbox/releases/download/v1.2.0/toolbox-1.2.0-x86_64.AppImage",
+    "https://github.com/tasyusef/toolbox/releases/download/v1.2.0/toolbox-1.2.0-arm64.AppImage",
+    "https://github.com/tasyusef/toolbox/releases/download/v1.2.0/toolbox_1.2.0_amd64.deb",
+    "https://github.com/tasyusef/toolbox/releases/download/v1.2.0/toolbox_1.2.0_arm64.deb"
+  ],
+  "toolboxPage": "Built /toolbox/ shows v1.2.0 and eight installer links (six macOS/Linux plus two Windows) with the SmartScreen note; no horizontal overflow at 1440 or 390",
+  "agentsPage": "Renders #organize (Organize a folder: scan, dry run, apply, undo), toolbox --version, --edgeSmoothing in Advanced, and the Organize jump link; no overflow at 1440 or 390",
+  "studyPage": "/work/toolbox/ shows Rust, Tauri, Leptos, Claude Code, the new timeline and Outcome",
+  "params": "tools/toolbox/sync-options.mjs against target/release/toolbox (toolbox 1.2.0, built 2026-10-25 13:40, after 80bab4f): 4 tools, 51 options; vs 1.1.1 only edgeSmoothing (all four tools) and longestEdge min 1",
+  "cliChecked": "organize scan and apply --dryRun on a scratch folder (nothing moved), lockup --edgeSmoothing hard --action inspect, convert --action inspect for the poster sizes",
+  "screens": {
+    "build": "trunk build --release of crates/ui at app commit 629761c (home, palette, specimen, convert) and 71de161 (lockup, recaptured with PARC_BOGO-02.svg)",
+    "harness": "parity/ui/run.mjs, hidden WebKit host; scenarios in capture/",
+    "viewport": "1440x872 at 2x (2880x1744), dark, motion on, port-only Edges on",
+    "convertSizes": "native 1.2.0 inspect: 02.jpg 382822 B, 02.webp 179774 B, 03.jpg 331100 B, 03.webp 134468 B (shown as 374/176/323/131 KB, as in 1.1)",
+    "lockupLogo": "/Users/twocakes/Desktop/GRAPHIC DESIGN/01_WORK/parc/brand/PARC_BOGO-02.svg (Timothy's pick; replaces the Pocketwatch mark)"
+  },
+  "untouched": [
+    "docs/iterations/pixel-v2/23-social/verification.json",
+    "docs/iterations/pixel-v2/25-social-site/assets.json",
+    "docs/reviews/2026-10-22-field-performance-synthesis.md"
+  ],
+  "shareImages": {
+    "changed": [
+      "static/og/work.png",
+      "static/og/toolbox-lockup.png",
+      "static/og/toolbox-palette.png",
+      "static/og/toolbox-specimen.png",
+      "static/og/toolbox-convert.png"
+    ],
+    "unchanged": "the other 13 share images, favicons, docs/social/wide-launch.png and story-launch.png (byte-identical)",
+    "restored": "docs/iterations/pixel-v2/25-social-site/assets.json, byte for byte from a backup (SHA-1 53e70f1559a7db769cdc9700aed801cb633da5a6)",
+    "notRun": "social:verify"
+  }
+}

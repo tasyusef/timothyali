@@ -1,13 +1,14 @@
 import { machineParams } from './toolbox-options.ts';
 
-// Toolbox website copy. Commands, flags, choices, and defaults follow the app’s
-// src/shared/toolCatalog.ts; explanations are edited for this site (PX-39).
-// Check src/renderer/src/agent/runJob.ts for CLI/MCP limits before changing claims.
+// Toolbox website copy. Commands, flags, choices, and defaults follow the app’s catalog
+// (crates/shared/src/tool_catalog.rs since the Rust port; `toolbox list` prints it); explanations
+// are edited for this site (PX-39). Check crates/tools (run_job) and docs/AGENTS.md for CLI/MCP
+// limits before changing claims.
 // App source: /Users/twocakes/Desktop/GRAPHIC DESIGN/01_WORK/TOOLBOX/app
 
 export interface Shot { src: string; w: number; h: number; alt: string; phone?: { src: string; w: number; h: number } }
 
-/** One command-line option, copied from the app's catalog (src/shared/toolCatalog.ts). */
+/** One command-line option, from the app's catalog (`toolbox list`; tools/toolbox/sync-options.mjs). */
 export interface Param {
   name: string;
   type: 'string' | 'number' | 'boolean' | 'string[]' | 'json';
@@ -52,19 +53,19 @@ export interface Tool {
 }
 
 // each screen has a phone crop of its rail or main panel (0206), cut by tools/images/phone-crops.py
-const PHONE: Record<string, [number, number]> = {lockup: [806, 1203], palette: [864, 1255], specimen: [1200, 954], convert: [993, 540], home: [1200, 545]};
+const PHONE: Record<string, [number, number]> = {lockup: [806, 1456], palette: [806, 1465], specimen: [1200, 943], convert: [1200, 476], home: [1200, 467]};
 const shot = (name: string, alt: string): Shot => ({ src: `/toolbox/${name}.png`, w: 2880, h: 1744, alt, phone: PHONE[name] && { src: `/toolbox/${name}-phone.png`, w: PHONE[name][0], h: PHONE[name][1] } });
 
 export const APP = {
   name: 'Toolbox',
-  version: '1.1.1',
-  platforms: ['macOS', 'Linux'],
+  version: '1.2.0',
+  platforms: ['macOS', 'Windows', 'Linux'],
   interfaces: ['App', 'CLI', 'MCP'],
   status: 'Released',
-  description: 'A desktop app for macOS and Linux that packages logos, exports palettes, makes type specimens, and converts images. It also works from a terminal and over MCP.'
+  description: 'A desktop app for macOS, Windows, and Linux that packages logos, exports palettes, makes type sheets, and converts images. Use it from a terminal or MCP too.'
 };
 
-export const home: Shot = shot('home', 'Toolbox on launch: the four tools, Lockup, Palette, Specimen and Convert, listed as a numbered index over a pixel sky.');
+export const home: Shot = shot('home', 'Toolbox’s projects home: four projects with their folders and saved work, and the four tools and recent work in the sidebar.');
 
 export const tools: Tool[] = [
   {
@@ -77,7 +78,7 @@ export const tools: Tool[] = [
     outputs: ['PNG', 'JPEG', 'SVG', 'PDF', 'EPS', 'README'],
     command: 'toolbox lockup logo.svg --print none --padding 0.1 --out .',
     params: machineParams.lockup,
-    shot: shot('lockup', 'Toolbox in the Lockup tool: a logo on a white plate, with format, treatment and size switches on the right and a count of 73 files.')
+    shot: shot('lockup', 'Toolbox in the Lockup tool: PARC’s stacked pixel logo on a white plate, with format, treatment, size and edge settings on the right and a count of 37 files.')
   },
   {
     n: '02', slug: 'palette', name: 'Palette',
@@ -89,7 +90,7 @@ export const tools: Tool[] = [
     outputs: ['CSS', 'SCSS', 'JSON', 'ASE', 'PDF', 'PNG'],
     command: "toolbox palette '#D32F05' '#003A5D' --name Acme --out .",
     params: machineParams.palette,
-    shot: shot('palette', 'Toolbox in the Palette tool: a poster filling the canvas, its colors sampled into a row of swatches, with the output files listed on the right.')
+    shot: shot('palette', 'Toolbox in the Palette tool: a poster filling the canvas, its colors sampled into a row of swatches, with the outputs and files listed on the right.')
   },
   {
     n: '03', slug: 'specimen', name: 'Specimen',
@@ -113,7 +114,7 @@ export const tools: Tool[] = [
     outputs: ['PNG', 'JPEG', 'WebP', 'TIFF', 'PDF'],
     command: 'toolbox convert a.heic b.png --formats webp --compression 40 --out ~/Desktop',
     params: machineParams.convert,
-    shot: shot('convert', 'Toolbox in the Convert tool: two posters listed with their measured output sizes per format, and format, compression and edge controls on the right.')
+    shot: shot('convert', 'Toolbox in the Convert tool: two posters listed with their measured output sizes per format, and format, compression, size and transparency controls on the right.')
   }
 ];
 
@@ -126,8 +127,18 @@ export const binaries = [
 
 /** The release builds live in the public releases repo; every file is checksummed there. */
 export const RELEASES = 'https://github.com/tasyusef/toolbox/releases';
-const file = (name: string) => `${RELEASES}/download/v${APP.version}/${name}`;
+/** Each platform's build version, separate so one can stay on an earlier release while its new
+ *  build is tested: change it here and that platform's links follow (the page names it). */
+export const VERSIONS = { macOS: APP.version, Windows: '1.2.0', Linux: '1.2.0' };
+/** The Windows installer's file name (NSIS, x64), the one place to change it. */
+export const WINDOWS_INSTALLER = `Toolbox-Setup-${VERSIONS.Windows}.exe`;
+export const WINDOWS_INSTALLER_ARM64 = `Toolbox-Setup-${VERSIONS.Windows}-arm64.exe`;
+const file = (version: string, name: string) => `${RELEASES}/download/v${version}/${encodeURIComponent(name)}`;
+const mac = (name: string) => file(VERSIONS.macOS, name);
+const win = (name: string) => file(VERSIONS.Windows, name);
+const linux = (name: string) => file(VERSIONS.Linux, name);
 export const builds = [
-  { os: 'macOS', note: 'Signed and notarized', files: [{ label: 'Apple silicon', href: file(`Toolbox-${APP.version}-arm64.dmg`) }, { label: 'Intel', href: file(`Toolbox-${APP.version}.dmg`) }] },
-  { os: 'Linux', note: 'Make the AppImage executable before opening it, or use the deb package on Debian or Ubuntu.', files: [{ label: 'AppImage x86_64', href: file(`toolbox-${APP.version}-x86_64.AppImage`) }, { label: 'AppImage arm64', href: file(`toolbox-${APP.version}-arm64.AppImage`) }, { label: 'deb amd64', href: file(`toolbox_${APP.version}_amd64.deb`) }, { label: 'deb arm64', href: file(`toolbox_${APP.version}_arm64.deb`) }] }
+  { os: 'macOS', version: VERSIONS.macOS, note: 'Signed and notarized', files: [{ label: 'Apple silicon', href: mac(`Toolbox-${VERSIONS.macOS}-arm64.dmg`) }, { label: 'Intel', href: mac(`Toolbox-${VERSIONS.macOS}.dmg`) }] },
+  { os: 'Windows', version: VERSIONS.Windows, note: 'The installer isn’t code-signed, so SmartScreen may warn you. Choose More info, then Run anyway.', files: [{ label: 'Installer x64', href: win(WINDOWS_INSTALLER) }, { label: 'Installer arm64', href: win(WINDOWS_INSTALLER_ARM64) }] },
+  { os: 'Linux', version: VERSIONS.Linux, note: 'Make the AppImage executable before opening it, or use the deb package on Debian or Ubuntu.', files: [{ label: 'AppImage x86_64', href: linux(`toolbox-${VERSIONS.Linux}-x86_64.AppImage`) }, { label: 'AppImage arm64', href: linux(`toolbox-${VERSIONS.Linux}-arm64.AppImage`) }, { label: 'deb amd64', href: linux(`toolbox_${VERSIONS.Linux}_amd64.deb`) }, { label: 'deb arm64', href: linux(`toolbox_${VERSIONS.Linux}_arm64.deb`) }] }
 ];

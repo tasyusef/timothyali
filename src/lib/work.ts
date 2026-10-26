@@ -197,13 +197,13 @@ const source: Source[] = [
     year: '2026',
     scope: 'Product, code & tooling',
     role: 'Designer & developer',
-    timeline: 'Started August 2026; version 1.1.1 released September 2026',
-    tools: 'Electron, Svelte 5, TypeScript, Effect, Claude Code',
+    timeline: 'Started August 2026; rebuilt in Rust for version 1.2.0, October 2026',
+    tools: 'Rust, Tauri, Leptos, Claude Code',
     live: { href: '/toolbox/', label: 'Downloads and guides' },
     description: 'A desktop app I designed and built for getting brand files ready to hand off. It packages logos, exports palettes, makes type sheets, and converts images.',
-    cover: { src: '/work/toolbox/cover.png', phone: { src: '/work/toolbox/cover-phone.png', w: 1200, h: 675 }, w: 2880, h: 1620, alt: 'The toolbox wordmark over the app’s home screen: Lockup, Palette, Specimen, and Convert' },
+    cover: { src: '/work/toolbox/cover.png', phone: { src: '/work/toolbox/cover-phone.png', w: 1200, h: 675 }, w: 2880, h: 1620, alt: 'The toolbox wordmark over the app’s home screen: a list of projects, with Lockup, Palette, Specimen, and Convert in the sidebar' },
     lead: [
-      "I designed and built Toolbox for the file prep that comes with brand work. It packages logos for print and web, exports color palettes, makes type specimens, and converts images. It runs on macOS and Linux, and every tool also works from the command line or through an AI assistant over MCP."
+      "I designed and built Toolbox for the file prep that comes with brand work. It packages logos for print and web, exports color palettes, makes type specimens, and converts images. It runs on macOS, Windows, and Linux, and every tool also works from the command line or through an AI assistant over MCP."
     ],
     // The app shares this site's chrome, so the home screen would read as part of the page; the
     // Lockup screen leads and the home screen sits in the gallery at half width.
@@ -214,13 +214,16 @@ const source: Source[] = [
         "Projects keep each client or job together. You can save the settings, reopen the work later, and export it again. Every export goes in a new folder, so earlier deliveries are left alone. The library and the exported files stay on your computer."
       ] },
       { type: 'gallery', note: 'Palette extracts colors from artwork. Specimen previews a type sheet.', rows: [[tbTools[1].shot, tbTools[2].shot]] },
-      { type: 'gallery', note: 'Convert shows the output size for each format. The home screen lists all four tools.', rows: [[tbTools[3].shot, tbHome]] },
+      { type: 'gallery', note: 'Convert shows the output size for each format. The app opens on your projects.', rows: [[tbTools[3].shot, tbHome]] },
       { type: 'text', title: 'App, command line, and agents', paras: [
         "The command line and the MCP server take the same settings as the app, so a script or an AI assistant can inspect source files, preview results, reopen saved work, and export without opening a window.",
+        "An assistant can also sort a client folder. It plans the moves, and Toolbox checks them, shows a dry run first, and keeps an undo record. Nothing gets deleted.",
         "The app shares its terminal look and several components with this site."
       ] },
       { type: 'text', title: 'Outcome', paras: [
-        "Toolbox 1.1.1 is available for macOS and Linux. The macOS builds are signed and notarized; Linux builds come as AppImage and deb packages. I dropped Windows support at 1.1.0 because of the cost of code signing. Downloads and guides are on this site."
+        "Version 1.2.0 is the first one built in Rust, with Tauri and Leptos instead of Electron and Svelte. I kept the old app as the reference and only deleted it once the new one matched it.",
+        "I also took out the chat window and the AI built into the app. I drive Toolbox from my own model over MCP now, so organizing folders became MCP and command-line tools. The app opens on your projects, and every tool has a smooth or hard edges setting.",
+        "Toolbox is available for macOS, Windows, and Linux. The macOS builds are signed and notarized, and Linux builds come as AppImage and deb packages. I dropped Windows at 1.1.0 because of the cost of code signing. It’s back in 1.2.0, unsigned. Downloads and guides are on this site."
       ] }
     ]
   },
