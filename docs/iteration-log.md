@@ -1116,3 +1116,11 @@ Pushed on 2026-10-27, after the v1.2.1 GitHub release was public.
 - **Admin:** every card for the selected period; sources, pages, places, technology, links out, downloads by country and the Toolbox app; a notice for days before the detailed counts.
 - **Checks:** `pnpm check` 0/0, 37 tests; the app's updater config test; `tools/review/admin.mjs` against the fixture (totals, legacy source merge, places, the download route with `?s=`, resume and engagement events, 1440/390/320 without overflow); the update, download and snapshot routes answer on the dev server.
 - **Evidence:** `docs/iterations/pixel-v2/41-private-analytics/`.
+
+## PX-121: Toolbox 1.2.2 (2026-10-27, 0224)
+
+Pushed on 2026-10-27, after the v1.2.2 GitHub release was public.
+
+- **Downloads:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.2; the eight installer links in the built `/toolbox/` page all point at v1.2.2 and each GitHub file returned 200 before the push.
+- **Release:** macOS signed and notarized by Timothy; Linux built and checked in Docker (8 of 8 package checks); Windows cross-compiled on the Mac, not run on Windows; `latest.json` signed by Timothy and served as the newest release's feed.
+- **Checks:** `pnpm check` 0/0, 37 tests, build, `seo:check`.

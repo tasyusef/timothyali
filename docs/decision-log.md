@@ -2712,3 +2712,10 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Change:** PX-120; `docs/admin-analytics.md` has the measures and their limits.
 - **Assistant's choices inside it:** a visit ends after 30 minutes idle or a new source; visitors are counted per calendar month; active time stops after 90 seconds without input; downloads count once per person, file and day; the update check stays on click, as the app's own decision has it (no automatic check), so installs checking counts only people who click Updates; the browser keeps the visit's arrival in `localStorage` for 30 minutes.
 - **Status:** site pushed on Timothy's word ("Push the site.") on 2026-10-27. The app change is prepared in the app repo, uncommitted, for its next release.
+
+## 0224: Toolbox 1.2.2 on the site (2026-10-27)
+
+- **Timothy's direction:** "ship this new build" (the app's check for updates through timothyali.com, 0223). GitHub Actions is blocked by billing and he won't pay for it, so of the Windows options he picked building on the Mac (over Mac and Linux only, or GitLab's runners).
+- **Change:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.2, so all eight download links follow. No copy changes.
+- **Known risk, his call:** the Windows installers were cross-compiled on the Mac (app repo `crates/app/scripts/windows/cross-build.sh`) and have not been run on Windows; the runners' tests and installer checks didn't run.
+- **Status:** published on 2026-10-27 with the v1.2.2 GitHub release (all 14 files, `SHA256SUMS`, the updater's `latest.json` and `.app.tar.gz` files).
