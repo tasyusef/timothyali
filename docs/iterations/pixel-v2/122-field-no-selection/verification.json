@@ -1,0 +1,32 @@
+{
+  "what": "Clicking or dragging on an interactive field selects no text (PX-122, 0225)",
+  "how": "Real clicks in the built-in Chromium browser (macOS), 1024x768; window.getSelection() read after each.",
+  "before": {
+    "where": "https://www.timothyali.com/ (production, 2026-10-27)",
+    "home": {
+      "triple-click on the mountains right of the heading": "i’m tim.",
+      "drag from the field across the hero": "i’m tim.i’m tim.\\nProduct designer. I design interfaces …"
+    },
+    "cause": "the h1 and intro are page-wide blocks, so a press beside their words targets them, and the old guard skipped text elements and single presses"
+  },
+  "after": {
+    "where": "pnpm dev, http://localhost:5174/",
+    "home": {
+      "triple-click right of the heading": "",
+      "double-click on the planet": "",
+      "double-click right of the intro line": "",
+      "drag from the field across the text": "",
+      "double-click on the word tim": "tim",
+      "one click on the field after a selection": "",
+      "drag across the heading's words": "i’m tim"
+    },
+    "/work/toolbox/": {
+      "triple-click right of the title": "",
+      "drag from the planet across the title": "",
+      "double-click on the title": "TOOLBOXTOOLBOX (the sr-only copy is selected with it; unchanged, not part of this fix)"
+    },
+    "links": "the nav's Work link still navigates",
+    "console": "no errors"
+  },
+  "checks": "pnpm check 0/0, 37 tests"
+}

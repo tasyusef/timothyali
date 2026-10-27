@@ -1124,3 +1124,12 @@ Pushed on 2026-10-27, after the v1.2.2 GitHub release was public.
 - **Downloads:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.2; the eight installer links in the built `/toolbox/` page all point at v1.2.2 and each GitHub file returned 200 before the push.
 - **Release:** macOS signed and notarized by Timothy; Linux built and checked in Docker (8 of 8 package checks); Windows cross-compiled on the Mac, not run on Windows; `latest.json` signed by Timothy and served as the newest release's feed.
 - **Checks:** `pnpm check` 0/0, 37 tests, build, `seo:check`.
+
+## PX-122: The field selects no text (2026-10-27, 0225)
+
+Approved by Timothy and pushed on 2026-10-27.
+
+- **Problem:** on macOS, clicking around the home hero's field selected "i’m tim." (a triple click beside it) and dragging from the field highlighted the hero's text.
+- **Change:** the field's `mousedown` guard checks for a visible character under the pointer instead of a text element; bare-field presses start no selection and clear one.
+- **Checks:** `pnpm check` 0/0, 37 tests; on the dev server every bare-field click, double, triple and drag selected nothing on `/` and `/work/toolbox/`, words still select by double click and drag, links work, no console errors.
+- **Evidence:** `docs/iterations/pixel-v2/122-field-no-selection/verification.json` (production before, local after).

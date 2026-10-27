@@ -2719,3 +2719,10 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Change:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.2, so all eight download links follow. No copy changes.
 - **Known risk, his call:** the Windows installers were cross-compiled on the Mac (app repo `crates/app/scripts/windows/cross-build.sh`) and have not been run on Windows; the runners' tests and installer checks didn't run.
 - **Status:** published on 2026-10-27 with the v1.2.2 GitHub release (all 14 files, `SHA256SUMS`, the updater's `latest.json` and `.app.tar.gz` files).
+
+## 0225: playing with the field selects no text (2026-10-27)
+
+- **Timothy's direction:** "need to make sure that when you clicking around playing with the bg animations that random text doesnt get highlighted"; he noticed it doesn't happen on Windows.
+- **Cause found:** macOS browsers select the nearest words on a double or triple click beside text, and a drag selects from wherever it starts. The hero's h1 and intro are page-wide blocks, so a press beside their words targets them, and the old guard (0211 era) only stopped double clicks on the bare field outside text elements.
+- **Change:** `Ascii.svelte` asks whether a visible character is under the pointer (`caretPositionFromPoint`, so the sr-only and ghost copies don't count). A press on the bare field starts no selection and clears any selection and focus; presses on words, links, controls and pictures act as usual. Ripples are unchanged (they run on `pointerdown`).
+- **Status:** approved by Timothy ("b. 1": keep it and push it live) and pushed on 2026-10-27.

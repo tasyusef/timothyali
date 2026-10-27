@@ -123,8 +123,32 @@
     const running = bursts.filter((b) => b.die === undefined);
     if (running.length > WAVE.cap) running[0].die = (running[0].t * FRAME) / 1000;
   }
-  // a quick second click on the bare field would select the nearest words; only there, not on text or controls
-  function onMouseDown(e: MouseEvent) { if (interactive && e.detail > 1 && !(e.target as Element | null)?.closest('a, button, input, textarea, select, label, p, h1, h2, h3, h4, li, dt, dd, figure, img, span')) e.preventDefault(); }
+  // Playing with the field selects no text (0225). A press on the bare field would start a selection
+  // (a drag) or, on macOS, select the nearest words (a double or triple click). Text blocks run past
+  // their words (the hero's h1 is as wide as the page), so this asks whether a visible character is
+  // under the pointer, not whether it is inside a text element (hit testing skips the sr-only and
+  // ghost copies); presses on words, controls and pictures act as usual, and one on the bare field
+  // clears a selection and the focus, as a click on empty space does.
+  const OWN_PRESS = 'a, button, input, textarea, select, label, [contenteditable], img, video, figure';
+  function overWords(x: number, y: number) {
+    const at = document.caretPositionFromPoint?.(x, y) ?? (() => { const r = document.caretRangeFromPoint?.(x, y); return r && { offsetNode: r.startContainer, offset: r.startOffset }; })();
+    const node = at?.offsetNode, range = document.createRange();
+    if (!at || !node || node.nodeType !== Node.TEXT_NODE) return false;
+    // the caret falls between two characters: the pointer is on words if it is over either
+    for (const i of [at.offset - 1, at.offset]) {
+      if (i < 0 || i >= (node.nodeValue?.length ?? 0)) continue;
+      range.setStart(node, i); range.setEnd(node, i + 1);
+      for (const r of range.getClientRects()) if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return true;
+    }
+    return false;
+  }
+  function onMouseDown(e: MouseEvent) {
+    const target = e.target as Element | null;
+    if (!interactive || e.button !== 0 || !target || target.closest(OWN_PRESS) || overWords(e.clientX, e.clientY)) return;
+    e.preventDefault();
+    getSelection()?.removeAllRanges();
+    if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
+  }
   // The swell keeps the field painting every frame while it is up, and while the pointer has moved
   // in the last SWELL.rest; a ring while it runs; each for the frame after, which clears it. Past
   // that, a frame repaints only when the field's tick or the scroll position has changed (0206).
