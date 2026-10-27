@@ -23,6 +23,15 @@
         "--strictPort"
       ],
       "port": 4173
+    },
+    {
+      "name": "admin-fixture",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "UPSTASH_REDIS_REST_URL=http://127.0.0.1:8766 UPSTASH_REDIS_REST_TOKEN=local ADMIN_EMAILS=owner@example.com AUTH_SECRET=local-verification-only-not-a-production-secret-0123456789 ANALYTICS_SECRET=local-verification-only-analytics-secret-0123456789 AUTH_RESEND_KEY=re_local AUTH_EMAIL_FROM=local@example.com ANALYTICS_DEV=0 pnpm dev --host 127.0.0.1 --port 5193 --strictPort"
+      ],
+      "port": 5193
     }
   ]
 }

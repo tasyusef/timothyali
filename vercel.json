@@ -1,6 +1,12 @@
 {
   "framework": "sveltekit",
   "buildCommand": "pnpm build",
+  "crons": [
+    {
+      "path": "/api/releases-snapshot",
+      "schedule": "50 23 * * *"
+    }
+  ],
   "redirects": [
     {
       "source": "/about",

@@ -1091,3 +1091,12 @@ Approved by Timothy and published on 2026-10-26.
 - **Screens:** all five recaptured from the 1.2.0 UI in the app's hidden WebKit harness (Lockup with PARC's stacked logo, on Timothy's pick), phone crops recut, the study cover regenerated from the new home; five share images regenerated (the Work collage and the four tool images), the rest byte-identical.
 - **Checks:** `pnpm check` 0/0, 27 tests, build, `seo:check`; local preview of `/toolbox/` (v1.2.0, eight installer links), `/toolbox/agents/` (the new sections) and `/work/toolbox/`, no overflow at 1440 and 390.
 - **Evidence:** `docs/iterations/pixel-v2/117-toolbox-1.2.0/` (`screens-old-vs-new.png`, `verification.json`, `capture/`).
+
+## PX-118: Admin download counts that agree (2026-10-27, 0221)
+
+Approved by Timothy and pushed on 2026-10-27.
+
+- **Problem:** the admin set "Download clicks / 90 days: 0" against GitHub's all-time counts with nothing to connect them; GitHub only reports all-time totals, `-win.zip` read as macOS, and a site link to an unpublished file went unnoticed.
+- **Change:** daily snapshots of GitHub counts (admin loads plus a daily Vercel cron) give GitHub downloads for the selected period; four cards (page views, site clicks, GitHub in the period, GitHub all time); the build table adds the period, publish date and file kind; a notice for site links missing from GitHub; middle clicks on download links count.
+- **Checks:** `pnpm check` 0/0, 30 tests, `tools/review/admin.mjs` against the fixture (period 29, all time 62), no overflow at 1440, 390 and 320.
+- **Evidence:** `docs/iterations/pixel-v2/41-private-analytics/` (fixture screenshots, `browser-verification.json`).

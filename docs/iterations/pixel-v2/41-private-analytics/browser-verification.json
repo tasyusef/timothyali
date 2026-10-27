@@ -4,6 +4,7 @@
     "Anonymous /admin/ blocked",
     "Anonymous /admin/__data.json blocked",
     "Real signed JWT for other email denied",
+    "GitHub period and all-time totals agree with the readings",
     "Date range and release filter work",
     "Dashboard fits 1440, 390 and 320px",
     "Sign out invalidates this session",

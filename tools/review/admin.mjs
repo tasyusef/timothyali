@@ -16,8 +16,11 @@ try {
   const admin = await browser.newContext({ viewport: { width: 1440, height: 1050 } }); await admin.addCookies([owner]); const page = await admin.newPage();
   const errors = []; page.on('pageerror', error => errors.push(error.message));
   const response = await page.goto(origin + '/admin/'); assert.equal(response.status(), 200); assert.match(response.headers()['cache-control'], /no-store/);
-  await page.getByRole('heading', { name: 'Site activity.' }).waitFor(); await page.getByText('Toolbox-1.1.0-arm64.dmg', { exact: true }).waitFor();
+  await page.getByRole('heading', { name: 'Site activity.' }).waitFor(); await page.getByText('Toolbox-1.1.0-arm64.dmg · Installer', { exact: true }).waitFor();
   assert.equal(await page.locator('.stats article').first().locator('.display').innerText(), '360');
+  // GitHub in the period: 1.2.0 uploaded today (17) + 1.1.0 Apple silicon since the reading (12); the others unchanged
+  assert.equal(await page.locator('.stats article').nth(2).locator('.display').innerText(), '29');
+  assert.equal(await page.locator('.stats article').nth(3).locator('.display').innerText(), '62'); results.push('GitHub period and all-time totals agree with the readings');
   await page.screenshot({ path: `${out}/dashboard-desktop-fixture.png`, fullPage: true });
   await page.getByRole('link', { name: '7 days', exact: true }).click(); await page.waitForURL('**/?days=7'); await page.getByText('Page views / 7 days', { exact: true }).waitFor();
   await page.getByRole('combobox').selectOption('v1.0.0'); assert.equal(await page.locator('.build-table tbody tr').count(), 1); results.push('Date range and release filter work');
@@ -29,12 +32,13 @@ try {
   assert.deepEqual(errors, []); results.push('No browser runtime errors');
   // Count requests without writing data: ANALYTICS_DEV is off on this server.
   const visitor = await browser.newContext(); const publicPage = await visitor.newPage(); const events = [];
-  publicPage.on('request', req => { if (req.url().includes('/api/analytics/')) events.push(req.postDataJSON()); });
+  publicPage.on('request', req => { if (req.url().endsWith('/api/analytics')) events.push(req.postDataJSON()); });
   await publicPage.goto(origin + '/'); await publicPage.waitForTimeout(500); assert.equal(events.filter(event => event.type === 'view').length, 1);
   await publicPage.evaluate(() => { location.hash = '#test'; }); await publicPage.waitForTimeout(100); assert.equal(events.filter(event => event.type === 'view').length, 1);
   await publicPage.goto(origin + '/toolbox/'); await publicPage.waitForTimeout(400);
   await publicPage.route('https://github.com/tasyusef/toolbox/releases/download/**', route => route.abort());
-  await publicPage.locator('a[href$="Toolbox-1.2.0-arm64.dmg"]').first().click({ noWaitAfter: true }); await publicPage.waitForTimeout(300);
-  assert.ok(events.some(event => event.type === 'download' && event.file === 'Toolbox-1.2.0-arm64.dmg')); results.push('Public views, hash deduplication and build clicks send the right events');
+  // the Apple silicon DMG of whichever version the page links (toolbox.ts VERSIONS)
+  await publicPage.locator('a[href*="/releases/download/"][href$="-arm64.dmg"]').first().click({ noWaitAfter: true }); await publicPage.waitForTimeout(300);
+  assert.ok(events.some(event => event.type === 'download' && /^Toolbox-[\d.]+-arm64\.dmg$/.test(event.file))); results.push('Public views, hash deduplication and build clicks send the right events');
   writeFileSync(`${out}/browser-verification.json`, JSON.stringify({ fixtureData: true, results }, null, 2)); console.log(results.join('\n'));
 } finally { await browser.close(); }

@@ -2692,3 +2692,10 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Timothy's answers:** the Lockup screen shows PARC's stacked logo (`PARC_BOGO-02.svg`) instead of the Pocketwatch mark, since Pocketwatch is hidden (0219); regenerate the Work collage share image; the Windows installers are `Toolbox-Setup-<version>.exe` and `Toolbox-Setup-<version>-arm64.exe`.
 - **Assistant's choices inside it:** the study's new paragraphs and timeline wording; the seeded projects on the home screen (Less Noise, Acme, Cobalt Studio, Birch & Co); motion on in the screens; the Organize section after Serve; showing natively measured sizes in the Convert screen (the browser stand-in can't encode WebP); regenerating the study cover from the new home.
 - **Status:** approved by Timothy and published on 2026-10-26 with the v1.2.0 GitHub release.
+
+## 0221: admin download counts that agree (2026-10-27)
+
+- **Timothy's direction:** improve the admin page and its analytics; "stats disagree with each other. we have downloads for the latest 1.2 release but also no downloads in the last 90 days."
+- **Cause found:** the 90-day figure was clicks on this site's links (signed-in browsers excluded); the 1.2 figure was GitHub's all-time file requests (releases page, updater, own tests, bots). GitHub reports no per-period counts.
+- **Change:** daily snapshots of GitHub's counts (admin loads and a daily Vercel cron) give GitHub downloads for the selected period; cards for page views, site clicks, GitHub in the period and GitHub all time; the build table gains the period, publish date and file kind; `-win.zip` reads as Windows; a notice for site links whose file isn't in a published release; middle clicks count (PX-118).
+- **Status:** approved by Timothy ("3": commit, push, and a read-only check of production clicks) on 2026-10-27.

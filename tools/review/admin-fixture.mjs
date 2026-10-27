@@ -7,12 +7,16 @@ import { pathToFileURL } from 'node:url';
 const authRequire = createRequire(import.meta.resolve('@auth/sveltekit'));
 const { encode } = await import(pathToFileURL(authRequire.resolve('@auth/core/jwt')).href);
 export const secret = 'local-verification-only-not-a-production-secret-0123456789';
+const row = (version, file, count, created, platform, architecture, format, kind = 'Installer') => ({ version, file, count, published: created, created, platform, architecture, format, kind });
 const fixture = {
-  rows: [{ version: 'v1.1.0', file: 'Toolbox-1.1.0-arm64.dmg', count: 32, platform: 'macOS', architecture: 'ARM64', format: 'dmg' }, { version: 'v1.1.0', file: 'Toolbox-1.1.0.dmg', count: 12, platform: 'macOS', architecture: 'Intel / x64', format: 'dmg' }, { version: 'v1.0.0', file: 'Toolbox-1.0.0.exe', count: 1, platform: 'Windows (historical)', architecture: 'Intel / x64', format: 'exe' }], updated: new Date().toISOString()
+  rows: [row('v1.2.0', 'Toolbox-1.2.0-arm64.dmg', 17, new Date().toISOString().slice(0, 10), 'macOS', 'ARM64', 'dmg'), row('v1.1.0', 'Toolbox-1.1.0-arm64.dmg', 32, '2026-09-15', 'macOS', 'ARM64', 'dmg'), row('v1.1.0', 'Toolbox-1.1.0.dmg', 12, '2026-09-15', 'macOS', 'Intel / x64', 'dmg'), row('v1.0.0', 'Toolbox-Setup-1.0.0.exe', 1, '2026-09-12', 'Windows (historical)', 'Intel / x64', 'exe')], updated: new Date().toISOString()
 };
+// every day's GitHub reading: the 1.1.0 Apple silicon build at 20, so a period shows 12
+const snapshot = ['Toolbox-1.1.0-arm64.dmg', '20', 'Toolbox-1.1.0.dmg', '12', 'Toolbox-Setup-1.0.0.exe', '1'];
 function command(cmd) {
   const [op, key] = cmd;
-  if (op.toLowerCase() === 'get') return key === 'tim:releases:v1' ? JSON.stringify(fixture) : key === 'tim:analytics:started' ? '2026-09-17T12:00:00Z' : null;
+  if (op.toLowerCase() === 'get') return key === 'tim:releases:v2' ? JSON.stringify(fixture) : key === 'tim:analytics:started' ? '2026-09-17T12:00:00Z' : null;
+  if (op.toLowerCase() === 'hgetall' && key.startsWith('tim:gh:')) return snapshot;
   if (op.toLowerCase() === 'hgetall') return ['views', '12', 'clicks', '2', 'page:/', '8', 'page:/toolbox/', '4', 'referrer:www.linkedin.com', '5', 'referrer:Direct / unknown', '7', 'device:Desktop', '9', 'device:Mobile', '3', 'download:Toolbox-1.1.0-arm64.dmg', '2'];
   if (op.toLowerCase() === 'pfcount') return 8;
   return 'OK';

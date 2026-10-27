@@ -31,8 +31,11 @@
       const href = anchor?.href ?? '';
       if (href.includes('/releases/download/')) send({ type: 'download', path: window.location.pathname, file: decodeURIComponent(new URL(href).pathname.split('/').at(-1) ?? '') });
     };
+    // a middle click opens the link in a new tab without a click event
+    const middle = (event: MouseEvent) => { if (event.button === 1) click(event); };
     document.addEventListener('visibilitychange', visit);
     document.addEventListener('click', click);
-    return () => { document.removeEventListener('visibilitychange', visit); document.removeEventListener('click', click); };
+    document.addEventListener('auxclick', middle);
+    return () => { document.removeEventListener('visibilitychange', visit); document.removeEventListener('click', click); document.removeEventListener('auxclick', middle); };
   });
 </script>

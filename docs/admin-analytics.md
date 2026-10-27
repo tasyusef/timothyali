@@ -6,7 +6,9 @@ Status: live at https://www.timothyali.com/admin/. Storage, server authorization
 
 - Page views, estimated visitors per day, page breakdown, referrer hosts and device groups for the last 7, 30 or 90 UTC days, including today.
 - Toolbox download-link clicks from this website, by filename, within the selected traffic period.
-- GitHub release-asset download counts by version, operating system, architecture and file format. These are all-time requests for files, including repeats and automated checks; they are not unique people or installations. Historical Windows assets remain visible. Checksums and updater metadata are excluded.
+- GitHub release-asset download counts by version, operating system, architecture, file format and kind (installer, portable zip, Mac update package), for the selected period and all time. These are requests for files, including repeats, the app's updater, the owner's own downloads and automated checks; they are not unique people or installations, and they are usually larger than site clicks, which only count this site's links from browsers that haven't signed in. Historical Windows assets remain visible. Checksums and the update feed are excluded.
+- GitHub only reports all-time counts. Each fresh reading is stored as that UTC day's snapshot (`tim:gh:<day>`, kept 400 days), and a daily Vercel cron (`/api/releases-snapshot`, 23:50 UTC) makes sure every day has one. A period's count is today's count less the snapshot from the day before the period; a file uploaded inside the period counts in full. Without an earlier snapshot the row shows "since <date>" or a dash. Snapshots began 2026-10-27.
+- A notice lists any download link on the Toolbox page whose file isn't in a published GitHub release (those links 404).
 - GitHub results are cached for five minutes. Missing services or failures are explicitly shown as unavailable; there is no production sample-data fallback.
 
 ## Access and configuration
@@ -26,6 +28,7 @@ Server environment variables:
 | `UPSTASH_REDIS_REST_URL` or `KV_REST_API_URL` | Redis REST endpoint |
 | `UPSTASH_REDIS_REST_TOKEN` or `KV_REST_API_TOKEN` | Redis REST credential |
 | `ANALYTICS_SECRET` | Separate random secret of at least 32 bytes for daily visitor hashes |
+| `CRON_SECRET` | Optional. When set, `/api/releases-snapshot` only answers Vercel's cron (which sends it); without it, calls still go through the five-minute cache |
 | `ANALYTICS_DEV` | Leave unset/0 in local development; set 1 only against a separate test database |
 
 Provision Upstash and Resend through the Vercel Marketplace where available. Use free plans unless Timothy approves otherwise. Vercel CLI is now linked to the correct portfolio project. Existing production `RESEND_API_KEY` and `CONTACT_FROM` settings can be reused; actual delivery still needs verification. Upstash is provisioned on the free plan with automatic paid upgrades disabled. Timothy supplied three owner addresses; they are stored privately in Vercel, not in this repository. Keep all credentials in Vercel's environment settings or an ignored local env file. Verify a sender domain before attempting real email delivery.
@@ -46,8 +49,8 @@ The site now uses adapter-vercel, with a Node 24 server for admin/auth/analytics
 
 - `pnpm check`, `pnpm test`, `pnpm build`, `pnpm social:verify`.
 - Unit tests cover event validation and aggregation, owner allowlisting, private request gating, malformed/oversized/cross-origin ingestion, known bot and owner exclusion, unavailable storage, sign-in cooldown, token consumption, redirect restrictions, and release-asset filtering.
-- `tools/review/admin-fixture.mjs` serves **synthetic Redis REST data only for local verification**. It also writes short-lived JWTs signed with a public local-test secret to `/tmp/tim-admin-test-cookies.json`. This script is never imported by the app. Run it beside a dev server configured with the matching local-test settings in the script, port 5193. Do not use the public test secret in production.
-- `tools/review/admin.mjs` uses Chrome to test real Auth.js JWT verification (owner and unauthorized address), anonymous page/data denial, no-store headers, date and release filters, sign-out, owner exclusion cookie, mobile widths, browser errors, route-view events, hash deduplication and build-click events. Tracking writes stay off during this browser test. Screenshots marked `fixture` contain synthetic counts.
+- `tools/review/admin-fixture.mjs` serves **synthetic Redis REST data only for local verification**. It also writes short-lived JWTs signed with a public local-test secret to `/tmp/tim-admin-test-cookies.json`. This script is never imported by the app. Run it beside the `admin-fixture` server in `.claude/launch.json` (the matching local-test settings, port 5193). Do not use the public test secret in production.
+- `tools/review/admin.mjs` uses Chrome to test real Auth.js JWT verification (owner and unauthorized address), anonymous page/data denial, no-store headers, date and release filters, sign-out, owner exclusion cookie, mobile widths, browser errors, route-view events, hash deduplication, build-click events, and the GitHub period and all-time totals against fixture snapshots. Tracking writes stay off during this browser test. Screenshots marked `fixture` contain synthetic counts.
 
 ### Required before publication
 
