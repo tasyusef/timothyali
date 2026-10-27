@@ -1143,3 +1143,10 @@ Approved by Timothy and pushed on 2026-10-27.
 - **Change:** the contact relay is now the SvelteKit route `src/routes/api/contact/+server.ts`, the same code in TypeScript, and the `api/` folder is gone. One difference: form posts with no `Origin` header get SvelteKit's 403; browsers always send it.
 - **Checks:** `pnpm check` 0/0, 37 tests, build; on the preview (without the production env file), the update route answers 302 to the GitHub feed and every contact path answers as before, including the form in the browser.
 - **Evidence:** `docs/iterations/pixel-v2/123-api-routes/verification.json` (production before, local after).
+
+## PX-124: Toolbox 1.2.3 (2026-10-27, 0227)
+
+Pushed on 2026-10-27, after the v1.2.3 GitHub release was public.
+
+- **Downloads:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.3; each of the eight release files returned 200 before the push, and `/api/update/darwin/aarch64/1.2.1` answered with the 1.2.3 feed.
+- **Checks:** `pnpm check`, tests, build, `seo:check`.

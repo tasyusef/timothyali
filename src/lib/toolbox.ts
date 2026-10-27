@@ -58,7 +58,7 @@ const shot = (name: string, alt: string): Shot => ({ src: `/toolbox/${name}.png`
 
 export const APP = {
   name: 'Toolbox',
-  version: '1.2.2',
+  version: '1.2.3',
   platforms: ['macOS', 'Windows', 'Linux'],
   interfaces: ['App', 'CLI', 'MCP'],
   status: 'Released',
@@ -129,7 +129,7 @@ export const binaries = [
 export const RELEASES = 'https://github.com/tasyusef/toolbox/releases';
 /** Each platform's build version, separate so one can stay on an earlier release while its new
  *  build is tested: change it here and that platform's links follow (the page names it). */
-export const VERSIONS = { macOS: APP.version, Windows: '1.2.2', Linux: '1.2.2' };
+export const VERSIONS = { macOS: APP.version, Windows: '1.2.3', Linux: '1.2.3' };
 /** The Windows installer's file name (NSIS, x64), the one place to change it. */
 export const WINDOWS_INSTALLER = `Toolbox-Setup-${VERSIONS.Windows}.exe`;
 export const WINDOWS_INSTALLER_ARM64 = `Toolbox-Setup-${VERSIONS.Windows}-arm64.exe`;

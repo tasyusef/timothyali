@@ -2733,3 +2733,9 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Cause found:** Vercel's handling of the root `api/` folder adds `^/api(/.*)?$ → 404` before SvelteKit's dynamic routes (PX-123).
 - **Change (assistant's proposal):** move `api/contact.js` into `src/routes/api/contact/+server.ts` and keep the repo free of a root `api/` folder, over a `vercel.json` rewrite that would depend on the adapter's internal function names.
 - **Status:** approved by Timothy ("Yes: commit and push, check production with curl, and also send one real test message through the form.") and pushed on 2026-10-27.
+
+## 0227: Toolbox 1.2.3 on the site (2026-10-27)
+
+- **Timothy's direction:** ship the macOS selection fix as 1.2.3 ("a. 1") so his Mac can update from inside the app.
+- **Change:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.3, so all eight download links follow. No copy changes.
+- **Status:** published on 2026-10-27 with the v1.2.3 GitHub release, whose `latest.json` the app's update check now reaches through `/api/update` (0226).
