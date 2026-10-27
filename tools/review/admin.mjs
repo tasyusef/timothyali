@@ -17,10 +17,16 @@ try {
   const errors = []; page.on('pageerror', error => errors.push(error.message));
   const response = await page.goto(origin + '/admin/'); assert.equal(response.status(), 200); assert.match(response.headers()['cache-control'], /no-store/);
   await page.getByRole('heading', { name: 'Site activity.' }).waitFor(); await page.getByText('Toolbox-1.1.0-arm64.dmg · Installer', { exact: true }).waitFor();
-  assert.equal(await page.locator('.stats article').first().locator('.display').innerText(), '360');
+  const card = async (title) => page.locator('.stats article', { has: page.getByRole('heading', { name: `${title} / 30 days`, exact: true }) }).locator('.display').innerText();
+  // 30 fixture days: 12 views, 5 visits, 1 site download, 1 résumé, 1 message and 360 active seconds a day
+  assert.equal(await card('Page views'), '360'); assert.equal(await card('Visits'), '150'); assert.equal(await card('Visitors'), '8');
+  assert.equal((await card('Time per visit')).toLowerCase(), '1m 12s'); assert.equal(await card('Site downloads'), '30'); assert.equal(await card('Resume opens'), '30'); assert.equal(await card('Messages'), '30');
   // GitHub in the period: 1.2.0 uploaded today (17) + 1.1.0 Apple silicon since the reading (12); the others unchanged
-  assert.equal(await page.locator('.stats article').nth(2).locator('.display').innerText(), '29');
-  assert.equal(await page.locator('.stats article').nth(3).locator('.display').innerText(), '62'); results.push('GitHub period and all-time totals agree with the readings');
+  assert.equal(await card('GitHub downloads'), '29'); results.push('Period totals, GitHub period count and visit time agree with the fixture');
+  // legacy per-view referrers merge under today's names: linkedin.com 5 + 1 views a day
+  assert.equal(await page.locator('tr', { has: page.getByRole('rowheader', { name: /^linkedin\.com/ }) }).first().locator('td').nth(1).innerText(), '180');
+  await page.getByRole('rowheader', { name: 'United Kingdom', exact: true }).waitFor(); await page.getByRole('rowheader', { name: 'Denver, US-CO', exact: true }).waitFor();
+  await page.getByText(/are recorded from/).waitFor(); results.push('Sources merge old referrers; countries, cities and the start-of-detail notice show');
   await page.screenshot({ path: `${out}/dashboard-desktop-fixture.png`, fullPage: true });
   await page.getByRole('link', { name: '7 days', exact: true }).click(); await page.waitForURL('**/?days=7'); await page.getByText('Page views / 7 days', { exact: true }).waitFor();
   await page.getByRole('combobox').selectOption('v1.0.0'); assert.equal(await page.locator('.build-table tbody tr').count(), 1); results.push('Date range and release filter work');
@@ -32,13 +38,20 @@ try {
   assert.deepEqual(errors, []); results.push('No browser runtime errors');
   // Count requests without writing data: ANALYTICS_DEV is off on this server.
   const visitor = await browser.newContext(); const publicPage = await visitor.newPage(); const events = [];
-  publicPage.on('request', req => { if (req.url().endsWith('/api/analytics')) events.push(req.postDataJSON()); });
+  const downloads = []; publicPage.on('request', req => { if (req.url().endsWith('/api/e')) events.push(req.postDataJSON()); if (req.url().includes('/download/')) downloads.push(req.url()); });
   await publicPage.goto(origin + '/'); await publicPage.waitForTimeout(500); assert.equal(events.filter(event => event.type === 'view').length, 1);
   await publicPage.evaluate(() => { location.hash = '#test'; }); await publicPage.waitForTimeout(100); assert.equal(events.filter(event => event.type === 'view').length, 1);
   await publicPage.goto(origin + '/toolbox/'); await publicPage.waitForTimeout(400);
   await publicPage.route('https://github.com/tasyusef/toolbox/releases/download/**', route => route.abort());
-  // the Apple silicon DMG of whichever version the page links (toolbox.ts VERSIONS)
-  await publicPage.locator('a[href*="/releases/download/"][href$="-arm64.dmg"]').first().click({ noWaitAfter: true }); await publicPage.waitForTimeout(300);
-  assert.ok(events.some(event => event.type === 'download' && /^Toolbox-[\d.]+-arm64\.dmg$/.test(event.file))); results.push('Public views, hash deduplication and build clicks send the right events');
+  // the Apple silicon DMG of whichever version the page links (toolbox.ts VERSIONS), through the counted route
+  await publicPage.locator('a[href^="/download/"][href$="-arm64.dmg"]').first().click({ noWaitAfter: true }); await publicPage.waitForTimeout(500);
+  assert.ok(downloads.some(url => /\/download\/v[\d.]+\/Toolbox-[\d.]+-arm64\.dmg\?s=Direct/.test(url)), downloads.join(' '));
+  // leaving through the site's own link reports the time and depth on the page left
+  await publicPage.locator('header a[href="/contact/"]').first().click(); await publicPage.waitForURL('**/contact/'); await publicPage.waitForTimeout(400);
+  await publicPage.evaluate(() => document.dispatchEvent(new Event('visibilitychange'))); await publicPage.mouse.move(10, 10);
+  await publicPage.locator('a[href$="Resume.pdf"]').first().click({ modifiers: ['Meta'], noWaitAfter: true }); await publicPage.waitForTimeout(300);
+  assert.ok(events.some(event => event.type === 'resume' && event.path === '/contact/'), JSON.stringify(events));
+  assert.ok(events.some(event => event.type === 'engage' && event.path === '/toolbox/'), 'engagement for the page left');
+  assert.ok(events.filter(event => event.type === 'view').every((event, i) => event.entry === (i === 0)), 'only the first view starts the visit'); results.push('Public views, hash deduplication and build clicks send the right events');
   writeFileSync(`${out}/browser-verification.json`, JSON.stringify({ fixtureData: true, results }, null, 2)); console.log(results.join('\n'));
 } finally { await browser.close(); }

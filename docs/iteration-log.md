@@ -1107,3 +1107,12 @@ Pushed on 2026-10-27, after the v1.2.1 GitHub release was public.
 
 - **Downloads:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.1; the eight installer links in the built `/toolbox/` page all point at v1.2.1 and each returned 200 before the push.
 - **Checks:** `pnpm check` 0/0, 30 tests, build, `seo:check`.
+
+## PX-120: Tracking visits, sources, places, time, downloads and app checks (2026-10-27, 0223)
+
+- **Site:** visits and their sources (tags, campaigns, grouped hosts, the LinkedIn app), visitors per calendar month, places from Vercel's headers, devices/systems/browsers by visit, active time and scroll depth per page, links out, resume opens, contact messages; the event endpoint renamed to `/api/e`.
+- **Downloads:** the Toolbox page links through `/download/<version>/<file>`, counted on the server once per person, file and day with source, country and system, then redirected to GitHub.
+- **App:** `/api/update/<target>/<arch>/<version>` counts update checks and installs checking, then redirects to the feed; the app repo's `tauri.conf.json` asks it first, GitHub second (not released).
+- **Admin:** every card for the selected period; sources, pages, places, technology, links out, downloads by country and the Toolbox app; a notice for days before the detailed counts.
+- **Checks:** `pnpm check` 0/0, 37 tests; the app's updater config test; `tools/review/admin.mjs` against the fixture (totals, legacy source merge, places, the download route with `?s=`, resume and engagement events, 1440/390/320 without overflow); the update, download and snapshot routes answer on the dev server.
+- **Evidence:** `docs/iterations/pixel-v2/41-private-analytics/`.

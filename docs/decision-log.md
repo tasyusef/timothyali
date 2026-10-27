@@ -2705,3 +2705,10 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Timothy's direction:** push the app and add the new builds to the site; he picked 1.2.1 (over 1.3.0) for the release that adds the app's check for updates.
 - **Change:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.1, so all eight download links follow. No copy changes.
 - **Status:** published on 2026-10-27 with the v1.2.1 GitHub release (which also carries the updater's `latest.json` and `.app.tar.gz` files).
+
+## 0223: accurate tracking of visits, sources, downloads and app use (2026-10-27)
+
+- **Timothy's direction:** "i want really accurate tracking of everything. site visits, where theyre from, how many downloads for each build of the app, etc." Of the assistant's seven proposals (counted download links, visit sources, places, an unblocked endpoint, more events, app update checks, monthly unique visitors): "do it all".
+- **Change:** PX-120; `docs/admin-analytics.md` has the measures and their limits.
+- **Assistant's choices inside it:** a visit ends after 30 minutes idle or a new source; visitors are counted per calendar month; active time stops after 90 seconds without input; downloads count once per person, file and day; the update check stays on click, as the app's own decision has it (no automatic check), so installs checking counts only people who click Updates; the browser keeps the visit's arrival in `localStorage` for 30 minutes.
+- **Status:** site pushed on Timothy's word ("Push the site.") on 2026-10-27. The app change is prepared in the app repo, uncommitted, for its next release.

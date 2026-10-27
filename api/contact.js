@@ -9,7 +9,8 @@
 //                    the address the Resend account was registered with — verify
 //                    timothyali.com in Resend and set this to a sender on it for anything else
 //   UPSTASH_REDIS_REST_URL / _TOKEN (or KV_REST_API_URL / _TOKEN), the analytics store:
-//                    optional; with it each address may send 5 messages per 10 minutes
+//                    optional; with it each address may send 5 messages per 10 minutes, and
+//                    each message sent counts in the admin's day totals (0223)
 export const config = { runtime: 'nodejs' };
 import { createHash } from 'node:crypto';
 import { Redis } from '@upstash/redis';
@@ -31,14 +32,17 @@ const escape = (s) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;',
 // round trips, retried five times with backoff and never timed out), at most one retry,
 // and a store slower than RATE.wait lets the message through rather than hold it up.
 const COUNT = "local n = redis.call('INCR', KEYS[1]) if n == 1 then redis.call('EXPIRE', KEYS[1], ARGV[1]) end return n";
-async function allowed(request) {
+function store(signal) {
   const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+  return url && token ? new Redis({ url, token, retry: { retries: 1, backoff: () => 150 }, signal }) : null;
+}
+async function allowed(request) {
   const ip = (request.headers.get('x-forwarded-for') ?? '').split(',')[0].trim() || request.headers.get('x-real-ip') || '';
-  if (!url || !token || !ip) return true;
   const stop = new AbortController(); const timer = setTimeout(() => stop.abort(), RATE.wait);
+  const db = store(stop.signal);
+  if (!db || !ip) { clearTimeout(timer); return true; }
   try {
-    const db = new Redis({ url, token, retry: { retries: 1, backoff: () => 150 }, signal: stop.signal });
     const key = `tim:contact:${createHash('sha256').update(ip).digest('hex').slice(0, 32)}`;
     const count = await db.eval(COUNT, [key], [String(RATE.seconds)]);
     return Number(count) <= RATE.max;
@@ -93,7 +97,17 @@ export async function POST(request) {
     });
   } catch (e) { console.error('resend', e); return answer(request, 502, { ok: false, error: 'send-failed' }); }
   if (!res.ok) { console.error('resend', res.status, await res.text()); return answer(request, 502, { ok: false, error: 'send-failed' }); }
+  await counted();
   return answer(request, 200, { ok: true });
+}
+
+// A sent message in the day's counts, beside the site's visits; never holds up the answer for long.
+async function counted() {
+  const stop = new AbortController(); const timer = setTimeout(() => stop.abort(), RATE.wait);
+  const db = store(stop.signal); const key = `tim:day:${new Date().toISOString().slice(0, 10)}`;
+  try { if (db) await db.pipeline().hincrby(key, 'contact', 1).expire(key, 31622400).exec(); }
+  catch (e) { console.error('contact count', e); }
+  finally { clearTimeout(timer); }
 }
 
 export function GET() { return new Response('POST only', { status: 405, headers: { allow: 'POST' } }); }

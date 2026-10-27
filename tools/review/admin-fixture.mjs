@@ -13,11 +13,14 @@ const fixture = {
 };
 // every day's GitHub reading: the 1.1.0 Apple silicon build at 20, so a period shows 12
 const snapshot = ['Toolbox-1.1.0-arm64.dmg', '20', 'Toolbox-1.1.0.dmg', '12', 'Toolbox-Setup-1.0.0.exe', '1'];
+// one day of counts, the same every day; the detailed counts (0223) began three days ago
+const detailed = new Date(Date.now() - 3 * 86400000).toISOString();
+const day = { views: 12, visits: 5, 'page:/': 8, 'page:/toolbox/': 4, 'entry:/': 4, 'entry:/toolbox/': 1, 'sourceview:linkedin.com': 5, 'referrer:www.linkedin.com': 1, 'source:linkedin.com': 2, 'sourceview:Direct / unknown': 6, 'source:Direct / unknown': 3, 'device:Desktop': 9, 'vdevice:Desktop': 4, 'vdevice:Mobile': 1, 'os:macOS': 4, 'os:iOS': 1, 'browser:Safari': 3, 'browser:Chrome': 2, 'country:US': 4, 'country:GB': 1, 'region:US-CO': 3, 'city:Denver / US-CO': 3, 'city:London / GB-ENG': 1, 'time:/': 240, 'time:/toolbox/': 120, 'reach50:/': 4, 'reach100:/': 2, downloads: 1, 'download:Toolbox-1.1.0-arm64.dmg': 1, 'dlsource:linkedin.com': 1, 'dlcountry:US': 1, resume: 1, 'resumesource:linkedin.com': 1, outs: 2, 'out:linkedin.com': 2, contact: 1, updates: 3, 'update:1.2.1': 3, 'updateplatform:macOS · ARM64': 3, 'updatecountry:US': 3, 'campaign:oct': 1 };
 function command(cmd) {
   const [op, key] = cmd;
-  if (op.toLowerCase() === 'get') return key === 'tim:releases:v2' ? JSON.stringify(fixture) : key === 'tim:analytics:started' ? '2026-09-17T12:00:00Z' : null;
+  if (op.toLowerCase() === 'get') return key === 'tim:releases:v2' ? JSON.stringify(fixture) : key === 'tim:analytics:started' ? '2026-09-17T12:00:00Z' : key === 'tim:analytics:detailed' ? detailed : null;
   if (op.toLowerCase() === 'hgetall' && key.startsWith('tim:gh:')) return snapshot;
-  if (op.toLowerCase() === 'hgetall') return ['views', '12', 'clicks', '2', 'page:/', '8', 'page:/toolbox/', '4', 'referrer:www.linkedin.com', '5', 'referrer:Direct / unknown', '7', 'device:Desktop', '9', 'device:Mobile', '3', 'download:Toolbox-1.1.0-arm64.dmg', '2'];
+  if (op.toLowerCase() === 'hgetall') return Object.entries(day).flat().map(String);
   if (op.toLowerCase() === 'pfcount') return 8;
   return 'OK';
 }

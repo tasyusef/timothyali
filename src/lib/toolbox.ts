@@ -133,7 +133,8 @@ export const VERSIONS = { macOS: APP.version, Windows: '1.2.1', Linux: '1.2.1' }
 /** The Windows installer's file name (NSIS, x64), the one place to change it. */
 export const WINDOWS_INSTALLER = `Toolbox-Setup-${VERSIONS.Windows}.exe`;
 export const WINDOWS_INSTALLER_ARM64 = `Toolbox-Setup-${VERSIONS.Windows}-arm64.exe`;
-const file = (version: string, name: string) => `${RELEASES}/download/v${version}/${encodeURIComponent(name)}`;
+// The site's own download route counts each download, then sends it on to the GitHub file (0223).
+const file = (version: string, name: string) => `/download/v${version}/${encodeURIComponent(name)}`;
 const mac = (name: string) => file(VERSIONS.macOS, name);
 const win = (name: string) => file(VERSIONS.Windows, name);
 const linux = (name: string) => file(VERSIONS.Linux, name);
