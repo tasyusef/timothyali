@@ -1100,3 +1100,10 @@ Approved by Timothy and pushed on 2026-10-27.
 - **Change:** daily snapshots of GitHub counts (admin loads plus a daily Vercel cron) give GitHub downloads for the selected period; four cards (page views, site clicks, GitHub in the period, GitHub all time); the build table adds the period, publish date and file kind; a notice for site links missing from GitHub; middle clicks on download links count.
 - **Checks:** `pnpm check` 0/0, 30 tests, `tools/review/admin.mjs` against the fixture (period 29, all time 62), no overflow at 1440, 390 and 320.
 - **Evidence:** `docs/iterations/pixel-v2/41-private-analytics/` (fixture screenshots, `browser-verification.json`).
+
+## PX-119: Toolbox 1.2.1 (2026-10-27, 0222)
+
+Pushed on 2026-10-27, after the v1.2.1 GitHub release was public.
+
+- **Downloads:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.1; the eight installer links in the built `/toolbox/` page all point at v1.2.1 and each returned 200 before the push.
+- **Checks:** `pnpm check` 0/0, 30 tests, build, `seo:check`.

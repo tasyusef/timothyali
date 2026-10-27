@@ -2699,3 +2699,9 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Cause found:** the 90-day figure was clicks on this site's links (signed-in browsers excluded); the 1.2 figure was GitHub's all-time file requests (releases page, updater, own tests, bots). GitHub reports no per-period counts.
 - **Change:** daily snapshots of GitHub's counts (admin loads and a daily Vercel cron) give GitHub downloads for the selected period; cards for page views, site clicks, GitHub in the period and GitHub all time; the build table gains the period, publish date and file kind; `-win.zip` reads as Windows; a notice for site links whose file isn't in a published release; middle clicks count (PX-118).
 - **Status:** approved by Timothy ("3": commit, push, and a read-only check of production clicks) on 2026-10-27.
+
+## 0222: Toolbox 1.2.1 on the site (2026-10-27)
+
+- **Timothy's direction:** push the app and add the new builds to the site; he picked 1.2.1 (over 1.3.0) for the release that adds the app's check for updates.
+- **Change:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.1, so all eight download links follow. No copy changes.
+- **Status:** published on 2026-10-27 with the v1.2.1 GitHub release (which also carries the updater's `latest.json` and `.app.tar.gz` files).
