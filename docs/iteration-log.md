@@ -1133,3 +1133,13 @@ Approved by Timothy and pushed on 2026-10-27.
 - **Change:** the field's `mousedown` guard checks for a visible character under the pointer instead of a text element; bare-field presses start no selection and clear one.
 - **Checks:** `pnpm check` 0/0, 37 tests; on the dev server every bare-field click, double, triple and drag selected nothing on `/` and `/work/toolbox/`, words still select by double click and drag, links work, no console errors.
 - **Evidence:** `docs/iterations/pixel-v2/122-field-no-selection/verification.json` (production before, local after).
+
+## PX-123: The app's update check reaches the site (2026-10-27, 0226)
+
+Approved by Timothy and pushed on 2026-10-27.
+
+- **Problem:** every request to `/api/update/<target>/<arch>/<version>` (PX-120) got Vercel's own 404 in production, so update checks weren't counted and each check cost the app a failed request before GitHub.
+- **Cause:** the root `api/` folder (`api/contact.js`). With it, Vercel adds a rule that answers any `/api/...` path it can't find as a file with a 404, ahead of SvelteKit's dynamic routes. The other `/api` routes worked only because each is a function file of its own.
+- **Change:** the contact relay is now the SvelteKit route `src/routes/api/contact/+server.ts`, the same code in TypeScript, and the `api/` folder is gone. One difference: form posts with no `Origin` header get SvelteKit's 403; browsers always send it.
+- **Checks:** `pnpm check` 0/0, 37 tests, build; on the preview (without the production env file), the update route answers 302 to the GitHub feed and every contact path answers as before, including the form in the browser.
+- **Evidence:** `docs/iterations/pixel-v2/123-api-routes/verification.json` (production before, local after).

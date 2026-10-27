@@ -1,6 +1,6 @@
 <script lang="ts">
   // The contact form (decision 0090). Three fields and a send block, posted to the
-  // Vercel Function at /api/contact with fetch; without JavaScript the same form posts
+  // contact route at /api/contact with fetch; without JavaScript the same form posts
   // there natively and comes back to ?sent=1 / ?error=. Fields are the body face on a
   // paper ground inside the ink panel; heights are on the unit (48 for a line, 8 + 4 × 32
   // + 8 for the message). Each field shows the site's block cursor at its insertion point

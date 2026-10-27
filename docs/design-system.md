@@ -472,7 +472,7 @@ three batches were applied on Timothy's “do all three”. What moved where:
 - **Type roles** (`type.css`): `.display-title` (+ `.lesser`, `.small` set by `fitWord` in `fit.ts`), `.read-s`, `.phone-read`.
 - **Layout** (`layout.css`): `.band` isolation, `.fill-main`, the inner page's `.head` and `.paras`, the phone `.intro`.
 - **JavaScript**: `figure` action and `FRAME` / `frameSizes()` (`figure.ts`), `withNext` (`chain.ts`), `pad` (`format.ts`).
-- **Constants**: `src/lib/shared.js` (plain JS, imported by `api/contact.js` too) holds the origin, the address and the
+- **Constants**: `src/lib/shared.js` (plain JS, imported by `tools/social/verify.mjs` too) holds the origin, the address and the
   form's limits and pattern; `$lib/site` re-exports them with the hostnames, LinkedIn, GitHub and the `?via` pattern.
   The share-image generator, verifier and `/og/[id]` route all read `socialPages`.
 - **Toolbox examples**: `DemoReadout`, `DemoToolbar`, `DestinationRow`; class names `demo-readout` / `demo-path` /

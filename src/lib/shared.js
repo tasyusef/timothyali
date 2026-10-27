@@ -1,6 +1,6 @@
-// What the site and the contact function (api/contact.js) both need (0210). Plain JavaScript
-// with no imports, so the function, which is not built by SvelteKit, can import it by path.
-// The site reads these through $lib/site.
+// What the site and its Node tools (tools/social/verify.mjs) both need (0210). Plain JavaScript
+// with no imports, so a script that is not built by SvelteKit can import it by path.
+// The site, the contact route among it, reads these through $lib/site.
 
 /** the public origin, retained from the previous site */
 export const SITE_URL = 'https://www.timothyali.com';

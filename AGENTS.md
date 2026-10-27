@@ -26,7 +26,8 @@ The live site at https://www.timothyali.com and the rebrand behind it (positioni
 
 - **Commit and push only on Timothy's word.** Every push to `master` on `origin` (GitHub) is a production deploy through Vercel.
 - After pushing `master` to `origin`, push it to `gitlab` too. It is a private mirror and does not deploy.
-- The contact form (`api/contact.js`, Resend) and the admin/auth/analytics routes run only on Vercel. Locally the form reports the relay as unconfigured.
+- The contact form (`src/routes/api/contact/+server.ts`, Resend) and the admin/auth/analytics routes need Vercel's environment. Locally the form reports the relay as unconfigured.
+- No root `api/` folder: Vercel's zero-config functions there make every dynamic `/api/...` SvelteKit route answer Vercel's own 404 (0226). Server code goes in `src/routes`.
 - Decision numbers 0149 to 0160 belong to the set-aside modernist-v3 work (branch `modernist-v3` and a stash). New decisions continue from the latest number in the log.
 
 ## Recording decisions

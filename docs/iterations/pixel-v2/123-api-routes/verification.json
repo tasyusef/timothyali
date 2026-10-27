@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-27",
+  "cause": {
+    "source": "@vercel/fs-detectors dist/detect-builders.js (getRouteResult): with a build from a root api/ folder and a framework without ignoreRuntimes (SvelteKit has none), Vercel adds { src: '^/api(/.*)?$', status: 404 } to the rewrite routes",
+    "effect": "SvelteKit /api routes that are function files (/api/e, /api/analytics, /api/releases-snapshot) match in the filesystem phase and work; the dynamic one (/api/update/[target]/[arch]/[version]) needs a rewrite after it and gets Vercel's 404"
+  },
+  "production_before": {
+    "/api/update/darwin/aarch64/1.2.2?bundle=app": "404 x-vercel-error: NOT_FOUND",
+    "/api/update/darwin/aarch64/1": "404 x-vercel-error: NOT_FOUND",
+    "/api/nope": "404 x-vercel-error: NOT_FOUND (Vercel's, not SvelteKit's)",
+    "/nope/deep/path": "404 text/html (SvelteKit's page)",
+    "/api/releases-snapshot": "204",
+    "/api/e": "405 on HEAD",
+    "/api/contact": "405 on HEAD"
+  },
+  "local_after": {
+    "mode": "pnpm preview --mode verify (no production env file, so no Resend key or analytics store)",
+    "build_output": "api/contact.func added; config.json routes ^/api/contact/? and ^/api/update/([^/]+?)/([^/]+?)/([^/]+?)/? to their functions; no root api/ folder left",
+    "/api/update/darwin/aarch64/1.2.2?bundle=app": "302 Location https://github.com/tasyusef/toolbox/releases/latest/download/latest.json",
+    "/api/update/plan9/aarch64/1.2.2": "404 (the route's own check)",
+    "contact GET": "405 Allow: POST",
+    "contact invalid email": "400 {ok:false,error:invalid}",
+    "contact honeypot": "200 {ok:true}, nothing sent",
+    "contact valid without key": "500 {ok:false,error:unconfigured}",
+    "contact bad JSON": "400 {ok:false,error:bad-request}",
+    "contact cross-site JSON": "403 {ok:false,error:bad-request}",
+    "contact cross-site form": "403 (SvelteKit)",
+    "contact form without Origin": "403 (SvelteKit; browsers always send Origin on POST)",
+    "contact no-JS": "303 to /contact/?sent=1#contact-sent or ?error=unconfigured#contact-failed",
+    "contact form in the browser": "POST /api/contact 500, note 'The form is unavailable. Email studio@timothyali.com directly.'",
+    "checks": "pnpm check 0/0, 37 tests, pnpm build"
+  }
+}

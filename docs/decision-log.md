@@ -2726,3 +2726,10 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Cause found:** macOS browsers select the nearest words on a double or triple click beside text, and a drag selects from wherever it starts. The hero's h1 and intro are page-wide blocks, so a press beside their words targets them, and the old guard (0211 era) only stopped double clicks on the bare field outside text elements.
 - **Change:** `Ascii.svelte` asks whether a visible character is under the pointer (`caretPositionFromPoint`, so the sr-only and ghost copies don't count). A press on the bare field starts no selection and clears any selection and focus; presses on words, links, controls and pictures act as usual. Ripples are unchanged (they run on `pointerdown`).
 - **Status:** approved by Timothy ("b. 1": keep it and push it live) and pushed on 2026-10-27.
+
+## 0226: the contact relay becomes a SvelteKit route (2026-10-27)
+
+- **Timothy's direction:** fix the site so the app's update-check URL (`/api/update/{{target}}/{{arch}}/{{current_version}}?bundle={{bundle_type}}`, baked into Toolbox 1.2.2+) works, without changing the app; keep the contact form working.
+- **Cause found:** Vercel's handling of the root `api/` folder adds `^/api(/.*)?$ → 404` before SvelteKit's dynamic routes (PX-123).
+- **Change (assistant's proposal):** move `api/contact.js` into `src/routes/api/contact/+server.ts` and keep the repo free of a root `api/` folder, over a `vercel.json` rewrite that would depend on the adapter's internal function names.
+- **Status:** approved by Timothy ("Yes: commit and push, check production with curl, and also send one real test message through the form.") and pushed on 2026-10-27.
