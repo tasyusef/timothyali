@@ -2771,3 +2771,14 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Supersedes:** 0172's sitewide "Product designer" wording. 0132's product positioning narrows to one of four listed areas.
 - **Assistant's choices, awaiting his eye:** "Designer." over "Design generalist." (the assistant's recommendation; he answered with the LinkedIn wording). Contact's description shortened to "contract work on interfaces, brands, and websites" to stay under the description limit. Contact's page-foot note reads “Interfaces / brands / websites” (was “Interface / motion / code”; his pick, “1”).
 - **Status:** approved by Timothy (“1”: change the Contact note, then commit and push both passes) and pushed on 2026-10-28. The résumé PDF is handled privately and is unchanged here.
+
+## 0230: dragging the field (2026-10-28)
+
+- **Timothy's direction:** besides the click and the hover, add something for click and drag ("like ripple follows your mouse kind of thing... We can be creative as well"). He asked to prototype all five proposals, then "can we combine 1,2, and 4?" (wake, bow wave, slingshot), then of the combination: "i like this. lets add it."
+- **Change:** PX-127, in `Ascii.svelte`, so every field has it. A press on the bare field rings as before.
+  - **Drag:** it leaves a wake (small round rings every 28px) and a 44px trench that pushes the picture aside and springs back, overshooting once.
+  - **Hold still:** it charges for up to 1.4s; the swell grows and pulls the picture in. Letting go fires a ring sized by the charge, plus an echo.
+  - **Where it runs:** mouse and pen only, with motion on. On a touch screen a drag still scrolls, and a tap still rings.
+- **Assistant's choices inside it:** all the numbers (gap, trench width and spring, charge time, rest before charging, drain, firing threshold). Also: the draw and pan trials and the dev switcher are left out of the site, kept as `docs/iterations/pixel-v2/127-drag-lab/trial.patch`.
+- **Toolbox app:** not ported; its `Ascii.svelte` is meant to stay in step (0091).
+- **Status:** built and checked on the production build; not committed.

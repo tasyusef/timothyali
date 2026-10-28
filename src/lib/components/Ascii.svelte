@@ -2,7 +2,8 @@
   // ASCII field. Each texture cell holds a 5×7 bitmap glyph drawn with 2px pixels, chosen
   // from a density ramp by a scalar field. The canvas origin snaps to the page grid.
   // `avoid` knocks the field out around text.
-  // A soft swell follows the pointer and bends the picture round it; a click sends a ring.
+  // A soft swell follows the pointer and bends the picture round it; a click sends a ring; a drag
+  // leaves a wake and a trench, and a held press charges a ring for its release (0230).
   // While motion is on the canvas redraws at ~30fps for the interaction, but the
   // ambient field only advances one step every `tick` ms, so it keeps its cadence.
   // This file and GRIDFORM Studio's src/renderer/src/ui/Ascii.svelte are the same
@@ -48,14 +49,29 @@
   // with its width, to under half on a phone (0213: at full size one ring crossed the whole screen),
   // never thinner than one and a half cells.
   const ringScale = () => Math.min(1, Math.max(0.4, canvas.getBoundingClientRect().width / 1200));
-  function burstAt(p: { x: number; y: number }): Burst {
+  function burstAt(p: { x: number; y: number }, z = { speed: 1, thick: 1, life: 1, round: false }): Burst {
     const k = ringScale();
-    const shape = SHAPES[Math.floor(Math.random() * SHAPES.length)], a = Math.random() * Math.PI, stretch = shape === 'ellipse' ? pick(WAVE.stretch) : 1;
-    const wobble = Math.random() < 0.5 ? pick(WAVE.wobble) : 0;
+    const shape = z.round ? 'circle' : SHAPES[Math.floor(Math.random() * SHAPES.length)], a = Math.random() * Math.PI, stretch = shape === 'ellipse' ? pick(WAVE.stretch) : 1;
+    const wobble = !z.round && Math.random() < 0.5 ? pick(WAVE.wobble) : 0;
     // how far, at most, a point at a given distance by this shape's measure lies from the click: the loop's reach
     const span = (shape === 'diamond' ? 1.2 : shape === 'square' ? 1.3 : stretch) / (1 - wobble);
-    return { ...p, t: 0, speed: pick(WAVE.speed) * k, life: pick(WAVE.life), thick: Math.max(1.5 * cell, pick(WAVE.thick) * k), shape, cos: Math.cos(a), sin: Math.sin(a), stretch, wobble, lobes: Math.round(pick(WAVE.lobes)), phase: Math.random() * 2 * Math.PI, span };
+    return { ...p, t: 0, speed: pick(WAVE.speed) * k * z.speed, life: pick(WAVE.life) * z.life, thick: Math.max(1.5 * cell, pick(WAVE.thick) * k * z.thick), shape, cos: Math.cos(a), sin: Math.sin(a), stretch, wobble, lobes: Math.round(pick(WAVE.lobes)), phase: Math.random() * 2 * Math.PI, span };
   }
+  // --- dragging (0230, PX-127; tried beside a stroke and a pan, `docs/iterations/pixel-v2/127-drag-lab/`)
+  // A press on the bare field rings as ever. Dragged, it leaves a wake: small round rings every
+  // `wake.gap` px that run and interfere like a finger pulled through water, and a trench
+  // `bow.width` px across that pushes the picture out to its banks and springs back, overshooting
+  // once into a ridge (`k` stiffness, `damp` damping ratio). Held still for `sling.rest` ms it
+  // charges, up to `sling.charge` s: the swell grows and pulls the picture in, and letting go past
+  // `sling.fire` fires one ring as big as the charge, and an echo. Moving drains the charge slowly
+  // (`drain` a second), so a drag can aim it. A mouse or pen only: on a touch screen a drag scrolls.
+  const DRAG = { wake: { gap: 28 }, bow: { width: 44, depth: 0.95, k: 22, damp: 0.32, bend: 4.5 }, sling: { charge: 1.4, rest: 120, drain: 0.4, fire: 0.2 } };
+  // the press being dragged, where it was last seen, in cells, and the wake's distance since its last ring, in px
+  let held: { x: number; y: number; gap: number } | null = null;
+  let charge = 0;
+  // the trench's depth and speed per cell, and the box it is live in
+  let groove = new Float32Array(0), grooveV = new Float32Array(0);
+  let gb = [Infinity, Infinity, -1, -1] as [number, number, number, number];
   // a point's distance from the click, by the ring's shape, turned to its angle
   function shapeDist(b: Burst, dx: number, dy: number) {
     const u = dx * b.cos + dy * b.sin, v = -dx * b.sin + dy * b.cos;
@@ -114,14 +130,57 @@
     if (!interactive || !motion.on) return;
     pointer = local(e); movedAt = performance.now();
     if (!swell.s) { swell.x = pointer.x; swell.y = pointer.y; } // a new swell starts under the pointer, not where the last one sank
+    if (held) dragTo(pointer);
     wake();
   }
   function onLeave() { pointer = null; if (motion.on) wake(); }
-  function onDown(e: PointerEvent) {
-    if (!interactive || !motion.on) return;
-    wake(); bursts.push(burstAt(local(e)));
+  function ringOut(b: Burst) {
+    bursts.push(b);
     const running = bursts.filter((b) => b.die === undefined);
     if (running.length > WAVE.cap) running[0].die = (running[0].t * FRAME) / 1000;
+  }
+  function onDown(e: PointerEvent) {
+    if (!interactive || !motion.on) return;
+    wake();
+    const target = e.target as Element | null, p = local(e);
+    if (e.pointerType !== 'touch' && e.button === 0 && target && !target.closest(OWN_PRESS) && !overWords(e.clientX, e.clientY)) {
+      held = { x: p.x, y: p.y, gap: 0 };
+      (e.currentTarget as Element).setPointerCapture?.(e.pointerId);
+      pointer = p; movedAt = performance.now(); if (!swell.s) { swell.x = p.x; swell.y = p.y; }
+      stamp(p, p);
+    }
+    ringOut(burstAt(p));
+  }
+  function onUp() {
+    if (!held) return;
+    if (pointer && charge > DRAG.sling.fire) {
+      const c = charge, at = { ...pointer };
+      ringOut(burstAt(at, { speed: 1 + 1.2 * c, thick: 1 + 1.5 * c, life: 1 + 0.6 * c, round: true }));
+      if (c > 0.3) setTimeout(() => { if (motion.on) { ringOut(burstAt(at, { speed: 0.8 + 0.8 * c, thick: 0.7 + c, life: 1, round: true })); wake(); } }, 160);
+    }
+    held = null; wake();
+  }
+  function dragTo(p: { x: number; y: number }) {
+    if (!held) return;
+    const from = { x: held.x, y: held.y }, run = Math.hypot(p.x - from.x, p.y - from.y) * cell;
+    held.gap += run;
+    // the wake's rings are dropped along the way, not all at the pointer
+    while (held.gap >= DRAG.wake.gap) { held.gap -= DRAG.wake.gap; const t = 1 - held.gap / Math.max(1e-6, run); ringOut(burstAt({ x: from.x + (p.x - from.x) * t, y: from.y + (p.y - from.y) * t }, { speed: 0.45, thick: 0.5, life: 0.55, round: true })); }
+    stamp(from, p);
+    held.x = p.x; held.y = p.y;
+  }
+  // ploughs the trench from a to b: a bell `bow.width` px across, deepening cells, never filling them
+  function stamp(a: { x: number; y: number }, b: { x: number; y: number }) {
+    if (groove.length !== cols * rows) return;
+    const W = DRAG.bow.width / cell / 2, M = W * 2.2, dx = b.x - a.x, dy = b.y - a.y, L2 = dx * dx + dy * dy;
+    const x0 = Math.max(0, Math.floor(Math.min(a.x, b.x) - M)), x1 = Math.min(cols - 1, Math.ceil(Math.max(a.x, b.x) + M)), y0 = Math.max(0, Math.floor(Math.min(a.y, b.y) - M)), y1 = Math.min(rows - 1, Math.ceil(Math.max(a.y, b.y) + M));
+    for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) {
+      const px = x + 0.5 - a.x, py = y + 0.5 - a.y, t = L2 ? Math.max(0, Math.min(1, (px * dx + py * dy) / L2)) : 0;
+      const d2 = ((px - t * dx) ** 2 + (py - t * dy) ** 2) / (W * W); if (d2 > 4.84) continue;
+      const v = DRAG.bow.depth * Math.exp(-d2), i = y * cols + x;
+      if (v > groove[i]) { groove[i] = v; grooveV[i] = 0; }
+    }
+    if (x1 >= x0 && y1 >= y0) grow(gb, x0, y0, x1, y1);
   }
   // Playing with the field selects no text (0225). A press on the bare field would start a selection
   // (a drag) or, on macOS, select the nearest words (a double or triple click). Text blocks run past
@@ -170,12 +229,16 @@
     if (!interactive || heat.length !== cols * rows) return;
     // last frame's swell is cleared, then laid down where it is now
     if (hbLast[2] >= 0) for (let y = hbLast[1]; y <= hbLast[3]; y++) heat.fill(0, y * cols + hbLast[0], y * cols + hbLast[2] + 1);
-    const k = dt / SWELL.step, still = !pointer || performance.now() - movedAt > SWELL.rest;
+    const sec = dt / 1000;
+    if (held) charge = performance.now() - movedAt > DRAG.sling.rest ? Math.min(1, charge + sec / DRAG.sling.charge) : charge * Math.pow(DRAG.sling.drain, sec);
+    else charge = charge > 0.01 ? charge * Math.pow(0.02, sec) : 0;
+    const k = dt / SWELL.step, still = !held && (!pointer || performance.now() - movedAt > SWELL.rest);
+    if (held) stamp(held, held); // a held plough keeps its cells down
     if (pointer) { const f = 1 - Math.pow(1 - SWELL.follow, k); swell.x += (pointer.x - swell.x) * f; swell.y += (pointer.y - swell.y) * f; }
     swell.s = still ? (swell.s < 0.02 ? 0 : swell.s * Math.pow(SWELL.fall, k)) : swell.s + (1 - swell.s) * (1 - Math.pow(1 - SWELL.rise, k));
     if (swell.s) {
       // a bell 1 at the centre; past 2.2 radii it is under a hundredth and left out
-      const R = (reach * CELL_TEXTURE) / cell, M = 2.2 * R;
+      const R = ((reach * CELL_TEXTURE) / cell) * (1 + 1.6 * charge), M = 2.2 * R;
       const x0 = Math.max(0, Math.floor(swell.x - M)), x1 = Math.min(cols - 1, Math.ceil(swell.x + M)), y0 = Math.max(0, Math.floor(swell.y - M)), y1 = Math.min(rows - 1, Math.ceil(swell.y + M));
       for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) {
         const d2 = ((x + 0.5 - swell.x) ** 2 + (y + 0.5 - swell.y) ** 2) / (R * R);
@@ -224,21 +287,39 @@
       }
       bursts = bursts.filter((b) => { const age = (b.t * FRAME) / 1000; return age < b.life && (b.die === undefined || age - b.die < WAVE.out); });
     }
+    // the trench springs back, overshooting once into a ridge; a cell under the plough is held down
+    if (gb[2] >= 0) {
+      const K = DRAG.bow.k, C = 2 * DRAG.bow.damp * Math.sqrt(K), h = Math.min(sec, 0.05); let live = false;
+      for (let y = gb[1]; y <= gb[3]; y++) for (let x = gb[0]; x <= gb[2]; x++) {
+        const i = y * cols + x, g = groove[i]; if (!g && !grooveV[i]) continue;
+        grooveV[i] += (-K * g - C * grooveV[i]) * h; const n = g + grooveV[i] * h;
+        if (Math.abs(n) < 0.004 && Math.abs(grooveV[i]) < 0.02) { groove[i] = 0; grooveV[i] = 0; } else { groove[i] = n; live = true; }
+      }
+      grow(db, Math.max(0, gb[0] - 1), Math.max(0, gb[1] - 1), Math.min(cols - 1, gb[2] + 1), Math.min(rows - 1, gb[3] + 1));
+      if (!live) gb = none();
+    }
     for (const r of [hb, hbLast, rb, rbLast]) if (r[2] >= 0) grow(db, r[0], r[1], r[2], r[3]);
   }
+  const dragLive = () => held !== null || charge > 0 || gb[2] >= 0;
 
   // Where a cell looks through the water: the field up to six cells along the water's slope, as
   // a ripple bends what lies under it; under the swell, a little nearer its centre, so what is
   // under the pointer swells outward. Kept to the rows being drawn, which are the ones worked out.
   function bent(i: number, x: number, y: number, y0: number, y1: number) {
-    const h = heat[i], wet = ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]);
-    if (!h && !wet) return i;
+    const h = heat[i], wet = ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]), g = groove[i] || (x > 0 && groove[i - 1]) || (x < cols - 1 && groove[i + 1]);
+    if (!h && !wet && !g) return i;
     let gx = 0, gy = 0;
+    // the trench pushes the picture out to its banks
+    if (g) {
+      gx += ((x < cols - 1 ? groove[i + 1] : groove[i]) - (x > 0 ? groove[i - 1] : groove[i])) * DRAG.bow.bend;
+      gy += ((y < rows - 1 ? groove[i + cols] : groove[i]) - (y > 0 ? groove[i - cols] : groove[i])) * DRAG.bow.bend;
+    }
     if (wet) {
       gx = ((x < cols - 1 ? ring[i + 1] : ring[i]) - (x > 0 ? ring[i - 1] : ring[i])) * WAVE.bend;
       gy = ((y < rows - 1 ? ring[i + cols] : ring[i]) - (y > 0 ? ring[i - cols] : ring[i])) * WAVE.bend;
     }
-    if (h) { gx += (swell.x - x - 0.5) * SWELL.lens * h; gy += (swell.y - y - 0.5) * SWELL.lens * h; }
+    // a charging slingshot turns the lens round, so the picture is drawn in toward the pointer
+    if (h) { const lens = SWELL.lens * (1 - 2.2 * charge); gx += (swell.x - x - 0.5) * lens * h; gy += (swell.y - y - 0.5) * lens * h; }
     const ox = Math.max(-WAVE.most, Math.min(WAVE.most, Math.round(gx))), oy = Math.max(-WAVE.most, Math.min(WAVE.most, Math.round(gy)));
     if (!ox && !oy) return i;
     return Math.max(y0, Math.min(y1 - 1, y + oy)) * cols + Math.max(0, Math.min(cols - 1, x + ox));
@@ -373,12 +454,12 @@
     let lo = Infinity, hi = -1;
     for (let x = x0; x < x1; x++) {
       const i = y * cols + x, k = bK[i]; let code = 1 << 20;
-      const wet = heat[i] || ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]) ? 1 : 0; if (part && !wet && !aff[i]) continue; aff[i] = wet;
+      const wet = heat[i] || ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]) || groove[i] ? 1 : 0; if (part && !wet && !aff[i]) continue; aff[i] = wet;
       if (k > 0) {
         const h = heat[i] || 0, rg = ring[i] || 0, src = bent(i, x, y, ry0, ry1);
         for (let j = 0; j < 2; j++) for (let q = 0; q < 2; q++) {
           const o = src * 4 + j * 2 + q, X = 2 * x + q, Y = 2 * y + j;
-          const v = (dV[o] * dens + h * SWELL.lift) * k;
+          const v = (dV[o] * dens * (1 - (groove[i] || 0)) + h * SWELL.lift) * k;
           let on = v > (BAYER8[Y % 8][X % 8] + 0.5) / 64;
           if (rg > 0 && rg > (BAYER8[(Y + 4) % 8][(X + 4) % 8] + 0.5) / 64) on = !on;
           if (on) code |= ((dC[o] >= 0 ? dC[o] : MAT.star) + 1) << (5 * (j * 2 + q));
@@ -402,9 +483,9 @@
     let lo = Infinity, hi = -1;
     for (let x = x0; x < x1; x++) {
       const i = y * cols + x;
-      const wet = heat[i] || ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]) ? 1 : 0; if (part && !wet && !aff[i]) continue; aff[i] = wet;
+      const wet = heat[i] || ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]) || groove[i] ? 1 : 0; if (part && !wet && !aff[i]) continue; aff[i] = wet;
       const h = heat[i] || 0, rg = ring[i] || 0, src = bent(i, x, y, ry0, ry1);
-      let b = bV[src] * dens;
+      let b = bV[src] * dens * (1 - (groove[i] || 0));
       if (scn) { if (rg > 0 && rg > (BAYER8[y % 8][x % 8] + 0.5) / 64) b = 0.75 * (1 - Math.min(1, b)); }
       else if (rg < 0) b *= 1 + 0.7 * Math.max(-1, rg);
       const v = (b + (scn ? h * SWELL.lift : Math.max(h * SWELL.lift, rg * 0.9))) * bK[i];
@@ -432,7 +513,7 @@
   // looks up to WAVE.most rows away, so those rows are worked out too while either is up.
   function paintRows(y0: number, y1: number) {
     if (!ctx || !cols || !rows) return;
-    const wet = rb[2] >= 0 || rbLast[2] >= 0 || hb[2] >= 0, ry0 = wet ? Math.max(0, y0 - WAVE.most) : y0, ry1 = wet ? Math.min(rows, y1 + WAVE.most) : y1;
+    const wet = rb[2] >= 0 || rbLast[2] >= 0 || hb[2] >= 0 || gb[2] >= 0, ry0 = wet ? Math.max(0, y0 - WAVE.most) : y0, ry1 = wet ? Math.min(rows, y1 + WAVE.most) : y1;
     rebuild(ry0, ry1);
     const row = dithering() ? ditherRow : glyphRow;
     for (let y = y0; y < y1; y++) {
@@ -502,7 +583,7 @@
       const d = dithering() ? 2 : 1, key = `${cols * d},${screenRows * d}`;
       if (key !== mtnKey) { mtnKey = key; mtn = layoutMountains(mountainImg, cols * d, screenRows * d, shot); baseDirty = changed = true; }
     }
-    if (heat.length !== cols * rows) heat = new Float32Array(cols * rows);
+    if (heat.length !== cols * rows) { heat = new Float32Array(cols * rows); groove = new Float32Array(cols * rows); grooveV = new Float32Array(cols * rows); gb = none(); }
     ctx ??= canvas.getContext('2d');
     if (changed) invalidate();
   }
@@ -520,8 +601,8 @@
     const ro = new ResizeObserver(queueResize); ro.observe(host); ro.observe(document.body); resize(); document.fonts?.ready.then(() => { queueResize(); onMeasure(); });
     const io = new IntersectionObserver((es) => es.forEach((e) => { visible = e.isIntersecting; if (visible && !due) { due = true; invalidate(); } if (visible) wake(); }), { rootMargin: '64px' }); io.observe(host);
     const band = (host.closest('.band') as HTMLElement | null) ?? host;
-    band.addEventListener('pointermove', onMove); band.addEventListener('pointerleave', onLeave); band.addEventListener('pointerdown', onDown); band.addEventListener('mousedown', onMouseDown); band.addEventListener('field-measure', onMeasure);
-    return () => { band.removeEventListener('field-measure', onMeasure); alive = false; if (mountainImg) mountainImg.onload = null; cancelAnimationFrame(resizeQueued); cancelAnimationFrame(paintQueued); idleStop(); ro.disconnect(); io.disconnect(); band.removeEventListener('pointermove', onMove); band.removeEventListener('pointerleave', onLeave); band.removeEventListener('pointerdown', onDown); band.removeEventListener('mousedown', onMouseDown); };
+    band.addEventListener('pointermove', onMove); band.addEventListener('pointerleave', onLeave); band.addEventListener('pointerdown', onDown); band.addEventListener('pointerup', onUp); band.addEventListener('pointercancel', onUp); band.addEventListener('mousedown', onMouseDown); band.addEventListener('field-measure', onMeasure);
+    return () => { band.removeEventListener('field-measure', onMeasure); alive = false; if (mountainImg) mountainImg.onload = null; cancelAnimationFrame(resizeQueued); cancelAnimationFrame(paintQueued); idleStop(); ro.disconnect(); io.disconnect(); band.removeEventListener('pointermove', onMove); band.removeEventListener('pointerleave', onLeave); band.removeEventListener('pointerdown', onDown); band.removeEventListener('pointerup', onUp); band.removeEventListener('pointercancel', onUp); band.removeEventListener('mousedown', onMouseDown); };
   });
   // A theme change recolours the field; the scene lays its picture out again for the dither grid.
   // The first run is the theme the field is about to be drawn in, so it draws nothing (0214).
@@ -529,7 +610,7 @@
   $effect(() => { const l = theme.light; if (seenLight === null || l === seenLight) { seenLight = l; return; } seenLight = l; baseDirty = true; if (mode === 'scene' && ctx) resize(); invalidate(); });
   $effect(() => {
     if (!motion.on) {
-      frame = 0; heat.fill(0); ring.fill(0); bursts = []; pointer = null; swell.s = 0; hb = none(); rb = none(); invalidate(true);
+      frame = 0; heat.fill(0); ring.fill(0); groove.fill(0); grooveV.fill(0); bursts = []; pointer = null; held = null; charge = 0; swell.s = 0; hb = none(); rb = none(); gb = none(); invalidate(true);
       // still, rows that scroll in before the idle fill reaches them are painted as they come
       const onScroll = () => paint(); addEventListener('scroll', onScroll, { passive: true });
       return () => removeEventListener('scroll', onScroll);
@@ -540,7 +621,7 @@
     // Between paints nothing runs (0207): the loop sleeps until the next tick, a scroll, the
     // pointer, or the field coming back on screen, and off screen or in a hidden tab it does not wake at all.
     const start = performance.now(); let id = 0, timer = 0, paintedFrame = -1, paintedTop = NaN;
-    const live = () => swell.s > 0 || hb[2] >= 0 || (pointer !== null && performance.now() - movedAt < SWELL.rest) || bursts.length > 0 || rb[2] >= 0;
+    const live = () => swell.s > 0 || hb[2] >= 0 || (pointer !== null && performance.now() - movedAt < SWELL.rest) || bursts.length > 0 || rb[2] >= 0 || dragLive();
     const schedule = () => { if (!id && visible && !document.hidden) { clearTimeout(timer); timer = 0; id = requestAnimationFrame(loop); } };
     const loop = (now: number) => {
       id = 0; if (!visible || document.hidden) return;

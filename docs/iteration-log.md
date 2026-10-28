@@ -1170,3 +1170,24 @@ Pushed on 2026-10-28, after the v1.2.4 GitHub release was public.
 - **Change:** hero lines, Home title and descriptions, the Work and Contact descriptions, JSON-LD and the Home share image move from "Product designer" to "Designer". The hero's second line is his LinkedIn list.
 - **Checks:** `pnpm check` 0/0, 37 tests, build, `social:verify` PASS, `seo:check` PASS, Home with no sideways scroll at 1440, 390 and 320.
 - **Evidence:** `docs/iterations/pixel-v2/125-design-audit/fixes/home-designer-{1440,390,320}.png`.
+
+## PX-127: drag interactions, in trial (2026-10-28)
+
+- **Ask:** Timothy wants something for click and drag on the fields, beside the click rings and the hover swell, and asked to prototype all five proposals so he can play with them.
+- **Built (dev only):** `Ascii.svelte` takes a `drag` mode, and `DragLab.svelte`, loaded by the layout only on the dev server, sets it for every field on the page (keys 0 to 5). The modes are:
+  - **Wake:** small round rings shed every 28px.
+  - **Bow wave:** a 44px trench that springs back, overshooting once.
+  - **Draw:** a yellow stroke of `@`, fading in scanlines.
+  - **Slingshot:** hold to charge, release to fire a ring.
+  - **Pan:** the picture tilts up to 48px and springs back in whole cells.
+
+  Production is unchanged: no field sets `drag`.
+- **Checks:** `pnpm check`; each mode dragged across Home in both themes and across Toolbox, with no errors and no text selected (`127-drag-lab/try.mjs`, screenshots alongside).
+- **Then, on "can we combine 1,2, and 4?":** a sixth mode, **Combo**, now the switcher's default:
+  - a click rings as before;
+  - a drag leaves the wake and the trench;
+  - holding still charges the slingshot, and it fires on release once past 20%;
+  - the charge builds only while the pointer rests (120ms), and moving drains it slowly.
+  `127-drag-lab/combo.mjs` checks it in both themes, with no errors and no text selected.
+- **Then, on "i like this. lets add it." (0230):** Combo is now every field's behaviour, mouse and pen only. The other trials and the switcher are kept only as `127-drag-lab/trial.patch`.
+- **Checks:** on the production build: `check`, 37 tests, `combo.mjs` in both themes, links still navigate, a drag on Toolbox's field shows no errors, and a phone still taps a ring and scrolls on a swipe.

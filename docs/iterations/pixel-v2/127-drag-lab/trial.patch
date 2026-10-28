@@ -1,0 +1,440 @@
+diff --git a/src/lib/components/Ascii.svelte b/src/lib/components/Ascii.svelte
+index 9b07d12..996d814 100644
+--- a/src/lib/components/Ascii.svelte
++++ b/src/lib/components/Ascii.svelte
+@@ -14,9 +14,10 @@
+   import { knockout, measureBoxes, type Box } from '$lib/knockout';
+   import { CELL_TEXTURE, TICK_SLOW } from '$lib/tokens';
+   import { studyCell } from '$lib/studyScenes';
++  import { lab, type Drag } from '$lib/dragLab.svelte';
+   import { sceneCell, PALETTES, MAT, MOUNTAIN_REFS, layoutMountains, shotHasRidge, type Palette, type Shot, type Mountains } from '$lib/scene';
+   type Mode = 'noise' | 'fall' | 'scan' | 'sparse' | 'sky' | 'bands' | 'scene';
+-  let { mode = 'noise' as Mode, cell = CELL_TEXTURE, px = 2, seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad = 1, feather = 3, interactive = true, reach = 4.5, flip = false, shade = false, skySpan = 'box', skyRepeat = false, palette = 'scene' as Palette, lightAs = 'same' as 'same' | 'dither', mountains = '' as '' | 'a' | 'b', shot = 'hero' as Shot, hug = false, depth = 1, clear = '', clearFeather = undefined as number | undefined, sceneSpan = 'screen' as 'screen' | 'box', study = '' }: { mode?: Mode; cell?: number; px?: number; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; interactive?: boolean; reach?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; clearFeather?: number; sceneSpan?: 'screen' | 'box'; study?: string } = $props();
++  let { mode = 'noise' as Mode, cell = CELL_TEXTURE, px = 2, seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad = 1, feather = 3, interactive = true, reach = 4.5, flip = false, shade = false, skySpan = 'box', skyRepeat = false, palette = 'scene' as Palette, lightAs = 'same' as 'same' | 'dither', mountains = '' as '' | 'a' | 'b', shot = 'hero' as Shot, hug = false, depth = 1, clear = '', clearFeather = undefined as number | undefined, sceneSpan = 'screen' as 'screen' | 'box', study = '', drag = '' as Drag }: { mode?: Mode; cell?: number; px?: number; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; interactive?: boolean; reach?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; clearFeather?: number; sceneSpan?: 'screen' | 'box'; study?: string; drag?: Drag } = $props();
+   // `shade` colours by weight instead: the heaviest glyph is the accent and every lighter
+   // step sinks toward the ground, so a dense field reads as a few bright points on dark.
+   // Each mode has one thing that draws in the accent: the rain's droplet, the scan's line,
+@@ -48,14 +49,40 @@
+   // with its width, to under half on a phone (0213: at full size one ring crossed the whole screen),
+   // never thinner than one and a half cells.
+   const ringScale = () => Math.min(1, Math.max(0.4, canvas.getBoundingClientRect().width / 1200));
+-  function burstAt(p: { x: number; y: number }): Burst {
++  function burstAt(p: { x: number; y: number }, z = { speed: 1, thick: 1, life: 1, round: false }): Burst {
+     const k = ringScale();
+-    const shape = SHAPES[Math.floor(Math.random() * SHAPES.length)], a = Math.random() * Math.PI, stretch = shape === 'ellipse' ? pick(WAVE.stretch) : 1;
+-    const wobble = Math.random() < 0.5 ? pick(WAVE.wobble) : 0;
++    const shape = z.round ? 'circle' : SHAPES[Math.floor(Math.random() * SHAPES.length)], a = Math.random() * Math.PI, stretch = shape === 'ellipse' ? pick(WAVE.stretch) : 1;
++    const wobble = !z.round && Math.random() < 0.5 ? pick(WAVE.wobble) : 0;
+     // how far, at most, a point at a given distance by this shape's measure lies from the click: the loop's reach
+     const span = (shape === 'diamond' ? 1.2 : shape === 'square' ? 1.3 : stretch) / (1 - wobble);
+-    return { ...p, t: 0, speed: pick(WAVE.speed) * k, life: pick(WAVE.life), thick: Math.max(1.5 * cell, pick(WAVE.thick) * k), shape, cos: Math.cos(a), sin: Math.sin(a), stretch, wobble, lobes: Math.round(pick(WAVE.lobes)), phase: Math.random() * 2 * Math.PI, span };
++    return { ...p, t: 0, speed: pick(WAVE.speed) * k * z.speed, life: pick(WAVE.life) * z.life, thick: Math.max(1.5 * cell, pick(WAVE.thick) * k * z.thick), shape, cos: Math.cos(a), sin: Math.sin(a), stretch, wobble, lobes: Math.round(pick(WAVE.lobes)), phase: Math.random() * 2 * Math.PI, span };
+   }
++  // --- dragging (PX-127, in trial: one of these is set per field, or for the page by the dev switcher)
++  // wake: a drag sheds small round rings every `gap` px, which run and interfere like a finger pulled
++  //   through water.
++  // bow: a drag ploughs a trench `width` px across that pushes the picture aside and springs back,
++  //   overshooting once into a ridge (`k` stiffness, `damp` damping ratio).
++  // draw: a drag writes a stroke of the heaviest glyph in the accent, `brush` px across; it holds for
++  //   `hold` s, then goes in scanlines over `fade` s, the ground colour taking every fourth row first.
++  // sling: holding charges for up to `charge` s: the swell grows and pulls the picture in; letting go
++  //   fires one ring as big as the charge, and an echo.
++  // pan: a drag tilts the picture up to `max` px, rubber-banded, and it springs back on release in
++  //   whole cells.
++  // combo: wake, bow and sling at once. A click rings as ever, a drag leaves the wake and the trench,
++  //   and holding still charges the slingshot, which fires on release once it is past `fire`.
++  // The slingshot charges only while the pointer rests (`rest` ms); moving drains it slowly, so a
++  // drag can aim it without spending it.
++  const DRAG = { wake: { gap: 28 }, bow: { width: 44, depth: 0.95, k: 22, damp: 0.32, bend: 4.5 }, draw: { brush: 9, hold: 1.6, fade: 0.9 }, sling: { charge: 1.4, rest: 120, drain: 0.4, fire: 0.2 }, pan: { max: 48, k: 90, damp: 0.45 } };
++  const dragMode = (): Drag => drag || lab.drag;
++  const uses = (part: Drag) => { const d = dragMode(); return d === part || (d === 'combo' && (part === 'wake' || part === 'bow' || part === 'sling')); };
++  // the press being dragged: where it started and was last seen, in cells, and the wake's distance since its last ring, in px
++  let held: { x0: number; y0: number; x: number; y: number; at: number; gap: number } | null = null;
++  let charge = 0;
++  // the trench (bow) and the stroke (draw), per cell, with the boxes they are live in
++  let groove = new Float32Array(0), grooveV = new Float32Array(0), ink = new Float32Array(0);
++  let gb = [Infinity, Infinity, -1, -1] as [number, number, number, number], ib = [Infinity, Infinity, -1, -1] as [number, number, number, number];
++  // the picture's tilt (pan), in cells: the spring's place and speed, and the whole cells drawn
++  let pan = { x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0, ox: 0, oy: 0 };
+   // a point's distance from the click, by the ring's shape, turned to its angle
+   function shapeDist(b: Burst, dx: number, dy: number) {
+     const u = dx * b.cos + dy * b.sin, v = -dx * b.sin + dy * b.cos;
+@@ -114,15 +141,69 @@
+     if (!interactive || !motion.on) return;
+     pointer = local(e); movedAt = performance.now();
+     if (!swell.s) { swell.x = pointer.x; swell.y = pointer.y; } // a new swell starts under the pointer, not where the last one sank
++    if (held) dragTo(pointer);
+     wake();
+   }
+   function onLeave() { pointer = null; if (motion.on) wake(); }
+-  function onDown(e: PointerEvent) {
+-    if (!interactive || !motion.on) return;
+-    wake(); bursts.push(burstAt(local(e)));
++  function ringOut(b: Burst) {
++    bursts.push(b);
+     const running = bursts.filter((b) => b.die === undefined);
+     if (running.length > WAVE.cap) running[0].die = (running[0].t * FRAME) / 1000;
+   }
++  function onDown(e: PointerEvent) {
++    if (!interactive || !motion.on) return;
++    wake();
++    const d = dragMode(), target = e.target as Element | null, bare = e.button === 0 && !!target && !target.closest(OWN_PRESS) && !overWords(e.clientX, e.clientY);
++    const p = local(e);
++    if (d && bare) {
++      held = { x0: p.x, y0: p.y, x: p.x, y: p.y, at: performance.now(), gap: 0 };
++      (e.currentTarget as Element).setPointerCapture?.(e.pointerId);
++      pointer = p; movedAt = performance.now(); if (!swell.s) { swell.x = p.x; swell.y = p.y; }
++      if (uses('bow')) stamp(groove, p, p, DRAG.bow.width, DRAG.bow.depth, gb, true);
++      if (d === 'draw') stamp(ink, p, p, DRAG.draw.brush, 1 + DRAG.draw.hold / DRAG.draw.fade, ib, false);
++      if (d === 'sling' || d === 'draw') return; // the slingshot rings on release; a stroke is not a drop
++    }
++    ringOut(burstAt(p));
++  }
++  function onUp() {
++    if (!held) return;
++    if (uses('sling') && pointer && (dragMode() === 'sling' || charge > DRAG.sling.fire)) {
++      const c = charge, at = { ...pointer };
++      ringOut(burstAt(at, { speed: 1 + 1.2 * c, thick: 1 + 1.5 * c, life: 1 + 0.6 * c, round: true }));
++      if (c > 0.3) setTimeout(() => { if (motion.on) { ringOut(burstAt(at, { speed: 0.8 + 0.8 * c, thick: 0.7 + c, life: 1, round: true })); wake(); } }, 160);
++    }
++    held = null; pan.tx = pan.ty = 0; wake();
++  }
++  function dragTo(p: { x: number; y: number }) {
++    if (!held) return;
++    const d = dragMode(), from = { x: held.x, y: held.y };
++    if (uses('wake')) {
++      held.gap += Math.hypot(p.x - from.x, p.y - from.y) * cell;
++      // rings dropped along the way, not all at the pointer
++      while (held.gap >= DRAG.wake.gap) { held.gap -= DRAG.wake.gap; const t = 1 - held.gap / Math.max(1e-6, Math.hypot(p.x - from.x, p.y - from.y) * cell); ringOut(burstAt({ x: from.x + (p.x - from.x) * t, y: from.y + (p.y - from.y) * t }, { speed: 0.45, thick: 0.5, life: 0.55, round: true })); }
++    }
++    if (uses('bow')) stamp(groove, from, p, DRAG.bow.width, DRAG.bow.depth, gb, true);
++    if (d === 'draw') stamp(ink, from, p, DRAG.draw.brush, 1 + DRAG.draw.hold / DRAG.draw.fade, ib, false);
++    if (d === 'pan') {
++      // rubber-banded: it gives less the further it goes, and never past `max`
++      const m = DRAG.pan.max / cell, rub = (v: number) => m * Math.tanh(v / m);
++      pan.tx = rub(p.x - held.x0); pan.ty = rub(p.y - held.y0);
++    }
++    held.x = p.x; held.y = p.y;
++  }
++  // lays a soft line from a to b into `buf` (a bell `w` px across at `peak`), raising cells, never lowering them
++  function stamp(buf: Float32Array, a: { x: number; y: number }, b: { x: number; y: number }, w: number, peak: number, box: [number, number, number, number], still: boolean) {
++    if (buf.length !== cols * rows) return;
++    const W = w / cell / 2, M = W * 2.2, dx = b.x - a.x, dy = b.y - a.y, L2 = dx * dx + dy * dy;
++    const x0 = Math.max(0, Math.floor(Math.min(a.x, b.x) - M)), x1 = Math.min(cols - 1, Math.ceil(Math.max(a.x, b.x) + M)), y0 = Math.max(0, Math.floor(Math.min(a.y, b.y) - M)), y1 = Math.min(rows - 1, Math.ceil(Math.max(a.y, b.y) + M));
++    for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) {
++      const px = x + 0.5 - a.x, py = y + 0.5 - a.y, t = L2 ? Math.max(0, Math.min(1, (px * dx + py * dy) / L2)) : 0;
++      const d2 = ((px - t * dx) ** 2 + (py - t * dy) ** 2) / (W * W); if (d2 > 4.84) continue;
++      const v = still ? peak * Math.exp(-d2) : d2 <= 1 ? peak : 0, i = y * cols + x;
++      if (v > buf[i]) { buf[i] = v; if (still) grooveV[i] = 0; }
++    }
++    if (x1 >= x0 && y1 >= y0) grow(box, x0, y0, x1, y1);
++  }
+   // Playing with the field selects no text (0225). A press on the bare field would start a selection
+   // (a drag) or, on macOS, select the nearest words (a double or triple click). Text blocks run past
+   // their words (the hero's h1 is as wide as the page), so this asks whether a visible character is
+@@ -170,12 +251,18 @@
+     if (!interactive || heat.length !== cols * rows) return;
+     // last frame's swell is cleared, then laid down where it is now
+     if (hbLast[2] >= 0) for (let y = hbLast[1]; y <= hbLast[3]; y++) heat.fill(0, y * cols + hbLast[0], y * cols + hbLast[2] + 1);
+-    const k = dt / SWELL.step, still = !pointer || performance.now() - movedAt > SWELL.rest;
++    const sec = dt / 1000, dm = dragMode();
++    if (held && uses('sling')) charge = performance.now() - movedAt > DRAG.sling.rest ? Math.min(1, charge + sec / DRAG.sling.charge) : charge * Math.pow(DRAG.sling.drain, sec);
++    else charge = charge > 0.01 ? charge * Math.pow(0.02, sec) : 0;
++    const k = dt / SWELL.step, still = !held && (!pointer || performance.now() - movedAt > SWELL.rest);
++    // a held plough keeps its cells down, and a held brush keeps its dot wet
++    if (held && uses('bow')) stamp(groove, held, held, DRAG.bow.width, DRAG.bow.depth, gb, true);
++    if (held && dm === 'draw') stamp(ink, held, held, DRAG.draw.brush, 1 + DRAG.draw.hold / DRAG.draw.fade, ib, false);
+     if (pointer) { const f = 1 - Math.pow(1 - SWELL.follow, k); swell.x += (pointer.x - swell.x) * f; swell.y += (pointer.y - swell.y) * f; }
+     swell.s = still ? (swell.s < 0.02 ? 0 : swell.s * Math.pow(SWELL.fall, k)) : swell.s + (1 - swell.s) * (1 - Math.pow(1 - SWELL.rise, k));
+     if (swell.s) {
+       // a bell 1 at the centre; past 2.2 radii it is under a hundredth and left out
+-      const R = (reach * CELL_TEXTURE) / cell, M = 2.2 * R;
++      const R = ((reach * CELL_TEXTURE) / cell) * (1 + 1.6 * charge), M = 2.2 * R;
+       const x0 = Math.max(0, Math.floor(swell.x - M)), x1 = Math.min(cols - 1, Math.ceil(swell.x + M)), y0 = Math.max(0, Math.floor(swell.y - M)), y1 = Math.min(rows - 1, Math.ceil(swell.y + M));
+       for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) {
+         const d2 = ((x + 0.5 - swell.x) ** 2 + (y + 0.5 - swell.y) ** 2) / (R * R);
+@@ -224,21 +311,54 @@
+       }
+       bursts = bursts.filter((b) => { const age = (b.t * FRAME) / 1000; return age < b.life && (b.die === undefined || age - b.die < WAVE.out); });
+     }
++    // the trench springs back, overshooting once into a ridge; a cell under the plough is held down
++    if (gb[2] >= 0) {
++      const K = DRAG.bow.k, C = 2 * DRAG.bow.damp * Math.sqrt(K), h = Math.min(sec, 0.05); let live = false;
++      for (let y = gb[1]; y <= gb[3]; y++) for (let x = gb[0]; x <= gb[2]; x++) {
++        const i = y * cols + x, g = groove[i]; if (!g && !grooveV[i]) continue;
++        grooveV[i] += (-K * g - C * grooveV[i]) * h; const n = g + grooveV[i] * h;
++        if (Math.abs(n) < 0.004 && Math.abs(grooveV[i]) < 0.02) { groove[i] = 0; grooveV[i] = 0; } else { groove[i] = n; live = true; }
++      }
++      grow(db, Math.max(0, gb[0] - 1), Math.max(0, gb[1] - 1), Math.min(cols - 1, gb[2] + 1), Math.min(rows - 1, gb[3] + 1));
++      if (!live) gb = none();
++    }
++    // the stroke holds, then fades (its value counts down; under 1 it goes row by row, in scanlines)
++    if (ib[2] >= 0) {
++      let live = false; const f = sec / DRAG.draw.fade;
++      for (let y = ib[1]; y <= ib[3]; y++) for (let x = ib[0]; x <= ib[2]; x++) { const i = y * cols + x; if (ink[i] > 0) { ink[i] = Math.max(0, ink[i] - f); if (ink[i] > 0) live = true; } }
++      grow(db, ib[0], ib[1], ib[2], ib[3]);
++      if (!live) ib = none();
++    }
++    // the tilt follows the drag on a stiff spring and comes home on release; it is drawn in whole cells
++    {
++      const K = DRAG.pan.k, C = 2 * DRAG.pan.damp * Math.sqrt(K), h = Math.min(sec, 0.05);
++      pan.vx += (K * (pan.tx - pan.x) - C * pan.vx) * h; pan.vy += (K * (pan.ty - pan.y) - C * pan.vy) * h; pan.x += pan.vx * h; pan.y += pan.vy * h;
++      if (!held && Math.abs(pan.x) < 0.02 && Math.abs(pan.y) < 0.02 && Math.abs(pan.vx) < 0.05 && Math.abs(pan.vy) < 0.05) pan.x = pan.y = pan.vx = pan.vy = 0;
++      const ox = Math.round(pan.x), oy = Math.round(pan.y);
++      if (ox !== pan.ox || oy !== pan.oy) { pan.ox = ox; pan.oy = oy; rowDirty.fill(1); }
++    }
+     for (const r of [hb, hbLast, rb, rbLast]) if (r[2] >= 0) grow(db, r[0], r[1], r[2], r[3]);
+   }
++  const dragLive = () => held !== null || charge > 0 || gb[2] >= 0 || ib[2] >= 0 || pan.x !== 0 || pan.y !== 0 || pan.vx !== 0 || pan.vy !== 0;
+ 
+   // Where a cell looks through the water: the field up to six cells along the water's slope, as
+   // a ripple bends what lies under it; under the swell, a little nearer its centre, so what is
+   // under the pointer swells outward. Kept to the rows being drawn, which are the ones worked out.
+   function bent(i: number, x: number, y: number, y0: number, y1: number) {
+-    const h = heat[i], wet = ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]);
+-    if (!h && !wet) return i;
+-    let gx = 0, gy = 0;
++    const h = heat[i], wet = ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]), g = groove[i] || (x > 0 && groove[i - 1]) || (x < cols - 1 && groove[i + 1]);
++    if (!h && !wet && !g && !pan.ox && !pan.oy) return i;
++    let gx = -pan.ox, gy = -pan.oy;
++    // the trench pushes the picture out to its banks
++    if (g) {
++      gx += ((x < cols - 1 ? groove[i + 1] : groove[i]) - (x > 0 ? groove[i - 1] : groove[i])) * DRAG.bow.bend;
++      gy += ((y < rows - 1 ? groove[i + cols] : groove[i]) - (y > 0 ? groove[i - cols] : groove[i])) * DRAG.bow.bend;
++    }
+     if (wet) {
+       gx = ((x < cols - 1 ? ring[i + 1] : ring[i]) - (x > 0 ? ring[i - 1] : ring[i])) * WAVE.bend;
+       gy = ((y < rows - 1 ? ring[i + cols] : ring[i]) - (y > 0 ? ring[i - cols] : ring[i])) * WAVE.bend;
+     }
+-    if (h) { gx += (swell.x - x - 0.5) * SWELL.lens * h; gy += (swell.y - y - 0.5) * SWELL.lens * h; }
++    // a charging slingshot turns the lens round, so the picture is drawn in toward the pointer
++    if (h) { const lens = SWELL.lens * (1 - 2.2 * charge); gx += (swell.x - x - 0.5) * lens * h; gy += (swell.y - y - 0.5) * lens * h; }
+     const ox = Math.max(-WAVE.most, Math.min(WAVE.most, Math.round(gx))), oy = Math.max(-WAVE.most, Math.min(WAVE.most, Math.round(gy)));
+     if (!ox && !oy) return i;
+     return Math.max(y0, Math.min(y1 - 1, y + oy)) * cols + Math.max(0, Math.min(cols - 1, x + ox));
+@@ -267,11 +387,13 @@
+   function setColour(id: number) {
+     let c = setCols[id]; if (c !== undefined) return c;
+     let css: string;
+-    if (mode === 'scene') css = id === 0 ? color : PALETTES[palette][theme.light ? 'light' : 'dark'][id - 1];
++    if (id === INK_SET) css = accentColor || color; // a drawn stroke (PX-127)
++    else if (mode === 'scene') css = id === 0 ? color : PALETTES[palette][theme.light ? 'light' : 'dark'][id - 1];
+     // the heaviest shade step is the accent; every lighter one sinks toward the ground
+     else css = id === 0 ? color : id === 1 || id === 2 + RAMP.length - 1 ? accentColor || color : mix(color, paper, 0.08 + (0.92 * (id - 2)) / (RAMP.length - 1));
+     c = palette32([css])[0]; setCols[id] = c; return c;
+   }
++  const INK_SET = 30, INK_GI = RAMPGI[RAMP.length - 1];
+   // a tile's code: set × 32 + glyph + 1; 0 is a blank cell
+   function tileOf(code: number) {
+     let t = tiles[code]; if (t) return t;
+@@ -308,7 +430,7 @@
+     if (baseDirty || bK.length !== n) {
+       if (bK.length !== n) { bV = new Float32Array(n); bC = new Int8Array(n); bHot = new Uint8Array(n); bK = new Float32Array(n); bCh = new Array(n); dV = new Float32Array(n * 4); dC = new Int8Array(n * 4); rowFrame = new Int32Array(rows); rowK = new Int32Array(rows); rowDirty = new Uint8Array(rows); shown = new Int32Array(n); aff = new Uint8Array(n); bS = new Uint8Array(n); dS = new Uint8Array(n * 4); }
+       rowFrame.fill(-1); rowDirty.fill(1); kVersion++; shown.fill(-1); bS.fill(0); dS.fill(0);
+-      const cs = getComputedStyle(host); color = cs.color; accentColor = cs.getPropertyValue('--accent-text').trim(); paper = cs.getPropertyValue('--paper').trim(); resetTiles(); pal32 = null;
++      const cs = getComputedStyle(host); color = cs.color; accentColor = cs.getPropertyValue('--accent-text').trim(); paper = cs.getPropertyValue('--paper').trim(); resetTiles(); pal32 = null; accent32 = null;
+       baseDirty = false; measuredFrame = -1;
+     }
+     // the text the field steps around is measured once per tick, not once per frame
+@@ -357,7 +479,7 @@
+   }
+   // Light mode's dither is written as pixels into one row's image and put down at once (0214):
+   // four fills a cell, each setting its own colour, made the light field cost twice the dark one.
+-  let rowImg: ImageData | null = null, rowPx = new Uint32Array(0), pal32: Uint32Array | null = null; let swatch: CanvasRenderingContext2D | null = null;
++  let rowImg: ImageData | null = null, rowPx = new Uint32Array(0), pal32: Uint32Array | null = null, accent32: number | null = null; let swatch: CanvasRenderingContext2D | null = null;
+   function palette32(list: string[]) {
+     swatch ??= document.createElement('canvas').getContext('2d', { willReadFrequently: true });
+     return Uint32Array.from(list, (c) => { if (!swatch) return 0; swatch.clearRect(0, 0, 1, 1); swatch.fillStyle = c; swatch.fillRect(0, 0, 1, 1); const d = swatch.getImageData(0, 0, 1, 1).data; return ((d[3] << 24) | (d[2] << 16) | (d[1] << 8) | d[0]) >>> 0; });
+@@ -373,12 +495,13 @@
+     let lo = Infinity, hi = -1;
+     for (let x = x0; x < x1; x++) {
+       const i = y * cols + x, k = bK[i]; let code = 1 << 20;
+-      const wet = heat[i] || ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]) ? 1 : 0; if (part && !wet && !aff[i]) continue; aff[i] = wet;
+-      if (k > 0) {
++      const wet = heat[i] || ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]) || groove[i] || ink[i] ? 1 : 0; if (part && !wet && !aff[i]) continue; aff[i] = wet;
++      if (ink[i] > 0 && k > 0.3 && Math.min(1, ink[i]) > ((y % 4) + 0.5) / 4) code |= 0b11111_11111_11111_11111; // a drawn stroke, all four pixels in the accent
++      else if (k > 0) {
+         const h = heat[i] || 0, rg = ring[i] || 0, src = bent(i, x, y, ry0, ry1);
+         for (let j = 0; j < 2; j++) for (let q = 0; q < 2; q++) {
+           const o = src * 4 + j * 2 + q, X = 2 * x + q, Y = 2 * y + j;
+-          const v = (dV[o] * dens + h * SWELL.lift) * k;
++          const v = (dV[o] * dens * (1 - (groove[i] || 0)) + h * SWELL.lift) * k;
+           let on = v > (BAYER8[Y % 8][X % 8] + 0.5) / 64;
+           if (rg > 0 && rg > (BAYER8[(Y + 4) % 8][(X + 4) % 8] + 0.5) / 64) on = !on;
+           if (on) code |= ((dC[o] >= 0 ? dC[o] : MAT.star) + 1) << (5 * (j * 2 + q));
+@@ -390,7 +513,7 @@
+     for (let x = lo; x <= hi; x++) {
+       const code = shown[y * cols + x];
+       for (let j = 0; j < 2; j++) for (let q = 0; q < 2; q++) {
+-        const ix = (code >> (5 * (j * 2 + q))) & 31, col = ix ? pal32[ix - 1] ?? 0 : 0;
++        const ix = (code >> (5 * (j * 2 + q))) & 31, col = ix === 31 ? (accent32 ??= palette32([accentColor || color])[0]) : ix ? pal32[ix - 1] ?? 0 : 0;
+         for (let p = 0, at = j * hs * W + x * s + q * hs; p < hs; p++, at += W) for (let u = 0; u < hs; u++) rowPx[at + u] = col;
+       }
+     }
+@@ -402,9 +525,9 @@
+     let lo = Infinity, hi = -1;
+     for (let x = x0; x < x1; x++) {
+       const i = y * cols + x;
+-      const wet = heat[i] || ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]) ? 1 : 0; if (part && !wet && !aff[i]) continue; aff[i] = wet;
++      const wet = heat[i] || ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]) || groove[i] || ink[i] ? 1 : 0; if (part && !wet && !aff[i]) continue; aff[i] = wet;
+       const h = heat[i] || 0, rg = ring[i] || 0, src = bent(i, x, y, ry0, ry1);
+-      let b = bV[src] * dens;
++      let b = bV[src] * dens * (1 - (groove[i] || 0));
+       if (scn) { if (rg > 0 && rg > (BAYER8[y % 8][x % 8] + 0.5) / 64) b = 0.75 * (1 - Math.min(1, b)); }
+       else if (rg < 0) b *= 1 + 0.7 * Math.max(-1, rg);
+       const v = (b + (scn ? h * SWELL.lift : Math.max(h * SWELL.lift, rg * 0.9))) * bK[i];
+@@ -417,6 +540,7 @@
+         const set = scn ? (c >= 0 && c < palLen ? 1 + c : 0) : bHot[src] || rg > 0.5 ? 1 : shd ? 2 + level : 0;
+         code = set * 32 + gi + 1;
+       }
++      if (ink[i] > 0 && bK[i] > 0.3 && Math.min(1, ink[i]) > ((y % 4) + 0.5) / 4) code = INK_SET * 32 + INK_GI + 1;
+       if (code !== shown[i]) { shown[i] = code; if (x < lo) lo = x; hi = x; }
+     }
+     if (hi < 0) return;
+@@ -432,7 +556,7 @@
+   // looks up to WAVE.most rows away, so those rows are worked out too while either is up.
+   function paintRows(y0: number, y1: number) {
+     if (!ctx || !cols || !rows) return;
+-    const wet = rb[2] >= 0 || rbLast[2] >= 0 || hb[2] >= 0, ry0 = wet ? Math.max(0, y0 - WAVE.most) : y0, ry1 = wet ? Math.min(rows, y1 + WAVE.most) : y1;
++    const wet = rb[2] >= 0 || rbLast[2] >= 0 || hb[2] >= 0 || gb[2] >= 0 || pan.ox !== 0 || pan.oy !== 0, ry0 = wet ? Math.max(0, y0 - WAVE.most) : y0, ry1 = wet ? Math.min(rows, y1 + WAVE.most) : y1;
+     rebuild(ry0, ry1);
+     const row = dithering() ? ditherRow : glyphRow;
+     for (let y = y0; y < y1; y++) {
+@@ -502,7 +626,7 @@
+       const d = dithering() ? 2 : 1, key = `${cols * d},${screenRows * d}`;
+       if (key !== mtnKey) { mtnKey = key; mtn = layoutMountains(mountainImg, cols * d, screenRows * d, shot); baseDirty = changed = true; }
+     }
+-    if (heat.length !== cols * rows) heat = new Float32Array(cols * rows);
++    if (heat.length !== cols * rows) { heat = new Float32Array(cols * rows); groove = new Float32Array(cols * rows); grooveV = new Float32Array(cols * rows); ink = new Float32Array(cols * rows); gb = none(); ib = none(); }
+     ctx ??= canvas.getContext('2d');
+     if (changed) invalidate();
+   }
+@@ -520,8 +644,8 @@
+     const ro = new ResizeObserver(queueResize); ro.observe(host); ro.observe(document.body); resize(); document.fonts?.ready.then(() => { queueResize(); onMeasure(); });
+     const io = new IntersectionObserver((es) => es.forEach((e) => { visible = e.isIntersecting; if (visible && !due) { due = true; invalidate(); } if (visible) wake(); }), { rootMargin: '64px' }); io.observe(host);
+     const band = (host.closest('.band') as HTMLElement | null) ?? host;
+-    band.addEventListener('pointermove', onMove); band.addEventListener('pointerleave', onLeave); band.addEventListener('pointerdown', onDown); band.addEventListener('mousedown', onMouseDown); band.addEventListener('field-measure', onMeasure);
+-    return () => { band.removeEventListener('field-measure', onMeasure); alive = false; if (mountainImg) mountainImg.onload = null; cancelAnimationFrame(resizeQueued); cancelAnimationFrame(paintQueued); idleStop(); ro.disconnect(); io.disconnect(); band.removeEventListener('pointermove', onMove); band.removeEventListener('pointerleave', onLeave); band.removeEventListener('pointerdown', onDown); band.removeEventListener('mousedown', onMouseDown); };
++    band.addEventListener('pointermove', onMove); band.addEventListener('pointerleave', onLeave); band.addEventListener('pointerdown', onDown); band.addEventListener('pointerup', onUp); band.addEventListener('pointercancel', onUp); band.addEventListener('mousedown', onMouseDown); band.addEventListener('field-measure', onMeasure);
++    return () => { band.removeEventListener('field-measure', onMeasure); alive = false; if (mountainImg) mountainImg.onload = null; cancelAnimationFrame(resizeQueued); cancelAnimationFrame(paintQueued); idleStop(); ro.disconnect(); io.disconnect(); band.removeEventListener('pointermove', onMove); band.removeEventListener('pointerleave', onLeave); band.removeEventListener('pointerdown', onDown); band.removeEventListener('pointerup', onUp); band.removeEventListener('pointercancel', onUp); band.removeEventListener('mousedown', onMouseDown); };
+   });
+   // A theme change recolours the field; the scene lays its picture out again for the dither grid.
+   // The first run is the theme the field is about to be drawn in, so it draws nothing (0214).
+@@ -529,7 +653,7 @@
+   $effect(() => { const l = theme.light; if (seenLight === null || l === seenLight) { seenLight = l; return; } seenLight = l; baseDirty = true; if (mode === 'scene' && ctx) resize(); invalidate(); });
+   $effect(() => {
+     if (!motion.on) {
+-      frame = 0; heat.fill(0); ring.fill(0); bursts = []; pointer = null; swell.s = 0; hb = none(); rb = none(); invalidate(true);
++      frame = 0; heat.fill(0); ring.fill(0); groove.fill(0); grooveV.fill(0); ink.fill(0); bursts = []; pointer = null; held = null; charge = 0; swell.s = 0; hb = none(); rb = none(); gb = none(); ib = none(); pan = { x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0, ox: 0, oy: 0 }; invalidate(true);
+       // still, rows that scroll in before the idle fill reaches them are painted as they come
+       const onScroll = () => paint(); addEventListener('scroll', onScroll, { passive: true });
+       return () => removeEventListener('scroll', onScroll);
+@@ -540,7 +664,7 @@
+     // Between paints nothing runs (0207): the loop sleeps until the next tick, a scroll, the
+     // pointer, or the field coming back on screen, and off screen or in a hidden tab it does not wake at all.
+     const start = performance.now(); let id = 0, timer = 0, paintedFrame = -1, paintedTop = NaN;
+-    const live = () => swell.s > 0 || hb[2] >= 0 || (pointer !== null && performance.now() - movedAt < SWELL.rest) || bursts.length > 0 || rb[2] >= 0;
++    const live = () => swell.s > 0 || hb[2] >= 0 || (pointer !== null && performance.now() - movedAt < SWELL.rest) || bursts.length > 0 || rb[2] >= 0 || dragLive();
+     const schedule = () => { if (!id && visible && !document.hidden) { clearTimeout(timer); timer = 0; id = requestAnimationFrame(loop); } };
+     const loop = (now: number) => {
+       id = 0; if (!visible || document.hidden) return;
+diff --git a/src/lib/components/Band.svelte b/src/lib/components/Band.svelte
+index ac1001d..31414c0 100644
+--- a/src/lib/components/Band.svelte
++++ b/src/lib/components/Band.svelte
+@@ -12,13 +12,14 @@
+   import type { Snippet } from 'svelte';
+   import Ascii from './Ascii.svelte';
+   import type { Palette, Shot } from '$lib/scene';
++  import type { Drag } from '$lib/dragLab.svelte';
+   type Mode = 'noise' | 'fall' | 'scan' | 'sparse' | 'sky' | 'bands' | 'scene';
+-  let { as = 'section', class: klass = '', mode, seed, tick, density, avoid, pad, feather, flip, shade, skySpan, skyRepeat, palette, cell, px, lightAs, mountains, shot, hug, depth, clear, clearFeather, sceneSpan, study, interactive, reach, children, ...rest }:
+-    { as?: string; class?: string; mode?: Mode; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; cell?: number; px?: number; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; clearFeather?: number; sceneSpan?: 'screen' | 'box'; study?: string; interactive?: boolean; reach?: number; children?: Snippet; [key: string]: unknown } = $props();
++  let { as = 'section', class: klass = '', mode, seed, tick, density, avoid, pad, feather, flip, shade, skySpan, skyRepeat, palette, cell, px, lightAs, mountains, shot, hug, depth, clear, clearFeather, sceneSpan, study, interactive, reach, drag, children, ...rest }:
++    { as?: string; class?: string; mode?: Mode; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; cell?: number; px?: number; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; clearFeather?: number; sceneSpan?: 'screen' | 'box'; study?: string; interactive?: boolean; reach?: number; drag?: Drag; children?: Snippet; [key: string]: unknown } = $props();
+   const cls = $derived(['band', klass].filter(Boolean).join(' '));
+   const scene = $derived(mode === 'scene');
+ </script>
+ <svelte:element this={as} class={cls} {...rest}>
+-  <div class="band-bg"><Ascii {mode} {seed} {tick} {density} {avoid} pad={pad ?? (scene ? 0 : undefined)} feather={feather ?? (scene ? 12 : undefined)} {flip} {shade} {skySpan} {skyRepeat} {palette} cell={cell ?? (scene ? 8 : undefined)} px={px ?? (scene ? 1 : undefined)} lightAs={lightAs ?? (scene ? 'dither' : undefined)} {mountains} {shot} hug={hug ?? (scene ? true : undefined)} depth={depth ?? (scene ? 0.85 : undefined)} {clear} clearFeather={clearFeather ?? (scene ? 3 : undefined)} {sceneSpan} {study} {interactive} {reach} /></div>
++  <div class="band-bg"><Ascii {mode} {seed} {tick} {density} {avoid} pad={pad ?? (scene ? 0 : undefined)} feather={feather ?? (scene ? 12 : undefined)} {flip} {shade} {skySpan} {skyRepeat} {palette} cell={cell ?? (scene ? 8 : undefined)} px={px ?? (scene ? 1 : undefined)} lightAs={lightAs ?? (scene ? 'dither' : undefined)} {mountains} {shot} hug={hug ?? (scene ? true : undefined)} depth={depth ?? (scene ? 0.85 : undefined)} {clear} clearFeather={clearFeather ?? (scene ? 3 : undefined)} {sceneSpan} {study} {interactive} {reach} {drag} /></div>
+   {@render children?.()}
+ </svelte:element>
+diff --git a/src/routes/+layout.svelte b/src/routes/+layout.svelte
+index f08a25c..412b153 100644
+--- a/src/routes/+layout.svelte
++++ b/src/routes/+layout.svelte
+@@ -16,7 +16,8 @@
+   const preload = $derived(page.route.id === '/work/[slug]' ? [jacquardUrl, pressStartUrl] : [jacquardUrl, pressStartUrl, jerseyUrl]);
+   import { page } from '$app/state';
+   import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
+-  import { onMount } from 'svelte';
++  import { onMount, type Component } from 'svelte';
++  import { dev } from '$app/environment';
+   import { motion, theme } from '$lib/motion.svelte';
+   import Analytics from '$lib/components/Analytics.svelte';
+   import SocialMeta from '$lib/components/SocialMeta.svelte';
+@@ -75,6 +76,9 @@
+   let settingsOpen = $state(false);
+   let settingsElement: HTMLElement; let cogElement: HTMLButtonElement;
+   function closeSettings(refocus = false) { if (!settingsOpen) return; settingsOpen = false; if (refocus) cogElement.focus(); }
++  // the drag interactions' switcher, on the dev server only (PX-127)
++  let DragLab: Component | null = $state(null);
++  onMount(() => { if (dev) import('$lib/components/DragLab.svelte').then((m) => (DragLab = m.default)); });
+   onMount(() => {
+     lastScroll = Math.max(0, window.scrollY);
+     const measureHeader = () => { headerHeight = headerElement.offsetHeight; };
+@@ -154,6 +158,7 @@
+   </div>
+   </div>
+   {@render children()}
++  {#if DragLab}<DragLab />{/if}
+   <footer class="global-footer lbl" class:home-footer={page.url.pathname === '/'}>
+     <span class="dim">(C) {new Date().getFullYear()} Timothy Ali</span>
+   </footer>
+diff --git a/src/lib/dragLab.svelte.ts b/src/lib/dragLab.svelte.ts
+new file mode 100644
+index 0000000..bc753a9
+--- /dev/null
++++ b/src/lib/dragLab.svelte.ts
+@@ -0,0 +1,4 @@
++// Drag interactions on the fields, in trial (PX-127): the dev server's switcher (DragLab.svelte)
++// sets one for every field on the page. Empty in production, where fields keep click and hover.
++export type Drag = '' | 'wake' | 'bow' | 'draw' | 'sling' | 'pan' | 'combo';
++export const lab = $state({ drag: '' as Drag });
+diff --git a/src/lib/components/DragLab.svelte b/src/lib/components/DragLab.svelte
+new file mode 100644
+index 0000000..1c05bef
+--- /dev/null
++++ b/src/lib/components/DragLab.svelte
+@@ -0,0 +1,30 @@
++<script lang="ts">
++  // Dev only (PX-127): picks the drag interaction every field on the page uses, to try them on the
++  // real pages. Keys 0 to 6 switch too; the choice is kept in this browser.
++  import { onMount } from 'svelte';
++  import { lab, type Drag } from '$lib/dragLab.svelte';
++  import { motion } from '$lib/motion.svelte';
++  const MODES: [Drag, string][] = [['', 'Off'], ['wake', 'Wake'], ['bow', 'Bow wave'], ['draw', 'Draw'], ['sling', 'Slingshot'], ['pan', 'Pan'], ['combo', 'Combo']];
++  function set(d: Drag) { lab.drag = d; try { localStorage.setItem('tim-drag-lab', d); } catch {} }
++  onMount(() => { try { lab.drag = (localStorage.getItem('tim-drag-lab') ?? 'combo') as Drag; } catch {} });
++  function onKey(e: KeyboardEvent) {
++    const t = e.target as HTMLElement | null;
++    if (e.metaKey || e.ctrlKey || e.altKey || t?.closest('input, textarea, [contenteditable]')) return;
++    const n = Number(e.key); if (Number.isInteger(n) && n >= 0 && n < MODES.length) set(MODES[n][0]);
++  }
++</script>
++<svelte:window onkeydown={onKey} />
++<div class="drag-lab panel lbl" role="group" aria-label="Drag interaction (dev)">
++  <span class="dim">Drag</span>
++  {#each MODES as [d, name], i (d)}<button type="button" aria-pressed={lab.drag === d} onclick={() => set(d)}><b>{i}</b>{name}</button>{/each}
++  {#if !motion.on}<span class="warn">Motion is off</span>{/if}
++</div>
++<style>
++.drag-lab{position:fixed;left:var(--s2);bottom:var(--s2);z-index:var(--z-skip);display:flex;flex-wrap:wrap;align-items:center;gap:0;padding:0 0 0 var(--s2);max-width:calc(100vw - 2 * var(--s2))}
++.drag-lab>span{margin-right:var(--s1)}
++.drag-lab button{padding:var(--pad-s)}
++.drag-lab button b{font-weight:400;opacity:var(--dim);margin-right:var(--s1)}
++.drag-lab button[aria-pressed=true]{background:var(--accent);color:var(--on-accent)}
++@media(hover:hover){.drag-lab button:not([aria-pressed=true]):hover{background:var(--paper);color:var(--fg)}}
++.drag-lab .warn{padding:var(--pad-s);background:var(--accent);color:var(--on-accent)}
++</style>
