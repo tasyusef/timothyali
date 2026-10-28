@@ -2739,3 +2739,9 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Timothy's direction:** ship the macOS selection fix as 1.2.3 ("a. 1") so his Mac can update from inside the app.
 - **Change:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.3, so all eight download links follow. No copy changes.
 - **Status:** published on 2026-10-27 with the v1.2.3 GitHub release, whose `latest.json` the app's update check now reaches through `/api/update` (0226).
+
+## 0229: Toolbox 1.2.4 on the site (2026-10-28)
+
+- **Timothy's direction:** ship design batch A as 1.2.4 ("1"), with the fixes a second design audit found before release ("1").
+- **Change:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.4, so all eight download links follow. No copy changes.
+- **Status:** published on 2026-10-28 with the v1.2.4 GitHub release; `/api/update` already answers with its feed.

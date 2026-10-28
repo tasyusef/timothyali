@@ -1150,3 +1150,10 @@ Pushed on 2026-10-27, after the v1.2.3 GitHub release was public.
 
 - **Downloads:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.3; each of the eight release files returned 200 before the push, and `/api/update/darwin/aarch64/1.2.1` answered with the 1.2.3 feed.
 - **Checks:** `pnpm check`, tests, build, `seo:check`.
+
+## PX-126: Toolbox 1.2.4 (2026-10-28, 0229)
+
+Pushed on 2026-10-28, after the v1.2.4 GitHub release was public.
+
+- **Downloads:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.4; each of the twelve release downloads returned 200 before the push, and `/api/update/darwin/aarch64/1.2.3` answered with the 1.2.4 feed.
+- **Checks:** `pnpm check`, tests, build, `seo:check`.
