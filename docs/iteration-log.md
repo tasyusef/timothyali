@@ -1191,3 +1191,7 @@ Pushed on 2026-10-28, after the v1.2.4 GitHub release was public.
   `127-drag-lab/combo.mjs` checks it in both themes, with no errors and no text selected.
 - **Then, on "i like this. lets add it." (0230):** Combo is now every field's behaviour, mouse and pen only. The other trials and the switcher are kept only as `127-drag-lab/trial.patch`.
 - **Checks:** on the production build: `check`, 37 tests, `combo.mjs` in both themes, links still navigate, a drag on Toolbox's field shows no errors, and a phone still taps a ring and scrolls on a swipe.
+- **Shipped:** pushed as 8536a1e and live on 2026-10-28.
+- **App port:** commit d18ef89 in the Toolbox app (local only), into the Rust texture crate.
+  - **Tests:** the parity vectors pass unchanged; the new `tests/drag.rs` passes; clippy for wasm is clean.
+  - **Browser check:** in the app UI's preview (`trunk serve`), a drag left a wake and a held press fired the slingshot, with no console errors, and the New project button still opened its form.

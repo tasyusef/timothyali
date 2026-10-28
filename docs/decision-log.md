@@ -2780,5 +2780,5 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
   - **Hold still:** it charges for up to 1.4s; the swell grows and pulls the picture in. Letting go fires a ring sized by the charge, plus an echo.
   - **Where it runs:** mouse and pen only, with motion on. On a touch screen a drag still scrolls, and a tap still rings.
 - **Assistant's choices inside it:** all the numbers (gap, trench width and spring, charge time, rest before charging, drain, firing threshold). Also: the draw and pan trials and the dev switcher are left out of the site, kept as `docs/iterations/pixel-v2/127-drag-lab/trial.patch`.
-- **Toolbox app:** not ported; its `Ascii.svelte` is meant to stay in step (0091).
-- **Status:** built and checked on the production build; not committed.
+- **Toolbox app:** ported to the Rust texture crate (`crates/ui-texture`, field.rs and ascii.rs) as app commit d18ef89, committed locally and not pushed or released. The parity vectors pass unchanged, and `tests/drag.rs` covers the drag. A drag can't start on controls or `.selectable` data.
+- **Status:** pushed as 8536a1e on 2026-10-28 and live.
