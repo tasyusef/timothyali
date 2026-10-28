@@ -55,6 +55,6 @@ Details and values are in `docs/design-system.md`. These are the standing rules:
 - Images and video render at their own resolution. Only the generated textures are pixelated (0054).
 - Every motion piece has a static version for motion off, no JavaScript and the prerender (0128, 0141).
 - Breakpoints are 420, 700, 900 and 1100 (0075).
-- Copy has no em dashes. Page titles and quote attributions use "/" (0122). The role is "Product designer" (0172).
+- Copy has no em dashes. Page titles and quote attributions use "/" (0122). The role is "Designer" (0229; was "Product designer", 0172).
 - Projects live in `src/lib/work.ts`. Hide one with `hidden: true` and its data stays; every count derives from the visible set. Sonde and Pocketwatch are hidden for now (0219).
 - Study facts come from Timothy or recorded sources; the wording around them is marked as the assistant's.

@@ -87,12 +87,12 @@ Breakpoints are a comment block in CSS (media queries cannot read custom propert
 | `--on-accent` | `var(--ink)` | `var(--ink)` | type on accent |
 | `--accent-field` | `var(--yellow)` | `var(--yellow-field)` | the accent an ASCII field draws: `.band-bg` sets `--accent-text` to it (0108) |
 | `--accent-on-fg` | `var(--yellow-deep)` | `var(--yellow)` | the accent as type on a `--fg` panel — the other ground, the other value; `.who`, `.machine`, `.contact-note`, `.code` set `--accent-text` to it (0106) |
-| `--dim` | `.55` | `.65` | secondary-text opacity (a number, not a colour) |
-| `--dim-on-fg` | `.65` | `.55` | the dim level on a `.panel` (0210) |
+| `--dim` | `.75` | `.65` | secondary-text opacity (a number, not a colour); `1` with `prefers-contrast: more` (0228) |
+| `--dim-on-fg` | `.65` | `.75` | the dim level on a `.panel` (0210, 0228) |
 | `--pad-s` / `--pad-m` | `9px 14px 7px 16px` / `17px 14px 15px 16px` | | the label-block paddings: chips and small buttons, rows (0097, named in 0210) |
 | `--col-side` | `448px` | | the side column beside Contact's head and Home's invitation |
 | `--chrome-height` | `96px` → `104px` ≤700 | | the sticky header and strip: Home's sky starts under it, a held study point sits below it (0210) |
-| `--focus-ring` | `2px solid var(--accent-text)` | | the keyboard focus outline |
+| `--focus-ring` | `2px solid var(--accent-text)` | | the keyboard focus outline; `.panel` declares it again so it takes the panel's accent (0228) |
 | `--wipe-in` | `dither-in calc(3 * var(--step)) steps(3) both` | | the three-frame wipe images and themes arrive with |
 | `--gutter` | `32px` → `16px` ≤700 | same | page side margin |
 | `--header-height` | `64px` | same | default; the layout overrides it inline with the measured height |
@@ -469,7 +469,7 @@ cursor files and the motion-off paths.
 Two reviewers (Opus, Codex) listed 35 leaks (`docs/reviews/2026-10-19-design-system-audit.md`); all
 three batches were applied on Timothy's “do all three”. What moved where:
 
-- **Type roles** (`type.css`): `.display-title` (+ `.lesser`, `.small` set by `fitWord` in `fit.ts`), `.read-s`, `.phone-read`.
+- **Type roles** (`type.css`): `.display-title` (+ `.lesser`, `.small` set by `fitWord` in `fit.ts`), `.read-s` (captions and download notes at every width since PX-125; `.phone-read`, which switched them only on phones, is gone).
 - **Layout** (`layout.css`): `.band` isolation, `.fill-main`, the inner page's `.head` and `.paras`, the phone `.intro`.
 - **JavaScript**: `figure` action and `FRAME` / `frameSizes()` (`figure.ts`), `withNext` (`chain.ts`), `pad` (`format.ts`).
 - **Constants**: `src/lib/shared.js` (plain JS, imported by `tools/social/verify.mjs` too) holds the origin, the address and the

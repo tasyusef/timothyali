@@ -17,8 +17,11 @@
 
   let step: 'outputs' | 'review' = $state('outputs');
   // the review screen is shorter: after Continue the page could settle with the demo's top
-  // above the screen, so it scrolls back to it (0206)
-  function review(from: HTMLElement) { requestAnimationFrame(() => { const d = from.closest('.demo') as HTMLElement | null; if (d && d.getBoundingClientRect().top < 0) d.scrollIntoView({ block: 'start' }); }); }
+  // above the screen, so it scrolls back to it (0206). Continue and Back each remove the button
+  // that was pressed, so focus goes on: to the review's heading, or back to Continue (PX-125).
+  let reviewHead: HTMLElement | undefined = $state(), cont: HTMLElement | undefined = $state();
+  function review() { step = 'review'; requestAnimationFrame(() => { reviewHead?.focus({ preventScroll: true }); const d = reviewHead?.closest('.demo') as HTMLElement | null; if (d && d.getBoundingClientRect().top < 0) d.scrollIntoView({ block: 'start' }); }); }
+  function back() { step = 'outputs'; requestAnimationFrame(() => cont?.focus()); }
   let dark = $state(false);
   let includeWeb = $state(true), includePrint = $state(true);
   let webFormats = $state<Record<WebFormat, boolean>>({ JPEG: true, PNG: true, SVG: true });
@@ -72,7 +75,7 @@
   {:else}
     <div class="stage">
       <div class="rail-head lbl"><span class="dim">Package</span><span>{pad(root.fileCount, 3)}</span></div>
-      <h4 class="display-s">{root.name}</h4>
+      <h4 class="display-s" tabindex="-1" bind:this={reviewHead}>{root.name}</h4>
       <div class="tree">{#each root.children as child (child.id)}<PlanRow node={child} depth={0} {userExpanded} {userCollapsed} {palette} />{/each}</div>
     </div>
     <div class="rail">
@@ -86,13 +89,13 @@
     </div>
   {/if}
 </div>
-<DemoToolbar backDisabled={step === 'outputs'} onback={() => (step = 'outputs')}>
+<DemoToolbar backDisabled={step === 'outputs'} onback={back}>
   <div class="steps" role="group" aria-label="Steps">
     <button type="button" disabled><b>01</b><span>Upload</span></button>
     <button type="button" aria-current={step === 'outputs' ? 'step' : undefined} onclick={() => (step = 'outputs')}><b>02</b><span>Outputs</span></button>
     <button type="button" aria-current={step === 'review' ? 'step' : undefined} onclick={() => (step = 'review')}><b>03</b><span>Review</span></button>
   </div>
-  {#snippet act()}{#if step === 'outputs'}<button type="button" class="demo-act lbl" onclick={(e) => { step = 'review'; review(e.currentTarget); }}>Continue<Arrow /></button>{:else}<button type="button" class="demo-act lbl" disabled title="Export happens in the app">Export<Arrow /></button>{/if}{/snippet}
+  {#snippet act()}{#if step === 'outputs'}<button type="button" class="demo-act lbl" bind:this={cont} onclick={review}>Continue<Arrow /></button>{:else}<button type="button" class="demo-act lbl" disabled title="Export happens in the app">Export<Arrow /></button>{/if}{/snippet}
 </DemoToolbar>
 <style>
 /* the logo sits 96 down in the 288 plate (centred would be 100, off the unit) */

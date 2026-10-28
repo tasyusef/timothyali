@@ -1,0 +1,11 @@
+import { chromium } from '@playwright/test';
+const browser = await chromium.launch({ channel: 'chrome' });
+const page = await (await browser.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
+await page.goto('http://127.0.0.1:4173/work/parc/', { waitUntil: 'networkidle' });
+const pts = await page.evaluate(() => [...document.querySelectorAll('.point')].map((p, i) => ({ i, h: Math.round(p.getBoundingClientRect().height), t: Math.round(p.querySelector('.point-text')?.getBoundingClientRect().height || 0), hold: p.querySelector('.point-text')?.classList.contains('hold'), top: Math.round(p.getBoundingClientRect().top + scrollY) })));
+console.log(JSON.stringify(pts));
+const big = pts.filter((p) => p.hold).sort((a, b) => b.h - a.h)[0];
+await page.evaluate((y) => scrollTo({ top: y, behavior: 'instant' }), big.top + Math.round(big.h / 2) - 450); await page.waitForTimeout(400);
+console.log('mid of tallest held point', await page.evaluate((i) => { const t = document.querySelectorAll('.point')[i].querySelector('.point-text').getBoundingClientRect(); return `text top ${Math.round(t.top)}, bottom ${Math.round(t.bottom)}`; }, big.i));
+await page.screenshot({ path: 'shots/parc-held-point-1440.jpg', type: 'jpeg', quality: 70 });
+await browser.close();

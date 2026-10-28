@@ -19,9 +19,9 @@ const person = {
   name: 'Timothy Ali',
   url: `${SITE_URL}/`,
   email: `mailto:${EMAIL}`,
-  jobTitle: 'Product designer',
-  description: 'Product designer in Denver who designs interfaces and design systems and builds front ends in TypeScript. Open to full-time and contract work.',
-  knowsAbout: ['Product design', 'Interface design', 'Front-end development', 'Design systems', 'Brand identity', 'Motion design', 'Typography'],
+  jobTitle: 'Designer',
+  description: 'Designer in Denver who designs interfaces, design systems, brands, and websites. Open to full-time and contract work.',
+  knowsAbout: ['Interface design', 'Design systems', 'Brand identity', 'Web design', 'Product design', 'Motion design', 'Typography', 'Front-end development'],
   address: { '@type': 'PostalAddress', addressLocality: 'Denver', addressRegion: 'CO', addressCountry: 'US' },
   sameAs: PROFILES
 };

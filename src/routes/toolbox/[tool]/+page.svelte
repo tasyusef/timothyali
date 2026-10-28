@@ -6,13 +6,15 @@
   import QuietLink from '$lib/components/QuietLink.svelte';
   import Options from '$lib/components/toolbox/Options.svelte';
   import { STEP } from '$lib/tokens';
+  import { fitWord } from '$lib/fit';
   let { data } = $props();
   const t = $derived(data.tool);
   const next = $derived(data.next);
 </script>
 <main class="inner-page tool" id="main" tabindex="-1">
   <section class="head">
-    <h1 class="display-title"><Decode text={t.name} step={STEP} /></h1>
+    <!-- a word wider than the page steps the title down a rung, as the study title does (PX-125) -->
+    <h1 class="display-title" use:fitWord={t.name}><Decode text={t.name} step={STEP} /></h1>
     <div class="intro">
       <p class="lead">{t.summary}</p>
       <dl class="meta">

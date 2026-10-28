@@ -1,0 +1,477 @@
+{
+  "links": [
+    {
+      "width": 390,
+      "from": "/toolbox/lockup/",
+      "href": "/toolbox/#download",
+      "text": "Download for macOS, Windows, or Linux ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/#download"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/lockup/",
+      "href": "/toolbox/agents/",
+      "text": "CLI & MCP setup ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/agents/"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/lockup/",
+      "href": "/toolbox/palette/",
+      "text": "Next / [02]Palette ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/palette/"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/lockup/",
+      "href": "/toolbox/",
+      "text": "All four tools ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/palette/",
+      "href": "/toolbox/#download",
+      "text": "Download for macOS, Windows, or Linux ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/#download"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/palette/",
+      "href": "/toolbox/agents/",
+      "text": "CLI & MCP setup ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/agents/"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/palette/",
+      "href": "/toolbox/specimen/",
+      "text": "Next / [03]Specimen ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/specimen/"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/palette/",
+      "href": "/toolbox/",
+      "text": "All four tools ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/specimen/",
+      "href": "/toolbox/#download",
+      "text": "Download for macOS, Windows, or Linux ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/#download"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/specimen/",
+      "href": "/toolbox/agents/",
+      "text": "CLI & MCP setup ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/agents/"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/specimen/",
+      "href": "/toolbox/convert/",
+      "text": "Next / [04]Convert ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/convert/"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/specimen/",
+      "href": "/toolbox/",
+      "text": "All four tools ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/convert/",
+      "href": "/toolbox/#download",
+      "text": "Download for macOS, Windows, or Linux ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/#download"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/convert/",
+      "href": "/toolbox/agents/",
+      "text": "CLI & MCP setup ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/agents/"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/convert/",
+      "href": "/toolbox/lockup/",
+      "text": "Next / [01]Lockup ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/lockup/"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/convert/",
+      "href": "/toolbox/",
+      "text": "All four tools ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/agents/",
+      "tool": "lockup",
+      "arrived": "http://127.0.0.1:4173/toolbox/agents/"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/agents/",
+      "tool": "palette",
+      "arrived": "http://127.0.0.1:4173/toolbox/agents/"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/agents/",
+      "tool": "specimen",
+      "arrived": "http://127.0.0.1:4173/toolbox/agents/"
+    },
+    {
+      "width": 390,
+      "from": "/toolbox/agents/",
+      "tool": "convert",
+      "arrived": "http://127.0.0.1:4173/toolbox/agents/"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/lockup/",
+      "href": "/toolbox/#download",
+      "text": "Download for macOS, Windows, or Linux ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/#download"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/lockup/",
+      "href": "/toolbox/agents/",
+      "text": "CLI & MCP setup ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/agents/"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/lockup/",
+      "href": "/toolbox/palette/",
+      "text": "Next / [02]Palette ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/palette/"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/lockup/",
+      "href": "/toolbox/",
+      "text": "All four tools ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/palette/",
+      "href": "/toolbox/#download",
+      "text": "Download for macOS, Windows, or Linux ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/#download"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/palette/",
+      "href": "/toolbox/agents/",
+      "text": "CLI & MCP setup ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/agents/"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/palette/",
+      "href": "/toolbox/specimen/",
+      "text": "Next / [03]Specimen ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/specimen/"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/palette/",
+      "href": "/toolbox/",
+      "text": "All four tools ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/specimen/",
+      "href": "/toolbox/#download",
+      "text": "Download for macOS, Windows, or Linux ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/#download"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/specimen/",
+      "href": "/toolbox/agents/",
+      "text": "CLI & MCP setup ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/agents/"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/specimen/",
+      "href": "/toolbox/convert/",
+      "text": "Next / [04]Convert ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/convert/"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/specimen/",
+      "href": "/toolbox/",
+      "text": "All four tools ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/convert/",
+      "href": "/toolbox/#download",
+      "text": "Download for macOS, Windows, or Linux ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/#download"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/convert/",
+      "href": "/toolbox/agents/",
+      "text": "CLI & MCP setup ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/agents/"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/convert/",
+      "href": "/toolbox/lockup/",
+      "text": "Next / [01]Lockup ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/lockup/"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/convert/",
+      "href": "/toolbox/",
+      "text": "All four tools ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/agents/",
+      "tool": "lockup",
+      "arrived": "http://127.0.0.1:4173/toolbox/agents/"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/agents/",
+      "tool": "palette",
+      "arrived": "http://127.0.0.1:4173/toolbox/agents/"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/agents/",
+      "tool": "specimen",
+      "arrived": "http://127.0.0.1:4173/toolbox/agents/"
+    },
+    {
+      "width": 1440,
+      "from": "/toolbox/agents/",
+      "tool": "convert",
+      "arrived": "http://127.0.0.1:4173/toolbox/agents/"
+    }
+  ],
+  "persistence": [
+    {
+      "width": 390,
+      "theme": "light",
+      "motion": "on"
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "motion": "on"
+    }
+  ],
+  "skip": [
+    {
+      "width": 390,
+      "route": "/",
+      "active": "main"
+    },
+    {
+      "width": 390,
+      "route": "/work/",
+      "active": "main"
+    },
+    {
+      "width": 390,
+      "route": "/work/parc/",
+      "active": "main"
+    },
+    {
+      "width": 390,
+      "route": "/work/xrpcafe/",
+      "active": "main"
+    },
+    {
+      "width": 390,
+      "route": "/work/firstledger/",
+      "active": "main"
+    },
+    {
+      "width": 390,
+      "route": "/work/do-androids-dream/",
+      "active": "main"
+    },
+    {
+      "width": 390,
+      "route": "/work/jade-aesthetics/",
+      "active": "main"
+    },
+    {
+      "width": 390,
+      "route": "/work/firststrike/",
+      "active": "main"
+    },
+    {
+      "width": 390,
+      "route": "/work/toolbox/",
+      "active": "main"
+    },
+    {
+      "width": 390,
+      "route": "/toolbox/",
+      "active": "main"
+    },
+    {
+      "width": 390,
+      "route": "/toolbox/lockup/",
+      "active": "main"
+    },
+    {
+      "width": 390,
+      "route": "/toolbox/palette/",
+      "active": "main"
+    },
+    {
+      "width": 390,
+      "route": "/toolbox/specimen/",
+      "active": "main"
+    },
+    {
+      "width": 390,
+      "route": "/toolbox/convert/",
+      "active": "main"
+    },
+    {
+      "width": 390,
+      "route": "/toolbox/agents/",
+      "active": "main"
+    },
+    {
+      "width": 390,
+      "route": "/contact/",
+      "active": "main"
+    },
+    {
+      "width": 390,
+      "route": "/nope/",
+      "active": "main"
+    },
+    {
+      "width": 1440,
+      "route": "/",
+      "active": "main"
+    },
+    {
+      "width": 1440,
+      "route": "/work/",
+      "active": "main"
+    },
+    {
+      "width": 1440,
+      "route": "/work/parc/",
+      "active": "main"
+    },
+    {
+      "width": 1440,
+      "route": "/work/xrpcafe/",
+      "active": "main"
+    },
+    {
+      "width": 1440,
+      "route": "/work/firstledger/",
+      "active": "main"
+    },
+    {
+      "width": 1440,
+      "route": "/work/do-androids-dream/",
+      "active": "main"
+    },
+    {
+      "width": 1440,
+      "route": "/work/jade-aesthetics/",
+      "active": "main"
+    },
+    {
+      "width": 1440,
+      "route": "/work/firststrike/",
+      "active": "main"
+    },
+    {
+      "width": 1440,
+      "route": "/work/toolbox/",
+      "active": "main"
+    },
+    {
+      "width": 1440,
+      "route": "/toolbox/",
+      "active": "main"
+    },
+    {
+      "width": 1440,
+      "route": "/toolbox/lockup/",
+      "active": "main"
+    },
+    {
+      "width": 1440,
+      "route": "/toolbox/palette/",
+      "active": "main"
+    },
+    {
+      "width": 1440,
+      "route": "/toolbox/specimen/",
+      "active": "main"
+    },
+    {
+      "width": 1440,
+      "route": "/toolbox/convert/",
+      "active": "main"
+    },
+    {
+      "width": 1440,
+      "route": "/toolbox/agents/",
+      "active": "main"
+    },
+    {
+      "width": 1440,
+      "route": "/contact/",
+      "active": "main"
+    },
+    {
+      "width": 1440,
+      "route": "/nope/",
+      "active": "main"
+    }
+  ],
+  "zoom": [
+    {
+      "before": {
+        "width": 1440,
+        "dpr": 1
+      },
+      "after": {
+        "width": 1440,
+        "dpr": 1
+      },
+      "note": "If unchanged, actual browser zoom remains unverified; 320px reflow was separately checked."
+    }
+  ],
+  "demos": [
+    "All six Palette file previews activated with Space and Enter at 1440",
+    "All nine Specimen size buttons and three font selectors operated at 1440"
+  ]
+}

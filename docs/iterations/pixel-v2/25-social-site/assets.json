@@ -3,19 +3,19 @@
     "image": "home",
     "width": 1200,
     "height": 630,
-    "bytes": 24760
+    "bytes": 24629
   },
   {
     "image": "work",
     "width": 1200,
     "height": 630,
-    "bytes": 201897
+    "bytes": 182633
   },
   {
     "image": "contact",
     "width": 1200,
     "height": 630,
-    "bytes": 12332
+    "bytes": 12326
   },
   {
     "image": "toolbox",
@@ -33,79 +33,67 @@
     "image": "toolbox-lockup",
     "width": 1200,
     "height": 630,
-    "bytes": 106797
+    "bytes": 183503
   },
   {
     "image": "toolbox-palette",
     "width": 1200,
     "height": 630,
-    "bytes": 98117
+    "bytes": 171786
   },
   {
     "image": "toolbox-specimen",
     "width": 1200,
     "height": 630,
-    "bytes": 107108
+    "bytes": 176496
   },
   {
     "image": "toolbox-convert",
     "width": 1200,
     "height": 630,
-    "bytes": 123743
-  },
-  {
-    "image": "work-sonde",
-    "width": 1200,
-    "height": 630,
-    "bytes": 18142
-  },
-  {
-    "image": "work-pocketwatch",
-    "width": 1200,
-    "height": 630,
-    "bytes": 25075
+    "bytes": 191562
   },
   {
     "image": "work-toolbox",
     "width": 1200,
     "height": 630,
-    "bytes": 17185
+    "bytes": 17178
   },
   {
     "image": "work-parc",
     "width": 1200,
     "height": 630,
-    "bytes": 13952
-  },
-  {
-    "image": "work-firstledger",
-    "width": 1200,
-    "height": 630,
-    "bytes": 16370
-  },
-  {
-    "image": "work-xrpcafe",
-    "width": 1200,
-    "height": 630,
-    "bytes": 14825
+    "bytes": 13583
   },
   {
     "image": "work-jade-aesthetics",
     "width": 1200,
     "height": 630,
-    "bytes": 12374
+    "bytes": 12373
+  },
+  {
+    "image": "work-firstledger",
+    "width": 1200,
+    "height": 630,
+    "bytes": 16739
+  },
+  {
+    "image": "work-xrpcafe",
+    "width": 1200,
+    "height": 630,
+    "bytes": 14834
   },
   {
     "image": "work-firststrike",
     "width": 1200,
     "height": 630,
-    "bytes": 22058
+    "bytes": 21252
   },
   {
     "image": "work-do-androids-dream",
     "width": 1200,
     "height": 630,
-    "bytes": 15042
+    "bytes": 15020
   },
   {
     "image": "story-launch",

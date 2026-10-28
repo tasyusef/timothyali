@@ -1,0 +1,3433 @@
+{
+  "nav": [
+    {
+      "width": 390,
+      "href": "/",
+      "arrived": "/"
+    },
+    {
+      "width": 390,
+      "href": "/work/",
+      "arrived": "/work/"
+    },
+    {
+      "width": 390,
+      "href": "/contact/",
+      "arrived": "/contact/"
+    },
+    {
+      "width": 390,
+      "href": "/toolbox/",
+      "arrived": "/toolbox/"
+    },
+    {
+      "width": 390,
+      "from": "/nope/",
+      "arrived": "http://127.0.0.1:4173/nope/"
+    },
+    {
+      "width": 1440,
+      "href": "/",
+      "arrived": "/"
+    },
+    {
+      "width": 1440,
+      "href": "/work/",
+      "arrived": "/work/"
+    },
+    {
+      "width": 1440,
+      "href": "/contact/",
+      "arrived": "/contact/"
+    },
+    {
+      "width": 1440,
+      "href": "/toolbox/",
+      "arrived": "/toolbox/"
+    },
+    {
+      "width": 1440,
+      "from": "/nope/",
+      "arrived": "http://127.0.0.1:4173/nope/"
+    }
+  ],
+  "cards": [
+    {
+      "width": 390,
+      "from": "/work/",
+      "href": "/work/toolbox/",
+      "arrived": "/work/toolbox/"
+    },
+    {
+      "width": 390,
+      "from": "/work/",
+      "href": "/work/parc/",
+      "arrived": "/work/parc/"
+    },
+    {
+      "width": 390,
+      "from": "/work/",
+      "href": "/work/jade-aesthetics/",
+      "arrived": "/work/jade-aesthetics/"
+    },
+    {
+      "width": 390,
+      "from": "/work/",
+      "href": "/work/firstledger/",
+      "arrived": "/work/firstledger/"
+    },
+    {
+      "width": 390,
+      "from": "/work/",
+      "href": "/work/xrpcafe/",
+      "arrived": "/work/xrpcafe/"
+    },
+    {
+      "width": 390,
+      "from": "/work/",
+      "href": "/work/firststrike/",
+      "arrived": "/work/firststrike/"
+    },
+    {
+      "width": 390,
+      "from": "/work/",
+      "href": "/work/do-androids-dream/",
+      "arrived": "/work/do-androids-dream/"
+    },
+    {
+      "width": 390,
+      "from": "/",
+      "jump": "http://127.0.0.1:4173/#work",
+      "y": 864
+    },
+    {
+      "width": 390,
+      "from": "/",
+      "href": "/work/toolbox/",
+      "arrived": "/work/toolbox/"
+    },
+    {
+      "width": 390,
+      "from": "/",
+      "href": "/work/parc/",
+      "arrived": "/work/parc/"
+    },
+    {
+      "width": 390,
+      "from": "/",
+      "href": "/work/jade-aesthetics/",
+      "arrived": "/work/jade-aesthetics/"
+    },
+    {
+      "width": 390,
+      "from": "/",
+      "href": "/work/firstledger/",
+      "arrived": "/work/firstledger/"
+    },
+    {
+      "width": 1440,
+      "from": "/work/",
+      "href": "/work/toolbox/",
+      "arrived": "/work/toolbox/"
+    },
+    {
+      "width": 1440,
+      "from": "/work/",
+      "href": "/work/parc/",
+      "arrived": "/work/parc/"
+    },
+    {
+      "width": 1440,
+      "from": "/work/",
+      "href": "/work/jade-aesthetics/",
+      "arrived": "/work/jade-aesthetics/"
+    },
+    {
+      "width": 1440,
+      "from": "/work/",
+      "href": "/work/firstledger/",
+      "arrived": "/work/firstledger/"
+    },
+    {
+      "width": 1440,
+      "from": "/work/",
+      "href": "/work/xrpcafe/",
+      "arrived": "/work/xrpcafe/"
+    },
+    {
+      "width": 1440,
+      "from": "/work/",
+      "href": "/work/firststrike/",
+      "arrived": "/work/firststrike/"
+    },
+    {
+      "width": 1440,
+      "from": "/work/",
+      "href": "/work/do-androids-dream/",
+      "arrived": "/work/do-androids-dream/"
+    },
+    {
+      "width": 1440,
+      "from": "/",
+      "jump": "http://127.0.0.1:4173/#work",
+      "y": 864
+    },
+    {
+      "width": 1440,
+      "from": "/",
+      "href": "/work/toolbox/",
+      "arrived": "/work/toolbox/"
+    },
+    {
+      "width": 1440,
+      "from": "/",
+      "href": "/work/parc/",
+      "arrived": "/work/parc/"
+    },
+    {
+      "width": 1440,
+      "from": "/",
+      "href": "/work/jade-aesthetics/",
+      "arrived": "/work/jade-aesthetics/"
+    },
+    {
+      "width": 1440,
+      "from": "/",
+      "href": "/work/firstledger/",
+      "arrived": "/work/firstledger/"
+    }
+  ],
+  "studyLinks": [
+    {
+      "width": 390,
+      "from": "parc",
+      "href": "https://parcxrpl.com",
+      "text": "parcxrpl.com ->",
+      "arrived": "https://parcxrpl.com/",
+      "externalIntercept": true
+    },
+    {
+      "width": 390,
+      "from": "parc",
+      "href": "/work/jade-aesthetics/",
+      "text": "Next / [03]Jade Aesthetics ->",
+      "arrived": "http://127.0.0.1:4173/work/jade-aesthetics/",
+      "externalIntercept": false
+    },
+    {
+      "width": 390,
+      "from": "parc",
+      "href": "/contact/",
+      "text": "Tell me what you’re building ->",
+      "arrived": "http://127.0.0.1:4173/contact/",
+      "externalIntercept": false
+    },
+    {
+      "width": 390,
+      "from": "xrpcafe",
+      "href": "https://xrp.cafe/",
+      "text": "xrp.cafe ->",
+      "arrived": "https://xrp.cafe/",
+      "externalIntercept": true
+    },
+    {
+      "width": 390,
+      "from": "xrpcafe",
+      "href": "/work/firststrike/",
+      "text": "Next / [06]FirstStrike Research ->",
+      "arrived": "http://127.0.0.1:4173/work/firststrike/",
+      "externalIntercept": false
+    },
+    {
+      "width": 390,
+      "from": "xrpcafe",
+      "href": "/contact/",
+      "text": "Tell me what you’re building ->",
+      "arrived": "http://127.0.0.1:4173/contact/",
+      "externalIntercept": false
+    },
+    {
+      "width": 390,
+      "from": "firstledger",
+      "href": "https://firstledger.net/",
+      "text": "firstledger.net ->",
+      "arrived": "https://firstledger.net/",
+      "externalIntercept": true
+    },
+    {
+      "width": 390,
+      "from": "firstledger",
+      "href": "/work/xrpcafe/",
+      "text": "Next / [05]xrp.cafe ->",
+      "arrived": "http://127.0.0.1:4173/work/xrpcafe/",
+      "externalIntercept": false
+    },
+    {
+      "width": 390,
+      "from": "firstledger",
+      "href": "/contact/",
+      "text": "Tell me what you’re building ->",
+      "arrived": "http://127.0.0.1:4173/contact/",
+      "externalIntercept": false
+    },
+    {
+      "width": 390,
+      "from": "do-androids-dream",
+      "href": "https://www.youtube.com/watch?v=0Q-X3-64Tak",
+      "text": "Watch it with sound on YouTube ->",
+      "arrived": "https://www.youtube.com/watch?v=0Q-X3-64Tak",
+      "externalIntercept": false
+    },
+    {
+      "width": 390,
+      "from": "do-androids-dream",
+      "href": "/work/toolbox/",
+      "text": "Next / [01]Toolbox ->",
+      "arrived": "http://127.0.0.1:4173/work/toolbox/",
+      "externalIntercept": false
+    },
+    {
+      "width": 390,
+      "from": "do-androids-dream",
+      "href": "/contact/",
+      "text": "Tell me what you’re building ->",
+      "arrived": "http://127.0.0.1:4173/contact/",
+      "externalIntercept": false
+    },
+    {
+      "width": 390,
+      "from": "jade-aesthetics",
+      "href": "https://www.jadeaesthetics.co/",
+      "text": "jadeaesthetics.co ->",
+      "arrived": "https://www.jadeaesthetics.co/",
+      "externalIntercept": true
+    },
+    {
+      "width": 390,
+      "from": "jade-aesthetics",
+      "href": "/work/firstledger/",
+      "text": "Next / [04]First Ledger ->",
+      "arrived": "http://127.0.0.1:4173/work/firstledger/",
+      "externalIntercept": false
+    },
+    {
+      "width": 390,
+      "from": "jade-aesthetics",
+      "href": "/contact/",
+      "text": "Tell me what you’re building ->",
+      "arrived": "http://127.0.0.1:4173/contact/",
+      "externalIntercept": false
+    },
+    {
+      "width": 390,
+      "from": "firststrike",
+      "href": "/work/do-androids-dream/",
+      "text": "Next / [07]Do Androids Dream? ->",
+      "arrived": "http://127.0.0.1:4173/work/do-androids-dream/",
+      "externalIntercept": false
+    },
+    {
+      "width": 390,
+      "from": "firststrike",
+      "href": "/contact/",
+      "text": "Tell me what you’re building ->",
+      "arrived": "http://127.0.0.1:4173/contact/",
+      "externalIntercept": false
+    },
+    {
+      "width": 390,
+      "from": "toolbox",
+      "href": "/toolbox/",
+      "text": "Downloads and guides ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/",
+      "externalIntercept": false
+    },
+    {
+      "width": 390,
+      "from": "toolbox",
+      "href": "/work/parc/",
+      "text": "Next / [02]PARC ->",
+      "arrived": "http://127.0.0.1:4173/work/parc/",
+      "externalIntercept": false
+    },
+    {
+      "width": 390,
+      "from": "toolbox",
+      "href": "/contact/",
+      "text": "Tell me what you’re building ->",
+      "arrived": "http://127.0.0.1:4173/contact/",
+      "externalIntercept": false
+    },
+    {
+      "width": 1440,
+      "from": "parc",
+      "href": "https://parcxrpl.com",
+      "text": "parcxrpl.com ->",
+      "arrived": "https://parcxrpl.com/",
+      "externalIntercept": true
+    },
+    {
+      "width": 1440,
+      "from": "parc",
+      "href": "/work/jade-aesthetics/",
+      "text": "Next / [03]Jade Aesthetics ->",
+      "arrived": "http://127.0.0.1:4173/work/jade-aesthetics/",
+      "externalIntercept": false
+    },
+    {
+      "width": 1440,
+      "from": "parc",
+      "href": "/contact/",
+      "text": "Tell me what you’re building ->",
+      "arrived": "http://127.0.0.1:4173/contact/",
+      "externalIntercept": false
+    },
+    {
+      "width": 1440,
+      "from": "xrpcafe",
+      "href": "https://xrp.cafe/",
+      "text": "xrp.cafe ->",
+      "arrived": "https://xrp.cafe/",
+      "externalIntercept": true
+    },
+    {
+      "width": 1440,
+      "from": "xrpcafe",
+      "href": "/work/firststrike/",
+      "text": "Next / [06]FirstStrike Research ->",
+      "arrived": "http://127.0.0.1:4173/work/firststrike/",
+      "externalIntercept": false
+    },
+    {
+      "width": 1440,
+      "from": "xrpcafe",
+      "href": "/contact/",
+      "text": "Tell me what you’re building ->",
+      "arrived": "http://127.0.0.1:4173/contact/",
+      "externalIntercept": false
+    },
+    {
+      "width": 1440,
+      "from": "firstledger",
+      "href": "https://firstledger.net/",
+      "text": "firstledger.net ->",
+      "arrived": "https://firstledger.net/",
+      "externalIntercept": true
+    },
+    {
+      "width": 1440,
+      "from": "firstledger",
+      "href": "/work/xrpcafe/",
+      "text": "Next / [05]xrp.cafe ->",
+      "arrived": "http://127.0.0.1:4173/work/xrpcafe/",
+      "externalIntercept": false
+    },
+    {
+      "width": 1440,
+      "from": "firstledger",
+      "href": "/contact/",
+      "text": "Tell me what you’re building ->",
+      "arrived": "http://127.0.0.1:4173/contact/",
+      "externalIntercept": false
+    },
+    {
+      "width": 1440,
+      "from": "do-androids-dream",
+      "href": "https://www.youtube.com/watch?v=0Q-X3-64Tak",
+      "text": "Watch on YouTube ->",
+      "arrived": "https://www.youtube.com/watch?v=0Q-X3-64Tak",
+      "externalIntercept": false
+    },
+    {
+      "width": 1440,
+      "from": "do-androids-dream",
+      "href": "https://www.youtube.com/watch?v=0Q-X3-64Tak",
+      "text": "Watch it with sound on YouTube ->",
+      "arrived": "https://www.youtube.com/watch?v=0Q-X3-64Tak",
+      "externalIntercept": false
+    },
+    {
+      "width": 1440,
+      "from": "do-androids-dream",
+      "href": "/work/toolbox/",
+      "text": "Next / [01]Toolbox ->",
+      "arrived": "http://127.0.0.1:4173/work/toolbox/",
+      "externalIntercept": false
+    },
+    {
+      "width": 1440,
+      "from": "do-androids-dream",
+      "href": "/contact/",
+      "text": "Tell me what you’re building ->",
+      "arrived": "http://127.0.0.1:4173/contact/",
+      "externalIntercept": false
+    },
+    {
+      "width": 1440,
+      "from": "jade-aesthetics",
+      "href": "https://www.jadeaesthetics.co/",
+      "text": "jadeaesthetics.co ->",
+      "arrived": "https://www.jadeaesthetics.co/",
+      "externalIntercept": true
+    },
+    {
+      "width": 1440,
+      "from": "jade-aesthetics",
+      "href": "/work/firstledger/",
+      "text": "Next / [04]First Ledger ->",
+      "arrived": "http://127.0.0.1:4173/work/firstledger/",
+      "externalIntercept": false
+    },
+    {
+      "width": 1440,
+      "from": "jade-aesthetics",
+      "href": "/contact/",
+      "text": "Tell me what you’re building ->",
+      "arrived": "http://127.0.0.1:4173/contact/",
+      "externalIntercept": false
+    },
+    {
+      "width": 1440,
+      "from": "firststrike",
+      "href": "/work/do-androids-dream/",
+      "text": "Next / [07]Do Androids Dream? ->",
+      "arrived": "http://127.0.0.1:4173/work/do-androids-dream/",
+      "externalIntercept": false
+    },
+    {
+      "width": 1440,
+      "from": "firststrike",
+      "href": "/contact/",
+      "text": "Tell me what you’re building ->",
+      "arrived": "http://127.0.0.1:4173/contact/",
+      "externalIntercept": false
+    },
+    {
+      "width": 1440,
+      "from": "toolbox",
+      "href": "/toolbox/",
+      "text": "Downloads and guides ->",
+      "arrived": "http://127.0.0.1:4173/toolbox/",
+      "externalIntercept": false
+    },
+    {
+      "width": 1440,
+      "from": "toolbox",
+      "href": "/work/parc/",
+      "text": "Next / [02]PARC ->",
+      "arrived": "http://127.0.0.1:4173/work/parc/",
+      "externalIntercept": false
+    },
+    {
+      "width": 1440,
+      "from": "toolbox",
+      "href": "/contact/",
+      "text": "Tell me what you’re building ->",
+      "arrived": "http://127.0.0.1:4173/contact/",
+      "externalIntercept": false
+    }
+  ],
+  "toolLinks": [
+    {
+      "width": 390,
+      "name": "Lockup",
+      "guide": "http://127.0.0.1:4173/toolbox/lockup/",
+      "back": "http://127.0.0.1:4173/toolbox/lockup/"
+    },
+    {
+      "width": 390,
+      "name": "Palette",
+      "guide": "http://127.0.0.1:4173/toolbox/palette/",
+      "back": "http://127.0.0.1:4173/toolbox/palette/"
+    },
+    {
+      "width": 390,
+      "name": "Specimen",
+      "guide": "http://127.0.0.1:4173/toolbox/specimen/",
+      "back": "http://127.0.0.1:4173/toolbox/specimen/"
+    },
+    {
+      "width": 390,
+      "name": "Convert",
+      "guide": "http://127.0.0.1:4173/toolbox/convert/",
+      "back": "http://127.0.0.1:4173/toolbox/convert/"
+    },
+    {
+      "width": 1440,
+      "name": "Lockup",
+      "guide": "http://127.0.0.1:4173/toolbox/lockup/",
+      "back": "http://127.0.0.1:4173/toolbox/lockup/"
+    },
+    {
+      "width": 1440,
+      "name": "Palette",
+      "guide": "http://127.0.0.1:4173/toolbox/palette/",
+      "back": "http://127.0.0.1:4173/toolbox/palette/"
+    },
+    {
+      "width": 1440,
+      "name": "Specimen",
+      "guide": "http://127.0.0.1:4173/toolbox/specimen/",
+      "back": "http://127.0.0.1:4173/toolbox/specimen/"
+    },
+    {
+      "width": 1440,
+      "name": "Convert",
+      "guide": "http://127.0.0.1:4173/toolbox/convert/",
+      "back": "http://127.0.0.1:4173/toolbox/convert/"
+    }
+  ],
+  "settings": [
+    {
+      "width": 390,
+      "theme": "light",
+      "motion": "on",
+      "saved": {
+        "theme": "light",
+        "motion": "on"
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "motion": "on",
+      "saved": {
+        "theme": "light",
+        "motion": "on"
+      }
+    }
+  ],
+  "states": [
+    {
+      "width": 390,
+      "theme": "dark",
+      "focus": {
+        "outline": "rgb(242, 214, 0) solid 2px",
+        "outlineOffset": "2px",
+        "panelBackground": "rgb(239, 239, 235)",
+        "accentText": "#6f6200",
+        "focusToken": "2px solid #f2d600"
+      }
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "focus": {
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "outlineOffset": "2px",
+        "panelBackground": "rgb(24, 24, 20)",
+        "accentText": "#f2d600",
+        "focusToken": "2px solid #6f6200"
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "focus": {
+        "outline": "rgb(242, 214, 0) solid 2px",
+        "outlineOffset": "2px",
+        "panelBackground": "rgb(239, 239, 235)",
+        "accentText": "#6f6200",
+        "focusToken": "2px solid #f2d600"
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "focus": {
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "outlineOffset": "2px",
+        "panelBackground": "rgb(24, 24, 20)",
+        "accentText": "#f2d600",
+        "focusToken": "2px solid #6f6200"
+      }
+    },
+    {
+      "selector": ".cta-hint",
+      "hover": {
+        "bg": "rgb(239, 239, 235)",
+        "color": "rgb(24, 24, 20)",
+        "transform": "none"
+      },
+      "press": {
+        "bg": "rgb(242, 214, 0)",
+        "color": "rgb(24, 24, 20)"
+      }
+    },
+    {
+      "selector": ".hero-actions .quiet-link",
+      "hover": {
+        "bg": "rgba(0, 0, 0, 0)",
+        "color": "rgb(242, 214, 0)",
+        "transform": "none"
+      },
+      "press": {
+        "bg": "rgb(242, 214, 0)",
+        "color": "rgb(24, 24, 20)"
+      }
+    },
+    {
+      "selector": ".card",
+      "hover": {
+        "bg": "rgb(24, 24, 20)",
+        "color": "rgb(239, 239, 235)",
+        "transform": "none"
+      },
+      "press": {
+        "bg": "rgb(242, 214, 0)",
+        "color": "rgb(24, 24, 20)"
+      }
+    },
+    {
+      "field": true,
+      "swellChanged": true,
+      "ringChanged": true
+    }
+  ],
+  "scroll": [
+    {
+      "width": 390,
+      "route": "/",
+      "steps": 6,
+      "samples": [
+        {
+          "y": 0,
+          "h": 3440,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 3440,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 3440,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1800,
+          "h": 3440,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 2400,
+          "h": 3440,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 2540,
+          "h": 3440,
+          "navTop": -104,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 390,
+      "route": "/work/",
+      "steps": 6,
+      "samples": [
+        {
+          "y": 0,
+          "h": 3816,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 3816,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 3816,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1800,
+          "h": 3816,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 2400,
+          "h": 3816,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 2916,
+          "h": 3816,
+          "navTop": -104,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 390,
+      "route": "/work/parc/",
+      "steps": 24,
+      "samples": [
+        {
+          "y": 0,
+          "h": 14112,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 14112,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 712,
+              "h": 720
+            }
+          ]
+        },
+        {
+          "y": 1200,
+          "h": 14112,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 112,
+              "h": 720
+            },
+            {
+              "y": 880,
+              "h": 312
+            }
+          ]
+        },
+        {
+          "y": 1800,
+          "h": 14112,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 280,
+              "h": 312
+            }
+          ]
+        },
+        {
+          "y": 2400,
+          "h": 14112,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 328,
+              "h": 456
+            }
+          ]
+        },
+        {
+          "y": 3000,
+          "h": 14112,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 3600,
+          "h": 14112,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 4200,
+          "h": 14112,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 448,
+              "h": 576
+            }
+          ]
+        },
+        {
+          "y": 4800,
+          "h": 14112,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 472,
+              "h": 568
+            }
+          ]
+        },
+        {
+          "y": 5400,
+          "h": 14112,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 6000,
+          "h": 14112,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 6600,
+          "h": 14112,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 640,
+              "h": 240
+            }
+          ]
+        },
+        {
+          "y": 7200,
+          "h": 14112,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 40,
+              "h": 240
+            }
+          ]
+        },
+        {
+          "y": 7800,
+          "h": 14112,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 8400,
+          "h": 14112,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 784,
+              "h": 304
+            }
+          ]
+        },
+        {
+          "y": 9000,
+          "h": 14112,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 184,
+              "h": 304
+            },
+            {
+              "y": 784,
+              "h": 504
+            }
+          ]
+        },
+        {
+          "y": 9600,
+          "h": 14112,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 184,
+              "h": 504
+            }
+          ]
+        },
+        {
+          "y": 10200,
+          "h": 14112,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 384,
+              "h": 496
+            }
+          ]
+        },
+        {
+          "y": 10800,
+          "h": 14112,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 840,
+              "h": 360
+            }
+          ]
+        },
+        {
+          "y": 11400,
+          "h": 14112,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 240,
+              "h": 360
+            }
+          ]
+        },
+        {
+          "y": 12000,
+          "h": 14112,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 12600,
+          "h": 14112,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 13200,
+          "h": 14112,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 13212,
+          "h": 14112,
+          "navTop": -104,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 390,
+      "route": "/work/xrpcafe/",
+      "steps": 11,
+      "samples": [
+        {
+          "y": 0,
+          "h": 6360,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 6360,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 6360,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 488,
+              "h": 472
+            }
+          ]
+        },
+        {
+          "y": 1800,
+          "h": 6360,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 2400,
+          "h": 6360,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 688,
+              "h": 360
+            }
+          ]
+        },
+        {
+          "y": 3000,
+          "h": 6360,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 88,
+              "h": 360
+            },
+            {
+              "y": 496,
+              "h": 408
+            }
+          ]
+        },
+        {
+          "y": 3600,
+          "h": 6360,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 4200,
+          "h": 6360,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 4800,
+          "h": 6360,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 5400,
+          "h": 6360,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 368,
+              "h": 280
+            }
+          ]
+        },
+        {
+          "y": 5460,
+          "h": 6360,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 308,
+              "h": 280
+            }
+          ]
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 390,
+      "route": "/work/firstledger/",
+      "steps": 8,
+      "samples": [
+        {
+          "y": 0,
+          "h": 4912,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 4912,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 568,
+              "h": 456
+            }
+          ]
+        },
+        {
+          "y": 1200,
+          "h": 4912,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 824,
+              "h": 360
+            }
+          ]
+        },
+        {
+          "y": 1800,
+          "h": 4912,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 224,
+              "h": 360
+            }
+          ]
+        },
+        {
+          "y": 2400,
+          "h": 4912,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 704,
+              "h": 328
+            }
+          ]
+        },
+        {
+          "y": 3000,
+          "h": 4912,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 104,
+              "h": 328
+            },
+            {
+              "y": 480,
+              "h": 360
+            }
+          ]
+        },
+        {
+          "y": 3600,
+          "h": 4912,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 776,
+              "h": 256
+            }
+          ]
+        },
+        {
+          "y": 4012,
+          "h": 4912,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 364,
+              "h": 256
+            }
+          ]
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 390,
+      "route": "/work/do-androids-dream/",
+      "steps": 6,
+      "samples": [
+        {
+          "y": 0,
+          "h": 3528,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 3528,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 536,
+              "h": 328
+            }
+          ]
+        },
+        {
+          "y": 1200,
+          "h": 3528,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 760,
+              "h": 360
+            }
+          ]
+        },
+        {
+          "y": 1800,
+          "h": 3528,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 160,
+              "h": 360
+            },
+            {
+              "y": 568,
+              "h": 432
+            }
+          ]
+        },
+        {
+          "y": 2400,
+          "h": 3528,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 2628,
+          "h": 3528,
+          "navTop": -104,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 390,
+      "route": "/work/jade-aesthetics/",
+      "steps": 8,
+      "samples": [
+        {
+          "y": 0,
+          "h": 4896,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 4896,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 552,
+              "h": 440
+            }
+          ]
+        },
+        {
+          "y": 1200,
+          "h": 4896,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 440,
+              "h": 408
+            },
+            {
+              "y": 896,
+              "h": 584
+            }
+          ]
+        },
+        {
+          "y": 1800,
+          "h": 4896,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 296,
+              "h": 584
+            }
+          ]
+        },
+        {
+          "y": 2400,
+          "h": 4896,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 3000,
+          "h": 4896,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 512,
+              "h": 344
+            }
+          ]
+        },
+        {
+          "y": 3600,
+          "h": 4896,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 784,
+              "h": 232
+            }
+          ]
+        },
+        {
+          "y": 3996,
+          "h": 4896,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 388,
+              "h": 232
+            }
+          ]
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 390,
+      "route": "/work/firststrike/",
+      "steps": 8,
+      "samples": [
+        {
+          "y": 0,
+          "h": 4568,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 4568,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 328,
+              "h": 232
+            },
+            {
+              "y": 608,
+              "h": 360
+            }
+          ]
+        },
+        {
+          "y": 1200,
+          "h": 4568,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 8,
+              "h": 360
+            }
+          ]
+        },
+        {
+          "y": 1800,
+          "h": 4568,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 480,
+              "h": 256
+            }
+          ]
+        },
+        {
+          "y": 2400,
+          "h": 4568,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 632,
+              "h": 208
+            }
+          ]
+        },
+        {
+          "y": 3000,
+          "h": 4568,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 32,
+              "h": 208
+            }
+          ]
+        },
+        {
+          "y": 3600,
+          "h": 4568,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 448,
+              "h": 208
+            }
+          ]
+        },
+        {
+          "y": 3668,
+          "h": 4568,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 380,
+              "h": 208
+            }
+          ]
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 390,
+      "route": "/work/toolbox/",
+      "steps": 9,
+      "samples": [
+        {
+          "y": 0,
+          "h": 5176,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 5176,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 5176,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 416,
+              "h": 568
+            }
+          ]
+        },
+        {
+          "y": 1800,
+          "h": 5176,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 2400,
+          "h": 5176,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 3000,
+          "h": 5176,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 672,
+              "h": 512
+            }
+          ]
+        },
+        {
+          "y": 3600,
+          "h": 5176,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 72,
+              "h": 512
+            },
+            {
+              "y": 632,
+              "h": 664
+            }
+          ]
+        },
+        {
+          "y": 4200,
+          "h": 5176,
+          "navTop": -104,
+          "hold": [
+            {
+              "y": 32,
+              "h": 664
+            }
+          ]
+        },
+        {
+          "y": 4276,
+          "h": 5176,
+          "navTop": -104,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 390,
+      "route": "/toolbox/",
+      "steps": 8,
+      "samples": [
+        {
+          "y": 0,
+          "h": 4272,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 558,
+          "h": 4272,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1158,
+          "h": 4272,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1758,
+          "h": 4272,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 2358,
+          "h": 4272,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 2958,
+          "h": 4272,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 3330,
+          "h": 4272,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 3330,
+          "h": 4272,
+          "navTop": -104,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 390,
+      "route": "/toolbox/lockup/",
+      "steps": 5,
+      "samples": [
+        {
+          "y": 0,
+          "h": 2740,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 2740,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 2740,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1800,
+          "h": 2740,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1840,
+          "h": 2740,
+          "navTop": -104,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 390,
+      "route": "/toolbox/palette/",
+      "steps": 4,
+      "samples": [
+        {
+          "y": 0,
+          "h": 2684,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 2684,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 2684,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1784,
+          "h": 2684,
+          "navTop": -104,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 390,
+      "route": "/toolbox/specimen/",
+      "steps": 4,
+      "samples": [
+        {
+          "y": 0,
+          "h": 2220,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 2220,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 2220,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1320,
+          "h": 2220,
+          "navTop": -104,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 390,
+      "route": "/toolbox/convert/",
+      "steps": 4,
+      "samples": [
+        {
+          "y": 0,
+          "h": 2172,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 2172,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 2172,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1272,
+          "h": 2172,
+          "navTop": -104,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 390,
+      "route": "/toolbox/agents/",
+      "steps": 17,
+      "samples": [
+        {
+          "y": 0,
+          "h": 10276,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 10276,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 10276,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 1800,
+          "h": 10276,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 2400,
+          "h": 10276,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 3000,
+          "h": 10276,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 3600,
+          "h": 10276,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 4200,
+          "h": 10276,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 4800,
+          "h": 10276,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 5400,
+          "h": 10276,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 6000,
+          "h": 10276,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 6600,
+          "h": 10276,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 7200,
+          "h": 10276,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 7800,
+          "h": 10276,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 8400,
+          "h": 10276,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 9000,
+          "h": 10276,
+          "navTop": -104,
+          "hold": []
+        },
+        {
+          "y": 9376,
+          "h": 10276,
+          "navTop": -104,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 390,
+      "route": "/contact/",
+      "steps": 2,
+      "samples": [
+        {
+          "y": 0,
+          "h": 1232,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 332,
+          "h": 1232,
+          "navTop": -104,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 390,
+      "route": "/nope/",
+      "steps": 1,
+      "samples": [
+        {
+          "y": 0,
+          "h": 900,
+          "navTop": 0,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 1440,
+      "route": "/",
+      "steps": 5,
+      "samples": [
+        {
+          "y": 0,
+          "h": 2968,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 2968,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 2968,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1800,
+          "h": 2968,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 2068,
+          "h": 2968,
+          "navTop": -64,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 1440,
+      "route": "/work/",
+      "steps": 5,
+      "samples": [
+        {
+          "y": 0,
+          "h": 3120,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 3120,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 3120,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1800,
+          "h": 3120,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 2220,
+          "h": 3120,
+          "navTop": -64,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 1440,
+      "route": "/work/parc/",
+      "steps": 19,
+      "samples": [
+        {
+          "y": 0,
+          "h": 11272,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 11272,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 11272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 656,
+              "h": 584
+            }
+          ]
+        },
+        {
+          "y": 1800,
+          "h": 11272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 56,
+              "h": 584
+            },
+            {
+              "y": 736,
+              "h": 376
+            }
+          ]
+        },
+        {
+          "y": 2400,
+          "h": 11272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 136,
+              "h": 376
+            },
+            {
+              "y": 824,
+              "h": 528
+            }
+          ]
+        },
+        {
+          "y": 3000,
+          "h": 11272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 224,
+              "h": 528
+            }
+          ]
+        },
+        {
+          "y": 3600,
+          "h": 11272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 544,
+              "h": 488
+            }
+          ]
+        },
+        {
+          "y": 4200,
+          "h": 11272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 528,
+              "h": 656
+            }
+          ]
+        },
+        {
+          "y": 4800,
+          "h": 11272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 680,
+              "h": 280
+            }
+          ]
+        },
+        {
+          "y": 5400,
+          "h": 11272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 128,
+              "h": 280
+            }
+          ]
+        },
+        {
+          "y": 6000,
+          "h": 11272,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 6600,
+          "h": 11272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 736,
+              "h": 344
+            }
+          ]
+        },
+        {
+          "y": 7200,
+          "h": 11272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 136,
+              "h": 344
+            },
+            {
+              "y": 792,
+              "h": 592
+            }
+          ]
+        },
+        {
+          "y": 7800,
+          "h": 11272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 192,
+              "h": 592
+            },
+            {
+              "y": 880,
+              "h": 592
+            }
+          ]
+        },
+        {
+          "y": 8400,
+          "h": 11272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 280,
+              "h": 592
+            }
+          ]
+        },
+        {
+          "y": 9000,
+          "h": 11272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 456,
+              "h": 408
+            }
+          ]
+        },
+        {
+          "y": 9600,
+          "h": 11272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 128,
+              "h": 408
+            }
+          ]
+        },
+        {
+          "y": 10200,
+          "h": 11272,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 10372,
+          "h": 11272,
+          "navTop": -64,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 1440,
+      "route": "/work/xrpcafe/",
+      "steps": 7,
+      "samples": [
+        {
+          "y": 0,
+          "h": 4272,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 4272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 856,
+              "h": 584
+            }
+          ]
+        },
+        {
+          "y": 1200,
+          "h": 4272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 256,
+              "h": 584
+            }
+          ]
+        },
+        {
+          "y": 1800,
+          "h": 4272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 432,
+              "h": 304
+            },
+            {
+              "y": 832,
+              "h": 464
+            }
+          ]
+        },
+        {
+          "y": 2400,
+          "h": 4272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 232,
+              "h": 464
+            }
+          ]
+        },
+        {
+          "y": 3000,
+          "h": 4272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 128,
+              "h": 464
+            },
+            {
+              "y": 728,
+              "h": 248
+            }
+          ]
+        },
+        {
+          "y": 3372,
+          "h": 4272,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 356,
+              "h": 248
+            }
+          ]
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 1440,
+      "route": "/work/firstledger/",
+      "steps": 9,
+      "samples": [
+        {
+          "y": 0,
+          "h": 5216,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 5216,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 5216,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 784,
+              "h": 528
+            }
+          ]
+        },
+        {
+          "y": 1800,
+          "h": 5216,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 184,
+              "h": 528
+            },
+            {
+              "y": 808,
+              "h": 432
+            }
+          ]
+        },
+        {
+          "y": 2400,
+          "h": 5216,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 208,
+              "h": 432
+            }
+          ]
+        },
+        {
+          "y": 3000,
+          "h": 5216,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 472,
+              "h": 272
+            },
+            {
+              "y": 840,
+              "h": 400
+            }
+          ]
+        },
+        {
+          "y": 3600,
+          "h": 5216,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 240,
+              "h": 400
+            }
+          ]
+        },
+        {
+          "y": 4200,
+          "h": 5216,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 8,
+              "h": 400
+            },
+            {
+              "y": 504,
+              "h": 216
+            }
+          ]
+        },
+        {
+          "y": 4316,
+          "h": 5216,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 388,
+              "h": 216
+            }
+          ]
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 1440,
+      "route": "/work/do-androids-dream/",
+      "steps": 6,
+      "samples": [
+        {
+          "y": 0,
+          "h": 3456,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 3456,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 3456,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 568,
+              "h": 400
+            }
+          ]
+        },
+        {
+          "y": 1800,
+          "h": 3456,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 464,
+              "h": 304
+            },
+            {
+              "y": 864,
+              "h": 496
+            }
+          ]
+        },
+        {
+          "y": 2400,
+          "h": 3456,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 264,
+              "h": 496
+            }
+          ]
+        },
+        {
+          "y": 2556,
+          "h": 3456,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 108,
+              "h": 496
+            }
+          ]
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 1440,
+      "route": "/work/jade-aesthetics/",
+      "steps": 7,
+      "samples": [
+        {
+          "y": 0,
+          "h": 4376,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 4376,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 4376,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 552,
+              "h": 336
+            }
+          ]
+        },
+        {
+          "y": 1800,
+          "h": 4376,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 384,
+              "h": 304
+            },
+            {
+              "y": 784,
+              "h": 656
+            }
+          ]
+        },
+        {
+          "y": 2400,
+          "h": 4376,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 184,
+              "h": 656
+            }
+          ]
+        },
+        {
+          "y": 3000,
+          "h": 4376,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 424,
+              "h": 376
+            },
+            {
+              "y": 896,
+              "h": 184
+            }
+          ]
+        },
+        {
+          "y": 3476,
+          "h": 4376,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 420,
+              "h": 184
+            }
+          ]
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 1440,
+      "route": "/work/firststrike/",
+      "steps": 8,
+      "samples": [
+        {
+          "y": 0,
+          "h": 4536,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 4536,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 4536,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 376,
+              "h": 216
+            },
+            {
+              "y": 688,
+              "h": 400
+            }
+          ]
+        },
+        {
+          "y": 1800,
+          "h": 4536,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 128,
+              "h": 400
+            }
+          ]
+        },
+        {
+          "y": 2400,
+          "h": 4536,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 352,
+              "h": 280
+            },
+            {
+              "y": 728,
+              "h": 216
+            }
+          ]
+        },
+        {
+          "y": 3000,
+          "h": 4536,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 128,
+              "h": 216
+            }
+          ]
+        },
+        {
+          "y": 3600,
+          "h": 4536,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 128,
+              "h": 216
+            },
+            {
+              "y": 456,
+              "h": 184
+            }
+          ]
+        },
+        {
+          "y": 3636,
+          "h": 4536,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 108,
+              "h": 216
+            },
+            {
+              "y": 420,
+              "h": 184
+            }
+          ]
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 1440,
+      "route": "/work/toolbox/",
+      "steps": 7,
+      "samples": [
+        {
+          "y": 0,
+          "h": 3936,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 3936,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 3936,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 616,
+              "h": 688
+            }
+          ]
+        },
+        {
+          "y": 1800,
+          "h": 3936,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 16,
+              "h": 688
+            },
+            {
+              "y": 800,
+              "h": 424
+            }
+          ]
+        },
+        {
+          "y": 2400,
+          "h": 3936,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 200,
+              "h": 424
+            },
+            {
+              "y": 720,
+              "h": 520
+            }
+          ]
+        },
+        {
+          "y": 3000,
+          "h": 3936,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 120,
+              "h": 520
+            }
+          ]
+        },
+        {
+          "y": 3036,
+          "h": 3936,
+          "navTop": -64,
+          "hold": [
+            {
+              "y": 84,
+              "h": 520
+            }
+          ]
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 1440,
+      "route": "/toolbox/",
+      "steps": 5,
+      "samples": [
+        {
+          "y": 0,
+          "h": 2712,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 2712,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 2712,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1800,
+          "h": 2712,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1812,
+          "h": 2712,
+          "navTop": -64,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 1440,
+      "route": "/toolbox/lockup/",
+      "steps": 7,
+      "samples": [
+        {
+          "y": 0,
+          "h": 4312,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 4312,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 4312,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1800,
+          "h": 4312,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 2400,
+          "h": 4312,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 3000,
+          "h": 4312,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 3412,
+          "h": 4312,
+          "navTop": -64,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 1440,
+      "route": "/toolbox/palette/",
+      "steps": 6,
+      "samples": [
+        {
+          "y": 0,
+          "h": 3736,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 3736,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 3736,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1800,
+          "h": 3736,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 2400,
+          "h": 3736,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 2836,
+          "h": 3736,
+          "navTop": -64,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 1440,
+      "route": "/toolbox/specimen/",
+      "steps": 6,
+      "samples": [
+        {
+          "y": 0,
+          "h": 3432,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 3432,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 3432,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1800,
+          "h": 3432,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 2400,
+          "h": 3432,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 2532,
+          "h": 3432,
+          "navTop": -64,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 1440,
+      "route": "/toolbox/convert/",
+      "steps": 6,
+      "samples": [
+        {
+          "y": 0,
+          "h": 3816,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 3816,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 3816,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1800,
+          "h": 3816,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 2400,
+          "h": 3816,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 2916,
+          "h": 3816,
+          "navTop": -64,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 1440,
+      "route": "/toolbox/agents/",
+      "steps": 11,
+      "samples": [
+        {
+          "y": 0,
+          "h": 6856,
+          "navTop": 0,
+          "hold": []
+        },
+        {
+          "y": 600,
+          "h": 6856,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1200,
+          "h": 6856,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 1800,
+          "h": 6856,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 2400,
+          "h": 6856,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 3000,
+          "h": 6856,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 3600,
+          "h": 6856,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 4200,
+          "h": 6856,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 4800,
+          "h": 6856,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 5400,
+          "h": 6856,
+          "navTop": -64,
+          "hold": []
+        },
+        {
+          "y": 5956,
+          "h": 6856,
+          "navTop": -64,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 1440,
+      "route": "/contact/",
+      "steps": 1,
+      "samples": [
+        {
+          "y": 0,
+          "h": 900,
+          "navTop": 0,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    },
+    {
+      "width": 1440,
+      "route": "/nope/",
+      "steps": 1,
+      "samples": [
+        {
+          "y": 0,
+          "h": 900,
+          "navTop": 0,
+          "hold": []
+        }
+      ],
+      "footerVisible": true
+    }
+  ],
+  "contact": [
+    {
+      "width": 390,
+      "outcome": "success",
+      "empty": {
+        "tag": "INPUT",
+        "text": ""
+      },
+      "invalid": {
+        "tag": "INPUT",
+        "text": ""
+      },
+      "calls": 1,
+      "sending": "SENDING\n->",
+      "status": "SENT. I’LL REPLY FROM STUDIO@TIMOTHYALI.COM.",
+      "values": ""
+    },
+    {
+      "width": 390,
+      "outcome": "failure",
+      "empty": {
+        "tag": "INPUT",
+        "text": ""
+      },
+      "invalid": {
+        "tag": "INPUT",
+        "text": ""
+      },
+      "calls": 1,
+      "sending": "SENDING\n->",
+      "status": "YOUR MESSAGE DIDN’T SEND. TRY AGAIN, OR EMAIL STUDIO@TIMOTHYALI.COM.",
+      "values": "Intercepted design audit message."
+    },
+    {
+      "width": 390,
+      "outcome": "network",
+      "empty": {
+        "tag": "INPUT",
+        "text": ""
+      },
+      "invalid": {
+        "tag": "INPUT",
+        "text": ""
+      },
+      "calls": 1,
+      "sending": "SENDING\n->",
+      "status": "COULDN’T SEND YOUR MESSAGE. CHECK YOUR CONNECTION AND TRY AGAIN, OR EMAIL STUDIO@TIMOTHYALI.COM.",
+      "values": "Intercepted design audit message."
+    },
+    {
+      "width": 1440,
+      "outcome": "success",
+      "empty": {
+        "tag": "INPUT",
+        "text": ""
+      },
+      "invalid": {
+        "tag": "INPUT",
+        "text": ""
+      },
+      "calls": 1,
+      "sending": "SENDING\n->",
+      "status": "SENT. I’LL REPLY FROM STUDIO@TIMOTHYALI.COM.",
+      "values": ""
+    },
+    {
+      "width": 1440,
+      "outcome": "failure",
+      "empty": {
+        "tag": "INPUT",
+        "text": ""
+      },
+      "invalid": {
+        "tag": "INPUT",
+        "text": ""
+      },
+      "calls": 1,
+      "sending": "SENDING\n->",
+      "status": "YOUR MESSAGE DIDN’T SEND. TRY AGAIN, OR EMAIL STUDIO@TIMOTHYALI.COM.",
+      "values": "Intercepted design audit message."
+    },
+    {
+      "width": 1440,
+      "outcome": "network",
+      "empty": {
+        "tag": "INPUT",
+        "text": ""
+      },
+      "invalid": {
+        "tag": "INPUT",
+        "text": ""
+      },
+      "calls": 1,
+      "sending": "SENDING\n->",
+      "status": "COULDN’T SEND YOUR MESSAGE. CHECK YOUR CONNECTION AND TRY AGAIN, OR EMAIL STUDIO@TIMOTHYALI.COM.",
+      "values": "Intercepted design audit message."
+    }
+  ],
+  "downloads": [
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:4173/download/v1.2.3/Toolbox-1.2.3-arm64.dmg?s=Direct+%2F+unknown"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:4173/download/v1.2.3/Toolbox-1.2.3.dmg?s=Direct+%2F+unknown"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:4173/download/v1.2.3/Toolbox-Setup-1.2.3.exe?s=Direct+%2F+unknown"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:4173/download/v1.2.3/Toolbox-Setup-1.2.3-arm64.exe?s=Direct+%2F+unknown"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:4173/download/v1.2.3/toolbox-1.2.3-x86_64.AppImage?s=Direct+%2F+unknown"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:4173/download/v1.2.3/toolbox-1.2.3-arm64.AppImage?s=Direct+%2F+unknown"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:4173/download/v1.2.3/toolbox_1.2.3_amd64.deb?s=Direct+%2F+unknown"
+    },
+    {
+      "width": 390,
+      "url": "http://127.0.0.1:4173/download/v1.2.3/toolbox_1.2.3_arm64.deb?s=Direct+%2F+unknown"
+    },
+    {
+      "width": 390,
+      "visibleLinks": [
+        {
+          "href": "/download/v1.2.3/Toolbox-1.2.3-arm64.dmg",
+          "text": "Apple silicon"
+        },
+        {
+          "href": "/download/v1.2.3/Toolbox-1.2.3.dmg",
+          "text": "Intel"
+        },
+        {
+          "href": "/download/v1.2.3/Toolbox-Setup-1.2.3.exe",
+          "text": "Installer x64"
+        },
+        {
+          "href": "/download/v1.2.3/Toolbox-Setup-1.2.3-arm64.exe",
+          "text": "Installer arm64"
+        },
+        {
+          "href": "/download/v1.2.3/toolbox-1.2.3-x86_64.AppImage",
+          "text": "AppImage x86_64"
+        },
+        {
+          "href": "/download/v1.2.3/toolbox-1.2.3-arm64.AppImage",
+          "text": "AppImage arm64"
+        },
+        {
+          "href": "/download/v1.2.3/toolbox_1.2.3_amd64.deb",
+          "text": "deb amd64"
+        },
+        {
+          "href": "/download/v1.2.3/toolbox_1.2.3_arm64.deb",
+          "text": "deb arm64"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:4173/download/v1.2.3/Toolbox-1.2.3-arm64.dmg?s=Direct+%2F+unknown"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:4173/download/v1.2.3/Toolbox-1.2.3.dmg?s=Direct+%2F+unknown"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:4173/download/v1.2.3/Toolbox-Setup-1.2.3.exe?s=Direct+%2F+unknown"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:4173/download/v1.2.3/Toolbox-Setup-1.2.3-arm64.exe?s=Direct+%2F+unknown"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:4173/download/v1.2.3/toolbox-1.2.3-x86_64.AppImage?s=Direct+%2F+unknown"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:4173/download/v1.2.3/toolbox-1.2.3-arm64.AppImage?s=Direct+%2F+unknown"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:4173/download/v1.2.3/toolbox_1.2.3_amd64.deb?s=Direct+%2F+unknown"
+    },
+    {
+      "width": 1440,
+      "url": "http://127.0.0.1:4173/download/v1.2.3/toolbox_1.2.3_arm64.deb?s=Direct+%2F+unknown"
+    },
+    {
+      "width": 1440,
+      "visibleLinks": [
+        {
+          "href": "/download/v1.2.3/Toolbox-1.2.3-arm64.dmg",
+          "text": "Apple silicon"
+        },
+        {
+          "href": "/download/v1.2.3/Toolbox-1.2.3.dmg",
+          "text": "Intel"
+        },
+        {
+          "href": "/download/v1.2.3/Toolbox-Setup-1.2.3.exe",
+          "text": "Installer x64"
+        },
+        {
+          "href": "/download/v1.2.3/Toolbox-Setup-1.2.3-arm64.exe",
+          "text": "Installer arm64"
+        },
+        {
+          "href": "/download/v1.2.3/toolbox-1.2.3-x86_64.AppImage",
+          "text": "AppImage x86_64"
+        },
+        {
+          "href": "/download/v1.2.3/toolbox-1.2.3-arm64.AppImage",
+          "text": "AppImage arm64"
+        },
+        {
+          "href": "/download/v1.2.3/toolbox_1.2.3_amd64.deb",
+          "text": "deb amd64"
+        },
+        {
+          "href": "/download/v1.2.3/toolbox_1.2.3_arm64.deb",
+          "text": "deb arm64"
+        }
+      ]
+    }
+  ],
+  "phone": [
+    {
+      "width": 390,
+      "text": "SEND THE LINK TO YOUR COMPUTER\n->",
+      "clipboard": ""
+    }
+  ],
+  "commands": [
+    {
+      "width": 390,
+      "href": "#setup",
+      "text": "Set up",
+      "hash": "#setup",
+      "headingY": 80
+    },
+    {
+      "width": 390,
+      "href": "#command-line",
+      "text": "Command line",
+      "hash": "#command-line",
+      "headingY": 80
+    },
+    {
+      "width": 390,
+      "href": "#advanced",
+      "text": "Advanced",
+      "hash": "#advanced",
+      "headingY": 80
+    },
+    {
+      "width": 390,
+      "href": "#options",
+      "text": "Options",
+      "hash": "#options",
+      "headingY": 80
+    },
+    {
+      "width": 390,
+      "href": "#list",
+      "text": "List",
+      "hash": "#list",
+      "headingY": 80
+    },
+    {
+      "width": 390,
+      "href": "#run",
+      "text": "Run",
+      "hash": "#run",
+      "headingY": 80
+    },
+    {
+      "width": 390,
+      "href": "#serve",
+      "text": "Serve",
+      "hash": "#serve",
+      "headingY": 80
+    },
+    {
+      "width": 390,
+      "href": "#organize",
+      "text": "Organize",
+      "hash": "#organize",
+      "headingY": 80
+    },
+    {
+      "width": 390,
+      "copyButtons": 0,
+      "copied": "sudo ln -s \"/Applications/Toolbox.app/Contents/MacOS/Toolbox\" /usr/local/bin/toolbox"
+    },
+    {
+      "width": 1440,
+      "href": "#setup",
+      "text": "Set up",
+      "hash": "#setup",
+      "headingY": 96
+    },
+    {
+      "width": 1440,
+      "href": "#command-line",
+      "text": "Command line",
+      "hash": "#command-line",
+      "headingY": 96
+    },
+    {
+      "width": 1440,
+      "href": "#advanced",
+      "text": "Advanced",
+      "hash": "#advanced",
+      "headingY": 96
+    },
+    {
+      "width": 1440,
+      "href": "#options",
+      "text": "Options",
+      "hash": "#options",
+      "headingY": 96
+    },
+    {
+      "width": 1440,
+      "href": "#list",
+      "text": "List",
+      "hash": "#list",
+      "headingY": 96
+    },
+    {
+      "width": 1440,
+      "href": "#run",
+      "text": "Run",
+      "hash": "#run",
+      "headingY": 96
+    },
+    {
+      "width": 1440,
+      "href": "#serve",
+      "text": "Serve",
+      "hash": "#serve",
+      "headingY": 96
+    },
+    {
+      "width": 1440,
+      "href": "#organize",
+      "text": "Organize",
+      "hash": "#organize",
+      "headingY": 96
+    },
+    {
+      "width": 1440,
+      "copyButtons": 0,
+      "copied": "sudo ln -s \"/Applications/Toolbox.app/Contents/MacOS/Toolbox\" /usr/local/bin/toolbox"
+    }
+  ],
+  "focusChanges": [
+    {
+      "width": 390,
+      "action": "Lockup Continue",
+      "active": {
+        "tag": "BODY",
+        "text": "Skip to content timothy ali 01Index 02Work 03Contact 04Toolbox  Motion [off] Theme [dark] "
+      },
+      "nextTab": {
+        "tag": "A",
+        "text": "CLI & MCP docs ->"
+      }
+    },
+    {
+      "width": 390,
+      "action": "Play video",
+      "active": {
+        "tag": "BODY",
+        "text": "Skip to content timothy ali 01Index 02Work 03Contact 04Toolbox  Motion [off] Theme [dark] "
+      },
+      "nextTab": {
+        "tag": "BUTTON",
+        "text": "Pause video: Do Androids Dream title sequence, about forty seconds, black on yellow, silent here"
+      }
+    },
+    {
+      "width": 1440,
+      "action": "Lockup Continue",
+      "active": {
+        "tag": "BODY",
+        "text": "Skip to content timothy ali 01Index 02Work 03Contact 04Toolbox  Motion [off] Theme [dark] "
+      },
+      "nextTab": {
+        "tag": "A",
+        "text": "CLI & MCP docs ->"
+      }
+    },
+    {
+      "width": 1440,
+      "action": "Play video",
+      "active": {
+        "tag": "BODY",
+        "text": "Skip to content timothy ali 01Index 02Work 03Contact 04Toolbox  Motion [off] Theme [dark] "
+      },
+      "nextTab": {
+        "tag": "BUTTON",
+        "text": "Pause video: Do Androids Dream title sequence, about forty seconds, black on yellow, silent here"
+      }
+    }
+  ],
+  "demoActions": [],
+  "errors": []
+}

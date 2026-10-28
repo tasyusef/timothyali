@@ -12,7 +12,7 @@
   <Band class="contact" mode="scene" shot="rise" seed={3} avoid=".contact h1 > span" clear=".contact-foot .page-foot > *">
     <div class="contact-copy">
       <BuildingHead level="h1" tight />
-      <div class="contact-foot"><PageFoot note="Interface / motion / code" href="/work/" label="See my work" /></div>
+      <div class="contact-foot"><PageFoot note="Interfaces / brands / websites" href="/work/" label="See my work" /></div>
     </div>
     <div class="contact-note panel">
       <p class="body">Hiring, or have a project in mind? I’d like to hear about it.</p>

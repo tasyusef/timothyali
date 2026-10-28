@@ -1,0 +1,160 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - link "Timothy Ali, home":
+    - /url: /
+    - text: timothy ali
+  - navigation "Main navigation":
+    - link "01Index":
+      - /url: /
+    - link "02Work":
+      - /url: /work/
+    - link "03Contact":
+      - /url: /contact/
+    - link "04Toolbox":
+      - /url: /toolbox/
+  - button "Settings"
+- text: Denver, CO MT 11:37:54
+- main:
+  - heading "parc" [level=1]
+  - paragraph: I cofounded Pixel Ape Rowboat Club in 2021 and have led its branding and art direction since. In 2026, I redesigned the identity around the apes’ 5×5 grid and made a typeface for it, PARC Pixel. Then I built a new website with live stats, a gallery, merch, and a rowing game.
+  - term: Role
+  - definition: Cofounder · brand, art direction & website
+  - term: Team
+  - definition: Cofounders xrpl_adam, sloppy, and stove
+  - term: Timeline
+  - definition: Ongoing · site live since September 2026
+  - term: Tools
+  - definition: Illustrator, Python (fontTools), SvelteKit, Svelte 5, TypeScript, Canvas, Vercel, Neon, Claude Code
+  - term: Live
+  - definition:
+    - link "parcxrpl.com":
+      - /url: https://parcxrpl.com
+  - figure:
+    - 'img "The new PARC box logo: four-color pixel letters on a white sign with notched corners, floating in a pixel-cloud sky"'
+  - text: 01 / 11
+  - heading "Where it started" [level=2]
+  - paragraph: PARC started in November 2021 as a joke. People were treating pixel apes as status symbols, and we thought that was ridiculous. Bored Apes had yachts. Ours had rowboats. 10,000 pixel apes on the XRP Ledger, no clout included.
+  - paragraph: People stayed anyway. By 2026, PARC had four collections, a Twitch show, an arcade, merch, and its own lore. I run it with xrpl_adam on development, sloppy on marketing, and stove drawing the apes with me. The old identity no longer matched what we were making.
+  - paragraph: "The apes were drawn with the Game Boy Advance Pokémon games in mind: flat color, chunky pixels, sprites you could recognize at a glance. We built them a world of islands, rowboats, volcanoes, and wooden huts, and the rebrand had to look like it belonged there."
+  - text: 02 / 11
+  - heading "An earlier direction" [level=2]
+  - paragraph: "Around 2024, I tried splitting the club into three branches: The Rowboat Club with an oar, The Parcade with a red joystick, and The Nightclub with a red microphone, each with a black pixel wordmark. We liked how it looked, but it felt too serious and dark for PARC, so we set it aside."
+  - figure:
+    - 'img "The earlier direction: three black pixel lockups on white, The Nightclub with a red microphone, The Parcade with a red joystick, and The Rowboat Club with an oar"'
+  - paragraph: Set aside, around 2024
+  - text: 03 / 11
+  - heading "Redrawing the logo" [level=2]
+  - paragraph: The old logo was a cartoon ape with thick outlines and a bubbly wordmark. It didn’t look much like the pixel art around it. I drew the new logo on the apes’ 5×5 grid and put it on a white sign with notched corners.
+  - paragraph: The team was attached to the old identity and worried about how the community would react. This time I showed them the finished logo on its sign and asked them to trust me. The comments after launch were encouraging.
+  - figure:
+    - 'img "The old PARC logo: a cartoon ape head with a wide grin and thick black outlines, a bubbly yellow PARC wordmark across the top"'
+  - figure:
+    - 'img "The old PARC secondary logo: the bubbly outlined wordmark in black"'
+  - figure:
+    - 'img "The new PARC square lockup: the box logo stacked over the oar"'
+  - figure:
+    - 'img "The new PARC wide logo: four-color pixel letters on the white sign, on the pixel-cloud sky"'
+  - paragraph: Before, 2021 / after, 2026
+  - heading "The reaction" [level=2]
+  - list:
+    - listitem: 01 “I know I like the new banner and logo” / RedHotDankMoist, Discord
+    - listitem: 02 “Love it, great website update, looks amazing” / @BrandoWoodz, X
+  - text: 04 / 11
+  - heading "Logo, color, and spacing" [level=2]
+  - paragraph: I made a wide logo, a square lockup, and an oar badge, all on the same cell grid with notched corners and two cells of clear space around them. The final artwork is merged paths, so it goes straight into print and web files.
+  - paragraph: The palette has five colors. The logo uses four of them, and everything else uses one at a time. I gave hex values for web and CMYK for print, and ruled out yellow type on white because it’s hard to read.
+  - paragraph: The oar works as a favicon, a badge, and a divider. I also put it on the typeface’s equals key so it’s easy to use in a line of text.
+  - text: 05 / 11
+  - heading "The typeface" [level=2]
+  - paragraph: "I built PARC Pixel from the four letters in the logo, keeping their one-cell strokes, open counters, and stepped diagonals. Scripts generate the family from the logo’s grid: three weights and a monospaced version for scores and prices, with 56 glyphs in each. It took four days from the first glyph to the finished family."
+  - paragraph: The scripts struggled with some characters, especially the number 2. I built a small editor to place pixels by hand, then used the scripts to compile the fonts. I drew 29 glyphs across the family this way, including the bold 2, the oar, and all three at-signs, and checked them in words at reading size.
+  - figure:
+    - 'img "PARC Pixel specimen on the sky colorway: Pixel Ape Rowboat Club set across the three weights"'
+  - figure:
+    - 'img "PARC Pixel Bold: 40 glyphs in a grid, one color per glyph, on the green colorway"'
+  - figure:
+    - 'img "PARC Pixel specimen on white: the letter A in Bold 700, Regular 400, and Light 300"'
+  - figure:
+    - 'img "PARC Pixel specimen on white: the Bold R on its 11 by 11 cell grid"'
+  - figure:
+    - img "PARC Pixel Mono numerals 0 to 9 on the sky colorway"
+  - text: 06 / 11
+  - heading "Streams, merch, and social" [level=2]
+  - paragraph: Outside the site, the identity shows up on Discord, X, Twitch, merch, and the arcade. After Darc, the club’s Twitch show, has its own graphics and a starting-soon animation.
+  - figure:
+    - 'button "Play video: PARC After Darc starting-soon screen: a pixel sun over the sea with a rowboat drifting past, looped before the stream"'
+  - figure:
+    - 'img "PARC After Darc new-stream graphic: the wordmark over a pixel sunset, Saturday 9pm UTC on Twitch"'
+  - figure:
+    - 'img "PARC After Darc live-now graphic: the wordmark over a pixel night sky and moon"'
+  - figure:
+    - img "PARCade high-score board in PARC Pixel Mono"
+  - figure:
+    - 'img "LARC teaser: glitched terminal text on black announcing the next collection"'
+  - text: 07 / 11
+  - heading "The website" [level=2]
+  - paragraph: PARC had outgrown its Squarespace site. The club now had four collections, a token, a Twitch show, an arcade, and merch. I designed a new site to bring them together and built it with Claude Code, directing the work and reviewing every screen.
+  - paragraph: I built the site around the logo’s pixel grid and the club’s island setting. The Clubhouse, Gallery, and PARCade each have their own place in that world. The home page opens with the wordmark on a notched paper card. Inner pages use a jungle canopy, drifting clouds, and a wooden sign for the title and introduction.
+  - paragraph: "The notch shows up everywhere: 6px on buttons, 10px on cards, 12px on panels. Buttons sit on a darker base, lift on hover, and drop when you press them. The motion is pixel-based too. Buttons move in steps, water shifts one cell at a time, and dropdowns open line by line. With reduced motion on, the animated backgrounds hold still."
+  - figure:
+    - 'img "parcxrpl.com home: the Pixel Ape Rowboat Club sign on a notched paper card over a scattered texture, under the green navigation"'
+  - figure:
+    - 'img "parcxrpl.com collections: PARC, Monkey Phunks, and PARC Customs as paper cards on the sky"'
+  - text: 08 / 11
+  - heading "Stats first" [level=2]
+  - paragraph: I put Stats first in the navigation so holders could find it fast. It has floor prices, trading volume, holders, and listings for each collection, plus $OAR token data. The numbers come from the ledger and marketplace APIs, and daily snapshots feed the charts, going back to launch.
+  - figure:
+    - 'img "parcxrpl.com Club Stats: the $OAR card with price, volume, market cap, holders, and two pixel bar charts"'
+  - text: 09 / 11
+  - heading "Gallery & Clubhouse" [level=2]
+  - paragraph: In the Gallery, apes hang on clotheslines between two trees. Selecting a frame opens a plaque with the ape’s name. My first version turned wheel input into sideways scrolling. It was awkward to use, so I switched to normal vertical scrolling.
+  - paragraph: The Clubhouse took three layouts to get right. It ended up with a TV playing the Twitch stream, a trophy shelf, and a corkboard for events, suspended from branches. I checked the ropes at different screen widths to keep them attached.
+  - figure:
+    - 'img "parcxrpl.com Gallery: the hanging sign with a button for each collection, and the generative apes on clotheslines between two trees"'
+  - figure:
+    - 'img "parcxrpl.com Clubhouse: the hanging sign, the TV on its branch, and the cork notice board"'
+  - text: 10 / 11
+  - heading "PARCade" [level=2]
+  - paragraph: PARCade is an arcade cabinet with a green CRT, scanlines, a joystick, and buttons that work the menu. On the homepage, a smaller screen shows the game cover next to live high scores, with scenery built from the game’s sprites around it.
+  - paragraph: I also made Rowboat Racer, where an ape rows down a five-lane river dodging logs, reefs, and ziggurats. I drew the sprites on a 3px grid. The riverbanks change between beach, jungle, rock, and village scenery on each run. The server replays a run before accepting its score on the leaderboard.
+  - figure:
+    - 'img "The PARCade section of parcxrpl.com: the Rowboat Racer cover on a CRT and live high scores over the game’s island"'
+  - figure:
+    - 'img "parcxrpl.com PARCade switched on: the game library, with Rowboat Racer playable and two cabinets coming soon"'
+  - figure:
+    - 'img "Rowboat Racer mid-run: the boat between a beach bank and a jungle bank, coins ahead, obstacles in their lanes"'
+  - figure:
+    - 'img "Rowboat Racer sprite sheet: the boat, obstacles, pickups, and bank props on the 3px grid"'
+  - text: 11 / 11
+  - heading "Merch & community" [level=2]
+  - paragraph: I originally planned to link out to the merch store. Using its API meant I could put the catalog on the site and send people to the store only for checkout. Each section got a small detail of its own. After Darc has TV static, chat bubbles drift past the Discord section, and the LARC teaser has a working terminal. The 404 sign says you rowed off the map.
+  - figure:
+    - 'img "parcxrpl.com Merch: the PARC Vibes tee and hoodie as pixel product cards with carousels and dropdowns"'
+  - figure:
+    - 'img "parcxrpl.com LARC teaser: the boathouse terminal mid-corruption, an unknown vessel detected"'
+  - figure:
+    - img "The After Darc section of parcxrpl.com in Twitch purple and the Discord section in blurple"
+  - figure:
+    - 'img "parcxrpl.com 404: a hanging sign reading Rowed off the map"'
+  - figure:
+    - 'img "parcxrpl.com home on a phone: the sign card with pixel buttons stacked under it"'
+  - figure:
+    - img "parcxrpl.com Club Stats on a phone"
+  - figure:
+    - 'img "parcxrpl.com Gallery on a phone: one portrait per clothesline"'
+  - figure:
+    - 'img "parcxrpl.com PARCade on a phone: the game library on the CRT"'
+  - paragraph: On a phone
+  - heading "Outcome" [level=2]
+  - list:
+    - listitem: "01 A logo library in print and web formats: the wide logo, the square lockup, and the oar"
+    - listitem: "02 PARC Pixel: three weights plus a mono, 56 glyphs each, the only typeface on the site"
+    - listitem: "03 parcxrpl.com: seven pages plus the error pages, live since September 2026"
+    - listitem: 04 Live data from the ledger, xrp.cafe, the AMM, the Fourthwall storefront, and the game leaderboard
+  - link "Next / [03] Jade Aesthetics":
+    - /url: /work/jade-aesthetics/
+  - text: "[02] / 007"
+  - link "Tell me what you’re building":
+    - /url: /contact/
+- contentinfo: (C) 2026 Timothy Ali

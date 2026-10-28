@@ -1,0 +1,207 @@
+{
+  "phone": [
+    {
+      "width": 320,
+      "innerWidth": 338,
+      "sw": 338,
+      "over": []
+    },
+    {
+      "width": 390,
+      "innerWidth": 408,
+      "sw": 408,
+      "over": []
+    },
+    {
+      "width": 420,
+      "innerWidth": 420,
+      "sw": 420,
+      "over": []
+    },
+    {
+      "width": 700,
+      "innerWidth": 700,
+      "sw": 700,
+      "over": []
+    },
+    {
+      "width": 900,
+      "innerWidth": 900,
+      "sw": 900,
+      "over": []
+    },
+    {
+      "width": 1100,
+      "innerWidth": 1100,
+      "sw": 1100,
+      "over": []
+    },
+    {
+      "width": 1440,
+      "innerWidth": 1440,
+      "sw": 1440,
+      "over": []
+    },
+    {
+      "share": {
+        "available": "function",
+        "log": [
+          {
+            "args": {
+              "title": "Toolbox",
+              "url": "http://127.0.0.1:4173/toolbox/#download"
+            }
+          }
+        ]
+      },
+      "label": "SEND THE LINK TO YOUR COMPUTER\n->",
+      "clipboard": ""
+    },
+    {
+      "fallback": true,
+      "label": "LINK COPIED\n->",
+      "clipboard": "http://127.0.0.1:4173/toolbox/#download"
+    }
+  ],
+  "detail": [],
+  "palette": [
+    {
+      "file": "Acme.css",
+      "pressed": "true",
+      "stage": ":root {\n  --field: #174c43;\n  --flare: #ff683b;\n  --signal: #f2d600;\n  --paper: #f4f1e7;\n  --field-oklch: oklch(37.9% 0.057 179.7);\n  --flare-oklch: oklch(70.1% 0.194 36.9);\n  --signal-oklch: oklch(87.3% 0.181 99.7);\n  --paper-oklch: oklch(95.8% 0.014 93.0);\n}\n"
+    },
+    {
+      "file": "Acme.scss",
+      "pressed": "true",
+      "stage": "$field: #174c43;\n$flare: #ff683b;\n$signal: #f2d600;\n$paper: #f4f1e7;\n$field-oklch: oklch(37.9% 0.057 179.7);\n$flare-oklch: oklch(70.1% 0.194 36.9);\n$signal-oklch: oklch(87.3% 0.181 99.7);\n$paper-oklch: oklch(95.8% 0.014 93.0);\n"
+    },
+    {
+      "file": "Acme.tokens.json",
+      "pressed": "true",
+      "stage": "{\n  \"colors\": {\n    \"field\": {\n      \"$type\": \"color\",\n      \"$value\": \"#174c43\",\n      \"$extensions\": {\n        \"design.toolbox.oklch\": \"oklch(37.9% 0.057 179.7)\"\n      }\n    },\n    \"flare\": {\n      \"$type\": \"color\",\n      \"$value\": \"#ff683b\",\n      \"$extensions\": {\n        \"design.toolbox.oklch\": \"oklch(70.1% 0.194 36.9)\"\n      }\n    },\n    \"signal\": {\n      \"$type\": \"color\",\n      \"$value\": \"#f2d600\",\n      \"$extensions\": {\n        \"design.toolbox.oklch\": \"oklch(87.3% 0.181 99.7)\"\n      }\n    },\n    \"paper\": {\n      \"$type\": \"color\",\n      \"$value\": \"#f4f1e7\",\n      \"$extensions\": {\n        \"design.toolbox.oklch\": \"oklch(95.8% 0.014 93.0)\"\n      }\n    }\n  }\n}\n"
+    },
+    {
+      "file": "Acme.ase",
+      "pressed": "true",
+      "stage": "FIELD\nFLARE\nSIGNAL\nPAPER\n4 SWATCHES / 166 B"
+    },
+    {
+      "file": "Acme_Swatches.pdf",
+      "pressed": "true",
+      "stage": "Acme\nField\nHEX #174C43\nOKLCH 37.9% 0.057 179.7\nCMYK 70-0-12-70\nFlare\nHEX #FF683B\nOKLCH 70.1% 0.194 36.9\nCMYK 0-59-77-0\nSignal\nHEX #F2D600\nOKLCH 87.3% 0.181 99.7\nCMYK 0-12-100-5\nPaper\nHEX #F4F1E7\nOKLCH 95.8% 0.014 93.0\nCMYK 0-1-5-4"
+    },
+    {
+      "file": "Acme_Swatches.png",
+      "pressed": "true",
+      "stage": "Acme\nField\nHEX #174C43\nOKLCH 37.9% 0.057 179.7\nCMYK 70-0-12-70\nFlare\nHEX #FF683B\nOKLCH 70.1% 0.194 36.9\nCMYK 0-59-77-0\nSignal\nHEX #F2D600\nOKLCH 87.3% 0.181 99.7\nCMYK 0-12-100-5\nPaper\nHEX #F4F1E7\nOKLCH 95.8% 0.014 93.0\nCMYK 0-1-5-4"
+    }
+  ],
+  "specimen": [
+    {
+      "role": "Display",
+      "size": "L",
+      "pressed": "true"
+    },
+    {
+      "role": "Display",
+      "size": "M",
+      "pressed": "true"
+    },
+    {
+      "role": "Display",
+      "size": "S",
+      "pressed": "true"
+    },
+    {
+      "role": "Heading",
+      "size": "L",
+      "pressed": "true"
+    },
+    {
+      "role": "Heading",
+      "size": "M",
+      "pressed": "true"
+    },
+    {
+      "role": "Heading",
+      "size": "S",
+      "pressed": "true"
+    },
+    {
+      "role": "Body",
+      "size": "L",
+      "pressed": "true"
+    },
+    {
+      "role": "Body",
+      "size": "M",
+      "pressed": "true"
+    },
+    {
+      "role": "Body",
+      "size": "S",
+      "pressed": "true"
+    }
+  ],
+  "contrast": [
+    {
+      "fg": "#f2d600",
+      "bg": "#efefeb",
+      "ratio": 1.2655468080582328,
+      "use": "dark-theme panel focus ring"
+    },
+    {
+      "fg": "#6f6200",
+      "bg": "#181814",
+      "ratio": 2.901826789838845,
+      "use": "light-theme panel focus ring"
+    },
+    {
+      "fg": "#6f6200",
+      "bg": "#efefeb",
+      "ratio": 5.321797495642891,
+      "use": "intended dark-theme panel focus ring"
+    },
+    {
+      "fg": "#f2d600",
+      "bg": "#181814",
+      "ratio": 12.202578715083943,
+      "use": "intended light-theme panel focus ring"
+    }
+  ],
+  "motion": [
+    {
+      "reduce": "reduce",
+      "animations": []
+    },
+    {
+      "reduce": "no-preference",
+      "animations": [
+        {
+          "type": "CSSAnimation",
+          "name": "blink",
+          "playState": "running",
+          "rate": 1
+        },
+        {
+          "type": "CSSAnimation",
+          "name": "svelte-tc3uts-nudge",
+          "playState": "running",
+          "rate": 1
+        },
+        {
+          "type": "CSSAnimation",
+          "name": "-ua-view-transition-group-anim-root",
+          "playState": "running",
+          "rate": 1
+        },
+        {
+          "type": "CSSAnimation",
+          "name": "dither-in",
+          "playState": "running",
+          "rate": 1
+        }
+      ]
+    }
+  ]
+}

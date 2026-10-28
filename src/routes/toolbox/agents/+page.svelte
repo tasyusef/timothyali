@@ -137,6 +137,7 @@ toolbox organize undo JOURNAL_ID`;
 .intro .lead{max-width:24ch}.intro .body{max-width:60ch}
 .jump{display:flex;flex-wrap:wrap;gap:0 var(--s3);margin-top:var(--s1)}.jump a{padding:14px 0 14px;text-decoration:underline;text-underline-offset:4px}
 @media(hover:hover){.jump a:hover{color:var(--accent-text)}}
+.jump a:active{background:var(--accent);color:var(--on-accent);box-shadow:var(--s1) 0 0 var(--accent),calc(-1 * var(--s1)) 0 0 var(--accent)} /* the press (0099), which these had not (PX-125) */
 .text{scroll-margin-top:var(--s4)}
 .meta dd{overflow-wrap:break-word} /* the path breaks after a slash (0206) */
 /* one column (0200): the heading and its explanation, then the commands at full width under

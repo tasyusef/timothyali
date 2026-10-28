@@ -1,0 +1,35 @@
+PASS ring panel dark {"outline":"rgb(111, 98, 0)","ground":"rgb(239, 239, 235)","ratio":5.32,"pass":true}
+PASS menu focus dark {"label":"Motion [on]","outline":"rgb(111, 98, 0)","bg":"rgb(24, 24, 20)","menu":"rgb(239, 239, 235)","ringOnMenu":5.32,"rowOnMenu":15.44,"pass":true}
+PASS dim on panel dark {"opacity":"0.65","pass":true}
+PASS ring panel light {"outline":"rgb(242, 214, 0)","ground":"rgb(24, 24, 20)","ratio":12.2,"pass":true}
+PASS menu focus light {"label":"Motion [on]","outline":"rgb(242, 214, 0)","bg":"rgb(239, 239, 235)","menu":"rgb(24, 24, 20)","ringOnMenu":12.2,"rowOnMenu":15.44,"pass":true}
+PASS dim on panel light {"opacity":"0.75","pass":true}
+PASS overflow /toolbox/specimen/ 320 {"scrollWidth":320,"pass":true}
+PASS overflow /toolbox/convert/ 320 {"scrollWidth":320,"pass":true}
+PASS overflow /toolbox/ 320 touch {"scrollWidth":320,"pass":true}
+PASS overflow /toolbox/ 390 touch {"scrollWidth":390,"pass":true}
+PASS overflow /toolbox/ 701 {"scrollWidth":701,"pass":true}
+PASS overflow /toolbox/ 720 {"scrollWidth":720,"pass":true}
+PASS overflow /toolbox/ 740 {"scrollWidth":740,"pass":true}
+PASS overflow /toolbox/ 760 {"scrollWidth":760,"pass":true}
+PASS overflow /toolbox/ 900 {"scrollWidth":900,"pass":true}
+PASS tap right edge of Light selects Light {"pressed":"true","pass":true}
+PASS step names at 390 {"snap":"- group \"Steps\":\n  - button \"01 Upload\" [disabled]\n  - button \"02 Outputs\"\n  - button \"03 Review\"","pass":true}
+PASS swatch chip ring {"outline":"rgb(242, 214, 0)","width":"2px","focus":true,"pass":true}
+PASS Continue moves focus to review {"active":"H4 Acme Logo Library","nextTab":"v 01 Primary/  36","pass":true}
+PASS Back returns focus to Continue {"active":"Continue->","pass":true}
+PASS clip toggle keeps focus {"before":"Pause video: xrp.cafe Explore Create Trade motion graphic","after":"BUTTON Play video: xrp.cafe Explore Create Trade motion graphic","pass":true}
+PASS nav names {"nav":"- navigation \"Main navigation\":\n  - link \"Index\":\n    - /url: /\n  - link \"Work\":\n    - /url: /work/\n  - link \"Contact\":\n    - /url: /contact/\n  - link \"Toolbox\":\n    - /url: /toolbox/","pass":true}
+PASS theme button {"pressed":null,"text":"Theme [dark]","pass":true}
+PASS readout hidden {"ro":"true","pass":true}
+PASS resume label {"rs":"Resume (PDF) ->","pass":true}
+PASS page-foot hover/press {"rest":"rgb(239, 239, 235)","hov":"rgb(242, 214, 0)","pr":"rgb(242, 214, 0)","pass":true}
+PASS download press {"dp":"rgb(242, 214, 0)","pass":true}
+PASS download note face {"note":"\"IBM Plex Mono\", ui-monospace, monospace","pass":true}
+PASS jump press {"jp":"rgb(242, 214, 0)","pass":true}
+PASS cmd+enter sends {"posts":1,"status":"Sent. I’ll reply from studio@timothyali.com.","pass":true}
+PASS send keeps focus, no double send {"during":"BUTTON true","after":"BUTTON","posts":2,"pass":true}
+PASS prefers-contrast {"o":"1","pass":true}
+PASS share refused falls back to clipboard {"st":"Link copied","pass":true}
+
+all pass

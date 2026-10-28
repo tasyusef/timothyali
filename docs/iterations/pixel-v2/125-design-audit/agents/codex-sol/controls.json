@@ -1,0 +1,1517 @@
+[
+  {
+    "width": 390,
+    "tool": "Lockup",
+    "controls": [
+      {
+        "id": "control-0",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "Light preview background",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-1",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "Dark preview background",
+        "before": {
+          "pressed": "false",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-2",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Web",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-3",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "JPEG",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-4",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "PNG",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-5",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "SVG",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-6",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Print",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-7",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "EPS",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-8",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "JPEG",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-9",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "PDF",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-10",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Color",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-11",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Black",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-12",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "White",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-13",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Large",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-14",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Medium",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-15",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Small",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-16",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "02Outputs",
+        "before": {
+          "pressed": null,
+          "value": ""
+        },
+        "after": {
+          "pressed": null,
+          "value": ""
+        }
+      },
+      {
+        "id": "control-17",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "03Review",
+        "before": {
+          "pressed": null,
+          "value": ""
+        },
+        "after": {
+          "pressed": null,
+          "value": ""
+        }
+      }
+    ],
+    "overflow": 408,
+    "stepsAX": "- group \"Steps\":\n  - button \"01\" [disabled]\n  - button \"02\"\n  - button \"03\"",
+    "reviewAX": "- text: Lockup/review 37 files Package 037\n- heading \"Acme Logo Library\" [level=4]\n- button \"01 Primary/ 36\" [expanded]\n- button \"PRINT/ 12\" [expanded]\n- button \"Black/ 5\"\n- button \"CMYK (Color)/ 5\"\n- button \"White/ 2\"\n- button \"WEB/ 24\" [expanded]\n- button \"Black/ 9\"\n- button \"RGB (Color)/ 9\"\n- button \"White/ 6\"\n- text: README.txt Summary\n- textbox \"Package name\":\n  - /placeholder: Name\n  - text: Acme\n- paragraph: 1 variation / 37 files\n- paragraph: Web + Print / Color, Black, White / Large, Medium, Small\n- text: Destination\n- button \"Choose where to save…\" [disabled]\n- button \"Back\"\n- group \"Steps\":\n  - button \"01\" [disabled]\n  - button \"02\"\n  - button \"03\"\n- button \"Export\" [disabled]"
+  },
+  {
+    "width": 390,
+    "tool": "Palette",
+    "controls": [
+      {
+        "id": "control-0",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Palette name",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "Acme"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "Acme A"
+        }
+      },
+      {
+        "id": "control-1",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Hex for color 1",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "#174c43"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "#174c43"
+        }
+      },
+      {
+        "id": "control-2",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Name for color 1",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "Field"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "Field A"
+        }
+      },
+      {
+        "id": "control-3",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "Remove color 1",
+        "before": {
+          "pressed": null,
+          "value": ""
+        },
+        "after": null
+      },
+      {
+        "id": "control-4",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Hex for color 2",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "#ff683b"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "#ff683b"
+        }
+      },
+      {
+        "id": "control-5",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Name for color 2",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "Flare"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "Flare A"
+        }
+      },
+      {
+        "id": "control-6",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "Remove color 2",
+        "before": {
+          "pressed": null,
+          "value": ""
+        },
+        "after": null
+      },
+      {
+        "id": "control-7",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Hex for color 3",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "#f2d600"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "#f2d600"
+        }
+      },
+      {
+        "id": "control-8",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Name for color 3",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "Signal"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "Signal A"
+        }
+      },
+      {
+        "id": "control-9",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "Remove color 3",
+        "before": {
+          "pressed": null,
+          "value": ""
+        },
+        "after": null
+      },
+      {
+        "id": "control-10",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Hex for color 4",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "#f4f1e7"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "#f4f1e7"
+        }
+      },
+      {
+        "id": "control-11",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Name for color 4",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "Paper"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "Paper A"
+        }
+      },
+      {
+        "id": "control-13",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "+Add color",
+        "before": {
+          "pressed": null,
+          "value": ""
+        },
+        "after": {
+          "pressed": null,
+          "value": ""
+        }
+      },
+      {
+        "id": "control-14",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "CSS / SCSS",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-15",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Tokens",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-16",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "ASE",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-17",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Swatch sheet",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      }
+    ],
+    "overflow": 408,
+    "stepsAX": null
+  },
+  {
+    "width": 390,
+    "tool": "Specimen",
+    "controls": [
+      {
+        "id": "control-0",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "Brand sheet",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-1",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "Specimen",
+        "before": {
+          "pressed": "false",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-3",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Sample line",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "Make something good."
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "Make something good. A"
+        }
+      }
+    ],
+    "overflow": 408,
+    "stepsAX": null
+  },
+  {
+    "width": 390,
+    "tool": "Convert",
+    "controls": [
+      {
+        "id": "control-0",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "PNG",
+        "before": {
+          "pressed": "false",
+          "value": ""
+        },
+        "after": {
+          "pressed": "false",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-1",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "JPEG",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-2",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "WebP",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-3",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "TIFF",
+        "before": {
+          "pressed": "false",
+          "value": ""
+        },
+        "after": {
+          "pressed": "false",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-4",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "PDF",
+        "before": {
+          "pressed": "false",
+          "value": ""
+        },
+        "after": {
+          "pressed": "false",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-5",
+        "tag": "INPUT",
+        "type": "range",
+        "name": "Compression",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "10"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "15"
+        }
+      },
+      {
+        "id": "control-6",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "Full size",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-7",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "1500",
+        "before": {
+          "pressed": "false",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-8",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "1000",
+        "before": {
+          "pressed": "false",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-9",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "500",
+        "before": {
+          "pressed": "false",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      }
+    ],
+    "overflow": 408,
+    "stepsAX": null
+  },
+  {
+    "width": 390,
+    "tool": "lockup",
+    "detailOpenByEnter": true,
+    "detailClosedBySpace": true
+  },
+  {
+    "width": 390,
+    "tool": "palette",
+    "detailOpenByEnter": true,
+    "detailClosedBySpace": true
+  },
+  {
+    "width": 390,
+    "tool": "specimen",
+    "detailOpenByEnter": true,
+    "detailClosedBySpace": true
+  },
+  {
+    "width": 390,
+    "tool": "convert",
+    "detailOpenByEnter": true,
+    "detailClosedBySpace": true
+  },
+  {
+    "width": 1440,
+    "tool": "Lockup",
+    "controls": [
+      {
+        "id": "control-0",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "Light preview background",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-1",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "Dark preview background",
+        "before": {
+          "pressed": "false",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-2",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Web",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-3",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "JPEG",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-4",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "PNG",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-5",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "SVG",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-6",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Print",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-7",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "EPS",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-8",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "JPEG",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-9",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "PDF",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-10",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Color",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-11",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Black",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-12",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "White",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-13",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Large",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-14",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Medium",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-15",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Small",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-16",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "02Outputs",
+        "before": {
+          "pressed": null,
+          "value": ""
+        },
+        "after": {
+          "pressed": null,
+          "value": ""
+        }
+      },
+      {
+        "id": "control-17",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "03Review",
+        "before": {
+          "pressed": null,
+          "value": ""
+        },
+        "after": {
+          "pressed": null,
+          "value": ""
+        }
+      }
+    ],
+    "overflow": 1440,
+    "stepsAX": "- group \"Steps\":\n  - button \"01Upload\" [disabled]\n  - button \"02Outputs\"\n  - button \"03Review\"",
+    "reviewAX": "- text: ~/Toolbox/Lockup/review 37 files Package 037\n- heading \"Acme Logo Library\" [level=4]\n- button \"01 Primary/ 36\" [expanded]\n- button \"PRINT/ 12\" [expanded]\n- button \"Black/ 5\"\n- button \"CMYK (Color)/ 5\"\n- button \"White/ 2\"\n- button \"WEB/ 24\" [expanded]\n- button \"Black/ 9\"\n- button \"RGB (Color)/ 9\"\n- button \"White/ 6\"\n- text: README.txt Summary\n- textbox \"Package name\":\n  - /placeholder: Name\n  - text: Acme\n- paragraph: 1 variation / 37 files\n- paragraph: Web + Print / Color, Black, White / Large, Medium, Small\n- text: Destination\n- button \"Choose where to save…\" [disabled]\n- button \"Back\"\n- group \"Steps\":\n  - button \"01Upload\" [disabled]\n  - button \"02Outputs\"\n  - button \"03Review\"\n- button \"Export\" [disabled]"
+  },
+  {
+    "width": 1440,
+    "tool": "Palette",
+    "controls": [
+      {
+        "id": "control-0",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Palette name",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "Acme"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "Acme A"
+        }
+      },
+      {
+        "id": "control-1",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Hex for color 1",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "#174c43"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "#174c43"
+        }
+      },
+      {
+        "id": "control-2",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Name for color 1",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "Field"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "Field A"
+        }
+      },
+      {
+        "id": "control-3",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "Remove color 1",
+        "before": {
+          "pressed": null,
+          "value": ""
+        },
+        "after": null
+      },
+      {
+        "id": "control-4",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Hex for color 2",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "#ff683b"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "#ff683b"
+        }
+      },
+      {
+        "id": "control-5",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Name for color 2",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "Flare"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "Flare A"
+        }
+      },
+      {
+        "id": "control-6",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "Remove color 2",
+        "before": {
+          "pressed": null,
+          "value": ""
+        },
+        "after": null
+      },
+      {
+        "id": "control-7",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Hex for color 3",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "#f2d600"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "#f2d600"
+        }
+      },
+      {
+        "id": "control-8",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Name for color 3",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "Signal"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "Signal A"
+        }
+      },
+      {
+        "id": "control-9",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "Remove color 3",
+        "before": {
+          "pressed": null,
+          "value": ""
+        },
+        "after": null
+      },
+      {
+        "id": "control-10",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Hex for color 4",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "#f4f1e7"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "#f4f1e7"
+        }
+      },
+      {
+        "id": "control-11",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Name for color 4",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "Paper"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "Paper A"
+        }
+      },
+      {
+        "id": "control-13",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "+Add color",
+        "before": {
+          "pressed": null,
+          "value": ""
+        },
+        "after": {
+          "pressed": null,
+          "value": ""
+        }
+      },
+      {
+        "id": "control-14",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "CSS / SCSS",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-15",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Tokens",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-16",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "ASE",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      },
+      {
+        "id": "control-17",
+        "tag": "INPUT",
+        "type": "checkbox",
+        "name": "Swatch sheet",
+        "before": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        },
+        "after": {
+          "checked": true,
+          "pressed": null,
+          "value": "on"
+        }
+      }
+    ],
+    "overflow": 1440,
+    "stepsAX": null
+  },
+  {
+    "width": 1440,
+    "tool": "Specimen",
+    "controls": [
+      {
+        "id": "control-0",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "Brand sheet",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-1",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "Specimen",
+        "before": {
+          "pressed": "false",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-3",
+        "tag": "INPUT",
+        "type": "text",
+        "name": "Sample line",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "Make something good."
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "Make something good. A"
+        }
+      }
+    ],
+    "overflow": 1440,
+    "stepsAX": null
+  },
+  {
+    "width": 1440,
+    "tool": "Convert",
+    "controls": [
+      {
+        "id": "control-0",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "PNG",
+        "before": {
+          "pressed": "false",
+          "value": ""
+        },
+        "after": {
+          "pressed": "false",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-1",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "JPEG",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-2",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "WebP",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-3",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "TIFF",
+        "before": {
+          "pressed": "false",
+          "value": ""
+        },
+        "after": {
+          "pressed": "false",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-4",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "PDF",
+        "before": {
+          "pressed": "false",
+          "value": ""
+        },
+        "after": {
+          "pressed": "false",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-5",
+        "tag": "INPUT",
+        "type": "range",
+        "name": "Compression",
+        "before": {
+          "checked": false,
+          "pressed": null,
+          "value": "10"
+        },
+        "after": {
+          "checked": false,
+          "pressed": null,
+          "value": "15"
+        }
+      },
+      {
+        "id": "control-6",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "Full size",
+        "before": {
+          "pressed": "true",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-7",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "1500",
+        "before": {
+          "pressed": "false",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-8",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "1000",
+        "before": {
+          "pressed": "false",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      },
+      {
+        "id": "control-9",
+        "tag": "BUTTON",
+        "type": "button",
+        "name": "500",
+        "before": {
+          "pressed": "false",
+          "value": ""
+        },
+        "after": {
+          "pressed": "true",
+          "value": ""
+        }
+      }
+    ],
+    "overflow": 1440,
+    "stepsAX": null
+  },
+  {
+    "forcedColors": {
+      "outline": "rgba(55, 0, 110, 0.8) solid 2px",
+      "color": "rgb(0, 0, 0)",
+      "bg": "rgb(255, 255, 255)"
+    }
+  }
+]

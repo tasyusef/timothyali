@@ -1,0 +1,113 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - link "Timothy Ali, home":
+    - /url: /
+    - text: timothy ali
+  - navigation "Main navigation":
+    - link "01Index":
+      - /url: /
+    - link "02Work":
+      - /url: /work/
+    - link "03Contact":
+      - /url: /contact/
+    - link "04Toolbox":
+      - /url: /toolbox/
+  - button "Settings"
+- text: Denver, CO MT 11:37:53
+- main:
+  - heading "toolbox." [level=1]
+  - paragraph: Prepare your files for handoff.
+  - link "Explore the tools":
+    - /url: "#tools"
+  - region "Four tools in one app.":
+    - heading "Four tools in one app." [level=2]
+    - paragraph: Package logos, export palettes, make type sheets, and convert images. Try each tool below.
+    - group "Choose a tool to preview":
+      - button "01 Lockup" [pressed]
+      - button "02 Palette"
+      - button "03 Specimen"
+      - button "04 Convert"
+    - heading "Package your logos." [level=3]
+    - paragraph: Turn your logo variations into a set of print and web files.
+    - link "Lockup guide":
+      - /url: /toolbox/lockup/
+    - text: ~/Toolbox/Lockup/outputs 37 files
+    - 'img "Example logo: Acme"': acme.
+    - group "Preview background":
+      - text: Plate
+      - button "Light preview background" [pressed]
+      - button "Dark preview background"
+    - text: Formats
+    - switch "Web" [checked]
+    - text: Web
+    - group "Web file types":
+      - button "JPEG" [pressed]
+      - button "PNG" [pressed]
+      - button "SVG" [pressed]
+    - switch "Print" [checked]
+    - text: Print
+    - group "Print file types":
+      - button "EPS" [pressed]
+      - button "JPEG" [pressed]
+      - button "PDF" [pressed]
+    - text: Treatments
+    - switch "Color" [checked]
+    - text: Color
+    - switch "Black" [checked]
+    - text: Black
+    - switch "White" [checked]
+    - text: White Sizes
+    - switch "Large" [checked]
+    - text: Large 3000 px
+    - switch "Medium" [checked]
+    - text: Medium 1500 px
+    - switch "Small" [checked]
+    - text: Small 600 px
+    - button "Back" [disabled]
+    - group "Steps":
+      - button "01Upload" [disabled]
+      - button "02Outputs"
+      - button "03Review"
+    - button "Continue"
+  - region "Automate your exports.":
+    - heading "Automate your exports." [level=2]
+    - paragraph: Use the same tools from your terminal, or from an AI assistant over MCP. You can inspect files, preview exports, and reopen saved work without opening the app.
+    - code: toolbox --mcp
+    - link "CLI & MCP docs":
+      - /url: /toolbox/agents/
+  - region "Download.":
+    - text: v1.2.3
+    - heading "Download." [level=2]
+    - paragraph: Pick the download for your computer below. The releases page lists SHA-256 checksums if you want to check the file.
+    - list:
+      - listitem:
+        - text: macOS
+        - link "Apple silicon":
+          - /url: /download/v1.2.3/Toolbox-1.2.3-arm64.dmg
+        - link "Intel":
+          - /url: /download/v1.2.3/Toolbox-1.2.3.dmg
+        - text: Signed and notarized
+      - listitem:
+        - text: Windows
+        - link "Installer x64":
+          - /url: /download/v1.2.3/Toolbox-Setup-1.2.3.exe
+        - link "Installer arm64":
+          - /url: /download/v1.2.3/Toolbox-Setup-1.2.3-arm64.exe
+        - text: The installer isn’t code-signed, so SmartScreen may warn you. Choose More info, then Run anyway.
+      - listitem:
+        - text: Linux
+        - link "AppImage x86_64":
+          - /url: /download/v1.2.3/toolbox-1.2.3-x86_64.AppImage
+        - link "AppImage arm64":
+          - /url: /download/v1.2.3/toolbox-1.2.3-arm64.AppImage
+        - link "deb amd64":
+          - /url: /download/v1.2.3/toolbox_1.2.3_amd64.deb
+        - link "deb arm64":
+          - /url: /download/v1.2.3/toolbox_1.2.3_arm64.deb
+        - text: Make the AppImage executable before opening it, or use the deb package on Debian or Ubuntu.
+    - link "All files and checksums":
+      - /url: https://github.com/tasyusef/toolbox/releases
+  - link "Get in touch":
+    - /url: /contact/
+- contentinfo: (C) 2026 Timothy Ali

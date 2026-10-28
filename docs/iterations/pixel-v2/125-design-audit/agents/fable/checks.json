@@ -1,0 +1,5986 @@
+{
+ "pages": {
+  "/@1440": {
+   "title": "Timothy Ali / Product designer",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 344px (sr) \"i’m tim.Timothy Ali\"",
+    "H2 41px (sr) \"Selected work\"",
+    "H3 41px \"Toolbox\"",
+    "H3 41px \"PARC\"",
+    "H3 41px \"Jade Aesthetics\"",
+    "H3 41px \"First Ledger\"",
+    "H2 41px (sr) \"Tell me whatyou’rebuilding.building.\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.svelte-1uha8ag",
+    "footer.global-footer.lbl.home-footer"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a.quiet-link.lbl",
+     "w": 112,
+     "h": 16,
+     "after": ""
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 4,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\" current",
+    "\"02Work\"",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Selected work",
+    "Resume ->",
+    "Toolbox->A desktop app I designed and built for getting brand files re",
+    "PARC->A new identity and website for the NFT club I cofounded in 2021,",
+    "Jade Aesthetics->Two websites for a medical spa. I launched the first ",
+    "First Ledger->I designed the logo, type, and brand guidelines for a tr",
+    "All work ->",
+    "Get in touch ->"
+   ]
+  },
+  "/work/@1440": {
+   "title": "Work / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 54px (sr) \"work.work.\"",
+    "H2 41px \"Toolbox\"",
+    "H2 41px \"PARC\"",
+    "H2 41px \"Jade Aesthetics\"",
+    "H2 41px \"First Ledger\"",
+    "H2 41px \"xrp.cafe\"",
+    "H2 41px \"FirstStrike Research\"",
+    "H2 41px \"Do Androids Dream?\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page",
+    "header.work-header.svelte-oqsuc6",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [],
+   "hiddenFocusable": [],
+   "imgs": 7,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\" current",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Toolbox->A desktop app I designed and built for getting brand files re",
+    "PARC->A new identity and website for the NFT club I cofounded in 2021,",
+    "Jade Aesthetics->Two websites for a medical spa. I launched the first ",
+    "First Ledger->I designed the logo, type, and brand guidelines for a tr",
+    "xrp.cafe->As founding designer of an NFT marketplace on the XRP Ledger",
+    "FirstStrike Research->I designed the wordmark, colors, type, and brand",
+    "Do Androids Dream?->A speculative yellow-and-black title sequence for ",
+    "Tell me what you’re buildingGet in touch ->"
+   ]
+  },
+  "/work/parc/@1440": {
+   "title": "PARC: NFT club identity and website / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 110px (sr) \"parcparcparc\"",
+    "H2 28px \"Where it started\"",
+    "H2 28px \"An earlier direction\"",
+    "H2 28px \"Redrawing the logo\"",
+    "H2 28px \"The reaction\"",
+    "H2 28px \"Logo, color, and spacing\"",
+    "H2 28px \"The typeface\"",
+    "H2 28px \"Streams, merch, and social\"",
+    "H2 28px \"The website\"",
+    "H2 28px \"Stats first\"",
+    "H2 28px \"Gallery & Clubhouse\"",
+    "H2 28px \"PARCade\"",
+    "H2 28px \"Merch & community\"",
+    "H2 28px \"Outcome\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.study.svelte-9hm5jc",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 352,
+     "h": 16,
+     "after": ""
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 32,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\" current",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "parcxrpl.com ->",
+    "Next / [03]Jade Aesthetics ->",
+    "Tell me what you’re building ->"
+   ]
+  },
+  "/work/xrpcafe/@1440": {
+   "title": "xrp.cafe: NFT marketplace identity and motion / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 110px (sr) \"xrp.cafexrp.cafexrp.cafe\"",
+    "H2 28px \"The coffee mug\"",
+    "H2 28px \"Motion graphics\"",
+    "H2 28px \"Social & events\"",
+    "H2 28px \"Outcome\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.study.svelte-9hm5jc",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 352,
+     "h": 16,
+     "after": ""
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 13,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\" current",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "xrp.cafe ->",
+    "Next / [06]FirstStrike Research ->",
+    "Tell me what you’re building ->"
+   ]
+  },
+  "/work/firstledger/@1440": {
+   "title": "First Ledger: brand for a trading platform / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 110px (sr) \"ledgerfirst ledgerfirst ledger\"",
+    "H2 28px \"Pencil + paper = ledger\"",
+    "H2 28px \"Lockups & typography\"",
+    "H2 28px \"Brand pillars\"",
+    "H2 28px \"Co-branding guidelines\"",
+    "H2 28px \"Outcome\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.study.svelte-9hm5jc",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 352,
+     "h": 16,
+     "after": ""
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 9,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\" current",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "firstledger.net ->",
+    "Next / [05]xrp.cafe ->",
+    "Tell me what you’re building ->"
+   ]
+  },
+  "/work/do-androids-dream/@1440": {
+   "title": "Do Androids Dream? A title sequence / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 110px (sr) \"androidsdo androids dream?do androids dream?\"",
+    "H2 28px \"The concept\"",
+    "H2 28px \"Visual language\"",
+    "H2 28px \"Motion & pacing\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.study.svelte-9hm5jc",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 352,
+     "h": 16,
+     "after": ""
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 4,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\" current",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Watch on YouTube ->",
+    "Watch it with sound on YouTube ->",
+    "Next / [01]Toolbox ->",
+    "Tell me what you’re building ->"
+   ]
+  },
+  "/work/jade-aesthetics/@1440": {
+   "title": "Jade Aesthetics: medical spa websites / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 110px (sr) \"aestheticsjade aestheticsjade aesthetics\"",
+    "H2 28px \"Version one: the launch site\"",
+    "H2 28px \"Why I rebuilt it\"",
+    "H2 28px \"Version two: treatment pages\"",
+    "H2 28px \"Keeping the visual identity\"",
+    "H2 28px \"Outcome\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.study.svelte-9hm5jc",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 352,
+     "h": 16,
+     "after": ""
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 9,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\" current",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "jadeaesthetics.co ->",
+    "Next / [04]First Ledger ->",
+    "Tell me what you’re building ->"
+   ]
+  },
+  "/work/firststrike/@1440": {
+   "title": "FirstStrike Research: brand identity / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 110px (sr) \"firststrikefirststrike researchfirststrike research\"",
+    "H2 28px \"The brief\"",
+    "H2 28px \"Logo & wordmark\"",
+    "H2 28px \"Color & type\"",
+    "H2 28px \"Print texture\"",
+    "H2 28px \"Outcome\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.study.svelte-9hm5jc",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 352,
+     "h": 16,
+     "after": ""
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 9,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\" current",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Next / [07]Do Androids Dream? ->",
+    "Tell me what you’re building ->"
+   ]
+  },
+  "/work/toolbox/@1440": {
+   "title": "Toolbox: desktop app for brand files / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 110px (sr) \"toolboxtoolboxtoolbox\"",
+    "H2 28px \"Four tools\"",
+    "H2 28px \"App, command line, and agents\"",
+    "H2 28px \"Outcome\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.study.svelte-9hm5jc",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 352,
+     "h": 16,
+     "after": ""
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 5,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\" current",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Downloads and guides ->",
+    "Next / [02]PARC ->",
+    "Tell me what you’re building ->"
+   ]
+  },
+  "/toolbox/@1440": {
+   "title": "Toolbox / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 258px (sr) \"toolbox.toolbox.\"",
+    "H2 55px \"Four toolsin one app.\"",
+    "H3 41px \"Package your logos.\"",
+    "H2 55px \"Automateyour exports.\"",
+    "H2 129px \"Download.\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.toolbox-landing.svelte-1358mf4",
+    "div.tool-picker.svelte-1358mf4[role=group][label=Choose a tool to preview]",
+    "div.logo.svelte-1kk5gq7[role=img][label=Example logo: Acme]",
+    "div[role=group][label=Preview background]",
+    "input.sr-only[role=switch][label=Web]",
+    "span.chips[role=group][label=Web file types]",
+    "input.sr-only[role=switch][label=Print]",
+    "span.chips[role=group][label=Print file types]",
+    "input.sr-only[role=switch][label=Color]",
+    "input.sr-only[role=switch][label=Black]",
+    "input.sr-only[role=switch][label=White]",
+    "input.sr-only[role=switch][label=Large]",
+    "input.sr-only[role=switch][label=Medium]",
+    "input.sr-only[role=switch][label=Small]",
+    "div.steps[role=group][label=Steps]",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "input.sr-only",
+     "w": 1,
+     "h": 1,
+     "after": ""
+    },
+    {
+     "el": "input.sr-only",
+     "w": 1,
+     "h": 1,
+     "after": ""
+    },
+    {
+     "el": "input.sr-only",
+     "w": 1,
+     "h": 1,
+     "after": ""
+    },
+    {
+     "el": "input.sr-only",
+     "w": 1,
+     "h": 1,
+     "after": ""
+    },
+    {
+     "el": "input.sr-only",
+     "w": 1,
+     "h": 1,
+     "after": ""
+    },
+    {
+     "el": "input.sr-only",
+     "w": 1,
+     "h": 1,
+     "after": ""
+    },
+    {
+     "el": "input.sr-only",
+     "w": 1,
+     "h": 1,
+     "after": ""
+    },
+    {
+     "el": "input.sr-only",
+     "w": 1,
+     "h": 1,
+     "after": ""
+    },
+    {
+     "el": "a.quiet-link.lbl",
+     "w": 304,
+     "h": 16,
+     "after": ""
+    },
+    {
+     "el": "a",
+     "w": 176,
+     "h": 16,
+     "after": ""
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 0,
+   "noAlt": 0,
+   "live": [
+    "div.tool-story.svelte-1358mf4 polite",
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\"",
+    "\"03Contact\"",
+    "\"04Toolbox\" current"
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Explore the tools ->",
+    "Lockup guide ->",
+    "CLI & MCP docs ->",
+    "Apple silicon",
+    "Intel",
+    "Installer x64",
+    "Installer arm64",
+    "AppImage x86_64",
+    "AppImage arm64",
+    "deb amd64",
+    "deb arm64",
+    "All files and checksums ->",
+    "Get in touch ->"
+   ]
+  },
+  "/toolbox/lockup/@1440": {
+   "title": "Lockup / Toolbox / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 110px (sr) \"LockupLockup\"",
+    "H2 41px \"When to use it\"",
+    "H2 41px \"Exported files\"",
+    "H2 41px \"CLI & MCP\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.tool",
+    "pre.code.body.panel[role=figure][label=Example command]",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 200,
+     "h": 16,
+     "after": ""
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 1,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\"",
+    "\"03Contact\"",
+    "\"04Toolbox\" current"
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Download for macOS, Windows, or Linux ->",
+    "CLI & MCP setup ->",
+    "Next / [02]Palette ->",
+    "All four tools ->"
+   ]
+  },
+  "/toolbox/palette/@1440": {
+   "title": "Palette / Toolbox / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 110px (sr) \"PalettePalette\"",
+    "H2 41px \"When to use it\"",
+    "H2 41px \"Exported files\"",
+    "H2 41px \"CLI & MCP\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.tool",
+    "pre.code.body.panel[role=figure][label=Example command]",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 200,
+     "h": 16,
+     "after": ""
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 1,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\"",
+    "\"03Contact\"",
+    "\"04Toolbox\" current"
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Download for macOS, Windows, or Linux ->",
+    "CLI & MCP setup ->",
+    "Next / [03]Specimen ->",
+    "All four tools ->"
+   ]
+  },
+  "/toolbox/specimen/@1440": {
+   "title": "Specimen / Toolbox / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 110px (sr) \"SpecimenSpecimen\"",
+    "H2 41px \"When to use it\"",
+    "H2 41px \"Exported files\"",
+    "H2 41px \"CLI & MCP\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.tool",
+    "pre.code.body.panel[role=figure][label=Example command]",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 200,
+     "h": 16,
+     "after": ""
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 1,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\"",
+    "\"03Contact\"",
+    "\"04Toolbox\" current"
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Download for macOS, Windows, or Linux ->",
+    "CLI & MCP setup ->",
+    "Next / [04]Convert ->",
+    "All four tools ->"
+   ]
+  },
+  "/toolbox/convert/@1440": {
+   "title": "Convert / Toolbox / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 110px (sr) \"ConvertConvert\"",
+    "H2 41px \"When to use it\"",
+    "H2 41px \"Exported files\"",
+    "H2 41px \"CLI & MCP\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.tool",
+    "pre.code.body.panel[role=figure][label=Example command]",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 200,
+     "h": 16,
+     "after": ""
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 1,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\"",
+    "\"03Contact\"",
+    "\"04Toolbox\" current"
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Download for macOS, Windows, or Linux ->",
+    "CLI & MCP setup ->",
+    "Next / [01]Lockup ->",
+    "All four tools ->"
+   ]
+  },
+  "/toolbox/agents/@1440": {
+   "title": "CLI & MCP / Toolbox / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 83px (sr) \"CLI & MCPCLI & MCP\"",
+    "H2 41px \"Set up the command\"",
+    "H2 41px \"The command line\"",
+    "H2 41px \"Advanced\"",
+    "H2 41px \"Options\"",
+    "H2 41px \"List\"",
+    "H2 41px \"Run\"",
+    "H2 41px \"Serve\"",
+    "H2 41px \"Organize a folder\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.agents",
+    "nav.jump.svelte-1xkxtd7[label=On this page]",
+    "pre.code.body.panel[role=figure][label=macOS shortcut]",
+    "pre.code.body.panel[role=figure][label=Commands]",
+    "pre.code.body.panel[role=figure][label=Print colors, type, edges, and saved work]",
+    "pre.code.body.panel[role=figure][label=List]",
+    "pre.code.body.panel[role=figure][label=Run one job]",
+    "pre.code.body.panel[role=figure][label=The result]",
+    "pre.code.body.panel[role=figure][label=Serve the tools]",
+    "pre.code.body.panel[role=figure][label=.mcp.json]",
+    "pre.code.body.panel[role=figure][label=Scan, dry run, apply, undo]",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 200,
+     "h": 16,
+     "after": ""
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 0,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\"",
+    "\"03Contact\"",
+    "\"04Toolbox\" current"
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Set up",
+    "Command line",
+    "Advanced",
+    "Options",
+    "List",
+    "Run",
+    "Serve",
+    "Organize",
+    "Lockup options ->",
+    "Palette options ->",
+    "Specimen options ->",
+    "Convert options ->",
+    "All four tools ->"
+   ]
+  },
+  "/contact/@1440": {
+   "title": "Get in touch / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 54px (sr) \"Tell me whatyou’rebuilding.building.\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.fill-main.svelte-1bv7ezn",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 164,
+     "h": 16,
+     "after": ""
+    },
+    {
+     "el": "a.quiet-link.lbl.dim",
+     "w": 168,
+     "h": 16,
+     "after": ""
+    },
+    {
+     "el": "a.quiet-link.lbl.dim",
+     "w": 284,
+     "h": 16,
+     "after": ""
+    },
+    {
+     "el": "a.quiet-link.lbl.dim",
+     "w": 292,
+     "h": 16,
+     "after": ""
+    }
+   ],
+   "hiddenFocusable": [
+    "input.svelte-fq8g2m tabindex=-1"
+   ],
+   "imgs": 0,
+   "noAlt": 0,
+   "live": [
+    "p#contact-status.lbl.status.svelte-fq8g2m polite",
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\"",
+    "\"03Contact\" current",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "See my work ->",
+    "Resume (PDF) ->",
+    "studio@timothyali.com ->",
+    "Message me on LinkedIn ->"
+   ]
+  },
+  "/nope/@1440": {
+   "title": "Not found / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 54px (sr) \"lost.lost.\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.fill-main.svelte-1onjsuf",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [],
+   "hiddenFocusable": [],
+   "imgs": 0,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\"",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Back to home ->"
+   ]
+  },
+  "/@390": {
+   "title": "Timothy Ali / Product designer",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 86px (sr) \"i’m tim.Timothy Ali\"",
+    "H2 41px (sr) \"Selected work\"",
+    "H3 28px \"Toolbox\"",
+    "H3 28px \"PARC\"",
+    "H3 28px \"Jade Aesthetics\"",
+    "H3 28px \"First Ledger\"",
+    "H2 41px (sr) \"Tell me whatyou’rebuilding.building.\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.svelte-1uha8ag",
+    "footer.global-footer.lbl.home-footer"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a.quiet-link.lbl",
+     "w": 112,
+     "h": 16,
+     "after": "-12px -8px"
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 4,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\" current",
+    "\"02Work\"",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Selected work",
+    "Resume ->",
+    "Toolbox->A desktop app I designed and built for getting brand files re",
+    "PARC->A new identity and website for the NFT club I cofounded in 2021,",
+    "Jade Aesthetics->Two websites for a medical spa. I launched the first ",
+    "First Ledger->I designed the logo, type, and brand guidelines for a tr",
+    "All work ->",
+    "Get in touch ->"
+   ]
+  },
+  "/work/@390": {
+   "title": "Work / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 54px (sr) \"work.work.\"",
+    "H2 28px \"Toolbox\"",
+    "H2 28px \"PARC\"",
+    "H2 28px \"Jade Aesthetics\"",
+    "H2 28px \"First Ledger\"",
+    "H2 28px \"xrp.cafe\"",
+    "H2 28px \"FirstStrike Research\"",
+    "H2 28px \"Do Androids Dream?\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page",
+    "header.work-header.svelte-oqsuc6",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [],
+   "hiddenFocusable": [],
+   "imgs": 7,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\" current",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Toolbox->A desktop app I designed and built for getting brand files re",
+    "PARC->A new identity and website for the NFT club I cofounded in 2021,",
+    "Jade Aesthetics->Two websites for a medical spa. I launched the first ",
+    "First Ledger->I designed the logo, type, and brand guidelines for a tr",
+    "xrp.cafe->As founding designer of an NFT marketplace on the XRP Ledger",
+    "FirstStrike Research->I designed the wordmark, colors, type, and brand",
+    "Do Androids Dream?->A speculative yellow-and-black title sequence for ",
+    "Tell me what you’re buildingGet in touch ->"
+   ]
+  },
+  "/work/parc/@390": {
+   "title": "PARC: NFT club identity and website / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 41px (sr) \"parcparcparc\"",
+    "H2 28px \"Where it started\"",
+    "H2 28px \"An earlier direction\"",
+    "H2 28px \"Redrawing the logo\"",
+    "H2 28px \"The reaction\"",
+    "H2 28px \"Logo, color, and spacing\"",
+    "H2 28px \"The typeface\"",
+    "H2 28px \"Streams, merch, and social\"",
+    "H2 28px \"The website\"",
+    "H2 28px \"Stats first\"",
+    "H2 28px \"Gallery & Clubhouse\"",
+    "H2 28px \"PARCade\"",
+    "H2 28px \"Merch & community\"",
+    "H2 28px \"Outcome\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.study.svelte-9hm5jc",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 358,
+     "h": 16,
+     "after": "-12px -8px"
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 32,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\" current",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "parcxrpl.com ->",
+    "Next / [03]Jade Aesthetics ->",
+    "Tell me what you’re building ->"
+   ]
+  },
+  "/work/xrpcafe/@390": {
+   "title": "xrp.cafe: NFT marketplace identity and motion / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 41px (sr) \"xrp.cafexrp.cafexrp.cafe\"",
+    "H2 28px \"The coffee mug\"",
+    "H2 28px \"Motion graphics\"",
+    "H2 28px \"Social & events\"",
+    "H2 28px \"Outcome\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.study.svelte-9hm5jc",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 358,
+     "h": 16,
+     "after": "-12px -8px"
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 13,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\" current",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "xrp.cafe ->",
+    "Next / [06]FirstStrike Research ->",
+    "Tell me what you’re building ->"
+   ]
+  },
+  "/work/firstledger/@390": {
+   "title": "First Ledger: brand for a trading platform / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 41px (sr) \"ledgerfirst ledgerfirst ledger\"",
+    "H2 28px \"Pencil + paper = ledger\"",
+    "H2 28px \"Lockups & typography\"",
+    "H2 28px \"Brand pillars\"",
+    "H2 28px \"Co-branding guidelines\"",
+    "H2 28px \"Outcome\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.study.svelte-9hm5jc",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 358,
+     "h": 16,
+     "after": "-12px -8px"
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 9,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\" current",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "firstledger.net ->",
+    "Next / [05]xrp.cafe ->",
+    "Tell me what you’re building ->"
+   ]
+  },
+  "/work/do-androids-dream/@390": {
+   "title": "Do Androids Dream? A title sequence / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 41px (sr) \"androidsdo androids dream?do androids dream?\"",
+    "H2 28px \"The concept\"",
+    "H2 28px \"Visual language\"",
+    "H2 28px \"Motion & pacing\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.study.svelte-9hm5jc",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 358,
+     "h": 16,
+     "after": "-12px -8px"
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 4,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\" current",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Watch it with sound on YouTube ->",
+    "Next / [01]Toolbox ->",
+    "Tell me what you’re building ->"
+   ]
+  },
+  "/work/jade-aesthetics/@390": {
+   "title": "Jade Aesthetics: medical spa websites / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 41px (sr) \"aestheticsjade aestheticsjade aesthetics\"",
+    "H2 28px \"Version one: the launch site\"",
+    "H2 28px \"Why I rebuilt it\"",
+    "H2 28px \"Version two: treatment pages\"",
+    "H2 28px \"Keeping the visual identity\"",
+    "H2 28px \"Outcome\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.study.svelte-9hm5jc",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 358,
+     "h": 16,
+     "after": "-12px -8px"
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 9,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\" current",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "jadeaesthetics.co ->",
+    "Next / [04]First Ledger ->",
+    "Tell me what you’re building ->"
+   ]
+  },
+  "/work/firststrike/@390": {
+   "title": "FirstStrike Research: brand identity / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 41px (sr) \"firststrikefirststrike researchfirststrike research\"",
+    "H2 28px \"The brief\"",
+    "H2 28px \"Logo & wordmark\"",
+    "H2 28px \"Color & type\"",
+    "H2 28px \"Print texture\"",
+    "H2 28px \"Outcome\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.study.svelte-9hm5jc",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 358,
+     "h": 16,
+     "after": "-12px -8px"
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 9,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\" current",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Next / [07]Do Androids Dream? ->",
+    "Tell me what you’re building ->"
+   ]
+  },
+  "/work/toolbox/@390": {
+   "title": "Toolbox: desktop app for brand files / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 41px (sr) \"toolboxtoolboxtoolbox\"",
+    "H2 28px \"Four tools\"",
+    "H2 28px \"App, command line, and agents\"",
+    "H2 28px \"Outcome\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.study.svelte-9hm5jc",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 358,
+     "h": 16,
+     "after": "-12px -8px"
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 5,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\" current",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Downloads and guides ->",
+    "Next / [02]PARC ->",
+    "Tell me what you’re building ->"
+   ]
+  },
+  "/toolbox/@390": {
+   "title": "Toolbox / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 86px (sr) \"toolbox.toolbox.\"",
+    "H2 41px \"Four toolsin one app.\"",
+    "H3 28px \"Package your logos.\"",
+    "H2 28px \"Automateyour exports.\"",
+    "H2 43px \"Download.\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.toolbox-landing.svelte-1358mf4",
+    "div.tool-picker.svelte-1358mf4[role=group][label=Choose a tool to preview]",
+    "div.logo.svelte-1kk5gq7[role=img][label=Example logo: Acme]",
+    "div[role=group][label=Preview background]",
+    "input.sr-only[role=switch][label=Web]",
+    "span.chips[role=group][label=Web file types]",
+    "input.sr-only[role=switch][label=Print]",
+    "span.chips[role=group][label=Print file types]",
+    "input.sr-only[role=switch][label=Color]",
+    "input.sr-only[role=switch][label=Black]",
+    "input.sr-only[role=switch][label=White]",
+    "input.sr-only[role=switch][label=Large]",
+    "input.sr-only[role=switch][label=Medium]",
+    "input.sr-only[role=switch][label=Small]",
+    "div.steps[role=group][label=Steps]",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "input.sr-only",
+     "w": 1,
+     "h": 1,
+     "after": ""
+    },
+    {
+     "el": "input.sr-only",
+     "w": 1,
+     "h": 1,
+     "after": ""
+    },
+    {
+     "el": "input.sr-only",
+     "w": 1,
+     "h": 1,
+     "after": ""
+    },
+    {
+     "el": "input.sr-only",
+     "w": 1,
+     "h": 1,
+     "after": ""
+    },
+    {
+     "el": "input.sr-only",
+     "w": 1,
+     "h": 1,
+     "after": ""
+    },
+    {
+     "el": "input.sr-only",
+     "w": 1,
+     "h": 1,
+     "after": ""
+    },
+    {
+     "el": "input.sr-only",
+     "w": 1,
+     "h": 1,
+     "after": ""
+    },
+    {
+     "el": "input.sr-only",
+     "w": 1,
+     "h": 1,
+     "after": ""
+    },
+    {
+     "el": "a.quiet-link.lbl",
+     "w": 304,
+     "h": 16,
+     "after": "-12px -8px"
+    },
+    {
+     "el": "a",
+     "w": 358,
+     "h": 16,
+     "after": "-12px -8px"
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 0,
+   "noAlt": 0,
+   "live": [
+    "div.tool-story.svelte-1358mf4 polite",
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\"",
+    "\"03Contact\"",
+    "\"04Toolbox\" current"
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Explore the tools ->",
+    "Lockup guide ->",
+    "CLI & MCP docs ->",
+    "Apple silicon",
+    "Intel",
+    "Installer x64",
+    "Installer arm64",
+    "AppImage x86_64",
+    "AppImage arm64",
+    "deb amd64",
+    "deb arm64",
+    "All files and checksums ->",
+    "Get in touch ->"
+   ]
+  },
+  "/toolbox/lockup/@390": {
+   "title": "Lockup / Toolbox / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 41px (sr) \"LockupLockup\"",
+    "H2 28px \"When to use it\"",
+    "H2 28px \"Exported files\"",
+    "H2 28px \"CLI & MCP\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.tool",
+    "pre.code.body.panel[role=figure][label=Example command]",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 358,
+     "h": 16,
+     "after": "-12px -8px"
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 1,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\"",
+    "\"03Contact\"",
+    "\"04Toolbox\" current"
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Download for macOS, Windows, or Linux ->",
+    "CLI & MCP setup ->",
+    "Next / [02]Palette ->",
+    "All four tools ->"
+   ]
+  },
+  "/toolbox/palette/@390": {
+   "title": "Palette / Toolbox / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 41px (sr) \"PalettePalette\"",
+    "H2 28px \"When to use it\"",
+    "H2 28px \"Exported files\"",
+    "H2 28px \"CLI & MCP\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.tool",
+    "pre.code.body.panel[role=figure][label=Example command]",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 358,
+     "h": 16,
+     "after": "-12px -8px"
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 1,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\"",
+    "\"03Contact\"",
+    "\"04Toolbox\" current"
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Download for macOS, Windows, or Linux ->",
+    "CLI & MCP setup ->",
+    "Next / [03]Specimen ->",
+    "All four tools ->"
+   ]
+  },
+  "/toolbox/specimen/@390": {
+   "title": "Specimen / Toolbox / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 41px (sr) \"SpecimenSpecimen\"",
+    "H2 28px \"When to use it\"",
+    "H2 28px \"Exported files\"",
+    "H2 28px \"CLI & MCP\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.tool",
+    "pre.code.body.panel[role=figure][label=Example command]",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 358,
+     "h": 16,
+     "after": "-12px -8px"
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 1,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\"",
+    "\"03Contact\"",
+    "\"04Toolbox\" current"
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Download for macOS, Windows, or Linux ->",
+    "CLI & MCP setup ->",
+    "Next / [04]Convert ->",
+    "All four tools ->"
+   ]
+  },
+  "/toolbox/convert/@390": {
+   "title": "Convert / Toolbox / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 41px (sr) \"ConvertConvert\"",
+    "H2 28px \"When to use it\"",
+    "H2 28px \"Exported files\"",
+    "H2 28px \"CLI & MCP\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.tool",
+    "pre.code.body.panel[role=figure][label=Example command]",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 358,
+     "h": 16,
+     "after": "-12px -8px"
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 1,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\"",
+    "\"03Contact\"",
+    "\"04Toolbox\" current"
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Download for macOS, Windows, or Linux ->",
+    "CLI & MCP setup ->",
+    "Next / [01]Lockup ->",
+    "All four tools ->"
+   ]
+  },
+  "/toolbox/agents/@390": {
+   "title": "CLI & MCP / Toolbox / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 41px (sr) \"CLI & MCPCLI & MCP\"",
+    "H2 28px \"Set up the command\"",
+    "H2 28px \"The command line\"",
+    "H2 28px \"Advanced\"",
+    "H2 28px \"Options\"",
+    "H2 28px \"List\"",
+    "H2 28px \"Run\"",
+    "H2 28px \"Serve\"",
+    "H2 28px \"Organize a folder\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.agents",
+    "nav.jump.svelte-1xkxtd7[label=On this page]",
+    "pre.code.body.panel[role=figure][label=macOS shortcut]",
+    "pre.code.body.panel[role=figure][label=Commands]",
+    "pre.code.body.panel[role=figure][label=Print colors, type, edges, and saved work]",
+    "pre.code.body.panel[role=figure][label=List]",
+    "pre.code.body.panel[role=figure][label=Run one job]",
+    "pre.code.body.panel[role=figure][label=The result]",
+    "pre.code.body.panel[role=figure][label=Serve the tools]",
+    "pre.code.body.panel[role=figure][label=.mcp.json]",
+    "pre.code.body.panel[role=figure][label=Scan, dry run, apply, undo]",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a",
+     "w": 358,
+     "h": 16,
+     "after": "-12px -8px"
+    }
+   ],
+   "hiddenFocusable": [],
+   "imgs": 0,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\"",
+    "\"03Contact\"",
+    "\"04Toolbox\" current"
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Set up",
+    "Command line",
+    "Advanced",
+    "Options",
+    "List",
+    "Run",
+    "Serve",
+    "Organize",
+    "Lockup options ->",
+    "Palette options ->",
+    "Specimen options ->",
+    "Convert options ->",
+    "All four tools ->"
+   ]
+  },
+  "/contact/@390": {
+   "title": "Get in touch / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 54px (sr) \"Tell me whatyou’rebuilding.building.\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.fill-main.svelte-1bv7ezn",
+    "footer.page-foot.lbl.dim",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [
+    {
+     "el": "a.quiet-link.lbl.dim",
+     "w": 168,
+     "h": 16,
+     "after": "-12px -8px"
+    },
+    {
+     "el": "a.quiet-link.lbl.dim",
+     "w": 284,
+     "h": 16,
+     "after": "-12px -8px"
+    },
+    {
+     "el": "a.quiet-link.lbl.dim",
+     "w": 292,
+     "h": 16,
+     "after": "-12px -8px"
+    }
+   ],
+   "hiddenFocusable": [
+    "input.svelte-fq8g2m tabindex=-1"
+   ],
+   "imgs": 0,
+   "noAlt": 0,
+   "live": [
+    "p#contact-status.lbl.status.svelte-fq8g2m polite",
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\"",
+    "\"03Contact\" current",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Resume (PDF) ->",
+    "studio@timothyali.com ->",
+    "Message me on LinkedIn ->"
+   ]
+  },
+  "/nope/@390": {
+   "title": "Not found / Timothy Ali",
+   "lang": "en",
+   "vp": "width=device-width, initial-scale=1",
+   "headings": [
+    "H1 54px (sr) \"lost.lost.\""
+   ],
+   "landmarks": [
+    "header.site-header",
+    "nav.lbl[label=Main navigation]",
+    "div#settings-menu.settings-menu[role=group][label=Settings]",
+    "main#main.inner-page.fill-main.svelte-1onjsuf",
+    "footer.global-footer.lbl"
+   ],
+   "unnamed": [],
+   "small": [],
+   "hiddenFocusable": [],
+   "imgs": 0,
+   "noAlt": 0,
+   "live": [
+    "div#svelte-announcer assertive"
+   ],
+   "nav": [
+    "\"01Index\"",
+    "\"02Work\"",
+    "\"03Contact\"",
+    "\"04Toolbox\""
+   ],
+   "skipFirst": "a.skip-link.lbl",
+   "dupNames": [],
+   "linkNames": [
+    "Skip to content",
+    "Timothy Ali, home",
+    "01Index",
+    "02Work",
+    "03Contact",
+    "04Toolbox",
+    "Back to home ->"
+   ]
+  }
+ },
+ "focus": {
+  "/@dark": [
+   {
+    "el": "a.skip-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 8,
+    "text": "Skip to content"
+   },
+   {
+    "el": "a.wordmark.blackletter",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 8,
+    "text": "Timothy Ali, home"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "01Index"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "02Work"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "03Contact"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "04Toolbox"
+   },
+   {
+    "el": "button.cog",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "Settings"
+   },
+   {
+    "el": "a.cta-hint.lbl.hero-hint",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 800,
+    "text": "Selected work"
+   },
+   {
+    "el": "a.quiet-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 808,
+    "text": "Resume ->"
+   },
+   {
+    "el": "a.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 162,
+    "text": "Toolbox->A desktop app I designed and bu"
+   },
+   {
+    "el": "a.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 162,
+    "text": "PARC->A new identity and website for the"
+   },
+   {
+    "el": "a.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 356,
+    "text": "Jade Aesthetics->Two websites for a medi"
+   },
+   {
+    "el": "a.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 356,
+    "text": "First Ledger->I designed the logo, type,"
+   },
+   {
+    "el": "a.quiet-link.lbl.pad",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 434,
+    "text": "All work ->"
+   },
+   {
+    "el": "a.cta-row.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 692,
+    "text": "Get in touch ->"
+   },
+   {
+    "el": "body"
+   }
+  ],
+  "/work/@dark": [
+   {
+    "el": "a.skip-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 8,
+    "text": "Skip to content"
+   },
+   {
+    "el": "a.wordmark.blackletter",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 8,
+    "text": "Timothy Ali, home"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "01Index"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "02Work"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "03Contact"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "04Toolbox"
+   },
+   {
+    "el": "button.cog",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "Settings"
+   },
+   {
+    "el": "a#toolbox.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 324,
+    "text": "Toolbox->A desktop app I designed and bu"
+   },
+   {
+    "el": "a#parc.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 324,
+    "text": "PARC->A new identity and website for the"
+   },
+   {
+    "el": "a#jade-aesthetics.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 186,
+    "text": "Jade Aesthetics->Two websites for a medi"
+   },
+   {
+    "el": "a#firstledger.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 186,
+    "text": "First Ledger->I designed the logo, type,"
+   },
+   {
+    "el": "a#xrpcafe.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 308,
+    "text": "xrp.cafe->As founding designer of an NFT"
+   },
+   {
+    "el": "a#firststrike.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 308,
+    "text": "FirstStrike Research->I designed the wor"
+   },
+   {
+    "el": "a#do-androids-dream.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 162,
+    "text": "Do Androids Dream?->A speculative yellow"
+   },
+   {
+    "el": "a.cta-row.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 818,
+    "text": "Tell me what you’re buildingGet in touch"
+   },
+   {
+    "el": "a.skip-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 8,
+    "text": "Skip to content"
+   },
+   {
+    "el": "a.wordmark.blackletter",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 8,
+    "text": "Timothy Ali, home"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "01Index"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "02Work"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "03Contact"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "04Toolbox"
+   },
+   {
+    "el": "button.cog",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "Settings"
+   },
+   {
+    "el": "a#toolbox.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 324,
+    "text": "Toolbox->A desktop app I designed and bu"
+   },
+   {
+    "el": "a#parc.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 324,
+    "text": "PARC->A new identity and website for the"
+   },
+   {
+    "el": "a#jade-aesthetics.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 186,
+    "text": "Jade Aesthetics->Two websites for a medi"
+   },
+   {
+    "el": "a#firstledger.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 186,
+    "text": "First Ledger->I designed the logo, type,"
+   },
+   {
+    "el": "a#xrpcafe.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 308,
+    "text": "xrp.cafe->As founding designer of an NFT"
+   },
+   {
+    "el": "a#firststrike.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 308,
+    "text": "FirstStrike Research->I designed the wor"
+   },
+   {
+    "el": "a#do-androids-dream.card",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 162,
+    "text": "Do Androids Dream?->A speculative yellow"
+   },
+   {
+    "el": "a.cta-row.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 818,
+    "text": "Tell me what you’re buildingGet in touch"
+   },
+   {
+    "el": "body"
+   }
+  ],
+  "/work/parc/@dark": [
+   {
+    "el": "a.skip-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 8,
+    "text": "Skip to content"
+   },
+   {
+    "el": "a.wordmark.blackletter",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 8,
+    "text": "Timothy Ali, home"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "01Index"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "02Work"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "03Contact"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "04Toolbox"
+   },
+   {
+    "el": "button.cog",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "Settings"
+   },
+   {
+    "el": "a.quiet-link",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 868,
+    "text": "parcxrpl.com ->"
+   },
+   {
+    "el": "button.play.svelte-5a50li",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 418,
+    "text": "Play video: PARC After Darc starting-soo"
+   },
+   {
+    "el": "a.cta-row.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 700,
+    "text": "Next / [03]Jade Aesthetics ->"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 828,
+    "text": "Tell me what you’re building ->"
+   },
+   {
+    "el": "a.skip-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 8,
+    "text": "Skip to content"
+   },
+   {
+    "el": "a.wordmark.blackletter",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 8,
+    "text": "Timothy Ali, home"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "01Index"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "02Work"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "03Contact"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "04Toolbox"
+   },
+   {
+    "el": "button.cog",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "Settings"
+   },
+   {
+    "el": "a.quiet-link",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 868,
+    "text": "parcxrpl.com ->"
+   },
+   {
+    "el": "button.play.svelte-5a50li",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 418,
+    "text": "Play video: PARC After Darc starting-soo"
+   },
+   {
+    "el": "a.cta-row.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 700,
+    "text": "Next / [03]Jade Aesthetics ->"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 828,
+    "text": "Tell me what you’re building ->"
+   },
+   {
+    "el": "body"
+   }
+  ],
+  "/toolbox/@dark": [
+   {
+    "el": "a.skip-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 8,
+    "text": "Skip to content"
+   },
+   {
+    "el": "a.wordmark.blackletter",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 8,
+    "text": "Timothy Ali, home"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "01Index"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "02Work"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "03Contact"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "04Toolbox"
+   },
+   {
+    "el": "button.cog",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "Settings"
+   },
+   {
+    "el": "a.cta.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 584,
+    "text": "Explore the tools ->"
+   },
+   {
+    "el": "button.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 394,
+    "text": "01Lockup"
+   },
+   {
+    "el": "button.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 394,
+    "text": "02Palette"
+   },
+   {
+    "el": "button.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 394,
+    "text": "03Specimen"
+   },
+   {
+    "el": "button.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 394,
+    "text": "04Convert"
+   },
+   {
+    "el": "a.quiet-link.lbl.pad",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 786,
+    "text": "Lockup guide ->"
+   },
+   {
+    "el": "button.swatch-chip.plate-light.on",
+    "fv": true,
+    "outline": "solid 2px rgb(239, 239, 235) off 2px",
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(17, 17, 17)",
+    "inView": true,
+    "top": 434,
+    "text": "Light preview background"
+   },
+   {
+    "el": "button.swatch-chip.plate-dark",
+    "fv": true,
+    "outline": "solid 1px color(srgb 0.937255 0.937255 0.921569 / 0.14) off 2px",
+    "bg": "rgb(26, 26, 26)",
+    "color": "rgb(255, 255, 255)",
+    "inView": true,
+    "top": 434,
+    "text": "Dark preview background"
+   },
+   {
+    "el": "input.sr-only",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(255, 255, 255)",
+    "inView": true,
+    "top": 147,
+    "text": "Web"
+   },
+   {
+    "el": "button.chip",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 131,
+    "text": "JPEG"
+   },
+   {
+    "el": "button.chip",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 131,
+    "text": "PNG"
+   },
+   {
+    "el": "button.chip",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 131,
+    "text": "SVG"
+   },
+   {
+    "el": "input.sr-only",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(255, 255, 255)",
+    "inView": true,
+    "top": 195,
+    "text": "Print"
+   },
+   {
+    "el": "button.chip",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 179,
+    "text": "EPS"
+   },
+   {
+    "el": "button.chip",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 179,
+    "text": "JPEG"
+   },
+   {
+    "el": "button.chip",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 179,
+    "text": "PDF"
+   },
+   {
+    "el": "input.sr-only",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(255, 255, 255)",
+    "inView": true,
+    "top": 291,
+    "text": "Color"
+   },
+   {
+    "el": "input.sr-only",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(255, 255, 255)",
+    "inView": true,
+    "top": 323,
+    "text": "Black"
+   },
+   {
+    "el": "input.sr-only",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(255, 255, 255)",
+    "inView": true,
+    "top": 355,
+    "text": "White"
+   },
+   {
+    "el": "input.sr-only",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(255, 255, 255)",
+    "inView": true,
+    "top": 443,
+    "text": "Large"
+   },
+   {
+    "el": "input.sr-only",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(255, 255, 255)",
+    "inView": true,
+    "top": 475,
+    "text": "Medium"
+   },
+   {
+    "el": "input.sr-only",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(255, 255, 255)",
+    "inView": true,
+    "top": 507,
+    "text": "Small"
+   },
+   {
+    "el": "button",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 554,
+    "text": "02Outputs"
+   },
+   {
+    "el": "button",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 554,
+    "text": "03Review"
+   },
+   {
+    "el": "button.demo-act.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 554,
+    "text": "Continue->"
+   },
+   {
+    "el": "a.quiet-link.lbl.pad",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 434,
+    "text": "CLI & MCP docs ->"
+   },
+   {
+    "el": "a.body.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 682,
+    "text": "Apple silicon"
+   },
+   {
+    "el": "a.body.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 682,
+    "text": "Intel"
+   },
+   {
+    "el": "a.body.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 746,
+    "text": "Installer x64"
+   },
+   {
+    "el": "a.body.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 746,
+    "text": "Installer arm64"
+   },
+   {
+    "el": "a.body.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 826,
+    "text": "AppImage x86_64"
+   },
+   {
+    "el": "a.body.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 826,
+    "text": "AppImage arm64"
+   },
+   {
+    "el": "a.body.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 826,
+    "text": "deb amd64"
+   },
+   {
+    "el": "a.body.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 868,
+    "text": "deb arm64"
+   },
+   {
+    "el": "a.quiet-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 716,
+    "text": "All files and checksums ->"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 796,
+    "text": "Get in touch ->"
+   },
+   {
+    "el": "a.skip-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 8,
+    "text": "Skip to content"
+   },
+   {
+    "el": "a.wordmark.blackletter",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 8,
+    "text": "Timothy Ali, home"
+   }
+  ],
+  "/contact/@dark": [
+   {
+    "el": "a.skip-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 8,
+    "text": "Skip to content"
+   },
+   {
+    "el": "a.wordmark.blackletter",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 8,
+    "text": "Timothy Ali, home"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "01Index"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "02Work"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "03Contact"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "04Toolbox"
+   },
+   {
+    "el": "button.cog",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 16,
+    "text": "Settings"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 804,
+    "text": "See my work ->"
+   },
+   {
+    "el": "input.body.svelte-fq8g2m",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 396,
+    "text": ""
+   },
+   {
+    "el": "input.body.svelte-fq8g2m",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 396,
+    "text": ""
+   },
+   {
+    "el": "textarea.body.svelte-fq8g2m",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 484,
+    "text": ""
+   },
+   {
+    "el": "button.cta-row.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 620,
+    "text": "Send->"
+   },
+   {
+    "el": "a.quiet-link.lbl.dim",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 732,
+    "text": "Resume (PDF) ->"
+   },
+   {
+    "el": "a.quiet-link.lbl.dim",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 756,
+    "text": "studio@timothyali.com ->"
+   },
+   {
+    "el": "a.quiet-link.lbl.dim",
+    "fv": true,
+    "outline": "solid 2px rgb(242, 214, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 780,
+    "text": "Message me on LinkedIn ->"
+   },
+   {
+    "el": "body"
+   }
+  ],
+  "/@light": [
+   {
+    "el": "a.skip-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 8,
+    "text": "Skip to content"
+   },
+   {
+    "el": "a.wordmark.blackletter",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 8,
+    "text": "Timothy Ali, home"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "01Index"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "02Work"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "03Contact"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "04Toolbox"
+   },
+   {
+    "el": "button.cog",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "Settings"
+   },
+   {
+    "el": "a.cta-hint.lbl.hero-hint",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 800,
+    "text": "Selected work"
+   },
+   {
+    "el": "a.quiet-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 808,
+    "text": "Resume ->"
+   },
+   {
+    "el": "a.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 162,
+    "text": "Toolbox->A desktop app I designed and bu"
+   },
+   {
+    "el": "a.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 162,
+    "text": "PARC->A new identity and website for the"
+   },
+   {
+    "el": "a.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 356,
+    "text": "Jade Aesthetics->Two websites for a medi"
+   },
+   {
+    "el": "a.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 356,
+    "text": "First Ledger->I designed the logo, type,"
+   },
+   {
+    "el": "a.quiet-link.lbl.pad",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 434,
+    "text": "All work ->"
+   },
+   {
+    "el": "a.cta-row.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 692,
+    "text": "Get in touch ->"
+   },
+   {
+    "el": "body"
+   }
+  ],
+  "/work/@light": [
+   {
+    "el": "a.skip-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 8,
+    "text": "Skip to content"
+   },
+   {
+    "el": "a.wordmark.blackletter",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 8,
+    "text": "Timothy Ali, home"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "01Index"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "02Work"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "03Contact"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "04Toolbox"
+   },
+   {
+    "el": "button.cog",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "Settings"
+   },
+   {
+    "el": "a#toolbox.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 324,
+    "text": "Toolbox->A desktop app I designed and bu"
+   },
+   {
+    "el": "a#parc.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 324,
+    "text": "PARC->A new identity and website for the"
+   },
+   {
+    "el": "a#jade-aesthetics.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 186,
+    "text": "Jade Aesthetics->Two websites for a medi"
+   },
+   {
+    "el": "a#firstledger.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 186,
+    "text": "First Ledger->I designed the logo, type,"
+   },
+   {
+    "el": "a#xrpcafe.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 308,
+    "text": "xrp.cafe->As founding designer of an NFT"
+   },
+   {
+    "el": "a#firststrike.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 308,
+    "text": "FirstStrike Research->I designed the wor"
+   },
+   {
+    "el": "a#do-androids-dream.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 162,
+    "text": "Do Androids Dream?->A speculative yellow"
+   },
+   {
+    "el": "a.cta-row.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 818,
+    "text": "Tell me what you’re buildingGet in touch"
+   },
+   {
+    "el": "a.skip-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 8,
+    "text": "Skip to content"
+   },
+   {
+    "el": "a.wordmark.blackletter",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 8,
+    "text": "Timothy Ali, home"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "01Index"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "02Work"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "03Contact"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "04Toolbox"
+   },
+   {
+    "el": "button.cog",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "Settings"
+   },
+   {
+    "el": "a#toolbox.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 324,
+    "text": "Toolbox->A desktop app I designed and bu"
+   },
+   {
+    "el": "a#parc.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 324,
+    "text": "PARC->A new identity and website for the"
+   },
+   {
+    "el": "a#jade-aesthetics.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 186,
+    "text": "Jade Aesthetics->Two websites for a medi"
+   },
+   {
+    "el": "a#firstledger.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 186,
+    "text": "First Ledger->I designed the logo, type,"
+   },
+   {
+    "el": "a#xrpcafe.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 308,
+    "text": "xrp.cafe->As founding designer of an NFT"
+   },
+   {
+    "el": "a#firststrike.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 308,
+    "text": "FirstStrike Research->I designed the wor"
+   },
+   {
+    "el": "a#do-androids-dream.card",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 162,
+    "text": "Do Androids Dream?->A speculative yellow"
+   },
+   {
+    "el": "a.cta-row.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 818,
+    "text": "Tell me what you’re buildingGet in touch"
+   },
+   {
+    "el": "body"
+   }
+  ],
+  "/work/parc/@light": [
+   {
+    "el": "a.skip-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 8,
+    "text": "Skip to content"
+   },
+   {
+    "el": "a.wordmark.blackletter",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 8,
+    "text": "Timothy Ali, home"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "01Index"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "02Work"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "03Contact"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "04Toolbox"
+   },
+   {
+    "el": "button.cog",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "Settings"
+   },
+   {
+    "el": "a.quiet-link",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 868,
+    "text": "parcxrpl.com ->"
+   },
+   {
+    "el": "button.play.svelte-5a50li",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 418,
+    "text": "Play video: PARC After Darc starting-soo"
+   },
+   {
+    "el": "a.cta-row.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 700,
+    "text": "Next / [03]Jade Aesthetics ->"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 828,
+    "text": "Tell me what you’re building ->"
+   },
+   {
+    "el": "a.skip-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 8,
+    "text": "Skip to content"
+   },
+   {
+    "el": "a.wordmark.blackletter",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 8,
+    "text": "Timothy Ali, home"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "01Index"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "02Work"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "03Contact"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "04Toolbox"
+   },
+   {
+    "el": "button.cog",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "Settings"
+   },
+   {
+    "el": "a.quiet-link",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 868,
+    "text": "parcxrpl.com ->"
+   },
+   {
+    "el": "button.play.svelte-5a50li",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 418,
+    "text": "Play video: PARC After Darc starting-soo"
+   },
+   {
+    "el": "a.cta-row.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 700,
+    "text": "Next / [03]Jade Aesthetics ->"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 828,
+    "text": "Tell me what you’re building ->"
+   },
+   {
+    "el": "body"
+   }
+  ],
+  "/toolbox/@light": [
+   {
+    "el": "a.skip-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 8,
+    "text": "Skip to content"
+   },
+   {
+    "el": "a.wordmark.blackletter",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 8,
+    "text": "Timothy Ali, home"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "01Index"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "02Work"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "03Contact"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "04Toolbox"
+   },
+   {
+    "el": "button.cog",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "Settings"
+   },
+   {
+    "el": "a.cta.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 584,
+    "text": "Explore the tools ->"
+   },
+   {
+    "el": "button.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 394,
+    "text": "01Lockup"
+   },
+   {
+    "el": "button.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 394,
+    "text": "02Palette"
+   },
+   {
+    "el": "button.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 394,
+    "text": "03Specimen"
+   },
+   {
+    "el": "button.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 394,
+    "text": "04Convert"
+   },
+   {
+    "el": "a.quiet-link.lbl.pad",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 786,
+    "text": "Lockup guide ->"
+   },
+   {
+    "el": "button.swatch-chip.plate-light.on",
+    "fv": true,
+    "outline": "solid 2px rgb(24, 24, 20) off 2px",
+    "bg": "rgb(255, 255, 255)",
+    "color": "rgb(17, 17, 17)",
+    "inView": true,
+    "top": 434,
+    "text": "Light preview background"
+   },
+   {
+    "el": "button.swatch-chip.plate-dark",
+    "fv": true,
+    "outline": "solid 1px color(srgb 0.0941176 0.0941176 0.0784314 / 0.14) off 2px",
+    "bg": "rgb(26, 26, 26)",
+    "color": "rgb(255, 255, 255)",
+    "inView": true,
+    "top": 434,
+    "text": "Dark preview background"
+   },
+   {
+    "el": "input.sr-only",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(0, 0, 0)",
+    "inView": true,
+    "top": 147,
+    "text": "Web"
+   },
+   {
+    "el": "button.chip",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 131,
+    "text": "JPEG"
+   },
+   {
+    "el": "button.chip",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 131,
+    "text": "PNG"
+   },
+   {
+    "el": "button.chip",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 131,
+    "text": "SVG"
+   },
+   {
+    "el": "input.sr-only",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(0, 0, 0)",
+    "inView": true,
+    "top": 195,
+    "text": "Print"
+   },
+   {
+    "el": "button.chip",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 179,
+    "text": "EPS"
+   },
+   {
+    "el": "button.chip",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 179,
+    "text": "JPEG"
+   },
+   {
+    "el": "button.chip",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 179,
+    "text": "PDF"
+   },
+   {
+    "el": "input.sr-only",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(0, 0, 0)",
+    "inView": true,
+    "top": 291,
+    "text": "Color"
+   },
+   {
+    "el": "input.sr-only",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(0, 0, 0)",
+    "inView": true,
+    "top": 323,
+    "text": "Black"
+   },
+   {
+    "el": "input.sr-only",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(0, 0, 0)",
+    "inView": true,
+    "top": 355,
+    "text": "White"
+   },
+   {
+    "el": "input.sr-only",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(0, 0, 0)",
+    "inView": true,
+    "top": 443,
+    "text": "Large"
+   },
+   {
+    "el": "input.sr-only",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(0, 0, 0)",
+    "inView": true,
+    "top": 475,
+    "text": "Medium"
+   },
+   {
+    "el": "input.sr-only",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(0, 0, 0)",
+    "inView": true,
+    "top": 507,
+    "text": "Small"
+   },
+   {
+    "el": "button",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 554,
+    "text": "02Outputs"
+   },
+   {
+    "el": "button",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 554,
+    "text": "03Review"
+   },
+   {
+    "el": "button.demo-act.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 554,
+    "text": "Continue->"
+   },
+   {
+    "el": "a.quiet-link.lbl.pad",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 434,
+    "text": "CLI & MCP docs ->"
+   },
+   {
+    "el": "a.body.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 682,
+    "text": "Apple silicon"
+   },
+   {
+    "el": "a.body.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 682,
+    "text": "Intel"
+   },
+   {
+    "el": "a.body.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 746,
+    "text": "Installer x64"
+   },
+   {
+    "el": "a.body.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 746,
+    "text": "Installer arm64"
+   },
+   {
+    "el": "a.body.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 826,
+    "text": "AppImage x86_64"
+   },
+   {
+    "el": "a.body.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 826,
+    "text": "AppImage arm64"
+   },
+   {
+    "el": "a.body.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 826,
+    "text": "deb amd64"
+   },
+   {
+    "el": "a.body.svelte-1358mf4",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 868,
+    "text": "deb arm64"
+   },
+   {
+    "el": "a.quiet-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 716,
+    "text": "All files and checksums ->"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 796,
+    "text": "Get in touch ->"
+   },
+   {
+    "el": "a.skip-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 8,
+    "text": "Skip to content"
+   },
+   {
+    "el": "a.wordmark.blackletter",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 8,
+    "text": "Timothy Ali, home"
+   }
+  ],
+  "/contact/@light": [
+   {
+    "el": "a.skip-link.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(24, 24, 20)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 8,
+    "text": "Skip to content"
+   },
+   {
+    "el": "a.wordmark.blackletter",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 8,
+    "text": "Timothy Ali, home"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "01Index"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "02Work"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "03Contact"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "04Toolbox"
+   },
+   {
+    "el": "button.cog",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 16,
+    "text": "Settings"
+   },
+   {
+    "el": "a",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 804,
+    "text": "See my work ->"
+   },
+   {
+    "el": "input.body.svelte-fq8g2m",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 396,
+    "text": ""
+   },
+   {
+    "el": "input.body.svelte-fq8g2m",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 396,
+    "text": ""
+   },
+   {
+    "el": "textarea.body.svelte-fq8g2m",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 484,
+    "text": ""
+   },
+   {
+    "el": "button.cta-row.lbl",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgb(239, 239, 235)",
+    "color": "rgb(24, 24, 20)",
+    "inView": true,
+    "top": 620,
+    "text": "Send->"
+   },
+   {
+    "el": "a.quiet-link.lbl.dim",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 732,
+    "text": "Resume (PDF) ->"
+   },
+   {
+    "el": "a.quiet-link.lbl.dim",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 756,
+    "text": "studio@timothyali.com ->"
+   },
+   {
+    "el": "a.quiet-link.lbl.dim",
+    "fv": true,
+    "outline": "solid 2px rgb(111, 98, 0) off 2px",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(239, 239, 235)",
+    "inView": true,
+    "top": 780,
+    "text": "Message me on LinkedIn ->"
+   },
+   {
+    "el": "body"
+   }
+  ]
+ },
+ "form": {
+  "1440-dark": {
+   "empty": {
+    "active": "name",
+    "invalid": [
+     "name→name-note:Enter your name.",
+     "email→email-note:Enter an email address I can reply to.",
+     "message→message-note:Tell me about the role or project."
+    ],
+    "focusOutline": "rgb(242, 214, 0)"
+   },
+   "badEmail": {
+    "active": "email",
+    "note": "That doesn’t look like an email address. Try something like name@example.com."
+   },
+   "cleared": true,
+   "sending": {
+    "label": "Sending->",
+    "disabled": true,
+    "active": "body",
+    "opacity": "0.65"
+   },
+   "sent": {
+    "status": "Sent. I’ll reply from studio@timothyali.com.",
+    "active": "body",
+    "name": "",
+    "label": "Send->"
+   },
+   "failed": {
+    "status": "Your message didn’t send. Try again, or email studio@timothyali.com.",
+    "active": "body",
+    "kept": "Hello again",
+    "disabled": false
+   },
+   "rateLimited": "That’s a lot of messages at once. Wait a few minutes, or email studio@timothyali.com.",
+   "inputFont": {
+    "fs": "27px",
+    "caret": "rgba(0, 0, 0, 0)",
+    "h": 48
+   }
+  },
+  "1440-light": {
+   "empty": {
+    "active": "name",
+    "invalid": [
+     "name→name-note:Enter your name.",
+     "email→email-note:Enter an email address I can reply to.",
+     "message→message-note:Tell me about the role or project."
+    ],
+    "focusOutline": "rgb(111, 98, 0)"
+   },
+   "badEmail": {
+    "active": "email",
+    "note": "That doesn’t look like an email address. Try something like name@example.com."
+   },
+   "cleared": true,
+   "sending": {
+    "label": "Sending->",
+    "disabled": true,
+    "active": "body",
+    "opacity": "0.55"
+   },
+   "sent": {
+    "status": "Sent. I’ll reply from studio@timothyali.com.",
+    "active": "body",
+    "name": "",
+    "label": "Send->"
+   },
+   "failed": {
+    "status": "Your message didn’t send. Try again, or email studio@timothyali.com.",
+    "active": "body",
+    "kept": "Hello again",
+    "disabled": false
+   },
+   "rateLimited": "That’s a lot of messages at once. Wait a few minutes, or email studio@timothyali.com.",
+   "inputFont": {
+    "fs": "27px",
+    "caret": "rgba(0, 0, 0, 0)",
+    "h": 48
+   }
+  },
+  "390-dark": {
+   "empty": {
+    "active": "name",
+    "invalid": [
+     "name→name-note:Enter your name.",
+     "email→email-note:Enter an email address I can reply to.",
+     "message→message-note:Tell me about the role or project."
+    ],
+    "focusOutline": "rgb(242, 214, 0)"
+   },
+   "badEmail": {
+    "active": "email",
+    "note": "That doesn’t look like an email address. Try something like name@example.com."
+   },
+   "cleared": true,
+   "sending": {
+    "label": "Sending->",
+    "disabled": true,
+    "active": "body",
+    "opacity": "0.65"
+   },
+   "sent": {
+    "status": "Sent. I’ll reply from studio@timothyali.com.",
+    "active": "body",
+    "name": "",
+    "label": "Send->"
+   },
+   "failed": {
+    "status": "Your message didn’t send. Try again, or email studio@timothyali.com.",
+    "active": "body",
+    "kept": "Hello again",
+    "disabled": false
+   },
+   "rateLimited": "That’s a lot of messages at once. Wait a few minutes, or email studio@timothyali.com.",
+   "inputFont": {
+    "fs": "27px",
+    "caret": "rgba(0, 0, 0, 0)",
+    "h": 48
+   }
+  }
+ },
+ "settings": {
+  "dark": {
+   "open": true,
+   "onMotion": {
+    "el": "Motion [off]",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "outline": "rgb(242, 214, 0)",
+    "menuBg": "rgb(239, 239, 235)",
+    "pressed": "false"
+   },
+   "hoverCss": {
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)"
+   },
+   "after": {
+    "hidden": true,
+    "active": "cog"
+   },
+   "toggled": "light"
+  },
+  "light": {
+   "open": true,
+   "onMotion": {
+    "el": "Motion [off]",
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)",
+    "outline": "rgb(111, 98, 0)",
+    "menuBg": "rgb(24, 24, 20)",
+    "pressed": "false"
+   },
+   "hoverCss": {
+    "bg": "rgb(242, 214, 0)",
+    "color": "rgb(24, 24, 20)"
+   },
+   "after": {
+    "hidden": true,
+    "active": "cog"
+   },
+   "toggled": "dark"
+  }
+ },
+ "video": {
+  "/work/parc/@on": [
+   {
+    "label": "PARC After Darc starting-soon screen: a ",
+    "paused": false,
+    "controls": false,
+    "button": "Pause video: PARC After Darc s",
+    "opacity": "0",
+    "w": 48,
+    "h": 48
+   }
+  ],
+  "/work/do-androids-dream/@on": [
+   {
+    "label": "Do Androids Dream title sequence, about ",
+    "paused": false,
+    "controls": false,
+    "button": "Pause video: Do Androids Dream",
+    "opacity": "0",
+    "w": 48,
+    "h": 48
+   }
+  ],
+  "/work/parc/@off": [
+   {
+    "label": "PARC After Darc starting-soon screen: a ",
+    "paused": true,
+    "controls": false,
+    "button": "Play video: PARC After Darc st",
+    "opacity": "1",
+    "w": 64,
+    "h": 64
+   }
+  ],
+  "/work/do-androids-dream/@off": [
+   {
+    "label": "Do Androids Dream title sequence, about ",
+    "paused": true,
+    "controls": false,
+    "button": "Play video: Do Androids Dream ",
+    "opacity": "1",
+    "w": 64,
+    "h": 64
+   }
+  ]
+ },
+ "measure": {
+  "/@1440": {
+   ".body": {
+    "n": 5,
+    "maxCpl": {
+     "cpl": 65,
+     "w": 640,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 141,
+     "tt": "none",
+     "op": "1",
+     "lines": 3
+    },
+    "longest": {
+     "cpl": 64,
+     "w": 640,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 154,
+     "tt": "none",
+     "op": "1",
+     "lines": 3
+    }
+   }
+  },
+  "/work/@1440": {
+   ".body": {
+    "n": 7,
+    "maxCpl": {
+     "cpl": 65,
+     "w": 640,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 141,
+     "tt": "none",
+     "op": "1",
+     "lines": 3
+    },
+    "longest": {
+     "cpl": 64,
+     "w": 640,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 154,
+     "tt": "none",
+     "op": "1",
+     "lines": 3
+    }
+   }
+  },
+  "/work/parc/@1440": {
+   ".read": {
+    "n": 29,
+    "maxCpl": {
+     "cpl": 65,
+     "w": 704,
+     "fs": "18px",
+     "lh": "32px",
+     "ratio": "1.78",
+     "chars": 275,
+     "tt": "none",
+     "op": "1",
+     "lines": 5
+    },
+    "longest": {
+     "cpl": 41,
+     "w": 440,
+     "fs": "18px",
+     "lh": "32px",
+     "ratio": "1.78",
+     "chars": 356,
+     "tt": "none",
+     "op": "1",
+     "lines": 10
+    }
+   }
+  },
+  "/work/xrpcafe/@1440": {
+   ".read": {
+    "n": 9,
+    "maxCpl": {
+     "cpl": 65,
+     "w": 704,
+     "fs": "18px",
+     "lh": "32px",
+     "ratio": "1.78",
+     "chars": 216,
+     "tt": "none",
+     "op": "1",
+     "lines": 4
+    },
+    "longest": {
+     "cpl": 65,
+     "w": 704,
+     "fs": "18px",
+     "lh": "32px",
+     "ratio": "1.78",
+     "chars": 253,
+     "tt": "none",
+     "op": "1",
+     "lines": 5
+    }
+   }
+  },
+  "/work/firstledger/@1440": {
+   ".read": {
+    "n": 10,
+    "maxCpl": {
+     "cpl": 65,
+     "w": 704,
+     "fs": "18px",
+     "lh": "32px",
+     "ratio": "1.78",
+     "chars": 231,
+     "tt": "none",
+     "op": "1",
+     "lines": 4
+    },
+    "longest": {
+     "cpl": 41,
+     "w": 440,
+     "fs": "18px",
+     "lh": "32px",
+     "ratio": "1.78",
+     "chars": 237,
+     "tt": "none",
+     "op": "1",
+     "lines": 7
+    }
+   }
+  },
+  "/work/do-androids-dream/@1440": {
+   ".read": {
+    "n": 7,
+    "maxCpl": {
+     "cpl": 65,
+     "w": 704,
+     "fs": "18px",
+     "lh": "32px",
+     "ratio": "1.78",
+     "chars": 310,
+     "tt": "none",
+     "op": "1",
+     "lines": 5
+    },
+    "longest": {
+     "cpl": 65,
+     "w": 704,
+     "fs": "18px",
+     "lh": "32px",
+     "ratio": "1.78",
+     "chars": 310,
+     "tt": "none",
+     "op": "1",
+     "lines": 5
+    }
+   }
+  },
+  "/work/jade-aesthetics/@1440": {
+   ".read": {
+    "n": 9,
+    "maxCpl": {
+     "cpl": 65,
+     "w": 704,
+     "fs": "18px",
+     "lh": "32px",
+     "ratio": "1.78",
+     "chars": 257,
+     "tt": "none",
+     "op": "1",
+     "lines": 5
+    },
+    "longest": {
+     "cpl": 41,
+     "w": 440,
+     "fs": "18px",
+     "lh": "32px",
+     "ratio": "1.78",
+     "chars": 298,
+     "tt": "none",
+     "op": "1",
+     "lines": 8
+    }
+   }
+  },
+  "/work/firststrike/@1440": {
+   ".read": {
+    "n": 7,
+    "maxCpl": {
+     "cpl": 65,
+     "w": 704,
+     "fs": "18px",
+     "lh": "32px",
+     "ratio": "1.78",
+     "chars": 144,
+     "tt": "none",
+     "op": "1",
+     "lines": 3
+    },
+    "longest": {
+     "cpl": 41,
+     "w": 440,
+     "fs": "18px",
+     "lh": "32px",
+     "ratio": "1.78",
+     "chars": 229,
+     "tt": "none",
+     "op": "1",
+     "lines": 6
+    }
+   }
+  },
+  "/work/toolbox/@1440": {
+   ".read": {
+    "n": 10,
+    "maxCpl": {
+     "cpl": 65,
+     "w": 704,
+     "fs": "18px",
+     "lh": "32px",
+     "ratio": "1.78",
+     "chars": 301,
+     "tt": "none",
+     "op": "1",
+     "lines": 5
+    },
+    "longest": {
+     "cpl": 41,
+     "w": 440,
+     "fs": "18px",
+     "lh": "32px",
+     "ratio": "1.78",
+     "chars": 408,
+     "tt": "none",
+     "op": "1",
+     "lines": 11
+    }
+   },
+   ".lbl.dim.cap": {
+    "n": 2,
+    "maxCpl": {
+     "cpl": 69,
+     "w": 768,
+     "fs": "12.5px",
+     "lh": "16px",
+     "ratio": "1.28",
+     "chars": 78,
+     "tt": "uppercase",
+     "op": "0.55",
+     "lines": 2
+    },
+    "longest": {
+     "cpl": 69,
+     "w": 768,
+     "fs": "12.5px",
+     "lh": "16px",
+     "ratio": "1.28",
+     "chars": 78,
+     "tt": "uppercase",
+     "op": "0.55",
+     "lines": 2
+    }
+   }
+  },
+  "/toolbox/@1440": {
+   ".body": {
+    "n": 3,
+    "maxCpl": {
+     "cpl": 64,
+     "w": 656,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 159,
+     "tt": "none",
+     "op": "1",
+     "lines": 3
+    },
+    "longest": {
+     "cpl": 64,
+     "w": 656,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 159,
+     "tt": "none",
+     "op": "1",
+     "lines": 3
+    }
+   },
+   ".downloads .note": {
+    "n": 2,
+    "maxCpl": {
+     "cpl": 50,
+     "w": 544,
+     "fs": "12.5px",
+     "lh": "16px",
+     "ratio": "1.28",
+     "chars": 96,
+     "tt": "uppercase",
+     "op": "0.55",
+     "lines": 2
+    },
+    "longest": {
+     "cpl": 50,
+     "w": 544,
+     "fs": "12.5px",
+     "lh": "16px",
+     "ratio": "1.28",
+     "chars": 96,
+     "tt": "uppercase",
+     "op": "0.55",
+     "lines": 2
+    }
+   }
+  },
+  "/toolbox/lockup/@1440": {
+   ".body": {
+    "n": 20,
+    "maxCpl": {
+     "cpl": 69,
+     "w": 704,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 144,
+     "tt": "none",
+     "op": "1",
+     "lines": 3
+    },
+    "longest": {
+     "cpl": 68,
+     "w": 672,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 285,
+     "tt": "none",
+     "op": "1",
+     "lines": 5
+    }
+   },
+   "dd.body": {
+    "n": 16,
+    "maxCpl": {
+     "cpl": 55,
+     "w": 528,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 148,
+     "tt": "none",
+     "op": "0.55",
+     "lines": 4
+    },
+    "longest": {
+     "cpl": 52,
+     "w": 528,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 225,
+     "tt": "none",
+     "op": "0.55",
+     "lines": 5
+    }
+   }
+  },
+  "/toolbox/palette/@1440": {
+   ".body": {
+    "n": 15,
+    "maxCpl": {
+     "cpl": 69,
+     "w": 704,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 144,
+     "tt": "none",
+     "op": "1",
+     "lines": 3
+    },
+    "longest": {
+     "cpl": 52,
+     "w": 528,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 225,
+     "tt": "none",
+     "op": "0.55",
+     "lines": 5
+    }
+   },
+   ".lead": {
+    "n": 1,
+    "maxCpl": {
+     "cpl": 43,
+     "w": 888,
+     "fs": "54px",
+     "lh": "64px",
+     "ratio": "1.19",
+     "chars": 69,
+     "tt": "none",
+     "op": "1",
+     "lines": 2
+    },
+    "longest": {
+     "cpl": 43,
+     "w": 888,
+     "fs": "54px",
+     "lh": "64px",
+     "ratio": "1.19",
+     "chars": 69,
+     "tt": "none",
+     "op": "1",
+     "lines": 2
+    }
+   },
+   "dd.body": {
+    "n": 11,
+    "maxCpl": {
+     "cpl": 54,
+     "w": 528,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 107,
+     "tt": "none",
+     "op": "0.55",
+     "lines": 2
+    },
+    "longest": {
+     "cpl": 52,
+     "w": 528,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 225,
+     "tt": "none",
+     "op": "0.55",
+     "lines": 5
+    }
+   }
+  },
+  "/toolbox/specimen/@1440": {
+   ".body": {
+    "n": 13,
+    "maxCpl": {
+     "cpl": 87,
+     "w": 880,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 62,
+     "tt": "none",
+     "op": "1",
+     "lines": 2
+    },
+    "longest": {
+     "cpl": 69,
+     "w": 672,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 253,
+     "tt": "none",
+     "op": "1",
+     "lines": 4
+    }
+   },
+   ".lead": {
+    "n": 1,
+    "maxCpl": {
+     "cpl": 42,
+     "w": 888,
+     "fs": "54px",
+     "lh": "64px",
+     "ratio": "1.19",
+     "chars": 65,
+     "tt": "none",
+     "op": "1",
+     "lines": 2
+    },
+    "longest": {
+     "cpl": 42,
+     "w": 888,
+     "fs": "54px",
+     "lh": "64px",
+     "ratio": "1.19",
+     "chars": 65,
+     "tt": "none",
+     "op": "1",
+     "lines": 2
+    }
+   },
+   "dd.body": {
+    "n": 9,
+    "maxCpl": {
+     "cpl": 55,
+     "w": 528,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 184,
+     "tt": "none",
+     "op": "0.55",
+     "lines": 4
+    },
+    "longest": {
+     "cpl": 52,
+     "w": 528,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 225,
+     "tt": "none",
+     "op": "0.55",
+     "lines": 5
+    }
+   }
+  },
+  "/toolbox/convert/@1440": {
+   ".body": {
+    "n": 17,
+    "maxCpl": {
+     "cpl": 83,
+     "w": 880,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 76,
+     "tt": "none",
+     "op": "1",
+     "lines": 2
+    },
+    "longest": {
+     "cpl": 53,
+     "w": 528,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 238,
+     "tt": "none",
+     "op": "0.55",
+     "lines": 5
+    }
+   },
+   "dd.body": {
+    "n": 12,
+    "maxCpl": {
+     "cpl": 55,
+     "w": 528,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 178,
+     "tt": "none",
+     "op": "0.55",
+     "lines": 4
+    },
+    "longest": {
+     "cpl": 53,
+     "w": 528,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 238,
+     "tt": "none",
+     "op": "0.55",
+     "lines": 5
+    }
+   }
+  },
+  "/toolbox/agents/@1440": {
+   ".body": {
+    "n": 27,
+    "maxCpl": {
+     "cpl": 141,
+     "w": 1376,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 120,
+     "tt": "none",
+     "op": "1",
+     "lines": 8
+    },
+    "longest": {
+     "cpl": 136,
+     "w": 1376,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 644,
+     "tt": "none",
+     "op": "1",
+     "lines": 13
+    }
+   },
+   "dd.body": {
+    "n": 7,
+    "maxCpl": {
+     "cpl": 83,
+     "w": 792,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 179,
+     "tt": "none",
+     "op": "1",
+     "lines": 3
+    },
+    "longest": {
+     "cpl": 79,
+     "w": 792,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 227,
+     "tt": "none",
+     "op": "1",
+     "lines": 3
+    }
+   },
+   ".rules dd": {
+    "n": 7,
+    "maxCpl": {
+     "cpl": 83,
+     "w": 792,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 179,
+     "tt": "none",
+     "op": "1",
+     "lines": 3
+    },
+    "longest": {
+     "cpl": 79,
+     "w": 792,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 227,
+     "tt": "none",
+     "op": "1",
+     "lines": 3
+    }
+   }
+  },
+  "/contact/@1440": {
+   ".body": {
+    "n": 2,
+    "maxCpl": {
+     "cpl": 43,
+     "w": 400,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 61,
+     "tt": "none",
+     "op": "1",
+     "lines": 2
+    },
+    "longest": {
+     "cpl": 41,
+     "w": 400,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 75,
+     "tt": "none",
+     "op": "1",
+     "lines": 2
+    }
+   }
+  },
+  "/nope/@1440": {},
+  "/@390": {
+   ".body": {
+    "n": 5,
+    "maxCpl": {
+     "cpl": 36,
+     "w": 358,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 146,
+     "tt": "none",
+     "op": "1",
+     "lines": 5
+    },
+    "longest": {
+     "cpl": 33,
+     "w": 326,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 154,
+     "tt": "none",
+     "op": "1",
+     "lines": 6
+    }
+   }
+  },
+  "/work/parc/@390": {
+   ".read": {
+    "n": 29,
+    "maxCpl": {
+     "cpl": 37,
+     "w": 358,
+     "fs": "16px",
+     "lh": "24px",
+     "ratio": "1.50",
+     "chars": 275,
+     "tt": "none",
+     "op": "1",
+     "lines": 8
+    },
+    "longest": {
+     "cpl": 37,
+     "w": 358,
+     "fs": "16px",
+     "lh": "24px",
+     "ratio": "1.50",
+     "chars": 356,
+     "tt": "none",
+     "op": "1",
+     "lines": 10
+    }
+   }
+  },
+  "/toolbox/@390": {
+   ".body": {
+    "n": 4,
+    "maxCpl": {
+     "cpl": 35,
+     "w": 358,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 90,
+     "tt": "none",
+     "op": "1",
+     "lines": 3
+    },
+    "longest": {
+     "cpl": 35,
+     "w": 358,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 159,
+     "tt": "none",
+     "op": "1",
+     "lines": 5
+    }
+   },
+   ".downloads .note": {
+    "n": 2,
+    "maxCpl": {
+     "cpl": 29,
+     "w": 246,
+     "fs": "14px",
+     "lh": "24px",
+     "ratio": "1.71",
+     "chars": 96,
+     "tt": "none",
+     "op": "0.55",
+     "lines": 4
+    },
+    "longest": {
+     "cpl": 29,
+     "w": 246,
+     "fs": "14px",
+     "lh": "24px",
+     "ratio": "1.71",
+     "chars": 96,
+     "tt": "none",
+     "op": "0.55",
+     "lines": 4
+    }
+   }
+  },
+  "/toolbox/lockup/@390": {
+   ".body": {
+    "n": 20,
+    "maxCpl": {
+     "cpl": 37,
+     "w": 358,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 148,
+     "tt": "none",
+     "op": "0.55",
+     "lines": 5
+    },
+    "longest": {
+     "cpl": 36,
+     "w": 358,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 285,
+     "tt": "none",
+     "op": "1",
+     "lines": 9
+    }
+   },
+   "dd.body": {
+    "n": 16,
+    "maxCpl": {
+     "cpl": 37,
+     "w": 358,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 148,
+     "tt": "none",
+     "op": "0.55",
+     "lines": 5
+    },
+    "longest": {
+     "cpl": 35,
+     "w": 358,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 225,
+     "tt": "none",
+     "op": "0.55",
+     "lines": 7
+    }
+   }
+  },
+  "/toolbox/agents/@390": {
+   ".body": {
+    "n": 27,
+    "maxCpl": {
+     "cpl": 38,
+     "w": 358,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 179,
+     "tt": "none",
+     "op": "1",
+     "lines": 6
+    },
+    "longest": {
+     "cpl": 35,
+     "w": 358,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 644,
+     "tt": "none",
+     "op": "1",
+     "lines": 32
+    }
+   },
+   "dd.body": {
+    "n": 7,
+    "maxCpl": {
+     "cpl": 38,
+     "w": 358,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 179,
+     "tt": "none",
+     "op": "1",
+     "lines": 6
+    },
+    "longest": {
+     "cpl": 36,
+     "w": 358,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 227,
+     "tt": "none",
+     "op": "1",
+     "lines": 7
+    }
+   },
+   ".rules dd": {
+    "n": 7,
+    "maxCpl": {
+     "cpl": 38,
+     "w": 358,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 179,
+     "tt": "none",
+     "op": "1",
+     "lines": 6
+    },
+    "longest": {
+     "cpl": 36,
+     "w": 358,
+     "fs": "27px",
+     "lh": "32px",
+     "ratio": "1.19",
+     "chars": 227,
+     "tt": "none",
+     "op": "1",
+     "lines": 7
+    }
+   }
+  }
+ },
+ "study": [
+  {
+   "hold": true,
+   "pos": "sticky",
+   "top": -442,
+   "h": 584
+  },
+  {
+   "hold": true,
+   "pos": "sticky",
+   "top": 238,
+   "h": 376
+  },
+  {
+   "hold": true,
+   "pos": "sticky",
+   "top": 926,
+   "h": 528
+  },
+  {
+   "hold": true,
+   "pos": "sticky",
+   "top": 1846,
+   "h": 488
+  }
+ ],
+ "picker": {
+  "pressed": [
+   "false",
+   "true",
+   "false",
+   "false"
+  ],
+  "story": "Export your palette.",
+  "active": "02Palette"
+ },
+ "demo": [
+  {
+   "el": "button.swatch-chip.plate-dark",
+   "name": "Dark preview background",
+   "w": 32,
+   "h": 32,
+   "outline": "solid color(srgb 0.937255 0.937255 0.921569 / 0.14)",
+   "bg": "rgb(26, 26, 26)"
+  },
+  {
+   "el": "input.sr-only",
+   "name": "Web",
+   "w": 1,
+   "h": 1,
+   "outline": "solid rgb(242, 214, 0)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "el": "button.chip",
+   "name": "JPEG",
+   "w": 58,
+   "h": 32,
+   "outline": "solid rgb(242, 214, 0)",
+   "bg": "rgb(242, 214, 0)"
+  },
+  {
+   "el": "button.chip",
+   "name": "PNG",
+   "w": 46,
+   "h": 32,
+   "outline": "solid rgb(242, 214, 0)",
+   "bg": "rgb(242, 214, 0)"
+  },
+  {
+   "el": "button.chip",
+   "name": "SVG",
+   "w": 46,
+   "h": 32,
+   "outline": "solid rgb(242, 214, 0)",
+   "bg": "rgb(242, 214, 0)"
+  },
+  {
+   "el": "input.sr-only",
+   "name": "Print",
+   "w": 1,
+   "h": 1,
+   "outline": "solid rgb(242, 214, 0)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "el": "button.chip",
+   "name": "EPS",
+   "w": 46,
+   "h": 32,
+   "outline": "solid rgb(242, 214, 0)",
+   "bg": "rgb(242, 214, 0)"
+  },
+  {
+   "el": "button.chip",
+   "name": "JPEG",
+   "w": 58,
+   "h": 32,
+   "outline": "solid rgb(242, 214, 0)",
+   "bg": "rgb(242, 214, 0)"
+  },
+  {
+   "el": "button.chip",
+   "name": "PDF",
+   "w": 46,
+   "h": 32,
+   "outline": "solid rgb(242, 214, 0)",
+   "bg": "rgb(242, 214, 0)"
+  },
+  {
+   "el": "input.sr-only",
+   "name": "Color",
+   "w": 1,
+   "h": 1,
+   "outline": "solid rgb(242, 214, 0)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "el": "input.sr-only",
+   "name": "Black",
+   "w": 1,
+   "h": 1,
+   "outline": "solid rgb(242, 214, 0)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "el": "input.sr-only",
+   "name": "White",
+   "w": 1,
+   "h": 1,
+   "outline": "solid rgb(242, 214, 0)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "el": "input.sr-only",
+   "name": "Large",
+   "w": 1,
+   "h": 1,
+   "outline": "solid rgb(242, 214, 0)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "el": "input.sr-only",
+   "name": "Medium",
+   "w": 1,
+   "h": 1,
+   "outline": "solid rgb(242, 214, 0)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "el": "input.sr-only",
+   "name": "Small",
+   "w": 1,
+   "h": 1,
+   "outline": "solid rgb(242, 214, 0)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "el": "button.",
+   "name": "02Outputs",
+   "w": 146,
+   "h": 32,
+   "outline": "solid rgb(242, 214, 0)",
+   "bg": "rgb(242, 214, 0)"
+  },
+  {
+   "el": "button.",
+   "name": "03Review",
+   "w": 134,
+   "h": 32,
+   "outline": "solid rgb(242, 214, 0)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "el": "button.demo-act.lbl",
+   "name": "Continue->",
+   "w": 172,
+   "h": 32,
+   "outline": "solid rgb(242, 214, 0)",
+   "bg": "rgb(239, 239, 235)"
+  }
+ ]
+}

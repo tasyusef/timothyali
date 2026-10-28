@@ -2740,8 +2740,34 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Change:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.3, so all eight download links follow. No copy changes.
 - **Status:** published on 2026-10-27 with the v1.2.3 GitHub release, whose `latest.json` the app's update check now reaches through `/api/update` (0226).
 
+## 0228: the design audit's findings, all fixed (2026-10-28)
+
+- **Timothy's direction:** run a design audit with three reviewers (Opus, Fable and Codex 6.1 Sol), each using the `better-interface` review and clicking through the site, not only taking screenshots. From the merged list he picked "2": fix everything, including the findings only one reviewer raised.
+- **Change:** PX-125. The 23 findings, merged (`docs/iterations/pixel-v2/125-design-audit/`):
+  - **Focus:** `.panel` declares `--focus-ring` again, so the ring is the panel's accent (restores 0106; 0210's token had fixed it to the page's accent, 1.27:1 on the white panel). The settings menu is a `.panel`. The swatch chips show the ring. The clip's play and pause are one button. Lockup's Continue focuses the review heading and Back returns to Continue. The contact form's Send is `aria-disabled` while sending, so it keeps focus.
+  - **Reflow:** tool page titles use `fitWord`, the phone send-link label wraps beside its arrow, and the Toolbox picker has two columns at 900 and below.
+  - **Contrast:** `--dim` on the dark ground is .75, and on the light theme's ink panel too (was .55, APCA Lc 40). With `prefers-contrast: more`, dimming is off. Captions and download notes are `.read-s` at every width (`.phone-read` is gone).
+  - **States:** the page-foot link, download links and the CLI page's jump links have hover and press. The page-foot note dims, not the whole footer.
+  - **Names and copy:** the nav numbers are `aria-hidden`; the status strip is `aria-hidden`; the theme toggle drops `aria-pressed`; the phone step buttons keep their words for screen readers; Home's link reads "Resume (PDF)".
+  - **Behaviour:** Cmd/Ctrl+Enter sends the contact form. A refused share sheet falls back to the clipboard, and the result is announced. The plate swatches' touch margins no longer overlap.
+- **Assistant's choices inside it:** `--dim` at .75 (Opus's measured value); two picker columns from 900 down, not a new 760 breakpoint (0075); a focused or hovered menu row lights to the page's ground, with the press as the accent.
+- **Status:** applied and verified locally (`fixes/verify.mjs`, 33 checks pass); his “I think this is good”, then pushed with 0229 on 2026-10-28.
+
 ## 0229: Toolbox 1.2.4 on the site (2026-10-28)
 
 - **Timothy's direction:** ship design batch A as 1.2.4 ("1"), with the fixes a second design audit found before release ("1").
 - **Change:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.4, so all eight download links follow. No copy changes.
 - **Status:** published on 2026-10-28 with the v1.2.4 GitHub release; `/api/update` already answers with its feed.
+
+## 0229: "Designer", not "Product designer" (2026-10-28)
+
+- **Timothy's direction:** reposition the hero line under his name as a design generalist or just "designer": "I don't want to be too specific and put myself in a box." It may need to change across the site, Contact included. His LinkedIn headline already reads "Interfaces, design systems, brands, and websites." On "and build the front end": "sounds corny and these days with ai i think is implied."
+- **Change:** PX-126.
+  - **Hero:** the first line is "Designer.", and the second is "I design interfaces, design systems, brands, and websites." (his LinkedIn list).
+  - **Home:** the title is "Timothy Ali / Designer". Home's description and share image match.
+  - **Work and Contact descriptions:** they drop "product designer" and "front-end".
+  - **JSON-LD:** `jobTitle` is "Designer", and `knowsAbout` leads with interface design, design systems, brand identity and web design.
+  - **Share images:** regenerated.
+- **Supersedes:** 0172's sitewide "Product designer" wording. 0132's product positioning narrows to one of four listed areas.
+- **Assistant's choices, awaiting his eye:** "Designer." over "Design generalist." (the assistant's recommendation; he answered with the LinkedIn wording). Contact's description shortened to "contract work on interfaces, brands, and websites" to stay under the description limit. Contact's page-foot note reads “Interfaces / brands / websites” (was “Interface / motion / code”; his pick, “1”).
+- **Status:** approved by Timothy (“1”: change the Contact note, then commit and push both passes) and pushed on 2026-10-28. The résumé PDF is handled privately and is unchanged here.

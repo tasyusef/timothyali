@@ -14,7 +14,7 @@
   import { STEP_SLOW, STEP } from '$lib/tokens';
   import { motion } from '$lib/motion.svelte';
 
-  const LINES = ['Product designer.', 'I design interfaces and design systems, and build the front end.', 'Based in Denver and open to remote work, full-time or contract.'];
+  const LINES = ['Designer.', 'I design interfaces, design systems, brands, and websites.', 'Based in Denver and open to remote work, full-time or contract.'];
   const STATIC_LINE = LINES.join(' ');
   const HOLD = { hi: 900, name: 700, line: 1600, last: 2600, clear: 600 };
   const erased = (t: string) => [...t].length * STEP_SLOW;
@@ -80,8 +80,8 @@
       <h1 id="intro" class="blackletter hero-name" data-ink="i’m tim."><span>i’m tim.</span><span class="sr-only"> Timothy Ali</span></h1>
       <p class="hero-role body">{STATIC_LINE}</p>
     {/if}
-    <!-- PARC Pixel has no É, so the résumé label reads “Resume” -->
-    <div class="hero-actions"><Cta variant="hint" class="hero-hint" href="#work">Selected work<PixelIcon name="down" class="arrow" /></Cta><QuietLink href={RESUME_URL} label="Resume" /></div>
+    <!-- PARC Pixel has no É, so the résumé label reads “Resume”; “(PDF)” as on Contact (PX-125) -->
+    <div class="hero-actions"><Cta variant="hint" class="hero-hint" href="#work">Selected work<PixelIcon name="down" class="arrow" /></Cta><QuietLink href={RESUME_URL} label="Resume (PDF)" /></div>
   </div>
 </section>
 

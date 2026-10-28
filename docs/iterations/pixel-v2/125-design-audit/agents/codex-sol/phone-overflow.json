@@ -1,0 +1,63 @@
+{
+  "innerWidth": 408,
+  "visualViewport": 390,
+  "sw": 408,
+  "cta": [
+    {
+      "cls": "on-phone panel svelte-1358mf4",
+      "text": "Toolbox runs on macOS, Windows, and Linux. Open this page on your computer to install it.Send the link to your computer->",
+      "x": 16,
+      "y": 380,
+      "w": 358,
+      "right": 374,
+      "flexShrink": "1",
+      "flexWrap": "nowrap",
+      "maxWidth": "none"
+    },
+    {
+      "cls": "cta-row lbl send",
+      "text": "Send the link to your computer->",
+      "x": 16,
+      "y": 540,
+      "w": 358,
+      "right": 374,
+      "flexShrink": "1",
+      "flexWrap": "nowrap",
+      "maxWidth": "none"
+    },
+    {
+      "cls": "",
+      "text": "Send the link to your computer",
+      "x": 32,
+      "y": 557,
+      "w": 328,
+      "right": 360,
+      "flexShrink": "0",
+      "flexWrap": "nowrap",
+      "maxWidth": "100%"
+    },
+    {
+      "cls": "mono",
+      "text": "->",
+      "x": 376,
+      "y": 565,
+      "w": 32,
+      "right": 408,
+      "flexShrink": "0",
+      "flexWrap": "nowrap",
+      "maxWidth": "100%"
+    }
+  ],
+  "over": [
+    {
+      "cls": "svelte-1di79nr",
+      "text": "",
+      "right": 400
+    },
+    {
+      "cls": "mono",
+      "text": "->",
+      "right": 408
+    }
+  ]
+}

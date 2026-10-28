@@ -52,11 +52,10 @@
 </script>
 <figure class="pic clip" bind:this={host} use:figure={{ ratio: () => height / width, row }} style:aspect-ratio={`${width} / ${height}`}>
   <video bind:this={video} src={file} poster={still} muted loop playsinline preload={poster ? 'none' : 'auto'} aria-label={label} onplay={() => (playing = true)} onpause={() => (playing = false)}></video>
-  {#if !playing}
-    <button type="button" class="play" onclick={toggle} aria-label={`Play video: ${label}`}><PixelIcon name="play" size={24} /></button>
-  {:else}
-    <button type="button" class="pause" onclick={toggle} aria-label={`Pause video: ${label}`}><PixelIcon name="pause" /></button>
-  {/if}
+  <!-- one button whose icon and name change, so keyboard focus survives the swap (PX-125) -->
+  <button type="button" class:play={!playing} class:pause={playing} onclick={toggle} aria-label={`${playing ? 'Pause' : 'Play'} video: ${label}`}>
+    {#if playing}<PixelIcon name="pause" />{:else}<PixelIcon name="play" size={24} />{/if}
+  </button>
 </figure>
 <style>
 /* a still that can play shows it: a 64px block in the middle; a playing clip keeps a 48px pause in its corner */

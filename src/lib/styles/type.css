@@ -40,7 +40,6 @@
 .read{font-family:var(--face-read);font-size:18px;line-height:32px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 @media(max-width:700px){.read{font-size:16px;line-height:24px}} /* 37 characters a line at 390, not 33 (0206) */
 .read-s{font-family:var(--face-read);font-size:14px;line-height:24px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-@media(max-width:700px){.phone-read{font-family:var(--face-read);font-size:14px;line-height:24px;text-transform:none;letter-spacing:0;-webkit-font-smoothing:antialiased}}
 /* An inline arrow or value in another face's line sits on the line top, where a flex Cta
    would put it; on the baseline its 16px box hangs 4px lower and the line grows to 20 (0089). */
 :where(.lbl,.body,.display,.lead,.read) .mono{vertical-align:top}

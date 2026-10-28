@@ -13,7 +13,8 @@
   --accent-on-fg:var(--yellow-deep);   /* the accent as type on a --fg panel: the other ground, the other value (0106) */
   --accent-field:var(--yellow);        /* the accent drawn in an ASCII field; a touch darker on the light ground (0108) */
   --on-accent:var(--ink);
-  --dim:.55;              /* opacity, not a colour; .65 on the light ground, where .55 was 3.8:1 at 12.5px (0206) */
+  --dim:.75;              /* opacity, not a colour; .65 on the light ground, where .55 was 3.8:1 at 12.5px (0206).
+                             White on ink at .55 was APCA Lc 40, under the 60 a label needs; .75 is Lc 63 (PX-125) */
   --dim-on-fg:.65;        /* --dim on a --fg panel: the other ground, the other value (0210) */
 
   /* Button padding (0097, named 0210): a label's ink sits 1px high and carries a 2px trailing
@@ -43,7 +44,7 @@
   --chrome-height:96px;
   /* the three-frame dither wipe an image or theme arrives with (@keyframes dither-in, base.css) */
   --wipe-in:dither-in calc(3 * var(--step)) steps(3) both;
-  /* the keyboard focus ring (base.css, the Toolbox examples' fields) */
+  /* the keyboard focus ring (base.css, the Toolbox examples' fields); .panel declares it again (PX-125) */
   --focus-ring:2px solid var(--accent-text);
 
   /* layering, low to high */
@@ -55,5 +56,7 @@
 
   color-scheme:dark;
 }
-:root[data-theme=light]{--dim:.65;--dim-on-fg:.55;--paper:var(--white);--fg:var(--ink);color-scheme:light;--accent-text:var(--yellow-deep);--accent-on-fg:var(--yellow);--accent-field:var(--yellow-field)}
+:root[data-theme=light]{--dim:.65;--dim-on-fg:.75;--paper:var(--white);--fg:var(--ink);color-scheme:light;--accent-text:var(--yellow-deep);--accent-on-fg:var(--yellow);--accent-field:var(--yellow-field)}
 @media(max-width:700px){:root{--gutter:16px;--chrome-height:104px}}
+/* asked for more contrast: dimming is the site's only low-contrast text, so it goes (PX-125) */
+@media(prefers-contrast:more){:root,:root[data-theme=light]{--dim:1;--dim-on-fg:1}}

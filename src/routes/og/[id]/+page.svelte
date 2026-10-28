@@ -44,7 +44,7 @@
     <Band as="div" class="og-stage" mode="scene" seed={3} mountains="a" />
   {:else if data.id === 'home'}
     <Band class="og-home" mode="scene" shot="hero" sceneSpan="box" mountains="a" seed={3} feather={3} depth={0.6} avoid=".og-line, .og-name > :first-child">
-      <p class="display og-line">Product designer.</p>
+      <p class="display og-line">Designer.</p>
       <h1 class="blackletter og-name"><Decode text="i’m tim." /><Cursor size="em" /></h1>
     </Band>
   {:else if data.id === 'story' || data.id === 'wide'}

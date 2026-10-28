@@ -1,0 +1,27 @@
+captures: 174; horizontal overflow on 6
+  /toolbox/ @390 dark/off: 408>390 canvas.svelte-1di79nr right=400 | span.mono right=408
+  /toolbox/ @320 dark/off: 338>320 span.mono right=338
+  /toolbox/specimen/ @320 dark/off: 328>320 span.decode.svelte-xa4iz6 right=328 | span right=328
+  /toolbox/ @390 light/off: 408>390 canvas.svelte-1di79nr right=400 | span.mono right=408
+  /toolbox/ @390 dark/on: 408>390 canvas.svelte-1di79nr right=400 | span.mono right=408
+  /toolbox/ @720 dark/off: 728>720 span.display-s.svelte-1358mf4 right=728
+titles: / => Timothy Ali / Product designer
+  /work/ => Work / Timothy Ali
+  /work/parc/ => PARC: NFT club identity and website / Timothy Ali
+  /work/xrpcafe/ => xrp.cafe: NFT marketplace identity and motion / Timothy Ali
+  /work/firstledger/ => First Ledger: brand for a trading platform / Timothy Ali
+  /work/do-androids-dream/ => Do Androids Dream? A title sequence / Timothy Ali
+  /work/jade-aesthetics/ => Jade Aesthetics: medical spa websites / Timothy Ali
+  /work/firststrike/ => FirstStrike Research: brand identity / Timothy Ali
+  /work/toolbox/ => Toolbox: desktop app for brand files / Timothy Ali
+  /toolbox/ => Toolbox / Timothy Ali
+  /toolbox/lockup/ => Lockup / Toolbox / Timothy Ali
+  /toolbox/palette/ => Palette / Toolbox / Timothy Ali
+  /toolbox/specimen/ => Specimen / Toolbox / Timothy Ali
+  /toolbox/convert/ => Convert / Toolbox / Timothy Ali
+  /toolbox/agents/ => CLI & MCP / Toolbox / Timothy Ali
+  /contact/ => Get in touch / Timothy Ali
+  /nope/ => Not found / Timothy Ali
+  / => undefined
+  /work/parc/ => undefined
+  /toolbox/ => undefined

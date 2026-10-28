@@ -115,7 +115,7 @@
         {/if}
         {#if part.groups.length}
           <div class="point-figs">
-            {#each part.groups as g}<div class="group">{@render gallery(g.rows, false)}{#if g.note}<p class="lbl dim cap phone-read">{g.note}</p>{/if}</div>{/each}
+            {#each part.groups as g}<div class="group">{@render gallery(g.rows, false)}{#if g.note}<p class="read-s dim cap">{g.note}</p>{/if}</div>{/each}
           </div>
         {/if}
       </section>

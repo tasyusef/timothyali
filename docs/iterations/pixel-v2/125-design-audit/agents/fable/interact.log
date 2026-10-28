@@ -1,0 +1,72 @@
+ok [states] hover+press nav link Work => rest rgba(0, 0, 0, 0)/rgb(239, 239, 235) → hover rgb(239, 239, 235)/rgb(24, 24, 20) → press rgb(242, 214, 0)/rgb(24, 24, 20)
+ok [states] hover+press hero chip => rest rgb(242, 214, 0)/rgb(24, 24, 20) → hover rgb(239, 239, 235)/rgb(24, 24, 20) → press rgb(242, 214, 0)/rgb(24, 24, 20)
+ok [states] hover+press hero Resume quiet link => rest rgba(0, 0, 0, 0)/rgb(239, 239, 235) → hover rgba(0, 0, 0, 0)/rgb(242, 214, 0) → press rgb(242, 214, 0)/rgb(24, 24, 20) shadow
+XX [states] hover+press Home card => rest rgb(24, 24, 20)/rgb(239, 239, 235) → hover rgb(24, 24, 20)/rgb(239, 239, 235) → press rgb(242, 214, 0)/rgb(24, 24, 20)
+ok [states] hover+press Get in touch row => rest rgb(242, 214, 0)/rgb(24, 24, 20) → hover rgb(239, 239, 235)/rgb(24, 24, 20) → press rgb(242, 214, 0)/rgb(24, 24, 20)
+ok [states] hover+press Toolbox hero CTA block => rest rgb(242, 214, 0)/rgb(24, 24, 20) → hover rgb(239, 239, 235)/rgb(24, 24, 20) moved matrix(1, 0, 0, 1, 8, 0) → press rgb(242, 214, 0)/rgb(24, 24, 20)
+ok [states] hover+press tool picker (unpressed) => rest rgba(0, 0, 0, 0)/rgb(239, 239, 235) → hover rgb(239, 239, 235)/rgb(24, 24, 20) → press rgb(242, 214, 0)/rgb(24, 24, 20)
+XX [states] hover+press download link => rest rgba(0, 0, 0, 0)/rgb(239, 239, 235) → hover rgba(0, 0, 0, 0)/rgb(242, 214, 0) → press rgba(0, 0, 0, 0)/rgb(242, 214, 0)
+ok [states] hover+press Contact Send (on the panel) => rest rgb(242, 214, 0)/rgb(24, 24, 20) → hover rgb(24, 24, 20)/rgb(239, 239, 235) → press rgb(242, 214, 0)/rgb(24, 24, 20)
+ok [states] hover+press Contact quiet link on the panel => rest rgba(0, 0, 0, 0)/rgb(24, 24, 20) → hover rgba(0, 0, 0, 0)/rgb(111, 98, 0) → press rgb(242, 214, 0)/rgb(24, 24, 20) shadow
+ok [field] move the pointer across the hero field => pixels changed vs still: yes
+ok [field] click the hero field => pixels changed vs swell: yes
+ok [field] double-click the bare field beside the copy => selection length 0→0
+ok [field] motion off: move and click on the field => pixels changed: none
+ok [field] motion off: press Get in touch => bg while pressed rgb(242, 214, 0)
+ok [keyboard] Tab once, Enter on the skip link => skip={"el":"skip-link lbl","visible":true} → active=main
+ok [keyboard] Tab after the skip => focus on "cta-hint lbl hero-hint Selected work" (the first control inside main?)
+ok [keyboard] Enter on nav Work => /work/
+ok [keyboard] Enter on the first Work card => /work/toolbox/
+ok [keyboard] Space on tool picker 3 (Specimen) => {"pressed":"true","h3":"Make a type sheet."}
+ok [keyboard] Space on demo switch "Web" => true→{"checked":false,"state":"[off]","ringOn":"solid"}
+ok [keyboard] Enter on a demo chip => true → false
+ok [keyboard] phone: Enter on "All N options" summary => visible=true, open false → true
+ok [keyboard] Tab to the clip button, Space => {"label":"Pause video: PARC After Darc starting-soon screen: a pixel sun over the sea with a rowboat drifting past, looped before the stream","paused":false,"opacity":"1"} → {"label":"Play video: PARC After Darc starting-soon screen: a pixel sun over the sea with a rowboat drifting past, looped before the stream","paused":true,"active":"BODY null"}
+ok [downloads] list the download links => [{"href":"/download/v1.2.3/Toolbox-1.2.3-arm64.dmg","label":"Apple silicon","download":false,"target":""},{"href":"/download/v1.2.3/Toolbox-1.2.3.dmg","label":"Intel","download":false,"target":""},{"href":"/download/v1.2.3/Toolbox-Setup-1.2.3.exe","label":"Installer x64","download":false,"target":""},{"href":"/download/v1.2.3/Toolbox-Setup-1.2.3-arm64.exe","label":"Installer arm64","download":false,"target":""},{"href":"/download/v1.2.3/toolbox-1.2.3-x86_64.AppImage","label":"AppImage x86_64","download":false,"target":""},{"href":"/download/v1.2.3/toolbox-1.2.3-arm64.AppImage","label":"AppImage arm64","download":false,"target":""},{"href":"/download/v1.2.3/toolbox_1.2.3_amd64.deb","label":"deb amd64","download":false,"target":""},{"href":"/download/v1.2.3/toolbox_1.2.3_arm64.deb","label":"deb arm64","download":false,"target":""}]
+ok [downloads] click Apple silicon => request /download/v1.2.3/Toolbox-1.2.3-arm64.dmg?s=Direct+%2F+unknown; now at /download/v1.2.3/Toolbox-1.2.3-arm64.dmg
+ok [downloads] click Intel => request /download/v1.2.3/Toolbox-1.2.3.dmg?s=Direct+%2F+unknown; now at /download/v1.2.3/Toolbox-1.2.3.dmg
+ok [downloads] click Installer x64 => request /download/v1.2.3/Toolbox-Setup-1.2.3.exe?s=Direct+%2F+unknown; now at /download/v1.2.3/Toolbox-Setup-1.2.3.exe
+ok [downloads] click Installer arm64 => request /download/v1.2.3/Toolbox-Setup-1.2.3-arm64.exe?s=Direct+%2F+unknown; now at /download/v1.2.3/Toolbox-Setup-1.2.3-arm64.exe
+ok [downloads] click AppImage x86_64 => request /download/v1.2.3/toolbox-1.2.3-x86_64.AppImage?s=Direct+%2F+unknown; now at /download/v1.2.3/toolbox-1.2.3-x86_64.AppImage
+ok [downloads] click AppImage arm64 => request /download/v1.2.3/toolbox-1.2.3-arm64.AppImage?s=Direct+%2F+unknown; now at /download/v1.2.3/toolbox-1.2.3-arm64.AppImage
+ok [downloads] click deb amd64 => request /download/v1.2.3/toolbox_1.2.3_amd64.deb?s=Direct+%2F+unknown; now at /download/v1.2.3/toolbox_1.2.3_amd64.deb
+ok [downloads] click deb arm64 => request /download/v1.2.3/toolbox_1.2.3_arm64.deb?s=Direct+%2F+unknown; now at /download/v1.2.3/toolbox_1.2.3_arm64.deb
+ok [downloads] the releases link => {"href":"https://github.com/tasyusef/toolbox/releases","text":"All files and checksums ->","target":""}
+ok [downloads] phone: tap "Send the link to your computer" => panel display=flex, share=function, clipboard=true, label now "Send the link to your computer"
+ok [downloads] phone: 2.6 s later => label "Send the link to your computer"
+ok [scroll] / @1440: wheel to the bottom in 3 steps => height 2968; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps
+ok [scroll] /work/ @1440: wheel to the bottom in 4 steps => height 3120; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps
+ok [scroll] /work/parc/ @1440: wheel to the bottom in 15 steps => height 11272; sticky/fixed: div.nav-chrome.collapsed, div.point-text.svelte-9hm5jc; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps
+ok [scroll] /work/xrpcafe/ @1440: wheel to the bottom in 5 steps => height 4272; sticky/fixed: div.nav-chrome.collapsed, div.point-text.svelte-9hm5jc; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps
+ok [scroll] /work/firstledger/ @1440: wheel to the bottom in 6 steps => height 5216; sticky/fixed: div.nav-chrome.collapsed, div.point-text.svelte-9hm5jc; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps
+ok [scroll] /work/do-androids-dream/ @1440: wheel to the bottom in 4 steps => height 3456; sticky/fixed: div.nav-chrome.collapsed, div.point-text.svelte-9hm5jc; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps
+ok [scroll] /work/jade-aesthetics/ @1440: wheel to the bottom in 5 steps => height 4376; sticky/fixed: div.nav-chrome.collapsed, div.point-text.svelte-9hm5jc; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps
+ok [scroll] /work/firststrike/ @1440: wheel to the bottom in 6 steps => height 4536; sticky/fixed: div.nav-chrome.collapsed, div.point-text.svelte-9hm5jc; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps
+ok [scroll] /work/toolbox/ @1440: wheel to the bottom in 5 steps => height 3936; sticky/fixed: div.nav-chrome.collapsed, div.point-text.svelte-9hm5jc; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps
+ok [scroll] /toolbox/ @1440: wheel to the bottom in 3 steps => height 2712; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps
+ok [scroll] /toolbox/lockup/ @1440: wheel to the bottom in 5 steps => height 4312; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps
+ok [scroll] /toolbox/palette/ @1440: wheel to the bottom in 4 steps => height 3736; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps
+ok [scroll] /toolbox/specimen/ @1440: wheel to the bottom in 4 steps => height 3432; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps
+ok [scroll] /toolbox/convert/ @1440: wheel to the bottom in 5 steps => height 3816; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps
+ok [scroll] /toolbox/agents/ @1440: wheel to the bottom in 9 steps => height 6856; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps
+ok [scroll] /contact/ @1440: wheel to the bottom in 1 steps => height 900; sticky/fixed: div.nav-chrome; header collapsed while scrolling down: false; after 300 up: collapsed=false top=0; no height jumps
+ok [scroll] /nope/ @1440: wheel to the bottom in 1 steps => height 900; sticky/fixed: div.nav-chrome; header collapsed while scrolling down: false; after 300 up: collapsed=false top=0; no height jumps
+ok [scroll] / @390: wheel to the bottom in 4 steps => height 3384; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-104; no height jumps
+ok [scroll] /work/ @390: wheel to the bottom in 5 steps => height 3816; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps
+ok [scroll] /work/parc/ @390: wheel to the bottom in 20 steps => height 14112; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps
+ok [scroll] /work/xrpcafe/ @390: wheel to the bottom in 9 steps => height 6360; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps
+ok [scroll] /work/firstledger/ @390: wheel to the bottom in 7 steps => height 4912; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-104; no height jumps
+ok [scroll] /work/do-androids-dream/ @390: wheel to the bottom in 4 steps => height 3528; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps
+ok [scroll] /work/jade-aesthetics/ @390: wheel to the bottom in 7 steps => height 4896; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-104; no height jumps
+ok [scroll] /work/firststrike/ @390: wheel to the bottom in 6 steps => height 4568; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps
+ok [scroll] /work/toolbox/ @390: wheel to the bottom in 7 steps => height 5176; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps
+ok [scroll] /toolbox/ @390: wheel to the bottom in 7 steps => height 4272; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-104; no height jumps
+ok [scroll] /toolbox/lockup/ @390: wheel to the bottom in 3 steps => height 2740; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps
+ok [scroll] /toolbox/palette/ @390: wheel to the bottom in 3 steps => height 2684; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps
+ok [scroll] /toolbox/specimen/ @390: wheel to the bottom in 3 steps => height 2220; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-104; no height jumps
+ok [scroll] /toolbox/convert/ @390: wheel to the bottom in 2 steps => height 2172; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps
+ok [scroll] /toolbox/agents/ @390: wheel to the bottom in 14 steps => height 10276; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps
+ok [scroll] /contact/ @390: wheel to the bottom in 1 steps => height 1232; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps
+ok [scroll] /nope/ @390: wheel to the bottom in 1 steps => height 844; sticky/fixed: div.nav-chrome; header collapsed while scrolling down: false; after 300 up: collapsed=false top=0; no height jumps
+
+2 of 70 interactions flagged

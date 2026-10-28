@@ -1,0 +1,432 @@
+[
+ {
+  "area": "states",
+  "did": "hover+press nav link Work",
+  "happened": "rest rgba(0, 0, 0, 0)/rgb(239, 239, 235) → hover rgb(239, 239, 235)/rgb(24, 24, 20) → press rgb(242, 214, 0)/rgb(24, 24, 20)",
+  "ok": true
+ },
+ {
+  "area": "states",
+  "did": "hover+press hero chip",
+  "happened": "rest rgb(242, 214, 0)/rgb(24, 24, 20) → hover rgb(239, 239, 235)/rgb(24, 24, 20) → press rgb(242, 214, 0)/rgb(24, 24, 20)",
+  "ok": true
+ },
+ {
+  "area": "states",
+  "did": "hover+press hero Resume quiet link",
+  "happened": "rest rgba(0, 0, 0, 0)/rgb(239, 239, 235) → hover rgba(0, 0, 0, 0)/rgb(242, 214, 0) → press rgb(242, 214, 0)/rgb(24, 24, 20) shadow",
+  "ok": true
+ },
+ {
+  "area": "states",
+  "did": "hover+press Home card",
+  "happened": "rest rgb(24, 24, 20)/rgb(239, 239, 235) → hover rgb(24, 24, 20)/rgb(239, 239, 235) → press rgb(242, 214, 0)/rgb(24, 24, 20)",
+  "ok": false
+ },
+ {
+  "area": "states",
+  "did": "hover+press Get in touch row",
+  "happened": "rest rgb(242, 214, 0)/rgb(24, 24, 20) → hover rgb(239, 239, 235)/rgb(24, 24, 20) → press rgb(242, 214, 0)/rgb(24, 24, 20)",
+  "ok": true
+ },
+ {
+  "area": "states",
+  "did": "hover+press Toolbox hero CTA block",
+  "happened": "rest rgb(242, 214, 0)/rgb(24, 24, 20) → hover rgb(239, 239, 235)/rgb(24, 24, 20) moved matrix(1, 0, 0, 1, 8, 0) → press rgb(242, 214, 0)/rgb(24, 24, 20)",
+  "ok": true
+ },
+ {
+  "area": "states",
+  "did": "hover+press tool picker (unpressed)",
+  "happened": "rest rgba(0, 0, 0, 0)/rgb(239, 239, 235) → hover rgb(239, 239, 235)/rgb(24, 24, 20) → press rgb(242, 214, 0)/rgb(24, 24, 20)",
+  "ok": true
+ },
+ {
+  "area": "states",
+  "did": "hover+press download link",
+  "happened": "rest rgba(0, 0, 0, 0)/rgb(239, 239, 235) → hover rgba(0, 0, 0, 0)/rgb(242, 214, 0) → press rgba(0, 0, 0, 0)/rgb(242, 214, 0)",
+  "ok": false
+ },
+ {
+  "area": "states",
+  "did": "hover+press Contact Send (on the panel)",
+  "happened": "rest rgb(242, 214, 0)/rgb(24, 24, 20) → hover rgb(24, 24, 20)/rgb(239, 239, 235) → press rgb(242, 214, 0)/rgb(24, 24, 20)",
+  "ok": true
+ },
+ {
+  "area": "states",
+  "did": "hover+press Contact quiet link on the panel",
+  "happened": "rest rgba(0, 0, 0, 0)/rgb(24, 24, 20) → hover rgba(0, 0, 0, 0)/rgb(111, 98, 0) → press rgb(242, 214, 0)/rgb(24, 24, 20) shadow",
+  "ok": true
+ },
+ {
+  "area": "field",
+  "did": "move the pointer across the hero field",
+  "happened": "pixels changed vs still: yes",
+  "ok": true
+ },
+ {
+  "area": "field",
+  "did": "click the hero field",
+  "happened": "pixels changed vs swell: yes",
+  "ok": true
+ },
+ {
+  "area": "field",
+  "did": "double-click the bare field beside the copy",
+  "happened": "selection length 0→0",
+  "ok": true
+ },
+ {
+  "area": "field",
+  "did": "motion off: move and click on the field",
+  "happened": "pixels changed: none",
+  "ok": true
+ },
+ {
+  "area": "field",
+  "did": "motion off: press Get in touch",
+  "happened": "bg while pressed rgb(242, 214, 0)",
+  "ok": true
+ },
+ {
+  "area": "keyboard",
+  "did": "Tab once, Enter on the skip link",
+  "happened": "skip={\"el\":\"skip-link lbl\",\"visible\":true} → active=main",
+  "ok": true
+ },
+ {
+  "area": "keyboard",
+  "did": "Tab after the skip",
+  "happened": "focus on \"cta-hint lbl hero-hint Selected work\" (the first control inside main?)",
+  "ok": true
+ },
+ {
+  "area": "keyboard",
+  "did": "Enter on nav Work",
+  "happened": "/work/",
+  "ok": true
+ },
+ {
+  "area": "keyboard",
+  "did": "Enter on the first Work card",
+  "happened": "/work/toolbox/",
+  "ok": true
+ },
+ {
+  "area": "keyboard",
+  "did": "Space on tool picker 3 (Specimen)",
+  "happened": "{\"pressed\":\"true\",\"h3\":\"Make a type sheet.\"}",
+  "ok": true
+ },
+ {
+  "area": "keyboard",
+  "did": "Space on demo switch \"Web\"",
+  "happened": "true→{\"checked\":false,\"state\":\"[off]\",\"ringOn\":\"solid\"}",
+  "ok": true
+ },
+ {
+  "area": "keyboard",
+  "did": "Enter on a demo chip",
+  "happened": "true → false",
+  "ok": true
+ },
+ {
+  "area": "keyboard",
+  "did": "phone: Enter on \"All N options\" summary",
+  "happened": "visible=true, open false → true",
+  "ok": true
+ },
+ {
+  "area": "keyboard",
+  "did": "Tab to the clip button, Space",
+  "happened": "{\"label\":\"Pause video: PARC After Darc starting-soon screen: a pixel sun over the sea with a rowboat drifting past, looped before the stream\",\"paused\":false,\"opacity\":\"1\"} → {\"label\":\"Play video: PARC After Darc starting-soon screen: a pixel sun over the sea with a rowboat drifting past, looped before the stream\",\"paused\":true,\"active\":\"BODY null\"}",
+  "ok": true,
+  "vb": {
+   "label": "Pause video: PARC After Darc starting-soon screen: a pixel sun over the sea with a rowboat drifting past, looped before the stream",
+   "paused": false,
+   "opacity": "1"
+  },
+  "va": {
+   "label": "Play video: PARC After Darc starting-soon screen: a pixel sun over the sea with a rowboat drifting past, looped before the stream",
+   "paused": true,
+   "active": "BODY null"
+  }
+ },
+ {
+  "area": "downloads",
+  "did": "list the download links",
+  "happened": "[{\"href\":\"/download/v1.2.3/Toolbox-1.2.3-arm64.dmg\",\"label\":\"Apple silicon\",\"download\":false,\"target\":\"\"},{\"href\":\"/download/v1.2.3/Toolbox-1.2.3.dmg\",\"label\":\"Intel\",\"download\":false,\"target\":\"\"},{\"href\":\"/download/v1.2.3/Toolbox-Setup-1.2.3.exe\",\"label\":\"Installer x64\",\"download\":false,\"target\":\"\"},{\"href\":\"/download/v1.2.3/Toolbox-Setup-1.2.3-arm64.exe\",\"label\":\"Installer arm64\",\"download\":false,\"target\":\"\"},{\"href\":\"/download/v1.2.3/toolbox-1.2.3-x86_64.AppImage\",\"label\":\"AppImage x86_64\",\"download\":false,\"target\":\"\"},{\"href\":\"/download/v1.2.3/toolbox-1.2.3-arm64.AppImage\",\"label\":\"AppImage arm64\",\"download\":false,\"target\":\"\"},{\"href\":\"/download/v1.2.3/toolbox_1.2.3_amd64.deb\",\"label\":\"deb amd64\",\"download\":false,\"target\":\"\"},{\"href\":\"/download/v1.2.3/toolbox_1.2.3_arm64.deb\",\"label\":\"deb arm64\",\"download\":false,\"target\":\"\"}]",
+  "ok": true
+ },
+ {
+  "area": "downloads",
+  "did": "click Apple silicon",
+  "happened": "request /download/v1.2.3/Toolbox-1.2.3-arm64.dmg?s=Direct+%2F+unknown; now at /download/v1.2.3/Toolbox-1.2.3-arm64.dmg",
+  "ok": true
+ },
+ {
+  "area": "downloads",
+  "did": "click Intel",
+  "happened": "request /download/v1.2.3/Toolbox-1.2.3.dmg?s=Direct+%2F+unknown; now at /download/v1.2.3/Toolbox-1.2.3.dmg",
+  "ok": true
+ },
+ {
+  "area": "downloads",
+  "did": "click Installer x64",
+  "happened": "request /download/v1.2.3/Toolbox-Setup-1.2.3.exe?s=Direct+%2F+unknown; now at /download/v1.2.3/Toolbox-Setup-1.2.3.exe",
+  "ok": true
+ },
+ {
+  "area": "downloads",
+  "did": "click Installer arm64",
+  "happened": "request /download/v1.2.3/Toolbox-Setup-1.2.3-arm64.exe?s=Direct+%2F+unknown; now at /download/v1.2.3/Toolbox-Setup-1.2.3-arm64.exe",
+  "ok": true
+ },
+ {
+  "area": "downloads",
+  "did": "click AppImage x86_64",
+  "happened": "request /download/v1.2.3/toolbox-1.2.3-x86_64.AppImage?s=Direct+%2F+unknown; now at /download/v1.2.3/toolbox-1.2.3-x86_64.AppImage",
+  "ok": true
+ },
+ {
+  "area": "downloads",
+  "did": "click AppImage arm64",
+  "happened": "request /download/v1.2.3/toolbox-1.2.3-arm64.AppImage?s=Direct+%2F+unknown; now at /download/v1.2.3/toolbox-1.2.3-arm64.AppImage",
+  "ok": true
+ },
+ {
+  "area": "downloads",
+  "did": "click deb amd64",
+  "happened": "request /download/v1.2.3/toolbox_1.2.3_amd64.deb?s=Direct+%2F+unknown; now at /download/v1.2.3/toolbox_1.2.3_amd64.deb",
+  "ok": true
+ },
+ {
+  "area": "downloads",
+  "did": "click deb arm64",
+  "happened": "request /download/v1.2.3/toolbox_1.2.3_arm64.deb?s=Direct+%2F+unknown; now at /download/v1.2.3/toolbox_1.2.3_arm64.deb",
+  "ok": true
+ },
+ {
+  "area": "downloads",
+  "did": "the releases link",
+  "happened": "{\"href\":\"https://github.com/tasyusef/toolbox/releases\",\"text\":\"All files and checksums ->\",\"target\":\"\"}",
+  "ok": true
+ },
+ {
+  "area": "downloads",
+  "did": "phone: tap \"Send the link to your computer\"",
+  "happened": "panel display=flex, share=function, clipboard=true, label now \"Send the link to your computer\"",
+  "ok": true
+ },
+ {
+  "area": "downloads",
+  "did": "phone: 2.6 s later",
+  "happened": "label \"Send the link to your computer\"",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/ @1440: wheel to the bottom in 3 steps",
+  "happened": "height 2968; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/work/ @1440: wheel to the bottom in 4 steps",
+  "happened": "height 3120; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/work/parc/ @1440: wheel to the bottom in 15 steps",
+  "happened": "height 11272; sticky/fixed: div.nav-chrome.collapsed, div.point-text.svelte-9hm5jc; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/work/xrpcafe/ @1440: wheel to the bottom in 5 steps",
+  "happened": "height 4272; sticky/fixed: div.nav-chrome.collapsed, div.point-text.svelte-9hm5jc; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/work/firstledger/ @1440: wheel to the bottom in 6 steps",
+  "happened": "height 5216; sticky/fixed: div.nav-chrome.collapsed, div.point-text.svelte-9hm5jc; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/work/do-androids-dream/ @1440: wheel to the bottom in 4 steps",
+  "happened": "height 3456; sticky/fixed: div.nav-chrome.collapsed, div.point-text.svelte-9hm5jc; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/work/jade-aesthetics/ @1440: wheel to the bottom in 5 steps",
+  "happened": "height 4376; sticky/fixed: div.nav-chrome.collapsed, div.point-text.svelte-9hm5jc; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/work/firststrike/ @1440: wheel to the bottom in 6 steps",
+  "happened": "height 4536; sticky/fixed: div.nav-chrome.collapsed, div.point-text.svelte-9hm5jc; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/work/toolbox/ @1440: wheel to the bottom in 5 steps",
+  "happened": "height 3936; sticky/fixed: div.nav-chrome.collapsed, div.point-text.svelte-9hm5jc; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/toolbox/ @1440: wheel to the bottom in 3 steps",
+  "happened": "height 2712; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/toolbox/lockup/ @1440: wheel to the bottom in 5 steps",
+  "happened": "height 4312; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/toolbox/palette/ @1440: wheel to the bottom in 4 steps",
+  "happened": "height 3736; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/toolbox/specimen/ @1440: wheel to the bottom in 4 steps",
+  "happened": "height 3432; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/toolbox/convert/ @1440: wheel to the bottom in 5 steps",
+  "happened": "height 3816; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/toolbox/agents/ @1440: wheel to the bottom in 9 steps",
+  "happened": "height 6856; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-64; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/contact/ @1440: wheel to the bottom in 1 steps",
+  "happened": "height 900; sticky/fixed: div.nav-chrome; header collapsed while scrolling down: false; after 300 up: collapsed=false top=0; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/nope/ @1440: wheel to the bottom in 1 steps",
+  "happened": "height 900; sticky/fixed: div.nav-chrome; header collapsed while scrolling down: false; after 300 up: collapsed=false top=0; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/ @390: wheel to the bottom in 4 steps",
+  "happened": "height 3384; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-104; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/work/ @390: wheel to the bottom in 5 steps",
+  "happened": "height 3816; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/work/parc/ @390: wheel to the bottom in 20 steps",
+  "happened": "height 14112; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/work/xrpcafe/ @390: wheel to the bottom in 9 steps",
+  "happened": "height 6360; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/work/firstledger/ @390: wheel to the bottom in 7 steps",
+  "happened": "height 4912; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-104; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/work/do-androids-dream/ @390: wheel to the bottom in 4 steps",
+  "happened": "height 3528; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/work/jade-aesthetics/ @390: wheel to the bottom in 7 steps",
+  "happened": "height 4896; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-104; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/work/firststrike/ @390: wheel to the bottom in 6 steps",
+  "happened": "height 4568; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/work/toolbox/ @390: wheel to the bottom in 7 steps",
+  "happened": "height 5176; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/toolbox/ @390: wheel to the bottom in 7 steps",
+  "happened": "height 4272; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-104; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/toolbox/lockup/ @390: wheel to the bottom in 3 steps",
+  "happened": "height 2740; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/toolbox/palette/ @390: wheel to the bottom in 3 steps",
+  "happened": "height 2684; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/toolbox/specimen/ @390: wheel to the bottom in 3 steps",
+  "happened": "height 2220; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=true top=-104; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/toolbox/convert/ @390: wheel to the bottom in 2 steps",
+  "happened": "height 2172; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/toolbox/agents/ @390: wheel to the bottom in 14 steps",
+  "happened": "height 10276; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/contact/ @390: wheel to the bottom in 1 steps",
+  "happened": "height 1232; sticky/fixed: div.nav-chrome.collapsed; header collapsed while scrolling down: true; after 300 up: collapsed=false top=0; no height jumps",
+  "ok": true
+ },
+ {
+  "area": "scroll",
+  "did": "/nope/ @390: wheel to the bottom in 1 steps",
+  "happened": "height 844; sticky/fixed: div.nav-chrome; header collapsed while scrolling down: false; after 300 up: collapsed=false top=0; no height jumps",
+  "ok": true
+ }
+]

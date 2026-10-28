@@ -1,0 +1,39 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - link "Timothy Ali, home":
+    - /url: /
+    - text: timothy ali
+  - navigation "Main navigation":
+    - link "01Index":
+      - /url: /
+    - link "02Work":
+      - /url: /work/
+    - link "03Contact":
+      - /url: /contact/
+    - link "04Toolbox":
+      - /url: /toolbox/
+  - button "Settings"
+- text: Denver, CO MT 11:37:52
+- main:
+  - heading "Tell me what you’re building." [level=1]
+  - text: Interface / motion / code
+  - link "See my work":
+    - /url: /work/
+  - paragraph: Hiring, or have a project in mind? I’d like to hear about it.
+  - paragraph: I’m available for full-time roles and contract work, remotely or in Denver.
+  - text: Name
+  - textbox "Name"
+  - text: Email
+  - textbox "Email"
+  - text: Your message
+  - textbox "Your message"
+  - button "Send"
+  - paragraph
+  - link "Resume (PDF)":
+    - /url: /resume/Timothy-Ali-Resume.pdf
+  - link "studio@timothyali.com":
+    - /url: mailto:studio@timothyali.com
+  - link "Message me on LinkedIn":
+    - /url: https://www.linkedin.com/in/timothyali
+- contentinfo: (C) 2026 Timothy Ali

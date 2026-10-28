@@ -92,6 +92,7 @@
 .demo .swatch-chip{width:24px;height:24px;padding:0;flex:none;outline:1px solid var(--rim);cursor:pointer;border:0}
 @media(hover:hover){.demo .swatch-chip:hover{outline-color:var(--fg)}}
 .demo .swatch-chip.on{outline:2px solid var(--fg);outline-offset:2px}
+.demo .swatch-chip:focus-visible{outline:var(--focus-ring);outline-offset:2px} /* the rim above outranked the page's ring (PX-125) */
 .demo .swatch-chip.plate-light{background:#fff}.demo .swatch-chip.plate-dark{background:#1a1a1a}
 
 /* mats and artboards: the dither frames a data object; the object sits on its plate */
@@ -154,17 +155,20 @@
   .demo .steps button{padding:9px 6px 7px 8px}
 }
 @media(max-width:420px){
-  .demo .steps button span{display:none}
-  .demo .steps button b{margin-right:0}
+  /* the words leave the screen, not the button's name: “02 Outputs”, not “02” (PX-125) */
+  .demo .steps button span{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  .demo .steps button{position:relative}.demo .steps button b{margin-right:0}
 }
 
 /* Touch (0206): on a touch screen the demo's controls reach 44px without changing the desktop
    look: chips, buttons, steps and rows grow to 44px tall, a swatch grows an invisible margin,
-   and the slider's thumb is a 24×32 target around its 8×16 block. */
+   and the slider's thumb is a 24×32 target around its 8×16 block. A swatch's margin reaches 4px
+   sideways, half the 8px gap: at 10px the two plates' targets overlapped and the dark one took
+   taps on the light one (PX-125). */
 @media(pointer:coarse){
   .demo .chip,.demo .btn,.demo .steps button,.demo .demo-act,.demo .switch,.demo .file-row,.demo button.tree-row{min-height:44px}
   .demo .chip{min-width:44px}
-  .demo .swatch-chip{position:relative}.demo .swatch-chip::after{content:'';position:absolute;inset:-10px}
+  .demo .swatch-chip{position:relative}.demo .swatch-chip::after{content:'';position:absolute;inset:-10px -4px}
   .demo input[type=range]{height:44px}
   .demo input[type=range]::-webkit-slider-thumb{width:24px;height:32px;margin-top:-15px;padding:8px;box-sizing:border-box;background-clip:content-box}
   .demo input[type=range]::-moz-range-thumb{width:24px;height:32px;padding:8px;box-sizing:border-box;background-clip:content-box}

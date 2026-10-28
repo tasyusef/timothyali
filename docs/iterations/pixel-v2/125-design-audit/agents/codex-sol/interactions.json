@@ -1,0 +1,306 @@
+{
+  "mobilePointer": {
+    "coarse": true,
+    "hover": false
+  },
+  "swatches": [
+    {
+      "name": "Light preview background",
+      "x": 197,
+      "y": 476,
+      "w": 32,
+      "h": 32,
+      "after": {
+        "left": "-10px",
+        "right": "-10px",
+        "top": "-10px",
+        "bottom": "-10px"
+      }
+    },
+    {
+      "name": "Dark preview background",
+      "x": 237,
+      "y": 476,
+      "w": 32,
+      "h": 32,
+      "after": {
+        "left": "-10px",
+        "right": "-10px",
+        "top": "-10px",
+        "bottom": "-10px"
+      }
+    }
+  ],
+  "swatchHitTest": [
+    {
+      "x": 227,
+      "y": 492,
+      "dark": "false",
+      "element": null
+    },
+    {
+      "x": 228,
+      "y": 492,
+      "dark": "false",
+      "element": null
+    },
+    {
+      "x": 229,
+      "y": 492,
+      "dark": "false",
+      "element": null
+    },
+    {
+      "x": 232,
+      "y": 492,
+      "dark": "false",
+      "element": null
+    },
+    {
+      "x": 236,
+      "y": 492,
+      "dark": "false",
+      "element": null
+    },
+    {
+      "x": 237,
+      "y": 492,
+      "dark": "false",
+      "element": null
+    }
+  ],
+  "demos": [
+    {
+      "name": "Lockup",
+      "width": 320,
+      "sw": 320,
+      "overflow": []
+    },
+    {
+      "name": "Lockup",
+      "width": 390,
+      "sw": 390,
+      "overflow": []
+    },
+    {
+      "name": "Lockup",
+      "width": 700,
+      "sw": 700,
+      "overflow": []
+    },
+    {
+      "name": "Lockup",
+      "width": 900,
+      "sw": 900,
+      "overflow": []
+    },
+    {
+      "name": "Lockup",
+      "width": 1100,
+      "sw": 1100,
+      "overflow": []
+    },
+    {
+      "name": "Lockup",
+      "width": 1440,
+      "sw": 1440,
+      "overflow": []
+    },
+    {
+      "name": "Palette",
+      "width": 320,
+      "sw": 320,
+      "overflow": []
+    },
+    {
+      "name": "Palette",
+      "width": 390,
+      "sw": 390,
+      "overflow": []
+    },
+    {
+      "name": "Palette",
+      "width": 700,
+      "sw": 700,
+      "overflow": []
+    },
+    {
+      "name": "Palette",
+      "width": 900,
+      "sw": 900,
+      "overflow": []
+    },
+    {
+      "name": "Palette",
+      "width": 1100,
+      "sw": 1100,
+      "overflow": []
+    },
+    {
+      "name": "Palette",
+      "width": 1440,
+      "sw": 1440,
+      "overflow": []
+    },
+    {
+      "name": "Specimen",
+      "width": 320,
+      "sw": 320,
+      "overflow": []
+    },
+    {
+      "name": "Specimen",
+      "width": 390,
+      "sw": 390,
+      "overflow": []
+    },
+    {
+      "name": "Specimen",
+      "width": 700,
+      "sw": 700,
+      "overflow": []
+    },
+    {
+      "name": "Specimen",
+      "width": 900,
+      "sw": 900,
+      "overflow": []
+    },
+    {
+      "name": "Specimen",
+      "width": 1100,
+      "sw": 1100,
+      "overflow": []
+    },
+    {
+      "name": "Specimen",
+      "width": 1440,
+      "sw": 1440,
+      "overflow": []
+    },
+    {
+      "name": "Convert",
+      "width": 320,
+      "sw": 320,
+      "overflow": []
+    },
+    {
+      "name": "Convert",
+      "width": 390,
+      "sw": 390,
+      "overflow": []
+    },
+    {
+      "name": "Convert",
+      "width": 700,
+      "sw": 700,
+      "overflow": []
+    },
+    {
+      "name": "Convert",
+      "width": 900,
+      "sw": 900,
+      "overflow": []
+    },
+    {
+      "name": "Convert",
+      "width": 1100,
+      "sw": 1100,
+      "overflow": []
+    },
+    {
+      "name": "Convert",
+      "width": 1440,
+      "sw": 1440,
+      "overflow": []
+    }
+  ],
+  "lockupReview": "LOCKUP/REVIEW\n37 FILES\nPACKAGE\n037\nACME LOGO LIBRARY\nV\n01 PRIMARY/\n36\nV\nPRINT/\n12\n>\nBLACK/\n5\n>\nCMYK (COLOR)/\n5\n>\nWHITE/\n2\nV\nWEB/\n24\n>\nBLACK/\n9\n>\nRGB (COLOR)/\n9\n>\nWHITE/\n6\nREADME.txt\nSUMMARY\n\n1 VARIATION / 37 FILES\n\nWEB + PRINT / COLOR, BLACK, WHITE / LARGE, MEDIUM, SMALL\n\nDESTINATION\nChoose where to save…\n->\n<-\nBACK\n01\n02\n03\nEXPORT\n->",
+  "options": [
+    {
+      "tool": "lockup",
+      "sw": 320,
+      "text": "ALL 18 OPTIONS\n--action <export|inspect|preview|library-list|library-get|library-remove>\nExport files, inspect settings and the output plan without writing, render previews, or manage saved work. Convert previews write the selected output formats; other tools write PNG. Specimen also lists fonts. Default: export.\n--saved <value>\nSaved-work ID to reopen. Explicit options override its settings. Required for library-get and library-remove.\n--save\nSave the completed export to the app library, or update the reopened record. Defaults to false for scripts. Default: false.\n--name <value>\nPackage name used in the folder and file names.\n--variations <json>\nPer-input overrides as JSON: [{\"index\":0,\"name\":\"Horizontal\",\"padding\":0.1,\"social\":true,\"socialPadding\":0.12}]. Index is zero-based in input order.\n--palette <json>\nColor overrides as JSON: [{\"sourceHex\":\"#D32F05\",\"hex\":\"#FF4400\",\"cmyk\":[0,73,100,0],\"pantone\":\"172 C\"}]. Inspect first to find sourceHex values. CMYK is in percent.\n--padVectors\nApply variation padding to SVG, PDF, and EPS as well as raster files. Default: false.\n--socialPadding <number>\nPadding for square social versions; per-variation settings override this value. Default: 0.12.\n--previewDark\nUse a dark plate in PNG previews and library thumbnails. Default: false.\n--input <values…>\nPaths of the logo SVGs, one per variation (horizontal, stacked, mark). You can supply these values without --input. Required unless you’re reopening saved work or querying the library.\n--web <jpeg|png|svg>\nWeb file types to include. Pass an empty array to skip web output. Default: jpeg, png, svg.\n--print <eps|jpeg|pdf>\nPrint file types to include. Pass an empty array to skip print output. Default: eps, jpeg, pdf.\n--treatments <color|black|white>\nColourways to build. Default: color, black, white.\n--sizes <large|medium|small>\nRaster sizes: large is 3000px, medium 1500px, small 600px on the long edge. Default: large, medium, small.\n--padding <number>\nClear space around the mark, as a fraction of the long edge (0 to 0.25). Default: 0.\n--social\nAlso emit a square profile-picture version of each variation (web only). Default: false.\n--edgeSmoothing <smooth|hard>\nEdges in the PNG and JPEG files: 'smooth' anti-aliases them; 'hard' turns anti-aliasing off, so every pixel is fully in or out. SVG, PDF and EPS are unchanged. Default: smooth.\n--out <value>\nFolder to write into. A fresh subfolder is created inside it, so nothing is overwritten. Required for export and preview.",
+      "overflow": []
+    },
+    {
+      "tool": "palette",
+      "sw": 320,
+      "text": "ALL 12 OPTIONS\n--action <export|inspect|preview|library-list|library-get|library-remove>\nExport files, inspect settings and the output plan without writing, render previews, or manage saved work. Convert previews write the selected output formats; other tools write PNG. Specimen also lists fonts. Default: export.\n--saved <value>\nSaved-work ID to reopen. Explicit options override its settings. Required for library-get and library-remove.\n--save\nSave the completed export to the app library, or update the reopened record. Defaults to false for scripts. Default: false.\n--entries <json>\nOrdered swatches as JSON: [{\"name\":\"Orange\",\"hex\":\"#D32F05\",\"cmyk\":[0,78,98,17],\"pantone\":\"1665 C\"}]. Replaces extracted or saved entries; colors and samples then append.\n--samples <json>\nSample image colors at normalized coordinates: [{\"image\":0,\"x\":0.5,\"y\":0.5}]. Image indices come from inspect.\n--extract\nAdd dominant image colors automatically. Disable to select only explicit samples or entries. Default: true.\n--colors <values…>\nHex colours to include, for example ['#D32F05', '#003A5D']. You can supply these values without --colors.\n--input <values…>\nPaths of artwork to pull colours from. SVGs contribute their exact fills; images contribute their dominant colours. Combines with `colors`.\n--name <value>\nPalette name, used for the file names and the sheet heading. Default: Palette.\n--outputs <css|tokens|ase|sheet>\nWhich files to write. Default: css, tokens, ase, sheet.\n--edgeSmoothing <smooth|hard>\nEdges on the swatch sheet (PNG, and the image inside its PDF): 'smooth' anti-aliases them; 'hard' turns anti-aliasing off. Default: smooth.\n--out <value>\nFolder to write into. A fresh subfolder is created inside it, so nothing is overwritten. Required for export and preview.",
+      "overflow": []
+    },
+    {
+      "tool": "specimen",
+      "sw": 328,
+      "text": "ALL 10 OPTIONS\n--action <export|inspect|preview|library-list|library-get|library-remove|fonts>\nExport files, inspect settings and the output plan without writing, render previews, or manage saved work. Convert previews write the selected output formats; other tools write PNG. Specimen also lists fonts. Default: export.\n--saved <value>\nSaved-work ID to reopen. Explicit options override its settings. Required for library-get and library-remove.\n--save\nSave the completed export to the app library, or update the reopened record. Defaults to false for scripts. Default: false.\n--roles <json>\nOrdered brand styles as JSON: [{\"label\":\"Display\",\"family\":\"Helvetica\",\"face\":\"Bold\",\"size\":40}]. Replaces the default roles; sizes are in points. Use action fonts for installed names.\n--template <brand|classic>\n'brand' lays out named roles (heading, body, caption); 'classic' shows one family at a range of sizes. Default: brand.\n--title <value>\nHeading printed on the sheet. Default: Typography.\n--sample <value>\nThe sentence set in each face. Default: The quick brown fox jumps over the lazy dog.\n--family <value>\nFont family for the 'classic' template, for example 'Helvetica'. Ignored by 'brand'.\n--edgeSmoothing <smooth|hard>\nEdges on the type sheet (PNG, and the image inside its PDF): 'smooth' anti-aliases shapes and text; 'hard' turns anti-aliasing off. Default: smooth.\n--out <value>\nFolder to write into. A fresh subfolder is created inside it, so nothing is overwritten. Required for export and preview.",
+      "overflow": []
+    },
+    {
+      "tool": "convert",
+      "sw": 320,
+      "text": "ALL 11 OPTIONS\n--action <export|inspect|preview|library-list|library-get|library-remove>\nExport files, inspect settings and the output plan without writing, render previews, or manage saved work. Convert previews write the selected output formats; other tools write PNG. Specimen also lists fonts. Default: export.\n--saved <value>\nSaved-work ID to reopen. Explicit options override its settings. Required for library-get and library-remove.\n--save\nSave the completed export to the app library, or update the reopened record. Defaults to false for scripts. Default: false.\n--input <values…>\nPaths of the image files to convert. You can supply these values without --input. Required unless you’re reopening saved work or querying the library.\n--formats <png|jpeg|webp|tiff|pdf>\nOutput formats. Every input is written in each one. Default: png.\n--compression <number>\nHow hard to compress, 0 to 100. 0 uses the highest encoder quality; conversion still re-encodes the image. 100 applies the strongest compression offered. Applies to JPEG, WebP and PDF; PNG and TIFF are lossless and ignore it. Default: 10.\n--originalSize\nClear a saved resize limit and keep original dimensions. Cannot be combined with longestEdge. Default: false.\n--longestEdge <number>\nCap the longest side, in pixels, keeping the aspect ratio. Omit to keep each image at its own size. Images already smaller are left alone.\n--background <value>\nFill behind transparency: 'none' keeps it wherever the format allows, or give a hex colour like '#ffffff'. JPEG and PDF have no transparency and fill with white when this is 'none'. Default: none.\n--edgeSmoothing <smooth|hard>\nEdges of an SVG input as it is drawn: 'smooth' anti-aliases them; 'hard' turns anti-aliasing off, so every pixel is fully in or out. Bitmap inputs are unchanged. Default: smooth.\n--out <value>\nFolder to write into. A fresh subfolder is created inside it, so nothing is overwritten. Required for export and preview.",
+      "overflow": []
+    }
+  ],
+  "contactEmpty": {
+    "active": "name",
+    "notes": [
+      "Enter your name.",
+      "Enter an email address I can reply to.",
+      "Tell me about the role or project."
+    ],
+    "fields": [
+      {
+        "name": "name",
+        "invalid": "true",
+        "description": "name-note"
+      },
+      {
+        "name": "email",
+        "invalid": "true",
+        "description": "email-note"
+      },
+      {
+        "name": "message",
+        "invalid": "true",
+        "description": "message-note"
+      },
+      {
+        "name": "hp_check",
+        "invalid": null,
+        "description": null
+      }
+    ]
+  },
+  "contactInvalid": {
+    "active": "email",
+    "note": "That doesn’t look like an email address. Try something like name@example.com."
+  },
+  "contactPosts": 0,
+  "sent=1": "SENT. I’LL REPLY FROM STUDIO@TIMOTHYALI.COM.",
+  "error=send-failed": "YOUR MESSAGE DIDN’T SEND. TRY AGAIN, OR EMAIL STUDIO@TIMOTHYALI.COM.",
+  "settings": [
+    {
+      "theme": "dark",
+      "text": "Motion [off]",
+      "color": "rgb(24, 24, 20)",
+      "background": "rgb(242, 214, 0)",
+      "outline": "rgb(242, 214, 0) solid 2px",
+      "outlineOffset": "2px",
+      "parentBackground": "rgb(239, 239, 235)",
+      "themeToggle": "light",
+      "restored": "Settings"
+    },
+    {
+      "theme": "light",
+      "text": "Motion [off]",
+      "color": "rgb(24, 24, 20)",
+      "background": "rgb(242, 214, 0)",
+      "outline": "rgb(111, 98, 0) solid 2px",
+      "outlineOffset": "2px",
+      "parentBackground": "rgb(24, 24, 20)",
+      "themeToggle": "dark",
+      "restored": "Settings"
+    }
+  ]
+}

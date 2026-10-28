@@ -1,0 +1,65 @@
+ok [nav] click Work => /work/ aria-current=page
+ok [nav] click Contact => /contact/ aria-current=page
+ok [nav] click Toolbox => /toolbox/ aria-current=page
+ok [nav] click Index => / aria-current=page
+ok [nav] click wordmark => /
+ok [cards] count the Work cards => 7: Toolbox, PARC, Jade Aesthetics, First Ledger, xrp.cafe, FirstStrike Research, Do Androids Dream?
+ok [cards] click card Toolbox => /work/toolbox/ h1="toolboxtoolboxtoolb><"
+ok [cards] click card PARC => /work/parc/ h1="parcparcparc"
+ok [cards] click card Jade Aesthetics => /work/jade-aesthetics/ h1="aestheticsjade aestheticsjade "
+ok [cards] click card First Ledger => /work/firstledger/ h1="ledgerfirst ledgerfirst *|#-=%"
+ok [cards] click card xrp.cafe => /work/xrpcafe/ h1="xrp.cafexrp.cafexrp.:1::"
+ok [cards] click card FirstStrike Research => /work/firststrike/ h1="firststrikefirststrike researc"
+ok [cards] click card Do Androids Dream? => /work/do-androids-dream/ h1="androidsdo androids dream?do a"
+ok [study] list PARC links => [{"href":"https://parcxrpl.com","text":"parcxrpl.com ->","ext":true,"target":""},{"href":"/work/jade-aesthetics/","text":"Next / [03]Jade Aesthetics ->","ext":false,"target":""},{"href":"/contact/","text":"Tell me what you’re building ->","ext":false,"target":""}]
+ok [study] click Next row on PARC => /work/jade-aesthetics/
+ok [study] click foot link on the next study => /contact/
+ok [home] click first Home card => /work/toolbox/
+ok [home] click All work => /work/
+ok [home] click Get in touch => /contact/
+ok [home] click Selected work chip (#work) => scrolled 0→864, hash=#work, #work top=32 (chrome 96px, nav-chrome collapsed)
+ok [toolbox] click Explore the tools (#tools) => scrollY=632, #tools top=64
+ok [toolbox] pick lockup, click "Lockup guide ->" => /toolbox/lockup/
+ok [toolbox] pick palette, click "Palette guide ->" => /toolbox/palette/
+ok [toolbox] pick specimen, click "Specimen guide ->" => /toolbox/specimen/
+ok [toolbox] pick convert, click "Convert guide ->" => /toolbox/convert/
+ok [toolbox] click Next on Lockup => /toolbox/palette/
+ok [toolbox] click All four tools foot link => /toolbox/
+ok [toolbox] click CLI & MCP setup on Lockup => /toolbox/agents/
+ok [toolbox] click first option link on CLI & MCP => /toolbox/lockup/#cli, #cli top=96
+ok [agents] click jump "setup" => section top=32 (nav-chrome collapsed)
+ok [agents] click jump "run" => section top=62 (nav-chrome collapsed)
+XX [agents] click jump "organize" => section top=214 (nav-chrome collapsed)
+ok [agents] look for copy/command controls => buttons in main: [] (code blocks are plain <pre>; selecting text is the copy path)
+ok [agents] triple-click the first code block => selection="sudo ln -s "/Applications/Toolbox.app/Contents/MacOS/Toolbox"
+ok [404] click Back to home (title was "Not found / Timothy Ali") => /
+ok [settings] fresh visit => {"theme":"dark","motion":"on","cogVisible":"visible"}
+ok [settings] click the cog => {"hidden":false,"expanded":"true","rows":["Motion [on]","Theme [dark]"]}
+ok [settings] click Motion => {"motion":"off","label":"Motion [off]","pressed":"false","menuOpen":true,"cursorAnim":"none"}
+ok [settings] click Theme => {"theme":"light","label":"Theme [light]","meta":"#efefeb","menuOpen":true}
+ok [settings] click outside the menu => menu hidden=true
+ok [settings] open /work/ after the choices => {"theme":"light","motion":"off","saved":["light","off"]}
+ok [settings] open /work/parc/ after the choices => {"theme":"light","motion":"off","saved":["light","off"]}
+ok [settings] open /toolbox/ after the choices => {"theme":"light","motion":"off","saved":["light","off"]}
+ok [settings] open /contact/ after the choices => {"theme":"light","motion":"off","saved":["light","off"]}
+ok [settings] open /nope/ after the choices => {"theme":"light","motion":"off","saved":["light","off"]}
+ok [settings] client-side nav Home→Work => {"theme":"light","motion":"off"}
+ok [settings] Space on cog, Motion, Theme => {"theme":"dark","motion":"on","active":"Theme [dark]"}
+ok [settings] Escape => {"hidden":true,"active":"cog"}
+ok [settings] open the menu, then scroll down 600 => {"menuHidden":false,"nav":"nav-chrome","headerTop":0}
+ok [states] hover+press nav link Work => rest rgba(0, 0, 0, 0)/rgb(239, 239, 235) → hover rgb(239, 239, 235)/rgb(24, 24, 20) → press rgb(242, 214, 0)/rgb(24, 24, 20)
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+locator.scrollIntoViewIfNeeded: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator('.hero-hint').first()
+
+    at hoverPress (/Users/twocakes/Desktop/PROJECTS/timothyali2/docs/iterations/pixel-v2/125-design-audit/agents/fable/interact.mjs:164:52)
+    at /Users/twocakes/Desktop/PROJECTS/timothyali2/docs/iterations/pixel-v2/125-design-audit/agents/fable/interact.mjs:178:9 {
+  log: [ "  - waiting for locator('.hero-hint').first()" ],
+  name: 'TimeoutError'
+}
+
+Node.js v26.7.0

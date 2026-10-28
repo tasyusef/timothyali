@@ -29,7 +29,7 @@
 .cta-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--s2);padding:25px 22px 23px 24px;background:var(--accent);color:var(--on-accent);transform:translate(0,0)}
 .cta-row>span{flex:none;max-width:100%}
 button.cta-row{width:100%;text-align:left}
-:is(.cta,.cta-row,.cta-hint):disabled{cursor:default;opacity:var(--dim);pointer-events:none}
+:is(.cta,.cta-row,.cta-hint):is(:disabled,[aria-disabled=true]){cursor:default;opacity:var(--dim);pointer-events:none}
 @media(hover:hover){.cta-row:hover{background:var(--fg);color:var(--paper)}}
 .cta-hint{display:inline-flex;align-items:center;gap:var(--s1);padding:var(--pad-s);background:var(--accent);color:var(--on-accent)}
 .cta-hint:focus-visible{background:var(--fg);color:var(--paper)}@media(hover:hover){.cta-hint:hover{background:var(--fg);color:var(--paper)}}
@@ -91,6 +91,9 @@ button.cta-row{width:100%;text-align:left}
 .cta:active,.cta-row:active,.cta-hint:active,.quiet-link:active,.card:active{background:var(--accent);color:var(--on-accent)}
 .card:active .card-body>.mono{color:inherit}
 .quiet-link:active{box-shadow:0 0 0 var(--s1) var(--accent)}
+/* the page-foot link presses as a quiet link does; it had no hover or press at all (PX-125) */
+@media(hover:hover){.page-foot a:hover{color:var(--accent-text)}}
+.page-foot a:active{background:var(--accent);color:var(--on-accent);box-shadow:0 0 0 var(--s1) var(--accent)}
 .quiet-link.pad:active{box-shadow:var(--s1) 0 0 var(--accent),calc(-1 * var(--s1)) 0 0 var(--accent)}
 
 /* --- panel ------------------------------------------------------- */
@@ -98,8 +101,10 @@ button.cta-row{width:100%;text-align:left}
    panels, the admin's totals. Everything that changes with the ground changes here once: the
    accent as type, the dim level, the text selection (the page's own selection is these two
    colours, so on a panel it vanished) and a row action's hover, which lights to the panel's
-   ground instead of its own. */
-.panel{--accent-text:var(--accent-on-fg);--dim:var(--dim-on-fg);background:var(--fg);color:var(--paper)}
+   ground instead of its own. The focus ring is declared again here: a custom property resolves
+   where it is declared, so the :root ring kept the page's accent and drew yellow on the white
+   panel, 1.27:1 (PX-125, restoring 0106). The settings menu is a panel too. */
+.panel{--accent-text:var(--accent-on-fg);--dim:var(--dim-on-fg);--focus-ring:2px solid var(--accent-text);background:var(--fg);color:var(--paper)}
 .panel::selection,.panel ::selection{background:var(--paper);color:var(--fg)}
 .panel :is(.cta,.cta-row,.cta-hint):focus-visible{background:var(--paper);color:var(--fg)}@media(hover:hover){.panel :is(.cta,.cta-row,.cta-hint):hover{background:var(--paper);color:var(--fg)}}
 .panel :is(.cta,.cta-row,.cta-hint):active{background:var(--accent);color:var(--on-accent)}

@@ -32,10 +32,13 @@
 .settings .cog{display:block;padding:var(--s1)}
 .settings .cog svg{display:block}
 .settings .cog[aria-expanded=true]{background:var(--fg);color:var(--paper)}@media(hover:hover){.settings .cog:hover{background:var(--fg);color:var(--paper)}}
-.settings-menu{position:absolute;top:calc(100% + var(--s1));right:0;display:flex;flex-direction:column;width:192px;background:var(--fg);color:var(--paper)}
+.settings-menu{position:absolute;top:calc(100% + var(--s1));right:0;display:flex;flex-direction:column;width:192px} /* a .panel: its ground, ring and dim flip with it */
 .settings-menu[hidden]{display:none}
 .settings-menu button{display:flex;justify-content:space-between;padding:var(--pad-s);text-align:left}
-.settings-menu button:focus-visible{background:var(--accent);color:var(--on-accent)}@media(hover:hover){.settings-menu button:hover{background:var(--accent);color:var(--on-accent)}}
+/* a row lights to the page's ground, as a panel's row actions do; yellow on the white menu was
+   1.27:1 (PX-125). The press is the accent block (0099). */
+.settings-menu button:focus-visible{background:var(--paper);color:var(--fg)}@media(hover:hover){.settings-menu button:hover{background:var(--paper);color:var(--fg)}}
+.settings-menu button:active{background:var(--accent);color:var(--on-accent)}
 
 /* One flexible gap, not space-between: leftover width split four ways lands the items on
    thirds of a pixel and blurs the bitmap face (0089). The place sits with the path, the

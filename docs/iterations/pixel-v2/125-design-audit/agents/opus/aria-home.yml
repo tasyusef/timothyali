@@ -1,0 +1,58 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - link "Timothy Ali, home":
+    - /url: /
+    - text: timothy ali
+  - navigation "Main navigation":
+    - link "01Index":
+      - /url: /
+    - link "02Work":
+      - /url: /work/
+    - link "03Contact":
+      - /url: /contact/
+    - link "04Toolbox":
+      - /url: /toolbox/
+  - button "Settings"
+- text: Denver, CO MT 11:37:51
+- main:
+  - region "i’m tim. Timothy Ali":
+    - heading "i’m tim. Timothy Ali" [level=1]
+    - paragraph: Product designer. I design interfaces and design systems, and build the front end. Based in Denver and open to remote work, full-time or contract.
+    - link "Selected work":
+      - /url: "#work"
+    - link "Resume":
+      - /url: /resume/Timothy-Ali-Resume.pdf
+  - region "Selected work":
+    - heading "Selected work" [level=2]
+    - link "Toolbox A desktop app I designed and built for getting brand files ready to hand off. It packages logos, exports palettes, makes type sheets, and converts images.":
+      - /url: /work/toolbox/
+      - figure:
+        - 'img "The toolbox wordmark over the app’s home screen: a list of projects, with Lockup, Palette, Specimen, and Convert in the sidebar"'
+      - heading "Toolbox" [level=3]
+      - paragraph: A desktop app I designed and built for getting brand files ready to hand off. It packages logos, exports palettes, makes type sheets, and converts images.
+    - link "PARC A new identity and website for the NFT club I cofounded in 2021, including a custom pixel typeface, live collection stats, and a rowing game.":
+      - /url: /work/parc/
+      - figure:
+        - img "PARC’s four-color pixel letters on a white sign floating in a pixel-cloud sky"
+      - heading "PARC" [level=3]
+      - paragraph: A new identity and website for the NFT club I cofounded in 2021, including a custom pixel typeface, live collection stats, and a rowing game.
+    - link "Jade Aesthetics Two websites for a medical spa. I launched the first in Framer, then rebuilt it in Next.js with a page for each treatment.":
+      - /url: /work/jade-aesthetics/
+      - figure:
+        - 'img "The Jade Aesthetics logo over its homepage: Naturally Elevated, Timeless Beauty over the treatment lounge"'
+      - heading "Jade Aesthetics" [level=3]
+      - paragraph: Two websites for a medical spa. I launched the first in Framer, then rebuilt it in Next.js with a page for each treatment.
+    - link "First Ledger I designed the logo, type, and brand guidelines for a trading platform on the XRP Ledger.":
+      - /url: /work/firstledger/
+      - figure:
+        - 'img "First Ledger billboard mockup: The fastest way to trade"'
+      - heading "First Ledger" [level=3]
+      - paragraph: I designed the logo, type, and brand guidelines for a trading platform on the XRP Ledger.
+    - link "All work":
+      - /url: /work/
+  - region "Tell me what you’re building.":
+    - heading "Tell me what you’re building." [level=2]
+    - link "Get in touch":
+      - /url: /contact/
+- contentinfo: (C) 2026 Timothy Ali

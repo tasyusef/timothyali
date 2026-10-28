@@ -1,0 +1,64 @@
+- link "Skip to content":
+  - /url: "#main"
+- banner:
+  - link "Timothy Ali, home":
+    - /url: /
+    - text: timothy ali
+  - navigation "Main navigation":
+    - link "01Index":
+      - /url: /
+    - link "02Work":
+      - /url: /work/
+    - link "03Contact":
+      - /url: /contact/
+    - link "04Toolbox":
+      - /url: /toolbox/
+  - button "Settings"
+- text: Denver, CO MT 11:37:52
+- main:
+  - heading "work." [level=1]
+  - link "Toolbox A desktop app I designed and built for getting brand files ready to hand off. It packages logos, exports palettes, makes type sheets, and converts images.":
+    - /url: /work/toolbox/
+    - figure:
+      - 'img "The toolbox wordmark over the app’s home screen: a list of projects, with Lockup, Palette, Specimen, and Convert in the sidebar"'
+    - heading "Toolbox" [level=2]
+    - paragraph: A desktop app I designed and built for getting brand files ready to hand off. It packages logos, exports palettes, makes type sheets, and converts images.
+  - link "PARC A new identity and website for the NFT club I cofounded in 2021, including a custom pixel typeface, live collection stats, and a rowing game.":
+    - /url: /work/parc/
+    - figure:
+      - img "PARC’s four-color pixel letters on a white sign floating in a pixel-cloud sky"
+    - heading "PARC" [level=2]
+    - paragraph: A new identity and website for the NFT club I cofounded in 2021, including a custom pixel typeface, live collection stats, and a rowing game.
+  - link "Jade Aesthetics Two websites for a medical spa. I launched the first in Framer, then rebuilt it in Next.js with a page for each treatment.":
+    - /url: /work/jade-aesthetics/
+    - figure:
+      - 'img "The Jade Aesthetics logo over its homepage: Naturally Elevated, Timeless Beauty over the treatment lounge"'
+    - heading "Jade Aesthetics" [level=2]
+    - paragraph: Two websites for a medical spa. I launched the first in Framer, then rebuilt it in Next.js with a page for each treatment.
+  - link "First Ledger I designed the logo, type, and brand guidelines for a trading platform on the XRP Ledger.":
+    - /url: /work/firstledger/
+    - figure:
+      - 'img "First Ledger billboard mockup: The fastest way to trade"'
+    - heading "First Ledger" [level=2]
+    - paragraph: I designed the logo, type, and brand guidelines for a trading platform on the XRP Ledger.
+  - link "xrp.cafe As founding designer of an NFT marketplace on the XRP Ledger, I made its identity, animations, and marketing.":
+    - /url: /work/xrpcafe/
+    - figure:
+      - img "xrp.cafe coffee-mug logo lockup"
+    - heading "xrp.cafe" [level=2]
+    - paragraph: As founding designer of an NFT marketplace on the XRP Ledger, I made its identity, animations, and marketing.
+  - link "FirstStrike Research I designed the wordmark, colors, type, and brand guidelines for a veteran-owned financial research blog.":
+    - /url: /work/firststrike/
+    - figure:
+      - img "The FirstStrike Research wordmark in white italic type on a grainy blue gradient"
+    - heading "FirstStrike Research" [level=2]
+    - paragraph: I designed the wordmark, colors, type, and brand guidelines for a veteran-owned financial research blog.
+  - link "Do Androids Dream? A speculative yellow-and-black title sequence for Philip K. Dick’s “Do Androids Dream of Electric Sheep?”, inspired by Saul Bass.":
+    - /url: /work/do-androids-dream/
+    - figure:
+      - 'img "Do Androids Dream title sequence: the sun with beams radiating out behind a lone figure, black on yellow"'
+    - heading "Do Androids Dream?" [level=2]
+    - paragraph: A speculative yellow-and-black title sequence for Philip K. Dick’s “Do Androids Dream of Electric Sheep?”, inspired by Saul Bass.
+  - link "Tell me what you’re building Get in touch":
+    - /url: /contact/
+- contentinfo: (C) 2026 Timothy Ali

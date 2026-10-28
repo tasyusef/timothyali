@@ -1151,9 +1151,22 @@ Pushed on 2026-10-27, after the v1.2.3 GitHub release was public.
 - **Downloads:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.3; each of the eight release files returned 200 before the push, and `/api/update/darwin/aarch64/1.2.1` answered with the 1.2.3 feed.
 - **Checks:** `pnpm check`, tests, build, `seo:check`.
 
+## PX-125: design audit and fixes (2026-10-28, 0228)
+
+- **Audit:** Opus, Fable and Codex 6.1 Sol each ran `better-interface` in full mode and used the site with Playwright (`brief.md`, `agents/*/report.md`). Verdicts: Block, Block, Needs changes. All three found the panel focus ring (1.27:1 in dark, 2.9:1 in light) and the tool title overflow at 320.
+- **Fixes:** all 23 merged findings; the list is in decision 0228.
+- **Checks:** `pnpm check` 0/0, 37 tests, build; `fixes/verify.mjs` re-runs each finding in Chrome (33 checks, all pass, `fixes/verify.log`); `tools/review/blocks.mjs` flags only two study-meta arrows at 390, which these fixes don't touch.
+- **Evidence:** `docs/iterations/pixel-v2/125-design-audit/fixes/` (focus on the contact panel and the settings menu in both themes, Toolbox at 390, Specimen at 320, Home at 390).
+
 ## PX-126: Toolbox 1.2.4 (2026-10-28, 0229)
 
 Pushed on 2026-10-28, after the v1.2.4 GitHub release was public.
 
 - **Downloads:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.4; each of the twelve release downloads returned 200 before the push, and `/api/update/darwin/aarch64/1.2.3` answered with the 1.2.4 feed.
 - **Checks:** `pnpm check`, tests, build, `seo:check`.
+
+## PX-126: "Designer" (2026-10-28, 0229)
+
+- **Change:** hero lines, Home title and descriptions, the Work and Contact descriptions, JSON-LD and the Home share image move from "Product designer" to "Designer". The hero's second line is his LinkedIn list.
+- **Checks:** `pnpm check` 0/0, 37 tests, build, `social:verify` PASS, `seo:check` PASS, Home with no sideways scroll at 1440, 390 and 320.
+- **Evidence:** `docs/iterations/pixel-v2/125-design-audit/fixes/home-designer-{1440,390,320}.png`.

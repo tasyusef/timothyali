@@ -1,0 +1,11 @@
+import { chromium } from '@playwright/test';
+const browser = await chromium.launch({ channel: 'chrome' });
+const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+await page.route('**/api/contact**', async (r) => { await new Promise((x) => setTimeout(x, 800)); r.fulfill({ status: 200, contentType: 'application/json', body: '{"ok":true}' }); });
+await page.goto('http://127.0.0.1:4173/contact/', { waitUntil: 'networkidle' });
+await page.locator('input[name=name]').focus(); await page.keyboard.type('Ada'); await page.keyboard.press('Tab'); await page.keyboard.type('ada@example.com'); await page.keyboard.press('Tab'); await page.keyboard.type('Hello'); await page.keyboard.press('Tab');
+console.log('on', await page.evaluate(() => document.activeElement.textContent.trim()));
+await page.keyboard.press('Enter'); await page.waitForTimeout(200); console.log('sending focus', await page.evaluate(() => document.activeElement.tagName));
+await page.waitForTimeout(1000); console.log('sent focus', await page.evaluate(() => document.activeElement.tagName), '| status', await page.textContent('#contact-status'));
+await page.keyboard.press('Tab'); console.log('next Tab lands on', await page.evaluate(() => (document.activeElement.getAttribute('aria-label') || document.activeElement.textContent).trim().slice(0, 30)));
+await browser.close();

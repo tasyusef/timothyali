@@ -63,20 +63,6 @@
     "pass": true
   },
   {
-    "path": "/work/sonde/",
-    "image": "/og/work-sonde.png",
-    "serverRendered": true,
-    "dimensions": "1200×630",
-    "pass": true
-  },
-  {
-    "path": "/work/pocketwatch/",
-    "image": "/og/work-pocketwatch.png",
-    "serverRendered": true,
-    "dimensions": "1200×630",
-    "pass": true
-  },
-  {
     "path": "/work/toolbox/",
     "image": "/og/work-toolbox.png",
     "serverRendered": true,
@@ -91,6 +77,13 @@
     "pass": true
   },
   {
+    "path": "/work/jade-aesthetics/",
+    "image": "/og/work-jade-aesthetics.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
     "path": "/work/firstledger/",
     "image": "/og/work-firstledger.png",
     "serverRendered": true,
@@ -100,13 +93,6 @@
   {
     "path": "/work/xrpcafe/",
     "image": "/og/work-xrpcafe.png",
-    "serverRendered": true,
-    "dimensions": "1200×630",
-    "pass": true
-  },
-  {
-    "path": "/work/jade-aesthetics/",
-    "image": "/og/work-jade-aesthetics.png",
     "serverRendered": true,
     "dimensions": "1200×630",
     "pass": true

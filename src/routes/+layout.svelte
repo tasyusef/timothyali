@@ -131,24 +131,26 @@
   <header class="site-header" bind:this={headerElement}>
     <a class="wordmark blackletter" href="/" aria-label="Timothy Ali, home">timothy ali</a>
     <nav class="lbl" aria-label="Main navigation">
-      <a href="/" aria-current={pathname === '/' ? 'page' : undefined}><b>01</b>Index</a>
-      <a href="/work/" aria-current={pathname.startsWith('/work') ? 'page' : undefined}><b>02</b>Work</a>
-      <a href="/contact/" aria-current={pathname.startsWith('/contact') ? 'page' : undefined}><b>03</b>Contact</a>
-      <a href="/toolbox/" aria-current={pathname.startsWith('/toolbox') ? 'page' : undefined}><b>04</b>Toolbox</a>
+      <a href="/" aria-current={pathname === '/' ? 'page' : undefined}><b aria-hidden="true">01</b>Index</a>
+      <a href="/work/" aria-current={pathname.startsWith('/work') ? 'page' : undefined}><b aria-hidden="true">02</b>Work</a>
+      <a href="/contact/" aria-current={pathname.startsWith('/contact') ? 'page' : undefined}><b aria-hidden="true">03</b>Contact</a>
+      <a href="/toolbox/" aria-current={pathname.startsWith('/toolbox') ? 'page' : undefined}><b aria-hidden="true">04</b>Toolbox</a>
     </nav>
     <!-- hidden, not absent, until the saved choices are read: without JavaScript there is nothing to set -->
     <div class="settings lbl" class:ready={motion.ready} bind:this={settingsElement}>
       <button type="button" class="cog" bind:this={cogElement} aria-label="Settings" aria-expanded={settingsOpen} aria-controls="settings-menu" onclick={() => (settingsOpen = !settingsOpen)}>
         <PixelIcon name="cog" />
       </button>
-      <div class="settings-menu" id="settings-menu" role="group" aria-label="Settings" hidden={!settingsOpen}>
+      <div class="settings-menu panel" id="settings-menu" role="group" aria-label="Settings" hidden={!settingsOpen}>
         <button type="button" onclick={toggleMotion} aria-pressed={motion.on}>Motion <span class="state">[{motion.on ? 'on' : 'off'}]</span></button>
-        <button type="button" onclick={toggleTheme} aria-pressed={theme.light}>Theme <span class="state">[{theme.light ? 'light' : 'dark'}]</span></button>
+        <!-- no aria-pressed: “pressed” has no meaning for a choice of two; the label says which (PX-125) -->
+        <button type="button" onclick={toggleTheme}>Theme <span class="state">[{theme.light ? 'light' : 'dark'}]</span></button>
       </div>
     </div>
   </header>
-  <div class="readout mono">
-    <span class="path mono" aria-hidden="true"><span class="path-text"><span class="path-full">~/tim/<Decode text={route} step={STEP_FAST} /></span><span class="path-short">{shortPrefix}<Decode text={shortTail} step={STEP_FAST} /></span></span><Cursor /></span><span class="st-city">Denver, CO</span><span class="st-clock">{clock || '--:--:--'}</span>
+  <!-- decoration for sighted readers: the path repeats the page title and the clock ticks every second (PX-125) -->
+  <div class="readout mono" aria-hidden="true">
+    <span class="path mono"><span class="path-text"><span class="path-full">~/tim/<Decode text={route} step={STEP_FAST} /></span><span class="path-short">{shortPrefix}<Decode text={shortTail} step={STEP_FAST} /></span></span><Cursor /></span><span class="st-city">Denver, CO</span><span class="st-clock">{clock || '--:--:--'}</span>
   </div>
   </div>
   {@render children()}
