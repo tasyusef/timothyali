@@ -2835,7 +2835,8 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 
 ## 0236: the site moves to Cloudflare Workers (2026-10-29)
 
-- **Timothy's direction:** "can we optimize the site for cloudflare and then migrate it over to that?", then "1" (deploy to a test address), the cutover steps in his Cloudflare dashboard, and "commit and merge". His reason for the move was not given.
+- **Timothy's direction:** "can we optimize the site for cloudflare and then migrate it over to that?", then "1" (deploy to a test address), the cutover steps in his Cloudflare dashboard, and "commit and merge".
+- **Why (his words):** "i think its a better platform for hosting. and i want to support them. they opensource tons of shit and seem to be kind of for the people".
 - **Hosting:** adapter-cloudflare 7.2.9 (8.x needs SvelteKit 3) in place of adapter-vercel. `wrangler.jsonc` holds the worker, `nodejs_compat`, the static assets and the daily 23:50 UTC cron; `svelte.config.js` wraps the adapter so the worker entry has the cron's `scheduled` handler. `vercel.json` is gone: old addresses are in the root `_redirects`, cache and security headers in the root `_headers`, and `hooks.server.ts` gives the worker's own responses the same security headers and HSTS.
 - **Ported:** places come from Cloudflare's `request.cf` (were Vercel's `x-vercel-ip-*` headers); the contact form's rate limit keys on `getClientAddress()`; the SEO and share-image checks read `.svelte-kit/cloudflare`.
 - **Assistant's choices inside it (proposed, kept):** a download and an app update check are counted after the redirect has gone (`waitUntil`), so a slow store never holds one up; the build adds a 308 for every page asked for without its slash, as Vercel did (Workers' own answer is a 307).
