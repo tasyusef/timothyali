@@ -1218,10 +1218,21 @@ Pushed on 2026-10-28, after the v1.2.5 GitHub release was public.
 
 ## PX-130: Toolbox pages match 1.2.5 (2026-10-28, 0233)
 
-Prepared on 2026-10-28; committed on Timothy's word on 2026-10-29, not yet pushed.
+Prepared on 2026-10-28; committed on Timothy's word on 2026-10-29; pushed with PX-131 on 2026-10-29.
 
 - **Screens:** all five recaptured from 1.2.5 with PX-117's scenarios; phone crops recut (Convert's new box); study cover and five share images regenerated, the rest byte-identical.
 - **Demos:** the four landing demos rebuilt to the 1.2.5 screens (`CheckRow`, `EdgeChoice`, `Icon` new; `AppToggle` removed); `toolbox-demo.mjs` and `toolbox-grid.mjs` updated to the new markup and take `BASE`/`OUT`.
 - **Copy:** CLI & MCP (Windows, Linux), `toolbox.ts`, the study, Download; `toolbox-options.ts` from the 1.2.5 binary (header only).
 - **Checks:** `pnpm check` 0/0, 37 tests, build, `seo:check`; `toolbox-demo.mjs` PASS (48 states); seven routes at 1440 and 390 in both themes with no overflow, broken image or page error; `/toolbox/` JavaScript 33.1 → 35.7 kB gzipped.
 - **Evidence:** `docs/iterations/pixel-v2/130-toolbox-1.2.5-pages/` (`screens-old-vs-new.png`, `demos-before-after-app.png`, `share-images-and-cover.png`, `copy-390.png`, `verification.json`).
+
+## PX-131: Toolbox tools as diagrams (2026-10-29, 0234)
+
+Committed and pushed on Timothy's "2" on 2026-10-29.
+
+- **Diagrams:** `LockupFlow`, `PaletteFlow`, `SpecimenFlow` and `ConvertFlow` replace the four app-screen demos; `ToolDemo.svelte` picks one. Shared layout in `demo.css` (the flow) on container queries, sized in `--fu`.
+- **Samples:** `tools/toolbox/samples.mjs` runs the Toolbox 1.2.5 CLI on `acme.svg` and `poster.svg` and writes each tool's zip to `static/toolbox/samples/<tool>/` and its `<tool>-sample.json`; zips are byte-stable across reruns (fixed dates, sorted entries).
+- **Removed:** the four demos and their parts (`CheckRow`, `DemoReadout`, `DemoToolbar`, `DestinationRow`, `EdgeChoice`, `Icon`, `PlanRow`, `PlateToggle`, `SwatchDot`), the plans in `plan.ts` (only the size and change wording stay), and the interim interactive Lockup sample.
+- **Tests:** `tests/toolbox-samples.test.ts` holds each manifest to its files and its zip; `toolbox-demo.mjs` rewritten for the diagrams (48 states, real downloads, no overflow or overlap, no-JS Lockup).
+- **Checks:** `pnpm check` 0/0, 43 tests, build, `seo:check`; `toolbox-demo.mjs` PASS on the production preview; nine widths from 2560 to 320 with no overflow or overlap; `/toolbox/` JavaScript beyond the shared app 28.4 kB gzipped with all four diagrams (was 35.7 kB plus a lazy demo per tool).
+- **Evidence:** `docs/iterations/pixel-v2/131-tool-flows/` (`flows-1440-{dark,light}.png`, `flows-390-{dark,light}.png`, `rejected-sample-1440-dark.png`, `review/`).

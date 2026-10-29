@@ -1,0 +1,340 @@
+{
+  "generated": "Toolbox 1.2.5",
+  "root": "Acme Logo Library",
+  "source": {
+    "name": "acme.svg",
+    "href": "/toolbox/samples/lockup/acme.svg",
+    "px": [
+      236,
+      34
+    ]
+  },
+  "palette": [
+    {
+      "hex": "#FF683B",
+      "pantone": "1645 C"
+    },
+    {
+      "hex": "#174C43",
+      "pantone": "3435 C"
+    }
+  ],
+  "files": [
+    {
+      "path": "01 Primary/PRINT/Black/EPS/Acme_Primary_Black.eps",
+      "kind": "eps",
+      "family": "PRINT",
+      "treatment": "Black",
+      "size": null,
+      "bytes": 13708
+    },
+    {
+      "path": "01 Primary/PRINT/Black/JPEG/Acme_Primary_Black_Large.jpg",
+      "kind": "jpeg",
+      "family": "PRINT",
+      "treatment": "Black",
+      "size": "Large",
+      "bytes": 36121
+    },
+    {
+      "path": "01 Primary/PRINT/Black/JPEG/Acme_Primary_Black_Medium.jpg",
+      "kind": "jpeg",
+      "family": "PRINT",
+      "treatment": "Black",
+      "size": "Medium",
+      "bytes": 17162
+    },
+    {
+      "path": "01 Primary/PRINT/Black/JPEG/Acme_Primary_Black_Small.jpg",
+      "kind": "jpeg",
+      "family": "PRINT",
+      "treatment": "Black",
+      "size": "Small",
+      "bytes": 10389
+    },
+    {
+      "path": "01 Primary/PRINT/Black/PDF/Acme_Primary_Black.pdf",
+      "kind": "pdf",
+      "family": "PRINT",
+      "treatment": "Black",
+      "size": null,
+      "bytes": 10009
+    },
+    {
+      "path": "01 Primary/PRINT/CMYK (Color)/EPS/Acme_Primary_Color.eps",
+      "kind": "eps",
+      "family": "PRINT",
+      "treatment": "Color",
+      "size": null,
+      "bytes": 13770
+    },
+    {
+      "path": "01 Primary/PRINT/CMYK (Color)/JPEG/Acme_Primary_Color_Large.jpg",
+      "kind": "jpeg",
+      "family": "PRINT",
+      "treatment": "Color",
+      "size": "Large",
+      "bytes": 43756
+    },
+    {
+      "path": "01 Primary/PRINT/CMYK (Color)/JPEG/Acme_Primary_Color_Medium.jpg",
+      "kind": "jpeg",
+      "family": "PRINT",
+      "treatment": "Color",
+      "size": "Medium",
+      "bytes": 21433
+    },
+    {
+      "path": "01 Primary/PRINT/CMYK (Color)/JPEG/Acme_Primary_Color_Small.jpg",
+      "kind": "jpeg",
+      "family": "PRINT",
+      "treatment": "Color",
+      "size": "Small",
+      "bytes": 11836
+    },
+    {
+      "path": "01 Primary/PRINT/CMYK (Color)/PDF/Acme_Primary_Color.pdf",
+      "kind": "pdf",
+      "family": "PRINT",
+      "treatment": "Color",
+      "size": null,
+      "bytes": 10061
+    },
+    {
+      "path": "01 Primary/PRINT/PMS (Color)/Acme_Primary_Color.eps",
+      "kind": "eps",
+      "family": "PRINT",
+      "treatment": "Pantone",
+      "size": null,
+      "bytes": 13962
+    },
+    {
+      "path": "01 Primary/PRINT/PMS (Color)/Acme_Primary_Color.pdf",
+      "kind": "pdf",
+      "family": "PRINT",
+      "treatment": "Pantone",
+      "size": null,
+      "bytes": 10449
+    },
+    {
+      "path": "01 Primary/PRINT/White/Acme_Primary_White.eps",
+      "kind": "eps",
+      "family": "PRINT",
+      "treatment": "White",
+      "size": null,
+      "bytes": 13708
+    },
+    {
+      "path": "01 Primary/PRINT/White/Acme_Primary_White.pdf",
+      "kind": "pdf",
+      "family": "PRINT",
+      "treatment": "White",
+      "size": null,
+      "bytes": 10009
+    },
+    {
+      "path": "01 Primary/WEB/Black/JPEG/Acme_Primary_Black_Large.jpg",
+      "kind": "jpeg",
+      "family": "WEB",
+      "treatment": "Black",
+      "size": "Large",
+      "bytes": 36121
+    },
+    {
+      "path": "01 Primary/WEB/Black/JPEG/Acme_Primary_Black_Medium.jpg",
+      "kind": "jpeg",
+      "family": "WEB",
+      "treatment": "Black",
+      "size": "Medium",
+      "bytes": 17162
+    },
+    {
+      "path": "01 Primary/WEB/Black/JPEG/Acme_Primary_Black_Small.jpg",
+      "kind": "jpeg",
+      "family": "WEB",
+      "treatment": "Black",
+      "size": "Small",
+      "bytes": 10389
+    },
+    {
+      "path": "01 Primary/WEB/Black/PNG/Acme_Primary_Black_Large.png",
+      "kind": "png",
+      "family": "WEB",
+      "treatment": "Black",
+      "size": "Large",
+      "bytes": 66324
+    },
+    {
+      "path": "01 Primary/WEB/Black/PNG/Acme_Primary_Black_Medium.png",
+      "kind": "png",
+      "family": "WEB",
+      "treatment": "Black",
+      "size": "Medium",
+      "bytes": 20354
+    },
+    {
+      "path": "01 Primary/WEB/Black/PNG/Acme_Primary_Black_Small.png",
+      "kind": "png",
+      "family": "WEB",
+      "treatment": "Black",
+      "size": "Small",
+      "bytes": 5177
+    },
+    {
+      "path": "01 Primary/WEB/Black/SVG/Acme_Primary_Black_Large.svg",
+      "kind": "svg",
+      "family": "WEB",
+      "treatment": "Black",
+      "size": "Large",
+      "bytes": 2134
+    },
+    {
+      "path": "01 Primary/WEB/Black/SVG/Acme_Primary_Black_Medium.svg",
+      "kind": "svg",
+      "family": "WEB",
+      "treatment": "Black",
+      "size": "Medium",
+      "bytes": 2134
+    },
+    {
+      "path": "01 Primary/WEB/Black/SVG/Acme_Primary_Black_Small.svg",
+      "kind": "svg",
+      "family": "WEB",
+      "treatment": "Black",
+      "size": "Small",
+      "bytes": 2132
+    },
+    {
+      "path": "01 Primary/WEB/RGB (Color)/JPEG/Acme_Primary_Color_Large.jpg",
+      "kind": "jpeg",
+      "family": "WEB",
+      "treatment": "Color",
+      "size": "Large",
+      "bytes": 43756
+    },
+    {
+      "path": "01 Primary/WEB/RGB (Color)/JPEG/Acme_Primary_Color_Medium.jpg",
+      "kind": "jpeg",
+      "family": "WEB",
+      "treatment": "Color",
+      "size": "Medium",
+      "bytes": 21433
+    },
+    {
+      "path": "01 Primary/WEB/RGB (Color)/JPEG/Acme_Primary_Color_Small.jpg",
+      "kind": "jpeg",
+      "family": "WEB",
+      "treatment": "Color",
+      "size": "Small",
+      "bytes": 11836
+    },
+    {
+      "path": "01 Primary/WEB/RGB (Color)/PNG/Acme_Primary_Color_Large.png",
+      "kind": "png",
+      "family": "WEB",
+      "treatment": "Color",
+      "size": "Large",
+      "bytes": 66532
+    },
+    {
+      "path": "01 Primary/WEB/RGB (Color)/PNG/Acme_Primary_Color_Medium.png",
+      "kind": "png",
+      "family": "WEB",
+      "treatment": "Color",
+      "size": "Medium",
+      "bytes": 20124
+    },
+    {
+      "path": "01 Primary/WEB/RGB (Color)/PNG/Acme_Primary_Color_Small.png",
+      "kind": "png",
+      "family": "WEB",
+      "treatment": "Color",
+      "size": "Small",
+      "bytes": 5011
+    },
+    {
+      "path": "01 Primary/WEB/RGB (Color)/SVG/Acme_Primary_Color_Large.svg",
+      "kind": "svg",
+      "family": "WEB",
+      "treatment": "Color",
+      "size": "Large",
+      "bytes": 2134
+    },
+    {
+      "path": "01 Primary/WEB/RGB (Color)/SVG/Acme_Primary_Color_Medium.svg",
+      "kind": "svg",
+      "family": "WEB",
+      "treatment": "Color",
+      "size": "Medium",
+      "bytes": 2134
+    },
+    {
+      "path": "01 Primary/WEB/RGB (Color)/SVG/Acme_Primary_Color_Small.svg",
+      "kind": "svg",
+      "family": "WEB",
+      "treatment": "Color",
+      "size": "Small",
+      "bytes": 2132
+    },
+    {
+      "path": "01 Primary/WEB/White/PNG/Acme_Primary_White_Large.png",
+      "kind": "png",
+      "family": "WEB",
+      "treatment": "White",
+      "size": "Large",
+      "bytes": 66698
+    },
+    {
+      "path": "01 Primary/WEB/White/PNG/Acme_Primary_White_Medium.png",
+      "kind": "png",
+      "family": "WEB",
+      "treatment": "White",
+      "size": "Medium",
+      "bytes": 20423
+    },
+    {
+      "path": "01 Primary/WEB/White/PNG/Acme_Primary_White_Small.png",
+      "kind": "png",
+      "family": "WEB",
+      "treatment": "White",
+      "size": "Small",
+      "bytes": 5108
+    },
+    {
+      "path": "01 Primary/WEB/White/SVG/Acme_Primary_White_Large.svg",
+      "kind": "svg",
+      "family": "WEB",
+      "treatment": "White",
+      "size": "Large",
+      "bytes": 2134
+    },
+    {
+      "path": "01 Primary/WEB/White/SVG/Acme_Primary_White_Medium.svg",
+      "kind": "svg",
+      "family": "WEB",
+      "treatment": "White",
+      "size": "Medium",
+      "bytes": 2134
+    },
+    {
+      "path": "01 Primary/WEB/White/SVG/Acme_Primary_White_Small.svg",
+      "kind": "svg",
+      "family": "WEB",
+      "treatment": "White",
+      "size": "Small",
+      "bytes": 2132
+    },
+    {
+      "path": "README.txt",
+      "kind": "txt",
+      "family": null,
+      "treatment": null,
+      "size": null,
+      "bytes": 2145
+    }
+  ],
+  "zip": {
+    "href": "/toolbox/samples/lockup/Acme-Logo-Library.zip",
+    "bytes": 249355
+  }
+}

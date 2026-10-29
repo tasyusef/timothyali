@@ -1,0 +1,43 @@
+{
+  "generated": "Toolbox 1.2.5",
+  "root": "Converted",
+  "settings": {
+    "formats": [
+      "webp",
+      "jpeg"
+    ],
+    "compression": 25
+  },
+  "source": {
+    "name": "poster.png",
+    "kind": "png",
+    "bytes": 8418385,
+    "px": [
+      1800,
+      2400
+    ],
+    "picture": {
+      "href": "/toolbox/samples/poster.webp",
+      "px": [
+        600,
+        800
+      ]
+    }
+  },
+  "outputs": [
+    {
+      "path": "JPEG/poster.jpg",
+      "kind": "jpeg",
+      "bytes": 901987
+    },
+    {
+      "path": "WebP/poster.webp",
+      "kind": "webp",
+      "bytes": 1003700
+    }
+  ],
+  "zip": {
+    "href": "/toolbox/samples/convert/Acme-Poster-Converted.zip",
+    "bytes": 1903769
+  }
+}

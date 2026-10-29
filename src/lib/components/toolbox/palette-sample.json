@@ -1,0 +1,62 @@
+{
+  "generated": "Toolbox 1.2.5",
+  "root": "Acme Palette",
+  "source": {
+    "name": "poster.svg",
+    "picture": {
+      "href": "/toolbox/samples/poster.webp",
+      "px": [
+        600,
+        800
+      ]
+    }
+  },
+  "colors": [
+    {
+      "name": "Color 1",
+      "hex": "#F4F1E7"
+    },
+    {
+      "name": "Color 2",
+      "hex": "#FF683B"
+    },
+    {
+      "name": "Color 3",
+      "hex": "#174C43"
+    },
+    {
+      "name": "Color 4",
+      "hex": "#F2D600"
+    }
+  ],
+  "files": [
+    {
+      "name": "Acme.ase",
+      "bytes": 180
+    },
+    {
+      "name": "Acme.css",
+      "bytes": 282
+    },
+    {
+      "name": "Acme.scss",
+      "bytes": 248
+    },
+    {
+      "name": "Acme.tokens.json",
+      "bytes": 685
+    },
+    {
+      "name": "Acme_Swatches.pdf",
+      "bytes": 64281
+    },
+    {
+      "name": "Acme_Swatches.png",
+      "bytes": 86817
+    }
+  ],
+  "zip": {
+    "href": "/toolbox/samples/palette/Acme-Palette.zip",
+    "bytes": 105229
+  }
+}

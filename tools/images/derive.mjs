@@ -11,7 +11,8 @@
 //   node tools/images/derive.mjs --check    # exit 1 if anything is missing or stale
 //
 // Skipped: `static/og` (share images must stay PNG at 1200×630), the Convert demo's
-// thumbnails (`static/toolbox/convert-*`, 96px), `@2x` masters themselves, and the
+// thumbnails (`static/toolbox/convert-*`, 96px), the tool samples (`static/toolbox/samples`, the
+// app's own files, served as written), `@2x` masters themselves, and the
 // derivatives this script wrote. The ladder is 640, 1000, 1280, 1600 and 2400, capped at the master’s own width: a 1376px frame at 2× is served the 2400.
 import sharp from 'sharp';
 import { readdirSync, statSync, existsSync, writeFileSync, readFileSync } from 'node:fs';
@@ -28,7 +29,7 @@ const force = process.argv.includes('--force');
 const check = process.argv.includes('--check');
 
 const walk = (dir) => readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(join(dir, e.name)) : [join(dir, e.name)]));
-const isSource = (f) => /\.(png|jpe?g)$/i.test(f) && !/@2x\.\w+$/.test(f) && !/\.\d+\.webp$/.test(f) && !/\/toolbox\/convert-/.test(f);
+const isSource = (f) => /\.(png|jpe?g)$/i.test(f) && !/@2x\.\w+$/.test(f) && !/\.\d+\.webp$/.test(f) && !/\/toolbox\/convert-/.test(f) && !/\/toolbox\/samples\//.test(f);
 const sources = ['work', 'toolbox'].flatMap((d) => walk(join(STATIC, d))).filter(isSource).sort();
 
 const manifest = {};

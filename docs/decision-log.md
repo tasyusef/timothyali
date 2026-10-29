@@ -2815,4 +2815,13 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Demos:** each landing demo follows its 1.2.5 screen (design batches A–C): drawn checkboxes, Lockup's step tabs, the status line and one yellow primary, drawn icons, plain numbers, each tool's new sections. The status line says exports run in the desktop app, which replaces the touch-only note under the demo.
 - **Assistant's choices inside it:** the site keeps its own example artwork and pixel faces; Lockup's padding starts at 10% and Convert on JPEG + WebP (the app: 0% and PNG), so the plate has room and the sizes show savings.
 - **Copy:** Windows on CLI & MCP (the per-user install path, not on PATH, `| more`, the MCP path), Linux's AppImage, "swatch sheet", four alt texts, the study (shared type and dither in place of "terminal look"; in-app updates and the 1.2.4/1.2.5 design passes in the Outcome), and an update note in Download.
-- **Status:** prepared and checked on 2026-10-28 (PX-130); committed on his word on 2026-10-29, not yet pushed.
+- **Status:** prepared and checked on 2026-10-28 (PX-130); committed on his word on 2026-10-29 and pushed with 0234 on his "2".
+
+## 0234: the Toolbox tools as diagrams (2026-10-29)
+
+- **Timothy's direction:** the landing demos were still "hard to follow what its doing"; a simple diagram "wouldve been much more effective", sized "to fill the available space ... at any widths". On his "1": keep Lockup's diagram, clear out the old demos, then Palette, Specimen and Convert the same way.
+- **Change:** each tool on `/toolbox/` is one line: what goes in, an arrow, what Toolbox wrote. Lockup: the logo, then its 39 files under PRINT and WEB, a square each. Palette: the poster, its four colours, its six files. Specimen: the three type styles, the sheet, PDF and PNG. Convert: the PNG and the WebP and JPEG it became, a bar for each size. Under each, a count ("1 logo → 39 files") and the real files as a zip.
+- **Type sheet:** on his word it is set in the site's own faces: PARC Pixel Bold (Display, 55 pt), PARC Pixel (Label, 12.5 pt), Jersey 15 (Body, 27 pt), on the site's grid and with hard edges. Jersey 15 was not on his Mac; on his "Use site's file" it is the site's WOFF, unpacked to a TTF in `~/Library/Fonts`.
+- **Assistant's choices inside it:** one acme logo and one poster for all four tools; the count and the download share the line under the diagram, so nothing sits between the parts; every size a whole number of a unit (`--fu`), a 54th of the frame and a 32nd on a phone, where what goes in stands above what comes out; all four diagrams come with the page, so a pick swaps them at once.
+- **Known nit:** the app prints the 12.5 pt Label as "13PT" on the sheet (it rounds); the PDF is set at 12.5.
+- **Status:** prepared and checked on 2026-10-29 (PX-131); committed and pushed on his "2" on 2026-10-29.

@@ -1,36 +1,33 @@
-# The Toolbox examples (0095)
+# The Toolbox diagrams (PX-131)
 
-Four miniatures of the app's tool screens for the landing page, each the tool's own
-layout with its real settings: a route readout, a stage beside a rail, the bottom bar.
-They follow Toolbox 1.2.5, the Rust app (Tauri + Leptos) in
-`/Users/twocakes/Desktop/GRAPHIC DESIGN/01_WORK/TOOLBOX/app`, after its design batches
-A (one yellow; a pressed chip is ink on white), B (a status line in the bar, Lockup's
-steps as tabs, the found row, the stage switch, Convert's outputs grid) and C (drawn
-boxes, notes in the reading face, the route readout, drawn glyphs). Where a screenshot
-and the source disagree, the source wins.
+One diagram per tool on the landing page, each what the app makes, in one line: what goes in on
+its plate, an arrow, what Toolbox wrote for it. Under it, a count ("1 logo → 39 files") and the
+real files to download. They took the place of the app-screen miniatures (0095), which showed
+each tool's settings rather than what it makes.
 
-- `CheckRow.svelte` is the app's Toggle after batch C: a drawn box, a real checkbox,
-  an unticked row dimmed. `Icon.svelte` draws the app's 12px marks (`ui-kit` `icon.rs`).
-  `EdgeChoice.svelte`, `DestinationRow.svelte`, `DemoReadout.svelte` and
-  `DemoToolbar.svelte` are the app's edges row, destination rows, readout and bar.
-  `PlateToggle.svelte` and `SwatchDot.svelte` are the app's plate and swatch.
-- `demo.css` is the app's `crates/ui/styles/blocks.css`, `chrome.css` and `design.css`
-  scoped under `.demo` (boxes, chips, dithered fields, mats and plates, the plan tree,
-  the file stack, the bar). The values are the site's tokens, which the app shares.
-- `plan.ts` ports the app's engine where a number or a text on the page has to be the
-  app's: the Lockup export plan and tree (`tool-lockup`), the Palette CSS / SCSS /
-  tokens / ASE writers and OKLCH and CMYK notation, Convert's format and background
-  notes and totals line, the file-size and change formatting.
-- `LockupDemo`: the Outputs and Review steps as tabs: formats, treatments, sizes, the
-  padding and the square social copy drive a live file count and the exact folder
-  tree. `PaletteDemo`: the artwork with its found colours, the swatch sheet drawn by
-  the app's layout, colours with OKLCH / CMYK / Pantone details, outputs, and each
-  file previewable. `SpecimenDemo`: brand sheet and specimen templates laid out as
-  `sheets/type_sheet.rs` does, over the site's pixel faces at sizes they draw crisp.
-  `ConvertDemo`: two posters drawn and encoded in the browser at the chosen formats,
-  compression, longest edge and background; sizes and percentages are measured (TIFF
-  and PDF computed the way the app's writers lay them out).
+Nothing on them is drawn from a guess. `tools/toolbox/samples.mjs` runs the Toolbox 1.2.5 CLI
+on two inputs and writes, for each tool, the zip of what it wrote to
+`static/toolbox/samples/<tool>/` and the manifest `<tool>-sample.json` the diagram reads:
 
-Nothing exports: the primary is the app's disabled state and the bar says the work runs
-in the desktop app. No uploads, disk access or save dialogs. The tool descriptions stay
-in `$lib/toolbox` and the detail pages.
+- `LockupFlow`: `tools/toolbox/acme.svg` (the landing demo's logo). PRINT and WEB, a row a
+  colourway, one square a file on its plate in its colours.
+- `PaletteFlow`: `tools/toolbox/poster.svg`. The four colours Palette found, then its six files.
+- `SpecimenFlow`: the site's three type roles (PARC Pixel Bold, PARC Pixel, Jersey 15) at the
+  site's sizes, each shown in its own face, then the sheet the app set (its real PNG), then PDF
+  and PNG. The app sets installed fonts only; Jersey 15 is installed from the site's own WOFF.
+- `ConvertFlow`: the poster as a PNG and as each format Convert wrote, the same picture; a bar
+  under each is its file's size against the PNG's.
+
+The poster picture is the app's too: a Convert of the PNG to an 800px WebP.
+
+- `ToolDemo.svelte` shows the picked tool's diagram. All four come with the page.
+- `demo.css` is the shared layout (the flow): every size a whole number of `--fu`, a 54th of
+  the frame (a 32nd on a phone, where what goes in stands over what comes out), so a diagram
+  fills its frame at any width and each tool's boxes are the size of the next's.
+- `plan.ts` keeps the app's size and change wording (`file_size`, the change percentage).
+- `Options.svelte` is the detail pages' option table, from `$lib/toolbox`.
+
+`tests/toolbox-samples.test.ts` holds each manifest to its files and its zip;
+`tools/review/toolbox-demo.mjs` checks the four diagrams at six widths in both themes. Rerun
+`samples.mjs` after each Toolbox release. The tool descriptions stay in `$lib/toolbox` and the
+detail pages.

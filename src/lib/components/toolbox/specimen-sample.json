@@ -1,0 +1,45 @@
+{
+  "generated": "Toolbox 1.2.5",
+  "root": "Acme Type Sheet",
+  "roles": [
+    {
+      "label": "Display",
+      "family": "PARC_Pixel",
+      "face": "Bold",
+      "size": 55
+    },
+    {
+      "label": "Label",
+      "family": "PARC_Pixel",
+      "face": "Regular",
+      "size": 12.5
+    },
+    {
+      "label": "Body",
+      "family": "Jersey 15",
+      "face": "Regular",
+      "size": 27
+    }
+  ],
+  "sheet": {
+    "href": "/toolbox/samples/specimen/Acme.png",
+    "px": [
+      1280,
+      1216
+    ]
+  },
+  "files": [
+    {
+      "name": "Acme.pdf",
+      "bytes": 56063
+    },
+    {
+      "name": "Acme.png",
+      "bytes": 49522
+    }
+  ],
+  "zip": {
+    "href": "/toolbox/samples/specimen/Acme-Type-Sheet.zip",
+    "bytes": 57590
+  }
+}

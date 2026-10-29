@@ -1,27 +1,18 @@
 <script lang="ts">
-  // One tool's screen, in miniature: the readout strip, the stage beside the rail, the
-  // bottom bar. Each example is the app's own layout for that tool with its real
-  // settings, and the numbers it shows (file counts, folder trees, generated text,
-  // encoded sizes) come from the same rules the app runs (0095). Nothing exports.
-  // Lockup shows first and comes with the page; the other three load in idle time after it, or
-  // when picked, whichever is first, and the last example stays until the next one is in (0214).
+  // One tool, in miniature: what the app makes, as a diagram (PX-131). What goes in on the left,
+  // what Toolbox wrote for it on the right, every count, colour, size and picture from a real run
+  // of the app (tools/toolbox/samples.mjs), and the files themselves to download. The four are
+  // small, so they all come with the page and a pick swaps them at once.
   import './demo.css';
-  import { onMount, type Component } from 'svelte';
-  import LockupDemo from './LockupDemo.svelte';
+  import type { Component } from 'svelte';
+  import LockupFlow from './LockupFlow.svelte';
+  import PaletteFlow from './PaletteFlow.svelte';
+  import SpecimenFlow from './SpecimenFlow.svelte';
+  import ConvertFlow from './ConvertFlow.svelte';
   let { tool = 'lockup' }: { tool: string } = $props();
-  const LATER: Record<string, () => Promise<{ default: Component }>> = { palette: () => import('./PaletteDemo.svelte'), specimen: () => import('./SpecimenDemo.svelte'), convert: () => import('./ConvertDemo.svelte') };
-  const ready: Record<string, Component> = { lockup: LockupDemo };
-  let Shown = $state<Component>(LockupDemo);
-  const load = (t: string) => (ready[t] ? Promise.resolve(ready[t]) : (LATER[t]?.() ?? Promise.reject(t)).then((m) => (ready[t] = m.default)));
-  $effect(() => { const t = tool; load(t).then((c) => { if (tool === t) Shown = c; }).catch(() => {}); });
-  onMount(() => {
-    const all = () => Object.keys(LATER).forEach((t) => load(t).catch(() => {}));
-    if (typeof requestIdleCallback === 'function') { const id = requestIdleCallback(all, { timeout: 4000 }); return () => cancelIdleCallback(id); }
-    const id = setTimeout(all, 2000); return () => clearTimeout(id);
-  });
+  const FLOWS: Record<string, Component> = { lockup: LockupFlow, palette: PaletteFlow, specimen: SpecimenFlow, convert: ConvertFlow };
+  const Shown = $derived(FLOWS[tool] ?? LockupFlow);
 </script>
-<!-- the bottom bar's status line says exports run in the app, on every screen (the touch-only
-     note under the frame went with it, 0206) -->
 <div class="demo">
   <Shown />
 </div>
