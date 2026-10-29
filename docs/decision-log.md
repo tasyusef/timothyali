@@ -2800,3 +2800,10 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Home's hero actions:** they were a `row-reverse`, so Tab went right to left on a desktop. On his "2" the résumé is now first in the markup and on screen at every width ("Resume (PDF)", then "Selected work"), so on a phone the résumé sits above the yellow block.
 - **Assistant's choices inside it:** the clip ring inset 8px; rendering the study details twice rather than a CSS reorder; the copy button floating in the first line's corner; "Couldn’t copy the link. Open timothyali.com/toolbox on your computer."; the shorter email note's wording.
 - **Status:** applied and verified (`fixes/verify.mjs`, 32 checks pass); committed and pushed on his "2" on 2026-10-28.
+
+## 0232: Toolbox 1.2.5 on the site (2026-10-28)
+
+- **Timothy's direction:** ship design batches B and C as 1.2.5 ("1 then 2", then "go ahead"), with the field drag from 0230 in it ("1").
+- **Change:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.5, so all eight download links follow. No copy changes.
+- **Toolbox app:** d18ef89, the drag from 0230, is now pushed and ships in 1.2.5.
+- **Status:** published on 2026-10-28 with the v1.2.5 GitHub release; `/api/update` already answers with its feed.

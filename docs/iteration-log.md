@@ -1208,3 +1208,10 @@ Pushed on 2026-10-28, after the v1.2.4 GitHub release was public.
   - `128-design-audit-2/fixes/verify.mjs`: 32 of 32 pass. Screenshots are in `fixes/shots/`.
 - **Then, on "2":** Home's hero actions are in reading order: "Resume (PDF)" first at every width, no `row-reverse`.
 - **Shipped:** pushed on 2026-10-28.
+
+## PX-129: Toolbox 1.2.5 (2026-10-28, 0232)
+
+Pushed on 2026-10-28, after the v1.2.5 GitHub release was public.
+
+- **Downloads:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.5; each of the twelve site downloads and the two updater archives on GitHub answered before the push, and `/api/update/darwin/aarch64/1.2.4` answered with the 1.2.5 feed.
+- **Checks:** `pnpm check`, tests, build, `seo:check`.
