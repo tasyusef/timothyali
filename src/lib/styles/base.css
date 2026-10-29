@@ -91,5 +91,5 @@ main{display:block}
 @media(forced-colors:active){
   :is(input:not([type=checkbox],[type=radio],[type=range]),textarea,select,.cta,.cta-row,.chip,.tool-picker button,.demo .btn,.demo .demo-act):not(:focus-visible){outline:1px solid CanvasText;outline-offset:-1px}
   :is([aria-current]:not([aria-current=false]),[aria-pressed=true],.demo .chip.on){forced-color-adjust:none;background:Highlight;color:HighlightText}
-  .demo .switch.on .state{text-decoration:underline}
+  .demo .check.on .box{forced-color-adjust:none;background:Highlight;border-color:Highlight}.demo .check.on .box .glyph{color:HighlightText}
 }

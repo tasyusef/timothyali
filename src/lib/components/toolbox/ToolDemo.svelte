@@ -20,9 +20,8 @@
     const id = setTimeout(all, 2000); return () => clearTimeout(id);
   });
 </script>
+<!-- the bottom bar's status line says exports run in the app, on every screen (the touch-only
+     note under the frame went with it, 0206) -->
 <div class="demo">
   <Shown />
 </div>
-<!-- the disabled Export says why in a title, which a touch screen never shows (0206) -->
-<p class="lbl dim export-note">Exports run in the desktop app</p>
-<style>.export-note{display:none;margin:var(--s1) 0 0}@media(pointer:coarse){.export-note{display:block}}</style>

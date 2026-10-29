@@ -1,4 +1,4 @@
-// Generated from Toolbox 1.2.0's tool catalog (toolbox list). Run tools/toolbox/sync-options.mjs to update.
+// Generated from Toolbox 1.2.5's tool catalog (toolbox list). Run tools/toolbox/sync-options.mjs to update.
 import type { Param } from "./toolbox";
 export const machineParams: Record<string, Param[]> = {
   "convert": [

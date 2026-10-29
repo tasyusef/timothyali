@@ -1,7 +1,7 @@
-// The parts of the app's engine the landing-page examples need, ported from GRIDFORM
-// Studio (`src/engine/exportPlan.ts`, `paletteExport.ts`, `oklch.ts`, and the renderer's
-// `lockup/planTree.ts`) so the file counts, folder trees and generated text on the site
-// are the app's own naming rules, not a sketch of them. One logo version, no Pantone.
+// The parts of the app's engine the landing-page examples need, after Toolbox 1.2.5's Rust
+// crates (`engine` ulc_exporter.rs and plan_tree.rs, `color` palette_export.rs and oklch.rs,
+// `tool-convert` view.rs) so the file counts, folder trees, generated text and size lines on
+// the site are the app's own rules, not a sketch of them. One logo variation, no Pantone.
 
 export type WebFormat = 'JPEG' | 'PNG' | 'SVG';
 export type PrintFormat = 'EPS' | 'JPEG' | 'PDF';
@@ -13,9 +13,11 @@ export const allSizes = [
   { name: 'Small', longEdgePx: 600 }
 ] as const;
 
+/** One version of the logo: the variation, and its square social copy, which is web only. */
+export interface PlanVersion { name: string; folder: string; webOnly?: boolean }
 export interface LockupChoice {
   prefix: string;
-  version: { name: string; folder: string };
+  versions: readonly PlanVersion[];
   includeWeb: boolean;
   includePrint: boolean;
   webFormats: readonly WebFormat[];
@@ -24,41 +26,44 @@ export interface LockupChoice {
   sizes: readonly { name: string }[];
 }
 
-/** The relative paths an export writes, in write order (port of ExportPlan.swift). */
+/** The relative paths an export writes, in write order (`ulc_exporter.rs` steps): each
+ *  version's PRINT then WEB, the README last when anything prints. */
 export function exportPlanFiles(c: LockupChoice): string[] {
   const web = new Set(c.webFormats), print = new Set(c.printFormats);
   const wantWeb = c.includeWeb && web.size > 0, wantPrint = c.includePrint && print.size > 0;
-  const { prefix, sizes, treatments, version } = c;
+  const { prefix, sizes, treatments } = c;
   const webModes = ['Black', 'Color', 'White'].filter((m) => treatments.includes(m));
   const folderForMode: Record<string, string> = { Black: 'Black', Color: 'RGB (Color)', White: 'White' };
   const out: string[] = [];
-  const v = version.name;
-  if (wantPrint) {
-    const base = `${version.folder}/PRINT`;
-    if (treatments.includes('Black')) {
-      if (print.has('EPS')) out.push(`${base}/Black/EPS/${prefix}_${v}_Black.eps`);
-      if (print.has('JPEG')) for (const s of sizes) out.push(`${base}/Black/JPEG/${prefix}_${v}_Black_${s.name}.jpg`);
-      if (print.has('PDF')) out.push(`${base}/Black/PDF/${prefix}_${v}_Black.pdf`);
+  for (const version of c.versions) {
+    const v = version.name;
+    if (wantPrint && !version.webOnly) {
+      const base = `${version.folder}/PRINT`;
+      if (treatments.includes('Black')) {
+        if (print.has('EPS')) out.push(`${base}/Black/EPS/${prefix}_${v}_Black.eps`);
+        if (print.has('JPEG')) for (const s of sizes) out.push(`${base}/Black/JPEG/${prefix}_${v}_Black_${s.name}.jpg`);
+        if (print.has('PDF')) out.push(`${base}/Black/PDF/${prefix}_${v}_Black.pdf`);
+      }
+      if (treatments.includes('Color')) {
+        if (print.has('EPS')) out.push(`${base}/CMYK (Color)/EPS/${prefix}_${v}_Color.eps`);
+        if (print.has('JPEG')) for (const s of sizes) out.push(`${base}/CMYK (Color)/JPEG/${prefix}_${v}_Color_${s.name}.jpg`);
+        if (print.has('PDF')) out.push(`${base}/CMYK (Color)/PDF/${prefix}_${v}_Color.pdf`);
+      }
+      if (treatments.includes('White')) {
+        if (print.has('EPS')) out.push(`${base}/White/${prefix}_${v}_White.eps`);
+        if (print.has('PDF')) out.push(`${base}/White/${prefix}_${v}_White.pdf`);
+      }
     }
-    if (treatments.includes('Color')) {
-      if (print.has('EPS')) out.push(`${base}/CMYK (Color)/EPS/${prefix}_${v}_Color.eps`);
-      if (print.has('JPEG')) for (const s of sizes) out.push(`${base}/CMYK (Color)/JPEG/${prefix}_${v}_Color_${s.name}.jpg`);
-      if (print.has('PDF')) out.push(`${base}/CMYK (Color)/PDF/${prefix}_${v}_Color.pdf`);
-    }
-    if (treatments.includes('White')) {
-      if (print.has('EPS')) out.push(`${base}/White/${prefix}_${v}_White.eps`);
-      if (print.has('PDF')) out.push(`${base}/White/${prefix}_${v}_White.pdf`);
-    }
-  }
-  if (wantWeb) {
-    const webBase = `${version.folder}/WEB`;
-    for (const mode of webModes) {
-      const folder = folderForMode[mode];
-      for (const s of sizes) {
-        const name = `${prefix}_${v}_${mode}_${s.name}`;
-        if (mode !== 'White' && web.has('JPEG')) out.push(`${webBase}/${folder}/JPEG/${name}.jpg`);
-        if (web.has('PNG')) out.push(`${webBase}/${folder}/PNG/${name}.png`);
-        if (web.has('SVG')) out.push(`${webBase}/${folder}/SVG/${name}.svg`);
+    if (wantWeb) {
+      const webBase = `${version.folder}/WEB`;
+      for (const mode of webModes) {
+        const folder = folderForMode[mode];
+        for (const s of sizes) {
+          const name = `${prefix}_${v}_${mode}_${s.name}`;
+          if (mode !== 'White' && web.has('JPEG')) out.push(`${webBase}/${folder}/JPEG/${name}.jpg`);
+          if (web.has('PNG')) out.push(`${webBase}/${folder}/PNG/${name}.png`);
+          if (web.has('SVG')) out.push(`${webBase}/${folder}/SVG/${name}.svg`);
+        }
       }
     }
   }
@@ -170,13 +175,39 @@ export function aseBytes(colors: PaletteEntry[]): number {
   return 12 + colors.reduce((n, c) => n + 6 + 2 + (c.name.length + 1) * 2 + 4 + 12 + 2, 0);
 }
 
+/** Convert's sizes (`file_size`): B below 1 kB, whole kB below 1 MB, then MB to one place. */
 export const fileSize = (bytes: number): string => (bytes < 1024 ? `${bytes} B` : bytes < 1024 * 1024 ? `${(bytes / 1024).toFixed(0)} kB` : `${(bytes / (1024 * 1024)).toFixed(1)} MB`);
-/** Change against the source: a percentage until a doubling, then a multiplier. */
-export const delta = (from: number, to: number): string => {
-  if (from <= 0) return '';
-  const ratio = to / from;
-  if (ratio >= 2) return `×${Math.floor(ratio * 10) / 10}`;
-  const pct = Math.trunc((ratio - 1) * 100);
-  return `${pct >= 0 ? '+' : ''}${pct}%`;
-};
-export { pad as pad2 } from '../../format.ts';
+/** Palette's sizes (ui-palette `file_size`): bytes below 1 kB, then kB to one place. */
+export const paletteSize = (bytes: number): string => (bytes < 1024 ? `${bytes} bytes` : `${(bytes / 1024).toFixed(1)} kB`);
+export const plural = (n: number, one: string, many = `${one}s`): string => `${n} ${n === 1 ? one : many}`;
+
+// ------------------------------------------------------------------ convert (design batch B)
+
+/** An output's change against its source as a whole percentage, “+50%”, “−29%” (U+2212),
+ *  “0%”, thousands grouped; `grew` puts it in the alert colour. Null for an empty source. */
+export function changePercent(from: number, to: number): { text: string; grew: boolean } | null {
+  if (from === 0) return null;
+  const change = Math.trunc(((to - from) / from) * 100);
+  const digits = Math.abs(change).toLocaleString('en-US');
+  return { text: change > 0 ? `+${digits}%` : change < 0 ? `\u2212${digits}%` : '0%', grew: change > 0 };
+}
+/** The slider runs the other way from the encoder quality it sets; 0% leaves the image
+ *  alone, 100% is quality 0.3 (`quality_for`, MIN_QUALITY). */
+export const qualityFor = (percent: number): number => 1 - (percent / 100) * (1 - 0.3);
+/** The Formats section's note: one format's own note, else how the images are written. */
+export function formatsLine(notes: readonly string[]): string {
+  if (notes.length === 0) return 'Choose a format to write.';
+  if (notes.length === 1) return notes[0];
+  if (notes.length === 2) return 'Each image is written in both formats, one folder per format.';
+  return `Each image is written in all ${notes.length} formats, one folder per format.`;
+}
+/** The Background section's note: none while every format keeps transparency. */
+export function transparencyNote(flat: readonly string[], background: string | null): string | null {
+  if (flat.length === 0) return null;
+  if (background) return 'Fills behind every image, in every format.';
+  const one = flat.length === 1;
+  return `${flat.join(' and ')} ${one ? 'has' : 'have'} no transparency and ${one ? 'fills' : 'fill'} with white.`;
+}
+/** The line under the list: “2 images, 1004 kB in all”, the size once every output is in. */
+export const totalsLine = (images: number, total: number | null, formats: number): string =>
+  formats === 0 ? plural(images, 'image') : total === null ? `${plural(images, 'image')}, measuring…` : `${plural(images, 'image')}, ${fileSize(total)} in all`;

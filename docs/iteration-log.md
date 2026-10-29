@@ -1215,3 +1215,13 @@ Pushed on 2026-10-28, after the v1.2.5 GitHub release was public.
 
 - **Downloads:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.5; each of the twelve site downloads and the two updater archives on GitHub answered before the push, and `/api/update/darwin/aarch64/1.2.4` answered with the 1.2.5 feed.
 - **Checks:** `pnpm check`, tests, build, `seo:check`.
+
+## PX-130: Toolbox pages match 1.2.5 (2026-10-28, 0233)
+
+Prepared on 2026-10-28; committed on Timothy's word on 2026-10-29, not yet pushed.
+
+- **Screens:** all five recaptured from 1.2.5 with PX-117's scenarios; phone crops recut (Convert's new box); study cover and five share images regenerated, the rest byte-identical.
+- **Demos:** the four landing demos rebuilt to the 1.2.5 screens (`CheckRow`, `EdgeChoice`, `Icon` new; `AppToggle` removed); `toolbox-demo.mjs` and `toolbox-grid.mjs` updated to the new markup and take `BASE`/`OUT`.
+- **Copy:** CLI & MCP (Windows, Linux), `toolbox.ts`, the study, Download; `toolbox-options.ts` from the 1.2.5 binary (header only).
+- **Checks:** `pnpm check` 0/0, 37 tests, build, `seo:check`; `toolbox-demo.mjs` PASS (48 states); seven routes at 1440 and 390 in both themes with no overflow, broken image or page error; `/toolbox/` JavaScript 33.1 → 35.7 kB gzipped.
+- **Evidence:** `docs/iterations/pixel-v2/130-toolbox-1.2.5-pages/` (`screens-old-vs-new.png`, `demos-before-after-app.png`, `share-images-and-cover.png`, `copy-390.png`, `verification.json`).

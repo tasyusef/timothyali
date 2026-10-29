@@ -67,7 +67,7 @@
   <section class="release" id="download" aria-labelledby="download-title">
     <div class="release-heading"><span class="lbl dim">v{APP.version}</span><h2 id="download-title" class="blackletter">Download.</h2></div>
     <div class="release-copy">
-      <p class="body">Pick the download for your computer below. The releases page lists SHA-256 checksums if you want to check the file.</p>
+      <p class="body">Pick the download for your computer below. The releases page lists SHA-256 checksums if you want to check the file. Already on 1.2.1 or later? Update from the bottom of the app’s sidebar.</p>
       <div class="on-phone panel"><p class="body">Toolbox runs on macOS, Windows, and Linux. Open this page on your computer to install it.</p><Cta variant="row" type="button" class="send" onclick={sendOn}><span>{sent || 'Send the link to your computer'}</span><Arrow /></Cta><p class={failed ? 'body fail' : 'sr-only'} role="status">{failed ? 'Couldn’t copy the link. Open timothyali.com/toolbox on your computer.' : sent}</p></div>
       <ul class="downloads">
         {#each builds as b}

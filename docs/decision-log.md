@@ -2807,3 +2807,12 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Change:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.5, so all eight download links follow. No copy changes.
 - **Toolbox app:** d18ef89, the drag from 0230, is now pushed and ships in 1.2.5.
 - **Status:** published on 2026-10-28 with the v1.2.5 GitHub release; `/api/update` already answers with its feed.
+
+## 0233: the Toolbox pages match 1.2.5 (2026-10-28)
+
+- **Timothy's direction:** the Toolbox pages were "outdated and i dont think matches the app", then "Do it all": new screens, the four demos rebuilt, and every outdated claim fixed.
+- **Screens:** the five screenshots, their phone crops, the study cover and the five share images that show them are from 1.2.5. Convert's phone crop is now the file list with its totals.
+- **Demos:** each landing demo follows its 1.2.5 screen (design batches A–C): drawn checkboxes, Lockup's step tabs, the status line and one yellow primary, drawn icons, plain numbers, each tool's new sections. The status line says exports run in the desktop app, which replaces the touch-only note under the demo.
+- **Assistant's choices inside it:** the site keeps its own example artwork and pixel faces; Lockup's padding starts at 10% and Convert on JPEG + WebP (the app: 0% and PNG), so the plate has room and the sizes show savings.
+- **Copy:** Windows on CLI & MCP (the per-user install path, not on PATH, `| more`, the MCP path), Linux's AppImage, "swatch sheet", four alt texts, the study (shared type and dither in place of "terminal look"; in-app updates and the 1.2.4/1.2.5 design passes in the Outcome), and an update note in Download.
+- **Status:** prepared and checked on 2026-10-28 (PX-130); committed on his word on 2026-10-29, not yet pushed.

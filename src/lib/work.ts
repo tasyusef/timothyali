@@ -218,10 +218,11 @@ const source: Source[] = [
       { type: 'text', title: 'App, command line, and agents', paras: [
         "The command line and the MCP server take the same settings as the app, so a script or an AI assistant can inspect source files, preview results, reopen saved work, and export without opening a window.",
         "An assistant can also sort a client folder. It plans the moves, and Toolbox checks them, shows a dry run first, and keeps an undo record. Nothing gets deleted.",
-        "The app shares its terminal look and several components with this site."
+        "The app shares its type, its dither patterns, and several components with this site."
       ] },
       { type: 'text', title: 'Outcome', paras: [
         "Version 1.2.0 is the first one built in Rust, with Tauri and Leptos instead of Electron and Svelte. I kept the old app as the reference and only deleted it once the new one matched it.",
+        "Since 1.2.1 Toolbox updates itself from the bottom of the sidebar. Versions 1.2.4 and 1.2.5 were design passes: one yellow for the main action, drawn checkboxes and icons in place of typed ones, plain numbers, and a line in the bottom bar that says what the next click will do.",
         "I also took out the chat window and the AI built into the app. I drive Toolbox from my own model over MCP now, so organizing folders became MCP and command-line tools. The app opens on your projects, and every tool has a smooth or hard edges setting.",
         "Toolbox is available for macOS, Windows, and Linux. The macOS builds are signed and notarized, and Linux builds come as AppImage and deb packages. I dropped Windows at 1.1.0 because of the cost of code signing. It’s back in 1.2.0, unsigned. Downloads and guides are on this site."
       ] }

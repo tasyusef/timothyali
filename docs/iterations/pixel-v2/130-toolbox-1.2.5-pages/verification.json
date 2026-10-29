@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-28",
+  "app": "Toolbox 1.2.5",
+  "checks": {
+    "pnpm check": "444 files, 0 errors, 0 warnings",
+    "pnpm test": "37 passed",
+    "pnpm build": "ok",
+    "pnpm seo:check": "PASS, 17 pages, 16 in sitemap, 94 sitemap images",
+    "tools/review/toolbox-demo.mjs (preview, 4173)": "PASS: 48 tool/theme/width states (1440, 1100, 900, 700, 390, 320; dark and light), keyboard selection, live settings, previews and measured sizes; four no-JS links",
+    "tools/review/toolbox-grid.mjs (preview, 4173)": "no text on fractional pixels except the Lockup logo SVG scaled at 320; the off-unit tops are items centred in rows (thumbnails, colour wells, the specimen sheet's set type) and page parts outside the demo"
+  },
+  "pages": {
+    "routes": ["/toolbox/", "/toolbox/lockup/", "/toolbox/palette/", "/toolbox/specimen/", "/toolbox/convert/", "/toolbox/agents/", "/work/toolbox/"],
+    "widths": [1440, 390],
+    "themes": ["dark", "light"],
+    "result": "28 page views: no horizontal overflow, no broken images, no page errors"
+  },
+  "demo widths": "scrollWidth equals innerWidth at 390 and 320 for all four demos in both themes",
+  "javascript gzip bytes": {
+    "/toolbox/ page beyond the shared app": { "before": 33056, "after": 35672 },
+    "PaletteDemo (lazy)": { "before": 2810, "after": 4874 },
+    "SpecimenDemo (lazy)": { "before": 2636, "after": 3688 },
+    "ConvertDemo (lazy)": { "before": 2683, "after": 3885 }
+  },
+  "share images changed": ["static/og/work.png", "static/og/toolbox-lockup.png", "static/og/toolbox-palette.png", "static/og/toolbox-specimen.png", "static/og/toolbox-convert.png"],
+  "options": "sync-options.mjs against the 1.2.5 binary: 4 tools, 51 options, only the header changed"
+}

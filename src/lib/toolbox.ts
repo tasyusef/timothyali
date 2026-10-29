@@ -53,7 +53,7 @@ export interface Tool {
 }
 
 // each screen has a phone crop of its rail or main panel (0206), cut by tools/images/phone-crops.py
-const PHONE: Record<string, [number, number]> = {lockup: [806, 1456], palette: [806, 1465], specimen: [1200, 943], convert: [1200, 476], home: [1200, 467]};
+const PHONE: Record<string, [number, number]> = {lockup: [806, 1456], palette: [806, 1465], specimen: [1200, 943], convert: [965, 855], home: [1200, 473]};
 const shot = (name: string, alt: string): Shot => ({ src: `/toolbox/${name}.png`, w: 2880, h: 1744, alt, phone: PHONE[name] && { src: `/toolbox/${name}-phone.png`, w: PHONE[name][0], h: PHONE[name][1] } });
 
 export const APP = {
@@ -78,19 +78,19 @@ export const tools: Tool[] = [
     outputs: ['PNG', 'JPEG', 'SVG', 'PDF', 'EPS', 'README'],
     command: 'toolbox lockup logo.svg --print none --padding 0.1 --out .',
     params: machineParams.lockup,
-    shot: shot('lockup', 'Toolbox in the Lockup tool: PARC’s stacked pixel logo on a white plate, with format, treatment, size and edge settings on the right and a count of 37 files.')
+    shot: shot('lockup', 'Toolbox in the Lockup tool: PARC’s stacked pixel logo on a white plate, with format, treatment, size and edge settings on the right, and 37 files in the bottom bar.')
   },
   {
     n: '02', slug: 'palette', name: 'Palette',
     blurb: 'Export palettes as code and swatches',
     summary: 'Export a color palette as code, Adobe swatches, or a reference sheet.',
     whenToUse: 'Palette gets colors ready for a website, an Adobe project, or a brand guide. Type in hex values or import artwork: Toolbox reads the fill colors from SVGs and pulls the dominant colors out of raster images.',
-    produces: 'Choose CSS and SCSS variables, design tokens in JSON, Adobe swatches in ASE, or a palette sheet in PDF and PNG. Each export goes into a new folder.',
+    produces: 'Choose CSS and SCSS variables, design tokens in JSON, Adobe swatches in ASE, or a swatch sheet in PDF and PNG. Each export goes into a new folder.',
     input: 'Hex values, or artwork',
     outputs: ['CSS', 'SCSS', 'JSON', 'ASE', 'PDF', 'PNG'],
     command: "toolbox palette '#D32F05' '#003A5D' --name Acme --out .",
     params: machineParams.palette,
-    shot: shot('palette', 'Toolbox in the Palette tool: a poster filling the canvas, its colors sampled into a row of swatches, with the outputs and files listed on the right.')
+    shot: shot('palette', 'Toolbox in the Palette tool: a poster on the Artwork tab with the colors found in it in a row below, and its five colors and four outputs listed on the right.')
   },
   {
     n: '03', slug: 'specimen', name: 'Specimen',
@@ -102,7 +102,7 @@ export const tools: Tool[] = [
     outputs: ['PDF', 'PNG'],
     command: 'toolbox specimen --template classic --family Helvetica --out .',
     params: machineParams.specimen,
-    shot: shot('specimen', 'Toolbox in the Specimen tool: a live type sheet preview beside the display, heading and body styles.')
+    shot: shot('specimen', 'Toolbox in the Specimen tool: a live preview of the brand sheet beside its display, heading and body styles.')
   },
   {
     n: '04', slug: 'convert', name: 'Convert',
@@ -114,7 +114,7 @@ export const tools: Tool[] = [
     outputs: ['PNG', 'JPEG', 'WebP', 'TIFF', 'PDF'],
     command: 'toolbox convert a.heic b.png --formats webp --compression 40 --out ~/Desktop',
     params: machineParams.convert,
-    shot: shot('convert', 'Toolbox in the Convert tool: two posters listed with their measured output sizes per format, and format, compression, size and transparency controls on the right.')
+    shot: shot('convert', 'Toolbox in the Convert tool: two posters listed with their measured output sizes per format, and format, compression, size and background controls on the right.')
   }
 ];
 
@@ -122,7 +122,9 @@ export const tools: Tool[] = [
 /** Where the installed binary is, per platform (docs/AGENTS.md). */
 export const binaries = [
   { os: 'macOS', path: '/Applications/Toolbox.app/Contents/MacOS/Toolbox' },
-  { os: 'Linux', path: 'toolbox' }
+  // per user, not on PATH (docs/port/RELEASE.md, "What users get")
+  { os: 'Windows', path: '%LOCALAPPDATA%\\Toolbox\\Toolbox.exe' },
+  { os: 'Linux', path: 'toolbox, or the AppImage file' }
 ];
 
 /** The release builds live in the public releases repo; every file is checksummed there. */

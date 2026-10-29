@@ -70,12 +70,12 @@ toolbox organize undo JOURNAL_ID`;
       </div>
       <!-- a long page on a phone (9 screens at 390): its sections, one tap away (0206) -->
       <nav class="jump" aria-label="On this page">{#each jumps as [id, name] (id)}<a class="lbl" href={`#${id}`}>{name}</a>{/each}</nav>
-      <dl class="meta">{#each binaries as b}<div><dt class="lbl dim">{b.os}</dt><dd class="body">{#each b.path.split(/(?<=\/)/) as part, k}{#if k}<wbr />{/if}{part}{/each}</dd></div>{/each}</dl>
+      <dl class="meta">{#each binaries as b}<div><dt class="lbl dim">{b.os}</dt><dd class="body">{#each b.path.split(/(?<=[\/\\])/) as part, k}{#if k}<wbr />{/if}{part}{/each}</dd></div>{/each}</dl>
     </div>
   </section>
 
   <section class="text" id="setup">
-    <div class="side"><h2 class="display-s">Set up the command</h2><p class="body long">Install Toolbox first. You can run it from the full executable path shown above, or set up the toolbox shortcut these examples use. On macOS, the command here creates that shortcut. Run the executable directly. The macOS open command won’t send results back to your terminal.</p></div>
+    <div class="side"><h2 class="display-s">Set up the command</h2><p class="body long">Install Toolbox first. You can run it from the full executable path shown above, or set up the toolbox shortcut these examples use. On macOS, the command here creates that shortcut. Run the executable directly. The macOS open command won’t send results back to your terminal.</p><p class="body long">On Windows, Toolbox installs to %LOCALAPPDATA%\Toolbox, which isn’t on your PATH, so use the full path. The prompt can come back before the output; add | more to the command to wait for it.</p></div>
     <div class="paras"><Code label="macOS shortcut" text={link} /></div>
   </section>
 
@@ -114,7 +114,7 @@ toolbox organize undo JOURNAL_ID`;
   </section>
 
   <section class="text" id="serve">
-    <div class="side"><h2 class="display-s">Serve</h2><p class="body long">To connect an AI assistant, add this server configuration to its MCP settings, using the executable path for your platform. --mcp serves the tools over standard input and output. Claude Code reads project settings from .mcp.json.</p><p class="body long">Then ask your assistant to convert screenshots to WebP, package logo SVGs, pull colors from artwork, or tidy a client folder. Tell it where the source files are and which folder to save to.</p></div>
+    <div class="side"><h2 class="display-s">Serve</h2><p class="body long">To connect an AI assistant, add this server configuration to its MCP settings, using the executable path for your platform. On Windows that’s C:\<wbr />Users\<wbr />you\<wbr />AppData\<wbr />Local\<wbr />Toolbox\<wbr />Toolbox.exe, with each backslash doubled in JSON. <span class="flag">--mcp</span> serves the tools over standard input and output. Claude Code reads project settings from .mcp.json.</p><p class="body long">Then ask your assistant to convert screenshots to WebP, package logo SVGs, pull colors from artwork, or tidy a client folder. Tell it where the source files are and which folder to save to.</p></div>
     <div class="paras"><Code label="Serve the tools" text="toolbox --mcp" /><Code label=".mcp.json" text={mcp} /></div>
   </section>
 
@@ -135,6 +135,7 @@ toolbox organize undo JOURNAL_ID`;
 </main>
 <style>
 .intro .lead{max-width:24ch}.intro .body{max-width:60ch}
+.flag{white-space:nowrap} /* a flag in prose stays whole at a line end */
 .jump{display:flex;flex-wrap:wrap;gap:0 var(--s3);margin-top:var(--s1)}.jump a{padding:14px 0 14px;text-decoration:underline;text-underline-offset:4px}
 @media(hover:hover){.jump a:hover{color:var(--accent-text)}}
 .jump a:active{background:var(--accent);color:var(--on-accent);box-shadow:var(--s1) 0 0 var(--accent),calc(-1 * var(--s1)) 0 0 var(--accent)} /* the press (0099), which these had not (PX-125) */
