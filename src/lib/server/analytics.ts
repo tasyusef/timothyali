@@ -36,12 +36,14 @@ async function record(guard: Guard, counts: Counts, daily = '', monthly = '', mo
   const pairs = counts.filter(([, n]) => n > 0).flatMap(([field, n]) => [field, String(n)]);
   return Boolean(await db.eval(RECORD, [guard.key, `tim:day:${day}`, `tim:visitors:${day}`, `${monthlyKey}:${day}`], [guard.mode, now.toISOString(), daily, monthly, ...pairs]));
 }
-/** Where a request is from, as Vercel reads it from the address (no address is kept). */
+/** Where a request is from, as Cloudflare reads it from the address (no address is kept). */
 export type Place = { country: string | null; region: string | null; city: string | null };
-export function placeOf(headers: Headers): Place {
-  const country = headers.get('x-vercel-ip-country')?.toUpperCase() ?? '';
-  const region = headers.get('x-vercel-ip-country-region')?.toUpperCase() ?? '';
-  let city = ''; try { city = decodeURIComponent(headers.get('x-vercel-ip-city') ?? ''); } catch {}
+type Where = { country?: unknown; regionCode?: unknown; city?: unknown };
+export function placeOf(cf: Where | undefined): Place {
+  const text = (v: unknown) => (typeof v === 'string' ? v : '');
+  const country = text(cf?.country).toUpperCase();
+  const region = text(cf?.regionCode).toUpperCase();
+  let city = text(cf?.city);
   city = city.replace(/[\u0000-\u001f\u007f/]+/g, ' ').trim().slice(0, 60);
   const ok = /^[A-Z]{2}$/.test(country);
   return { country: ok ? country : null, region: ok && /^[A-Z0-9]{1,3}$/.test(region) ? `${country}-${region}` : null, city: ok && city ? `${city} / ${/^[A-Z0-9]{1,3}$/.test(region) ? `${country}-${region}` : country}` : null };

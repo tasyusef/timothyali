@@ -10,7 +10,7 @@ export function ignored({ cookies, request }: Pick<RequestEvent, 'cookies' | 're
   return cookies.get('tim-analytics-exclude') === '1' || !analyticsReady() || (dev && env.ANALYTICS_DEV !== '1') || !ua || BOT.test(ua);
 }
 // The browser's events (Analytics.svelte): same origin, small JSON, one event a request.
-export async function ingest({ request, url, cookies, getClientAddress }: RequestEvent) {
+export async function ingest({ request, url, cookies, getClientAddress, platform }: RequestEvent) {
   const headers = { 'Cache-Control': 'no-store' };
   const empty = () => new Response(null, { status: 204, headers });
   const origin = request.headers.get('origin');
@@ -25,7 +25,7 @@ export async function ingest({ request, url, cookies, getClientAddress }: Reques
   let event;
   try { event = parseEvent(JSON.parse(Buffer.concat(chunks).toString('utf8'))); } catch { return new Response(null, { status: 400, headers }); }
   if (!event) return new Response(null, { status: 400, headers });
-  try { await recordEvent(event, getClientAddress(), (request.headers.get('user-agent') || '').slice(0, 512), placeOf(request.headers)); }
+  try { await recordEvent(event, getClientAddress(), (request.headers.get('user-agent') || '').slice(0, 512), placeOf(platform?.cf)); }
   catch { console.error('Analytics event storage unavailable'); return new Response(null, { status: 503, headers }); }
   return empty();
 }

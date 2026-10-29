@@ -1,4 +1,4 @@
-// SEO audit of the production build (PX-59, 0145). Reads .vercel/output/static after
+// SEO audit of the production build (PX-59, 0145). Reads .svelte-kit/cloudflare after
 // `pnpm build` and checks every prerendered page: one title of 15–60 characters and one
 // description of 50–160, one h1, a canonical that matches the sitemap, alt text and
 // dimensions on every image, a WebP source wherever derive.mjs has made one, JSON-LD that
@@ -10,7 +10,7 @@
 import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
-const OUT = '.vercel/output/static';
+const OUT = '.svelte-kit/cloudflare';
 const ORIGIN = 'https://www.timothyali.com';
 const manifest = JSON.parse(readFileSync('src/lib/images.json', 'utf8'));
 const walk = (d) => readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(join(d, e.name)) : e.name.endsWith('.html') ? [join(d, e.name)] : []));
@@ -90,8 +90,8 @@ const robots = readFileSync(join(OUT, 'robots.txt'), 'utf8');
 if (!robots.includes(`Sitemap: ${ORIGIN}/sitemap.xml`)) err('/robots.txt', 'no sitemap line');
 const nf = readFileSync(join(OUT, 'not-found.html'), 'utf8');
 if (!/name="robots" content="noindex"/.test(nf)) err('/not-found', 'not noindex');
-const vercel = JSON.parse(readFileSync('vercel.json', 'utf8'));
-if (!vercel.headers?.some((h) => h.headers.some((x) => x.key === 'Cache-Control'))) err('vercel.json', 'no Cache-Control header rule');
+const headers = readFileSync(join(OUT, '_headers'), 'utf8');
+if (!/^\s*Cache-Control: public, max-age=\d+/m.test(headers)) err('_headers', 'no Cache-Control header rule');
 
 console.table(rows.map((r) => ({ ...r, ld: r.ld.length > 40 ? r.ld.slice(0, 37) + '…' : r.ld })));
 console.log(`${pages.length} pages, ${locs.length} in sitemap, ${imageLocs.length} sitemap images`);

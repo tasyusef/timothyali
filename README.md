@@ -28,10 +28,10 @@ pnpm check
 pnpm build
 ```
 
-Use Node 22.12 or newer. Public pages are prerendered into `.vercel/output/static`; private admin/auth/analytics routes use Vercel functions. See `docs/admin-analytics.md` for setup and verification. Existing case-study links still open timothyali.com. Deployed: pushing `master` of `github.com/tasyusef/timothyali` triggers the Vercel production deploy at https://www.timothyali.com (decision 0085).
+Use Node 22.12 or newer. Public pages are prerendered into `.svelte-kit/cloudflare` (Workers static assets); private admin/auth/analytics routes run in the Cloudflare worker (`wrangler.jsonc`). See `docs/admin-analytics.md` for setup and verification. Existing case-study links still open timothyali.com. Deployed: pushing `master` of `github.com/tasyusef/timothyali` triggers the Vercel production deploy at https://www.timothyali.com (decision 0085).
 
 Read `docs/design-system.md` for the tokens, type roles and components, `docs/alternate-v2.md` for the editing map, `docs/decision-log.md` for decisions, and `docs/iteration-log.md` for iterations with screenshots and source archives.
 
 ## Contact form
 
-The form on `/contact/` posts to `/api/contact` (`src/routes/api/contact/+server.ts`), which relays through Resend. It needs `RESEND_API_KEY` in the Vercel project; `CONTACT_TO` and `CONTACT_FROM` are optional (decision 0090); timothyali.com is verified in Resend and `CONTACT_FROM` is set to a sender on it. `pnpm dev` has no key, so locally the form reports the relay as unconfigured. Keep the repo free of a root `api/` folder: Vercel's handling of one answers every dynamic `/api/...` route of the site with its own 404 (0226).
+The form on `/contact/` posts to `/api/contact` (`src/routes/api/contact/+server.ts`), which relays through Resend. It needs `RESEND_API_KEY` as a worker secret; `CONTACT_TO` and `CONTACT_FROM` are optional (decision 0090); timothyali.com is verified in Resend and `CONTACT_FROM` is set to a sender on it. `pnpm dev` has no key, so locally the form reports the relay as unconfigured. Keep the repo free of a root `api/` folder: Vercel's handling of one answers every dynamic `/api/...` route of the site with its own 404 (0226).

@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
-    "@sveltejs/adapter-vercel": "^6.3.4",
+    "@sveltejs/adapter-cloudflare": "7.2.9",
     "@sveltejs/kit": "^2.37.0",
     "@sveltejs/vite-plugin-svelte": "^6.2.0",
     "@types/node": "^26.5.0",
@@ -36,7 +36,8 @@
     "svelte-check": "^4.3.2",
     "typescript": "^5.9.2",
     "vite": "^7.1.0",
-    "vitest": "^5.0.1"
+    "vitest": "^5.0.1",
+    "wrangler": "4.149.0"
   },
   "engines": {
     "node": ">=22.12.0"

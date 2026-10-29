@@ -4,7 +4,7 @@ import { PNG } from 'pngjs';
 import { socialPages } from '../../src/lib/social.ts';
 import { SITE_URL } from '../../src/lib/shared.js';
 const cases=socialPages.map(p=>[p.path,p.image]);
-const output='.vercel/output/static';
+const output='.svelte-kit/cloudflare';
 const results=[];
 for(const [path,id] of cases){
  const html=readFileSync(`${output}${path}index.html`,'utf8');

@@ -24,10 +24,10 @@ The live site at https://www.timothyali.com and the rebrand behind it (positioni
 
 ## Deploy and git
 
-- **Commit and push only on Timothy's word.** Every push to `master` on `origin` (GitHub) is a production deploy through Vercel.
+- **Commit and push only on Timothy's word.** Every push to `master` on `origin` (GitHub) is a production deploy through Cloudflare Workers Builds (0236). `pnpm build && pnpm exec wrangler deploy` deploys from this machine.
 - After pushing `master` to `origin`, push it to `gitlab` too. It is a private mirror and does not deploy.
-- The contact form (`src/routes/api/contact/+server.ts`, Resend) and the admin/auth/analytics routes need Vercel's environment. Locally the form reports the relay as unconfigured.
-- No root `api/` folder: Vercel's zero-config functions there make every dynamic `/api/...` SvelteKit route answer Vercel's own 404 (0226). Server code goes in `src/routes`.
+- The contact form (`src/routes/api/contact/+server.ts`, Resend) and the admin/auth/analytics routes need the worker's secrets (`wrangler secret put`). Locally the form reports the relay as unconfigured.
+- Hosting is Cloudflare Workers (`wrangler.jsonc`, root `_redirects` and `_headers`). Server code goes in `src/routes`; no root `api/` folder (0226, from the Vercel era).
 - Decision numbers 0149 to 0160 belong to the set-aside modernist-v3 work (branch `modernist-v3` and a stash). New decisions continue from the latest number in the log.
 
 ## Recording decisions

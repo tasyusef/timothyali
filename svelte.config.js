@@ -1,7 +1,8 @@
-import adapter from '@sveltejs/adapter-vercel';
+import cloudflare from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import { readFileSync } from 'node:fs';
+import { readFileSync, renameSync, writeFileSync, appendFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { SITE_URL } from './src/lib/shared.js';
 // /og/[id] is the dev-only share-image route (tools/social/generate.mjs screenshots it);
 // it declares no entries, so it is never crawled and must not ship. Any other unseen
 // prerenderable route is still a build failure.
@@ -13,10 +14,38 @@ const DEV_ONLY = new Set(['/og/[id]']);
 // Toolbox demos' canvases; nothing is loaded from another origin.
 const appHtml = readFileSync(new URL('./src/app.html', import.meta.url), 'utf8');
 const themeScript = `sha256-${createHash('sha256').update(appHtml.match(/<script>([\s\S]*?)<\/script>/)[1]).digest('base64')}`;
+// Cloudflare Workers. wrangler.jsonc's `main` is where the adapter writes SvelteKit's worker; it is
+// moved aside to sveltekit.js and `main` becomes a small entry that adds the daily cron (Workers
+// run a cron through the entry's `scheduled`, which the adapter's worker doesn't have). The cron
+// asks the site for /api/releases-snapshot as Vercel's cron did, with the same secret.
+const ENTRY = '.svelte-kit/cloudflare-worker';
+const cf = cloudflare();
+const adapter = {
+  ...cf,
+  async adapt(builder) {
+    await cf.adapt(builder);
+    renameSync(`${ENTRY}/index.js`, `${ENTRY}/sveltekit.js`);
+    writeFileSync(`${ENTRY}/index.js`, `import worker from './sveltekit.js';
+export default {
+  fetch: worker.fetch,
+  async scheduled(_controller, env, ctx) {
+    const headers = env.CRON_SECRET ? { authorization: \`Bearer \${env.CRON_SECRET}\` } : {};
+    const res = await worker.fetch(new Request('${SITE_URL}/api/releases-snapshot', { headers }), env, ctx);
+    if (!res.ok) throw new Error(\`releases snapshot: \${res.status}\`);
+  }
+};
+`);
+    appendFileSync('.svelte-kit/cloudflare/.assetsignore', '\n.DS_Store\n**/.DS_Store\n');
+    // A page asked for without its slash is sent on with a permanent 308, as Vercel did; Workers'
+    // own trailing-slash handling answers 307. One rule per prerendered page, from the build.
+    const pages = builder.prerendered.paths.filter((p) => p.length > 1 && p.endsWith('/'));
+    appendFileSync('.svelte-kit/cloudflare/_redirects', `\n# pages without their slash\n${pages.map((p) => `${p.slice(0, -1)} ${p} 308`).join('\n')}\n`);
+  }
+};
 export default {
   preprocess: vitePreprocess(),
   kit: {
-    adapter: adapter({ regions: ['iad1'], runtime: 'nodejs24.x' }),
+    adapter,
     // Every page's stylesheets go into its HTML (0214): five files blocked the first paint, about
     // 430 ms on a phone and 890 ms on Toolbox, and the largest is 26 KB (6 KB compressed).
     // Pages reached by a link still load them as files.

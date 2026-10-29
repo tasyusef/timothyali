@@ -1,0 +1,48 @@
+# Static files and prerendered pages (moved from vercel.json). Responses from the worker get
+# the same security headers in src/hooks.server.ts.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=63072000
+
+# Images, video and share images keep a week and refresh in the background for a month.
+/work/*.png
+  ! Cache-Control
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+/work/*.jpg
+  ! Cache-Control
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+/work/*.webp
+  ! Cache-Control
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+/work/*.mp4
+  ! Cache-Control
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+/toolbox/*.png
+  ! Cache-Control
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+/toolbox/*.webp
+  ! Cache-Control
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+/og/*.png
+  ! Cache-Control
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+/cursor/*.png
+  ! Cache-Control
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+/hero/*.webp
+  ! Cache-Control
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+/favicon*
+  ! Cache-Control
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+/apple-touch-icon.png
+  ! Cache-Control
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+
+# The résumé changes more often: a day, a week in the background.
+/resume/*.pdf
+  ! Cache-Control
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800

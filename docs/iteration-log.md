@@ -1244,3 +1244,13 @@ Pushed on 2026-10-29, after the v1.2.6 GitHub release was public.
 - **Downloads:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.6; `toolbox-options.ts` header from the 1.2.6 binary.
 - **Samples:** Lockup's zip and manifest remade with 1.2.6 (CMYK PRINT JPEGs, EPS Creator); the other three manifests change only their `generated` line.
 - **Checks:** `pnpm check` 0/0, 43 tests, build, `seo:check`.
+
+## PX-133: Cloudflare Workers (2026-10-29, 0236)
+
+Committed and merged into `master` on Timothy's word on 2026-10-29.
+
+- **Build:** `svelte.config.js` (adapter-cloudflare wrapped with a cron entry, `.DS_Store` ignored, 308 slash rules), `wrangler.jsonc`, root `_redirects` and `_headers`, `src/app.d.ts` (platform types); adapter-vercel and `vercel.json` removed.
+- **Server:** `placeOf(platform.cf)`; contact rate limit on `getClientAddress()`; downloads and update checks counted with `waitUntil`; security headers and HSTS on worker responses in `hooks.server.ts`.
+- **Tools and docs:** `seo.mjs` and `social/verify.mjs` read `.svelte-kit/cloudflare` and `_headers`; README, AGENTS.md, `admin-analytics.md` and comments describe Cloudflare.
+- **Checks:** `pnpm check` 0/0, 43 tests, build, `seo:check` (17 pages), `social:verify`; `wrangler dev` (redirects, headers, 404, downloads, cron); worker 249 KiB gzipped, 19 ms startup. On www: pages, 308/307 redirects, 404, sitemap, résumé, downloads and update checks, the cron endpoint, an analytics event into Redis, one test message through the contact form, admin sign-in (Timothy), the apex 308, HSTS, and no injected scripts on Contact.
+- **Evidence:** `docs/iterations/pixel-v2/133-cloudflare/verification.md`.

@@ -5,7 +5,23 @@ import { authHandle, authReady } from './auth';
 import { isOwner, isPrivatePath } from '$lib/server/access';
 import { SITE_URL } from '$lib/site';
 
-export const handle: Handle = async ({ event, resolve }) => {
+// The worker's responses get the security headers _headers gives static files. A response with
+// fixed headers (a redirect made by Response.redirect, a passed-through fetch) is copied first.
+const SECURITY: [string, string][] = [
+  ['X-Content-Type-Options', 'nosniff'],
+  ['Referrer-Policy', 'strict-origin-when-cross-origin'],
+  ['X-Frame-Options', 'SAMEORIGIN'],
+  ['Permissions-Policy', 'camera=(), microphone=(), geolocation=()'],
+  // two years, as Vercel sent it
+  ['Strict-Transport-Security', 'max-age=63072000']
+];
+function secure(response: Response) {
+  try { response.headers.set('X-Content-Type-Options', 'nosniff'); } catch { response = new Response(response.body, response); }
+  for (const [k, v] of SECURITY) if (!response.headers.has(k)) response.headers.set(k, v);
+  return response;
+}
+
+const route = async ({ event, resolve }: Parameters<Handle>[0]) => {
   const path = event.url.pathname;
   if (!dev && path.startsWith('/og/') && !path.endsWith('.png')) return new Response('Not found', { status: 404 });
   if (!isPrivatePath(path)) return resolve(event);
@@ -33,3 +49,5 @@ export const handle: Handle = async ({ event, resolve }) => {
   response.headers.set('X-Frame-Options', 'DENY');
   return response;
 };
+
+export const handle: Handle = async (input) => secure(await route(input));

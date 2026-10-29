@@ -39,8 +39,7 @@ function store(signal: AbortSignal) {
   const token = env.UPSTASH_REDIS_REST_TOKEN || env.KV_REST_API_TOKEN;
   return url && token ? new Redis({ url, token, retry: { retries: 1, backoff: () => 150 }, signal }) : null;
 }
-async function allowed(request: Request) {
-  const ip = (request.headers.get('x-forwarded-for') ?? '').split(',')[0].trim() || request.headers.get('x-real-ip') || '';
+async function allowed(ip: string) {
   const stop = new AbortController(); const timer = setTimeout(() => stop.abort(), RATE.wait);
   const db = store(stop.signal);
   if (!db || !ip) { clearTimeout(timer); return true; }
@@ -74,7 +73,7 @@ function answer(request: Request, status: number, body: Answer) {
   return new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } });
 }
 
-export const POST: RequestHandler = async ({ request }) => {
+export const POST: RequestHandler = async ({ request, getClientAddress }) => {
   let data;
   if (!sameOrigin(request)) return answer(request, 403, { ok: false, error: 'bad-request' });
   try { data = await readForm(request); } catch { return answer(request, 400, { ok: false, error: 'bad-request' }); }
@@ -86,7 +85,7 @@ export const POST: RequestHandler = async ({ request }) => {
   const name = line(data.name, LIMITS.name), email = line(data.email, LIMITS.email), message = clean(data.message, LIMITS.message);
   if (!name || !message || !EMAIL.test(email)) return answer(request, 400, { ok: false, error: 'invalid' });
   if (!env.RESEND_API_KEY) return answer(request, 500, { ok: false, error: 'unconfigured' });
-  if (!(await allowed(request))) return answer(request, 429, { ok: false, error: 'rate-limited' });
+  if (!(await allowed(getClientAddress() ?? ''))) return answer(request, 429, { ok: false, error: 'rate-limited' });
 
   const subject = `${name} via timothyali.com`;
   const text = `${message}\n\n—\n${name}\n${email}\n${new Date().toISOString()}`;

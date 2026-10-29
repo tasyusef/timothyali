@@ -2,7 +2,7 @@ import { env } from '$env/dynamic/private';
 import { currentReleases } from '$lib/server/releases';
 import type { RequestHandler } from './$types';
 export const prerender = false;
-// Vercel's daily cron (vercel.json) keeps a reading of GitHub's counts for every UTC day, so the
+// The worker's daily cron (wrangler.jsonc, `scheduled` in svelte.config.js) keeps a reading of GitHub's counts for every UTC day, so the
 // admin can show a period's downloads on days nobody opens it. Readings go through the five-minute
 // cache, so outside calls add at most one GitHub request per five minutes and can't change a count.
 export const GET: RequestHandler = async ({ request }) => {

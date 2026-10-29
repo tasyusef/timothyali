@@ -1,0 +1,21 @@
+// timothyali.com on Cloudflare Workers. `pnpm build` writes the worker and the assets; `wrangler deploy` ships them.
+// Secrets (Auth.js, Resend, Upstash, analytics, cron) are set with `wrangler secret put`, never here.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "timothyali",
+  "main": ".svelte-kit/cloudflare-worker/index.js",
+  "compatibility_date": "2026-10-01",
+  // node:crypto (analytics and contact hashes) and Buffer
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".svelte-kit/cloudflare",
+    "binding": "ASSETS"
+  },
+  // the daily GitHub download reading for the admin, 23:50 UTC as on Vercel
+  "triggers": { "crons": ["50 23 * * *"] },
+  "observability": { "enabled": true },
+  // www.timothyali.com is the site; timothyali.com is sent to it by a Cloudflare redirect rule
+  "routes": [{ "pattern": "www.timothyali.com", "custom_domain": true }],
+  "workers_dev": true,
+  "preview_urls": false
+}
