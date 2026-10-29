@@ -1,0 +1,62 @@
+nav Work: url=http://127.0.0.1:4173/work/ current=02Work title="Work / Timothy Ali" focus=BODY#
+nav Contact: url=http://127.0.0.1:4173/contact/ current=03Contact title="Get in touch / Timothy Ali" focus=BODY#
+nav Toolbox: url=http://127.0.0.1:4173/toolbox/ current=04Toolbox title="Toolbox / Timothy Ali" focus=BODY#
+nav Index: url=http://127.0.0.1:4173/ current=01Index title="Timothy Ali / Designer" focus=BODY#
+cog open expanded= true menu visible= true
+menu buttons [{"t":"Motion [on]","pressed":"true","label":null},{"t":"Theme [dark]","pressed":null,"label":null}]
+toggles {"theme":"dark","motion":true} -> {"theme":"light","motion":false,"ls":{"tim-visit":"{\"referrer\":\"\",\"last\":1793234031883}","tim-theme":"light","tim-motion":"off"}}
+menu buttons after [{"t":"Motion [off]","pressed":"false"},{"t":"Theme [light]","pressed":null}]
+menu still open after toggles: true
+after Escape: open= false focus= Settings
+Enter on cog: open= true
+Tab from cog lands on Motion [off]
+Tab again lands on Theme [light]
+Tab again lands on Selected work menu open= true
+click outside closes: true
+after nav to /work/: {"theme":"light","motion":false}
+after reload: {"theme":"light","motion":false}
+work cards /work/toolbox/ /work/parc/ /work/jade-aesthetics/ /work/firstledger/ /work/xrpcafe/ /work/firststrike/ /work/do-androids-dream/
+card /work/toolbox/ -> http://127.0.0.1:4173/work/toolbox/ h1="TOOLBOX TOO<>0=" next=/work/parc/ ext=
+   next -> http://127.0.0.1:4173/work/parc/ scrollY=0 focus=BODY#
+   back -> http://127.0.0.1:4173/work/toolbox/
+card /work/parc/ -> http://127.0.0.1:4173/work/parc/ h1="PARC PAR/" next=/work/jade-aesthetics/ ext=parcxrpl.com ->|target=|rel=
+   next -> http://127.0.0.1:4173/work/jade-aesthetics/ scrollY=0 focus=BODY#
+   back -> http://127.0.0.1:4173/work/parc/
+card /work/jade-aesthetics/ -> http://127.0.0.1:4173/work/jade-aesthetics/ h1="JADE AESTHETICS JAD> /><%+/+#:0" next=/work/firstledger/ ext=jadeaesthetics.co ->|target=|rel=
+   next -> http://127.0.0.1:4173/work/firstledger/ scrollY=0 focus=BODY#
+   back -> http://127.0.0.1:4173/work/jade-aesthetics/
+card /work/firstledger/ -> http://127.0.0.1:4173/work/firstledger/ h1="FIRST LEDGER FIR<\ \:+-#/" next=/work/xrpcafe/ ext=firstledger.net ->|target=|rel=
+   next -> http://127.0.0.1:4173/work/xrpcafe/ scrollY=0 focus=BODY#
+   back -> http://127.0.0.1:4173/work/firstledger/
+card /work/xrpcafe/ -> http://127.0.0.1:4173/work/xrpcafe/ h1="XRP.CAFE XRP>>==#" next=/work/firststrike/ ext=xrp.cafe ->|target=|rel=
+   next -> http://127.0.0.1:4173/work/firststrike/ scrollY=0 focus=BODY#
+   back -> http://127.0.0.1:4173/work/xrpcafe/
+card /work/firststrike/ -> http://127.0.0.1:4173/work/firststrike/ h1="FIRSTSTRIKE RESEARCH FIR#@+|-+/% %-*+*+<0" next=/work/do-androids-dream/ ext=
+   next -> http://127.0.0.1:4173/work/do-androids-dream/ scrollY=0 focus=BODY#
+   back -> http://127.0.0.1:4173/work/firststrike/
+card /work/do-androids-dream/ -> http://127.0.0.1:4173/work/do-androids-dream/ h1="DO ANDROIDS DREAM? DO *#-><@#% @<<-=0" next=/work/toolbox/ ext=Watch on YouTube ->|target=|rel= ; Watch it with sound on YouTube ->|target=|rel=
+   next -> http://127.0.0.1:4173/work/toolbox/ scrollY=0 focus=BODY#
+   back -> http://127.0.0.1:4173/work/do-androids-dream/
+toolbox links /toolbox/lockup/|Lockup guide -> ; /toolbox/agents/|CLI & MCP docs ->
+/toolbox/lockup/ h1="LOCKUP LOCKUP" getIt=/toolbox/#download
+   Get it -> http://127.0.0.1:4173/toolbox/#download downloadTop=236
+/toolbox/palette/ h1="PALETTE PALETTE" getIt=/toolbox/#download
+   Get it -> http://127.0.0.1:4173/toolbox/#download downloadTop=236
+/toolbox/specimen/ h1="SPECIMEN SPECIME-" getIt=/toolbox/#download
+   Get it -> http://127.0.0.1:4173/toolbox/#download downloadTop=236
+/toolbox/convert/ h1="CONVERT CONVERT" getIt=/toolbox/#download
+   Get it -> http://127.0.0.1:4173/toolbox/#download downloadTop=236
+download links:
+  Apple silicon -> /download/v1.2.4/Toolbox-1.2.4-arm64.dmg download=false
+  Intel -> /download/v1.2.4/Toolbox-1.2.4.dmg download=false
+  Installer x64 -> /download/v1.2.4/Toolbox-Setup-1.2.4.exe download=false
+  Installer arm64 -> /download/v1.2.4/Toolbox-Setup-1.2.4-arm64.exe download=false
+  AppImage x86_64 -> /download/v1.2.4/toolbox-1.2.4-x86_64.AppImage download=false
+  AppImage arm64 -> /download/v1.2.4/toolbox-1.2.4-arm64.AppImage download=false
+  deb amd64 -> /download/v1.2.4/toolbox_1.2.4_amd64.deb download=false
+  deb arm64 -> /download/v1.2.4/toolbox_1.2.4_arm64.deb download=false
+  download intercepted http://127.0.0.1:4173/download/v1.2.4/Toolbox-1.2.4-arm64.dmg?s=Direct+%2F+unknown
+after download click url= http://127.0.0.1:4173/toolbox/#download
+pressed buttons ["Motion [on]:true","01Lockup:true","02Palette:false","03Specimen:false","04Convert:false",":true",":false","JPEG:true","PNG:true","SVG:true","EPS:true","JPEG:true","PDF:true"]
+404 title= Not found / Timothy Ali h1= lost. lost.
+404 home -> http://127.0.0.1:4173/nope/

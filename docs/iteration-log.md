@@ -1195,3 +1195,16 @@ Pushed on 2026-10-28, after the v1.2.4 GitHub release was public.
 - **App port:** commit d18ef89 in the Toolbox app (local only), into the Rust texture crate.
   - **Tests:** the parity vectors pass unchanged; the new `tests/drag.rs` passes; clippy for wasm is clean.
   - **Browser check:** in the app UI's preview (`trunk serve`), a drag left a wake and a held press fired the slingshot, with no console errors, and the New project button still opened its form.
+
+## PX-128: second design audit and fixes (2026-10-28, 0231)
+
+- **Ask:** the same three-reviewer audit again, each reviewer in its own browser on every page, with the `better-interface` review. Then, on "1": fix the merged findings 1 to 10, plus A (27/40 reading leading on the Toolbox pages) and B (copy buttons on code blocks).
+- **Audit:** the reports are in `128-design-audit-2/agents/{opus,fable,codex-sol}/report.md`, with each reviewer's scripts and screenshots. The brief is `128-design-audit-2/brief.md`.
+- **Fixes:** listed in 0231.
+  - Files: `base.css` (scroll padding, forced colours), `blocks.css`, `type.css`, `Clip.svelte`, `ContactForm.svelte`, `Code.svelte`, the new `CopyButton.svelte`, `PaletteDemo.svelte`, `Options.svelte`, `demo.css`, `toolbox.ts`, and the Contact, study, Toolbox, tool and CLI & MCP pages.
+- **Checks:** on the production build:
+  - `check`; 37 tests; `seo:check` passes;
+  - `tools/review/blocks.mjs` at H=896: 0 block tops off the grid at any width;
+  - `128-design-audit-2/fixes/verify.mjs`: 32 of 32 pass. Screenshots are in `fixes/shots/`.
+- **Then, on "2":** Home's hero actions are in reading order: "Resume (PDF)" first at every width, no `row-reverse`.
+- **Shipped:** pushed on 2026-10-28.

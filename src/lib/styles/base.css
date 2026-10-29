@@ -18,6 +18,9 @@
 /* In-page jumps (the hero's “Explore the tools”, a Work row from Home) ease when motion is on;
    the skip link scrolls instantly on its own (0098). The class lives on .site, so :has reaches it. */
 :root:has(.site.motion){scroll-behavior:smooth}
+/* Whatever is scrolled to, by a link to an anchor or by keyboard focus, stops below the sticky chrome
+   with a unit of room, never under it (PX-128: Shift+Tab hid "Resume (PDF)" under the header). */
+:root{scroll-padding-top:calc(var(--chrome-height) + var(--s2))}
 :root{font-family:var(--face-root);font-size:27px;line-height:32px;color:var(--fg);background:var(--paper);font-synthesis:none;-webkit-font-smoothing:none;text-rendering:optimizeSpeed;-webkit-tap-highlight-color:transparent} /* the press states (0099) are the tap feedback; no browser flash over them (0206) */
 *{box-sizing:border-box}body{margin:0;min-height:100vh}
 h1,h2,h3,p,figure,dl,dd{margin:0}h1,h2,h3{font-weight:400}
@@ -82,3 +85,11 @@ main{display:block}
 ::-webkit-scrollbar-button{display:none}
 ::-webkit-scrollbar-corner{background:var(--paper)}
 @supports not selector(::-webkit-scrollbar){:root{scrollbar-color:var(--fg) color-mix(in srgb,var(--fg) 14%,var(--paper))}}
+
+/* Windows High Contrast drops every background, so fills that mark a boundary or a state vanish (PX-128).
+   Draw the boundaries in the system ink, and paint what is selected in the system highlight. Nothing here shows in normal rendering. */
+@media(forced-colors:active){
+  :is(input:not([type=checkbox],[type=radio],[type=range]),textarea,select,.cta,.cta-row,.chip,.tool-picker button,.demo .btn,.demo .demo-act):not(:focus-visible){outline:1px solid CanvasText;outline-offset:-1px}
+  :is([aria-current]:not([aria-current=false]),[aria-pressed=true],.demo .chip.on){forced-color-adjust:none;background:Highlight;color:HighlightText}
+  .demo .switch.on .state{text-decoration:underline}
+}

@@ -6,6 +6,7 @@
   import QuietLink from '$lib/components/QuietLink.svelte';
   import PageFoot from '$lib/components/PageFoot.svelte';
   import Cursor from '$lib/components/Cursor.svelte';
+  import CopyButton from '$lib/components/CopyButton.svelte';
   import ToolDemo from '$lib/components/toolbox/ToolDemo.svelte';
   import { APP, tools, builds, RELEASES } from '$lib/toolbox';
   import { STEP } from '$lib/tokens';
@@ -18,17 +19,19 @@
   // A phone cannot install a desktop app (0206): on a touch screen the download section says so
   // and offers to send the page on, through the share sheet or the clipboard. A refused or
   // missing share sheet falls back to the clipboard, and the result is announced (PX-125);
-  // closing the sheet on purpose (AbortError) says nothing.
-  let sent = $state('');
+  // closing the sheet on purpose (AbortError) says nothing. Success clears itself; a failure
+  // stays, with the address under the button where it can wrap, until the next try (PX-128).
+  let sent = $state(''), failed = $state(false);
+  let clear: ReturnType<typeof setTimeout> | undefined;
   async function sendOn() {
     const url = `${location.origin}/toolbox/#download`;
+    clearTimeout(clear); sent = ''; failed = false;
     if (navigator.share) {
       try { await navigator.share({ title: 'Toolbox', url }); return; }
       catch (e) { if ((e as DOMException)?.name === 'AbortError') return; }
     }
-    try { await navigator.clipboard.writeText(url); sent = 'Link copied'; }
-    catch { sent = 'Couldn’t copy. The address is timothyali.com/toolbox'; }
-    setTimeout(() => (sent = ''), 4000);
+    try { await navigator.clipboard.writeText(url); sent = 'Link copied'; clear = setTimeout(() => (sent = ''), 4000); }
+    catch { failed = true; }
   }
 </script>
 <main class="toolbox-landing" id="main" tabindex="-1">
@@ -58,17 +61,17 @@
 
   <section class="machine panel" aria-labelledby="machine-title">
     <div><h2 id="machine-title" class="display">Automate<br />your exports.</h2></div>
-    <div class="machine-copy"><p class="body">Use the same tools from your terminal, or from an AI assistant over MCP. You can inspect files, preview exports, and reopen saved work without opening the app.</p><div class="command-plate"><code class="body">toolbox --mcp<Cursor size="line" /></code></div><QuietLink href="/toolbox/agents/" label="CLI & MCP docs" pad /></div>
+    <div class="machine-copy"><p class="body">Use the same tools from your terminal, or from an AI assistant over MCP. You can inspect files, preview exports, and reopen saved work without opening the app.</p><div class="command-plate copyable"><code class="body">toolbox --mcp<Cursor size="line" /></code><CopyButton text="toolbox --mcp" name="toolbox --mcp" /></div><QuietLink href="/toolbox/agents/" label="CLI & MCP docs" pad /></div>
   </section>
 
   <section class="release" id="download" aria-labelledby="download-title">
     <div class="release-heading"><span class="lbl dim">v{APP.version}</span><h2 id="download-title" class="blackletter">Download.</h2></div>
     <div class="release-copy">
       <p class="body">Pick the download for your computer below. The releases page lists SHA-256 checksums if you want to check the file.</p>
-      <div class="on-phone panel"><p class="body">Toolbox runs on macOS, Windows, and Linux. Open this page on your computer to install it.</p><Cta variant="row" type="button" class="send" onclick={sendOn}><span>{sent || 'Send the link to your computer'}</span><Arrow /></Cta><p class="sr-only" role="status">{sent}</p></div>
+      <div class="on-phone panel"><p class="body">Toolbox runs on macOS, Windows, and Linux. Open this page on your computer to install it.</p><Cta variant="row" type="button" class="send" onclick={sendOn}><span>{sent || 'Send the link to your computer'}</span><Arrow /></Cta><p class={failed ? 'body fail' : 'sr-only'} role="status">{failed ? 'Couldn’t copy the link. Open timothyali.com/toolbox on your computer.' : sent}</p></div>
       <ul class="downloads">
         {#each builds as b}
-          <li><span class="lbl dim">{b.os}</span><span class="files">{#each b.files as f}<a class="body" href={f.href}>{f.label}</a>{/each}</span><span class="read-s dim note">{#if b.version !== APP.version}Version {b.version}. {/if}{b.note}</span></li>
+          <li><span class="lbl dim">{b.os}</span><span class="files">{#each b.files as f}<a class="body" href={f.href}><span class="sr-only">Download Toolbox for {b.os}, </span>{f.label}</a>{/each}</span><span class="read-s dim note">{#if b.version !== APP.version}Version {b.version}. {/if}{b.note}</span></li>
         {/each}
       </ul>
       <QuietLink href={RELEASES} label="All files and checksums" />
@@ -95,6 +98,7 @@
 .machine h2{margin-top:0}.machine-copy{display:flex;flex-direction:column;gap:var(--s3)}
 
 .machine :global(.quiet-link){align-self:flex-start}
+.copyable{flex-direction:row;align-items:center;justify-content:space-between;gap:var(--s2)} /* the command and its copy on one line (PX-128) */
 .release{padding-top:var(--s8);padding-bottom:var(--s4);display:grid;grid-template-columns:1fr 1fr;gap:var(--s8)}
 .release h2{font-size:129px;line-height:136px;margin-top:var(--s2)}.release-copy{display:flex;flex-direction:column;align-items:flex-start;gap:var(--s3)}.downloads{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s2);align-self:stretch}
 .downloads li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0 var(--s2);align-items:baseline}
@@ -108,6 +112,7 @@
 .on-phone :global(.send){padding:var(--pad-m);margin:0 calc(-1 * var(--s2)) calc(-1 * var(--s2));width:auto;align-self:stretch;flex-wrap:nowrap}
 /* the label wraps beside the arrow; held at its full width it pushed the arrow 18px off a 390 phone (PX-125) */
 .on-phone :global(.send>span:first-child){flex:1 1 auto;min-width:0}
+.on-phone .fail{overflow-wrap:anywhere}
 @media(pointer:coarse) and (max-width:1100px){.on-phone{display:flex}.downloads .files a{padding:6px 0}} /* 44px to a finger (0206) */
 .end :global(.page-foot){margin-top:var(--s4);margin-bottom:var(--s4)}
 noscript a{text-decoration:underline}
@@ -116,11 +121,11 @@ noscript a{text-decoration:underline}
 @media(min-width:901px) and (max-width:1100px){.hero-copy h1{font-size:258px;line-height:264px}}
 /* two columns from 900 down: four kept “CONVERT” at 27.5 wider than its column between 701
    and 750, 200% zoom on a 1440 screen, and the page scrolled sideways (PX-125) */
-@media(max-width:900px){.tool-picker{grid-template-columns:repeat(2,minmax(0,1fr))}.tool-showcase{grid-template-columns:minmax(0,1fr)}.tool-story{display:grid;grid-template-columns:1fr 1fr;padding-top:0;gap:var(--s2) var(--s4)}.tool-story h3{grid-row:1/3}.tool-story :global(.quiet-link){grid-column:2;margin-top:0}.machine,.release{gap:var(--s4)}.machine h2{font-size:41.25px;line-height:48px}}
+@media(max-width:900px){.section-head{grid-template-columns:1fr;gap:var(--s3);margin-bottom:var(--s4)}.tool-picker{grid-template-columns:repeat(2,minmax(0,1fr))}.tool-showcase{grid-template-columns:minmax(0,1fr)}.tool-story{display:grid;grid-template-columns:1fr 1fr;padding-top:0;gap:var(--s2) var(--s4)}.tool-story h3{grid-row:1/3}.tool-story :global(.quiet-link){grid-column:2;margin-top:0}.machine,.release{gap:var(--s4)}.machine h2{font-size:41.25px;line-height:48px}}
 @media(max-width:700px){
  .toolbox-landing :global(.toolbox-hero){padding-top:var(--s3);padding-bottom:var(--s6)}
  .hero-copy{margin-top:var(--s1)}.hero-actions{gap:var(--s3);margin-top:var(--s3)}
- .section-head{grid-template-columns:1fr;gap:var(--s3);margin-bottom:var(--s4)}.showcase{padding-top:var(--s6);padding-bottom:var(--s6)}
+ .showcase{padding-top:var(--s6);padding-bottom:var(--s6)}
  .tool-picker{margin-bottom:var(--s3)}.tool-picker button{padding:17px 16px 15px;gap:var(--s1)}.tool-picker .display-s{font-family:var(--face-label);font-size:12.5px;line-height:16px}
  .tool-story{display:flex;gap:var(--s2)}.tool-story h3{max-width:100%}.tool-story :global(.quiet-link){margin-top:var(--s1)}.tool-showcase{gap:var(--s3)}
  .machine,.release{grid-template-columns:minmax(0,1fr);padding-top:var(--s6);padding-bottom:var(--s6)}.end :global(.page-foot){margin-top:0}

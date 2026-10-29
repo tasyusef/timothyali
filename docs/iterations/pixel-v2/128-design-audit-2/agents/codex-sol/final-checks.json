@@ -1,0 +1,353 @@
+[
+  {
+    "kind": "nojs",
+    "p": "/",
+    "h1": "i’m tim.Timothy Ali",
+    "main": true,
+    "sw": 390,
+    "imgs": 0
+  },
+  {
+    "kind": "nojs",
+    "p": "/work/",
+    "h1": "work.work.",
+    "main": true,
+    "sw": 390,
+    "imgs": 0
+  },
+  {
+    "kind": "nojs",
+    "p": "/work/parc/",
+    "h1": "parcparc",
+    "main": true,
+    "sw": 390,
+    "imgs": 0
+  },
+  {
+    "kind": "nojs",
+    "p": "/work/xrpcafe/",
+    "h1": "xrp.cafexrp.cafe",
+    "main": true,
+    "sw": 390,
+    "imgs": 0
+  },
+  {
+    "kind": "nojs",
+    "p": "/work/firstledger/",
+    "h1": "first ledgerfirst ledger",
+    "main": true,
+    "sw": 390,
+    "imgs": 0
+  },
+  {
+    "kind": "nojs",
+    "p": "/work/do-androids-dream/",
+    "h1": "do androids dream?do androids dream?",
+    "main": true,
+    "sw": 390,
+    "imgs": 0
+  },
+  {
+    "kind": "nojs",
+    "p": "/work/jade-aesthetics/",
+    "h1": "jade aestheticsjade aesthetics",
+    "main": true,
+    "sw": 390,
+    "imgs": 0
+  },
+  {
+    "kind": "nojs",
+    "p": "/work/firststrike/",
+    "h1": "firststrike researchfirststrike research",
+    "main": true,
+    "sw": 390,
+    "imgs": 0
+  },
+  {
+    "kind": "nojs",
+    "p": "/work/toolbox/",
+    "h1": "toolboxtoolbox",
+    "main": true,
+    "sw": 390,
+    "imgs": 0
+  },
+  {
+    "kind": "nojs",
+    "p": "/toolbox/",
+    "h1": "toolbox.toolbox.",
+    "main": true,
+    "sw": 390,
+    "imgs": 0
+  },
+  {
+    "kind": "nojs",
+    "p": "/toolbox/lockup/",
+    "h1": "LockupLockup",
+    "main": true,
+    "sw": 390,
+    "imgs": 0
+  },
+  {
+    "kind": "nojs",
+    "p": "/toolbox/palette/",
+    "h1": "PalettePalette",
+    "main": true,
+    "sw": 390,
+    "imgs": 0
+  },
+  {
+    "kind": "nojs",
+    "p": "/toolbox/specimen/",
+    "h1": "SpecimenSpecimen",
+    "main": true,
+    "sw": 390,
+    "imgs": 0
+  },
+  {
+    "kind": "nojs",
+    "p": "/toolbox/convert/",
+    "h1": "ConvertConvert",
+    "main": true,
+    "sw": 390,
+    "imgs": 0
+  },
+  {
+    "kind": "nojs",
+    "p": "/toolbox/agents/",
+    "h1": "CLI & MCPCLI & MCP",
+    "main": true,
+    "sw": 390,
+    "imgs": 0
+  },
+  {
+    "kind": "nojs",
+    "p": "/contact/",
+    "h1": "Tell me whatyou’rebuilding.building.",
+    "main": true,
+    "sw": 390,
+    "imgs": 0
+  },
+  {
+    "kind": "nojs",
+    "p": "/nope/",
+    "h1": "lost.lost.",
+    "main": true,
+    "sw": 390,
+    "imgs": 0
+  },
+  {
+    "kind": "colors",
+    "theme": "dark",
+    "colors": {
+      "paper": "rgb(24, 24, 20)",
+      "fg": "rgb(239, 239, 235)",
+      "accent": "rgb(242, 214, 0)",
+      "accentText": "rgb(242, 214, 0)",
+      "panelAccent": "rgb(111, 98, 0)",
+      "dim": 0.75,
+      "panelDim": 0.65
+    }
+  },
+  {
+    "kind": "colors",
+    "theme": "light",
+    "colors": {
+      "paper": "rgb(239, 239, 235)",
+      "fg": "rgb(24, 24, 20)",
+      "accent": "rgb(242, 214, 0)",
+      "accentText": "rgb(111, 98, 0)",
+      "panelAccent": "rgb(242, 214, 0)",
+      "dim": 0.65,
+      "panelDim": 0.75
+    }
+  },
+  {
+    "kind": "forced-colors",
+    "ring": "rgba(5, 0, 73, 0.8) solid 2px",
+    "dim": "1",
+    "color": "rgb(0, 0, 0)",
+    "background": "rgb(255, 255, 255)"
+  },
+  {
+    "kind": "states",
+    "p": "/",
+    "selector": "a.cta-hint",
+    "rest": {
+      "bg": "rgb(242, 214, 0)",
+      "color": "rgb(24, 24, 20)",
+      "transform": "none"
+    },
+    "hover": {
+      "bg": "rgb(24, 24, 20)",
+      "color": "rgb(239, 239, 235)",
+      "transform": "none"
+    },
+    "press": {
+      "bg": "rgb(242, 214, 0)",
+      "color": "rgb(24, 24, 20)",
+      "transform": "none"
+    }
+  },
+  {
+    "kind": "states",
+    "p": "/",
+    "selector": "a.card",
+    "rest": {
+      "bg": "rgb(239, 239, 235)",
+      "color": "rgb(24, 24, 20)",
+      "transform": "none"
+    },
+    "hover": {
+      "bg": "rgb(239, 239, 235)",
+      "color": "rgb(24, 24, 20)",
+      "transform": "none"
+    },
+    "press": {
+      "bg": "rgb(242, 214, 0)",
+      "color": "rgb(24, 24, 20)",
+      "transform": "none"
+    }
+  },
+  {
+    "kind": "states",
+    "p": "/",
+    "selector": "a.quiet-link",
+    "rest": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(24, 24, 20)",
+      "transform": "none"
+    },
+    "hover": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(111, 98, 0)",
+      "transform": "none"
+    },
+    "press": {
+      "bg": "rgb(242, 214, 0)",
+      "color": "rgb(24, 24, 20)",
+      "transform": "none"
+    }
+  },
+  {
+    "kind": "states",
+    "p": "/work/",
+    "selector": "a.cta-row",
+    "rest": {
+      "bg": "rgb(242, 214, 0)",
+      "color": "rgb(24, 24, 20)",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "hover": {
+      "bg": "rgb(24, 24, 20)",
+      "color": "rgb(239, 239, 235)",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "press": {
+      "bg": "rgb(242, 214, 0)",
+      "color": "rgb(24, 24, 20)",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    }
+  },
+  {
+    "kind": "states",
+    "p": "/toolbox/",
+    "selector": "a[href^=\"/download/\"]",
+    "rest": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(24, 24, 20)",
+      "transform": "none"
+    },
+    "hover": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(111, 98, 0)",
+      "transform": "none"
+    },
+    "press": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(24, 24, 20)",
+      "transform": "none"
+    }
+  },
+  {
+    "kind": "states",
+    "p": "/toolbox/agents/",
+    "selector": ".jump a",
+    "rest": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(24, 24, 20)",
+      "transform": "none"
+    },
+    "hover": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(111, 98, 0)",
+      "transform": "none"
+    },
+    "press": {
+      "bg": "rgb(242, 214, 0)",
+      "color": "rgb(24, 24, 20)",
+      "transform": "none"
+    }
+  },
+  {
+    "kind": "states",
+    "p": "/toolbox/lockup/",
+    "selector": ".page-foot a",
+    "rest": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(24, 24, 20)",
+      "transform": "none"
+    },
+    "hover": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(111, 98, 0)",
+      "transform": "none"
+    },
+    "press": {
+      "bg": "rgb(242, 214, 0)",
+      "color": "rgb(24, 24, 20)",
+      "transform": "none"
+    }
+  },
+  {
+    "kind": "video",
+    "p": "/work/parc/",
+    "play": {
+      "label": "Pause video: PARC After Darc starting-soon screen: a pixel sun over the sea with a rowboat drifting past, looped before the stream",
+      "paused": false,
+      "focused": true
+    },
+    "pause": {
+      "label": "Play video: PARC After Darc starting-soon screen: a pixel sun over the sea with a rowboat drifting past, looped before the stream",
+      "paused": true,
+      "focused": true
+    }
+  },
+  {
+    "kind": "video",
+    "p": "/work/xrpcafe/",
+    "play": {
+      "label": "Pause video: xrp.cafe Explore Create Trade motion graphic",
+      "paused": false,
+      "focused": true
+    },
+    "pause": {
+      "label": "Play video: xrp.cafe Explore Create Trade motion graphic",
+      "paused": true,
+      "focused": true
+    }
+  },
+  {
+    "kind": "video",
+    "p": "/work/do-androids-dream/",
+    "play": {
+      "label": "Pause video: Do Androids Dream title sequence, about forty seconds, black on yellow, silent here",
+      "paused": false,
+      "focused": true
+    },
+    "pause": {
+      "label": "Play video: Do Androids Dream title sequence, about forty seconds, black on yellow, silent here",
+      "paused": true,
+      "focused": true
+    }
+  }
+]

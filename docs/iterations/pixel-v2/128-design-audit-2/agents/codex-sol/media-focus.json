@@ -1,0 +1,902 @@
+[
+  {
+    "slug": "xrpcafe",
+    "theme": "dark",
+    "r": {
+      "x": 163,
+      "y": 868,
+      "width": 64,
+      "height": 64,
+      "top": 868,
+      "right": 227,
+      "bottom": 932,
+      "left": 163
+    },
+    "outline": "rgb(242, 214, 0)",
+    "bg": "rgb(242, 214, 0)",
+    "focused": true,
+    "samples": [
+      {
+        "side": "top",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          255,
+          165,
+          75
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          255,
+          165,
+          75
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          255,
+          165,
+          75
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          255,
+          165,
+          75
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          19,
+          121,
+          248
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          255,
+          165,
+          75
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          237,
+          94,
+          120
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          45,
+          133,
+          238
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          237,
+          94,
+          120
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          173,
+          223,
+          49
+        ]
+      }
+    ],
+    "screenshot": "media-focus-xrpcafe-dark.png"
+  },
+  {
+    "slug": "do-androids-dream",
+    "theme": "dark",
+    "r": {
+      "x": 163,
+      "y": 708,
+      "width": 64,
+      "height": 64,
+      "top": 708,
+      "right": 227,
+      "bottom": 772,
+      "left": 163
+    },
+    "outline": "rgb(242, 214, 0)",
+    "bg": "rgb(242, 214, 0)",
+    "focused": true,
+    "samples": [
+      {
+        "side": "top",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          233,
+          209,
+          37
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          235,
+          211,
+          37
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          232,
+          211,
+          35
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          233,
+          209,
+          35
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          8,
+          8,
+          8
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          10,
+          10,
+          10
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          12,
+          12,
+          12
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          9,
+          9,
+          9
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          13,
+          13,
+          13
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          134,
+          122,
+          30
+        ]
+      }
+    ],
+    "screenshot": "media-focus-do-androids-dream-dark.png"
+  },
+  {
+    "slug": "parc",
+    "theme": "dark",
+    "r": {
+      "x": 163,
+      "y": 448,
+      "width": 64,
+      "height": 64,
+      "top": 448,
+      "right": 227,
+      "bottom": 512,
+      "left": 163
+    },
+    "outline": "rgb(242, 214, 0)",
+    "bg": "rgb(242, 214, 0)",
+    "focused": true,
+    "samples": [
+      {
+        "side": "top",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          255,
+          178,
+          58
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          250,
+          174,
+          54
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          221,
+          157,
+          62
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          190,
+          206,
+          181
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          129,
+          204,
+          234
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          138,
+          210,
+          231
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          129,
+          204,
+          234
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          140,
+          211,
+          230
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          129,
+          204,
+          234
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          242,
+          214,
+          0
+        ],
+        "outside": [
+          145,
+          213,
+          231
+        ]
+      }
+    ],
+    "screenshot": "media-focus-parc-dark.png"
+  },
+  {
+    "slug": "xrpcafe",
+    "theme": "light",
+    "r": {
+      "x": 163,
+      "y": 868,
+      "width": 64,
+      "height": 64,
+      "top": 868,
+      "right": 227,
+      "bottom": 932,
+      "left": 163
+    },
+    "outline": "rgb(111, 98, 0)",
+    "bg": "rgb(242, 214, 0)",
+    "focused": true,
+    "samples": [
+      {
+        "side": "top",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          255,
+          165,
+          75
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          255,
+          165,
+          75
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          255,
+          165,
+          75
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          255,
+          165,
+          75
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          19,
+          121,
+          248
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          255,
+          165,
+          75
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          237,
+          94,
+          120
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          45,
+          133,
+          238
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          237,
+          94,
+          120
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          173,
+          223,
+          49
+        ]
+      }
+    ],
+    "screenshot": "media-focus-xrpcafe-light.png"
+  },
+  {
+    "slug": "do-androids-dream",
+    "theme": "light",
+    "r": {
+      "x": 163,
+      "y": 708,
+      "width": 64,
+      "height": 64,
+      "top": 708,
+      "right": 227,
+      "bottom": 772,
+      "left": 163
+    },
+    "outline": "rgb(111, 98, 0)",
+    "bg": "rgb(242, 214, 0)",
+    "focused": true,
+    "samples": [
+      {
+        "side": "top",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          233,
+          209,
+          37
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          235,
+          211,
+          37
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          232,
+          211,
+          35
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          233,
+          209,
+          35
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          8,
+          8,
+          8
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          10,
+          10,
+          10
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          12,
+          12,
+          12
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          9,
+          9,
+          9
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          13,
+          13,
+          13
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          134,
+          122,
+          30
+        ]
+      }
+    ],
+    "screenshot": "media-focus-do-androids-dream-light.png"
+  },
+  {
+    "slug": "parc",
+    "theme": "light",
+    "r": {
+      "x": 163,
+      "y": 448,
+      "width": 64,
+      "height": 64,
+      "top": 448,
+      "right": 227,
+      "bottom": 512,
+      "left": 163
+    },
+    "outline": "rgb(111, 98, 0)",
+    "bg": "rgb(242, 214, 0)",
+    "focused": true,
+    "samples": [
+      {
+        "side": "top",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          255,
+          178,
+          58
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          250,
+          174,
+          54
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          221,
+          157,
+          62
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          190,
+          206,
+          181
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          129,
+          204,
+          234
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          138,
+          210,
+          231
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          129,
+          204,
+          234
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          140,
+          211,
+          230
+        ]
+      },
+      {
+        "side": "top",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          129,
+          204,
+          234
+        ]
+      },
+      {
+        "side": "left",
+        "ring": [
+          111,
+          98,
+          0
+        ],
+        "outside": [
+          145,
+          213,
+          231
+        ]
+      }
+    ],
+    "screenshot": "media-focus-parc-light.png"
+  }
+]

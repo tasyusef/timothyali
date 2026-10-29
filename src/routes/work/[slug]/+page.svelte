@@ -74,6 +74,18 @@
   {/each}
 {/snippet}
 
+{#snippet facts()}
+  <dl class="meta">
+    <div><dt class="lbl dim">Role</dt><dd class="read">{p.role}</dd></div>
+    {#if p.team}<div><dt class="lbl dim">Team</dt><dd class="read">{p.team}</dd></div>{/if}
+    {#if p.timeline}<div><dt class="lbl dim">Timeline</dt><dd class="read">{p.timeline}</dd></div>{/if}
+    <div><dt class="lbl dim">Tools</dt><dd class="read">{p.tools}</dd></div>
+    {#if p.live}<div><dt class="lbl dim">Live</dt><dd class="read"><QuietLink text="inherit" href={p.live.href} label={p.live.label} /></dd></div>{/if}
+    {#if p.source}<div><dt class="lbl dim">Source</dt><dd class="read"><QuietLink text="inherit" href={p.source.href} label={p.source.label} /></dd></div>{/if}
+    {#if p.watch}<div class:by-clip={p.hero.some((m) => m.video)}><dt class="lbl dim">With sound</dt><dd class="read"><QuietLink text="inherit" href={p.watch.href} label={p.watch.label} /></dd></div>{/if}
+  </dl>
+{/snippet}
+
 <main class="inner-page study" id="main" tabindex="-1">
   <!-- the head is a strip of the landing's world (0178), a scene of its own for each study (0179);
        the reading below stays on the plain ground; the head is the title alone (0187) -->
@@ -83,15 +95,7 @@
   <section class="head-intro">
     <div class="intro">
       <div class="lead-col">{#each p.lead as para}<p class="read">{para}</p>{/each}</div>
-      <dl class="meta">
-        <div><dt class="lbl dim">Role</dt><dd class="read">{p.role}</dd></div>
-        {#if p.team}<div><dt class="lbl dim">Team</dt><dd class="read">{p.team}</dd></div>{/if}
-        {#if p.timeline}<div><dt class="lbl dim">Timeline</dt><dd class="read">{p.timeline}</dd></div>{/if}
-        <div><dt class="lbl dim">Tools</dt><dd class="read">{p.tools}</dd></div>
-        {#if p.live}<div><dt class="lbl dim">Live</dt><dd class="read"><QuietLink text="inherit" href={p.live.href} label={p.live.label} /></dd></div>{/if}
-        {#if p.source}<div><dt class="lbl dim">Source</dt><dd class="read"><QuietLink text="inherit" href={p.source.href} label={p.source.label} /></dd></div>{/if}
-        {#if p.watch}<div class:by-clip={p.hero.some((m) => m.video)}><dt class="lbl dim">With sound</dt><dd class="read"><QuietLink text="inherit" href={p.watch.href} label={p.watch.label} /></dd></div>{/if}
-      </dl>
+      {@render facts()}
     </div>
   </section>
 
@@ -100,6 +104,9 @@
     <!-- the clip here is silent; the cut with its soundtrack is on YouTube (0139, 0216) -->
     {#if p.watch && p.hero.some((m) => m.video)}<p class="read"><QuietLink text="inherit" href={p.watch.href} label="Watch it with sound on YouTube" /></p>{/if}
   </section>
+  <!-- on phones the details follow the hero (0206); a second copy here, not a CSS reorder, keeps Tab
+       in the order shown (PX-128). Only one copy is ever displayed, so only one is in the tab order. -->
+  <section class="phone-facts"><div class="intro">{@render facts()}</div></section>
 
   {#each parts as part, i}
     {#if part.kind === 'list'}
@@ -134,6 +141,7 @@ main :global(.head){display:flex;flex-direction:column;align-items:flex-start;ga
    arrow, centred in its line, on the unit (a 24px line put it 4px off). */
 .lead-col{display:flex;flex-direction:column;gap:var(--s3);max-width:64ch}
 .hero-row{padding-top:var(--s8)}
+.phone-facts{display:none}
 .gallery{display:flex;flex-direction:column;gap:var(--s2)}
 .grow{display:grid;grid-template-columns:var(--cols);gap:var(--s2);align-items:start}
 
@@ -168,10 +176,12 @@ main :global(.head){display:flex;flex-direction:column;align-items:flex-start;ga
   /* Mobile audit (0206): the first screen shows the work. The lead, then the hero, then the
      details; before, a 280–512px details list pushed the first image below the fold. */
   main.study{display:flex;flex-direction:column}
-  .head-intro,.intro{display:contents}
+  .head-intro,.head-intro .intro{display:contents}
   .lead-col{margin-top:var(--s3);padding:0 var(--gutter)} /* out of their section, so they take its gutter */
-  .meta{order:1;padding:var(--s4) var(--gutter) 0}
-  .point,.list,.next{order:2}
+  .intro>:global(.meta){display:none}
+  .phone-facts{display:block}
+  .phone-facts .intro{margin-top:var(--s4)}
+  .phone-facts .intro>:global(.meta){display:flex}
   /* a desktop screen that a phone screen of the same pages replaces, or that repeats one */
   .grow.desk,.grow :global(.pic.desk){display:none}
   /* a caption in the reading face, sentence case, above the screens it names: in pixel

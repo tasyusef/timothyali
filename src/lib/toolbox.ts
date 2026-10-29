@@ -108,7 +108,7 @@ export const tools: Tool[] = [
     n: '04', slug: 'convert', name: 'Convert',
     blurb: 'Convert and resize images',
     summary: 'Change image formats, resize images, and adjust compression.',
-    whenToUse: 'Convert changes image formats, resizes files, and adjusts compression. On both platforms it reads PNG, JPEG, WebP, GIF, BMP, ICO, AVIF, and SVG. HEIC, TIFF, and PSD need macOS. For a full package of logo variations, use Lockup.',
+    whenToUse: 'Convert changes image formats, resizes files, and adjusts compression. It reads PNG, JPEG, WebP, GIF, BMP, ICO, AVIF, and SVG. HEIC, TIFF, and PSD need macOS. For a full package of logo variations, use Lockup.',
     produces: 'You get each source image in every format you pick. Pick more than one format and the files are sorted into folders, like PNG and WebP.',
     input: 'PNG, JPEG, WebP, GIF, BMP, ICO, AVIF, SVG; HEIC, TIFF, PSD on macOS',
     outputs: ['PNG', 'JPEG', 'WebP', 'TIFF', 'PDF'],

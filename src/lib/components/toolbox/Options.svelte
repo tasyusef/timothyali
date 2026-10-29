@@ -13,7 +13,7 @@
   <details bind:open class="collapse"><summary class="lbl">All {tool.params.length} options</summary>
   <dl>
     {#each tool.params as p (p.name)}
-      <div><dt class="body">{#each signature(p).split('|') as part, i}{#if i}|<wbr />{/if}<span class="opt">{part}</span>{/each}</dt><dd class="body dim">{p.description}{#if p.primary}{' '}You can supply these values without --{p.name}.{/if}{#if p.required}{' '}{p.name === 'out' ? 'Required for export and preview.' : 'Required unless you’re reopening saved work or querying the library.'}{:else if p.default !== undefined}{' '}Default: {Array.isArray(p.default) ? p.default.join(', ') : String(p.default)}.{/if}</dd></div>
+      <div><dt class="body long">{#each signature(p).split('|') as part, i}{#if i}|<wbr />{/if}<span class="opt">{part}</span>{/each}</dt><dd class="body long dim">{p.description}{#if p.primary}{' '}You can supply these values without --{p.name}.{/if}{#if p.required}{' '}{p.name === 'out' ? 'Required for export and preview.' : 'Required unless you’re reopening saved work or querying the library.'}{:else if p.default !== undefined}{' '}Default: {Array.isArray(p.default) ? p.default.join(', ') : String(p.default)}.{/if}</dd></div>
     {/each}
   </dl>
   </details>

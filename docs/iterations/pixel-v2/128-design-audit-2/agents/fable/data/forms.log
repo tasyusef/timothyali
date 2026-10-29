@@ -1,0 +1,62 @@
+[1440/dark] fields: [{"n":"name","label":"Name","type":"text","ac":"name","req":true,"fontSize":"27px"},{"n":"email","label":"Email","type":"email","ac":"email","req":true,"fontSize":"27px"},{"n":"message","label":"Your message","type":"textarea","ac":"","req":true,"fontSize":"27px"}]
+[1440/dark] tab order from Name: name > email > message > Send-> > Resume (PDF) -> > studio@timothyali.co
+[1440/dark] block caret after typing "Ti": {"display":"block","left":"32px","top":"8px","h":"32px","anim":"blink","bg":"rgb(242, 214, 0)"}; native caret-color=rgba(0, 0, 0, 0)
+[1440/dark] submit empty: focus=name invalid=name,email,message notes=["name-note: Enter your name.","email-note: Enter an email address I can reply to.","message-note: Tell me about the role or project."] describedby=name-note=true,email-note=true,message-note=true posts=0
+[1440/dark] note chip colours: {"bg":"rgb(242, 214, 0)","color":"rgb(24, 24, 20)","size":"12.5px"}
+[1440/dark] submit invalid email: focus=email invalid=email notes=["That doesn’t look like an email address. Try something like name@example.com."] posts=0
+[1440/dark] after typing in email: notes=0 aria-invalid=null
+[1440/dark] sending: {"label":"Sending->","ariaDisabled":"true","disabled":false,"opacity":"0.65","pointer":"none","focused":true}
+[1440/dark] sent: {"status":"Sent. I’ll reply from studio@timothyali.com.","live":"polite","on":true,"label":"Send->","values":["","",""],"focused":"BUTTON.cta-row lbl"} posts=1 body="------WebKitFormBoundary6sFYrAAu4S8dBwhc\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\nAudit Bot\r\n------WebKitFormBoundary6sFYrAAu4S8dBwhc\r\nContent-Disposition: form-data; name=\"email\"\r\n\r\naudit@exam"
+[1440/dark] failed: status="Your message didn’t send. Try again, or email studio@timothyali.com." values kept=[9,17,11] send label="Send->"
+[1440/dark] rate-limited: "That’s a lot of messages at once. Wait a few minutes, or email studio@timothyali.com."
+[1440/dark] network: "Couldn’t send your message. Check your connection and try again, or email studio@timothyali.com."
+[1440/dark] unconfigured: "The form is unavailable. Email studio@timothyali.com directly."
+[1440/dark] Cmd+Enter in message: posted=true
+[1440/dark] status chip: {"bg":"rgb(242, 214, 0)","color":"rgb(24, 24, 20)","size":"12.5px","lh":"16px","width":400}
+[1440/dark] page height 900 vs viewport 900
+[1440/light] fields: [{"n":"name","label":"Name","type":"text","ac":"name","req":true,"fontSize":"27px"},{"n":"email","label":"Email","type":"email","ac":"email","req":true,"fontSize":"27px"},{"n":"message","label":"Your message","type":"textarea","ac":"","req":true,"fontSize":"27px"}]
+[1440/light] tab order from Name: name > email > message > Send-> > Resume (PDF) -> > studio@timothyali.co
+[1440/light] block caret after typing "Ti": {"display":"block","left":"32px","top":"8px","h":"32px","anim":"blink","bg":"rgb(242, 214, 0)"}; native caret-color=rgba(0, 0, 0, 0)
+[1440/light] submit empty: focus=name invalid=name,email,message notes=["name-note: Enter your name.","email-note: Enter an email address I can reply to.","message-note: Tell me about the role or project."] describedby=name-note=true,email-note=true,message-note=true posts=0
+[1440/light] note chip colours: {"bg":"rgb(242, 214, 0)","color":"rgb(24, 24, 20)","size":"12.5px"}
+[1440/light] submit invalid email: focus=email invalid=email notes=["That doesn’t look like an email address. Try something like name@example.com."] posts=0
+[1440/light] after typing in email: notes=0 aria-invalid=null
+[1440/light] sending: {"label":"Sending->","ariaDisabled":"true","disabled":false,"opacity":"0.75","pointer":"none","focused":true}
+[1440/light] sent: {"status":"Sent. I’ll reply from studio@timothyali.com.","live":"polite","on":true,"label":"Send->","values":["","",""],"focused":"BUTTON.cta-row lbl"} posts=1 body="------WebKitFormBoundaryXZWJ03F6A3l7iDRX\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\nAudit Bot\r\n------WebKitFormBoundaryXZWJ03F6A3l7iDRX\r\nContent-Disposition: form-data; name=\"email\"\r\n\r\naudit@exam"
+[1440/light] failed: status="Your message didn’t send. Try again, or email studio@timothyali.com." values kept=[9,17,11] send label="Send->"
+[1440/light] rate-limited: "That’s a lot of messages at once. Wait a few minutes, or email studio@timothyali.com."
+[1440/light] network: "Couldn’t send your message. Check your connection and try again, or email studio@timothyali.com."
+[1440/light] unconfigured: "The form is unavailable. Email studio@timothyali.com directly."
+[1440/light] Cmd+Enter in message: posted=true
+[1440/light] status chip: {"bg":"rgb(242, 214, 0)","color":"rgb(24, 24, 20)","size":"12.5px","lh":"16px","width":400}
+[1440/light] page height 900 vs viewport 900
+[390/dark] fields: [{"n":"name","label":"Name","type":"text","ac":"name","req":true,"fontSize":"27px"},{"n":"email","label":"Email","type":"email","ac":"email","req":true,"fontSize":"27px"},{"n":"message","label":"Your message","type":"textarea","ac":"","req":true,"fontSize":"27px"}]
+[390/dark] tab order from Name: name > email > message > Send-> > Resume (PDF) -> > studio@timothyali.co
+[390/dark] block caret after typing "Ti": {"display":"block","left":"32px","top":"8px","h":"32px","anim":"blink","bg":"rgb(242, 214, 0)"}; native caret-color=rgba(0, 0, 0, 0)
+[390/dark] submit empty: focus=name invalid=name,email,message notes=["name-note: Enter your name.","email-note: Enter an email address I can reply to.","message-note: Tell me about the role or project."] describedby=name-note=true,email-note=true,message-note=true posts=0
+[390/dark] note chip colours: {"bg":"rgb(242, 214, 0)","color":"rgb(24, 24, 20)","size":"12.5px"}
+[390/dark] submit invalid email: focus=email invalid=email notes=["That doesn’t look like an email address. Try something like name@example.com."] posts=0
+[390/dark] after typing in email: notes=0 aria-invalid=null
+[390/dark] sending: {"label":"Sending->","ariaDisabled":"true","disabled":false,"opacity":"0.65","pointer":"none","focused":true}
+[390/dark] sent: {"status":"Sent. I’ll reply from studio@timothyali.com.","live":"polite","on":true,"label":"Send->","values":["","",""],"focused":"BUTTON.cta-row lbl"} posts=1 body="------WebKitFormBoundaryODlfXmis3HnprUMT\r\nContent-Disposition: form-data; name=\"name\"\r\n\r\nAudit Bot\r\n------WebKitFormBoundaryODlfXmis3HnprUMT\r\nContent-Disposition: form-data; name=\"email\"\r\n\r\naudit@exam"
+[390/dark] failed: status="Your message didn’t send. Try again, or email studio@timothyali.com." values kept=[9,17,11] send label="Send->"
+[390/dark] rate-limited: "That’s a lot of messages at once. Wait a few minutes, or email studio@timothyali.com."
+[390/dark] network: "Couldn’t send your message. Check your connection and try again, or email studio@timothyali.com."
+[390/dark] unconfigured: "The form is unavailable. Email studio@timothyali.com directly."
+[390/dark] Cmd+Enter in message: posted=true
+[390/dark] status chip: {"bg":"rgb(242, 214, 0)","color":"rgb(24, 24, 20)","size":"12.5px","lh":"16px","width":326}
+downloads: 8 links [{"text":"Apple silicon","href":"/download/v1.2.4/Toolbox-1.2.4-arm64.dmg","download":false,"h":32},{"text":"Intel","href":"/download/v1.2.4/Toolbox-1.2.4.dmg","download":false,"h":32},{"text":"Installer x64","href":"/download/v1.2.4/Toolbox-Setup-1.2.4.exe","download":false,"h":32},{"text":"Installer arm64","href":"/download/v1.2.4/Toolbox-Setup-1.2.4-arm64.exe","download":false,"h":32},{"text":"AppImage x86_64","href":"/download/v1.2.4/toolbox-1.2.4-x86_64.AppImage","download":false,"h":32},{"text":"AppImage arm64","href":"/download/v1.2.4/toolbox-1.2.4-arm64.AppImage","download":false,"h":32},{"text":"deb amd64","href":"/download/v1.2.4/toolbox_1.2.4_amd64.deb","download":false,"h":32},{"text":"deb arm64","href":"/download/v1.2.4/toolbox_1.2.4_arm64.deb","download":false,"h":32}]
+download clicks hit the route: 8/8 ["/download/v1.2.4/Toolbox-1.2.4-arm64.dmg?s=Direct+%2F+unknown","/download/v1.2.4/Toolbox-1.2.4.dmg?s=Direct+%2F+unknown","/download/v1.2.4/Toolbox-Setup-1.2.4.exe?s=Direct+%2F+unknown"]
+download rows: ["macOSApple siliconIntelSigned and notarized","WindowsInstaller x64Installer arm64The installer isn’t code-signed, so SmartScreen may warn you. Choose More info, then ","LinuxAppImage x86_64AppImage arm64deb amd64deb arm64Make the AppImage executable before opening it, or use the deb packa"]
+on-phone panel visible at 1440 mouse: false
+on-phone panel at 390 touch: visible=true share=function text="Toolbox runs on macOS, Windows, and Linux. Open this page on your computer to install it."
+send button: "Send the link to your computer->" box={"w":358,"h":64,"right":374}
+after tap: label="Send the link to your computer->" status="" clipboard=""
+after 4s: label="Send the link to your computer->"
+download links at 390 touch: [{"t":"Apple silicon","h":44},{"t":"Intel","h":44},{"t":"Installer x64","h":44},{"t":"Installer arm64","h":44},{"t":"AppImage x86_64","h":44},{"t":"AppImage arm64","h":44},{"t":"deb amd64","h":44},{"t":"deb arm64","h":44}]
+export note at touch: visible=true "Exports run in the desktop app"
+agents code blocks: 9 [{"label":"macOS shortcut","role":"figure","lines":1,"userSelect":"auto","buttons":0},{"label":"Commands","role":"figure","lines":8,"userSelect":"auto","buttons":0},{"label":"Print colors, type, edges, and saved work","role":"figure","lines":12,"userSelect":"auto","buttons":0},{"label":"List","role":"figure","lines":2,"userSelect":"auto","buttons":0},{"label":"Run one job","role":"figure","lines":7,"userSelect":"auto","buttons":0},{"label":"The result","role":"figure","lines":7,"userSelect":"auto","buttons":0},{"label":"Serve the tools","role":"figure","lines":1,"userSelect":"auto","buttons":0},{"label":".mcp.json","role":"figure","lines":8,"userSelect":"auto","buttons":0},{"label":"Scan, dry run, apply, undo","role":"figure","lines":12,"userSelect":"auto","buttons":0}]
+copy buttons on the page: 0; all buttons: []
+selecting the Commands block gives 7 lines; first="toolbox help                              # show tools and u"
+clipboard after Cmd+C: 7 lines; "toolbox help                              # show tools and u"
+agents at 390: overflow=false code block widths ok=true; jump nav: [{"t":"Set up","h":44},{"t":"Command line","h":44},{"t":"Advanced","h":44},{"t":"Options","h":44},{"t":"List","h":44},{"t":"Run","h":44},{"t":"Serve","h":44},{"t":"Organize","h":44}]

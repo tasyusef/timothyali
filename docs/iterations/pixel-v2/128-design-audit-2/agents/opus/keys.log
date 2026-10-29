@@ -1,0 +1,336 @@
+1440 /: 16 stops; first="Skip to content"
+   small target #8 a "Resume (PDF) ->" 168x16
+   off screen #9 a "Toolbox->A desktop app I designed and bu" vt=950
+   off screen #11 a "Jade Aesthetics->Two websites for a medi" vt=1241
+   covered by img.svelte-ano3xq.arrive #11 a "Jade Aesthetics->Two websites for a medi"
+   off screen #12 a "First Ledger->I designed the logo, type," vt=995
+   covered by p.body.desc #12 a "First Ledger->I designed the logo, type,"
+   off screen #13 a "All work ->" vt=1407
+   covered by img.svelte-ano3xq.arrive #13 a "All work ->"
+   off screen #14 a "Get in touch ->" vt=1955
+   covered by img.svelte-ano3xq.arrive #14 a "Get in touch ->"
+1440 /work/: 15 stops; first="Skip to content"
+   off screen #9 a "Jade Aesthetics->Two websites for a medi" vt=931
+   off screen #11 a "xrp.cafe->As founding designer of an NFT" vt=1123
+   covered by img.svelte-ano3xq #11 a "xrp.cafe->As founding designer of an NFT"
+   off screen #12 a "FirstStrike Research->I designed the wor" vt=958
+   covered by div.card-body #12 a "FirstStrike Research->I designed the wor"
+   off screen #13 a "Do Androids Dream?->A speculative yellow" vt=1457
+   covered by img.svelte-ano3xq #13 a "Do Androids Dream?->A speculative yellow"
+   off screen #14 a "Tell me what you’re buildingGet in touch" vt=2065
+   covered by div.cards.svelte-oqsuc6 #14 a "Tell me what you’re buildingGet in touch"
+1440 /work/parc/: 12 stops; first="Skip to content"
+   off screen #8 button "Play video: PARC After Darc starting-soo" vt=5668
+   covered by section.gallery.hero-row.svelte-9hm5jc #8 button "Play video: PARC After Darc starting-soo"
+   off screen #9 a "Next / [03]Jade Aesthetics ->" vt=11019
+   covered by section.gallery.hero-row.svelte-9hm5jc #9 a "Next / [03]Jade Aesthetics ->"
+   off screen #10 a "Tell me what you’re building ->" vt=11040
+   covered by img.svelte-ano3xq #10 a "Tell me what you’re building ->"
+   small target #10 a "Tell me what you’re building ->" 352x16
+1440 /work/xrpcafe/: 11 stops; first="Skip to content"
+   off screen #8 button "Pause video: xrp.cafe Explore Create Tra" vt=1278
+   covered by video. #8 button "Pause video: xrp.cafe Explore Create Tra"
+   off screen #9 a "Next / [06]FirstStrike Research ->" vt=4011
+   covered by img.svelte-ano3xq #9 a "Next / [06]FirstStrike Research ->"
+   off screen #10 a "Tell me what you’re building ->" vt=4054
+   covered by img.svelte-ano3xq #10 a "Tell me what you’re building ->"
+   small target #10 a "Tell me what you’re building ->" 352x16
+1440 /work/firstledger/: 11 stops; first="Skip to content"
+   off screen #8 a "Next / [05]xrp.cafe ->" vt=4994
+   covered by img.svelte-ano3xq #8 a "Next / [05]xrp.cafe ->"
+   off screen #9 a "Tell me what you’re building ->" vt=4997
+   covered by img.svelte-ano3xq #9 a "Tell me what you’re building ->"
+   small target #9 a "Tell me what you’re building ->" 352x16
+1440 /work/do-androids-dream/: 12 stops; first="Skip to content"
+   off screen #8 button "Pause video: Do Androids Dream title seq" vt=1543
+   covered by video. #8 button "Pause video: Do Androids Dream title seq"
+   off screen #9 a "Watch it with sound on YouTube ->" vt=1564
+   covered by video. #9 a "Watch it with sound on YouTube ->"
+   off screen #10 a "Next / [01]Toolbox ->" vt=3145
+   covered by video. #10 a "Next / [01]Toolbox ->"
+   off screen #11 a "Tell me what you’re building ->" vt=3166
+   covered by video. #11 a "Tell me what you’re building ->"
+   small target #11 a "Tell me what you’re building ->" 352x16
+1440 /work/jade-aesthetics/: 11 stops; first="Skip to content"
+   off screen #8 a "Next / [04]First Ledger ->" vt=4154
+   covered by img.svelte-ano3xq #8 a "Next / [04]First Ledger ->"
+   off screen #9 a "Tell me what you’re building ->" vt=4148
+   covered by img.svelte-ano3xq #9 a "Tell me what you’re building ->"
+   small target #9 a "Tell me what you’re building ->" 352x16
+1440 /work/firststrike/: 9 stops; first="Skip to content"
+   off screen #7 a "Next / [07]Do Androids Dream? ->" vt=4314
+   covered by img.svelte-ano3xq #7 a "Next / [07]Do Androids Dream? ->"
+   off screen #8 a "Tell me what you’re building ->" vt=4359
+   covered by img.svelte-ano3xq #8 a "Tell me what you’re building ->"
+   small target #8 a "Tell me what you’re building ->" 352x16
+1440 /work/toolbox/: 11 stops; first="Skip to content"
+   off screen #8 a "Next / [02]PARC ->" vt=3730
+   covered by img.svelte-ano3xq #8 a "Next / [02]PARC ->"
+   off screen #9 a "Tell me what you’re building ->" vt=3771
+   covered by img.svelte-ano3xq #9 a "Tell me what you’re building ->"
+   small target #9 a "Tell me what you’re building ->" 352x16
+1440 /toolbox/: 43 stops; first="Skip to content"
+   off screen #12 a "Lockup guide ->" vt=1153
+   off screen #13 button "Light preview background" vt=1264
+   covered by div.demo-readout.lbl #13 button "Light preview background"
+   off screen #14 button "Dark preview background" vt=1082
+   covered by span.svelte-1kk5gq7 #14 button "Dark preview background"
+   covered by span. #15 input "Web"
+   back jump #15 input "Web" 1464->1177
+   small target #15 input "Web" 1x1
+   covered by span. #19 input "Print"
+   small target #19 input "Print" 1x1
+   covered by span. #23 input "Color"
+   small target #23 input "Color" 1x1
+   covered by span. #24 input "Black"
+   small target #24 input "Black" 1x1
+   covered by span. #25 input "White"
+   small target #25 input "White" 1x1
+   covered by span. #26 input "Large"
+   small target #26 input "Large" 1x1
+   covered by span. #27 input "Medium"
+   small target #27 input "Medium" 1x1
+   covered by span. #28 input "Small"
+   small target #28 input "Small" 1x1
+   off screen #32 a "CLI & MCP docs ->" vt=932
+   covered by div.command-plate #32 a "CLI & MCP docs ->"
+   off screen #33 a "Apple silicon" vt=1113
+   covered by section.machine.panel.svelte-1358mf4 #33 a "Apple silicon"
+   off screen #37 a "AppImage x86_64" vt=952
+   covered by span.read-s.dim.note.svelte-1358mf4 #37 a "AppImage x86_64"
+   small target #41 a "All files and checksums ->" 304x16
+   small target #42 a "Get in touch ->" 176x16
+1440 /toolbox/lockup/: 12 stops; first="Skip to content"
+   off screen #8 a "CLI & MCP setup ->" vt=3994
+   covered by img.svelte-ano3xq #8 a "CLI & MCP setup ->"
+   off screen #9 a "Next / [02]Palette ->" vt=3955
+   covered by img.svelte-ano3xq #9 a "Next / [02]Palette ->"
+   off screen #10 a "All four tools ->" vt=3818
+   covered by img.svelte-ano3xq #10 a "All four tools ->"
+   small target #10 a "All four tools ->" 200x16
+1440 /toolbox/palette/: 11 stops; first="Skip to content"
+   off screen #8 a "CLI & MCP setup ->" vt=3418
+   covered by img.svelte-ano3xq #8 a "CLI & MCP setup ->"
+   off screen #9 a "Next / [03]Specimen ->" vt=3370
+   covered by img.svelte-ano3xq #9 a "Next / [03]Specimen ->"
+   off screen #10 a "All four tools ->" vt=3019
+   covered by p.body #10 a "All four tools ->"
+   small target #10 a "All four tools ->" 200x16
+1440 /toolbox/specimen/: 12 stops; first="Skip to content"
+   off screen #8 a "CLI & MCP setup ->" vt=3113
+   covered by img.svelte-ano3xq #8 a "CLI & MCP setup ->"
+   off screen #9 a "Next / [04]Convert ->" vt=3060
+   covered by img.svelte-ano3xq #9 a "Next / [04]Convert ->"
+   off screen #10 a "All four tools ->" vt=2665
+   covered by section.text.svelte-2pytj3 #10 a "All four tools ->"
+   small target #10 a "All four tools ->" 200x16
+1440 /toolbox/convert/: 11 stops; first="Skip to content"
+   off screen #8 a "CLI & MCP setup ->" vt=3498
+   covered by img.svelte-ano3xq #8 a "CLI & MCP setup ->"
+   off screen #9 a "Next / [01]Lockup ->" vt=3452
+   covered by img.svelte-ano3xq #9 a "Next / [01]Lockup ->"
+   off screen #10 a "All four tools ->" vt=3111
+   covered by p.body #10 a "All four tools ->"
+   small target #10 a "All four tools ->" 200x16
+1440 /toolbox/agents/: 21 stops; first="Skip to content"
+   off screen #15 a "Lockup options ->" vt=3364
+   covered by p.body #15 a "Lockup options ->"
+   off screen #16 a "Palette options ->" vt=3356
+   covered by p.body #16 a "Palette options ->"
+   off screen #17 a "Specimen options ->" vt=3348
+   covered by p.body #17 a "Specimen options ->"
+   off screen #18 a "Convert options ->" vt=3340
+   covered by p.body #18 a "Convert options ->"
+   off screen #19 a "All four tools ->" vt=6607
+   covered by section.text.svelte-1xkxtd7 #19 a "All four tools ->"
+   small target #19 a "All four tools ->" 200x16
+1440 /contact/: 15 stops; first="Skip to content"
+   small target #7 a "See my work ->" 164x16
+   back jump #8 input "" 804->396
+   small target #12 a "Resume (PDF) ->" 168x16
+   small target #13 a "studio@timothyali.com ->" 284x16
+   small target #14 a "Message me on LinkedIn ->" 292x16
+1440 /nope/: 9 stops; first="Skip to content"
+390 /: 16 stops; first="Skip to content"
+   small target #8 a "Resume (PDF) ->" 168x16
+   off screen #9 a "Toolbox->A desktop app I designed and bu" vt=916
+   off screen #10 a "PARC->A new identity and website for the" vt=1395
+   covered by img.svelte-ano3xq #10 a "PARC->A new identity and website for the"
+   off screen #11 a "Jade Aesthetics->Two websites for a medi" vt=1844
+   covered by img.svelte-ano3xq #11 a "Jade Aesthetics->Two websites for a medi"
+   off screen #12 a "First Ledger->I designed the logo, type," vt=2286
+   covered by img.svelte-ano3xq #12 a "First Ledger->I designed the logo, type,"
+   off screen #13 a "All work ->" vt=2649
+   covered by img.svelte-ano3xq #13 a "All work ->"
+   off screen #14 a "Get in touch ->" vt=3005
+   covered by a.card #14 a "Get in touch ->"
+390 /work/: 15 stops; first="Skip to content"
+   off screen #9 a "Jade Aesthetics->Two websites for a medi" vt=1152
+   covered by h2.display-s #9 a "Jade Aesthetics->Two websites for a medi"
+   off screen #10 a "First Ledger->I designed the logo, type," vt=1588
+   covered by p.body.desc #10 a "First Ledger->I designed the logo, type,"
+   off screen #11 a "xrp.cafe->As founding designer of an NFT" vt=1963
+   covered by p.body.desc #11 a "xrp.cafe->As founding designer of an NFT"
+   off screen #12 a "FirstStrike Research->I designed the wor" vt=2374
+   covered by p.body.desc #12 a "FirstStrike Research->I designed the wor"
+   off screen #13 a "Do Androids Dream?->A speculative yellow" vt=2832
+   covered by p.body.desc #13 a "Do Androids Dream?->A speculative yellow"
+   off screen #14 a "Tell me what you’re buildingGet in touch" vt=3285
+   covered by div.cards.svelte-oqsuc6 #14 a "Tell me what you’re buildingGet in touch"
+390 /work/parc/: 12 stops; first="Skip to content"
+   off screen #7 a "parcxrpl.com ->" vt=1213
+   off screen #8 button "Play video: PARC After Darc starting-soo" vt=7462
+   covered by dt.lbl.dim #8 button "Play video: PARC After Darc starting-soo"
+   off screen #9 a "Next / [03]Jade Aesthetics ->" vt=13685
+   covered by dd.read #9 a "Next / [03]Jade Aesthetics ->"
+   off screen #10 a "Tell me what you’re building ->" vt=13682
+   covered by dd.read #10 a "Tell me what you’re building ->"
+   small target #10 a "Tell me what you’re building ->" 358x16
+390 /work/xrpcafe/: 11 stops; first="Skip to content"
+   off screen #7 a "xrp.cafe ->" vt=1591
+   covered by video. #7 a "xrp.cafe ->"
+   off screen #8 button "Pause video: xrp.cafe Explore Create Tra" vt=1082
+   covered by video. #8 button "Pause video: xrp.cafe Explore Create Tra"
+   back jump #8 button "Pause video: xrp.cafe Explore Create Tra" 1616->1160
+   off screen #9 a "Next / [06]FirstStrike Research ->" vt=5964
+   covered by video. #9 a "Next / [06]FirstStrike Research ->"
+   off screen #10 a "Tell me what you’re building ->" vt=6063
+   covered by video. #10 a "Tell me what you’re building ->"
+   small target #10 a "Tell me what you’re building ->" 358x16
+390 /work/firstledger/: 11 stops; first="Skip to content"
+   off screen #7 a "firstledger.net ->" vt=1034
+   covered by div. #7 a "firstledger.net ->"
+   off screen #8 a "Next / [05]xrp.cafe ->" vt=4535
+   covered by dd.read #8 a "Next / [05]xrp.cafe ->"
+   off screen #9 a "Tell me what you’re building ->" vt=4550
+   covered by span.lbl.dim #9 a "Tell me what you’re building ->"
+   small target #9 a "Tell me what you’re building ->" 358x16
+390 /work/do-androids-dream/: 11 stops; first="Skip to content"
+   off screen #9 a "Next / [01]Toolbox ->" vt=3287
+   covered by dl.meta.svelte-9hm5jc #9 a "Next / [01]Toolbox ->"
+   off screen #10 a "Tell me what you’re building ->" vt=3326
+   covered by dd.read #10 a "Tell me what you’re building ->"
+   small target #10 a "Tell me what you’re building ->" 358x16
+390 /work/jade-aesthetics/: 11 stops; first="Skip to content"
+   off screen #7 a "jadeaesthetics.co ->" vt=1018
+   off screen #8 a "Next / [04]First Ledger ->" vt=4517
+   covered by dl.meta.svelte-9hm5jc #8 a "Next / [04]First Ledger ->"
+   off screen #9 a "Tell me what you’re building ->" vt=4579
+   covered by section.point.svelte-9hm5jc.solo #9 a "Tell me what you’re building ->"
+   small target #9 a "Tell me what you’re building ->" 358x16
+390 /work/firststrike/: 9 stops; first="Skip to content"
+   off screen #7 a "Next / [07]Do Androids Dream? ->" vt=4282
+   covered by section.point.svelte-9hm5jc.solo #7 a "Next / [07]Do Androids Dream? ->"
+   off screen #8 a "Tell me what you’re building ->" vt=4375
+   covered by div.point-text.svelte-9hm5jc.hold #8 a "Tell me what you’re building ->"
+   small target #8 a "Tell me what you’re building ->" 358x16
+390 /work/toolbox/: 11 stops; first="Skip to content"
+   off screen #7 a "Downloads and guides ->" vt=1519
+   covered by img.svelte-ano3xq #7 a "Downloads and guides ->"
+   off screen #8 a "Next / [02]PARC ->" vt=4871
+   covered by img.svelte-ano3xq #8 a "Next / [02]PARC ->"
+   off screen #9 a "Tell me what you’re building ->" vt=4889
+   covered by img.svelte-ano3xq #9 a "Tell me what you’re building ->"
+   small target #9 a "Tell me what you’re building ->" 358x16
+390 /toolbox/: 43 stops; first="Skip to content"
+   off screen #12 a "Lockup guide ->" vt=1064
+   covered by h3.display-s.svelte-1358mf4 #12 a "Lockup guide ->"
+   off screen #13 button "Light preview background" vt=1420
+   covered by h3.display-s.svelte-1358mf4 #13 button "Light preview background"
+   off screen #14 button "Dark preview background" vt=1258
+   off screen #15 input "Web" vt=1220
+   covered by div.stage.center.svelte-1kk5gq7 #15 input "Web"
+   small target #15 input "Web" 1x1
+   off screen #16 button "JPEG" vt=1164
+   covered by span.svelte-1kk5gq7 #16 button "JPEG"
+   off screen #17 button "PNG" vt=985
+   covered by button.swatch-chip.plate-light.on #17 button "PNG"
+   covered by span. #19 input "Print"
+   small target #19 input "Print" 1x1
+   covered by span. #23 input "Color"
+   small target #23 input "Color" 1x1
+   covered by span. #24 input "Black"
+   small target #24 input "Black" 1x1
+   covered by span. #25 input "White"
+   small target #25 input "White" 1x1
+   covered by span. #26 input "Large"
+   small target #26 input "Large" 1x1
+   covered by span. #27 input "Medium"
+   small target #27 input "Medium" 1x1
+   covered by span. #28 input "Small"
+   small target #28 input "Small" 1x1
+   off screen #32 a "CLI & MCP docs ->" vt=1334
+   covered by section.showcase.svelte-1358mf4 #32 a "CLI & MCP docs ->"
+   off screen #33 a "Apple silicon" vt=1689
+   covered by section.machine.panel.svelte-1358mf4 #33 a "Apple silicon"
+   off screen #34 a "Intel" vt=1471
+   covered by p.body #34 a "Intel"
+   off screen #35 a "Installer x64" vt=1398
+   covered by div.machine-copy.svelte-1358mf4 #35 a "Installer x64"
+   off screen #36 a "Installer arm64" vt=1412
+   covered by span.mono #36 a "Installer arm64"
+   off screen #37 a "AppImage x86_64" vt=1504
+   covered by section.machine.panel.svelte-1358mf4 #37 a "AppImage x86_64"
+   off screen #38 a "AppImage arm64" vt=1315
+   covered by p.body #38 a "AppImage arm64"
+   off screen #39 a "deb amd64" vt=929
+   covered by a.body.svelte-1358mf4 #39 a "deb amd64"
+   small target #41 a "All files and checksums ->" 304x16
+   off screen #42 a "Get in touch ->" vt=910
+   small target #42 a "Get in touch ->" 358x16
+390 /toolbox/lockup/: 13 stops; first="Skip to content"
+   off screen #8 summary "All 18 options" vt=2330
+   covered by img.svelte-ano3xq #8 summary "All 18 options"
+   off screen #9 a "CLI & MCP setup ->" vt=2146
+   covered by img.svelte-ano3xq #9 a "CLI & MCP setup ->"
+   off screen #10 a "Next / [02]Palette ->" vt=1576
+   covered by p.body #10 a "Next / [02]Palette ->"
+   off screen #11 a "All four tools ->" vt=1394
+   covered by p.body.svelte-2pytj3 #11 a "All four tools ->"
+   small target #11 a "All four tools ->" 358x16
+390 /toolbox/palette/: 12 stops; first="Skip to content"
+   off screen #8 summary "All 12 options" vt=2274
+   covered by img.svelte-ano3xq #8 summary "All 12 options"
+   off screen #9 a "CLI & MCP setup ->" vt=2084
+   covered by img.svelte-ano3xq #9 a "CLI & MCP setup ->"
+   off screen #10 a "Next / [03]Specimen ->" vt=1524
+   covered by p.body #10 a "Next / [03]Specimen ->"
+   off screen #11 a "All four tools ->" vt=1291
+   covered by span.w #11 a "All four tools ->"
+   small target #11 a "All four tools ->" 358x16
+390 /toolbox/specimen/: 13 stops; first="Skip to content"
+   off screen #8 summary "All 10 options" vt=1807
+   covered by h2.display-s #8 summary "All 10 options"
+   off screen #9 a "CLI & MCP setup ->" vt=1553
+   covered by section.text.svelte-2pytj3 #9 a "CLI & MCP setup ->"
+   off screen #10 a "Next / [04]Convert ->" vt=1151
+   covered by span.ln #10 a "Next / [04]Convert ->"
+   off screen #11 a "All four tools ->" vt=1065
+   small target #11 a "All four tools ->" 358x16
+390 /toolbox/convert/: 12 stops; first="Skip to content"
+   off screen #8 summary "All 11 options" vt=1759
+   covered by p.body #8 summary "All 11 options"
+   off screen #9 a "CLI & MCP setup ->" vt=1496
+   covered by p.body #9 a "CLI & MCP setup ->"
+   off screen #10 a "Next / [01]Lockup ->" vt=1197
+   covered by span.ln #10 a "Next / [01]Lockup ->"
+   off screen #11 a "All four tools ->" vt=1084
+   covered by span.mono #11 a "All four tools ->"
+   small target #11 a "All four tools ->" 358x16
+390 /toolbox/agents/: 21 stops; first="Skip to content"
+   off screen #15 a "Lockup options ->" vt=5342
+   covered by section.text.svelte-1xkxtd7 #15 a "Lockup options ->"
+   off screen #16 a "Palette options ->" vt=5342
+   covered by h2.display-s.svelte-1xkxtd7 #16 a "Palette options ->"
+   off screen #17 a "Specimen options ->" vt=5336
+   covered by h2.display-s.svelte-1xkxtd7 #17 a "Specimen options ->"
+   off screen #18 a "Convert options ->" vt=5337
+   covered by div.side.svelte-1xkxtd7 #18 a "Convert options ->"
+   off screen #19 a "All four tools ->" vt=9998
+   covered by p.body #19 a "All four tools ->"
+   small target #19 a "All four tools ->" 358x16
+390 /contact/: 14 stops; first="Skip to content"
+   small target #11 a "Resume (PDF) ->" 168x16
+   small target #12 a "studio@timothyali.com ->" 284x16
+   small target #13 a "Message me on LinkedIn ->" 292x16
+390 /nope/: 9 stops; first="Skip to content"

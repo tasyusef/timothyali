@@ -1,0 +1,59 @@
+[
+  {
+    "name": "theme",
+    "animations": [
+      {
+        "name": "blink",
+        "rate": 0.1,
+        "duration": 1000
+      },
+      {
+        "name": "svelte-tc3uts-nudge",
+        "rate": 0.1,
+        "duration": 1000
+      },
+      {
+        "name": "dither-in",
+        "rate": 0.1,
+        "duration": 210.00000000000003
+      },
+      {
+        "name": "dither-in",
+        "rate": 0.1,
+        "duration": 210.00000000000003
+      },
+      {
+        "name": "dither-in",
+        "rate": 0.1,
+        "duration": 210.00000000000003
+      },
+      {
+        "name": "dither-in",
+        "rate": 0.1,
+        "duration": 210.00000000000003
+      },
+      {
+        "name": "-ua-view-transition-group-anim-root",
+        "rate": 0.1,
+        "duration": 250
+      },
+      {
+        "name": "dither-in",
+        "rate": 0.1,
+        "duration": 210.00000000000003
+      }
+    ],
+    "url": "http://127.0.0.1:4173/"
+  },
+  {
+    "name": "route",
+    "animations": [
+      {
+        "name": "blink",
+        "rate": 0.1,
+        "duration": 1000
+      }
+    ],
+    "url": "http://127.0.0.1:4173/work/"
+  }
+]

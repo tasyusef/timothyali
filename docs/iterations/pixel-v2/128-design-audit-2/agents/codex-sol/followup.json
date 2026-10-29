@@ -1,0 +1,400 @@
+[
+  {
+    "kind": "skip",
+    "p": "/",
+    "active": "main",
+    "y": 96
+  },
+  {
+    "kind": "skip",
+    "p": "/work/",
+    "active": "main",
+    "y": 96
+  },
+  {
+    "kind": "skip",
+    "p": "/work/parc/",
+    "active": "main",
+    "y": 96
+  },
+  {
+    "kind": "skip",
+    "p": "/work/xrpcafe/",
+    "active": "main",
+    "y": 96
+  },
+  {
+    "kind": "skip",
+    "p": "/work/firstledger/",
+    "active": "main",
+    "y": 96
+  },
+  {
+    "kind": "skip",
+    "p": "/work/do-androids-dream/",
+    "active": "main",
+    "y": 96
+  },
+  {
+    "kind": "skip",
+    "p": "/work/jade-aesthetics/",
+    "active": "main",
+    "y": 96
+  },
+  {
+    "kind": "skip",
+    "p": "/work/firststrike/",
+    "active": "main",
+    "y": 96
+  },
+  {
+    "kind": "skip",
+    "p": "/work/toolbox/",
+    "active": "main",
+    "y": 96
+  },
+  {
+    "kind": "skip",
+    "p": "/toolbox/",
+    "active": "main",
+    "y": 96
+  },
+  {
+    "kind": "skip",
+    "p": "/toolbox/lockup/",
+    "active": "main",
+    "y": 96
+  },
+  {
+    "kind": "skip",
+    "p": "/toolbox/palette/",
+    "active": "main",
+    "y": 96
+  },
+  {
+    "kind": "skip",
+    "p": "/toolbox/specimen/",
+    "active": "main",
+    "y": 96
+  },
+  {
+    "kind": "skip",
+    "p": "/toolbox/convert/",
+    "active": "main",
+    "y": 96
+  },
+  {
+    "kind": "skip",
+    "p": "/toolbox/agents/",
+    "active": "main",
+    "y": 96
+  },
+  {
+    "kind": "skip",
+    "p": "/contact/",
+    "active": "main",
+    "y": 0
+  },
+  {
+    "kind": "skip",
+    "p": "/nope/",
+    "active": "main",
+    "y": 0
+  },
+  {
+    "kind": "settings",
+    "focused": "Motion\n[on]",
+    "off": "off",
+    "theme": "dark",
+    "restore": "Settings",
+    "nextTheme": "dark",
+    "nextMotion": "off"
+  },
+  {
+    "kind": "focus-order",
+    "p": "/work/xrpcafe/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "y": 0,
+        "top": 8
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "y": 0,
+        "top": 13
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "y": 0,
+        "top": 64
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "y": 0,
+        "top": 64
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "y": 0,
+        "top": 64
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "y": 0,
+        "top": 64
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "y": 0,
+        "top": 16
+      },
+      {
+        "tag": "A",
+        "text": "xrp.cafe\n->",
+        "y": 1148,
+        "top": 468
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Play video: xrp.cafe Explore Create Trade motion graphic",
+        "y": 420,
+        "top": 448
+      },
+      {
+        "tag": "A",
+        "text": "NEXT / [06]\nFIRSTSTRIKE RESEARCH ->",
+        "y": 5400,
+        "top": 696
+      }
+    ]
+  },
+  {
+    "kind": "focus-order",
+    "p": "/contact/",
+    "w": 1100,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "y": 0,
+        "top": 8
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "y": 0,
+        "top": 8
+      },
+      {
+        "tag": "A",
+        "text": "01INDEX",
+        "y": 0,
+        "top": 16
+      },
+      {
+        "tag": "A",
+        "text": "02WORK",
+        "y": 0,
+        "top": 16
+      },
+      {
+        "tag": "A",
+        "text": "03CONTACT",
+        "y": 0,
+        "top": 16
+      },
+      {
+        "tag": "A",
+        "text": "04TOOLBOX",
+        "y": 0,
+        "top": 16
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "y": 0,
+        "top": 16
+      },
+      {
+        "tag": "A",
+        "text": "SEE MY WORK ->",
+        "y": 248,
+        "top": 864
+      },
+      {
+        "tag": "INPUT",
+        "text": "name",
+        "y": 248,
+        "top": 440
+      },
+      {
+        "tag": "INPUT",
+        "text": "email",
+        "y": 248,
+        "top": 440
+      }
+    ]
+  },
+  {
+    "kind": "focus-order",
+    "p": "/contact/",
+    "w": 900,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "y": 0,
+        "top": 8
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "y": 0,
+        "top": 8
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "y": 0,
+        "top": 16
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "y": 0,
+        "top": 16
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "y": 0,
+        "top": 16
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "y": 0,
+        "top": 16
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "y": 0,
+        "top": 16
+      },
+      {
+        "tag": "A",
+        "text": "SEE MY WORK ->",
+        "y": 272,
+        "top": 864
+      },
+      {
+        "tag": "INPUT",
+        "text": "name",
+        "y": 272,
+        "top": 416
+      },
+      {
+        "tag": "INPUT",
+        "text": "email",
+        "y": 272,
+        "top": 416
+      }
+    ]
+  },
+  {
+    "kind": "remove-focus",
+    "removed": {
+      "active": "BODY",
+      "selected": null
+    },
+    "next": {
+      "text": "+\nADD COLOR",
+      "aria": null
+    }
+  },
+  {
+    "kind": "command-copy",
+    "buttons": 0,
+    "copies": [
+      {
+        "label": "macOS shortcut",
+        "text": "sudo ln -s \"/Applications/Toolbox.app/Contents/MacOS/Toolbox\" /usr/local/bin/toolbox",
+        "lines": 1
+      },
+      {
+        "label": "Commands",
+        "text": "toolbox help                              # show tools and usage\ntoolbox convert --help                    # show Convert options\ntoolbox --version                         # show the version\ntoolbox lockup logo.svg --print none --padding 0.1 --out .\ntoolbox palette '#D32F05' '#003A5D' --name Acme --out .\ntoolbox specimen --template classic --family Helvetica --out .\ntoolbox convert a.heic b.png --formats webp --compression 40 --out ~/Desktop",
+        "lines": 7
+      },
+      {
+        "label": "Print colors, type, edges, and saved work",
+        "text": "toolbox lockup logo.svg --action inspect --json\ntoolbox lockup logo.svg --name Acme --out ./exports --palette '[{\"sourceHex\":\"#D32F05\",\"cmyk\":[0,78,98,17],\"pantone\":\"1665 C\"}]'\ntoolbox specimen --action fonts --json\ntoolbox specimen --title \"Acme type\" --out ./exports --roles '[{\"label\":\"Heading\",\"family\":\"Helvetica\",\"face\":\"Bold\",\"size\":40}]'\ntoolbox lockup logo.svg --edgeSmoothing hard --out ./exports\ntoolbox lockup logo.svg --print none --save --out ./exports --json\ntoolbox lockup --action library-list --json\ntoolbox lockup --saved RECORD_ID --action inspect --json\ntoolbox lockup --saved RECORD_ID --padding 0.15 --save --out ./exports --json",
+        "lines": 9
+      },
+      {
+        "label": "List",
+        "text": "toolbox list                              # every tool, as JSON\ntoolbox describe convert                  # one tool, as JSON",
+        "lines": 2
+      },
+      {
+        "label": "Run one job",
+        "text": "toolbox --run '{\"tool\":\"convert\",\"args\":{\n  \"input\":[\"/Users/me/Pictures/IMG_0001.heic\"],\n  \"formats\":[\"webp\"],\n  \"compression\":40,\n  \"longestEdge\":2000,\n  \"out\":\"/Users/me/Desktop\"\n}}'",
+        "lines": 7
+      },
+      {
+        "label": "The result",
+        "text": "{\n  \"ok\": true,\n  \"tool\": \"convert\",\n  \"outputDir\": \"/Users/me/Desktop/Converted\",\n  \"files\": [\"IMG_0001.webp\"],\n  \"warnings\": []\n}",
+        "lines": 7
+      },
+      {
+        "label": "Serve the tools",
+        "text": "toolbox --mcp",
+        "lines": 1
+      },
+      {
+        "label": ".mcp.json",
+        "text": "{\n  \"mcpServers\": {\n    \"toolbox\": {\n      \"command\": \"/Applications/Toolbox.app/Contents/MacOS/Toolbox\",\n      \"args\": [\"--mcp\"]\n    }\n  }\n}",
+        "lines": 8
+      },
+      {
+        "label": "Scan, dry run, apply, undo",
+        "text": "toolbox organize scan ~/Clients/Acme\ntoolbox organize apply ~/Clients/Acme --dryRun \\\n  --moves '[{\"from\":\"IMG_0042.jpg\",\"to\":\"Photos/IMG_0042.jpg\"}]' \\\n  --keep '[{\"path\":\"logo.svg\"}]'\ntoolbox organize apply ~/Clients/Acme \\\n  --moves '[{\"from\":\"IMG_0042.jpg\",\"to\":\"Photos/IMG_0042.jpg\"}]' \\\n  --keep '[{\"path\":\"logo.svg\"}]'\ntoolbox organize history ~/Clients/Acme\ntoolbox organize undo JOURNAL_ID",
+        "lines": 9
+      }
+    ]
+  },
+  {
+    "kind": "options",
+    "p": "/toolbox/lockup/",
+    "opened": "",
+    "closed": null
+  },
+  {
+    "kind": "options",
+    "p": "/toolbox/palette/",
+    "opened": "",
+    "closed": null
+  },
+  {
+    "kind": "options",
+    "p": "/toolbox/specimen/",
+    "opened": "",
+    "closed": null
+  },
+  {
+    "kind": "options",
+    "p": "/toolbox/convert/",
+    "opened": "",
+    "closed": null
+  }
+]

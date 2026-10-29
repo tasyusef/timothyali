@@ -1,0 +1,39 @@
+home     motion on: cursor=field crosshair hover moves, click rings, drag moves, hold charges, release fires; selection after=0
+home     drag across "i’m tim. Timothy Ali" and "Selected work": selection="" (len 0) activeElement=BODY
+home     drag starting on the heading selects: "m"
+home     link "Selected work" click after drag: navigated to /#work
+home     reduced-motion: data-motion=off hover still, drag+hold still, release still; cursor animation=none; h1 shown="undefined"
+home     motion-off: data-motion=off hover still, drag+hold still, release still; cursor animation=none; h1 shown="undefined"
+parc     motion on: cursor=field crosshair hover moves, click rings, drag moves, hold charges, release fires; selection after=0
+parc     drag across "parcparcparc" and "parcxrpl.com ->": selection="" (len 0) activeElement=BODY
+parc     drag starting on the heading selects: ""
+parc     link "parcxrpl.com ->" click after drag: did not navigate
+parc     reduced-motion: data-motion=off hover still, drag+hold still, release still; cursor animation=none; h1 shown="parc"
+parc     motion-off: data-motion=off hover still, drag+hold still, release still; cursor animation=none; h1 shown="parc"
+jade     motion on: cursor=field crosshair hover moves, click rings, drag moves, hold charges, release fires; selection after=0
+jade     drag across "aestheticsjade aesth" and "jadeaesthetics.co ->": selection="" (len 0) activeElement=BODY
+jade     drag starting on the heading selects: "T"
+jade     link "jadeaesthetics.co ->" click after drag: navigated to https://www.jadeaesthetics.co/
+jade     reduced-motion: data-motion=off hover still, drag+hold still, release still; cursor animation=none; h1 shown="jade aesthetics"
+jade     motion-off: data-motion=off hover still, drag+hold still, release still; cursor animation=none; h1 shown="jade aesthetics"
+toolbox  motion on: cursor=field crosshair hover moves, click rings, drag moves, hold charges, release fires; selection after=0
+toolbox  drag across "toolbox.toolbox." and "Explore the tools ->": selection="" (len 0) activeElement=BODY
+toolbox  drag starting on the heading selects: "lb"
+toolbox  link "Explore the tools ->" click after drag: navigated to /toolbox/#tools
+toolbox  reduced-motion: data-motion=off hover still, drag+hold still, release still; cursor animation=none; h1 shown="toolbox."
+toolbox  motion-off: data-motion=off hover still, drag+hold still, release still; cursor animation=none; h1 shown="toolbox."
+contact  motion on: cursor=field crosshair hover moves, click rings, drag moves, hold charges, release fires; selection after=0
+contact  drag across "Tell me whatyou’rebu" and "See my work ->": selection="" (len 0) activeElement=BODY
+contact  drag starting on the heading selects: "i"
+contact  link "See my work ->" click after drag: navigated to /work/
+contact  reduced-motion: data-motion=off hover still, drag+hold still, release still; cursor animation=none; h1 shown="building."
+contact  motion-off: data-motion=off hover still, drag+hold still, release still; cursor animation=none; h1 shown="building."
+404      motion on: cursor=field crosshair hover moves, click rings, drag moves, hold charges, release fires; selection after=0
+404      drag across "lost.lost." and "Back to home ->": selection="" (len 0) activeElement=BODY
+404      drag starting on the heading selects: ""
+404      link "Back to home ->" click after drag: navigated to /
+404      reduced-motion: data-motion=off hover still, drag+hold still, release still; cursor animation=none; h1 shown="lost."
+404      motion-off: data-motion=off hover still, drag+hold still, release still; cursor animation=none; h1 shown="lost."
+touch 390 home     pointer:coarse=true swipe scrolled 0->345 OK; selection=0; tap rings
+touch 390 contact  pointer:coarse=true swipe scrolled 0->358 OK; selection=0; tap rings
+touch 390 parc     pointer:coarse=true swipe scrolled 0->641 OK; selection=0; tap rings

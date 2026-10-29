@@ -1,0 +1,68 @@
+--- 1440 dark
+name field {"role":"textbox","name":"NAME","invalid":"false"}
+empty submit: focus= name notes= ["Enter your name.","Enter an email address I can reply to.","Tell me about the role or project."] calls= 0
+  name ax {"role":"textbox","name":"NAME ENTER YOUR NAME.","desc":"ENTER YOUR NAME.","invalid":"true"}
+  after typing name, notes= ["Enter an email address I can reply to.","Tell me about the role or project."]
+invalid email: focus= email notes= ["That doesn’t look like an email address. Try something like name@example.com."] calls= 0
+  email ax {"role":"textbox","name":"EMAIL THAT DOESN’T LOOK LIKE AN EMAIL ADDRESS. TRY SOMETHING LIKE NAME@EXAMPLE.COM.","desc":"THAT DOESN’T LOOK LIKE AN EMAIL ADDRESS. TRY SOMETHING LIKE NAME@EXAMPLE.COM.","invalid":"true"}
+sending: label= SENDING -> aria-disabled= true focus= TEXTAREA calls= 1
+  second press while sending, calls= 1
+sent: status= SENT. I’LL REPLY FROM STUDIO@TIMOTHYALI.COM. fields= ["","",""] focus= BODY Skip to content timothy ali 01Index 02Work 03Contact 04Toolbox  Motion [off] Theme [dark] ~/tim/contactcontact~/tim/contactcontactDenver, COMT 18:39:39  Tell me whatyou’rebuilding.building. Interfaces / brands / websitesSee my work -> Hiring, or have a project in mind? I’d like to hear about it. I’m available for full-time roles and contract work, remotely or in Denver. NameA Emailada@nowhere.com Your messageHello there Leave this empty Send-> Sent. I’ll reply from studio@timothyali.com. Your message didn’t send. Try again, or email studio@timothyali.com. Sent. I’ll reply from studio@timothyali.com. Resume (PDF) -> studio@timothyali.com -> Message me on LinkedIn -> (C) 2026 Timothy Ali 
+			
+			
+				{
+					__sveltekit_16brv80 = {
+						base: new URL("..", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("../_app/immutable/entry/start.C9DL8bYX.js"),
+						import("../_app/immutable/entry/app.CTcenkOB.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 6],
+							data: [{type:"data",data:{meta:{path:"/contact/",image:"contact",title:"Get in touch / Timothy Ali",description:"Hiring, or have a project in mind? Timothy Ali is open to full-time roles, remote or in Denver, and to contract work on interfaces, brands, and websites.",alt:"Tell me what you’re building. Get in touch with Timothy Ali."},jsonLd:"\u003Cscript type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://www.timothyali.com/#person\",\"name\":\"Timothy Ali\",\"url\":\"https://www.timothyali.com/\",\"jobTitle\":\"Designer\",\"sameAs\":[\"https://www.linkedin.com/in/timothyali\",\"https://github.com/tasyusef\"]},{\"@type\":\"WebSite\",\"@id\":\"https://www.timothyali.com/#website\",\"name\":\"Timothy Ali\",\"url\":\"https://www.timothyali.com/\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://www.timothyali.com/contact/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Timothy Ali\",\"item\":\"https://www.timothyali.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Contact\",\"item\":\"https://www.timothyali.com/contact/\"}]},{\"@type\":\"ContactPage\",\"@id\":\"https://www.timothyali.com/contact/#webpage\",\"url\":\"https://www.timothyali.com/contact/\",\"name\":\"Get in touch / Timothy Ali\",\"description\":\"Hiring, or have a project in mind? Timothy Ali is open to full-time roles, remote or in Denver, and to contract work on interfaces, brands, and websites.\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https://www.timothyali.com/#website\"},\"primaryImageOfPage\":{\"@type\":\"ImageObject\",\"url\":\"https://www.timothyali.com/og/contact.png\",\"width\":1200,\"height\":630},\"breadcrumb\":{\"@id\":\"https://www.timothyali.com/contact/#breadcrumb\"},\"mainEntity\":{\"@id\":\"https://www.timothyali.com/#person\"}}]}\u003C/script>"},uses:{url:1}},null],
+							form: null,
+							error: null
+						});
+					});
+				}
+send-failed: status="YOUR MESSAGE DIDN’T SEND. TRY AGAIN, OR EMAIL STUDIO@TIMOTHYALI.COM." fields kept= ["Ada","ada@example.com","Hi"]
+rate-limited: status="THAT’S A LOT OF MESSAGES AT ONCE. WAIT A FEW MINUTES, OR EMAIL STUDIO@TIMOTHYALI.COM." fields kept= ["Ada","ada@example.com","Hi"]
+network: status="COULDN’T SEND YOUR MESSAGE. CHECK YOUR CONNECTION AND TRY AGAIN, OR EMAIL STUDIO@TIMOTHYALI.COM."
+--- 390 light
+name field {"role":"textbox","name":"NAME","invalid":"false"}
+empty submit: focus= name notes= ["Enter your name.","Enter an email address I can reply to.","Tell me about the role or project."] calls= 0
+  name ax {"role":"textbox","name":"NAME ENTER YOUR NAME.","desc":"ENTER YOUR NAME.","invalid":"true"}
+  after typing name, notes= ["Enter an email address I can reply to.","Tell me about the role or project."]
+invalid email: focus= email notes= ["That doesn’t look like an email address. Try something like name@example.com."] calls= 0
+  email ax {"role":"textbox","name":"EMAIL THAT DOESN’T LOOK LIKE AN EMAIL ADDRESS. TRY SOMETHING LIKE NAME@EXAMPLE.COM.","desc":"THAT DOESN’T LOOK LIKE AN EMAIL ADDRESS. TRY SOMETHING LIKE NAME@EXAMPLE.COM.","invalid":"true"}
+sending: label= SENDING -> aria-disabled= true focus= TEXTAREA calls= 1
+  second press while sending, calls= 1
+sent: status= SENT. I’LL REPLY FROM STUDIO@TIMOTHYALI.COM. fields= ["","",""] focus= BODY Skip to content timothy ali 01Index 02Work 03Contact 04Toolbox  Motion [off] Theme [light] ~/tim/contactcontact~/tim/contactcontactDenver, CO--:--:--  Tell me whatyou’rebuilding.building. Interfaces / brands / websitesSee my work -> Hiring, or have a project in mind? I’d like to hear about it. I’m available for full-time roles and contract work, remotely or in Denver. Name Emailada@nowhere.com Your messageHello there Leave this empty Send-> Sent. I’ll reply from studio@timothyali.com. Your message didn’t send. Try again, or email studio@timothyali.com. Sent. I’ll reply from studio@timothyali.com. Resume (PDF) -> studio@timothyali.com -> Message me on LinkedIn -> (C) 2026 Timothy Ali 
+			
+			
+				{
+					__sveltekit_16brv80 = {
+						base: new URL("..", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("../_app/immutable/entry/start.C9DL8bYX.js"),
+						import("../_app/immutable/entry/app.CTcenkOB.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 6],
+							data: [{type:"data",data:{meta:{path:"/contact/",image:"contact",title:"Get in touch / Timothy Ali",description:"Hiring, or have a project in mind? Timothy Ali is open to full-time roles, remote or in Denver, and to contract work on interfaces, brands, and websites.",alt:"Tell me what you’re building. Get in touch with Timothy Ali."},jsonLd:"\u003Cscript type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"Person\",\"@id\":\"https://www.timothyali.com/#person\",\"name\":\"Timothy Ali\",\"url\":\"https://www.timothyali.com/\",\"jobTitle\":\"Designer\",\"sameAs\":[\"https://www.linkedin.com/in/timothyali\",\"https://github.com/tasyusef\"]},{\"@type\":\"WebSite\",\"@id\":\"https://www.timothyali.com/#website\",\"name\":\"Timothy Ali\",\"url\":\"https://www.timothyali.com/\"},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://www.timothyali.com/contact/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Timothy Ali\",\"item\":\"https://www.timothyali.com/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Contact\",\"item\":\"https://www.timothyali.com/contact/\"}]},{\"@type\":\"ContactPage\",\"@id\":\"https://www.timothyali.com/contact/#webpage\",\"url\":\"https://www.timothyali.com/contact/\",\"name\":\"Get in touch / Timothy Ali\",\"description\":\"Hiring, or have a project in mind? Timothy Ali is open to full-time roles, remote or in Denver, and to contract work on interfaces, brands, and websites.\",\"inLanguage\":\"en-US\",\"isPartOf\":{\"@id\":\"https://www.timothyali.com/#website\"},\"primaryImageOfPage\":{\"@type\":\"ImageObject\",\"url\":\"https://www.timothyali.com/og/contact.png\",\"width\":1200,\"height\":630},\"breadcrumb\":{\"@id\":\"https://www.timothyali.com/contact/#breadcrumb\"},\"mainEntity\":{\"@id\":\"https://www.timothyali.com/#person\"}}]}\u003C/script>"},uses:{url:1}},null],
+							form: null,
+							error: null
+						});
+					});
+				}
+send-failed: status="YOUR MESSAGE DIDN’T SEND. TRY AGAIN, OR EMAIL STUDIO@TIMOTHYALI.COM." fields kept= ["Ada","ada@example.com","Hi"]
+rate-limited: status="THAT’S A LOT OF MESSAGES AT ONCE. WAIT A FEW MINUTES, OR EMAIL STUDIO@TIMOTHYALI.COM." fields kept= ["Ada","ada@example.com","Hi"]
+network: status="COULDN’T SEND YOUR MESSAGE. CHECK YOUR CONNECTION AND TRY AGAIN, OR EMAIL STUDIO@TIMOTHYALI.COM."

@@ -62,7 +62,10 @@
 button{position:absolute;display:grid;place-items:center;border:0;padding:0;background:var(--fg);color:var(--paper);cursor:pointer}
 .play{left:50%;top:50%;width:64px;height:64px;transform:translate(-50%,-50%)}
 .pause{right:var(--s1);bottom:var(--s1);width:48px;height:48px;opacity:.8}
-.play:hover,.play:focus-visible,.pause:focus-visible{background:var(--accent);color:var(--on-accent);opacity:1}
-@media(hover:hover){.pause{opacity:0}.clip:hover .pause{opacity:.8}.pause:hover{opacity:1;background:var(--accent);color:var(--on-accent)}}
-.pause:focus-visible{opacity:1}
+/* the pause stays in view while the clip loops, so a stop is always visible, not only on hover (PX-128) */
+.play:hover{background:var(--accent);color:var(--on-accent)}
+@media(hover:hover){.pause:hover{opacity:1;background:var(--accent);color:var(--on-accent)}}
+/* focused, the button is a paper block with the ring drawn inside it: over a poster an outside ring
+   can fall on its own colour (PARC's sky, xrp.cafe's blue), on paper it holds the system's contrast (PX-128) */
+.play:focus-visible,.pause:focus-visible{background:var(--paper);color:var(--fg);opacity:1;outline-offset:-8px}
 </style>

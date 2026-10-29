@@ -89,6 +89,7 @@ button.cta-row{width:100%;text-align:left}
    variant already has its rows and takes the cell at the sides only. Cards
    press their mat. */
 .cta:active,.cta-row:active,.cta-hint:active,.quiet-link:active,.card:active{background:var(--accent);color:var(--on-accent)}
+.card:active .card-body{color:var(--fg)} /* the body keeps its own paper ground, so it keeps its ink: in dark the accent's ink is the paper (PX-128) */
 .card:active .card-body>.mono{color:inherit}
 .quiet-link:active{box-shadow:0 0 0 var(--s1) var(--accent)}
 /* the page-foot link presses as a quiet link does; it had no hover or press at all (PX-125) */
@@ -115,6 +116,8 @@ button.cta-row{width:100%;text-align:left}
 .command-plate{display:flex;flex-direction:column;gap:var(--s2);padding:var(--s3)}
 .panel .command-plate{background:var(--paper);color:var(--fg)}
 .panel .command-plate::selection,.panel .command-plate ::selection{background:var(--fg);color:var(--paper)}
+/* a control on the paper plate inside the ink panel takes the paper ground's ring, not the panel's (PX-128) */
+.panel .command-plate .copy{--focus-ring:2px solid var(--yellow)}:root[data-theme=light] .panel .command-plate .copy{--focus-ring:2px solid var(--yellow-deep)}
 @media(max-width:700px){.command-plate{padding:var(--s2)}}
 
 /* --- code (Code.svelte) ------------------------------------------- */
@@ -124,4 +127,5 @@ button.cta-row{width:100%;text-align:left}
 .code .c{opacity:var(--dim)}
 .code .ln{--lead:0;display:block;min-height:32px;padding-left:calc((var(--lead) + 2) * 1ch);text-indent:calc((var(--lead) + 2) * -1ch)} /* a wrapped line hangs under its start (0200) */
 .code .w{white-space:nowrap}
+.code .copy-at{float:right;margin:0 calc(-1 * var(--s1)) var(--s1) var(--s2);user-select:none;-webkit-user-select:none} /* level with the first line (a 32px block), a unit into the plate's padding (PX-128) */
 @media(max-width:700px){.code{padding:var(--s2)}.code .pad{display:none}.code .c{display:block;text-indent:0}}

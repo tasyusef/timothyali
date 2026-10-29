@@ -1,0 +1,183 @@
+1440 /: 16 stops; first="Get in touch ->"
+   covered by chrome #2 a "First Ledger->I designed the logo, type,"
+   covered by chrome #3 a "Jade Aesthetics->Two websites for a medi"
+   covered by chrome #6 a "Resume (PDF) ->"
+   small target #6 a "Resume (PDF) ->" 168x16
+   covered by chrome #7 a "Selected work"
+1440 /work/: 15 stops; first="Tell me what you’re buildingGet in touch"
+   covered by chrome #2 a "FirstStrike Research->I designed the wor"
+   covered by chrome #3 a "xrp.cafe->As founding designer of an NFT"
+   covered by chrome #6 a "PARC->A new identity and website for the"
+   covered by chrome #7 a "Toolbox->A desktop app I designed and bu"
+1440 /work/parc/: 12 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 352x16
+1440 /work/xrpcafe/: 11 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 352x16
+1440 /work/firstledger/: 11 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 352x16
+1440 /work/do-androids-dream/: 12 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 352x16
+   covered by chrome #3 button "Play video: Do Androids Dream title sequ"
+1440 /work/jade-aesthetics/: 11 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 352x16
+1440 /work/firststrike/: 9 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 352x16
+1440 /work/toolbox/: 11 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 352x16
+1440 /toolbox/: 43 stops; first="Get in touch ->"
+   small target #0 a "Get in touch ->" 176x16
+   small target #1 a "All files and checksums ->" 304x16
+   covered by span. #14 input "Small"
+   small target #14 input "Small" 1x1
+   covered by span. #15 input "Medium"
+   small target #15 input "Medium" 1x1
+   covered by span. #16 input "Large"
+   small target #16 input "Large" 1x1
+   covered by span. #17 input "White"
+   small target #17 input "White" 1x1
+   covered by span. #18 input "Black"
+   small target #18 input "Black" 1x1
+   covered by span. #19 input "Color"
+   small target #19 input "Color" 1x1
+   covered by span. #23 input "Print"
+   small target #23 input "Print" 1x1
+   covered by chrome #24 button "SVG"
+   covered by chrome #25 button "PNG"
+   covered by chrome #26 button "JPEG"
+   covered by chrome #27 input "Web"
+   small target #27 input "Web" 1x1
+   back jump #28 button "Dark preview background" 1177->1464
+1440 /toolbox/lockup/: 12 stops; first="All four tools ->"
+   small target #0 a "All four tools ->" 200x16
+1440 /toolbox/palette/: 11 stops; first="All four tools ->"
+   small target #0 a "All four tools ->" 200x16
+1440 /toolbox/specimen/: 12 stops; first="All four tools ->"
+   small target #0 a "All four tools ->" 200x16
+1440 /toolbox/convert/: 11 stops; first="All four tools ->"
+   small target #0 a "All four tools ->" 200x16
+1440 /toolbox/agents/: 21 stops; first="All four tools ->"
+   small target #0 a "All four tools ->" 200x16
+1440 /contact/: 15 stops; first="Message me on LinkedIn ->"
+   small target #0 a "Message me on LinkedIn ->" 292x16
+   small target #1 a "studio@timothyali.com ->" 284x16
+   small target #2 a "Resume (PDF) ->" 168x16
+   back jump #7 a "See my work ->" 396->804
+   small target #7 a "See my work ->" 164x16
+1440 /nope/: 9 stops; first="Back to home ->"
+900 /: 16 stops; first="Get in touch ->"
+   covered by chrome #2 a "First Ledger->I designed the logo, type,"
+   covered by chrome #3 a "Jade Aesthetics->Two websites for a medi"
+   small target #6 a "Resume (PDF) ->" 168x16
+900 /work/: 15 stops; first="Tell me what you’re buildingGet in touch"
+   covered by chrome #2 a "FirstStrike Research->I designed the wor"
+   covered by chrome #3 a "xrp.cafe->As founding designer of an NFT"
+   covered by chrome #6 a "PARC->A new identity and website for the"
+   covered by chrome #7 a "Toolbox->A desktop app I designed and bu"
+900 /work/parc/: 12 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 352x16
+900 /work/xrpcafe/: 11 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 352x16
+900 /work/firstledger/: 11 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 352x16
+900 /work/do-androids-dream/: 12 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 352x16
+900 /work/jade-aesthetics/: 11 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 352x16
+900 /work/firststrike/: 9 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 352x16
+900 /work/toolbox/: 11 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 352x16
+900 /toolbox/: 43 stops; first="Get in touch ->"
+   small target #0 a "Get in touch ->" 176x16
+   small target #1 a "All files and checksums ->" 304x16
+   covered by span. #14 input "Small"
+   small target #14 input "Small" 1x1
+   covered by span. #15 input "Medium"
+   small target #15 input "Medium" 1x1
+   covered by span. #16 input "Large"
+   small target #16 input "Large" 1x1
+   covered by span. #17 input "White"
+   small target #17 input "White" 1x1
+   covered by span. #18 input "Black"
+   small target #18 input "Black" 1x1
+   covered by span. #19 input "Color"
+   small target #19 input "Color" 1x1
+   covered by chrome #20 button "PDF"
+   covered by chrome #21 button "JPEG"
+   covered by chrome #22 button "EPS"
+   covered by chrome #23 input "Print"
+   small target #23 input "Print" 1x1
+   covered by span. #27 input "Web"
+   small target #27 input "Web" 1x1
+   back jump #28 button "Dark preview background" 1448->1752
+   covered by chrome #33 button "02Palette"
+   covered by chrome #34 button "01Lockup"
+900 /toolbox/lockup/: 12 stops; first="All four tools ->"
+   small target #0 a "All four tools ->" 200x16
+900 /toolbox/palette/: 11 stops; first="All four tools ->"
+   small target #0 a "All four tools ->" 200x16
+900 /toolbox/specimen/: 12 stops; first="All four tools ->"
+   small target #0 a "All four tools ->" 200x16
+900 /toolbox/convert/: 11 stops; first="All four tools ->"
+   small target #0 a "All four tools ->" 200x16
+900 /toolbox/agents/: 21 stops; first="All four tools ->"
+   small target #0 a "All four tools ->" 200x16
+900 /contact/: 15 stops; first="Message me on LinkedIn ->"
+   small target #0 a "Message me on LinkedIn ->" 292x16
+   small target #1 a "studio@timothyali.com ->" 284x16
+   small target #2 a "Resume (PDF) ->" 168x16
+   back jump #7 a "See my work ->" 688->1136
+   small target #7 a "See my work ->" 164x16
+900 /nope/: 9 stops; first="Back to home ->"
+390 /: 16 stops; first="Get in touch ->"
+   small target #6 a "Resume (PDF) ->" 168x16
+390 /work/: 15 stops; first="Tell me what you’re buildingGet in touch"
+390 /work/parc/: 12 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 358x16
+390 /work/xrpcafe/: 11 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 358x16
+   back jump #3 a "xrp.cafe ->" 868->1616
+390 /work/firstledger/: 11 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 358x16
+390 /work/do-androids-dream/: 11 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 358x16
+390 /work/jade-aesthetics/: 11 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 358x16
+390 /work/firststrike/: 9 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 358x16
+390 /work/toolbox/: 11 stops; first="Tell me what you’re building ->"
+   small target #0 a "Tell me what you’re building ->" 358x16
+390 /toolbox/: 43 stops; first="Get in touch ->"
+   small target #0 a "Get in touch ->" 358x16
+   small target #1 a "All files and checksums ->" 304x16
+   covered by span. #14 input "Small"
+   small target #14 input "Small" 1x1
+   covered by span. #15 input "Medium"
+   small target #15 input "Medium" 1x1
+   covered by span. #16 input "Large"
+   small target #16 input "Large" 1x1
+   covered by span. #17 input "White"
+   small target #17 input "White" 1x1
+   covered by span. #18 input "Black"
+   small target #18 input "Black" 1x1
+   covered by span. #19 input "Color"
+   small target #19 input "Color" 1x1
+   covered by span. #23 input "Print"
+   small target #23 input "Print" 1x1
+   covered by span. #27 input "Web"
+   small target #27 input "Web" 1x1
+390 /toolbox/lockup/: 13 stops; first="All four tools ->"
+   small target #0 a "All four tools ->" 358x16
+390 /toolbox/palette/: 12 stops; first="All four tools ->"
+   small target #0 a "All four tools ->" 358x16
+390 /toolbox/specimen/: 13 stops; first="All four tools ->"
+   small target #0 a "All four tools ->" 358x16
+390 /toolbox/convert/: 12 stops; first="All four tools ->"
+   small target #0 a "All four tools ->" 358x16
+390 /toolbox/agents/: 21 stops; first="All four tools ->"
+   small target #0 a "All four tools ->" 358x16
+390 /contact/: 14 stops; first="Message me on LinkedIn ->"
+   small target #0 a "Message me on LinkedIn ->" 292x16
+   small target #1 a "studio@timothyali.com ->" 284x16
+   small target #2 a "Resume (PDF) ->" 168x16
+390 /nope/: 9 stops; first="Back to home ->"

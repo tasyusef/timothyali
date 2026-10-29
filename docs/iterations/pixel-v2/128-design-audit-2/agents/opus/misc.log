@@ -1,0 +1,24 @@
+anchor 1440 no-preference / "Selected work" -> #work: target top=32 first "Selected work" top=95 chromeBottom=32 focus=BODY#
+anchor 1440 no-preference /toolbox/ "Explore the tools" -> #tools: target top=64 first "Four toolsin one app" top=128 chromeBottom=32 focus=BODY#
+anchor 1440 no-preference /toolbox/agents/ "Serve" -> #serve: target top=32 first "Serve" top=96 chromeBottom=32 focus=BODY#
+anchor 1440 no-preference /toolbox/lockup/ "Download for" -> /toolbox/#download: target top=236 first "Download." top=348 chromeBottom=96 focus=BODY#
+anchor 390 no-preference / "Selected work" -> #work: target top=32 first "Selected work" top=79 chromeBottom=0 focus=BODY#
+anchor 390 no-preference /toolbox/ "Explore the tools" -> #tools: target top=64 first "Four toolsin one app" top=112 chromeBottom=0 focus=BODY#
+anchor 390 no-preference /toolbox/agents/ "Serve" -> #serve: target top=32 first "Serve" top=80 chromeBottom=0 focus=BODY#
+anchor 390 no-preference /toolbox/lockup/ "Download for" -> /toolbox/#download: target top=0 first "Download." top=96 chromeBottom=104 focus=BODY#
+anchor 1440 reduce / "Selected work" -> #work: target top=32 first "Selected work" top=95 chromeBottom=32 focus=BODY#
+anchor 1440 reduce /toolbox/ "Explore the tools" -> #tools: target top=64 first "Four toolsin one app" top=128 chromeBottom=32 focus=BODY#
+anchor 1440 reduce /toolbox/agents/ "Serve" -> #serve: target top=32 first "Serve" top=96 chromeBottom=32 focus=BODY#
+anchor 1440 reduce /toolbox/lockup/ "Download for" -> /toolbox/#download: target top=236 first "Download." top=348 chromeBottom=96 focus=BODY#
+spacing 320 /:
+   page scrolls sideways 325/320
+   past edge h2 "Tell me whatyou’rebu" right=357
+spacing 320 /contact/:
+   page scrolls sideways 325/320
+   past edge a "studio@timothyali.co" right=351
+spacing 320 /toolbox/:
+   page scrolls sideways 325/320
+spacing 320 /work/parc/:
+   page scrolls sideways 325/320
+spacing 320 /toolbox/agents/:
+   page scrolls sideways 362/320

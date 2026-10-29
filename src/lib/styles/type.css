@@ -33,6 +33,7 @@
    measure itself small and flip back. A block, so its own line height sets the lines (PX-49). */
 .display-title.small>:not([aria-hidden]){display:block;font-size:82.5px;line-height:88px}
 .body{font-family:var(--face-text);font-size:27px;line-height:32px}
+.body.long{line-height:40px} /* a paragraph that runs to three lines and more: the reading leading of the studies' lead and Home's phone intro (PX-128) */
 .lead{font-family:var(--face-text);font-size:54px;line-height:64px}
 .lbl{font-family:var(--face-label);font-size:12.5px;line-height:16px;text-transform:uppercase}
 .mono{font-family:var(--face-mono);font-size:16px;line-height:16px;text-transform:uppercase;white-space:nowrap}

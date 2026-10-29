@@ -17,11 +17,13 @@
   // The browser's own validation bubbles cannot be styled, so the form runs with
   // `novalidate` and says it in the site's voice: a note chip under the field that is
   // wrong, the first of them focused. `required` stays on the fields for what it means.
+  // The note sits outside the <label>, so the field's name stays “Email” and the note is
+  // only its description; inside, a reader heard it twice (PX-128).
   let notes: Record<string, string> = $state({});
   // EMAIL is the function's own pattern ($lib/shared.js), so the field says what is wrong before the server does
   const NEED: Record<string, (el: HTMLInputElement | HTMLTextAreaElement) => string> = {
     name: (el) => (el.value.trim() ? '' : 'Enter your name.'),
-    email: (el) => (!el.value.trim() ? 'Enter an email address I can reply to.' : !EMAIL.test(el.value.trim()) ? 'That doesn’t look like an email address. Try something like name@example.com.' : ''),
+    email: (el) => (!el.value.trim() ? 'Enter an email address I can reply to.' : !EMAIL.test(el.value.trim()) ? 'Enter an email address like name@example.com.' : ''),
     message: (el) => (el.value.trim() ? '' : 'Tell me about the role or project.')
   };
   function validate(form: HTMLFormElement) {
@@ -57,9 +59,9 @@
   }
 </script>
 <form id="contact-form" class="contact-form" action="/api/contact" method="post" novalidate onsubmit={submit} aria-describedby="contact-status">
-  <label class="field"><span class="lbl dim">Name</span><span class="box"><input class="body" name="name" aria-invalid={notes.name ? 'true' : undefined} aria-describedby={notes.name ? 'name-note' : undefined} oninput={clear} type="text" autocomplete="name" autocapitalize="words" required maxlength={LIMITS.name} use:blockCaret /><Cursor class="caret" /></span>{#if notes.name}<span class="lbl note" id="name-note">{notes.name}</span>{/if}</label>
-  <label class="field"><span class="lbl dim">Email</span><span class="box"><input class="body" name="email" aria-invalid={notes.email ? 'true' : undefined} aria-describedby={notes.email ? 'email-note' : undefined} oninput={clear} type="email" autocomplete="email" required maxlength={LIMITS.email} use:blockCaret /><Cursor class="caret" /></span>{#if notes.email}<span class="lbl note" id="email-note">{notes.email}</span>{/if}</label>
-  <label class="field"><span class="lbl dim">Your message</span><span class="box"><textarea class="body" name="message" enterkeyhint="enter" aria-invalid={notes.message ? 'true' : undefined} aria-describedby={notes.message ? 'message-note' : undefined} oninput={clear} onkeydown={sendKey} rows="4" required maxlength={LIMITS.message} use:blockCaret></textarea><Cursor class="caret" /></span>{#if notes.message}<span class="lbl note" id="message-note">{notes.message}</span>{/if}</label>
+  <div class="field"><label class="lbl dim" for="contact-name">Name</label><span class="box"><input class="body" id="contact-name" name="name" aria-invalid={notes.name ? 'true' : undefined} aria-describedby={notes.name ? 'name-note' : undefined} oninput={clear} type="text" autocomplete="name" autocapitalize="words" required maxlength={LIMITS.name} use:blockCaret /><Cursor class="caret" /></span>{#if notes.name}<span class="lbl note" id="name-note">{notes.name}</span>{/if}</div>
+  <div class="field"><label class="lbl dim" for="contact-email">Email</label><span class="box"><input class="body" id="contact-email" name="email" aria-invalid={notes.email ? 'true' : undefined} aria-describedby={notes.email ? 'email-note' : undefined} oninput={clear} type="email" autocomplete="email" required maxlength={LIMITS.email} use:blockCaret /><Cursor class="caret" /></span>{#if notes.email}<span class="lbl note" id="email-note">{notes.email}</span>{/if}</div>
+  <div class="field"><label class="lbl dim" for="contact-message">Your message</label><span class="box"><textarea class="body" id="contact-message" name="message" enterkeyhint="enter" aria-invalid={notes.message ? 'true' : undefined} aria-describedby={notes.message ? 'message-note' : undefined} oninput={clear} onkeydown={sendKey} rows="4" required maxlength={LIMITS.message} use:blockCaret></textarea><Cursor class="caret" /></span>{#if notes.message}<span class="lbl note" id="message-note">{notes.message}</span>{/if}</div>
   <label class="trap" aria-hidden="true"><span>Leave this empty</span><input name="hp_check" type="text" tabindex="-1" autocomplete="off" /></label>
   <div class="send">
     <!-- aria-disabled, not disabled: a disabled button drops the keyboard focus that pressed it (PX-125) -->

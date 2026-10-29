@@ -1,0 +1,11 @@
+share visible= true label= SEND THE LINK TO YOUR COMPUTER -> box= {"x":16,"y":3376,"width":358,"height":64}
+  after tap label= SEND THE LINK TO YOUR COMPUTER -> status=  shared= {"title":"Toolbox","url":"http://127.0.0.1:4173/toolbox/#download"} clip= 
+  download links Apple silicon 122x44, Intel 44x44, Installer x64 124x44, Installer arm64 151x44, AppImage x86_64 171x44, AppImage arm64 162x44, deb amd64 106x44, deb arm64 104x44
+noshare visible= true label= SEND THE LINK TO YOUR COMPUTER -> box= {"x":16,"y":3376,"width":358,"height":64}
+  after tap label= LINK COPIED -> status= Link copied shared= undefined clip= http://127.0.0.1:4173/toolbox/#download
+  download links Apple silicon 122x44, Intel 44x44, Installer x64 124x44, Installer arm64 151x44, AppImage x86_64 171x44, AppImage arm64 162x44, deb amd64 106x44, deb arm64 104x44
+live regions:
+  tool-story svelte-1358mf4 live=polite text="Package your logos. Turn your logo variations into a set of print and web files. Lockup guide ->" len=96
+   live=assertive text="" len=0
+after picking Palette: Export your palette. Export a color palette as code, Adobe swatches, or a reference sheet. Palette guide ->
+preview region: DIV role=null label=null live=null

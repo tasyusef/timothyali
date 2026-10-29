@@ -1,0 +1,125 @@
+home/dark: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(242, 214, 0)
+  skip link Enter -> focus on main, scrollY=96
+  7 stops; rings=["solid 2px rgb(242, 214, 0)"]; not in view when focused: ["a.card \"Toolbox->A desktop app I designed and bu\" top=958","a.card \"PARC->A new identity and website for the\" top=933","a.card \"Jade Aesthetics->Two websites for a medi\" top=1517","a.card \"First Ledger->I designed the logo, type,\" top=1478","a.quiet-link.lbl \"All work ->\" top=2015","a.cta-row.lbl \"Get in touch ->\" top=2605"]; no visible ring: none; aria-hidden stops: none
+  order: a"Resume (PDF) ->" > a"Toolbox->A desktop" > a"PARC->A new identi" > a"Jade Aesthetics->T" > a"First Ledger->I de" > a"All work ->" > a"Get in touch ->"
+home/light: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(111, 98, 0)
+  skip link Enter -> focus on main, scrollY=96
+  7 stops; rings=["solid 2px rgb(111, 98, 0)"]; not in view when focused: ["a.card \"Toolbox->A desktop app I designed and bu\" top=958","a.card \"PARC->A new identity and website for the\" top=933","a.card \"Jade Aesthetics->Two websites for a medi\" top=1517","a.card \"First Ledger->I designed the logo, type,\" top=1478","a.quiet-link.lbl \"All work ->\" top=2015","a.cta-row.lbl \"Get in touch ->\" top=2605"]; no visible ring: none; aria-hidden stops: none
+work/dark: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(242, 214, 0)
+  skip link Enter -> focus on main, scrollY=96
+  7 stops; rings=["solid 2px rgb(242, 214, 0)"]; not in view when focused: ["a.card \"Jade Aesthetics->Two websites for a medi\" top=1061","a.card \"First Ledger->I designed the logo, type,\" top=1008","a.card \"xrp.cafe->As founding designer of an NFT\" top=1549","a.card \"FirstStrike Research->I designed the wor\" top=1527","a.card \"Do Androids Dream?->A speculative yellow\" top=2141","a.cta-row.lbl \"Tell me what you’re buildingGet in touch\" top=2779"]; no visible ring: none; aria-hidden stops: none
+  order: a"PARC->A new identi" > a"Jade Aesthetics->T" > a"First Ledger->I de" > a"xrp.cafe->As found" > a"FirstStrike Resear" > a"Do Androids Dream?" > a"Tell me what you’r"
+parc/dark: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(242, 214, 0)
+  skip link Enter -> focus on main, scrollY=96
+  3 stops; rings=["solid 2px rgb(242, 214, 0)"]; not in view when focused: ["button.svelte-5a50li.play \"Play video: PARC After Darc starting-soo\" top=5714","a.cta-row.lbl \"Next / [03]Jade Aesthetics ->\" top=11076","a. \"Tell me what you’re building ->\" top=11166"]; no visible ring: none; aria-hidden stops: none
+  order: button"Play video: PARC A" > a"Next / [03]Jade Ae" > a"Tell me what you’r"
+parc/light: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(111, 98, 0)
+  skip link Enter -> focus on main, scrollY=96
+  3 stops; rings=["solid 2px rgb(111, 98, 0)"]; not in view when focused: ["button.svelte-5a50li.play \"Play video: PARC After Darc starting-soo\" top=5714","a.cta-row.lbl \"Next / [03]Jade Aesthetics ->\" top=11084","a. \"Tell me what you’re building ->\" top=11188"]; no visible ring: none; aria-hidden stops: none
+xrpcafe/dark: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(242, 214, 0)
+  skip link Enter -> focus on main, scrollY=96
+  3 stops; rings=["solid 2px rgb(242, 214, 0)"]; not in view when focused: ["button.svelte-5a50li.pause \"Pause video: xrp.cafe Explore Create Tra\" top=1302","a.cta-row.lbl \"Next / [06]FirstStrike Research ->\" top=4076","a. \"Tell me what you’re building ->\" top=4184"]; no visible ring: none; aria-hidden stops: none
+  order: button"Pause video: xrp.c" > a"Next / [06]FirstSt" > a"Tell me what you’r"
+firstledger/dark: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(242, 214, 0)
+  skip link Enter -> focus on main, scrollY=96
+  2 stops; rings=["solid 2px rgb(242, 214, 0)"]; not in view when focused: ["a.cta-row.lbl \"Next / [05]xrp.cafe ->\" top=5014","a. \"Tell me what you’re building ->\" top=5122"]; no visible ring: none; aria-hidden stops: none
+  order: a"Next / [05]xrp.caf" > a"Tell me what you’r"
+androids/dark: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(242, 214, 0)
+  skip link Enter -> focus on main, scrollY=96
+  4 stops; rings=["solid 2px rgb(242, 214, 0)"]; not in view when focused: ["button.svelte-5a50li.pause \"Pause video: Do Androids Dream title seq\" top=1566","a.quiet-link \"Watch it with sound on YouTube ->\" top=1620","a.cta-row.lbl \"Next / [01]Toolbox ->\" top=3219","a. \"Tell me what you’re building ->\" top=3306"]; no visible ring: none; aria-hidden stops: none
+  order: button"Pause video: Do An" > a"Watch it with soun" > a"Next / [01]Toolbox" > a"Tell me what you’r"
+jade/dark: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(242, 214, 0)
+  skip link Enter -> focus on main, scrollY=96
+  2 stops; rings=["solid 2px rgb(242, 214, 0)"]; not in view when focused: ["a.cta-row.lbl \"Next / [04]First Ledger ->\" top=4174","a. \"Tell me what you’re building ->\" top=4282"]; no visible ring: none; aria-hidden stops: none
+  order: a"Next / [04]First L" > a"Tell me what you’r"
+firststrike/dark: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(242, 214, 0)
+  skip link Enter -> focus on main, scrollY=96
+  1 stops; rings=["solid 2px rgb(242, 214, 0)"]; not in view when focused: ["a. \"Tell me what you’re building ->\" top=4462"]; no visible ring: none; aria-hidden stops: none
+  order: a"Tell me what you’r"
+toolbox-study/dark: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(242, 214, 0)
+  skip link Enter -> focus on main, scrollY=96
+  2 stops; rings=["solid 2px rgb(242, 214, 0)"]; not in view when focused: ["a.cta-row.lbl \"Next / [02]PARC ->\" top=3750","a. \"Tell me what you’re building ->\" top=3858"]; no visible ring: none; aria-hidden stops: none
+  order: a"Next / [02]PARC ->" > a"Tell me what you’r"
+toolbox/dark: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(242, 214, 0)
+  skip link Enter -> focus on main, scrollY=96
+  35 stops; rings=["solid 2px rgb(242, 214, 0)","solid 2px rgb(111, 98, 0)"]; not in view when focused: ["button.svelte-1358mf4 \"01Lockup\" top=918","a.quiet-link.lbl \"Lockup guide ->\" top=1187","button.swatch-chip.plate-light \"Light preview background\" top=1328","button.swatch-chip.plate-dark \"Dark preview background\" top=1304","input.sr-only \"Web\" top=986","button.chip \"JPEG\" top=904"]; no visible ring: none; aria-hidden stops: none
+  order: button"01Lockup" > button"02Palette" > button"03Specimen" > button"04Convert" > a"Lockup guide ->" > button"Light preview back" > button"Dark preview backg" > input"Web" > button"JPEG" > button"PNG" > button"SVG" > input"Print" > button"EPS" > button"JPEG" > button"PDF" > input"Color" > input"Black" > input"White" > input"Large" > input"Medium" > input"Small" > button"02Outputs" > button"03Review" > button"Continue->" > a"CLI & MCP docs ->" > a"Apple silicon" > a"Intel" > a"Installer x64" > a"Installer arm64" > a"AppImage x86_64" > a"AppImage arm64" > a"deb amd64" > a"deb arm64" > a"All files and chec" > a"Get in touch ->"
+toolbox/light: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(111, 98, 0)
+  skip link Enter -> focus on main, scrollY=96
+  35 stops; rings=["solid 2px rgb(111, 98, 0)","solid 2px rgb(242, 214, 0)"]; not in view when focused: ["button.svelte-1358mf4 \"01Lockup\" top=909","a.quiet-link.lbl \"Lockup guide ->\" top=1169","button.swatch-chip.plate-light \"Light preview background\" top=1303","button.swatch-chip.plate-dark \"Dark preview background\" top=1250","input.sr-only \"Web\" top=903","a.quiet-link.lbl \"CLI & MCP docs ->\" top=1263"]; no visible ring: none; aria-hidden stops: none
+lockup/dark: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(242, 214, 0)
+  skip link Enter -> focus on main, scrollY=96
+  3 stops; rings=["solid 2px rgb(242, 214, 0)"]; not in view when focused: ["a.quiet-link.lbl \"CLI & MCP setup ->\" top=4014","a.cta-row.lbl \"Next / [02]Palette ->\" top=4090","a. \"All four tools ->\" top=4171"]; no visible ring: none; aria-hidden stops: none
+  order: a"CLI & MCP setup ->" > a"Next / [02]Palette" > a"All four tools ->"
+palette/dark: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(242, 214, 0)
+  skip link Enter -> focus on main, scrollY=96
+  3 stops; rings=["solid 2px rgb(242, 214, 0)"]; not in view when focused: ["a.quiet-link.lbl \"CLI & MCP setup ->\" top=3438","a.cta-row.lbl \"Next / [03]Specimen ->\" top=3494","a. \"All four tools ->\" top=3553"]; no visible ring: none; aria-hidden stops: none
+  order: a"CLI & MCP setup ->" > a"Next / [03]Specime" > a"All four tools ->"
+specimen/dark: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(242, 214, 0)
+  skip link Enter -> focus on main, scrollY=96
+  3 stops; rings=["solid 2px rgb(242, 214, 0)"]; not in view when focused: ["a.quiet-link.lbl \"CLI & MCP setup ->\" top=3127","a.cta-row.lbl \"Next / [04]Convert ->\" top=3189","a. \"All four tools ->\" top=3188"]; no visible ring: none; aria-hidden stops: none
+  order: a"CLI & MCP setup ->" > a"Next / [04]Convert" > a"All four tools ->"
+convert/dark: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(242, 214, 0)
+  skip link Enter -> focus on main, scrollY=96
+  3 stops; rings=["solid 2px rgb(242, 214, 0)"]; not in view when focused: ["a.quiet-link.lbl \"CLI & MCP setup ->\" top=3511","a.cta-row.lbl \"Next / [01]Lockup ->\" top=3574","a. \"All four tools ->\" top=3633"]; no visible ring: none; aria-hidden stops: none
+  order: a"CLI & MCP setup ->" > a"Next / [01]Lockup " > a"All four tools ->"
+agents/dark: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(242, 214, 0)
+  skip link Enter -> focus on main, scrollY=96
+  12 stops; rings=["solid 2px rgb(242, 214, 0)"]; not in view when focused: ["a.quiet-link.lbl \"Lockup options ->\" top=3384","a.quiet-link.lbl \"Palette options ->\" top=3409","a.quiet-link.lbl \"Specimen options ->\" top=3434","a.quiet-link.lbl \"Convert options ->\" top=3452","a. \"All four tools ->\" top=6733"]; no visible ring: none; aria-hidden stops: none
+  order: a"Command line" > a"Advanced" > a"Options" > a"List" > a"Run" > a"Serve" > a"Organize" > a"Lockup options ->" > a"Palette options ->" > a"Specimen options -" > a"Convert options ->" > a"All four tools ->"
+contact/dark: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(242, 214, 0)
+  skip link Enter -> focus on main, scrollY=0
+  7 stops; rings=["solid 2px rgb(111, 98, 0)"]; not in view when focused: none; no visible ring: none; aria-hidden stops: none
+  order: input.body.svelte-fq8g2m > input.body.svelte-fq8g2m > textarea.body.svelte-fq8g2m > button"Send->" > a"Resume (PDF) ->" > a"studio@timothyali." > a"Message me on Link"
+contact/light: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(111, 98, 0)
+  skip link Enter -> focus on main, scrollY=0
+  7 stops; rings=["solid 2px rgb(242, 214, 0)"]; not in view when focused: none; no visible ring: none; aria-hidden stops: none
+404/dark: first Tab = a.skip-link.lbl "Skip to content" visible box={"y":8,"h":32} ring=solid 2px rgb(242, 214, 0)
+  skip link Enter -> focus on main, scrollY=0
+  0 stops; rings=[]; not in view when focused: none; no visible ring: none; aria-hidden stops: none
+  order: 
+focus nav/dark: {"fv":true,"outline":"solid 2px rgb(242, 214, 0) offset 2px","bg":"rgba(0, 0, 0, 0)","color":"rgb(239, 239, 235)"}
+focus hint/dark: {"fv":true,"outline":"solid 2px rgb(242, 214, 0) offset 2px","bg":"rgb(239, 239, 235)","color":"rgb(24, 24, 20)"}
+focus card/dark: {"fv":true,"outline":"solid 2px rgb(242, 214, 0) offset 2px","bg":"rgb(24, 24, 20)","color":"rgb(239, 239, 235)"}
+focus cta-row/dark: {"fv":true,"outline":"solid 2px rgb(242, 214, 0) offset 2px","bg":"rgb(242, 214, 0)","color":"rgb(24, 24, 20)"}
+focus input/dark: {"fv":true,"outline":"solid 2px rgb(111, 98, 0) offset 2px","bg":"rgb(24, 24, 20)","color":"rgb(239, 239, 235)"}
+focus send/dark: {"fv":true,"outline":"solid 2px rgb(111, 98, 0) offset 2px","bg":"rgb(24, 24, 20)","color":"rgb(239, 239, 235)"}
+focus panel-link/dark: {"fv":true,"outline":"solid 2px rgb(111, 98, 0) offset 2px","bg":"rgba(0, 0, 0, 0)","color":"rgb(24, 24, 20)"}
+focus picker/dark: {"fv":true,"outline":"solid 2px rgb(242, 214, 0) offset 2px","bg":"rgba(0, 0, 0, 0)","color":"rgb(239, 239, 235)"}
+focus chip/dark: {"fv":true,"outline":"solid 2px rgb(242, 214, 0) offset 2px","bg":"rgb(242, 214, 0)","color":"rgb(24, 24, 20)"}
+focus switch/dark: {"fv":true,"outline":"solid 2px rgb(242, 214, 0) offset 2px","bg":"rgba(0, 0, 0, 0)","color":"rgb(255, 255, 255)"}
+focus download/dark: {"fv":true,"outline":"solid 2px rgb(242, 214, 0) offset 2px","bg":"rgba(0, 0, 0, 0)","color":"rgb(239, 239, 235)"}
+focus jump/dark: {"fv":true,"outline":"solid 2px rgb(242, 214, 0) offset 2px","bg":"rgba(0, 0, 0, 0)","color":"rgb(239, 239, 235)"}
+focus settings-row/dark: {"fv":true,"outline":"solid 2px rgb(111, 98, 0)","bg":"rgb(24, 24, 20)","color":"rgb(239, 239, 235)"}
+  Space on Motion row -> motion=off
+  Enter on Theme row -> theme=light; menu open=true
+  Escape -> open=false focus=cog
+focus nav/light: {"fv":true,"outline":"solid 2px rgb(111, 98, 0) offset 2px","bg":"rgba(0, 0, 0, 0)","color":"rgb(24, 24, 20)"}
+focus hint/light: {"fv":true,"outline":"solid 2px rgb(111, 98, 0) offset 2px","bg":"rgb(24, 24, 20)","color":"rgb(239, 239, 235)"}
+focus card/light: {"fv":true,"outline":"solid 2px rgb(111, 98, 0) offset 2px","bg":"rgb(239, 239, 235)","color":"rgb(24, 24, 20)"}
+focus cta-row/light: {"fv":true,"outline":"solid 2px rgb(111, 98, 0) offset 2px","bg":"rgb(242, 214, 0)","color":"rgb(24, 24, 20)"}
+focus input/light: {"fv":true,"outline":"solid 2px rgb(242, 214, 0) offset 2px","bg":"rgb(239, 239, 235)","color":"rgb(24, 24, 20)"}
+focus send/light: {"fv":true,"outline":"solid 2px rgb(242, 214, 0) offset 2px","bg":"rgb(239, 239, 235)","color":"rgb(24, 24, 20)"}
+focus panel-link/light: {"fv":true,"outline":"solid 2px rgb(242, 214, 0) offset 2px","bg":"rgba(0, 0, 0, 0)","color":"rgb(239, 239, 235)"}
+focus picker/light: {"fv":true,"outline":"solid 2px rgb(111, 98, 0) offset 2px","bg":"rgba(0, 0, 0, 0)","color":"rgb(24, 24, 20)"}
+focus chip/light: {"fv":true,"outline":"solid 2px rgb(111, 98, 0) offset 2px","bg":"rgb(242, 214, 0)","color":"rgb(24, 24, 20)"}
+focus switch/light: {"fv":true,"outline":"solid 2px rgb(111, 98, 0) offset 2px","bg":"rgba(0, 0, 0, 0)","color":"rgb(0, 0, 0)"}
+focus download/light: {"fv":true,"outline":"solid 2px rgb(111, 98, 0) offset 2px","bg":"rgba(0, 0, 0, 0)","color":"rgb(24, 24, 20)"}
+focus jump/light: {"fv":true,"outline":"solid 2px rgb(111, 98, 0) offset 2px","bg":"rgba(0, 0, 0, 0)","color":"rgb(24, 24, 20)"}
+focus settings-row/light: {"fv":true,"outline":"solid 2px rgb(242, 214, 0)","bg":"rgb(239, 239, 235)","color":"rgb(24, 24, 20)"}
+  Space on Motion row -> motion=off
+  Enter on Theme row -> theme=dark; menu open=true
+  Escape -> open=false focus=cog
+picker Space -> story "Export your palette." focus=02Palette
+picker Enter -> story "Make a type sheet."
+demo switch Space: true -> false (state label "[off]")
+demo chip Enter: pressed true -> false
+Continue Enter -> focus on H4 "Acme Logo Library"; readout=~/Toolbox/Lockup/review
+tree row Enter: expanded true -> false
+Back Space -> focus on "Continue->"
+convert slider ArrowRight: 10 -> 15 label=15%
+work card Enter -> /work/toolbox/
+clip button Space: "Pause video: xrp.cafe Explore Create Trade motion graphic" -> "Play video: xrp.cafe Explore Create Trade motion graphic" paused=true
+options summary at 390: visible=true text="All 18 options" open=false
+  Enter -> open=true; summary still visible=true
+  Space -> open=false

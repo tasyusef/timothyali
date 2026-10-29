@@ -1,0 +1,255 @@
+[
+  {
+    "p": "/",
+    "w": 1440,
+    "onChanged": true,
+    "selection": "",
+    "click": "http://127.0.0.1:4173/work/",
+    "offStatic": true,
+    "start": {
+      "x": 1400,
+      "y": 140
+    },
+    "end": {
+      "x": 403.20000000000005,
+      "y": 620
+    }
+  },
+  {
+    "p": "/work/parc/",
+    "w": 1440,
+    "onChanged": true,
+    "selection": "",
+    "click": "http://127.0.0.1:4173/work/",
+    "offStatic": true,
+    "start": {
+      "x": 1400,
+      "y": 176
+    },
+    "end": {
+      "x": 403.20000000000005,
+      "y": 440
+    }
+  },
+  {
+    "p": "/work/xrpcafe/",
+    "w": 1440,
+    "onChanged": true,
+    "selection": "",
+    "click": "http://127.0.0.1:4173/work/",
+    "offStatic": true,
+    "start": {
+      "x": 1400,
+      "y": 176
+    },
+    "end": {
+      "x": 403.20000000000005,
+      "y": 440
+    }
+  },
+  {
+    "p": "/work/firstledger/",
+    "w": 1440,
+    "onChanged": true,
+    "selection": "",
+    "click": "http://127.0.0.1:4173/work/",
+    "offStatic": true,
+    "start": {
+      "x": 1400,
+      "y": 176
+    },
+    "end": {
+      "x": 403.20000000000005,
+      "y": 440
+    }
+  },
+  {
+    "p": "/work/do-androids-dream/",
+    "w": 1440,
+    "onChanged": true,
+    "selection": "",
+    "click": "http://127.0.0.1:4173/work/",
+    "offStatic": true,
+    "start": {
+      "x": 1400,
+      "y": 176
+    },
+    "end": {
+      "x": 403.20000000000005,
+      "y": 440
+    }
+  },
+  {
+    "p": "/work/jade-aesthetics/",
+    "w": 1440,
+    "onChanged": true,
+    "selection": "",
+    "click": "http://127.0.0.1:4173/work/",
+    "offStatic": true,
+    "start": {
+      "x": 1400,
+      "y": 176
+    },
+    "end": {
+      "x": 403.20000000000005,
+      "y": 440
+    }
+  },
+  {
+    "p": "/work/firststrike/",
+    "w": 1440,
+    "onChanged": true,
+    "selection": "",
+    "click": "http://127.0.0.1:4173/work/",
+    "offStatic": true,
+    "start": {
+      "x": 1400,
+      "y": 176
+    },
+    "end": {
+      "x": 403.20000000000005,
+      "y": 440
+    }
+  },
+  {
+    "p": "/work/toolbox/",
+    "w": 1440,
+    "onChanged": true,
+    "selection": "",
+    "click": "http://127.0.0.1:4173/work/",
+    "offStatic": true,
+    "start": {
+      "x": 1400,
+      "y": 176
+    },
+    "end": {
+      "x": 403.20000000000005,
+      "y": 440
+    }
+  },
+  {
+    "p": "/toolbox/",
+    "w": 1440,
+    "onChanged": true,
+    "selection": "",
+    "click": "http://127.0.0.1:4173/work/",
+    "offStatic": true,
+    "start": {
+      "x": 1400,
+      "y": 176
+    },
+    "end": {
+      "x": 403.20000000000005,
+      "y": 620
+    }
+  },
+  {
+    "p": "/contact/",
+    "w": 1440,
+    "onChanged": true,
+    "selection": "",
+    "click": "http://127.0.0.1:4173/work/",
+    "offStatic": true,
+    "start": {
+      "x": 1400,
+      "y": 176
+    },
+    "end": {
+      "x": 403.20000000000005,
+      "y": 620
+    }
+  },
+  {
+    "p": "/nope/",
+    "w": 1440,
+    "onChanged": true,
+    "selection": "",
+    "click": "http://127.0.0.1:4173/work/",
+    "offStatic": true,
+    "start": {
+      "x": 1400,
+      "y": 176
+    },
+    "end": {
+      "x": 403.20000000000005,
+      "y": 620
+    }
+  },
+  {
+    "p": "/",
+    "w": 1440,
+    "reduced": true,
+    "motion": "off",
+    "static": true
+  },
+  {
+    "p": "/work/parc/",
+    "w": 1440,
+    "reduced": true,
+    "motion": "off",
+    "static": true
+  },
+  {
+    "p": "/work/xrpcafe/",
+    "w": 1440,
+    "reduced": true,
+    "motion": "off",
+    "static": true
+  },
+  {
+    "p": "/work/firstledger/",
+    "w": 1440,
+    "reduced": true,
+    "motion": "off",
+    "static": true
+  },
+  {
+    "p": "/work/do-androids-dream/",
+    "w": 1440,
+    "reduced": true,
+    "motion": "off",
+    "static": true
+  },
+  {
+    "p": "/work/jade-aesthetics/",
+    "w": 1440,
+    "reduced": true,
+    "motion": "off",
+    "static": true
+  },
+  {
+    "p": "/work/firststrike/",
+    "w": 1440,
+    "reduced": true,
+    "motion": "off",
+    "static": true
+  },
+  {
+    "p": "/work/toolbox/",
+    "w": 1440,
+    "reduced": true,
+    "motion": "off",
+    "static": true
+  },
+  {
+    "p": "/toolbox/",
+    "w": 1440,
+    "reduced": true,
+    "motion": "off",
+    "static": true
+  },
+  {
+    "p": "/contact/",
+    "w": 1440,
+    "reduced": true,
+    "motion": "off",
+    "static": true
+  },
+  {
+    "p": "/nope/",
+    "w": 1440,
+    "reduced": true,
+    "motion": "off",
+    "static": true
+  }
+]

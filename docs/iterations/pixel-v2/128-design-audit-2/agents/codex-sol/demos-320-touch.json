@@ -1,0 +1,101 @@
+[
+  {
+    "name": "lockup-review",
+    "sw": 320,
+    "w": 320,
+    "coarse": true,
+    "onphone": "flex",
+    "focus": "<h4 class=\"display-s svelte-1kk5gq7\" tabindex=\"-1\">Acme Logo Library</h4>",
+    "overflow": []
+  },
+  {
+    "name": "lockup-back",
+    "sw": 320,
+    "w": 320,
+    "coarse": true,
+    "onphone": "flex",
+    "focus": "<button type=\"button\" class=\"demo-act lbl\">Continue<span class=\"mono\" aria-hidden=\"true\">-&gt;</span><!----></button>",
+    "overflow": []
+  },
+  {
+    "name": "invalid-hex",
+    "value": "#174c43"
+  },
+  {
+    "name": "palette-remove",
+    "sw": 320,
+    "w": 320,
+    "coarse": true,
+    "onphone": "flex",
+    "focus": "<body data-sveltekit-preload-data=\"hover\"><div style=\"display: contents\"><!--[--><!--[0--><!--[--><!----> <!----> <div class=\"site\" data-motion=\"off\"><a class=\"skip-link lbl\" href=\"#main\">Skip to content</a> <div class=\"nav-chrome collapsed\" style=\"--header-height: 104px;\"><header class=\"site-header",
+    "overflow": []
+  },
+  {
+    "name": "palette-css",
+    "sw": 320,
+    "w": 320,
+    "coarse": true,
+    "onphone": "flex",
+    "focus": "<button type=\"button\" class=\"file-row body\" aria-pressed=\"true\"><span class=\"name\">Audit_Palette.css</span></button>",
+    "overflow": []
+  },
+  {
+    "name": "specimen-parc",
+    "sw": 320,
+    "w": 320,
+    "coarse": true,
+    "onphone": "flex",
+    "focus": "<input class=\"field body\" placeholder=\"Sample line\" aria-label=\"Sample line\" maxlength=\"48\" style=\"\">",
+    "overflow": []
+  },
+  {
+    "name": "specimen-classic",
+    "sw": 320,
+    "w": 320,
+    "coarse": true,
+    "onphone": "flex",
+    "focus": "<button type=\"button\" class=\"chip\" aria-pressed=\"true\">Specimen</button>",
+    "overflow": []
+  },
+  {
+    "name": "convert-all",
+    "sw": 320,
+    "w": 320,
+    "coarse": true,
+    "onphone": "flex",
+    "focus": "<input type=\"range\" min=\"0\" max=\"100\" step=\"5\" aria-label=\"Compression\" style=\"\">",
+    "overflow": []
+  },
+  {
+    "name": "downloads",
+    "downloaded": [
+      "http://127.0.0.1:4173/download/v1.2.4/Toolbox-1.2.4-arm64.dmg?s=Direct+%2F+unknown",
+      "http://127.0.0.1:4173/download/v1.2.4/Toolbox-1.2.4.dmg?s=Direct+%2F+unknown",
+      "http://127.0.0.1:4173/download/v1.2.4/Toolbox-Setup-1.2.4.exe?s=Direct+%2F+unknown",
+      "http://127.0.0.1:4173/download/v1.2.4/Toolbox-Setup-1.2.4-arm64.exe?s=Direct+%2F+unknown",
+      "http://127.0.0.1:4173/download/v1.2.4/toolbox-1.2.4-x86_64.AppImage?s=Direct+%2F+unknown",
+      "http://127.0.0.1:4173/download/v1.2.4/toolbox-1.2.4-arm64.AppImage?s=Direct+%2F+unknown",
+      "http://127.0.0.1:4173/download/v1.2.4/toolbox_1.2.4_amd64.deb?s=Direct+%2F+unknown",
+      "http://127.0.0.1:4173/download/v1.2.4/toolbox_1.2.4_arm64.deb?s=Direct+%2F+unknown"
+    ]
+  },
+  {
+    "name": "send-link-success",
+    "status": "",
+    "clipboard": "http://127.0.0.1:4173/toolbox/#download"
+  },
+  {
+    "name": "send-link-failed",
+    "sw": 350,
+    "w": 350,
+    "coarse": true,
+    "onphone": "flex",
+    "focus": "<button class=\"cta-row lbl send\" type=\"button\"><span>Couldn’t copy. The address is timothyali.com/toolbox</span><span class=\"mono\" aria-hidden=\"true\">-&gt;</span><!----><!----></button>",
+    "overflow": []
+  },
+  {
+    "name": "send-link-failure",
+    "immediate": "Couldn’t copy. The address is timothyali.com/toolbox",
+    "after": ""
+  }
+]

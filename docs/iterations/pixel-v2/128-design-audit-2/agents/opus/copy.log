@@ -1,0 +1,8 @@
+1440 copy buttons: 0 code blocks: 9
+  triple-click first line -> "sudo ln -s \"/Applications/Toolbox.app/Contents/MacOS/Toolbox\" /usr/local/bin/toolbox\n"
+  whole second block -> "toolbox help                              # show tools and usage\ntoolbox convert --help                    # show Convert options\ntoolbox --version                         # show the version\ntoolbox lockup logo.svg --print none --padding 0.1 --out .\ntoolbox palette '#D32F05' '#003A5D' --name Acme --"
+  figures ["figure:macOS shortcut","figure:Commands","figure:Print colors, type, edges, and saved work","figure:List","figure:Run one job","figure:The result","figure:Serve the tools","figure:.mcp.json","figure:Scan, dry run, apply, undo"]
+390 copy buttons: 0 code blocks: 9
+  triple-click first line -> "sudo ln -s \"/Applications/Toolbox.app/Contents/MacOS/Toolbox\" /usr/local/bin/toolbox\n"
+  whole second block -> "toolbox help\n# show tools and usage\ntoolbox convert --help\n# show Convert options\ntoolbox --version\n# show the version\ntoolbox lockup logo.svg --print none --padding 0.1 --out .\ntoolbox palette '#D32F05' '#003A5D' --name Acme --out .\ntoolbox specimen --template classic --family Helvetica --out .\ntoo"
+  figures ["figure:macOS shortcut","figure:Commands","figure:Print colors, type, edges, and saved work","figure:List","figure:Run one job","figure:The result","figure:Serve the tools","figure:.mcp.json","figure:Scan, dry run, apply, undo"]

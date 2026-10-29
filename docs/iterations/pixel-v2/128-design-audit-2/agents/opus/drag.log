@@ -1,0 +1,25 @@
+no-preference / start=(30,106) field 6ba32fc7->34532267->0ac5f3ae->3c427b6b moved=true selection="" dbl=""
+no-preference /work/ no bare field point
+no-preference /work/parc/ start=(30,106) field 2615e310->31a7af05->727aee81->eb6a66fa moved=true selection="" dbl=""
+no-preference /work/xrpcafe/ start=(30,106) field db79ecb9->04579cc5->d33d63a8->8c3e4d89 moved=true selection="" dbl=""
+no-preference /toolbox/ start=(30,106) field fda1d92a->27030fb0->2829264f->99397627 moved=true selection="" dbl=""
+no-preference /toolbox/lockup/ no bare field point
+no-preference /toolbox/agents/ no bare field point
+no-preference /contact/ start=(30,106) field 527362d0->d406b370->24e4f2a9->c684ece9 moved=true selection="" dbl=""
+no-preference /nope/ start=(30,106) field f42542c6->159d2aec->dc5326e7->f42542c6 moved=true selection="" dbl=""
+no-preference link clicks after drag: true
+no-preference drag off a card navigates? false http://127.0.0.1:4173/
+reduce / start=(30,106) field 8817a266->8817a266->d1e3ca12->3ada06f5 moved=false selection="" dbl=""
+reduce /work/ no bare field point
+reduce /work/parc/ start=(30,106) field ac50c694->ac50c694->ac50c694->ac50c694 moved=false selection="" dbl=""
+reduce /work/xrpcafe/ start=(30,106) field ac00a323->ac00a323->ac00a323->ac00a323 moved=false selection="" dbl=""
+reduce /toolbox/ start=(30,106) field ffa73c7d->ffa73c7d->ffa73c7d->ffa73c7d moved=false selection="" dbl=""
+reduce /toolbox/lockup/ no bare field point
+reduce /toolbox/agents/ no bare field point
+reduce /contact/ start=(30,106) field 7209e263->7209e263->7209e263->7209e263 moved=false selection="" dbl=""
+reduce /nope/ start=(30,106) field f42542c6->f42542c6->f42542c6->f42542c6 moved=false selection="" dbl=""
+reduce link clicks after drag: true
+reduce drag off a card navigates? false http://127.0.0.1:4173/
+touch 390 / swipe at (30,314) scrollY 0 -> 235 selection=""
+touch 390 /toolbox/ swipe at (30,314) scrollY 0 -> 235 selection=""
+touch 390 /contact/ swipe at (30,314) scrollY 0 -> 235 selection=""

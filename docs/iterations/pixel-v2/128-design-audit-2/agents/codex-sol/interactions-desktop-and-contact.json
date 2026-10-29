@@ -1,0 +1,1446 @@
+[
+  {
+    "name": "contact",
+    "w": 1440,
+    "empty": {
+      "focus": "name",
+      "errors": [
+        "Enter your name.",
+        "Enter an email address I can reply to.",
+        "Tell me about the role or project."
+      ],
+      "count": 0
+    },
+    "invalid": {
+      "focus": "email",
+      "errors": [
+        "That doesn’t look like an email address. Try something like name@example.com."
+      ],
+      "count": 0
+    },
+    "sending": {
+      "label": "SENDING\n->",
+      "ariaDisabled": "true",
+      "focus": "SENDING\n->"
+    },
+    "failed": {
+      "status": "YOUR MESSAGE DIDN’T SEND. TRY AGAIN, OR EMAIL STUDIO@TIMOTHYALI.COM.",
+      "value": "Intercepted audit message. No real email.",
+      "focus": "SEND\n->"
+    },
+    "sent": {
+      "status": "SENT. I’LL REPLY FROM STUDIO@TIMOTHYALI.COM.",
+      "name": "",
+      "message": "",
+      "count": 2
+    }
+  },
+  {
+    "name": "contact",
+    "w": 390,
+    "empty": {
+      "focus": "name",
+      "errors": [
+        "Enter your name.",
+        "Enter an email address I can reply to.",
+        "Tell me about the role or project."
+      ],
+      "count": 0
+    },
+    "invalid": {
+      "focus": "email",
+      "errors": [
+        "That doesn’t look like an email address. Try something like name@example.com."
+      ],
+      "count": 0
+    },
+    "sending": {
+      "label": "SENDING\n->",
+      "ariaDisabled": "true",
+      "focus": "SENDING\n->"
+    },
+    "failed": {
+      "status": "YOUR MESSAGE DIDN’T SEND. TRY AGAIN, OR EMAIL STUDIO@TIMOTHYALI.COM.",
+      "value": "Intercepted audit message. No real email.",
+      "focus": "SEND\n->"
+    },
+    "sent": {
+      "status": "SENT. I’LL REPLY FROM STUDIO@TIMOTHYALI.COM.",
+      "name": "",
+      "message": "",
+      "count": 2
+    }
+  },
+  {
+    "name": "links",
+    "w": 1440,
+    "clicks": [
+      {
+        "p": "/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#main\" class=\"skip-link lbl\">Skip to content</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stabl"
+      },
+      {
+        "p": "/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "/",
+        "text": "01INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "/work/",
+        "text": "02WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "/contact/",
+        "text": "03CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "/toolbox/",
+        "text": "04TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "#work",
+        "text": "SELECTED WORK",
+        "url": "http://127.0.0.1:4173/#work",
+        "focus": "BODY",
+        "scroll": 928
+      },
+      {
+        "p": "/",
+        "href": "/work/toolbox/",
+        "text": "TOOLBOX\n->\n\nA desktop app I designed and built for getting brand files ready to hand off. It packages logos, exports palettes, makes type sheets, and converts images.",
+        "url": "http://127.0.0.1:4173/work/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "/work/parc/",
+        "text": "PARC\n->\n\nA new identity and website for the NFT club I cofounded in 2021, including a custom pixel typeface, live collection stats, and a rowing game.",
+        "url": "http://127.0.0.1:4173/work/parc/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "/work/jade-aesthetics/",
+        "text": "JADE AESTHETICS\n->\n\nTwo websites for a medical spa. I launched the first in Framer, then rebuilt it in Next.js with a page for each treatment.",
+        "url": "http://127.0.0.1:4173/work/jade-aesthetics/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "/work/firstledger/",
+        "text": "FIRST LEDGER\n->\n\nI designed the logo, type, and brand guidelines for a trading platform on the XRP Ledger.",
+        "url": "http://127.0.0.1:4173/work/firstledger/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "/work/",
+        "text": "ALL WORK\n->",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "/contact/",
+        "text": "GET IN TOUCH\n->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#main\" class=\"skip-link lbl\">Skip to content</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stabl"
+      },
+      {
+        "p": "/work/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/",
+        "text": "01INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/work/",
+        "text": "02WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/contact/",
+        "text": "03CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/toolbox/",
+        "text": "04TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/work/toolbox/",
+        "text": "TOOLBOX\n->\n\nA desktop app I designed and built for getting brand files ready to hand off. It packages logos, exports palettes, makes type sheets, and converts images.",
+        "url": "http://127.0.0.1:4173/work/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/work/parc/",
+        "text": "PARC\n->\n\nA new identity and website for the NFT club I cofounded in 2021, including a custom pixel typeface, live collection stats, and a rowing game.",
+        "url": "http://127.0.0.1:4173/work/parc/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/work/jade-aesthetics/",
+        "text": "JADE AESTHETICS\n->\n\nTwo websites for a medical spa. I launched the first in Framer, then rebuilt it in Next.js with a page for each treatment.",
+        "url": "http://127.0.0.1:4173/work/jade-aesthetics/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/work/firstledger/",
+        "text": "FIRST LEDGER\n->\n\nI designed the logo, type, and brand guidelines for a trading platform on the XRP Ledger.",
+        "url": "http://127.0.0.1:4173/work/firstledger/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/work/xrpcafe/",
+        "text": "XRP.CAFE\n->\n\nAs founding designer of an NFT marketplace on the XRP Ledger, I made its identity, animations, and marketing.",
+        "url": "http://127.0.0.1:4173/work/xrpcafe/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/work/firststrike/",
+        "text": "FIRSTSTRIKE RESEARCH\n->\n\nI designed the wordmark, colors, type, and brand guidelines for a veteran-owned financial research blog.",
+        "url": "http://127.0.0.1:4173/work/firststrike/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/work/do-androids-dream/",
+        "text": "DO ANDROIDS DREAM?\n->\n\nA speculative yellow-and-black title sequence for Philip K. Dick’s “Do Androids Dream of Electric Sheep?”, inspired by Saul Bass.",
+        "url": "http://127.0.0.1:4173/work/do-androids-dream/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/contact/",
+        "text": "TELL ME WHAT YOU’RE BUILDING\nGET IN TOUCH ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/parc/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#main\" class=\"skip-link lbl\">Skip to content</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stabl"
+      },
+      {
+        "p": "/work/parc/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/parc/",
+        "href": "/",
+        "text": "01INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/parc/",
+        "href": "/work/",
+        "text": "02WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/parc/",
+        "href": "/contact/",
+        "text": "03CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/parc/",
+        "href": "/toolbox/",
+        "text": "04TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/parc/",
+        "href": "https://parcxrpl.com",
+        "text": "parcxrpl.com\n->",
+        "url": "https://parcxrpl.com/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/parc/",
+        "href": "/work/jade-aesthetics/",
+        "text": "NEXT / [03]\nJADE AESTHETICS ->",
+        "url": "http://127.0.0.1:4173/work/jade-aesthetics/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/parc/",
+        "href": "/contact/",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#main\" class=\"skip-link lbl\">Skip to content</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stabl"
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "/",
+        "text": "01INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "/work/",
+        "text": "02WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "/contact/",
+        "text": "03CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "/toolbox/",
+        "text": "04TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "https://xrp.cafe/",
+        "text": "xrp.cafe\n->",
+        "url": "https://xrp.cafe/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "/work/firststrike/",
+        "text": "NEXT / [06]\nFIRSTSTRIKE RESEARCH ->",
+        "url": "http://127.0.0.1:4173/work/firststrike/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "/contact/",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#main\" class=\"skip-link lbl\">Skip to content</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stabl"
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "/",
+        "text": "01INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "/work/",
+        "text": "02WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "/contact/",
+        "text": "03CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "/toolbox/",
+        "text": "04TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "https://firstledger.net/",
+        "text": "firstledger.net\n->",
+        "url": "https://firstledger.net/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "/work/xrpcafe/",
+        "text": "NEXT / [05]\nXRP.CAFE ->",
+        "url": "http://127.0.0.1:4173/work/xrpcafe/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "/contact/",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#main\" class=\"skip-link lbl\">Skip to content</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stabl"
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "/",
+        "text": "01INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "/work/",
+        "text": "02WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "/contact/",
+        "text": "03CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "/toolbox/",
+        "text": "04TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "https://www.youtube.com/watch?v=0Q-X3-64Tak",
+        "text": "Watch on YouTube\n->",
+        "url": "https://www.youtube.com/watch?v=0Q-X3-64Tak",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "https://www.youtube.com/watch?v=0Q-X3-64Tak",
+        "text": "Watch it with sound on YouTube\n->",
+        "url": "https://www.youtube.com/watch?v=0Q-X3-64Tak",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "/work/toolbox/",
+        "text": "NEXT / [01]\nTOOLBOX ->",
+        "url": "http://127.0.0.1:4173/work/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "/contact/",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#main\" class=\"skip-link lbl\">Skip to content</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stabl"
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "/",
+        "text": "01INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "/work/",
+        "text": "02WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "/contact/",
+        "text": "03CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "/toolbox/",
+        "text": "04TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "https://www.jadeaesthetics.co/",
+        "text": "jadeaesthetics.co\n->",
+        "url": "https://www.jadeaesthetics.co/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "/work/firstledger/",
+        "text": "NEXT / [04]\nFIRST LEDGER ->",
+        "url": "http://127.0.0.1:4173/work/firstledger/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "/contact/",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firststrike/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#main\" class=\"skip-link lbl\">Skip to content</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stabl"
+      },
+      {
+        "p": "/work/firststrike/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firststrike/",
+        "href": "/",
+        "text": "01INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firststrike/",
+        "href": "/work/",
+        "text": "02WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firststrike/",
+        "href": "/contact/",
+        "text": "03CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firststrike/",
+        "href": "/toolbox/",
+        "text": "04TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firststrike/",
+        "href": "/work/do-androids-dream/",
+        "text": "NEXT / [07]\nDO ANDROIDS DREAM? ->",
+        "url": "http://127.0.0.1:4173/work/do-androids-dream/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firststrike/",
+        "href": "/contact/",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#main\" class=\"skip-link lbl\">Skip to content</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stabl"
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "/",
+        "text": "01INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "/work/",
+        "text": "02WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "/contact/",
+        "text": "03CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "/toolbox/",
+        "text": "04TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "/toolbox/",
+        "text": "Downloads and guides\n->",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "/work/parc/",
+        "text": "NEXT / [02]\nPARC ->",
+        "url": "http://127.0.0.1:4173/work/parc/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "/contact/",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#main\" class=\"skip-link lbl\">Skip to content</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stabl"
+      },
+      {
+        "p": "/toolbox/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "/",
+        "text": "01INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "/work/",
+        "text": "02WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "/contact/",
+        "text": "03CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "/toolbox/",
+        "text": "04TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "#tools",
+        "text": "EXPLORE THE TOOLS\n->",
+        "url": "http://127.0.0.1:4173/toolbox/#tools",
+        "focus": "BODY",
+        "scroll": 632
+      },
+      {
+        "p": "/toolbox/",
+        "href": "/toolbox/lockup/",
+        "text": "LOCKUP GUIDE\n->",
+        "url": "http://127.0.0.1:4173/toolbox/lockup/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "/toolbox/agents/",
+        "text": "CLI & MCP DOCS\n->",
+        "url": "http://127.0.0.1:4173/toolbox/agents/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "https://github.com/tasyusef/toolbox/releases",
+        "text": "ALL FILES AND CHECKSUMS\n->",
+        "url": "https://github.com/tasyusef/toolbox/releases",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "/contact/",
+        "text": "GET IN TOUCH ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#main\" class=\"skip-link lbl\">Skip to content</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stabl"
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/",
+        "text": "01INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/work/",
+        "text": "02WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/contact/",
+        "text": "03CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/toolbox/",
+        "text": "04TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/toolbox/#download",
+        "text": "Download for macOS, Windows, or Linux\n->",
+        "url": "http://127.0.0.1:4173/toolbox/#download",
+        "focus": "BODY",
+        "scroll": 1792
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/toolbox/agents/",
+        "text": "CLI & MCP SETUP\n->",
+        "url": "http://127.0.0.1:4173/toolbox/agents/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/toolbox/palette/",
+        "text": "NEXT / [02]\nPALETTE ->",
+        "url": "http://127.0.0.1:4173/toolbox/palette/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/toolbox/",
+        "text": "ALL FOUR TOOLS ->",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#main\" class=\"skip-link lbl\">Skip to content</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stabl"
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/",
+        "text": "01INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/work/",
+        "text": "02WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/contact/",
+        "text": "03CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/toolbox/",
+        "text": "04TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/toolbox/#download",
+        "text": "Download for macOS, Windows, or Linux\n->",
+        "url": "http://127.0.0.1:4173/toolbox/#download",
+        "focus": "BODY",
+        "scroll": 1792
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/toolbox/agents/",
+        "text": "CLI & MCP SETUP\n->",
+        "url": "http://127.0.0.1:4173/toolbox/agents/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/toolbox/specimen/",
+        "text": "NEXT / [03]\nSPECIMEN ->",
+        "url": "http://127.0.0.1:4173/toolbox/specimen/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/toolbox/",
+        "text": "ALL FOUR TOOLS ->",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#main\" class=\"skip-link lbl\">Skip to content</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stabl"
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/",
+        "text": "01INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/work/",
+        "text": "02WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/contact/",
+        "text": "03CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/toolbox/",
+        "text": "04TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/toolbox/#download",
+        "text": "Download for macOS, Windows, or Linux\n->",
+        "url": "http://127.0.0.1:4173/toolbox/#download",
+        "focus": "BODY",
+        "scroll": 1792
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/toolbox/agents/",
+        "text": "CLI & MCP SETUP\n->",
+        "url": "http://127.0.0.1:4173/toolbox/agents/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/toolbox/convert/",
+        "text": "NEXT / [04]\nCONVERT ->",
+        "url": "http://127.0.0.1:4173/toolbox/convert/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/toolbox/",
+        "text": "ALL FOUR TOOLS ->",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#main\" class=\"skip-link lbl\">Skip to content</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stabl"
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/",
+        "text": "01INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/work/",
+        "text": "02WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/contact/",
+        "text": "03CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/toolbox/",
+        "text": "04TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/toolbox/#download",
+        "text": "Download for macOS, Windows, or Linux\n->",
+        "url": "http://127.0.0.1:4173/toolbox/#download",
+        "focus": "BODY",
+        "scroll": 1792
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/toolbox/agents/",
+        "text": "CLI & MCP SETUP\n->",
+        "url": "http://127.0.0.1:4173/toolbox/agents/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/toolbox/lockup/",
+        "text": "NEXT / [01]\nLOCKUP ->",
+        "url": "http://127.0.0.1:4173/toolbox/lockup/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/toolbox/",
+        "text": "ALL FOUR TOOLS ->",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#main\" class=\"skip-link lbl\">Skip to content</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stabl"
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/",
+        "text": "01INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/work/",
+        "text": "02WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/contact/",
+        "text": "03CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/toolbox/",
+        "text": "04TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#setup",
+        "text": "SET UP",
+        "url": "http://127.0.0.1:4173/toolbox/agents/#setup",
+        "focus": "BODY",
+        "scroll": 744
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#command-line",
+        "text": "COMMAND LINE",
+        "url": "http://127.0.0.1:4173/toolbox/agents/#command-line",
+        "focus": "BODY",
+        "scroll": 1128
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#advanced",
+        "text": "ADVANCED",
+        "url": "http://127.0.0.1:4173/toolbox/agents/#advanced",
+        "focus": "BODY",
+        "scroll": 2104
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#options",
+        "text": "OPTIONS",
+        "url": "http://127.0.0.1:4173/toolbox/agents/#options",
+        "focus": "BODY",
+        "scroll": 3096
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#list",
+        "text": "LIST",
+        "url": "http://127.0.0.1:4173/toolbox/agents/#list",
+        "focus": "BODY",
+        "scroll": 3488
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#run",
+        "text": "RUN",
+        "url": "http://127.0.0.1:4173/toolbox/agents/#run",
+        "focus": "BODY",
+        "scroll": 3840
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#serve",
+        "text": "SERVE",
+        "url": "http://127.0.0.1:4173/toolbox/agents/#serve",
+        "focus": "BODY",
+        "scroll": 4664
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#organize",
+        "text": "ORGANIZE",
+        "url": "http://127.0.0.1:4173/toolbox/agents/#organize",
+        "focus": "BODY",
+        "scroll": 5440
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/toolbox/lockup/#cli",
+        "text": "LOCKUP OPTIONS\n->",
+        "url": "http://127.0.0.1:4173/toolbox/lockup/#cli",
+        "focus": "BODY",
+        "scroll": 1712
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/toolbox/palette/#cli",
+        "text": "PALETTE OPTIONS\n->",
+        "url": "http://127.0.0.1:4173/toolbox/palette/#cli",
+        "focus": "BODY",
+        "scroll": 1648
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/toolbox/specimen/#cli",
+        "text": "SPECIMEN OPTIONS\n->",
+        "url": "http://127.0.0.1:4173/toolbox/specimen/#cli",
+        "focus": "BODY",
+        "scroll": 1600
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/toolbox/convert/#cli",
+        "text": "CONVERT OPTIONS\n->",
+        "url": "http://127.0.0.1:4173/toolbox/convert/#cli",
+        "focus": "BODY",
+        "scroll": 1680
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/toolbox/",
+        "text": "ALL FOUR TOOLS ->",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/contact/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#main\" class=\"skip-link lbl\">Skip to content</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stabl"
+      },
+      {
+        "p": "/contact/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/contact/",
+        "href": "/",
+        "text": "01INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/contact/",
+        "href": "/work/",
+        "text": "02WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/contact/",
+        "href": "/contact/",
+        "text": "03CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/contact/",
+        "href": "/toolbox/",
+        "text": "04TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/contact/",
+        "href": "/work/",
+        "text": "SEE MY WORK ->",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/contact/",
+        "href": "https://www.linkedin.com/in/timothyali",
+        "text": "MESSAGE ME ON LINKEDIN\n->",
+        "url": "https://www.linkedin.com/in/timothyali",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/nope/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "error": "locator.click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a').visible().first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"#main\" class=\"skip-link lbl\">Skip to content</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stabl"
+      },
+      {
+        "p": "/nope/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/nope/",
+        "href": "/",
+        "text": "01INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/nope/",
+        "href": "/work/",
+        "text": "02WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/nope/",
+        "href": "/contact/",
+        "text": "03CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/nope/",
+        "href": "/toolbox/",
+        "text": "04TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/nope/",
+        "href": "/",
+        "text": "BACK TO HOME\n->",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      }
+    ]
+  }
+]

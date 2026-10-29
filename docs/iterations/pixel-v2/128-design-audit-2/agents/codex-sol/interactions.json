@@ -1,0 +1,1408 @@
+[
+  {
+    "name": "links",
+    "w": 390,
+    "clicks": [
+      {
+        "p": "/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "MAIN",
+        "scroll": 104
+      },
+      {
+        "p": "/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 15
+      },
+      {
+        "p": "/",
+        "href": "/",
+        "text": "INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "/work/",
+        "text": "WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "/contact/",
+        "text": "CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "/toolbox/",
+        "text": "TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "#work",
+        "text": "SELECTED WORK",
+        "url": "http://127.0.0.1:4173/#work",
+        "focus": "BODY",
+        "scroll": 180
+      },
+      {
+        "p": "/",
+        "href": "/work/toolbox/",
+        "text": "TOOLBOX\n\nA desktop app I designed and built for getting brand files ready to hand off. It packages logos, exports palettes, makes type sheets, and converts images.",
+        "url": "http://127.0.0.1:4173/work/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "/work/parc/",
+        "text": "PARC\n\nA new identity and website for the NFT club I cofounded in 2021, including a custom pixel typeface, live collection stats, and a rowing game.",
+        "url": "http://127.0.0.1:4173/work/parc/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "/work/jade-aesthetics/",
+        "text": "JADE AESTHETICS\n\nTwo websites for a medical spa. I launched the first in Framer, then rebuilt it in Next.js with a page for each treatment.",
+        "url": "http://127.0.0.1:4173/work/jade-aesthetics/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "/work/firstledger/",
+        "text": "FIRST LEDGER\n\nI designed the logo, type, and brand guidelines for a trading platform on the XRP Ledger.",
+        "url": "http://127.0.0.1:4173/work/firstledger/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "/work/",
+        "text": "ALL WORK\n->",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/",
+        "href": "/contact/",
+        "text": "GET IN TOUCH\n->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "MAIN",
+        "scroll": 104
+      },
+      {
+        "p": "/work/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/",
+        "text": "INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/work/",
+        "text": "WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/contact/",
+        "text": "CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/toolbox/",
+        "text": "TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/work/toolbox/",
+        "text": "TOOLBOX\n\nA desktop app I designed and built for getting brand files ready to hand off. It packages logos, exports palettes, makes type sheets, and converts images.",
+        "url": "http://127.0.0.1:4173/work/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/work/parc/",
+        "text": "PARC\n\nA new identity and website for the NFT club I cofounded in 2021, including a custom pixel typeface, live collection stats, and a rowing game.",
+        "url": "http://127.0.0.1:4173/work/parc/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/work/jade-aesthetics/",
+        "text": "JADE AESTHETICS\n\nTwo websites for a medical spa. I launched the first in Framer, then rebuilt it in Next.js with a page for each treatment.",
+        "url": "http://127.0.0.1:4173/work/jade-aesthetics/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/work/firstledger/",
+        "text": "FIRST LEDGER\n\nI designed the logo, type, and brand guidelines for a trading platform on the XRP Ledger.",
+        "url": "http://127.0.0.1:4173/work/firstledger/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/work/xrpcafe/",
+        "text": "XRP.CAFE\n\nAs founding designer of an NFT marketplace on the XRP Ledger, I made its identity, animations, and marketing.",
+        "url": "http://127.0.0.1:4173/work/xrpcafe/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/work/firststrike/",
+        "text": "FIRSTSTRIKE RESEARCH\n\nI designed the wordmark, colors, type, and brand guidelines for a veteran-owned financial research blog.",
+        "url": "http://127.0.0.1:4173/work/firststrike/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/work/do-androids-dream/",
+        "text": "DO ANDROIDS DREAM?\n\nA speculative yellow-and-black title sequence for Philip K. Dick’s “Do Androids Dream of Electric Sheep?”, inspired by Saul Bass.",
+        "url": "http://127.0.0.1:4173/work/do-androids-dream/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/",
+        "href": "/contact/",
+        "text": "TELL ME WHAT YOU’RE BUILDING\nGET IN TOUCH ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/parc/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "url": "http://127.0.0.1:4173/work/parc/",
+        "focus": "MAIN",
+        "scroll": 104
+      },
+      {
+        "p": "/work/parc/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/parc/",
+        "href": "/",
+        "text": "INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/parc/",
+        "href": "/work/",
+        "text": "WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/parc/",
+        "href": "/contact/",
+        "text": "CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/parc/",
+        "href": "/toolbox/",
+        "text": "TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/parc/",
+        "href": "https://parcxrpl.com",
+        "text": "parcxrpl.com\n->",
+        "url": "https://parcxrpl.com/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/parc/",
+        "href": "/work/jade-aesthetics/",
+        "text": "NEXT / [03]\nJADE AESTHETICS ->",
+        "url": "http://127.0.0.1:4173/work/jade-aesthetics/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/parc/",
+        "href": "/contact/",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "url": "http://127.0.0.1:4173/work/xrpcafe/",
+        "focus": "MAIN",
+        "scroll": 104
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "/",
+        "text": "INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "/work/",
+        "text": "WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "/contact/",
+        "text": "CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "/toolbox/",
+        "text": "TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "https://xrp.cafe/",
+        "text": "xrp.cafe\n->",
+        "url": "https://xrp.cafe/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "/work/firststrike/",
+        "text": "NEXT / [06]\nFIRSTSTRIKE RESEARCH ->",
+        "url": "http://127.0.0.1:4173/work/firststrike/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/xrpcafe/",
+        "href": "/contact/",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "url": "http://127.0.0.1:4173/work/firstledger/",
+        "focus": "MAIN",
+        "scroll": 104
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "/",
+        "text": "INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "/work/",
+        "text": "WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "/contact/",
+        "text": "CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "/toolbox/",
+        "text": "TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "https://firstledger.net/",
+        "text": "firstledger.net\n->",
+        "url": "https://firstledger.net/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "/work/xrpcafe/",
+        "text": "NEXT / [05]\nXRP.CAFE ->",
+        "url": "http://127.0.0.1:4173/work/xrpcafe/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firstledger/",
+        "href": "/contact/",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "url": "http://127.0.0.1:4173/work/do-androids-dream/",
+        "focus": "MAIN",
+        "scroll": 104
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "/",
+        "text": "INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "/work/",
+        "text": "WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "/contact/",
+        "text": "CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "/toolbox/",
+        "text": "TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "https://www.youtube.com/watch?v=0Q-X3-64Tak",
+        "text": "Watch on YouTube ->",
+        "url": "https://www.youtube.com/watch?v=0Q-X3-64Tak",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "https://www.youtube.com/watch?v=0Q-X3-64Tak",
+        "text": "Watch it with sound on YouTube\n->",
+        "url": "https://www.youtube.com/watch?v=0Q-X3-64Tak",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "/work/toolbox/",
+        "text": "NEXT / [01]\nTOOLBOX ->",
+        "url": "http://127.0.0.1:4173/work/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/do-androids-dream/",
+        "href": "/contact/",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "url": "http://127.0.0.1:4173/work/jade-aesthetics/",
+        "focus": "MAIN",
+        "scroll": 104
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "/",
+        "text": "INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "/work/",
+        "text": "WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "/contact/",
+        "text": "CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "/toolbox/",
+        "text": "TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "https://www.jadeaesthetics.co/",
+        "text": "jadeaesthetics.co\n->",
+        "url": "https://www.jadeaesthetics.co/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "/work/firstledger/",
+        "text": "NEXT / [04]\nFIRST LEDGER ->",
+        "url": "http://127.0.0.1:4173/work/firstledger/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/jade-aesthetics/",
+        "href": "/contact/",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firststrike/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "url": "http://127.0.0.1:4173/work/firststrike/",
+        "focus": "MAIN",
+        "scroll": 104
+      },
+      {
+        "p": "/work/firststrike/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firststrike/",
+        "href": "/",
+        "text": "INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firststrike/",
+        "href": "/work/",
+        "text": "WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firststrike/",
+        "href": "/contact/",
+        "text": "CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firststrike/",
+        "href": "/toolbox/",
+        "text": "TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firststrike/",
+        "href": "/work/do-androids-dream/",
+        "text": "NEXT / [07]\nDO ANDROIDS DREAM? ->",
+        "url": "http://127.0.0.1:4173/work/do-androids-dream/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/firststrike/",
+        "href": "/contact/",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "url": "http://127.0.0.1:4173/work/toolbox/",
+        "focus": "MAIN",
+        "scroll": 104
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "/",
+        "text": "INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "/work/",
+        "text": "WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "/contact/",
+        "text": "CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "/toolbox/",
+        "text": "TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "/toolbox/",
+        "text": "Downloads and guides\n->",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "/work/parc/",
+        "text": "NEXT / [02]\nPARC ->",
+        "url": "http://127.0.0.1:4173/work/parc/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/work/toolbox/",
+        "href": "/contact/",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "MAIN",
+        "scroll": 104
+      },
+      {
+        "p": "/toolbox/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "/",
+        "text": "INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "/work/",
+        "text": "WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "/contact/",
+        "text": "CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "/toolbox/",
+        "text": "TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "#tools",
+        "text": "EXPLORE THE TOOLS\n->",
+        "url": "http://127.0.0.1:4173/toolbox/#tools",
+        "focus": "BODY",
+        "scroll": 221
+      },
+      {
+        "p": "/toolbox/",
+        "href": "/toolbox/lockup/",
+        "text": "LOCKUP GUIDE\n->",
+        "url": "http://127.0.0.1:4173/toolbox/lockup/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "/toolbox/agents/",
+        "text": "CLI & MCP DOCS\n->",
+        "url": "http://127.0.0.1:4173/toolbox/agents/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "https://github.com/tasyusef/toolbox/releases",
+        "text": "ALL FILES AND CHECKSUMS\n->",
+        "url": "https://github.com/tasyusef/toolbox/releases",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/",
+        "href": "/contact/",
+        "text": "GET IN TOUCH ->",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "url": "http://127.0.0.1:4173/toolbox/lockup/",
+        "focus": "MAIN",
+        "scroll": 104
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/",
+        "text": "INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/work/",
+        "text": "WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/contact/",
+        "text": "CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/toolbox/",
+        "text": "TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/toolbox/#download",
+        "text": "Download for macOS, Windows, or Linux\n->",
+        "url": "http://127.0.0.1:4173/toolbox/#download",
+        "focus": "BODY",
+        "scroll": 2744
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/toolbox/agents/",
+        "text": "CLI & MCP SETUP\n->",
+        "url": "http://127.0.0.1:4173/toolbox/agents/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/toolbox/palette/",
+        "text": "NEXT / [02]\nPALETTE ->",
+        "url": "http://127.0.0.1:4173/toolbox/palette/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/lockup/",
+        "href": "/toolbox/",
+        "text": "ALL FOUR TOOLS ->",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "url": "http://127.0.0.1:4173/toolbox/palette/",
+        "focus": "MAIN",
+        "scroll": 104
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/",
+        "text": "INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/work/",
+        "text": "WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/contact/",
+        "text": "CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/toolbox/",
+        "text": "TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/toolbox/#download",
+        "text": "Download for macOS, Windows, or Linux\n->",
+        "url": "http://127.0.0.1:4173/toolbox/#download",
+        "focus": "BODY",
+        "scroll": 2744
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/toolbox/agents/",
+        "text": "CLI & MCP SETUP\n->",
+        "url": "http://127.0.0.1:4173/toolbox/agents/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/toolbox/specimen/",
+        "text": "NEXT / [03]\nSPECIMEN ->",
+        "url": "http://127.0.0.1:4173/toolbox/specimen/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/palette/",
+        "href": "/toolbox/",
+        "text": "ALL FOUR TOOLS ->",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "url": "http://127.0.0.1:4173/toolbox/specimen/",
+        "focus": "MAIN",
+        "scroll": 104
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/",
+        "text": "INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/work/",
+        "text": "WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/contact/",
+        "text": "CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/toolbox/",
+        "text": "TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/toolbox/#download",
+        "text": "Download for macOS, Windows, or Linux\n->",
+        "url": "http://127.0.0.1:4173/toolbox/#download",
+        "focus": "BODY",
+        "scroll": 2744
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/toolbox/agents/",
+        "text": "CLI & MCP SETUP\n->",
+        "url": "http://127.0.0.1:4173/toolbox/agents/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/toolbox/convert/",
+        "text": "NEXT / [04]\nCONVERT ->",
+        "url": "http://127.0.0.1:4173/toolbox/convert/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/specimen/",
+        "href": "/toolbox/",
+        "text": "ALL FOUR TOOLS ->",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "url": "http://127.0.0.1:4173/toolbox/convert/",
+        "focus": "MAIN",
+        "scroll": 104
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/",
+        "text": "INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/work/",
+        "text": "WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/contact/",
+        "text": "CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/toolbox/",
+        "text": "TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/toolbox/#download",
+        "text": "Download for macOS, Windows, or Linux\n->",
+        "url": "http://127.0.0.1:4173/toolbox/#download",
+        "focus": "BODY",
+        "scroll": 2744
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/toolbox/agents/",
+        "text": "CLI & MCP SETUP\n->",
+        "url": "http://127.0.0.1:4173/toolbox/agents/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/toolbox/lockup/",
+        "text": "NEXT / [01]\nLOCKUP ->",
+        "url": "http://127.0.0.1:4173/toolbox/lockup/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/convert/",
+        "href": "/toolbox/",
+        "text": "ALL FOUR TOOLS ->",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "url": "http://127.0.0.1:4173/toolbox/agents/",
+        "focus": "MAIN",
+        "scroll": 104
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/",
+        "text": "INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/work/",
+        "text": "WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/contact/",
+        "text": "CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/toolbox/",
+        "text": "TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#setup",
+        "text": "SET UP",
+        "url": "http://127.0.0.1:4173/toolbox/agents/#setup",
+        "focus": "BODY",
+        "scroll": 186
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#command-line",
+        "text": "COMMAND LINE",
+        "url": "http://127.0.0.1:4173/toolbox/agents/#command-line",
+        "focus": "BODY",
+        "scroll": 221
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#advanced",
+        "text": "ADVANCED",
+        "url": "http://127.0.0.1:4173/toolbox/agents/#advanced",
+        "focus": "BODY",
+        "scroll": 108
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#options",
+        "text": "OPTIONS",
+        "url": "http://127.0.0.1:4173/toolbox/agents/#options",
+        "focus": "BODY",
+        "scroll": 99
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#list",
+        "text": "LIST",
+        "url": "http://127.0.0.1:4173/toolbox/agents/#list",
+        "focus": "BODY",
+        "scroll": 98
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#run",
+        "text": "RUN",
+        "url": "http://127.0.0.1:4173/toolbox/agents/#run",
+        "focus": "BODY",
+        "scroll": 96
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#serve",
+        "text": "SERVE",
+        "url": "http://127.0.0.1:4173/toolbox/agents/#serve",
+        "focus": "BODY",
+        "scroll": 94
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "#organize",
+        "text": "ORGANIZE",
+        "url": "http://127.0.0.1:4173/toolbox/agents/#organize",
+        "focus": "BODY",
+        "scroll": 131
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/toolbox/lockup/#cli",
+        "text": "LOCKUP OPTIONS\n->",
+        "url": "http://127.0.0.1:4173/toolbox/lockup/#cli",
+        "focus": "BODY",
+        "scroll": 1780
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/toolbox/palette/#cli",
+        "text": "PALETTE OPTIONS\n->",
+        "url": "http://127.0.0.1:4173/toolbox/palette/#cli",
+        "focus": "BODY",
+        "scroll": 1724
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/toolbox/specimen/#cli",
+        "text": "SPECIMEN OPTIONS\n->",
+        "url": "http://127.0.0.1:4173/toolbox/specimen/#cli",
+        "focus": "BODY",
+        "scroll": 1260
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/toolbox/convert/#cli",
+        "text": "CONVERT OPTIONS\n->",
+        "url": "http://127.0.0.1:4173/toolbox/convert/#cli",
+        "focus": "BODY",
+        "scroll": 1212
+      },
+      {
+        "p": "/toolbox/agents/",
+        "href": "/toolbox/",
+        "text": "ALL FOUR TOOLS ->",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/contact/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "MAIN",
+        "scroll": 104
+      },
+      {
+        "p": "/contact/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/contact/",
+        "href": "/",
+        "text": "INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/contact/",
+        "href": "/work/",
+        "text": "WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/contact/",
+        "href": "/contact/",
+        "text": "CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/contact/",
+        "href": "/toolbox/",
+        "text": "TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/contact/",
+        "href": "/work/",
+        "text": "See my work ->",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/contact/",
+        "href": "https://www.linkedin.com/in/timothyali",
+        "text": "MESSAGE ME ON LINKEDIN\n->",
+        "url": "https://www.linkedin.com/in/timothyali",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/nope/",
+        "href": "#main",
+        "text": "SKIP TO CONTENT",
+        "url": "http://127.0.0.1:4173/nope/",
+        "focus": "MAIN",
+        "scroll": 0
+      },
+      {
+        "p": "/nope/",
+        "href": "/",
+        "text": "timothy ali",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/nope/",
+        "href": "/",
+        "text": "INDEX",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/nope/",
+        "href": "/work/",
+        "text": "WORK",
+        "url": "http://127.0.0.1:4173/work/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/nope/",
+        "href": "/contact/",
+        "text": "CONTACT",
+        "url": "http://127.0.0.1:4173/contact/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/nope/",
+        "href": "/toolbox/",
+        "text": "TOOLBOX",
+        "url": "http://127.0.0.1:4173/toolbox/",
+        "focus": "BODY",
+        "scroll": 0
+      },
+      {
+        "p": "/nope/",
+        "href": "/",
+        "text": "BACK TO HOME\n->",
+        "url": "http://127.0.0.1:4173/",
+        "focus": "BODY",
+        "scroll": 0
+      }
+    ]
+  }
+]

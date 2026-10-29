@@ -2782,3 +2782,21 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Assistant's choices inside it:** all the numbers (gap, trench width and spring, charge time, rest before charging, drain, firing threshold). Also: the draw and pan trials and the dev switcher are left out of the site, kept as `docs/iterations/pixel-v2/127-drag-lab/trial.patch`.
 - **Toolbox app:** ported to the Rust texture crate (`crates/ui-texture`, field.rs and ascii.rs) as app commit d18ef89, committed locally and not pushed or released. The parity vectors pass unchanged, and `tests/drag.rs` covers the drag. A drag can't start on controls or `.selectable` data.
 - **Status:** pushed as 8536a1e on 2026-10-28 and live.
+
+## 0231: the second design audit's findings, fixed (2026-10-28)
+
+- **Timothy's direction:** run the three-reviewer audit again (Opus, Fable and Codex 6.1 Sol), each in its own browser, clicking through every page with the `better-interface` review. From the merged list he picked "1": fix findings 1 to 10, plus A (more leading on the Toolbox reading text) and B (copy buttons on the CLI & MCP code blocks).
+- **Change:** PX-128 (`docs/iterations/pixel-v2/128-design-audit-2/`).
+  - **Focus under the chrome:** `:root` has `scroll-padding-top` of the chrome plus a unit, so Shift+Tab and anchor links never leave a control under the sticky header.
+  - **High Contrast:** one `forced-colors` block. Fields and buttons are outlined in the system ink; the current page, the chosen tool and pressed chips take the system highlight. Nothing changes in normal rendering, so 0047 stands.
+  - **Pressed card:** the body keeps its ink in dark (it went ink on ink).
+  - **Tab order:** Contact's "See my work" comes after the form in the markup, placed by grid areas on a desktop. A study renders its details twice, beside the lead on a desktop and after the hero on a phone, one shown at a time.
+  - **Clip button:** focused, it is a paper block with the ring inside; the pause stays visible while a clip plays.
+  - **Toolbox send link:** a failure keeps the address on screen, wrapped, until the next try. Only "Link copied" clears itself.
+  - **Contact form:** each note sits outside its `<label>`, so a reader hears "Email" and then the note once. The email note is "Enter an email address like name@example.com."
+  - **Smaller:** the contact links wrap at 320; Palette's Remove moves focus to the next colour or Add color; Convert drops "On both platforms"; the Toolbox section head stacks at 900; download links are named "Download Toolbox for macOS, Intel" and so on for readers; a disabled demo step is at .5.
+  - **A:** `.body.long` at 27/40 for the tool pages' paragraphs, the CLI & MCP side text and rules, and the options table.
+  - **B:** `CopyButton.svelte` on every `Code` block and the `toolbox --mcp` plate. "Copy" reads "Copied" for 2 seconds in the accent, said once by a polite status. It copies the commands without their `# comments`, and is hidden without JavaScript.
+- **Home's hero actions:** they were a `row-reverse`, so Tab went right to left on a desktop. On his "2" the résumé is now first in the markup and on screen at every width ("Resume (PDF)", then "Selected work"), so on a phone the résumé sits above the yellow block.
+- **Assistant's choices inside it:** the clip ring inset 8px; rendering the study details twice rather than a CSS reorder; the copy button floating in the first line's corner; "Couldn’t copy the link. Open timothyali.com/toolbox on your computer."; the shorter email note's wording.
+- **Status:** applied and verified (`fixes/verify.mjs`, 32 checks pass); committed and pushed on his "2" on 2026-10-28.

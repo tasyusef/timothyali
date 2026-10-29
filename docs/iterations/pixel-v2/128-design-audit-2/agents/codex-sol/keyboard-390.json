@@ -1,0 +1,5044 @@
+[
+  {
+    "p": "/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 13,
+          "width": 165,
+          "height": 43,
+          "top": 13,
+          "right": 181,
+          "bottom": 56,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 8,
+          "y": 64,
+          "width": 86,
+          "height": 32,
+          "top": 64,
+          "right": 94,
+          "bottom": 96,
+          "left": 8
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 94,
+          "y": 64,
+          "width": 70,
+          "height": 32,
+          "top": 64,
+          "right": 164,
+          "bottom": 96,
+          "left": 94
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 164,
+          "y": 64,
+          "width": 114,
+          "height": 32,
+          "top": 64,
+          "right": 278,
+          "bottom": 96,
+          "left": 164
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 278,
+          "y": 64,
+          "width": 104,
+          "height": 32,
+          "top": 64,
+          "right": 382,
+          "bottom": 96,
+          "left": 278
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 350,
+          "y": 16,
+          "width": 32,
+          "height": 32,
+          "top": 16,
+          "right": 382,
+          "bottom": 48,
+          "left": 350
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "SELECTED WORK",
+        "href": "#work",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 840,
+          "width": 206,
+          "height": 32,
+          "top": 840,
+          "right": 222,
+          "bottom": 872,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "RESUME (PDF)\n->",
+        "href": "/resume/Timothy-Ali-Resume.pdf",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 896,
+          "width": 168,
+          "height": 16,
+          "top": 896,
+          "right": 184,
+          "bottom": 912,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX\n\nA desktop app I designed and built for getting brand files ready to hand off. It packages logos, expo",
+        "href": "/work/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 244,
+          "width": 358,
+          "height": 472,
+          "top": 244,
+          "right": 374,
+          "bottom": 716,
+          "left": 16
+        },
+        "y": 764,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "PARC\n\nA new identity and website for the NFT club I cofounded in 2021, including a custom pixel typeface, live",
+        "href": "/work/parc/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 520,
+          "width": 358,
+          "height": 440,
+          "top": 520,
+          "right": 374,
+          "bottom": 960,
+          "left": 16
+        },
+        "y": 1008,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "JADE AESTHETICS\n\nTwo websites for a medical spa. I launched the first in Framer, then rebuilt it in Next.js wi",
+        "href": "/work/jade-aesthetics/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 260,
+          "width": 358,
+          "height": 440,
+          "top": 260,
+          "right": 374,
+          "bottom": 700,
+          "left": 16
+        },
+        "y": 1756,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "FIRST LEDGER\n\nI designed the logo, type, and brand guidelines for a trading platform on the XRP Ledger.",
+        "href": "/work/firstledger/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 584,
+          "width": 358,
+          "height": 376,
+          "top": 584,
+          "right": 374,
+          "bottom": 960,
+          "left": 16
+        },
+        "y": 1920,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "ALL WORK\n->",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 464,
+          "width": 132,
+          "height": 32,
+          "top": 464,
+          "right": 148,
+          "bottom": 496,
+          "left": 16
+        },
+        "y": 2448,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "GET IN TOUCH\n->",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 864,
+          "width": 358,
+          "height": 64,
+          "top": 864,
+          "right": 374,
+          "bottom": 928,
+          "left": 16
+        },
+        "y": 2448,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      }
+    ]
+  },
+  {
+    "p": "/work/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 13,
+          "width": 165,
+          "height": 43,
+          "top": 13,
+          "right": 181,
+          "bottom": 56,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 8,
+          "y": 64,
+          "width": 86,
+          "height": 32,
+          "top": 64,
+          "right": 94,
+          "bottom": 96,
+          "left": 8
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 94,
+          "y": 64,
+          "width": 70,
+          "height": 32,
+          "top": 64,
+          "right": 164,
+          "bottom": 96,
+          "left": 94
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 164,
+          "y": 64,
+          "width": 114,
+          "height": 32,
+          "top": 64,
+          "right": 278,
+          "bottom": 96,
+          "left": 164
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 278,
+          "y": 64,
+          "width": 104,
+          "height": 32,
+          "top": 64,
+          "right": 382,
+          "bottom": 96,
+          "left": 278
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 350,
+          "y": 16,
+          "width": 32,
+          "height": 32,
+          "top": 16,
+          "right": 382,
+          "bottom": 48,
+          "left": 350
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX\n\nA desktop app I designed and built for getting brand files ready to hand off. It packages logos, expo",
+        "href": "/work/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 264,
+          "width": 358,
+          "height": 472,
+          "top": 264,
+          "right": 374,
+          "bottom": 736,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "PARC\n\nA new identity and website for the NFT club I cofounded in 2021, including a custom pixel typeface, live",
+        "href": "/work/parc/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 520,
+          "width": 358,
+          "height": 440,
+          "top": 520,
+          "right": 374,
+          "bottom": 960,
+          "left": 16
+        },
+        "y": 264,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "JADE AESTHETICS\n\nTwo websites for a medical spa. I launched the first in Framer, then rebuilt it in Next.js wi",
+        "href": "/work/jade-aesthetics/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 268,
+          "width": 358,
+          "height": 440,
+          "top": 268,
+          "right": 374,
+          "bottom": 708,
+          "left": 16
+        },
+        "y": 1004,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "FIRST LEDGER\n\nI designed the logo, type, and brand guidelines for a trading platform on the XRP Ledger.",
+        "href": "/work/firstledger/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 584,
+          "width": 358,
+          "height": 376,
+          "top": 584,
+          "right": 374,
+          "bottom": 960,
+          "left": 16
+        },
+        "y": 1176,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "XRP.CAFE\n\nAs founding designer of an NFT marketplace on the XRP Ledger, I made its identity, animations, and m",
+        "href": "/work/xrpcafe/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 284,
+          "width": 358,
+          "height": 408,
+          "top": 284,
+          "right": 374,
+          "bottom": 692,
+          "left": 16
+        },
+        "y": 1900,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "FIRSTSTRIKE RESEARCH\n\nI designed the wordmark, colors, type, and brand guidelines for a veteran-owned financia",
+        "href": "/work/firststrike/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 520,
+          "width": 358,
+          "height": 440,
+          "top": 520,
+          "right": 374,
+          "bottom": 960,
+          "left": 16
+        },
+        "y": 2120,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "DO ANDROIDS DREAM?\n\nA speculative yellow-and-black title sequence for Philip K. Dick’s “Do Androids Dream of E",
+        "href": "/work/do-androids-dream/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 272,
+          "width": 358,
+          "height": 440,
+          "top": 272,
+          "right": 374,
+          "bottom": 712,
+          "left": 16
+        },
+        "y": 2856,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TELL ME WHAT YOU’RE BUILDING\nGET IN TOUCH ->",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 760,
+          "width": 358,
+          "height": 96,
+          "top": 760,
+          "right": 374,
+          "bottom": 856,
+          "left": 16
+        },
+        "y": 2856,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BODY",
+        "text": "SKIP TO CONTENT\ntimothy ali\nINDEX\nWORK\nCONTACT\nTOOLBOX\nwork.\nwork.\nTOOLBOX\n\nA desktop app I designed and built",
+        "href": null,
+        "outline": "rgb(24, 24, 20) none 3px",
+        "rect": {
+          "x": 0,
+          "y": -2856,
+          "width": 390,
+          "height": 3816,
+          "top": -2856,
+          "right": 390,
+          "bottom": 960,
+          "left": 0
+        },
+        "y": 2856,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      }
+    ]
+  },
+  {
+    "p": "/work/parc/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 13,
+          "width": 165,
+          "height": 43,
+          "top": 13,
+          "right": 181,
+          "bottom": 56,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 8,
+          "y": 64,
+          "width": 86,
+          "height": 32,
+          "top": 64,
+          "right": 94,
+          "bottom": 96,
+          "left": 8
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 94,
+          "y": 64,
+          "width": 70,
+          "height": 32,
+          "top": 64,
+          "right": 164,
+          "bottom": 96,
+          "left": 94
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 164,
+          "y": 64,
+          "width": 114,
+          "height": 32,
+          "top": 64,
+          "right": 278,
+          "bottom": 96,
+          "left": 164
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 278,
+          "y": 64,
+          "width": 104,
+          "height": 32,
+          "top": 64,
+          "right": 382,
+          "bottom": 96,
+          "left": 278
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 350,
+          "y": 16,
+          "width": 32,
+          "height": 32,
+          "top": 16,
+          "right": 382,
+          "bottom": 48,
+          "left": 350
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "parcxrpl.com\n->",
+        "href": "https://parcxrpl.com",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 468,
+          "width": 155.203125,
+          "height": 24,
+          "top": 468,
+          "right": 171.203125,
+          "bottom": 492,
+          "left": 16
+        },
+        "y": 772,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Play video: PARC After Darc starting-soon screen: a pixel sun over the sea with a rowboat drifting past, loope",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 163,
+          "y": 448,
+          "width": 64,
+          "height": 64,
+          "top": 448,
+          "right": 227,
+          "bottom": 512,
+          "left": 163
+        },
+        "y": 7132,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "NEXT / [03]\nJADE AESTHETICS ->",
+        "href": "/work/jade-aesthetics/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 696,
+          "width": 358,
+          "height": 96,
+          "top": 696,
+          "right": 374,
+          "bottom": 792,
+          "left": 16
+        },
+        "y": 13152,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 872,
+          "width": 358,
+          "height": 16,
+          "top": 872,
+          "right": 374,
+          "bottom": 888,
+          "left": 16
+        },
+        "y": 13152,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      }
+    ]
+  },
+  {
+    "p": "/work/xrpcafe/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 13,
+          "width": 165,
+          "height": 43,
+          "top": 13,
+          "right": 181,
+          "bottom": 56,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 8,
+          "y": 64,
+          "width": 86,
+          "height": 32,
+          "top": 64,
+          "right": 94,
+          "bottom": 96,
+          "left": 8
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 94,
+          "y": 64,
+          "width": 70,
+          "height": 32,
+          "top": 64,
+          "right": 164,
+          "bottom": 96,
+          "left": 94
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 164,
+          "y": 64,
+          "width": 114,
+          "height": 32,
+          "top": 64,
+          "right": 278,
+          "bottom": 96,
+          "left": 164
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 278,
+          "y": 64,
+          "width": 104,
+          "height": 32,
+          "top": 64,
+          "right": 382,
+          "bottom": 96,
+          "left": 278
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 350,
+          "y": 16,
+          "width": 32,
+          "height": 32,
+          "top": 16,
+          "right": 382,
+          "bottom": 48,
+          "left": 350
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "xrp.cafe\n->",
+        "href": "https://xrp.cafe/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 468,
+          "width": 116.8125,
+          "height": 24,
+          "top": 468,
+          "right": 132.8125,
+          "bottom": 492,
+          "left": 16
+        },
+        "y": 1148,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Play video: xrp.cafe Explore Create Trade motion graphic",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 163,
+          "y": 448,
+          "width": 64,
+          "height": 64,
+          "top": 448,
+          "right": 227,
+          "bottom": 512,
+          "left": 163
+        },
+        "y": 420,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "NEXT / [06]\nFIRSTSTRIKE RESEARCH ->",
+        "href": "/work/firststrike/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 696,
+          "width": 358,
+          "height": 96,
+          "top": 696,
+          "right": 374,
+          "bottom": 792,
+          "left": 16
+        },
+        "y": 5400,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 872,
+          "width": 358,
+          "height": 16,
+          "top": 872,
+          "right": 374,
+          "bottom": 888,
+          "left": 16
+        },
+        "y": 5400,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "BODY",
+        "text": "SKIP TO CONTENT\ntimothy ali\nINDEX\nWORK\nCONTACT\nTOOLBOX\nXRP.CAFE\nXRP.CAFE\n\nI cofounded xrp.cafe, an NFT marketp",
+        "href": null,
+        "outline": "rgb(24, 24, 20) none 3px",
+        "rect": {
+          "x": 0,
+          "y": -5400,
+          "width": 390,
+          "height": 6360,
+          "top": -5400,
+          "right": 390,
+          "bottom": 960,
+          "left": 0
+        },
+        "y": 5400,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      }
+    ]
+  },
+  {
+    "p": "/work/firstledger/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 13,
+          "width": 165,
+          "height": 43,
+          "top": 13,
+          "right": 181,
+          "bottom": 56,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 8,
+          "y": 64,
+          "width": 86,
+          "height": 32,
+          "top": 64,
+          "right": 94,
+          "bottom": 96,
+          "left": 8
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 94,
+          "y": 64,
+          "width": 70,
+          "height": 32,
+          "top": 64,
+          "right": 164,
+          "bottom": 96,
+          "left": 94
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 164,
+          "y": 64,
+          "width": 114,
+          "height": 32,
+          "top": 64,
+          "right": 278,
+          "bottom": 96,
+          "left": 164
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 278,
+          "y": 64,
+          "width": 104,
+          "height": 32,
+          "top": 64,
+          "right": 382,
+          "bottom": 96,
+          "left": 278
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 350,
+          "y": 16,
+          "width": 32,
+          "height": 32,
+          "top": 16,
+          "right": 382,
+          "bottom": 48,
+          "left": 350
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "firstledger.net\n->",
+        "href": "https://firstledger.net/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 468,
+          "width": 184,
+          "height": 24,
+          "top": 468,
+          "right": 200,
+          "bottom": 492,
+          "left": 16
+        },
+        "y": 628,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "NEXT / [05]\nXRP.CAFE ->",
+        "href": "/work/xrpcafe/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 728,
+          "width": 358,
+          "height": 64,
+          "top": 728,
+          "right": 374,
+          "bottom": 792,
+          "left": 16
+        },
+        "y": 3952,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 872,
+          "width": 358,
+          "height": 16,
+          "top": 872,
+          "right": 374,
+          "bottom": 888,
+          "left": 16
+        },
+        "y": 3952,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      }
+    ]
+  },
+  {
+    "p": "/work/do-androids-dream/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 13,
+          "width": 165,
+          "height": 43,
+          "top": 13,
+          "right": 181,
+          "bottom": 56,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 8,
+          "y": 64,
+          "width": 86,
+          "height": 32,
+          "top": 64,
+          "right": 94,
+          "bottom": 96,
+          "left": 8
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 94,
+          "y": 64,
+          "width": 70,
+          "height": 32,
+          "top": 64,
+          "right": 164,
+          "bottom": 96,
+          "left": 94
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 164,
+          "y": 64,
+          "width": 114,
+          "height": 32,
+          "top": 64,
+          "right": 278,
+          "bottom": 96,
+          "left": 164
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 278,
+          "y": 64,
+          "width": 104,
+          "height": 32,
+          "top": 64,
+          "right": 382,
+          "bottom": 96,
+          "left": 278
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 350,
+          "y": 16,
+          "width": 32,
+          "height": 32,
+          "top": 16,
+          "right": 382,
+          "bottom": 48,
+          "left": 350
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Play video: Do Androids Dream title sequence, about forty seconds, black on yellow, silent here",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 163,
+          "y": 708,
+          "width": 64,
+          "height": 64,
+          "top": 708,
+          "right": 227,
+          "bottom": 772,
+          "left": 163
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Watch it with sound on YouTube\n->",
+        "href": "https://www.youtube.com/watch?v=0Q-X3-64Tak",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 856,
+          "width": 328,
+          "height": 24,
+          "top": 856,
+          "right": 344,
+          "bottom": 880,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "NEXT / [01]\nTOOLBOX ->",
+        "href": "/work/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 728,
+          "width": 358,
+          "height": 64,
+          "top": 728,
+          "right": 374,
+          "bottom": 792,
+          "left": 16
+        },
+        "y": 2568,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 872,
+          "width": 358,
+          "height": 16,
+          "top": 872,
+          "right": 374,
+          "bottom": 888,
+          "left": 16
+        },
+        "y": 2568,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BODY",
+        "text": "SKIP TO CONTENT\ntimothy ali\nINDEX\nWORK\nCONTACT\nTOOLBOX\nDO ANDROIDS DREAM?\nDO ANDROIDS DREAM?\n\nFor a class proj",
+        "href": null,
+        "outline": "rgb(24, 24, 20) none 3px",
+        "rect": {
+          "x": 0,
+          "y": -2568,
+          "width": 390,
+          "height": 3528,
+          "top": -2568,
+          "right": 390,
+          "bottom": 960,
+          "left": 0
+        },
+        "y": 2568,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      }
+    ]
+  },
+  {
+    "p": "/work/jade-aesthetics/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 13,
+          "width": 165,
+          "height": 43,
+          "top": 13,
+          "right": 181,
+          "bottom": 56,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 8,
+          "y": 64,
+          "width": 86,
+          "height": 32,
+          "top": 64,
+          "right": 94,
+          "bottom": 96,
+          "left": 8
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 94,
+          "y": 64,
+          "width": 70,
+          "height": 32,
+          "top": 64,
+          "right": 164,
+          "bottom": 96,
+          "left": 94
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 164,
+          "y": 64,
+          "width": 114,
+          "height": 32,
+          "top": 64,
+          "right": 278,
+          "bottom": 96,
+          "left": 164
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 278,
+          "y": 64,
+          "width": 104,
+          "height": 32,
+          "top": 64,
+          "right": 382,
+          "bottom": 96,
+          "left": 278
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 350,
+          "y": 16,
+          "width": 32,
+          "height": 32,
+          "top": 16,
+          "right": 382,
+          "bottom": 48,
+          "left": 350
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "jadeaesthetics.co\n->",
+        "href": "https://www.jadeaesthetics.co/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 468,
+          "width": 203.203125,
+          "height": 24,
+          "top": 468,
+          "right": 219.203125,
+          "bottom": 492,
+          "left": 16
+        },
+        "y": 612,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "NEXT / [04]\nFIRST LEDGER ->",
+        "href": "/work/firstledger/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 728,
+          "width": 358,
+          "height": 64,
+          "top": 728,
+          "right": 374,
+          "bottom": 792,
+          "left": 16
+        },
+        "y": 3936,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 872,
+          "width": 358,
+          "height": 16,
+          "top": 872,
+          "right": 374,
+          "bottom": 888,
+          "left": 16
+        },
+        "y": 3936,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      }
+    ]
+  },
+  {
+    "p": "/work/firststrike/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 13,
+          "width": 165,
+          "height": 43,
+          "top": 13,
+          "right": 181,
+          "bottom": 56,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 8,
+          "y": 64,
+          "width": 86,
+          "height": 32,
+          "top": 64,
+          "right": 94,
+          "bottom": 96,
+          "left": 8
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 94,
+          "y": 64,
+          "width": 70,
+          "height": 32,
+          "top": 64,
+          "right": 164,
+          "bottom": 96,
+          "left": 94
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 164,
+          "y": 64,
+          "width": 114,
+          "height": 32,
+          "top": 64,
+          "right": 278,
+          "bottom": 96,
+          "left": 164
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 278,
+          "y": 64,
+          "width": 104,
+          "height": 32,
+          "top": 64,
+          "right": 382,
+          "bottom": 96,
+          "left": 278
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 350,
+          "y": 16,
+          "width": 32,
+          "height": 32,
+          "top": 16,
+          "right": 382,
+          "bottom": 48,
+          "left": 350
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "NEXT / [07]\nDO ANDROIDS DREAM? ->",
+        "href": "/work/do-androids-dream/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 696,
+          "width": 358,
+          "height": 96,
+          "top": 696,
+          "right": 374,
+          "bottom": 792,
+          "left": 16
+        },
+        "y": 3608,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 872,
+          "width": 358,
+          "height": 16,
+          "top": 872,
+          "right": 374,
+          "bottom": 888,
+          "left": 16
+        },
+        "y": 3608,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BODY",
+        "text": "SKIP TO CONTENT\ntimothy ali\nINDEX\nWORK\nCONTACT\nTOOLBOX\nFIRSTSTRIKE RESEARCH\nFIRSTSTRIKE RESEARCH\n\nFirstStrike ",
+        "href": null,
+        "outline": "rgb(24, 24, 20) none 3px",
+        "rect": {
+          "x": 0,
+          "y": -3608,
+          "width": 390,
+          "height": 4568,
+          "top": -3608,
+          "right": 390,
+          "bottom": 960,
+          "left": 0
+        },
+        "y": 3608,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      }
+    ]
+  },
+  {
+    "p": "/work/toolbox/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 13,
+          "width": 165,
+          "height": 43,
+          "top": 13,
+          "right": 181,
+          "bottom": 56,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 8,
+          "y": 64,
+          "width": 86,
+          "height": 32,
+          "top": 64,
+          "right": 94,
+          "bottom": 96,
+          "left": 8
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 94,
+          "y": 64,
+          "width": 70,
+          "height": 32,
+          "top": 64,
+          "right": 164,
+          "bottom": 96,
+          "left": 94
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 164,
+          "y": 64,
+          "width": 114,
+          "height": 32,
+          "top": 64,
+          "right": 278,
+          "bottom": 96,
+          "left": 164
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 278,
+          "y": 64,
+          "width": 104,
+          "height": 32,
+          "top": 64,
+          "right": 382,
+          "bottom": 96,
+          "left": 278
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 350,
+          "y": 16,
+          "width": 32,
+          "height": 32,
+          "top": 16,
+          "right": 382,
+          "bottom": 48,
+          "left": 350
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Downloads and guides\n->",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 468,
+          "width": 232,
+          "height": 24,
+          "top": 468,
+          "right": 248,
+          "bottom": 492,
+          "left": 16
+        },
+        "y": 1076,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "NEXT / [02]\nPARC ->",
+        "href": "/work/parc/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 728,
+          "width": 358,
+          "height": 64,
+          "top": 728,
+          "right": 374,
+          "bottom": 792,
+          "left": 16
+        },
+        "y": 4216,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "TELL ME WHAT YOU’RE BUILDING ->",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 872,
+          "width": 358,
+          "height": 16,
+          "top": 872,
+          "right": 374,
+          "bottom": 888,
+          "left": 16
+        },
+        "y": 4216,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      }
+    ]
+  },
+  {
+    "p": "/toolbox/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 13,
+          "width": 165,
+          "height": 43,
+          "top": 13,
+          "right": 181,
+          "bottom": 56,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 8,
+          "y": 64,
+          "width": 86,
+          "height": 32,
+          "top": 64,
+          "right": 94,
+          "bottom": 96,
+          "left": 8
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 94,
+          "y": 64,
+          "width": 70,
+          "height": 32,
+          "top": 64,
+          "right": 164,
+          "bottom": 96,
+          "left": 94
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 164,
+          "y": 64,
+          "width": 114,
+          "height": 32,
+          "top": 64,
+          "right": 278,
+          "bottom": 96,
+          "left": 164
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 278,
+          "y": 64,
+          "width": 104,
+          "height": 32,
+          "top": 64,
+          "right": 382,
+          "bottom": 96,
+          "left": 278
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 350,
+          "y": 16,
+          "width": 32,
+          "height": 32,
+          "top": 16,
+          "right": 382,
+          "bottom": 48,
+          "left": 350
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "EXPLORE THE TOOLS\n->",
+        "href": "#tools",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 328,
+          "width": 288,
+          "height": 48,
+          "top": 328,
+          "right": 304,
+          "bottom": 376,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "01\nLOCKUP",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 816,
+          "width": 175,
+          "height": 72,
+          "top": 816,
+          "right": 191,
+          "bottom": 888,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "02\nPALETTE",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 199,
+          "y": 816,
+          "width": 175,
+          "height": 72,
+          "top": 816,
+          "right": 374,
+          "bottom": 888,
+          "left": 199
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "03\nSPECIMEN",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 888,
+          "width": 175,
+          "height": 72,
+          "top": 888,
+          "right": 191,
+          "bottom": 960,
+          "left": 16
+        },
+        "y": 8,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "04\nCONVERT",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 199,
+          "y": 888,
+          "width": 175,
+          "height": 72,
+          "top": 888,
+          "right": 374,
+          "bottom": 960,
+          "left": 199
+        },
+        "y": 8,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "LOCKUP GUIDE\n->",
+        "href": "/toolbox/lockup/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 464,
+          "width": 180,
+          "height": 32,
+          "top": 464,
+          "right": 196,
+          "bottom": 496,
+          "left": 16
+        },
+        "y": 696,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Light preview background",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 197,
+          "y": 864,
+          "width": 32,
+          "height": 32,
+          "top": 864,
+          "right": 229,
+          "bottom": 896,
+          "left": 197
+        },
+        "y": 696,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Dark preview background",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 237,
+          "y": 864,
+          "width": 32,
+          "height": 32,
+          "top": 864,
+          "right": 269,
+          "bottom": 896,
+          "left": 237
+        },
+        "y": 696,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "INPUT",
+        "text": "Web",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 55,
+          "y": 479,
+          "width": 1,
+          "height": 1,
+          "top": 479,
+          "right": 56,
+          "bottom": 480,
+          "left": 55
+        },
+        "y": 1185,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "JPEG",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 124,
+          "y": 480,
+          "width": 58,
+          "height": 32,
+          "top": 480,
+          "right": 182,
+          "bottom": 512,
+          "left": 124
+        },
+        "y": 1185,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "PNG",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 186,
+          "y": 480,
+          "width": 46,
+          "height": 32,
+          "top": 480,
+          "right": 232,
+          "bottom": 512,
+          "left": 186
+        },
+        "y": 1185,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "SVG",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 236,
+          "y": 480,
+          "width": 46,
+          "height": 32,
+          "top": 480,
+          "right": 282,
+          "bottom": 512,
+          "left": 236
+        },
+        "y": 1185,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "INPUT",
+        "text": "Print",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 55,
+          "y": 527,
+          "width": 1,
+          "height": 1,
+          "top": 527,
+          "right": 56,
+          "bottom": 528,
+          "left": 55
+        },
+        "y": 1185,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "EPS",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 132,
+          "y": 528,
+          "width": 46,
+          "height": 32,
+          "top": 528,
+          "right": 178,
+          "bottom": 560,
+          "left": 132
+        },
+        "y": 1185,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "JPEG",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 182,
+          "y": 528,
+          "width": 58,
+          "height": 32,
+          "top": 528,
+          "right": 240,
+          "bottom": 560,
+          "left": 182
+        },
+        "y": 1185,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "PDF",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 244,
+          "y": 528,
+          "width": 46,
+          "height": 32,
+          "top": 528,
+          "right": 290,
+          "bottom": 560,
+          "left": 244
+        },
+        "y": 1185,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "INPUT",
+        "text": "Color",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 55,
+          "y": 639.5,
+          "width": 1,
+          "height": 1,
+          "top": 639.5,
+          "right": 56,
+          "bottom": 640.5,
+          "left": 55
+        },
+        "y": 1185,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "INPUT",
+        "text": "Black",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 55,
+          "y": 671.5,
+          "width": 1,
+          "height": 1,
+          "top": 671.5,
+          "right": 56,
+          "bottom": 672.5,
+          "left": 55
+        },
+        "y": 1185,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "INPUT",
+        "text": "White",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 55,
+          "y": 703.5,
+          "width": 1,
+          "height": 1,
+          "top": 703.5,
+          "right": 56,
+          "bottom": 704.5,
+          "left": 55
+        },
+        "y": 1185,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "INPUT",
+        "text": "Large",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 55,
+          "y": 791.5,
+          "width": 1,
+          "height": 1,
+          "top": 791.5,
+          "right": 56,
+          "bottom": 792.5,
+          "left": 55
+        },
+        "y": 1185,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "INPUT",
+        "text": "Medium",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 55,
+          "y": 823.5,
+          "width": 1,
+          "height": 1,
+          "top": 823.5,
+          "right": 56,
+          "bottom": 824.5,
+          "left": 55
+        },
+        "y": 1185,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "INPUT",
+        "text": "Small",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 55,
+          "y": 855.5,
+          "width": 1,
+          "height": 1,
+          "top": 855.5,
+          "right": 56,
+          "bottom": 856.5,
+          "left": 55
+        },
+        "y": 1185,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "02\nOutputs",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 176,
+          "y": 903,
+          "width": 38,
+          "height": 32,
+          "top": 903,
+          "right": 214,
+          "bottom": 935,
+          "left": 176
+        },
+        "y": 1185,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "03\nReview",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 222,
+          "y": 903,
+          "width": 38,
+          "height": 32,
+          "top": 903,
+          "right": 260,
+          "bottom": 935,
+          "left": 222
+        },
+        "y": 1185,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "BUTTON",
+        "text": "CONTINUE\n->",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 178,
+          "y": 928,
+          "width": 172,
+          "height": 32,
+          "top": 928,
+          "right": 350,
+          "bottom": 960,
+          "left": 178
+        },
+        "y": 1216,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "CLI & MCP DOCS\n->",
+        "href": "/toolbox/agents/",
+        "outline": "rgb(242, 214, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 464,
+          "width": 196,
+          "height": 32,
+          "top": 464,
+          "right": 212,
+          "bottom": 496,
+          "left": 16
+        },
+        "y": 2200,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "Apple silicon",
+        "href": "/download/v1.2.4/Toolbox-1.2.4-arm64.dmg",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 128,
+          "y": 872,
+          "width": 122,
+          "height": 32,
+          "top": 872,
+          "right": 250,
+          "bottom": 904,
+          "left": 128
+        },
+        "y": 2200,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "Intel",
+        "href": "/download/v1.2.4/Toolbox-1.2.4.dmg",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 274,
+          "y": 872,
+          "width": 44,
+          "height": 32,
+          "top": 872,
+          "right": 318,
+          "bottom": 904,
+          "left": 274
+        },
+        "y": 2200,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "Installer x64",
+        "href": "/download/v1.2.4/Toolbox-Setup-1.2.4.exe",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 128,
+          "y": 928,
+          "width": 124,
+          "height": 32,
+          "top": 928,
+          "right": 252,
+          "bottom": 960,
+          "left": 128
+        },
+        "y": 2216,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "Installer arm64",
+        "href": "/download/v1.2.4/Toolbox-Setup-1.2.4-arm64.exe",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 128,
+          "y": 464,
+          "width": 151,
+          "height": 32,
+          "top": 464,
+          "right": 279,
+          "bottom": 496,
+          "left": 128
+        },
+        "y": 2736,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "AppImage x86_64",
+        "href": "/download/v1.2.4/toolbox-1.2.4-x86_64.AppImage",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 128,
+          "y": 608,
+          "width": 171,
+          "height": 32,
+          "top": 608,
+          "right": 299,
+          "bottom": 640,
+          "left": 128
+        },
+        "y": 2736,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "AppImage arm64",
+        "href": "/download/v1.2.4/toolbox-1.2.4-arm64.AppImage",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 128,
+          "y": 664,
+          "width": 162,
+          "height": 32,
+          "top": 664,
+          "right": 290,
+          "bottom": 696,
+          "left": 128
+        },
+        "y": 2736,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "deb amd64",
+        "href": "/download/v1.2.4/toolbox_1.2.4_amd64.deb",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 128,
+          "y": 720,
+          "width": 106,
+          "height": 32,
+          "top": 720,
+          "right": 234,
+          "bottom": 752,
+          "left": 128
+        },
+        "y": 2736,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "deb arm64",
+        "href": "/download/v1.2.4/toolbox_1.2.4_arm64.deb",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 258,
+          "y": 720,
+          "width": 104,
+          "height": 32,
+          "top": 720,
+          "right": 362,
+          "bottom": 752,
+          "left": 258
+        },
+        "y": 2736,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "ALL FILES AND CHECKSUMS\n->",
+        "href": "https://github.com/tasyusef/toolbox/releases",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 872,
+          "width": 304,
+          "height": 16,
+          "top": 872,
+          "right": 320,
+          "bottom": 888,
+          "left": 16
+        },
+        "y": 2736,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "GET IN TOUCH ->",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 944,
+          "width": 358,
+          "height": 16,
+          "top": 944,
+          "right": 374,
+          "bottom": 960,
+          "left": 16
+        },
+        "y": 2744,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "BODY",
+        "text": "SKIP TO CONTENT\ntimothy ali\nINDEX\nWORK\nCONTACT\nTOOLBOX\ntoolbox.\ntoolbox.\n\nPrepare your files\nfor handoff.\n\nEXP",
+        "href": null,
+        "outline": "rgb(24, 24, 20) none 3px",
+        "rect": {
+          "x": 0,
+          "y": -2744,
+          "width": 390,
+          "height": 3808,
+          "top": -2744,
+          "right": 390,
+          "bottom": 1064,
+          "left": 0
+        },
+        "y": 2744,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      }
+    ]
+  },
+  {
+    "p": "/toolbox/lockup/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 13,
+          "width": 165,
+          "height": 43,
+          "top": 13,
+          "right": 181,
+          "bottom": 56,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 8,
+          "y": 64,
+          "width": 86,
+          "height": 32,
+          "top": 64,
+          "right": 94,
+          "bottom": 96,
+          "left": 8
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 94,
+          "y": 64,
+          "width": 70,
+          "height": 32,
+          "top": 64,
+          "right": 164,
+          "bottom": 96,
+          "left": 94
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 164,
+          "y": 64,
+          "width": 114,
+          "height": 32,
+          "top": 64,
+          "right": 278,
+          "bottom": 96,
+          "left": 164
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 278,
+          "y": 64,
+          "width": 104,
+          "height": 32,
+          "top": 64,
+          "right": 382,
+          "bottom": 96,
+          "left": 278
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 350,
+          "y": 16,
+          "width": 32,
+          "height": 32,
+          "top": 16,
+          "right": 382,
+          "bottom": 48,
+          "left": 350
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Download for macOS, Windows, or Linux\n->",
+        "href": "/toolbox/#download",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 480,
+          "width": 358,
+          "height": 64,
+          "top": 480,
+          "right": 374,
+          "bottom": 544,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "SUMMARY",
+        "text": "ALL 18 OPTIONS",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 596,
+          "width": 358,
+          "height": 44,
+          "top": 596,
+          "right": 374,
+          "bottom": 640,
+          "left": 16
+        },
+        "y": 1780,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CLI & MCP SETUP\n->",
+        "href": "/toolbox/agents/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 664,
+          "width": 208,
+          "height": 32,
+          "top": 664,
+          "right": 224,
+          "bottom": 696,
+          "left": 16
+        },
+        "y": 1780,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "NEXT / [02]\nPALETTE ->",
+        "href": "/toolbox/palette/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 744,
+          "width": 358,
+          "height": 64,
+          "top": 744,
+          "right": 374,
+          "bottom": 808,
+          "left": 16
+        },
+        "y": 1780,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "ALL FOUR TOOLS ->",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 872,
+          "width": 358,
+          "height": 16,
+          "top": 872,
+          "right": 374,
+          "bottom": 888,
+          "left": 16
+        },
+        "y": 1780,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      }
+    ]
+  },
+  {
+    "p": "/toolbox/palette/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 13,
+          "width": 165,
+          "height": 43,
+          "top": 13,
+          "right": 181,
+          "bottom": 56,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 8,
+          "y": 64,
+          "width": 86,
+          "height": 32,
+          "top": 64,
+          "right": 94,
+          "bottom": 96,
+          "left": 8
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 94,
+          "y": 64,
+          "width": 70,
+          "height": 32,
+          "top": 64,
+          "right": 164,
+          "bottom": 96,
+          "left": 94
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 164,
+          "y": 64,
+          "width": 114,
+          "height": 32,
+          "top": 64,
+          "right": 278,
+          "bottom": 96,
+          "left": 164
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 278,
+          "y": 64,
+          "width": 104,
+          "height": 32,
+          "top": 64,
+          "right": 382,
+          "bottom": 96,
+          "left": 278
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 350,
+          "y": 16,
+          "width": 32,
+          "height": 32,
+          "top": 16,
+          "right": 382,
+          "bottom": 48,
+          "left": 350
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Download for macOS, Windows, or Linux\n->",
+        "href": "/toolbox/#download",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 512,
+          "width": 358,
+          "height": 64,
+          "top": 512,
+          "right": 374,
+          "bottom": 576,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "SUMMARY",
+        "text": "ALL 12 OPTIONS",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 596,
+          "width": 358,
+          "height": 44,
+          "top": 596,
+          "right": 374,
+          "bottom": 640,
+          "left": 16
+        },
+        "y": 1724,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CLI & MCP SETUP\n->",
+        "href": "/toolbox/agents/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 664,
+          "width": 208,
+          "height": 32,
+          "top": 664,
+          "right": 224,
+          "bottom": 696,
+          "left": 16
+        },
+        "y": 1724,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "NEXT / [03]\nSPECIMEN ->",
+        "href": "/toolbox/specimen/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 744,
+          "width": 358,
+          "height": 64,
+          "top": 744,
+          "right": 374,
+          "bottom": 808,
+          "left": 16
+        },
+        "y": 1724,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "ALL FOUR TOOLS ->",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 872,
+          "width": 358,
+          "height": 16,
+          "top": 872,
+          "right": 374,
+          "bottom": 888,
+          "left": 16
+        },
+        "y": 1724,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "BODY",
+        "text": "SKIP TO CONTENT\ntimothy ali\nINDEX\nWORK\nCONTACT\nTOOLBOX\nPALETTE\nPALETTE\n\nExport a color palette as code, Adobe ",
+        "href": null,
+        "outline": "rgb(24, 24, 20) none 3px",
+        "rect": {
+          "x": 0,
+          "y": -1724,
+          "width": 390,
+          "height": 2684,
+          "top": -1724,
+          "right": 390,
+          "bottom": 960,
+          "left": 0
+        },
+        "y": 1724,
+        "hidden": false,
+        "top": 0
+      },
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      }
+    ]
+  },
+  {
+    "p": "/toolbox/specimen/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 13,
+          "width": 165,
+          "height": 43,
+          "top": 13,
+          "right": 181,
+          "bottom": 56,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 8,
+          "y": 64,
+          "width": 86,
+          "height": 32,
+          "top": 64,
+          "right": 94,
+          "bottom": 96,
+          "left": 8
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 94,
+          "y": 64,
+          "width": 70,
+          "height": 32,
+          "top": 64,
+          "right": 164,
+          "bottom": 96,
+          "left": 94
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 164,
+          "y": 64,
+          "width": 114,
+          "height": 32,
+          "top": 64,
+          "right": 278,
+          "bottom": 96,
+          "left": 164
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 278,
+          "y": 64,
+          "width": 104,
+          "height": 32,
+          "top": 64,
+          "right": 382,
+          "bottom": 96,
+          "left": 278
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 350,
+          "y": 16,
+          "width": 32,
+          "height": 32,
+          "top": 16,
+          "right": 382,
+          "bottom": 48,
+          "left": 350
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Download for macOS, Windows, or Linux\n->",
+        "href": "/toolbox/#download",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 480,
+          "width": 358,
+          "height": 64,
+          "top": 480,
+          "right": 374,
+          "bottom": 544,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "SUMMARY",
+        "text": "ALL 10 OPTIONS",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 596,
+          "width": 358,
+          "height": 44,
+          "top": 596,
+          "right": 374,
+          "bottom": 640,
+          "left": 16
+        },
+        "y": 1260,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CLI & MCP SETUP\n->",
+        "href": "/toolbox/agents/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 664,
+          "width": 208,
+          "height": 32,
+          "top": 664,
+          "right": 224,
+          "bottom": 696,
+          "left": 16
+        },
+        "y": 1260,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "NEXT / [04]\nCONVERT ->",
+        "href": "/toolbox/convert/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 744,
+          "width": 358,
+          "height": 64,
+          "top": 744,
+          "right": 374,
+          "bottom": 808,
+          "left": 16
+        },
+        "y": 1260,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "ALL FOUR TOOLS ->",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 872,
+          "width": 358,
+          "height": 16,
+          "top": 872,
+          "right": 374,
+          "bottom": 888,
+          "left": 16
+        },
+        "y": 1260,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      }
+    ]
+  },
+  {
+    "p": "/toolbox/convert/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 13,
+          "width": 165,
+          "height": 43,
+          "top": 13,
+          "right": 181,
+          "bottom": 56,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 8,
+          "y": 64,
+          "width": 86,
+          "height": 32,
+          "top": 64,
+          "right": 94,
+          "bottom": 96,
+          "left": 8
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 94,
+          "y": 64,
+          "width": 70,
+          "height": 32,
+          "top": 64,
+          "right": 164,
+          "bottom": 96,
+          "left": 94
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 164,
+          "y": 64,
+          "width": 114,
+          "height": 32,
+          "top": 64,
+          "right": 278,
+          "bottom": 96,
+          "left": 164
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 278,
+          "y": 64,
+          "width": 104,
+          "height": 32,
+          "top": 64,
+          "right": 382,
+          "bottom": 96,
+          "left": 278
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 350,
+          "y": 16,
+          "width": 32,
+          "height": 32,
+          "top": 16,
+          "right": 382,
+          "bottom": 48,
+          "left": 350
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Download for macOS, Windows, or Linux\n->",
+        "href": "/toolbox/#download",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 512,
+          "width": 358,
+          "height": 64,
+          "top": 512,
+          "right": 374,
+          "bottom": 576,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "SUMMARY",
+        "text": "ALL 11 OPTIONS",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 596,
+          "width": 358,
+          "height": 44,
+          "top": 596,
+          "right": 374,
+          "bottom": 640,
+          "left": 16
+        },
+        "y": 1212,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CLI & MCP SETUP\n->",
+        "href": "/toolbox/agents/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 664,
+          "width": 208,
+          "height": 32,
+          "top": 664,
+          "right": 224,
+          "bottom": 696,
+          "left": 16
+        },
+        "y": 1212,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "NEXT / [01]\nLOCKUP ->",
+        "href": "/toolbox/lockup/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 744,
+          "width": 358,
+          "height": 64,
+          "top": 744,
+          "right": 374,
+          "bottom": 808,
+          "left": 16
+        },
+        "y": 1212,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "ALL FOUR TOOLS ->",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 872,
+          "width": 358,
+          "height": 16,
+          "top": 872,
+          "right": 374,
+          "bottom": 888,
+          "left": 16
+        },
+        "y": 1212,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BODY",
+        "text": "SKIP TO CONTENT\ntimothy ali\nINDEX\nWORK\nCONTACT\nTOOLBOX\nCONVERT\nCONVERT\n\nChange image formats, resize images, a",
+        "href": null,
+        "outline": "rgb(24, 24, 20) none 3px",
+        "rect": {
+          "x": 0,
+          "y": -1212,
+          "width": 390,
+          "height": 2172,
+          "top": -1212,
+          "right": 390,
+          "bottom": 960,
+          "left": 0
+        },
+        "y": 1212,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      }
+    ]
+  },
+  {
+    "p": "/toolbox/agents/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 13,
+          "width": 165,
+          "height": 43,
+          "top": 13,
+          "right": 181,
+          "bottom": 56,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 8,
+          "y": 64,
+          "width": 86,
+          "height": 32,
+          "top": 64,
+          "right": 94,
+          "bottom": 96,
+          "left": 8
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 94,
+          "y": 64,
+          "width": 70,
+          "height": 32,
+          "top": 64,
+          "right": 164,
+          "bottom": 96,
+          "left": 94
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 164,
+          "y": 64,
+          "width": 114,
+          "height": 32,
+          "top": 64,
+          "right": 278,
+          "bottom": 96,
+          "left": 164
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 278,
+          "y": 64,
+          "width": 104,
+          "height": 32,
+          "top": 64,
+          "right": 382,
+          "bottom": 96,
+          "left": 278
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 350,
+          "y": 16,
+          "width": 32,
+          "height": 32,
+          "top": 16,
+          "right": 382,
+          "bottom": 48,
+          "left": 350
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "SET UP",
+        "href": "#setup",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 592,
+          "width": 68,
+          "height": 44,
+          "top": 592,
+          "right": 84,
+          "bottom": 636,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "COMMAND LINE",
+        "href": "#command-line",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 108,
+          "y": 592,
+          "width": 140,
+          "height": 44,
+          "top": 592,
+          "right": 248,
+          "bottom": 636,
+          "left": 108
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "ADVANCED",
+        "href": "#advanced",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 272,
+          "y": 592,
+          "width": 96,
+          "height": 44,
+          "top": 592,
+          "right": 368,
+          "bottom": 636,
+          "left": 272
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "OPTIONS",
+        "href": "#options",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 636,
+          "width": 84,
+          "height": 44,
+          "top": 636,
+          "right": 100,
+          "bottom": 680,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "LIST",
+        "href": "#list",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 124,
+          "y": 636,
+          "width": 48,
+          "height": 44,
+          "top": 636,
+          "right": 172,
+          "bottom": 680,
+          "left": 124
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "RUN",
+        "href": "#run",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 196,
+          "y": 636,
+          "width": 36,
+          "height": 44,
+          "top": 636,
+          "right": 232,
+          "bottom": 680,
+          "left": 196
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "SERVE",
+        "href": "#serve",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 256,
+          "y": 636,
+          "width": 60,
+          "height": 44,
+          "top": 636,
+          "right": 316,
+          "bottom": 680,
+          "left": 256
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "ORGANIZE",
+        "href": "#organize",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 680,
+          "width": 96,
+          "height": 44,
+          "top": 680,
+          "right": 112,
+          "bottom": 724,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "LOCKUP OPTIONS\n->",
+        "href": "/toolbox/lockup/#cli",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 464,
+          "width": 204,
+          "height": 32,
+          "top": 464,
+          "right": 220,
+          "bottom": 496,
+          "left": 16
+        },
+        "y": 4918,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "PALETTE OPTIONS\n->",
+        "href": "/toolbox/palette/#cli",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 498,
+          "width": 216,
+          "height": 32,
+          "top": 498,
+          "right": 232,
+          "bottom": 530,
+          "left": 16
+        },
+        "y": 4918,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "SPECIMEN OPTIONS\n->",
+        "href": "/toolbox/specimen/#cli",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 532,
+          "width": 228,
+          "height": 32,
+          "top": 532,
+          "right": 244,
+          "bottom": 564,
+          "left": 16
+        },
+        "y": 4918,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONVERT OPTIONS\n->",
+        "href": "/toolbox/convert/#cli",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 566,
+          "width": 216,
+          "height": 32,
+          "top": 566,
+          "right": 232,
+          "bottom": 598,
+          "left": 16
+        },
+        "y": 4918,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "ALL FOUR TOOLS ->",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 872,
+          "width": 358,
+          "height": 16,
+          "top": 872,
+          "right": 374,
+          "bottom": 888,
+          "left": 16
+        },
+        "y": 9316,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      }
+    ]
+  },
+  {
+    "p": "/contact/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 13,
+          "width": 165,
+          "height": 43,
+          "top": 13,
+          "right": 181,
+          "bottom": 56,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 8,
+          "y": 64,
+          "width": 86,
+          "height": 32,
+          "top": 64,
+          "right": 94,
+          "bottom": 96,
+          "left": 8
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 94,
+          "y": 64,
+          "width": 70,
+          "height": 32,
+          "top": 64,
+          "right": 164,
+          "bottom": 96,
+          "left": 94
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 164,
+          "y": 64,
+          "width": 114,
+          "height": 32,
+          "top": 64,
+          "right": 278,
+          "bottom": 96,
+          "left": 164
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 278,
+          "y": 64,
+          "width": 104,
+          "height": 32,
+          "top": 64,
+          "right": 382,
+          "bottom": 96,
+          "left": 278
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 350,
+          "y": 16,
+          "width": 32,
+          "height": 32,
+          "top": 16,
+          "right": 382,
+          "bottom": 48,
+          "left": 350
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "INPUT",
+        "text": "name",
+        "href": null,
+        "outline": "rgb(242, 214, 0) solid 2px",
+        "rect": {
+          "x": 32,
+          "y": 640,
+          "width": 326,
+          "height": 48,
+          "top": 640,
+          "right": 358,
+          "bottom": 688,
+          "left": 32
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "INPUT",
+        "text": "email",
+        "href": null,
+        "outline": "rgb(242, 214, 0) solid 2px",
+        "rect": {
+          "x": 32,
+          "y": 720,
+          "width": 326,
+          "height": 48,
+          "top": 720,
+          "right": 358,
+          "bottom": 768,
+          "left": 32
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "TEXTAREA",
+        "text": "message",
+        "href": null,
+        "outline": "rgb(242, 214, 0) solid 2px",
+        "rect": {
+          "x": 32,
+          "y": 800,
+          "width": 326,
+          "height": 112,
+          "top": 800,
+          "right": 358,
+          "bottom": 912,
+          "left": 32
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "SEND\n->",
+        "href": null,
+        "outline": "rgb(242, 214, 0) solid 2px",
+        "rect": {
+          "x": 32,
+          "y": 912,
+          "width": 326,
+          "height": 48,
+          "top": 912,
+          "right": 358,
+          "bottom": 960,
+          "left": 32
+        },
+        "y": 16,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "RESUME (PDF)\n->",
+        "href": "/resume/Timothy-Ali-Resume.pdf",
+        "outline": "rgb(242, 214, 0) solid 2px",
+        "rect": {
+          "x": 32,
+          "y": 784,
+          "width": 168,
+          "height": 16,
+          "top": 784,
+          "right": 200,
+          "bottom": 800,
+          "left": 32
+        },
+        "y": 240,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "STUDIO@TIMOTHYALI.COM\n->",
+        "href": "mailto:studio@timothyali.com",
+        "outline": "rgb(242, 214, 0) solid 2px",
+        "rect": {
+          "x": 32,
+          "y": 808,
+          "width": 284,
+          "height": 16,
+          "top": 808,
+          "right": 316,
+          "bottom": 824,
+          "left": 32
+        },
+        "y": 240,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "MESSAGE ME ON LINKEDIN\n->",
+        "href": "https://www.linkedin.com/in/timothyali",
+        "outline": "rgb(242, 214, 0) solid 2px",
+        "rect": {
+          "x": 32,
+          "y": 832,
+          "width": 292,
+          "height": 16,
+          "top": 832,
+          "right": 324,
+          "bottom": 848,
+          "left": 32
+        },
+        "y": 240,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BODY",
+        "text": "SKIP TO CONTENT\ntimothy ali\nINDEX\nWORK\nCONTACT\nTOOLBOX\nTELL ME WHAT\nYOU’RE\nbuilding.\nbuilding.\n\nHiring, or hav",
+        "href": null,
+        "outline": "rgb(24, 24, 20) none 3px",
+        "rect": {
+          "x": 0,
+          "y": -240,
+          "width": 390,
+          "height": 1200,
+          "top": -240,
+          "right": 390,
+          "bottom": 960,
+          "left": 0
+        },
+        "y": 240,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      }
+    ]
+  },
+  {
+    "p": "/nope/",
+    "w": 390,
+    "stops": [
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "Timothy Ali, home",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 13,
+          "width": 165,
+          "height": 43,
+          "top": 13,
+          "right": 181,
+          "bottom": 56,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "INDEX",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 8,
+          "y": 64,
+          "width": 86,
+          "height": 32,
+          "top": 64,
+          "right": 94,
+          "bottom": 96,
+          "left": 8
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "WORK",
+        "href": "/work/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 94,
+          "y": 64,
+          "width": 70,
+          "height": 32,
+          "top": 64,
+          "right": 164,
+          "bottom": 96,
+          "left": 94
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "CONTACT",
+        "href": "/contact/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 164,
+          "y": 64,
+          "width": 114,
+          "height": 32,
+          "top": 64,
+          "right": 278,
+          "bottom": 96,
+          "left": 164
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "TOOLBOX",
+        "href": "/toolbox/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 278,
+          "y": 64,
+          "width": 104,
+          "height": 32,
+          "top": 64,
+          "right": 382,
+          "bottom": 96,
+          "left": 278
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Settings",
+        "href": null,
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 350,
+          "y": 16,
+          "width": 32,
+          "height": 32,
+          "top": 16,
+          "right": 382,
+          "bottom": 48,
+          "left": 350
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "BACK TO HOME\n->",
+        "href": "/",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 368,
+          "width": 228,
+          "height": 48,
+          "top": 368,
+          "right": 244,
+          "bottom": 416,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      },
+      {
+        "tag": "A",
+        "text": "SKIP TO CONTENT",
+        "href": "#main",
+        "outline": "rgb(111, 98, 0) solid 2px",
+        "rect": {
+          "x": 16,
+          "y": 8,
+          "width": 204,
+          "height": 32,
+          "top": 8,
+          "right": 220,
+          "bottom": 40,
+          "left": 16
+        },
+        "y": 0,
+        "hidden": false,
+        "top": 104
+      }
+    ]
+  }
+]

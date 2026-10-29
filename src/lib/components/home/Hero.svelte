@@ -80,8 +80,9 @@
       <h1 id="intro" class="blackletter hero-name" data-ink="i’m tim."><span>i’m tim.</span><span class="sr-only"> Timothy Ali</span></h1>
       <p class="hero-role body">{STATIC_LINE}</p>
     {/if}
-    <!-- PARC Pixel has no É, so the résumé label reads “Resume”; “(PDF)” as on Contact (PX-125) -->
-    <div class="hero-actions"><Cta variant="hint" class="hero-hint" href="#work">Selected work<PixelIcon name="down" class="arrow" /></Cta><QuietLink href={RESUME_URL} label="Resume (PDF)" /></div>
+    <!-- PARC Pixel has no É, so the résumé label reads “Resume”; “(PDF)” as on Contact (PX-125).
+         The résumé comes first in the markup and on screen, so Tab runs left to right (PX-128). -->
+    <div class="hero-actions"><QuietLink href={RESUME_URL} label="Resume (PDF)" /><Cta variant="hint" class="hero-hint" href="#work">Selected work<PixelIcon name="down" class="arrow" /></Cta></div>
   </div>
 </section>
 
@@ -107,13 +108,13 @@
 .hero-role :global(.decode),.hero-role .ghost{white-space:pre-wrap}
 /* The actions, the work chip and the résumé link (0127): bottom right on desktop with the chip
    outermost; on phones a row under the copy. */
-.hero-actions{position:absolute;right:var(--gutter);bottom:var(--s8);display:flex;flex-direction:row-reverse;align-items:center;gap:var(--s3)}
+.hero-actions{position:absolute;right:var(--gutter);bottom:var(--s8);display:flex;align-items:center;gap:var(--s3)}
 :global(.hero-hint) :global(.arrow){display:block;transform:translateY(0);position:relative;top:-1px}
 :global(.motion .hero-hint) :global(.arrow){animation:nudge var(--tick-cursor) steps(2,jump-none) infinite}
 @keyframes nudge{from{transform:translateY(0)}to{transform:translateY(2px)}}
 @media(max-width:1100px){.hero-name{font-size:172px;line-height:172px;padding-bottom:4px}}
 /* below 900 the copy reaches the actions' column, so they join the flow under it (0202) */
-@media(max-width:900px){.hero-actions{position:static;flex-direction:row;flex-wrap:wrap;margin-top:var(--s2);align-self:flex-start}.hero-sec :global(.hero-hint){white-space:nowrap}}
+@media(max-width:900px){.hero-actions{position:static;flex-wrap:wrap;margin-top:var(--s2);align-self:flex-start}.hero-sec :global(.hero-hint){white-space:nowrap}}
 @media(max-width:700px){
   .hero-sec :global(.hero){padding-bottom:var(--s6)}
   .hero-name{font-size:86px;line-height:86px;padding-bottom:2px}

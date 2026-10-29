@@ -1,0 +1,1208 @@
+[
+  {
+    "tool": "lockup",
+    "name": "01\nLOCKUP",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "01\nLOCKUP"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "01\nLOCKUP",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "01\nLOCKUP"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "02\nPALETTE",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "02\nPALETTE"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "02\nPALETTE",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "02\nPALETTE"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "03\nSPECIMEN",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "03\nSPECIMEN"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "03\nSPECIMEN",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "03\nSPECIMEN"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "04\nCONVERT",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "04\nCONVERT"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "04\nCONVERT",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "04\nCONVERT"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "Light preview background",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Light preview background"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "Light preview background",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Light preview background"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "Dark preview background",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Dark preview background"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "Dark preview background",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Dark preview background"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "JPEG",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "JPEG"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "JPEG",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "JPEG"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "PNG",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "PNG"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "PNG",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "PNG"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "SVG",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "SVG"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "SVG",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "SVG"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "EPS",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "EPS"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "EPS",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "EPS"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "JPEG",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "JPEG"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "JPEG",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "JPEG"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "PDF",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "PDF"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "PDF",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "PDF"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "02\nOutputs",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "02\nOutputs"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "02\nOutputs",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "02\nOutputs"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "03\nReview",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "03\nReview"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "03\nReview",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "03\nReview"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "CONTINUE\n->",
+    "key": "Enter",
+    "focus": {
+      "tag": "H4",
+      "name": "ACME LOGO LIBRARY"
+    }
+  },
+  {
+    "tool": "lockup",
+    "name": "CONTINUE\n->",
+    "key": "Space",
+    "focus": {
+      "tag": "H4",
+      "name": "ACME LOGO LIBRARY"
+    }
+  },
+  {
+    "tool": "lockup",
+    "input": "Web",
+    "type": "checkbox",
+    "focus": true
+  },
+  {
+    "tool": "lockup",
+    "input": "Print",
+    "type": "checkbox",
+    "focus": true
+  },
+  {
+    "tool": "lockup",
+    "input": "Color",
+    "type": "checkbox",
+    "focus": true
+  },
+  {
+    "tool": "lockup",
+    "input": "Black",
+    "type": "checkbox",
+    "focus": true
+  },
+  {
+    "tool": "lockup",
+    "input": "White",
+    "type": "checkbox",
+    "focus": true
+  },
+  {
+    "tool": "lockup",
+    "input": "Large",
+    "type": "checkbox",
+    "focus": true
+  },
+  {
+    "tool": "lockup",
+    "input": "Medium",
+    "type": "checkbox",
+    "focus": true
+  },
+  {
+    "tool": "lockup",
+    "input": "Small",
+    "type": "checkbox",
+    "focus": true
+  },
+  {
+    "tool": "palette",
+    "name": "01\nLOCKUP",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "01\nLOCKUP"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "01\nLOCKUP",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "01\nLOCKUP"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "02\nPALETTE",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "02\nPALETTE"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "02\nPALETTE",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "02\nPALETTE"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "03\nSPECIMEN",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "03\nSPECIMEN"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "03\nSPECIMEN",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "03\nSPECIMEN"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "04\nCONVERT",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "04\nCONVERT"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "04\nCONVERT",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "04\nCONVERT"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Remove color 1",
+    "key": "Enter",
+    "focus": {
+      "tag": "BODY",
+      "name": "SKIP TO CONTENT\ntimothy ali\nINDEX\nWORK\nCONTACT\nTOOLBOX\ntoolb"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Remove color 1",
+    "key": "Space",
+    "focus": {
+      "tag": "BODY",
+      "name": "SKIP TO CONTENT\ntimothy ali\nINDEX\nWORK\nCONTACT\nTOOLBOX\ntoolb"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Remove color 2",
+    "key": "Enter",
+    "focus": {
+      "tag": "BODY",
+      "name": "SKIP TO CONTENT\ntimothy ali\nINDEX\nWORK\nCONTACT\nTOOLBOX\ntoolb"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Remove color 2",
+    "key": "Space",
+    "focus": {
+      "tag": "BODY",
+      "name": "SKIP TO CONTENT\ntimothy ali\nINDEX\nWORK\nCONTACT\nTOOLBOX\ntoolb"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Remove color 3",
+    "key": "Enter",
+    "focus": {
+      "tag": "BODY",
+      "name": "SKIP TO CONTENT\ntimothy ali\nINDEX\nWORK\nCONTACT\nTOOLBOX\ntoolb"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Remove color 3",
+    "key": "Space",
+    "focus": {
+      "tag": "BODY",
+      "name": "SKIP TO CONTENT\ntimothy ali\nINDEX\nWORK\nCONTACT\nTOOLBOX\ntoolb"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Remove color 4",
+    "key": "Enter",
+    "focus": {
+      "tag": "BODY",
+      "name": "SKIP TO CONTENT\ntimothy ali\nINDEX\nWORK\nCONTACT\nTOOLBOX\ntoolb"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Remove color 4",
+    "key": "Space",
+    "focus": {
+      "tag": "BODY",
+      "name": "SKIP TO CONTENT\ntimothy ali\nINDEX\nWORK\nCONTACT\nTOOLBOX\ntoolb"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "+\nADD COLOR",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "+\nADD COLOR"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "+\nADD COLOR",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "+\nADD COLOR"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Acme.css",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Acme.css"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Acme.css",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Acme.css"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Acme.scss",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Acme.scss"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Acme.scss",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Acme.scss"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Acme.tokens.json",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Acme.tokens.json"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Acme.tokens.json",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Acme.tokens.json"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Acme.ase",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Acme.ase"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Acme.ase",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Acme.ase"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Acme_Swatches.pdf",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Acme_Swatches.pdf"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Acme_Swatches.pdf",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Acme_Swatches.pdf"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Acme_Swatches.png",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Acme_Swatches.png"
+    }
+  },
+  {
+    "tool": "palette",
+    "name": "Acme_Swatches.png",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Acme_Swatches.png"
+    }
+  },
+  {
+    "tool": "palette",
+    "input": "Palette name",
+    "type": "text",
+    "focus": true
+  },
+  {
+    "tool": "palette",
+    "input": "Hex for color 1",
+    "type": "text",
+    "focus": true
+  },
+  {
+    "tool": "palette",
+    "input": "Name for color 1",
+    "type": "text",
+    "focus": true
+  },
+  {
+    "tool": "palette",
+    "input": "Hex for color 2",
+    "type": "text",
+    "focus": true
+  },
+  {
+    "tool": "palette",
+    "input": "Name for color 2",
+    "type": "text",
+    "focus": true
+  },
+  {
+    "tool": "palette",
+    "input": "Hex for color 3",
+    "type": "text",
+    "focus": true
+  },
+  {
+    "tool": "palette",
+    "input": "Name for color 3",
+    "type": "text",
+    "focus": true
+  },
+  {
+    "tool": "palette",
+    "input": "Hex for color 4",
+    "type": "text",
+    "focus": true
+  },
+  {
+    "tool": "palette",
+    "input": "Name for color 4",
+    "type": "text",
+    "focus": true
+  },
+  {
+    "tool": "palette",
+    "input": "CSS / SCSS",
+    "type": "checkbox",
+    "focus": true
+  },
+  {
+    "tool": "palette",
+    "input": "Tokens",
+    "type": "checkbox",
+    "focus": true
+  },
+  {
+    "tool": "palette",
+    "input": "ASE",
+    "type": "checkbox",
+    "focus": true
+  },
+  {
+    "tool": "palette",
+    "input": "Swatch sheet",
+    "type": "checkbox",
+    "focus": true
+  },
+  {
+    "tool": "specimen",
+    "name": "01\nLOCKUP",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "01\nLOCKUP"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "01\nLOCKUP",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "01\nLOCKUP"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "02\nPALETTE",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "02\nPALETTE"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "02\nPALETTE",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "02\nPALETTE"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "03\nSPECIMEN",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "03\nSPECIMEN"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "03\nSPECIMEN",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "03\nSPECIMEN"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "04\nCONVERT",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "04\nCONVERT"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "04\nCONVERT",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "04\nCONVERT"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "Brand sheet",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Brand sheet"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "Brand sheet",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Brand sheet"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "Specimen",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Specimen"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "Specimen",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Specimen"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "L",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "L"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "L",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "L"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "M",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "M"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "M",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "M"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "S",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "S"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "S",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "S"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "L",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "L"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "L",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "L"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "M",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "M"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "M",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "M"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "S",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "S"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "S",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "S"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "L",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "L"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "L",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "L"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "M",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "M"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "M",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "M"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "S",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "S"
+    }
+  },
+  {
+    "tool": "specimen",
+    "name": "S",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "S"
+    }
+  },
+  {
+    "tool": "specimen",
+    "input": "Sheet title",
+    "type": "text",
+    "focus": true
+  },
+  {
+    "tool": "specimen",
+    "input": "Sample line",
+    "type": "text",
+    "focus": true
+  },
+  {
+    "tool": "specimen",
+    "input": "Display typeface",
+    "type": "select-one",
+    "focus": true
+  },
+  {
+    "tool": "specimen",
+    "input": "Heading typeface",
+    "type": "select-one",
+    "focus": true
+  },
+  {
+    "tool": "specimen",
+    "input": "Body typeface",
+    "type": "select-one",
+    "focus": true
+  },
+  {
+    "tool": "convert",
+    "name": "01\nLOCKUP",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "01\nLOCKUP"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "01\nLOCKUP",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "01\nLOCKUP"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "02\nPALETTE",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "02\nPALETTE"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "02\nPALETTE",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "02\nPALETTE"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "03\nSPECIMEN",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "03\nSPECIMEN"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "03\nSPECIMEN",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "03\nSPECIMEN"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "04\nCONVERT",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "04\nCONVERT"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "04\nCONVERT",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "04\nCONVERT"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "PNG",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "PNG"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "PNG",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "PNG"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "JPEG",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "JPEG"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "JPEG",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "JPEG"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "WebP",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "WebP"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "WebP",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "WebP"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "TIFF",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "TIFF"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "TIFF",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "TIFF"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "PDF",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "PDF"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "PDF",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "PDF"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "Full size",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Full size"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "Full size",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "Full size"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "1500",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "1500"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "1500",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "1500"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "1000",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "1000"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "1000",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "1000"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "500",
+    "key": "Enter",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "500"
+    }
+  },
+  {
+    "tool": "convert",
+    "name": "500",
+    "key": "Space",
+    "focus": {
+      "tag": "BUTTON",
+      "name": "500"
+    }
+  },
+  {
+    "tool": "convert",
+    "input": "Compression",
+    "type": "range",
+    "focus": true
+  }
+]

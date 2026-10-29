@@ -33,7 +33,7 @@
 .demo .steps button{padding:var(--pad-s);opacity:var(--dim)}
 .demo .steps button b{font-weight:400;margin-right:var(--s1)}
 .demo .steps button[aria-current]{opacity:1;background:var(--accent);color:var(--on-accent)}
-.demo .steps button:disabled{opacity:.25}
+.demo .steps button:disabled{opacity:.5} /* .25 left the step's name unreadable (PX-128) */
 @media(hover:hover){.demo .steps button:not(:disabled):not([aria-current]):hover{opacity:1;background:var(--fg);color:var(--paper)}}
 
 /* the two button voices */

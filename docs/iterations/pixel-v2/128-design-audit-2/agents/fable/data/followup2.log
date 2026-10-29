@@ -1,0 +1,20 @@
+shift-tab [motion on] work: at {"name":"FirstStrike Research->","top":308,"navBottom":32,"collapsed":true,"y":1364} -> back1 {"name":"xrp.cafe->As founding ","top":308,"navBottom":32,"collapsed":true,"y":1364} clear -> back2 {"name":"First Ledger->I design","top":16,"navBottom":96,"collapsed":false,"y":1064} UNDER CHROME
+shift-tab [motion on] home: at {"name":"First Ledger->I design","top":356,"navBottom":32,"collapsed":true,"y":1228} -> back1 {"name":"Jade Aesthetics->Two w","top":356,"navBottom":32,"collapsed":true,"y":1228} clear -> back2 {"name":"PARC->A new identity a","top":0,"navBottom":96,"collapsed":false,"y":960} UNDER CHROME
+shift-tab [motion on] parc: at {"name":"Next / [03]Jade Aesthe","top":855,"navBottom":32,"collapsed":true,"y":10241} -> back1 {"name":"","top":646,"navBottom":96,"collapsed":false,"y":5298} clear -> back2 {"name":"parcxrpl.com ->","top":434,"navBottom":96,"collapsed":false,"y":462} clear
+shift-tab [motion off] work: at {"name":"FirstStrike Research->","top":308,"navBottom":32,"collapsed":true,"y":1364} -> back1 {"name":"xrp.cafe->As founding ","top":308,"navBottom":32,"collapsed":true,"y":1364} clear -> back2 {"name":"First Ledger->I design","top":16,"navBottom":32,"collapsed":true,"y":1064} UNDER CHROME
+shift-tab [motion off] home: at {"name":"First Ledger->I design","top":356,"navBottom":32,"collapsed":true,"y":1228} -> back1 {"name":"Jade Aesthetics->Two w","top":356,"navBottom":32,"collapsed":true,"y":1228} clear -> back2 {"name":"PARC->A new identity a","top":0,"navBottom":32,"collapsed":true,"y":960} UNDER CHROME
+shift-tab [motion off] parc: at {"name":"Next / [03]Jade Aesthe","top":700,"navBottom":32,"collapsed":true,"y":10396} -> back1 {"name":"","top":418,"navBottom":32,"collapsed":true,"y":5298} clear -> back2 {"name":"parcxrpl.com ->","top":434,"navBottom":32,"collapsed":true,"y":462} clear
+forced-colors cues: {"navCurrent":"rgb(255, 255, 255) / rgb(0, 0, 159) / border 0px none / outline none 3px / deco none","navOther":"rgba(255, 255, 255, 0) / rgb(0, 0, 159) / border 0px none / outline none 3px / deco none","pickerOn":"rgb(255, 255, 255) / rgb(0, 0, 0) / border 0px none / outline none 3px / deco none","pickerOff":"rgba(255, 255, 255, 0) / rgb(0, 0, 0) / border 0px none / outline none 3px / deco none","chipOn":"rgb(255, 255, 255) / rgb(0, 0, 0) / border 0px none / outline none 3px / deco none","cta":"rgb(255, 255, 255) / rgb(0, 0, 159) / border 0px none / outline none 3px / deco none","switchState":"rgba(255, 255, 255, 0) / rgb(0, 0, 0) / border 0px none / outline none 3px / deco none"}
+hero: sr-only texts=["Timothy Ali"] static line sr=[]
+card hover: before=["repeating-conic-gradient(color(srgb 0.937255 0.937","rgb(239, 239, 235)","matrix(1, 0, 0, 1, 0, 0)"] after=["repeating-conic-gradient(color(srgb 0.937255 0.937","rgb(242, 214, 0)","matrix(1, 0, 0, 1, 8, 0)"]
+clip motion off: paused=true poster=true button="Play video: xrp.cafe Explore Create Trade motion graphic" size=[64,64]
+  after click: paused=false button="Pause video: xrp.cafe Explore Create Trade motion graphic" opacity=0.8
+  pointer away: pause opacity=0
+clip motion on: paused=false pause button opacity (pointer away)=0; on hover=0.8
+parc h1 for AT: {"sr":"parc","hidden":["parc","parc"]}
+parc empty alts: 0 of 32; sample: ["The new PARC box logo: four-color pixel letters on a white s","The earlier direction: three black pixel lockups on white, T","The old PARC logo: a cartoon ape head with a wide grin and t"]
+download link names: ["Apple silicon","Intel","Installer x64","Installer arm64","AppImage x86_64","AppImage arm64","deb amd64","deb arm64"]
+lockup paragraph: {"size":"27px","lh":"32px","lines":5,"width":672,"chars":285}
+agents side paragraph: {"size":"27px","lh":"32px","lines":5,"width":704}
+options dd: null
+options dd sample: {"size":"27px","lh":"32px","lines":5,"opacity":"0.75"}
