@@ -1,5 +1,5 @@
 {
-  "generated": "Toolbox 1.2.5",
+  "generated": "Toolbox 1.2.6",
   "root": "Acme Logo Library",
   "source": {
     "name": "acme.svg",
@@ -26,7 +26,7 @@
       "family": "PRINT",
       "treatment": "Black",
       "size": null,
-      "bytes": 13708
+      "bytes": 13697
     },
     {
       "path": "01 Primary/PRINT/Black/JPEG/Acme_Primary_Black_Large.jpg",
@@ -66,7 +66,7 @@
       "family": "PRINT",
       "treatment": "Color",
       "size": null,
-      "bytes": 13770
+      "bytes": 13759
     },
     {
       "path": "01 Primary/PRINT/CMYK (Color)/JPEG/Acme_Primary_Color_Large.jpg",
@@ -74,7 +74,7 @@
       "family": "PRINT",
       "treatment": "Color",
       "size": "Large",
-      "bytes": 43756
+      "bytes": 94272
     },
     {
       "path": "01 Primary/PRINT/CMYK (Color)/JPEG/Acme_Primary_Color_Medium.jpg",
@@ -82,7 +82,7 @@
       "family": "PRINT",
       "treatment": "Color",
       "size": "Medium",
-      "bytes": 21433
+      "bytes": 41581
     },
     {
       "path": "01 Primary/PRINT/CMYK (Color)/JPEG/Acme_Primary_Color_Small.jpg",
@@ -90,7 +90,7 @@
       "family": "PRINT",
       "treatment": "Color",
       "size": "Small",
-      "bytes": 11836
+      "bytes": 22893
     },
     {
       "path": "01 Primary/PRINT/CMYK (Color)/PDF/Acme_Primary_Color.pdf",
@@ -106,7 +106,7 @@
       "family": "PRINT",
       "treatment": "Pantone",
       "size": null,
-      "bytes": 13962
+      "bytes": 13951
     },
     {
       "path": "01 Primary/PRINT/PMS (Color)/Acme_Primary_Color.pdf",
@@ -122,7 +122,7 @@
       "family": "PRINT",
       "treatment": "White",
       "size": null,
-      "bytes": 13708
+      "bytes": 13697
     },
     {
       "path": "01 Primary/PRINT/White/Acme_Primary_White.pdf",
@@ -335,6 +335,6 @@
   ],
   "zip": {
     "href": "/toolbox/samples/lockup/Acme-Logo-Library.zip",
-    "bytes": 249355
+    "bytes": 277889
   }
 }

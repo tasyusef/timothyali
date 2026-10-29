@@ -1236,3 +1236,11 @@ Committed and pushed on Timothy's "2" on 2026-10-29.
 - **Tests:** `tests/toolbox-samples.test.ts` holds each manifest to its files and its zip; `toolbox-demo.mjs` rewritten for the diagrams (48 states, real downloads, no overflow or overlap, no-JS Lockup).
 - **Checks:** `pnpm check` 0/0, 43 tests, build, `seo:check`; `toolbox-demo.mjs` PASS on the production preview; nine widths from 2560 to 320 with no overflow or overlap; `/toolbox/` JavaScript beyond the shared app 28.4 kB gzipped with all four diagrams (was 35.7 kB plus a lazy demo per tool).
 - **Evidence:** `docs/iterations/pixel-v2/131-tool-flows/` (`flows-1440-{dark,light}.png`, `flows-390-{dark,light}.png`, `rejected-sample-1440-dark.png`, `review/`).
+
+## PX-132: Toolbox 1.2.6 (2026-10-29, 0235)
+
+Pushed on 2026-10-29, after the v1.2.6 GitHub release was public.
+
+- **Downloads:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.6; `toolbox-options.ts` header from the 1.2.6 binary.
+- **Samples:** Lockup's zip and manifest remade with 1.2.6 (CMYK PRINT JPEGs, EPS Creator); the other three manifests change only their `generated` line.
+- **Checks:** `pnpm check` 0/0, 43 tests, build, `seo:check`.

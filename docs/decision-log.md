@@ -2825,3 +2825,10 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Assistant's choices inside it:** one acme logo and one poster for all four tools; the count and the download share the line under the diagram, so nothing sits between the parts; every size a whole number of a unit (`--fu`), a 54th of the frame and a 32nd on a phone, where what goes in stands above what comes out; all four diagrams come with the page, so a pick swaps them at once.
 - **Known nit:** the app prints the 12.5 pt Label as "13PT" on the sheet (it rounds); the PDF is set at 12.5.
 - **Status:** prepared and checked on 2026-10-29 (PX-131); committed and pushed on his "2" on 2026-10-29.
+
+## 0235: Toolbox 1.2.6 on the site (2026-10-29)
+
+- **Timothy's direction:** "Remake it and update the app": ship the app's CMYK JPEG and EPS Creator fix (Toolbox 0050d02) as a release, then remake the Lockup sample from it.
+- **Change:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.6, so all eight download links follow; `toolbox-options.ts` synced from the 1.2.6 CLI (header only).
+- **Samples:** `samples.mjs` rerun with 1.2.6. Lockup's zip is 244 → 271 kB: its three PRINT CMYK (Color) JPEGs are now CMYK and every EPS's creator reads "Toolbox 1.2.6". Palette, Specimen and Convert came out byte-identical.
+- **Status:** published on 2026-10-29 with the v1.2.6 GitHub release.
