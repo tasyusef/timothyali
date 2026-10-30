@@ -26,6 +26,6 @@ details:not([open])>summary{display:flex;align-items:center;gap:var(--s1);min-he
 dl{margin:0;display:flex;flex-direction:column;gap:var(--s2)}
 /* flag left, what it does right: the two read as one table without rules */
 dl>div{display:grid;grid-template-columns:320px minmax(0,1fr);gap:var(--s1) var(--s4);align-items:start}
-dt{overflow-wrap:break-word}.opt{white-space:nowrap} /* a choice list breaks after a “|”, not inside a choice such as library-remove (0205) */dd{margin:0;max-width:48ch;overflow-wrap:anywhere}
+dt{overflow-wrap:break-word}.opt{display:inline-block;max-width:100%} /* a choice list breaks after a “|”, not inside a choice such as library-remove (0205), unless the choice is longer than the line: “--socialPadding <number>” in Departure Mono at 320 (0237) */dd{margin:0;max-width:38ch;overflow-wrap:anywhere}
 @media(max-width:700px){dl>div{grid-template-columns:100%}}
 </style>

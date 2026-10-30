@@ -154,7 +154,7 @@
 
 /* Toolbox — the landing's hero at share size: top row, the name, the lead, the actions */
 .og :global(.og-toolbox){display:flex;flex-direction:column;align-items:flex-start}
-.og :global(.og-toolbox .lead){font-size:27px;line-height:32px;margin-top:var(--s2)}
+.og :global(.og-toolbox .lead){font-size:22px;line-height:32px;margin-top:var(--s2)}
 .og-actions{display:flex;align-items:center;gap:var(--s4);margin-top:var(--s4)}
 
 /* Agents — the page head and the command plate */
@@ -169,7 +169,7 @@
 .og :global(.og-sh){display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);padding-top:var(--s4)}
 .og-sh-title{align-self:stretch;font-size:110px;line-height:112px;margin-top:var(--s2)}
 .og-sh-title:global(.small){font-size:82.5px;line-height:88px}
-.og-desc{max-width:40ch}
+.og-desc{max-width:31ch}
 
 /* Study — the Work row, centred in the frame (tool images). The Work page's rows became cards
    (0196); their rules live here now, the only place a row is drawn (0207). */

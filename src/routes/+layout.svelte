@@ -3,17 +3,14 @@
   // Cyrillic and Greek fallbacks inlined into the render-blocking stylesheet
   import '@fontsource/jacquard-24/latin-400.css';
   import PixelIcon from '$lib/components/PixelIcon.svelte';
-  import '@fontsource/jersey-15/latin-400.css';
   import '@fontsource/press-start-2p/latin-400.css';
-  import '@fontsource/ibm-plex-mono/latin-400.css'; // the study reading face (0137), preloaded by the study page
   import '../app.css';
   import jacquardUrl from '@fontsource/jacquard-24/files/jacquard-24-latin-400-normal.woff2?url';
-  import jerseyUrl from '@fontsource/jersey-15/files/jersey-15-latin-400-normal.woff2?url';
+  import textUrl from '$lib/fonts/departure-mono/DepartureMono-latin.woff2?url';
   import pressStartUrl from '@fontsource/press-start-2p/files/press-start-2p-latin-400-normal.woff2?url';
-  // Every face the chrome and the first fold use, 68KB together, so the first paint is set in them.
-  // PARC Pixel is inlined in base.css (0206). A study sets no Jersey 15 at all (its reading face is
-  // Plex Mono, which the study preloads), so it does not ask for it (0214).
-  const preload = $derived(page.route.id === '/work/[slug]' ? [jacquardUrl, pressStartUrl] : [jacquardUrl, pressStartUrl, jerseyUrl]);
+  // Every face the chrome and the first fold use, so the first paint is set in them. PARC Pixel
+  // is inlined in base.css (0206). Departure Mono is also the studies' reading face (0237).
+  const preload = [jacquardUrl, pressStartUrl, textUrl];
   import { page } from '$app/state';
   import { afterNavigate, beforeNavigate, onNavigate } from '$app/navigation';
   import { onMount } from 'svelte';

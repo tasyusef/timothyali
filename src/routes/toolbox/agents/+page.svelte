@@ -134,7 +134,7 @@ toolbox organize undo JOURNAL_ID`;
   <section><PageFoot note="" href="/toolbox/" label="All four tools" /></section>
 </main>
 <style>
-.intro .lead{max-width:24ch}.intro .body{max-width:60ch}
+.intro .lead{max-width:19ch}.intro .body{max-width:47ch}
 .flag{white-space:nowrap} /* a flag in prose stays whole at a line end */
 .jump{display:flex;flex-wrap:wrap;gap:0 var(--s3);margin-top:var(--s1)}.jump a{padding:14px 0 14px;text-decoration:underline;text-underline-offset:4px}
 @media(hover:hover){.jump a:hover{color:var(--accent-text)}}
@@ -144,8 +144,8 @@ toolbox organize undo JOURNAL_ID`;
 /* one column (0200): the heading and its explanation, then the commands at full width under
    them; side by side, the shorter column left a hole and the commands ran off the side */
 .text{padding-top:var(--s8);display:flex;flex-direction:column;gap:var(--s3)}
-.side{display:flex;flex-direction:column;gap:var(--s2);max-width:64ch}.side h2{margin-bottom:var(--s1)}
-.rules{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s3);margin:0;max-width:72ch}
+.side{display:flex;flex-direction:column;gap:var(--s2);max-width:50ch}.side h2{margin-bottom:var(--s1)}
+.rules{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s3);margin:0;max-width:57ch}
 .rules dt{margin-bottom:var(--s1)}.rules dd{margin:0}
 .option-links{list-style:none;margin:0;padding:0;gap:0}
 @media(max-width:700px){.text{padding-top:var(--s6)}}

@@ -1,6 +1,6 @@
 <script lang="ts">
-  // A block of commands or JSON on the inverted plate. Text is set in Jersey, the site's
-  // reading face, because the mono role is uppercase and a command is not. A long line
+  // A block of commands or JSON on the inverted plate. Text is set in the text face
+  // (Departure Mono, 0237), because the mono role is uppercase and a command is not. A long line
   // wraps, its continuation indented two characters, so nothing scrolls sideways (0200);
   // each line is its own block, so copying keeps the line breaks. The text is a
   // prop, not children: Svelte collapses a snippet's newlines before they reach a <pre>.

@@ -13,7 +13,10 @@
    Chrome on macOS; the overrides are divided by size-adjust, which scales them too. Where the
    local face is missing (Android) the stack falls through to the generic face as before. */
 @font-face{font-family:'Jacquard 24 fallback';src:local('Times New Roman'),local('TimesNewRomanPSMT');size-adjust:82.26%;ascent-override:96.04%;descent-override:25.53%;line-gap-override:0%}
-@font-face{font-family:'Jersey 15 fallback';src:local('Arial'),local('ArialMT');size-adjust:84.71%;ascent-override:92.08%;descent-override:25.97%;line-gap-override:0%}
+/* Self-hosted from src/lib/fonts, subset to Latin like the fontsource faces, each with its OFL (0237):
+   Departure Mono (Helena Zhang), the text face and the studies' reading face */
+@font-face{font-family:'Departure Mono';src:url('../fonts/departure-mono/DepartureMono-latin.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Departure Mono fallback';src:local('Courier New'),local('CourierNewPSMT');size-adjust:106.05%;ascent-override:94.3%;descent-override:25.72%;line-gap-override:0%}
 @font-face{font-family:'Press Start 2P fallback';src:local('Courier New'),local('CourierNewPSMT');size-adjust:166.64%;ascent-override:60.01%;descent-override:0%;line-gap-override:0%}
 /* In-page jumps (the hero's “Explore the tools”, a Work row from Home) ease when motion is on;
    the skip link scrolls instantly on its own (0098). The class lives on .site, so :has reaches it. */
@@ -21,7 +24,7 @@
 /* Whatever is scrolled to, by a link to an anchor or by keyboard focus, stops below the sticky chrome
    with a unit of room, never under it (PX-128: Shift+Tab hid "Resume (PDF)" under the header). */
 :root{scroll-padding-top:calc(var(--chrome-height) + var(--s2))}
-:root{font-family:var(--face-root);font-size:27px;line-height:32px;color:var(--fg);background:var(--paper);font-synthesis:none;-webkit-font-smoothing:none;text-rendering:optimizeSpeed;-webkit-tap-highlight-color:transparent} /* the press states (0099) are the tap feedback; no browser flash over them (0206) */
+:root{font-family:var(--face-root);font-size:22px;line-height:32px;color:var(--fg);background:var(--paper);font-synthesis:none;-webkit-font-smoothing:none;text-rendering:optimizeSpeed;-webkit-tap-highlight-color:transparent} /* the press states (0099) are the tap feedback; no browser flash over them (0206) */
 *{box-sizing:border-box}body{margin:0;min-height:100vh}
 h1,h2,h3,p,figure,dl,dd{margin:0}h1,h2,h3{font-weight:400}
 a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}

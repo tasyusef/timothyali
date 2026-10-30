@@ -25,15 +25,14 @@
   --cell-image:2px;       /* photographs and video: 2px */
   --cell-texture:16px;    /* one ASCII cell: a 5×7 glyph drawn with 2px pixels */
 
-  /* face stacks — every face is a bitmap design (see the cell table in app.css) except the
-     reading face, IBM Plex Mono, which the case studies are read in (0136, 0137) */
+  /* face stacks — every face is a bitmap design (see the cell table in app.css). Since 0237 the
+     text face is Departure Mono (was Jersey 15), and the studies read in it too (was IBM Plex Mono) */
   --face-blackletter:'Jacquard 24','Jacquard 24 fallback',serif;
   --face-display:'PARC Pixel Bold Web',sans-serif;   /* caps only; 13.75 cells/em (0078) */
-  --face-text:'Jersey 15','Jersey 15 fallback',sans-serif;
+  --face-text:'Departure Mono','Departure Mono fallback',ui-monospace,monospace; /* 11 cells/em (0237) */
   --face-label:'PARC Pixel Web',monospace;           /* caps only; 6.25 cells/em (0078) */
   --face-mono:'Press Start 2P','Press Start 2P fallback',monospace;
-  --face-root:'Jersey 15','Jersey 15 fallback',ui-monospace,monospace;
-  --face-read:'IBM Plex Mono',ui-monospace,monospace;
+  --face-root:var(--face-text);
 
   /* motion — nothing is continuous, everything steps */
   --tick-cursor:1s;   /* one blink period, stepped 2 jump-none */

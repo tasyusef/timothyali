@@ -61,10 +61,10 @@ component renders reach it with `:global()` anchored on their own `<main>`.
 | `--cell-texture` | `16px` | one ASCII cell |
 | `--face-blackletter` | `'Jacquard 24',serif` | emphasis words, wordmark |
 | `--face-display` | `'PARC Pixel Bold Web',sans-serif` | uppercase display (caps-only face; 13.75 cells/em; 0078) |
-| `--face-text` | `'Jersey 15',sans-serif` | body and lead |
+| `--face-text` | `'Departure Mono','Departure Mono fallback',ui-monospace,monospace` | body and lead; 11 cells/em, self-hosted from `src/lib/fonts/departure-mono/` and preloaded (0237; Jersey 15 before) |
 | `--face-label` | `'PARC Pixel Web',monospace` | labels, nav, buttons (caps-only; 6.25 cells/em; 0078) |
 | `--face-mono` | `'Press Start 2P',monospace` | status strip, arrows |
-| `--face-root` | `'Jersey 15',ui-monospace,monospace` | the document fallback stack |
+| `--face-root` | `var(--face-text)` | the document face (0237) |
 | `--tick-cursor` | `1s` | one blink period |
 | `--nudge` | `8px` | hover displacement — exactly one cell |
 | `--step` / `--step-fast` | `70ms` / `55ms` | one step of a dither wipe; `STEP` / `STEP_FAST` in `tokens.ts` (0100) |
@@ -140,10 +140,12 @@ would hide the arithmetic.
 | face | cells/em | 1 | 2 | 3 | 4 | 6 | 8 |
 |---|---|---|---|---|---|---|---|
 | Jacquard 24 | 43 | 43 | 86 | 129 | 172 | 258 | 344 |
-| PARC Pixel Bold | 13.75 | — | 27.5 | 41.25 | 55 | 82.5 | 110 |
-| Jersey 15 | 27 | 27 | 54 | | | | |
+| PARC Pixel Bold | 13.75 | 13.75 | 27.5 | 41.25 | 55 | 82.5 | 110 |
 | PARC Pixel | 6.25 | — | 12.5 | 18.75 | 25 | 37.5 | 50 |
 | Press Start 2P | 8 | 8 | 16 | 24 | 32 | | |
+| Departure Mono | 11 | 11 | 22 | 33 | 44 | 66 | 88 |
+
+Jersey 15 (27 cells/em) was the text face until 0237.
 
 ## Type roles (`src/lib/styles/type.css`)
 
@@ -153,12 +155,15 @@ would hide the arithmetic.
 | `.display-xl` | — (always worn with `.blackletter`) | **258/264 → 172/176 (≤1100) → 129/136 (≤700) → 86/88 (≤420)**, `display:block` |
 | `.display` | PARC Pixel Bold | 55/56 → 41.25/48 (≤700), uppercase (cell 4 → 3) |
 | `.display-s` | PARC Pixel Bold | 41.25/48 → 27.5/32 (≤700), uppercase (cell 3 → 2) |
-| `.lead` | Jersey 15 | 54/64 → 27/32 (≤700); the study's single lead paragraph is 27/40 at every width, capped at 64ch (0123) |
-| `.body` | Jersey 15 | 27/32; the study's reading paragraphs (`.paras`) 27/40 in a 64ch column (PX-43) |
+| `.lead` | Departure Mono | 44/56 → 22/32 (≤700) (cell 4 → 2; 0237) |
+| `.body` | Departure Mono | 22/32 (cell 2), `overflow-wrap:break-word` so a long path breaks on a phone; `.body.long` is 22/32 too (Jersey needed 27/40, 0231; 0237) |
 | `.lbl` | PARC Pixel | 12.5/16, uppercase (cell 2) |
 | `.mono` | Press Start 2P | 16/16, uppercase, nowrap |
-| `.read` | IBM Plex Mono (`--face-read`, `@fontsource/ibm-plex-mono`, preloaded on study pages) | 18/32 at every width, smoothed; the case-study reading text only: lead, meta values, paragraphs, list items (0136, 0137). The one face that is not a bitmap |
+| `.read` | Departure Mono | 22/32 at every width (cell 2); the case-study reading text only: lead, meta values, paragraphs, list items, in a 50ch (700px) column (0136, 0237; IBM Plex Mono 18/32 before, 0137) |
+| `.read-s` | Departure Mono | 22/32 (cell 2): study captions and admin notes, worn with `.dim` (0210, 0237). A study's fact labels (`.meta dt`) are PARC Pixel Bold 13.75/16 (cell 1) |
 | `.dim` | — | `opacity:var(--dim)` |
+
+Measures in `ch` follow the face they sit in. Departure Mono's `ch` is 14px at 22px, where Jersey's was 11px at 27px, so 0237 scaled every `ch` measure by 11/14 to keep its width (the hero's role line 46ch → 36ch, the study columns 64ch → 50ch).
 
 `.display-xl` replaces the three route-local `.xl` copies (Home, Work, Contact).
 `.display-l` (123px, never used in any route) is retired.

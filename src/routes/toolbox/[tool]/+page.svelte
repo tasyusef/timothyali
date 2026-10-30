@@ -50,7 +50,7 @@
 .text{scroll-margin-top:var(--s2)} /* #cli, linked from the CLI & MCP page's options (0199); the chrome itself is cleared by :root's scroll-padding */
 /* CLI & MCP in one column (0205), as on the CLI & MCP page (0200): the explanation, then the
    command and the options at full width, so nothing sits beside an empty column */
-.text.stack{display:flex;flex-direction:column;gap:var(--s3)}.stack .paras>.body{max-width:64ch}
+.text.stack{display:flex;flex-direction:column;gap:var(--s3)}.stack .paras>.body{max-width:50ch}
 @media(max-width:900px){.text{grid-template-columns:100%}}
 @media(max-width:700px){.shot,.text,.next{padding-top:var(--s6)}}
 </style>

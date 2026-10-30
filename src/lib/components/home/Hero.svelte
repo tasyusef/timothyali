@@ -101,7 +101,7 @@
 /* The typed line: one grid cell holding every copy line, hidden, under the typed one, so the
    box is as tall as the tallest line at this width and the field's knockout measures one
    stable box, not the changing words (0132). */
-.hero-role{display:grid;max-width:46ch;min-height:64px;margin-top:var(--s2);text-wrap:pretty}
+.hero-role{display:grid;max-width:36ch;min-height:64px;margin-top:var(--s2);text-wrap:pretty}
 .hero-role>:global(*){grid-area:1/1}
 .sizer,.ghost{visibility:hidden}
 .slot{display:inline-grid}.slot>:global(*){grid-area:1/1}

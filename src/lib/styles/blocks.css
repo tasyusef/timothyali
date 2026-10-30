@@ -121,11 +121,11 @@ button.cta-row{width:100%;text-align:left}
 @media(max-width:700px){.command-plate{padding:var(--s2)}}
 
 /* --- code (Code.svelte) ------------------------------------------- */
-/* Commands and JSON, on the inverted plate the contact note uses. Jersey, not the
-   mono role: a command keeps its case; Code.svelte gives it `.body`. `.c` is a comment, dimmed (0092). */
+/* Commands and JSON, on the inverted plate the contact note uses. The text face (Departure
+   Mono, 0237), not the mono role: a command keeps its case; Code.svelte gives it `.body`. `.c` is a comment, dimmed (0092). */
 .code{white-space:pre-wrap;overflow-wrap:anywhere;margin:0;padding:var(--s2) var(--s3)}
 .code .c{opacity:var(--dim)}
 .code .ln{--lead:0;display:block;min-height:32px;padding-left:calc((var(--lead) + 2) * 1ch);text-indent:calc((var(--lead) + 2) * -1ch)} /* a wrapped line hangs under its start (0200) */
-.code .w{white-space:nowrap}
+.code .w{display:inline-block;max-width:100%;text-indent:0} /* a word stays whole, unless it is longer than the line: in Departure Mono a JSON argument outran a phone (0237) */
 .code .copy-at{float:right;margin:0 calc(-1 * var(--s1)) var(--s1) var(--s2);user-select:none;-webkit-user-select:none} /* level with the first line (a 32px block), a unit into the plate's padding (PX-128) */
 @media(max-width:700px){.code{padding:var(--s2)}.code .pad{display:none}.code .c{display:block;text-indent:0}}

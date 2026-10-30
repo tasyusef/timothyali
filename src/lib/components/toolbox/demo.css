@@ -58,7 +58,7 @@
 .demo .flow-role{width:100%;height:auto;min-height:calc(3 * var(--fu));padding-bottom:0}
 .demo .flow-role.display{font-family:var(--face-display);font-size:27.5px;line-height:32px;padding-top:4px}
 .demo .flow-role.label{font-family:var(--face-label);font-size:12.5px;line-height:16px;text-transform:uppercase}
-.demo .flow-role.body{font-family:var(--face-text);font-size:27px;line-height:32px;padding-top:0}
+.demo .flow-role.body{font-family:var(--face-text);font-size:22px;line-height:32px;padding-top:0}
 .demo .flow-sheet{display:block;flex:none;width:calc(16 * var(--fu))}
 .demo .flow-sheet img{display:block;width:100%;height:auto}
 

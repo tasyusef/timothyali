@@ -47,8 +47,8 @@ The live site at https://www.timothyali.com and the rebrand behind it (positioni
 
 Details and values are in `docs/design-system.md`. These are the standing rules:
 
-- Every face is a bitmap design sized as cells per em × cell. Font sizes stay on the cell table at the top of `src/app.css`, or the glyph pixels blur. The one exception is the study reading face, IBM Plex Mono (0136, 0137).
-- Faces: Jacquard 24 for the wordmark and emphasis, PARC Pixel Bold for uppercase display, PARC Pixel Regular for labels (0078), Jersey 15 for text, Press Start 2P for the readout. PARC Pixel is Timothy's own typeface; it is extended by `tools/fonts/extend-parc-pixel.py`.
+- Every face is a bitmap design sized as cells per em × cell. Font sizes stay on the cell table at the top of `src/app.css`, or the glyph pixels blur. That includes the study reading face, Departure Mono since 0237 (IBM Plex Mono before, 0137).
+- Faces: Jacquard 24 for the wordmark and emphasis, PARC Pixel Bold for uppercase display, PARC Pixel Regular for labels (0078), Departure Mono for text and the studies' reading text (0237; Jersey 15 and IBM Plex Mono before), Press Start 2P for the readout. PARC Pixel is Timothy's own typeface; it is extended by `tools/fonts/extend-parc-pixel.py`.
 - Spacing is in 8px units (0089).
 - No rules or borders, and no eyebrow labels anywhere (0047, 0196).
 - Black and white with a theme toggle; yellow is a sparse accent (0049).

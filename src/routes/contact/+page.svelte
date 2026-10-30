@@ -30,7 +30,7 @@ main :global(.contact){display:grid;grid-template-columns:minmax(0,1fr) var(--co
 .contact-head{grid-area:head;min-width:0}
 .contact-foot{grid-area:foot;align-self:end;min-width:0}
 .contact-note{grid-area:note;align-self:end;padding:var(--s3);display:flex;flex-direction:column;gap:var(--s2)}
-.contact-note .body{max-width:38ch;margin:0}
+.contact-note .body{max-width:30ch;margin:0}
 .contact-note :global(.cta-row){flex-wrap:nowrap}
 .contact-links{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3)}
 .contact-links :global(.quiet-link){flex-wrap:wrap;max-width:100%} /* at 320 the address fills the line and the arrow drops under it, not past the panel (PX-128) */

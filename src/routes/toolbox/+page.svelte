@@ -85,7 +85,7 @@
 .hero-copy{margin-top:var(--s2);width:fit-content;max-width:100%}.hero-copy .lead{margin-top:var(--s2)}
 .hero-actions{display:flex;align-items:center;gap:var(--s4);flex-wrap:wrap;margin-top:var(--s4)}
 .showcase{padding-top:var(--s8);padding-bottom:var(--s8);scroll-margin-top:var(--s8)}
-.section-head{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);align-items:end;margin-bottom:var(--s6)}.section-head .body{max-width:34ch}
+.section-head{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);align-items:end;margin-bottom:var(--s6)}.section-head .body{max-width:27ch}
 .tool-picker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s1);margin-bottom:var(--s4)}
 .tool-picker button{padding:27px 16px 21px;display:flex;flex-direction:column;align-items:flex-start;position:relative;gap:var(--s2);background:var(--surface-card);text-align:left;min-width:0}
 .tool-picker button[aria-pressed=true]{background:var(--accent);color:var(--on-accent)}@media(hover:hover){.tool-picker button:hover{background:var(--fg);color:var(--paper)}}.tool-picker button:active{background:var(--accent);color:var(--on-accent)} /* press (0099) */
@@ -108,7 +108,7 @@
 .downloads .files a:active{background:var(--accent);color:var(--on-accent);box-shadow:0 0 0 var(--s1) var(--accent)} /* the press (0099), which these had not (PX-125) */
 .downloads .note{grid-column:2}
 .on-phone{display:none;flex-direction:column;align-items:flex-start;gap:var(--s2);padding:var(--s2)}
-.on-phone .body{margin:0;max-width:38ch}
+.on-phone .body{margin:0;max-width:30ch}
 .on-phone :global(.send){padding:var(--pad-m);margin:0 calc(-1 * var(--s2)) calc(-1 * var(--s2));width:auto;align-self:stretch;flex-wrap:nowrap}
 /* the label wraps beside the arrow; held at its full width it pushed the arrow 18px off a 390 phone (PX-125) */
 .on-phone :global(.send>span:first-child){flex:1 1 auto;min-width:0}

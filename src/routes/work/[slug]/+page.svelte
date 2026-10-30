@@ -12,7 +12,6 @@
   import { FRAME } from '$lib/figure';
   import { pad } from '$lib/format';
   import { hasStudyScene } from '$lib/studyScenes';
-  import plexUrl from '@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2?url';
   let { data } = $props();
   const p = $derived(data.project);
   const next = $derived(data.next);
@@ -61,7 +60,6 @@
     return { destroy: () => { ro.disconnect(); window.removeEventListener('resize', check); } };
   }
 </script>
-<svelte:head><link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href={plexUrl} /></svelte:head>
 
 {#snippet gallery(rows: Row[], eager: boolean)}
   {#each rows as row}
@@ -136,10 +134,10 @@
 <style>
 main :global(.head){display:flex;flex-direction:column;align-items:flex-start;gap:var(--s2);padding-top:var(--s4);padding-bottom:var(--s12);min-height:384px}
 .title{align-self:stretch;margin-top:var(--s2)} /* full width, so the fit probe measures the real line */
-/* Reading text (0136, 0137): the lead, the meta values and every paragraph in IBM Plex Mono
-   at 18/32; the lead and paragraphs in a 64ch column. A 32px line also keeps a link's 16px
+/* Reading text (0136, 0237): the lead, the meta values and every paragraph in Departure Mono
+   (22/32); the lead and paragraphs in a 50ch column (700px, as before 0237). A 32px line also keeps a link's 16px
    arrow, centred in its line, on the unit (a 24px line put it 4px off). */
-.lead-col{display:flex;flex-direction:column;gap:var(--s3);max-width:64ch}
+.lead-col{display:flex;flex-direction:column;gap:var(--s3);max-width:50ch}
 .hero-row{padding-top:var(--s8)}
 .phone-facts{display:none}
 .gallery{display:flex;flex-direction:column;gap:var(--s2)}
@@ -151,15 +149,16 @@ main :global(.head){display:flex;flex-direction:column;align-items:flex-start;ga
 .point.solo{grid-template-columns:100%}
 .point-text{display:flex;flex-direction:column;gap:var(--s2)}
 .point-text h2{margin-bottom:var(--s1)}
-.paras{max-width:64ch}
+.paras{max-width:50ch}
 .point-figs{display:flex;flex-direction:column;gap:var(--s6)}
 .group{display:flex;flex-direction:column;gap:var(--s2)}
-.cap{max-width:64ch}
+.cap{max-width:50ch}
 .list{display:grid;grid-template-columns:round(down,calc((100% - 32px) / 3),8px) 1fr;gap:var(--s4);align-items:start;padding-top:var(--s12)}
-.list ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s3);max-width:64ch}
+.list ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s3);max-width:50ch}
 .list li{display:grid;grid-template-columns:48px 1fr;gap:var(--s2);align-items:start}
 .list li>.lbl{padding-top:var(--s1)} /* one unit down, not baseline-aligned: that put the numeral on an odd pixel (0089) */
 .next{padding-top:var(--s12)}
+.meta dt{font-family:var(--face-display);font-size:13.75px;line-height:16px} /* the fact labels in PARC Pixel Bold at cell 1, on his word (0237) */
 @media(min-width:901px){
   /* a third of the page holds about sixteen caps at 41.25, so the point heading steps down one cell */
   .point-text h2,.list h2{font-size:27.5px;line-height:32px}

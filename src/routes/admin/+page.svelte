@@ -124,10 +124,10 @@
   select{font:inherit;background:var(--paper);color:var(--fg);cursor:pointer}
   nav{display:flex;gap:var(--s1);flex-wrap:wrap}nav a{padding:var(--s2);border:2px solid var(--fg)}nav a.active{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
   .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s3)}.stats article{padding:var(--s3)}.stats article .display{margin:var(--s3) 0 var(--s2)}
-  .note{max-width:90ch}.section{min-width:0;display:flex;flex-direction:column;gap:var(--s3)}
+  .note{max-width:108ch}.section{min-width:0;display:flex;flex-direction:column;gap:var(--s3)}
   .split{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6)}.triple{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s6)}.table-wrap{overflow-x:auto;max-width:100%}table{width:100%;border-collapse:collapse;text-align:left}th{font-weight:400}th,td{padding:var(--s2) var(--s1);border-bottom:2px solid var(--tint-major);vertical-align:top}td{text-align:right;white-space:nowrap}thead th:not(:first-child){text-align:right}tbody th{overflow-wrap:anywhere}tbody th a{text-decoration:underline;text-underline-offset:4px}small{display:block;margin-top:var(--s1)}
   .chart{height:192px;display:flex;align-items:flex-end;gap:4px;border-bottom:2px solid var(--fg)}.bar-slot{height:100%;flex:1;display:flex;align-items:flex-end;min-width:0}.bar-slot span{width:100%;background:var(--accent)}.chart-axis{display:flex;justify-content:space-between}summary{padding:var(--s2) 0;cursor:pointer}details .note{margin-top:var(--s2)}.days{opacity:var(--dim);white-space:normal}select{padding:var(--s2);margin-left:var(--s1);border:2px solid var(--fg)}.build-table,.wide-table{min-width:720px}.notice{border-left:8px solid var(--accent);padding:var(--s3);background:var(--tint-fine)}.notes{display:flex;flex-direction:column;gap:var(--s2)}.empty{padding:var(--s3) 0}
   @media(max-width:1100px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.triple{grid-template-columns:1fr 1fr}}
   @media(max-width:900px){.split,.triple{grid-template-columns:1fr}.admin{padding-top:var(--s4)}}
-  @media(max-width:420px){.stats{grid-template-columns:1fr}.heading h1{font-size:27.5px;line-height:32px}.toolbar .note{max-width:24ch}.chart{gap:2px}.stats article{padding:var(--s2)}}
+  @media(max-width:420px){.stats{grid-template-columns:1fr}.heading h1{font-size:27.5px;line-height:32px}.toolbar .note{max-width:29ch}.chart{gap:2px}.stats article{padding:var(--s2)}}
 </style>

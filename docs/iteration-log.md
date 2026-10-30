@@ -1254,3 +1254,12 @@ Committed and merged into `master` on Timothy's word on 2026-10-29.
 - **Tools and docs:** `seo.mjs` and `social/verify.mjs` read `.svelte-kit/cloudflare` and `_headers`; README, AGENTS.md, `admin-analytics.md` and comments describe Cloudflare.
 - **Checks:** `pnpm check` 0/0, 43 tests, build, `seo:check` (17 pages), `social:verify`; `wrangler dev` (redirects, headers, 404, downloads, cron); worker 249 KiB gzipped, 19 ms startup. On www: pages, 308/307 redirects, 404, sitemap, résumé, downloads and update checks, the cron endpoint, an analytics event into Redis, one test message through the contact form, admin sign-in (Timothy), the apex 308, HSTS, and no injected scripts on Contact.
 - **Evidence:** `docs/iterations/pixel-v2/133-cloudflare/verification.md`.
+
+## PX-134: Departure Mono text and studies (2026-10-29, 0237)
+
+- **Change:** `--face-text` is Departure Mono (11 cells/em; `.body`, `.read`, `.read-s` 22/32, `.lead` 44/56 → 22/32, root 22/32), self-hosted from `src/lib/fonts/` with a metric-matched fallback and preloaded everywhere. A study's fact labels are PARC Pixel Bold 13.75/16. Jersey 15 and Plex Mono packages removed.
+- **Path:** Departure Mono in the studies first (his "3"); then Geist Pixel Square in the studies at 26.316/40 with Departure as the text face; Geist felt "huge", so the studies went back to Departure with bold labels (his "1").
+- **Measures:** every `ch` max-width scaled by 11/14 to keep its old pixel width. Without it the Home role line ran into "Resume (PDF)" at 1024 and the study column grew from 704px to 896px.
+- **Phone overflow fixes:** `.body` `overflow-wrap:break-word` (a `%LOCALAPPDATA%` path on CLI & MCP at 320), `.code .w` and Options `.opt` inline-block so a token wraps only when longer than the line.
+- **Checks:** overflow sweep of 17 pages at 320, 375, 768, 1024 and 1440 clean; `tools/review/gridcheck.mjs` knows Departure Mono.
+- **Evidence:** `docs/iterations/pixel-v2/134-departure-mono/` (`step1-*` is Departure in the studies under Jersey, before the Geist detour).

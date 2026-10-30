@@ -7,10 +7,10 @@
 
    face          cells/em   cell 1   cell 2   cell 3   cell 4   cell 6   cell 8
    Jacquard 24   43         43       86       129      172      258      344
-   PARC Pixel B  13.75      —        27.5     41.25    55       82.5     110     (Bold: 11-cell caps)
-   Jersey 15     27         27       54
+   PARC Pixel B  13.75      13.75    27.5     41.25    55       82.5     110     (Bold: 11-cell caps)
    PARC Pixel    6.25       —        12.5     18.75    25       37.5     50      (Regular: 5-cell caps)
    Press Start   8          8        16       24       32
+   Departure M   11         11       22       33       44       66       88      (the text face and the studies' reading face, 0237)
 
    PX-14 — the system now lives in src/lib/styles/. This file is the import
    list and the cell table; nothing else belongs here. Order is the cascade:
