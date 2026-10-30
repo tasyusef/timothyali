@@ -13,7 +13,7 @@ const b = await chromium.launch({ executablePath: EXE });
 import { YELLOW as Y_HEX, YELLOW_DEEP, rgb } from '../../src/lib/tokens.ts';
 const YELLOW = rgb(Y_HEX), DEEP = rgb(YELLOW_DEEP);
 const near = (a, b) => a.every((v, i) => Math.abs(v - b[i]) < 6);
-const rgb = (s) => (s.match(/\d+/g) || []).slice(0, 3).map(Number);
+const cssRgb = (s) => (s.match(/\d+/g) || []).slice(0, 3).map(Number);
 let fails = 0; const check = (ok, msg) => { console.log((ok ? '  ok   ' : '  FAIL ') + msg); if (!ok) fails++; };
 async function ctx(theme, motion, width = 1440) {
   const c = await b.newContext({ viewport: { width, height: 900 }, deviceScaleFactor: 1 });
@@ -33,20 +33,20 @@ const clip = { x: 0, y: 0, width: 720, height: 450 };
 console.log('theme wipe, motion on');
 {
   const [c, p] = await ctx('dark', 'on'); await go(p, '/');
-  await p.evaluate(() => document.querySelectorAll('.global-footer button')[2].click());
+  await p.evaluate(() => document.querySelectorAll('.settings-menu button')[1].click());
   await p.waitForTimeout(15);
   const anims = await pseudoAnims(p);
   check(anims.some((a) => a.name === 'dither-in' && a.pseudo === '::view-transition-new(root)' && a.duration === 210), 'new(root) runs dither-in for 210ms: ' + JSON.stringify(anims));
   check(await p.evaluate(() => document.documentElement.classList.contains('vt-theme')), 'html carries .vt-theme during the wipe');
   for (const t of [10, 80, 150]) { await seek(p, t); await p.waitForTimeout(30); await p.screenshot({ path: OUT + `theme-${t}.png`, clip }); }
   await play(p); await p.waitForTimeout(400);
-  check(await p.evaluate(() => document.documentElement.dataset.theme === 'light' && !document.documentElement.className), 'lands on light with the class removed');
+  check(await p.evaluate(() => document.documentElement.dataset.theme === 'light' && !/\bvt-/.test(document.documentElement.className)), 'lands on light with the class removed');
   await c.close();
 }
 console.log('theme flip, motion off');
 {
   const [c, p] = await ctx('dark', 'off'); await go(p, '/');
-  await p.evaluate(() => document.querySelectorAll('.global-footer button')[2].click());
+  await p.evaluate(() => document.querySelectorAll('.settings-menu button')[1].click());
   await p.waitForTimeout(15);
   check(await p.evaluate(() => window.__vt === 0 && document.documentElement.dataset.theme === 'light'), 'no view transition, theme flipped at once');
   await c.close();
@@ -66,7 +66,7 @@ console.log('route wipe, motion on');
   check(bg.includes('repeating-conic-gradient'), 'the field checker sits between: ' + bg.slice(0, 60));
   for (const t of [10, 100, 200, 300]) { await seek(p, t); await p.waitForTimeout(30); await p.screenshot({ path: OUT + `route-${t}.png`, clip }); }
   await play(p); await p.waitForTimeout(600);
-  check(await p.evaluate(() => location.pathname === '/work/' && !document.documentElement.className), 'lands on /work/ with the class removed');
+  check(await p.evaluate(() => location.pathname === '/work/' && !/\bvt-/.test(document.documentElement.className)), 'lands on /work/ with the class removed');
   await c.close();
 }
 console.log('route change, motion off');
@@ -117,11 +117,13 @@ console.log('image arrival');
 // --- press states (0099) -----------------------------------------------------
 console.log('press');
 {
+  // the Toolbox demos' chips and switches, the Work rows and the study's padded link are gone
+  // (0210, 0194); the footer's toggles moved to the settings cog (0168)
   const cases = [
-    ['/', '.site-header nav a[href="/work/"]'], ['/', '.global-footer button >> nth=0'], ['/', '.hero-hint'], ['/', '.card >> nth=0'], ['/', '.work-foot .cta-quiet'], ['/', '.invitation .cta-row'],
-    ['/work/', '.row >> nth=0'], ['/work/', '.entry >> nth=0'], ['/work/parc/', '.quiet-link.pad'], ['/work/parc/', '.next .cta-row'],
+    ['/', '.site-header nav a[href="/work/"]'], ['/', '.settings .cog'], ['/', '.hero-hint'], ['/', '.card >> nth=0'], ['/', '.invitation .cta-row'],
+    ['/work/', '.card >> nth=0'], ['/work/parc/', '.next .cta-row'],
     ['/contact/', '.send button'], ['/contact/', '.contact-note .quiet-link'],
-    ['/toolbox/', '.tool-picker button >> nth=1'], ['/toolbox/', '.demo .chip >> nth=0'], ['/toolbox/', '.demo .switch >> nth=0'], ['/toolbox/', '.machine .quiet-link']
+    ['/toolbox/', '.tool-picker button >> nth=1'], ['/toolbox/', '.hero-actions a.cta'], ['/toolbox/', '.machine .quiet-link']
   ];
   const [c, p] = await ctx('dark', 'off');
   let last = '';
@@ -141,7 +143,7 @@ console.log('press');
     const png = PNG.sync.read(shot);
     const sx = 16 + 3, sy = 16 + 3; const k = (sy * png.width + sx) * 4; const px = [png.data[k], png.data[k + 1], png.data[k + 2]];
     const name = (path + sel).replace(/[^a-z0-9]+/gi, '-');
-    require_ok: { const ok = near(rgb(press.bg), YELLOW) || near(px, YELLOW) || (press.shadow !== 'none' && press.shadow.includes('242, 214, 0')); check(ok, `${path} ${sel}: hover ${hover} → press ${press.bg}${press.shadow !== 'none' ? ' + shadow' : ''}; pixel ${px}`); }
+    require_ok: { const ok = near(cssRgb(press.bg), YELLOW) || near(px, YELLOW) || (press.shadow !== 'none' && press.shadow.includes('242, 214, 0')); check(ok, `${path} ${sel}: hover ${hover} → press ${press.bg}${press.shadow !== 'none' ? ' + shadow' : ''}; pixel ${px}`); }
     await p.screenshot({ path: OUT + `press-${name}.png`, clip: { x: Math.max(0, tb.x - 16), y: Math.max(0, tb.y - 16), width: Math.min(tb.width + 32, 600), height: Math.min(tb.height + 32, 400) } });
     await p.mouse.up(); await p.mouse.move(0, 0); await p.waitForTimeout(50);
     if (sel.includes('nav a') || sel.includes('.card') || sel.includes('.row') || sel.includes('.entry') || sel.includes('cta-row') || sel.includes('quiet') || sel.includes('cta-quiet') || sel.includes('hero-hint') || sel.includes('tool-picker')) { await go(p, path); }
@@ -161,11 +163,11 @@ for (const theme of ['dark', 'light']) {
   }
   const onPaper = seen.find((f) => f.cls.includes('skip-link')) || seen[0];
   const inPanel = seen.find((f) => f.tag === 'INPUT');
-  const link = seen.find((f) => f.text.startsWith('Or message'));
+  const link = seen.find((f) => f.text.startsWith('Message me'));
   const want = theme === 'dark' ? YELLOW : DEEP, wantPanel = theme === 'dark' ? DEEP : YELLOW;
-  check(onPaper && near(rgb(onPaper.outline), want) && onPaper.w === '2px', `${theme}: on the paper the ring is ${onPaper?.outline} (${onPaper?.cls || onPaper?.tag})`);
-  check(inPanel && near(rgb(inPanel.outline), wantPanel) && inPanel.off === '2px', `${theme}: in the ink panel a field's ring is ${inPanel?.outline}, offset ${inPanel?.off}`);
-  check(link && near(rgb(link.outline), wantPanel), `${theme}: the panel's quiet link ring is ${link?.outline}`);
+  check(onPaper && near(cssRgb(onPaper.outline), want) && onPaper.w === '2px', `${theme}: on the paper the ring is ${onPaper?.outline} (${onPaper?.cls || onPaper?.tag})`);
+  check(inPanel && near(cssRgb(inPanel.outline), wantPanel) && inPanel.off === '2px', `${theme}: in the ink panel a field's ring is ${inPanel?.outline}, offset ${inPanel?.off}`);
+  check(link && near(cssRgb(link.outline), wantPanel), `${theme}: the panel's quiet link ring is ${link?.outline}`);
   await p.locator('.contact-note').screenshot({ path: OUT + `focus-${theme}.png` });
   await c.close();
 }
