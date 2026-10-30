@@ -1,7 +1,7 @@
 /* ------------------------------------------------------------------
    Site chrome — the sticky header/status wrapper and the global footer.
    Heights are literal because they are the chrome's geometry, not spacing:
-   64 header, 32 status strip, 104/48/32 on phones. All are 8px multiples.
+   64 header (the status strip is gone, 0238), 104/48/32 on phones. All are 8px multiples.
    ------------------------------------------------------------------ */
 .nav-chrome{position:sticky;top:0;z-index:var(--z-nav);background:var(--paper)}
 .nav-chrome.collapsed{top:calc(-1 * var(--header-height))}
@@ -10,11 +10,9 @@
 .skip-link{position:absolute;z-index:var(--z-skip);top:var(--s1);left:var(--gutter);padding:var(--s1) var(--s2);background:var(--fg);color:var(--paper);transform:translateY(-200%)}
 .skip-link:focus{transform:none}
 
-/* the header sits one above the status strip: its settings menu opens down over the strip (0201) */
+/* the header's settings menu opens down over the page (0201) */
 .site-header{position:relative;z-index:calc(var(--z-chrome) + 1);display:grid;grid-template-columns:auto 1fr auto;gap:var(--s4);align-items:start;height:64px;padding:var(--s1) var(--gutter) 0}
 .wordmark{font-size:43px;line-height:43px;white-space:nowrap}
-.path{display:flex;align-items:center;min-width:0;max-width:100%}
-.path .path-text{overflow:hidden;min-width:0}
 .site-header nav{display:flex;gap:var(--s1);margin-top:var(--s1);justify-self:end}
 /* Centred ink, not centred boxes (0097): PARC Pixel and Press Start sit 1px high in their line
    and carry a 2px trailing bearing, so a button's padding is 9/7 (or 17/15, 25/23) and 2 less on
@@ -40,20 +38,7 @@
 .settings-menu button:focus-visible{background:var(--paper);color:var(--fg)}@media(hover:hover){.settings-menu button:hover{background:var(--paper);color:var(--fg)}}
 .settings-menu button:active{background:var(--accent);color:var(--on-accent)}
 
-/* One flexible gap, not space-between: leftover width split four ways lands the items on
-   thirds of a pixel and blurs the bitmap face (0089). The place sits with the path, the
-   clock at the right; the scroll count, coordinates and SYS.OK are gone (0192). */
-.readout{position:relative;z-index:var(--z-chrome);display:flex;gap:var(--s4);padding:var(--s1) var(--gutter);height:32px;overflow:hidden;white-space:nowrap}
-.readout .st-clock{margin-left:auto}
-.readout>span{flex:none;opacity:var(--dim)}
-.readout .path{opacity:1;flex:0 1 auto;min-width:0}
-.readout .path-text{white-space:nowrap;text-overflow:ellipsis} /* a path with no room ends in the strip's own … rather than mid-word (0105) */
-.readout .path .decode{display:inline} /* inline, not inline-block, or the ellipsis cannot reach into it */
-.readout .path{font-size:inherit;line-height:inherit}
-/* The strip never shrinks below 16px. It sheds items instead (0072, 0192): ≤900 Denver goes
-   and the path keeps only its last segment; ≤700 the strip itself goes (0185). */
-.path-short{display:none}
-@media(max-width:900px){.st-city,.path-full{display:none}.path-short{display:inline}}
+/* The status strip (place, clock, once a path) is gone (0238); the header alone is the chrome. */
 /* The nav numbers go at 900, not only 700 (PX-49): between 702 and 776 the four numbered
    labels ran up to 57px past the gutter and the page scrolled sideways. */
 @media(max-width:900px){.site-header nav a b{display:none}}
@@ -76,9 +61,6 @@
   .site-header nav a{flex:none;width:round(down,calc(100% / 4),2px);text-align:center;padding:9px 0 7px 2px}
   .site-header nav a:last-child{flex:1 1 0;min-width:0;width:auto;white-space:nowrap;display:grid;grid-template-columns:round(down,100%,2px)}
   /* Four numbered labels do not fit 320: the numbers go, the words stay (0092). */
-  /* no status strip on phones (0185): there it was a clipped path and a scroll count, 32px of
-     decoration on every page; the header alone is the chrome, 104px */
-  .readout{display:none}
   .global-footer{padding:var(--s3) var(--gutter) var(--s4)}
 }
 @media(max-width:420px){

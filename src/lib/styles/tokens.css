@@ -40,8 +40,8 @@
   --tint-major:color-mix(in srgb,var(--fg) 22%,transparent);  /* the admin chart's base */
   --tint-rule:color-mix(in srgb,var(--fg) 30%,transparent);   /* the examples' field and slider rules */
 
-  /* the sticky chrome: header 64 and status strip 32; on phones the two-row header alone, 104 (0210) */
-  --chrome-height:96px;
+  /* the sticky chrome: the header alone, 64; the two-row header on phones, 104 (0210, 0238) */
+  --chrome-height:64px;
   /* the three-frame dither wipe an image or theme arrives with (@keyframes dither-in, base.css) */
   --wipe-in:dither-in calc(3 * var(--step)) steps(3) both;
   /* the keyboard focus ring (base.css, the Toolbox examples' fields); .panel declares it again (PX-125) */
@@ -50,7 +50,7 @@
   /* layering, low to high */
   --z-band-bg:0;   /* a band's programmatic background */
   --z-band:1;      /* everything else inside a band */
-  --z-chrome:2;    /* header and status strip inside the sticky wrapper */
+  --z-chrome:2;    /* the header inside the sticky wrapper */
   --z-nav:50;      /* the sticky wrapper itself */
   --z-skip:99;     /* the skip link, above everything */
 

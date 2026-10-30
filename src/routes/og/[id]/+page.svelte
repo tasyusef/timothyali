@@ -1,6 +1,6 @@
 <script lang="ts">
   // 1200×630 share images. The chrome above is the real header and status strip
-  // (the layout reflects `chromePath`); the 534px below is one Band per page,
+  // (the layout reflects `chromePath`); the 566px below is one Band per page,
   // composed from the same blocks the pages use, at the desktop cell sizes.
   import BuildingHead from '$lib/components/BuildingHead.svelte';
   import Band from '$lib/components/Band.svelte';
@@ -26,7 +26,7 @@
   const storyFlip = $derived((q.get('flip') ?? '1') !== '0');
   const storyDensity = $derived(Number(q.get('density') ?? 0.7));
   // Same rule as the study page (fitWord): a title may wrap, a word may not.
-  // The study row is centred in the 534px frame by hand: (frame − row) / 2 rounded down to
+  // The study row is centred in the 566px frame by hand: (frame − row) / 2 rounded down to
   // the unit, so the row's top stays on the 8px grid whatever the cover's height.
   let row: HTMLElement | undefined = $state(); let rowTop = $state(0);
   function fit() {
@@ -110,12 +110,12 @@
   {/if}
 </main>
 <style>
-/* the frame: 1200 − 96 of chrome = 534, with the page gutters */
-/* 534 = 630 − 96 of chrome: the one height here off the unit, forced by the 1200×630 spec.
+/* the frame: 630 − 64 of chrome = 566, with the page gutters (96 before the strip went, 0238) */
+/* 566 = 630 − 64 of chrome: the one height here off the unit, forced by the 1200×630 spec.
    Nothing is anchored to its bottom edge: the name is placed from the top and the study
    row's centring is rounded to the unit in `fit()` (0089). */
-.og{height:534px;overflow:hidden}
-.og :global(.band){height:534px;padding:var(--s4) var(--gutter)}
+.og{height:566px;overflow:hidden}
+.og :global(.band){height:566px;padding:var(--s4) var(--gutter)}
 
 /* Stage — the window, nothing else: the layout's chrome, skip link and footer are hidden */
 :global(.site:has(.og.stage)) :global(:is(.nav-chrome,.global-footer,.skip-link)){display:none}

@@ -17,12 +17,9 @@
   import { motion, theme } from '$lib/motion.svelte';
   import Analytics from '$lib/components/Analytics.svelte';
   import SocialMeta from '$lib/components/SocialMeta.svelte';
-  import Cursor from '$lib/components/Cursor.svelte';
-  import Decode from '$lib/components/Decode.svelte';
-  import { INK, WHITE, STEP_FAST } from '$lib/tokens';
+  import { INK, WHITE } from '$lib/tokens';
   let { children } = $props();
   let explicit = false;
-  let clock = $state('');
   let navCollapsed = $state(false);
   let headerHeight = $state(64);
   let headerElement: HTMLElement;
@@ -49,16 +46,6 @@
     if (!motion.on || typeof document.startViewTransition !== 'function' || nav.to?.url.pathname === nav.from?.url.pathname) return;
     return new Promise<void>((resolve) => { wipe('vt-route', async () => { resolve(); await nav.complete; }); });
   });
-  // The visitor's own time and zone, not Denver's: the generic short name where English has
-  // one (MT, PT), otherwise the offset (GMT+9); long names are skipped so the strip keeps its width.
-  const fmt = new Intl.DateTimeFormat('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
-  function zoneName() {
-    for (const timeZoneName of ['shortGeneric', 'short'] as const) {
-      const part = new Intl.DateTimeFormat('en-US', { timeZoneName }).formatToParts(new Date()).find((p) => p.type === 'timeZoneName');
-      if (part && part.value.length <= 5) return part.value;
-    }
-    return '';
-  }
   function skipToContent(event: MouseEvent) {
     const main = document.getElementById('main'); if (!main) return;
     event.preventDefault(); main.focus({ preventScroll: true }); main.scrollIntoView({ behavior: 'instant', block: 'start' });
@@ -100,23 +87,10 @@
     motion.ready = true;
     const update = () => { if (!explicit) motion.on = !media.matches; };
     media.addEventListener('change', update);
-    let zone = zoneName();
-    const tickClock = () => { const now = new Date(); if (now.getSeconds() === 0) zone = zoneName(); clock = `${zone} ${fmt.format(now)}`.trim(); };
-    // the clock ticks only where it shows: not in a hidden tab, and not on a phone, where the strip is gone (0185, 0214)
-    const phone = matchMedia('(max-width: 700px)'); let id = 0;
-    const clockOn = () => { clearInterval(id); id = 0; if (document.hidden || phone.matches) return; tickClock(); id = window.setInterval(tickClock, 1000); };
-    clockOn(); document.addEventListener('visibilitychange', clockOn); phone.addEventListener('change', clockOn);
-    return () => { document.removeEventListener('focusin', onFocusIn); window.removeEventListener('scroll', onScroll); headerObserver.disconnect(); media.removeEventListener('change', update); clearInterval(id); document.removeEventListener('visibilitychange', clockOn); phone.removeEventListener('change', clockOn); };
+    return () => { document.removeEventListener('focusin', onFocusIn); window.removeEventListener('scroll', onScroll); headerObserver.disconnect(); media.removeEventListener('change', update); };
   });
   // A page may declare the path its chrome should reflect (the dev-only /og/ route renders as another page).
   const pathname = $derived((page.data.chromePath as string | undefined) ?? page.url.pathname);
-  const segments = $derived(pathname.split('/').filter(Boolean));
-  const route = $derived(segments.length ? segments.join('/') : 'index');
-  // Below 900px the strip shows only the last segment, so a long study slug does not clip mid-word (decision 0072).
-  // The path decodes into place on a route change (0102): the prefix is fixed, the route
-  // part is a Decode, so only what changed scrambles.
-  const shortPrefix = $derived(segments.length > 1 ? '~/…/' : '~/tim/');
-  const shortTail = $derived(segments.length > 1 ? segments[segments.length - 1] : route);
 </script>
 <svelte:head>{#each preload as href}<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" {href} />{/each}</svelte:head>
 <SocialMeta />
@@ -145,10 +119,6 @@
       </div>
     </div>
   </header>
-  <!-- decoration for sighted readers: the path repeats the page title and the clock ticks every second (PX-125) -->
-  <div class="readout mono" aria-hidden="true">
-    <span class="path mono"><span class="path-text"><span class="path-full">~/tim/<Decode text={route} step={STEP_FAST} /></span><span class="path-short">{shortPrefix}<Decode text={shortTail} step={STEP_FAST} /></span></span><Cursor /></span><span class="st-city">Denver, CO</span><span class="st-clock">{clock || '--:--:--'}</span>
-  </div>
   </div>
   {@render children()}
   <footer class="global-footer lbl" class:home-footer={page.url.pathname === '/'}>

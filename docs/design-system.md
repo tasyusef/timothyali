@@ -18,7 +18,7 @@ before and after, except for four deliberate changes. See **Parity** at the end.
    ├─ lib/styles/base.css         element defaults, .sr-only, @keyframes blink, the focus
                                   ring, the dither wipes and view transitions, the scrollbar
    ├─ lib/styles/type.css         the named type roles and their ladders
-   ├─ lib/styles/chrome.css       sticky header, status strip, global footer
+   ├─ lib/styles/chrome.css       sticky header, global footer
    ├─ lib/styles/layout.css       .site, section, .band, .inner-page
    └─ lib/styles/blocks.css       cursor, ctas, quiet link, page foot, cards, code,
                                   press — the CSS half of the components
@@ -39,7 +39,7 @@ component renders reach it with `:global()` anchored on their own `<main>`.
 ```
   --z-skip     99   .skip-link
   --z-nav      50   .nav-chrome (sticky wrapper)
-  --z-chrome    2   .site-header, .readout      inside the wrapper
+  --z-chrome    2   .site-header                inside the wrapper
   --z-band      1   a band's content
   --z-band-bg   0   a band's programmatic texture
 ```
@@ -63,7 +63,7 @@ component renders reach it with `:global()` anchored on their own `<main>`.
 | `--face-display` | `'PARC Pixel Bold Web',sans-serif` | uppercase display (caps-only face; 13.75 cells/em; 0078) |
 | `--face-text` | `'Departure Mono','Departure Mono fallback',ui-monospace,monospace` | body and lead; 11 cells/em, self-hosted from `src/lib/fonts/departure-mono/` and preloaded (0237; Jersey 15 before) |
 | `--face-label` | `'PARC Pixel Web',monospace` | labels, nav, buttons (caps-only; 6.25 cells/em; 0078) |
-| `--face-mono` | `'Press Start 2P',monospace` | status strip, arrows |
+| `--face-mono` | `'Press Start 2P',monospace` | arrows (the status strip went in 0238) |
 | `--face-root` | `var(--face-text)` | the document face (0237) |
 | `--tick-cursor` | `1s` | one blink period |
 | `--nudge` | `8px` | hover displacement — exactly one cell |
@@ -179,7 +179,7 @@ word is wider than the card (`fitTitles`, `$lib/fit`, one size per grid).
 | Component | Props | Renders | Used by |
 |---|---|---|---|
 | `Arrow` | `dir='right'\|'left'` | `<span class="mono" aria-hidden>` with `->` / `<-` | Home ×3, Work ×1, study ×2, Contact ×1, and inside `QuietLink` / `PageFoot` |
-| `Cursor` | `size='cell'\|'em'\|'line'`, `color='accent'\|'currentColor'`, `class` | `<span class="cursor …">` | status strip (`cell`), `Decode` (`em`), command plates (`line`), the contact form's carets (`class="caret"`) |
+| `Cursor` | `size='cell'\|'em'\|'line'`, `color='accent'\|'currentColor'`, `class` | `<span class="cursor …">` | `Decode` (`em`), command plates (`line`), the contact form's carets (`class="caret"`) |
 | `Cta` | `variant='block'\|'row'\|'hint'\|'quiet'`, `href`, `type`, `class` | `<a>` when `href`, `<button>` when `type`, else `<span>`; class `cta` / `cta-row` / `cta-hint` / `cta-quiet`, plus `lbl` (0210) | Contact (`block`), Home invitation + Work end + study next (`row`), Home hero hint (`hint`), the share images' tool row only (`quiet`, its rules in that route since 0207) |
 | `Card` | `p` (a `Project`), `heading='h2'\|'h3'`, `eager=false`, `id` | `<a class="card">`: cover, title + `Arrow`, description | Home's selected four (`h3`), Work's nine (0207) |
 | `MetaLine` | `project`, `class` | `<span class="lbl …">` — `[01] / 2024 / Brand` | the study share images' head only (the short form went in 0210) |
@@ -205,17 +205,7 @@ Home’s `.work-foot` link, the statement panel, the study intro/gallery/list la
 
 ## Chrome (`src/lib/styles/chrome.css`)
 
-The sticky wrapper holds the header and the status strip; heights are literal because they are geometry, not spacing. All are 8px multiples.
-
-| Width | Header | Strip | Strip contents (decision 0072) |
-|---|---|---|---|
-| > 1100 | 64 | 32 | path · Denver, CO · coordinates · clock · SYS.OK |
-| ≤ 1100 | 64 | 32 | coordinates dropped |
-| ≤ 900 | 64 | 32 | Denver and SYS.OK dropped; path shows `~/…/<last segment>` |
-| ≤ 700 | 104 (48 wordmark row + 8 + 32 nav row, 8 padding each side; decision 0070) | 32 | as ≤ 900 |
-| ≤ 420 | 104 | 32 | clock dropped; path alone |
-
-The clock is the visitor's local time, led by their zone's short name or offset, up to fourteen characters (0109). The strip is always 16px Press Start; it never shrinks. Priority classes: `.st-coords`, `.st-city`, `.st-sys`, `.st-clock`; the path carries `.path-full` and `.path-short`. Press Start advances one em per character, so an item's width is 16px × its characters; the steps are what fits with the gutters.
+The sticky wrapper holds the header alone; the status strip is gone (0238). Heights are literal because they are geometry, not spacing: 64 above 700, 104 on phones (48 wordmark row + 8 + 32 nav row, 8 padding each side; decision 0070). `--chrome-height` carries it.
 
 The global footer is one row on desktop (copyright left, the three toggles right). At or below 700px it is a settings list (decision 0073): the toggles first, each a full-width 32px row with the label left and its state right, then the copyright line; 184px in all.
 
@@ -446,11 +436,7 @@ eases; every change is a colour, a whole cell, or a stepped dither.
   Convert's thumbnails on insertion, 0101), and the route change (old page out to the
   field, new page in, `.vt-route`, 330ms, 0104). The layout's `wipe()` runs an update
   inside `document.startViewTransition` or plain when the API or motion is absent.
-- **The readout** decodes the route part of the path on navigation (`Decode` inline after
-  a fixed prefix, `STEP_FAST`, 0102) and shows the scroll offset in cells of the unit as
-  `+0128` after the path (`.st-scroll`, never shed, 0105). A path with no room ends in `…`
-  (`text-overflow` on `.path-text`, the Decode inline there). `Decode` decodes again when its
-  `text` changes.
+- **The readout** (path, place and clock) is gone (0238).
 - **The field cursor** (0103): `.band{cursor:image-set(…)}` — `static/cursor/field-{dark,light}[@2x].png`
   from `tools/cursor/make.mjs`, a 16px crosshair on the 2px pixel with an open centre,
   hotspot 7 7, in the theme's `--fg`. Controls inside a band keep the browser's cursors.

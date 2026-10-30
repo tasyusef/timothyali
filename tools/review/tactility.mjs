@@ -1,8 +1,7 @@
 // The tactility pass (0099–0107): frames of the theme wipe, the route wipe and an image's
 // arrival with their animations paused and seeked; press states under a held mouse
-// button; the focus ring's colour on both grounds in both themes; the readout's path
-// decoding after a navigation and its scroll offset; the field cursor; the strip's
-// height with a Decode in it; and the same moments with motion off, which must be
+// button; the focus ring's colour on both grounds in both themes; the readout's
+// absence (0238); the field cursor; and the same moments with motion off, which must be
 // instant. Preview server on 4173. `node tools/review/tactility.mjs`
 import { chromium } from '@playwright/test';
 import { mkdirSync } from 'node:fs';
@@ -75,7 +74,6 @@ console.log('route change, motion off');
   const [c, p] = await ctx('dark', 'off'); await go(p, '/');
   await p.click('.site-header nav a[href="/work/"]'); await p.waitForTimeout(300);
   check(await p.evaluate(() => window.__vt === 0 && location.pathname === '/work/'), 'no view transition, page swapped');
-  check(await p.evaluate(() => document.querySelector('.path-full [aria-hidden]').textContent === 'work'), 'path shown at once with motion off');
   await c.close();
 }
 console.log('hash jump on the same path');
@@ -86,19 +84,13 @@ console.log('hash jump on the same path');
   await c.close();
 }
 
-// --- readout: path decodes, scroll offset (0102, 0105) -----------------------
+// --- readout: gone (0238) ----------------------------------------------------
 console.log('readout');
 {
   const [c, p] = await ctx('dark', 'on'); await go(p, '/');
-  const strip = await p.evaluate(() => ({ readout: document.querySelector('.readout').getBoundingClientRect().height, path: document.querySelector('.readout .path').getBoundingClientRect().height, decode: document.querySelector('.path-full .decode').getBoundingClientRect().height }));
-  check(strip.readout === 32 && strip.path === 16 && strip.decode === 16, 'strip 32, path 16, decode 16: ' + JSON.stringify(strip));
-  await p.click('.site-header nav a[href="/work/"]', { noWaitAfter: true });
-  const samples = []; for (let i = 0; i < 24; i++) { samples.push(await p.evaluate(() => document.querySelector('.path-full [aria-hidden]').textContent)); await p.waitForTimeout(40); }
-  const distinct = [...new Set(samples)];
-  check(distinct.length > 2 && samples.at(-1) === 'work', `path scrambled then settled: ${distinct.slice(0, 5).join(' | ')} … ${samples.at(-1)}`);
-  await p.screenshot({ path: OUT + 'readout-1440.png', clip: { x: 0, y: 64, width: 1440, height: 32 } });
+  const chrome = await p.evaluate(() => ({ strip: !!document.querySelector('.readout'), chrome: document.querySelector('.nav-chrome').getBoundingClientRect().height }));
+  check(!chrome.strip && chrome.chrome === 64, 'no strip, chrome 64: ' + JSON.stringify(chrome));
   await c.close();
-  // the scroll readout is gone (0192) and phones have no strip (0185)
 }
 
 // --- image arrival (0101) ----------------------------------------------------

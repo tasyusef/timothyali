@@ -4,7 +4,7 @@
    Layering, bottom to top:
      --z-band-bg  0   .band-bg (the programmatic texture)
      --z-band     1   everything else inside a .band
-     --z-chrome   2   .site-header and .readout, inside …
+     --z-chrome   2   .site-header, inside …
      --z-nav     50   .nav-chrome, the sticky wrapper
      --z-skip    99   .skip-link
    ------------------------------------------------------------------ */

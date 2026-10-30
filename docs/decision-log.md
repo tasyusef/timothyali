@@ -2856,3 +2856,11 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Not changed:** the Toolbox app's Specimen sample still sets Jersey 15 as "Body" (`tools/toolbox/samples.mjs`, `SpecimenFlow`), because the app renders it from an installed copy.
 - **Point numbers** ("02 / 11") stay PARC Pixel Regular 12.5; shown them in Bold 13.75, he said "Fine as is".
 - **Status:** committed and pushed on his "Yeah commit and push", 2026-10-29.
+
+## 0238: the status strip goes (2026-10-29)
+
+- **Timothy's direction, in order:** "i also think we should get rid of the file path in teh status bar". Shown the strip with Denver, CO and the clock left, he asked "maybe we ditch it entirely?"
+- **Why (his words):** "it was just visual clutter that wasnt needed."
+- **Change:** no status strip at any width. The path (with its Decode and cursor), Denver, CO and the clock are gone, and so is the clock's timer. The sticky chrome is the header alone: `--chrome-height` 96 → 64 on desktop (104 on phones, unchanged), so the hero padding, a study's held point and `scroll-padding-top` move up 32px with it. Scrolling down hides the header on every width, as it already did on phones.
+- **Supersedes** 0072 (shedding by priority), 0102 (the path decodes), 0105 (the ellipsis), 0109 (the visitor's clock) and the strip parts of 0185 and 0192.
+- **Status:** shown at 1440 (Home and PARC); he said "yes" to keeping it gone and to the commit and push, 2026-10-29.

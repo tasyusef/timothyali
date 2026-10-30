@@ -11,7 +11,7 @@ import { socialPages } from '../../src/lib/social.ts';
 import { INK, YELLOW } from '../../src/lib/tokens.ts';
 
 const PORT = Number(process.env.OG_PORT) || 4174, ORIGIN = `http://127.0.0.1:${PORT}`;
-const FROZEN = new Date('2026-09-10T12:00:00-06:00'); // MT 12:00:00 in the strip
+const FROZEN = new Date('2026-09-10T12:00:00-06:00'); // a fixed time for any clock on a page (the strip clock went in 0238)
 const cached = '/Users/twocakes/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell';
 const launch = process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : existsSync(cached) ? { executablePath: cached } : {};
 

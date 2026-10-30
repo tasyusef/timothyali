@@ -1263,3 +1263,10 @@ Committed and merged into `master` on Timothy's word on 2026-10-29.
 - **Phone overflow fixes:** `.body` `overflow-wrap:break-word` (a `%LOCALAPPDATA%` path on CLI & MCP at 320), `.code .w` and Options `.opt` inline-block so a token wraps only when longer than the line.
 - **Checks:** overflow sweep of 17 pages at 320, 375, 768, 1024 and 1440 clean; `tools/review/gridcheck.mjs` knows Departure Mono.
 - **Evidence:** `docs/iterations/pixel-v2/134-departure-mono/` (`step1-*` is Departure in the studies under Jersey, before the Geist detour).
+
+## PX-135: no status strip (2026-10-29, 0238)
+
+- **Change:** `+layout.svelte` drops `.readout` and the clock code; `chrome.css` drops the strip rules; `--chrome-height` is 64 on desktop. The share-image frame grows from 534 to 566 (630 − 64) so the footer stays out of frame; share images regenerated. `tools/review/tactility.mjs` checks the strip is absent.
+- **Step 1** (path only, Denver and clock kept): `after-1440.png`, `after-800.png`.
+- **Step 2** (no strip): `strip-off-home-1440.png`, `strip-off-study-1440.png`.
+- **Evidence:** `docs/iterations/pixel-v2/135-no-path/`.

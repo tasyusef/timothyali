@@ -52,7 +52,7 @@
   // (the chrome is --chrome-height; the gap above it is --s4, and as much is kept below)
   function hold(node: HTMLElement) {
     const check = () => {
-      const chrome = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--chrome-height')) || 96;
+      const chrome = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--chrome-height')) || 64;
       node.classList.toggle('hold', node.offsetHeight <= window.innerHeight - chrome - 2 * 4 * U);
     };
     check(); document.fonts?.ready.then(check);
