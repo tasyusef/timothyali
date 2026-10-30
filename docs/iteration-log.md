@@ -1270,3 +1270,11 @@ Committed and merged into `master` on Timothy's word on 2026-10-29.
 - **Step 1** (path only, Denver and clock kept): `after-1440.png`, `after-800.png`.
 - **Step 2** (no strip): `strip-off-home-1440.png`, `strip-off-study-1440.png`.
 - **Evidence:** `docs/iterations/pixel-v2/135-no-path/`.
+
+## PX-136: Toolbox 1.2.7 (2026-10-30, 0239)
+
+Pushed on 2026-10-30, after the v1.2.7 GitHub release was public.
+
+- **Downloads:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.7; `toolbox-options.ts` from the 1.2.7 binary (header and Palette's `entries` text).
+- **Samples:** Lockup's zip and manifest remade with 1.2.7 (EPS creator lines only); the other three manifests change only their `generated` line.
+- **Checks:** `pnpm check` 0/0, 43 tests, build, `seo:check`.

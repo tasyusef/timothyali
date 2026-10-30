@@ -5,7 +5,7 @@ its plate, an arrow, what Toolbox wrote for it. Under it, a count ("1 logo → 3
 real files to download. They took the place of the app-screen miniatures (0095), which showed
 each tool's settings rather than what it makes.
 
-Nothing on them is drawn from a guess. `tools/toolbox/samples.mjs` runs the Toolbox 1.2.6 CLI
+Nothing on them is drawn from a guess. `tools/toolbox/samples.mjs` runs the Toolbox 1.2.7 CLI
 on two inputs and writes, for each tool, the zip of what it wrote to
 `static/toolbox/samples/<tool>/` and the manifest `<tool>-sample.json` the diagram reads:
 

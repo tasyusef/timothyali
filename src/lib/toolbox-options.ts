@@ -1,4 +1,4 @@
-// Generated from Toolbox 1.2.6's tool catalog (toolbox list). Run tools/toolbox/sync-options.mjs to update.
+// Generated from Toolbox 1.2.7's tool catalog (toolbox list). Run tools/toolbox/sync-options.mjs to update.
 import type { Param } from "./toolbox";
 export const machineParams: Record<string, Param[]> = {
   "convert": [
@@ -280,7 +280,7 @@ export const machineParams: Record<string, Param[]> = {
     {
       "name": "entries",
       "type": "json",
-      "description": "Ordered swatches as JSON: [{\"name\":\"Orange\",\"hex\":\"#D32F05\",\"cmyk\":[0,78,98,17],\"pantone\":\"1665 C\"}]. Replaces extracted or saved entries; colors and samples then append."
+      "description": "Ordered swatches as JSON: [{\"name\":\"Orange\",\"hex\":\"#D32F05\",\"cmyk\":[0,78,98,17],\"pantone\":\"1665 C\"}]. Replaces extracted or saved entries; colors and samples then append. To keep a colour past sRGB (Display P3), add \"oklch\":\"oklch(0.84 0.32 145)\" or a color(display-p3 …) value; hex is then its sRGB fallback."
     },
     {
       "name": "samples",

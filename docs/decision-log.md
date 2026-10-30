@@ -2864,3 +2864,10 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Change:** no status strip at any width. The path (with its Decode and cursor), Denver, CO and the clock are gone, and so is the clock's timer. The sticky chrome is the header alone: `--chrome-height` 96 → 64 on desktop (104 on phones, unchanged), so the hero padding, a study's held point and `scroll-padding-top` move up 32px with it. Scrolling down hides the header on every width, as it already did on phones.
 - **Supersedes** 0072 (shedding by priority), 0102 (the path decodes), 0105 (the ellipsis), 0109 (the visitor's clock) and the strip parts of 0185 and 0192.
 - **Status:** shown at 1440 (Home and PARC); he said "yes" to keeping it gone and to the commit and push, 2026-10-29.
+
+## 0239: Toolbox 1.2.7 on the site (2026-10-30)
+
+- **Timothy's direction:** "1 and 2": push the app's `main` and release 1.2.7, Display P3 colour in Palette (Toolbox 087bf8e) plus dependency patches.
+- **Change:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.7, so all eight download links follow. `toolbox-options.ts` synced from the 1.2.7 CLI: the header, and Palette's `entries` description now says a colour past sRGB can carry an `oklch` or `color(display-p3 …)` value.
+- **Samples:** `samples.mjs` rerun with 1.2.7. Lockup's zip changes only its four EPS creator lines ("Toolbox 1.2.7"). Palette's zip is byte-identical: the poster's colours are inside sRGB, so no P3 values or P3 sheet. Specimen and Convert are byte-identical too.
+- **Status:** published on 2026-10-30 with the v1.2.7 GitHub release.
