@@ -71,7 +71,7 @@ for (const file of pages) {
     const src = m[1].match(/<img[^>]*\bsrc="([^"]*)"/)?.[1];
     if (src && manifest[src] && !/type="image\/webp"/.test(m[1])) err(route, `no webp source for ${src}`);
   }
-  for (const m of html.matchAll(/<img\b[^>]*\bsrc="(\/(?:work|toolbox)\/[^"]*\.(?:png|jpg))"/g)) {
+  for (const m of html.matchAll(/<img\b[^>]*\bsrc="(\/(?:work|toolbox|gryphon)\/[^"]*\.(?:png|jpg))"/g)) {
     if (manifest[m[1]] && !new RegExp(`<picture\\b[^>]*>[^]*?${m[1].replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(html)) err(route, `${m[1]} is shown outside <picture>`);
   }
   if (/\bhttp:\/\/(?!www\.w3\.org|schema\.org|www\.google\.com\/schemas)/.test(html)) err(route, 'http:// reference');

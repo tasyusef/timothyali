@@ -77,6 +77,13 @@
       <p class="lead">Prepare your files<br />for handoff.</p>
       <div class="og-actions"><Cta href="/toolbox/#tools">Explore the tools <Arrow /></Cta></div>
     </Band>
+  {:else if data.id === 'gryphon'}
+    <!-- Gryphon's hero at share size (PX-137): the Toolbox composition with Gryphon's field, name, lead and action. -->
+    <Band class="og-toolbox og-gryphon" mode="bands" seed={11} density={0.7} flip shade hug pad={0} feather={12} depth={0.85} clearFeather={3} avoid=".og-gryphon h1 .decode > [aria-hidden]:not(.cursor)" clear=".og-gryphon .lead, .og-actions > *">
+      <h1 class="blackletter display-xl" data-ink="gryphon."><Decode text="gryphon." /></h1>
+      <p class="lead">WoW Forever addons,<br />straight from GitHub.</p>
+      <div class="og-actions"><Cta href="/gryphon/#download">Download <Arrow /></Cta></div>
+    </Band>
   {:else if data.id === 'toolbox-agents'}
     <!-- The agents page's head, then the landing's command plate: the one line that says it. -->
     <Band class="og-agents" mode="fall" seed={3} density={0.55} shade avoid=".og-agents h1, .og-agents .lead, .og-command">

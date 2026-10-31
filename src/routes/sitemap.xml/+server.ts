@@ -1,10 +1,12 @@
 // Prerendered to build/sitemap.xml. Every public page, in the order the site presents
 // them. No lastmod: the build date would be a lie, and the content has no dated edits.
 // Each study lists its cover and screens, and each Toolbox tool page its screenshot, as
-// image sitemap entries (PX-59, 0145), so the work itself can be found in image search.
+// image sitemap entries (PX-59, 0145), so the work itself can be found in image search;
+// Gryphon's page lists its four screens (PX-137).
 import { SITE_URL, socialPages } from '$lib/social';
 import { studies } from '$lib/work';
 import { tools } from '$lib/toolbox';
+import { points as gryphonPoints } from '$lib/gryphon';
 export const prerender = true;
 
 function imagesFor(path: string): string[] {
@@ -14,6 +16,7 @@ function imagesFor(path: string): string[] {
     const shown = rows.flat().map((m) => (m.video ? m.poster : m.src)).filter((s): s is string => !!s);
     return [...new Set([p.cover.src, ...shown])];
   }
+  if (path === '/gryphon/') return gryphonPoints.map((p) => p.shot.src);
   const t = tools.find((t) => path === `/toolbox/${t.slug}/`);
   return t ? [t.shot.src] : [];
 }

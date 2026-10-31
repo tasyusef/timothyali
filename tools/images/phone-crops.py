@@ -2,6 +2,9 @@
 # `phone` source, so the UI it shows can be read at phone width. Regions are fractions of the
 # source (x0, y0, x1, y1). Output is PNG beside the source as <name>-phone.png, at most 1200px wide.
 # Run: python3 tools/images/phone-crops.py, then node tools/images/derive.mjs for the WebP ladder.
+# A path prefix as the argument cuts only those (python3 tools/images/phone-crops.py static/gryphon),
+# so the others keep their files and their WebP stays current.
+import sys
 import os
 from PIL import Image
 CROPS = {
@@ -26,8 +29,15 @@ CROPS = {
   'static/work/firstledger/guide-02.png': (0.08, 0.25, 0.92, 0.90),
   'static/work/firstledger/guide-07.png': (0.12, 0.30, 0.88, 0.75),
   'static/work/firstledger/guide-08.png': (0.22, 0.30, 0.78, 0.75),
+  # Gryphon's screens (PX-137): the rows of each main panel, cut where no line of text is cut
+  'static/gryphon/picks.png':    (0.235, 0.365, 0.67, 0.805),
+  'static/gryphon/github.png':   (0.235, 0.37, 0.675, 0.625),
+  'static/gryphon/folders.png':  (0.235, 0.385, 0.84, 0.62),
+  'static/gryphon/settings.png': (0.235, 0.29, 0.875, 0.635),
 }
+only = sys.argv[1] if len(sys.argv) > 1 else ''
 for src, (x0, y0, x1, y1) in CROPS.items():
+    if not src.startswith(only): continue
     hi = src.replace('.png', '@2x.jpg')
     im = Image.open(hi if os.path.exists(hi) else src)
     W, H = im.size

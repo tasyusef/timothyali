@@ -1,5 +1,6 @@
 import { studies, projects } from './work.ts';
 import { tools, APP } from './toolbox.ts';
+import { PAGE_DESCRIPTION as GRYPHON_DESCRIPTION } from './gryphon.ts';
 export { SITE_URL, RESUME_URL } from './site.ts';
 // Descriptions the page and its share tags both carry (PX-59): Work names the selected
 // four, and a tool page says what the tool is part of, so neither stops at one short line.
@@ -27,6 +28,8 @@ export const socialPages: SocialPage[] = [
   { path: '/toolbox/', image: 'toolbox', title: 'Toolbox / Timothy Ali', description: APP.description, alt: 'Toolbox by Timothy Ali: four design tools in one app.' },
   { path: '/toolbox/agents/', image: 'toolbox-agents', title: 'CLI & MCP / Toolbox / Timothy Ali', description: 'Run Toolbox from a terminal, send it jobs as JSON, or connect an AI assistant over MCP. This page covers setup, commands, and options for all four tools.', alt: 'Toolbox from the command line and over MCP.' },
   ...tools.map(t => ({ path: `/toolbox/${t.slug}/`, image: `toolbox-${t.slug}`, title: `${t.name} / Toolbox / Timothy Ali`, description: toolDescription(t), alt: `${t.name}: ${t.blurb}. A Toolbox tool by Timothy Ali.` })),
+  // Gryphon, with Tome at #tome (PX-137, an assistant proposal): one page, one image, rendered by /og/[id] like Toolbox's.
+  { path: '/gryphon/', image: 'gryphon', title: 'Gryphon / Timothy Ali', description: GRYPHON_DESCRIPTION, alt: 'Gryphon by Timothy Ali: WoW Forever addons, straight from GitHub.' },
     // Study images are `work-<slug>` (0132): the Toolbox study and the Toolbox page would both be `toolbox`.
   ...studies.map(p => ({ path: `/work/${p.slug}/`, image: `work-${p.slug}`, title: studyTitle(p), description: p.description, alt: `${p.title}: ${sentence(p.cover.alt)} Design by Timothy Ali.` }))
 ];

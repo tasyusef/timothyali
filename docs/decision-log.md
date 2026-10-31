@@ -2871,3 +2871,10 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Change:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.7, so all eight download links follow. `toolbox-options.ts` synced from the 1.2.7 CLI: the header, and Palette's `entries` description now says a colour past sRGB can carry an `oklch` or `color(display-p3 …)` value.
 - **Samples:** `samples.mjs` rerun with 1.2.7. Lockup's zip changes only its four EPS creator lines ("Toolbox 1.2.7"). Palette's zip is byte-identical: the poster's colours are inside sRGB, so no P3 values or P3 sheet. Specimen and Convert are byte-identical too.
 - **Status:** published on 2026-10-30 with the v1.2.7 GitHub release.
+
+## 0240: a page for Gryphon and Tome (2026-10-31)
+
+- **Timothy's direction, in order:** "i also want to get a new page set up on my website for the gryphon and tome". Asked where the downloads should live while Gryphon's source stays private, he said "Yes, Toolbox way": the source moves to a private `tasyusef/gryphon-app`, a public `tasyusef/gryphon` holds only the README and the release builds, and `tasyusef/tome` goes public.
+- **Change:** `/gryphon/`, with Gryphon's four downloads linked straight to the v0.1.0 release on `tasyusef/gryphon`, and Tome at `#tome`. `/tome` redirects there. The details are in PX-137.
+- **Assistant's choices (proposed, kept in the build):** the route, the layout borrowed from the Toolbox landing, Tome as a section of Gryphon's page rather than a page of its own, and all of the copy.
+- **Status:** pushed on 2026-10-31, after the Gryphon and Tome 0.1.0 releases were public. He has not reviewed the page yet.

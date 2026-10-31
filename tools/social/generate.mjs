@@ -1,4 +1,4 @@
-// Share images and icons. The eighteen 1200×630 PNGs are screenshots of the dev-only
+// Share images and icons. The seventeen 1200×630 PNGs are screenshots of the dev-only
 // /og/<id> route, so they are drawn by the site's own components: the real header and
 // status strip, the canvas ASCII field with its knockout, the cell-sized type, the
 // shipped fonts. Motion is off (one static seeded frame, no blink, no Decode), the

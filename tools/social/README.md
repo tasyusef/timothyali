@@ -1,6 +1,6 @@
 # Site icons and share images
 
-`pnpm social:generate` builds the favicon set and eighteen 1200×630 PNGs in `static/og/`.
+`pnpm social:generate` builds the favicon set and seventeen 1200×630 PNGs in `static/og/`.
 Run from the project root with Node 22.18+ and Playwright Chromium installed. Set
 `CHROMIUM_PATH` to select an executable; otherwise the generator uses the existing
 local review browser when present or Playwright's installed Chromium. All fonts,
@@ -20,6 +20,8 @@ colours and project covers come from this repository; no external service is use
 - Re-run when titles, selected projects, covers, tools or identity change. Adding a
   study or a tool automatically includes it in generation and metadata via the
   `studies` and `tools` exports.
+- Gryphon (PX-137): its hero at share size (`gryphon`), the Toolbox hero's composition
+  with Gryphon's field, name, lead and action. Tome shares the page, so it has no image.
 
 `src/lib/social.ts` owns the public origin and per-page preview copy. The origin is
 `https://www.timothyali.com`, retained from the previous site. `SocialMeta.svelte`
@@ -29,7 +31,7 @@ meta-description tags remain owned by their routes; keep them in sync if copy ch
 Open Graph field reference: https://ogp.me/.
 
 After generation, run `pnpm build && pnpm social:verify`. This reads the actual
-prerendered HTML and shipped files, checking all 18 routes, unique image tags,
+prerendered HTML and shipped files, checking all 17 routes, unique image tags,
 public URLs, nonempty descriptions/alt text, and PNG dimensions. The browser checks
 in `navigation.mjs` expect the local site on port 4173. The strip's scroll readout
 (0105) is hidden in every still, since a share image has no offset; the four short

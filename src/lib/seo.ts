@@ -8,6 +8,7 @@
 import { SITE_URL, socialFor, type SocialPage } from './social';
 import { studies, type Project } from './work';
 import { tools, APP, RELEASES, home as toolboxHome } from './toolbox';
+import { APP as GRYPHON, RELEASES as GRYPHON_RELEASES, home as gryphonHome, TOME } from './gryphon';
 import { EMAIL, LINKEDIN, GITHUB } from './site';
 
 export const PROFILES = [LINKEDIN, GITHUB];
@@ -87,6 +88,36 @@ const software = {
 };
 const softwareRef = { '@type': 'SoftwareApplication', '@id': software['@id'], name: software.name, url: software.url, applicationCategory: software.applicationCategory, operatingSystem: software.operatingSystem };
 
+// Gryphon and Tome share /gryphon/ (PX-137): the app is the page's main entity, the addon is a
+// second node at #tome-app. Both are free GitHub releases by the same Person.
+const gryphon = {
+  '@type': 'SoftwareApplication',
+  '@id': id('/gryphon/', 'app'),
+  name: GRYPHON.name,
+  url: `${SITE_URL}/gryphon/`,
+  description: GRYPHON.description,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: GRYPHON.platforms.join(', '),
+  softwareVersion: GRYPHON.version,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+  downloadUrl: GRYPHON_RELEASES,
+  screenshot: image(gryphonHome.src, gryphonHome.w, gryphonHome.h),
+  author: { '@id': person['@id'] },
+  featureList: GRYPHON.features
+};
+const tome = {
+  '@type': 'SoftwareApplication',
+  '@id': id('/gryphon/', 'tome-app'),
+  name: TOME.name,
+  url: `${SITE_URL}/gryphon/#tome`,
+  description: TOME.description,
+  applicationCategory: 'GameApplication',
+  softwareVersion: TOME.version,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock' },
+  downloadUrl: TOME.releases,
+  author: { '@id': person['@id'] }
+};
+
 export function graphFor(path: string): object[] | undefined {
   const meta = socialFor(path);
   if (!meta) return;
@@ -97,6 +128,7 @@ export function graphFor(path: string): object[] | undefined {
   if (path === '/contact/') return [...refs, crumbs(path, [home, ['Contact', '/contact/']]), webpage(meta, 'ContactPage', { mainEntity: { '@id': person['@id'] } })];
   if (path === '/toolbox/') return [...refs, crumbs(path, [home, ['Toolbox', '/toolbox/']]), webpage(meta, 'WebPage', { mainEntity: { '@id': software['@id'] } }), software];
   if (path === '/toolbox/agents/') return [...refs, softwareRef, crumbs(path, [home, ['Toolbox', '/toolbox/'], ['CLI & MCP', '/toolbox/agents/']]), webpage(meta, 'WebPage', { about: { '@id': software['@id'] } })];
+  if (path === '/gryphon/') return [...refs, crumbs(path, [home, ['Gryphon', '/gryphon/']]), webpage(meta, 'WebPage', { mainEntity: { '@id': gryphon['@id'] }, hasPart: { '@id': tome['@id'] } }), gryphon, tome];
   const t = tools.find((t) => path === `/toolbox/${t.slug}/`);
   if (t) return [...refs, softwareRef, crumbs(path, [home, ['Toolbox', '/toolbox/'], [t.name, path]]), webpage(meta, 'WebPage', { about: { '@id': software['@id'] }, primaryImageOfPage: image(t.shot.src, t.shot.w, t.shot.h) })];
   const p = studies.find((s) => path === `/work/${s.slug}/`);

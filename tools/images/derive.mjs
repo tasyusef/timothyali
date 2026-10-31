@@ -1,6 +1,6 @@
 // Responsive WebP derivatives for the site's photographs and screens (PX-59, 0145).
 //
-// Every raster under static/work and static/toolbox that a page shows is kept at its own
+// Every raster under static/work, static/toolbox and static/gryphon that a page shows is kept at its own
 // resolution (0054): the originals stay the `<img src>`. This script writes WebP copies of
 // each one at a ladder of widths beside it (`name.<width>.webp`) and a manifest,
 // src/lib/images.json, that Picture reads to build a `<source type="image/webp" srcset>`.
@@ -30,7 +30,7 @@ const check = process.argv.includes('--check');
 
 const walk = (dir) => readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(join(dir, e.name)) : [join(dir, e.name)]));
 const isSource = (f) => /\.(png|jpe?g)$/i.test(f) && !/@2x\.\w+$/.test(f) && !/\.\d+\.webp$/.test(f) && !/\/toolbox\/convert-/.test(f) && !/\/toolbox\/samples\//.test(f);
-const sources = ['work', 'toolbox'].flatMap((d) => walk(join(STATIC, d))).filter(isSource).sort();
+const sources = ['work', 'toolbox', 'gryphon'].flatMap((d) => walk(join(STATIC, d))).filter(isSource).sort();
 
 const manifest = {};
 let written = 0, stale = 0, bytesOut = 0;
