@@ -11,7 +11,7 @@
   import Picture from '$lib/components/Picture.svelte';
   import Cursor from '$lib/components/Cursor.svelte';
   import CopyButton from '$lib/components/CopyButton.svelte';
-  import { VERSION, RELEASES, builds, points, TOME } from '$lib/gryphon';
+  import { VERSION, REPO, RELEASES, builds, points, TOME } from '$lib/gryphon';
   import { frameSizes } from '$lib/figure';
   import { STEP } from '$lib/tokens';
   // a screen takes two thirds of the frame beside its words, and the whole frame from 900 down
@@ -63,6 +63,7 @@
         {/each}
       </ul>
       <QuietLink href={RELEASES} label="All files on GitHub" />
+      <QuietLink href={REPO} label="Open source on GitHub" />
     </div>
   </section>
 
@@ -75,6 +76,7 @@
       <p class="body">To install it, paste this on Gryphon’s GitHub screen:</p>
       <div class="command-plate copyable"><code class="body">{TOME.repo}<Cursor size="line" /></code><CopyButton text={TOME.repo} name={TOME.repo} /></div>
       <QuietLink href={TOME.releases} label="Or get the zip from GitHub" pad />
+      <QuietLink href={TOME.source} label="Open source on GitHub" pad />
     </div>
   </section>
   <section class="end"><PageFoot note="" href="/contact/" label="Get in touch" /></section>

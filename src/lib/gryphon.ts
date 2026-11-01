@@ -65,6 +65,7 @@ export const TOME = {
   name: 'Tome',
   version: '0.1.0',
   repo: 'tasyusef/tome',
+  source: 'https://github.com/tasyusef/tome',
   releases: 'https://github.com/tasyusef/tome/releases',
   description: 'A World of Warcraft: Forever addon that puts one set of tabs on the character, spellbook, talents, guild, collections, and group finder windows, plus bags.',
   /** the windows it puts its tabs on, in its own order (README) */
