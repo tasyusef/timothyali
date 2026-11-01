@@ -5,7 +5,7 @@
 import type { Shot } from './toolbox.ts';
 
 /** The one version and the one place the downloads live: change them here and every link follows. */
-export const VERSION = '0.1.0';
+export const VERSION = '0.2.0';
 /** The public downloads repo, named as Toolbox's is (tasyusef/toolbox). */
 export const REPO = 'https://github.com/tasyusef/gryphon';
 export const RELEASES = `${REPO}/releases`;
@@ -30,7 +30,7 @@ export const builds = [
 ];
 
 // Each screen has a phone crop of its rows (tools/images/phone-crops.py), as Toolbox's do (0206).
-const PHONE: Record<string, [number, number]> = { picks: [939, 633], github: [950, 367], folders: [1200, 311], settings: [1200, 431] };
+const PHONE: Record<string, [number, number]> = { picks: [1200, 656], github: [1200, 460], folders: [1200, 448], settings: [1200, 488] };
 const shot = (name: string, alt: string): Shot => ({ src: `/gryphon/${name}.png`, w: 2160, h: 1440, alt, phone: { src: `/gryphon/${name}-phone.png`, w: PHONE[name][0], h: PHONE[name][1] } });
 
 export interface Point { title: string; text: string; shot: Shot }
@@ -38,22 +38,22 @@ export const points: Point[] = [
   {
     title: 'Picks I’ve checked.',
     text: 'It comes with a short list of addons I’ve checked have real Forever builds: OpenMap, Questie, DialogueUI, and Spoken, plus Spoken’s quest voices. It checks for updates and installs them when you say so.',
-    shot: shot('picks', 'Gryphon’s Picks screen: OpenMap, Questie, DialogueUI, and Spoken with their versions, one update waiting and two ready to install.')
+    shot: shot('picks', 'Gryphon’s Picks screen: OpenMap, Questie, and DialogueUI with their versions, all five picks installed and up to date.')
   },
   {
     title: 'Any addon on GitHub.',
     text: 'Paste an addon’s GitHub repo. If a release has a zip built for Forever, Gryphon installs it, and nothing in your AddOns folder changes until that’s been checked.',
-    shot: shot('github', 'Gryphon’s GitHub screen: a field for an addon’s repo, and an added addon whose row says it has no release with a Forever zip.')
+    shot: shot('github', 'Gryphon’s GitHub screen: a field for an addon’s repo, with tasyusef/tome typed in and nothing added yet.')
   },
   {
     title: 'The rest left alone.',
     text: 'Addons you installed some other way stay as they are. Gryphon lists them and tells you whether Forever will load them.',
-    shot: shot('folders', 'Gryphon’s Other folders screen: three folders it didn’t install, marked built for another client, loads on Forever, and not an addon.')
+    shot: shot('folders', 'Gryphon’s Other folders screen: Tome, a folder it didn’t install, marked as loading on Forever.')
   },
   {
     title: 'A backup first.',
     text: 'Before an update or a removal touches an addon, its old folder goes to Interface/.gryphon-backup, so you can always get it back. If it can’t find the game, point it at the folder in Settings.',
-    shot: shot('settings', 'Gryphon’s Settings: the game folder it found, buttons to choose another or open the AddOns and backup folders, and a note on backups.')
+    shot: shot('settings', 'Gryphon’s Settings: the game folder it found, buttons to choose another or open the AddOns and backup folders, and the note on backups open: before an update or removal, the old copy moves to Interface/.gryphon-backup.')
   }
 ];
 
