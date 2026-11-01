@@ -8,7 +8,7 @@ import sys
 import os
 from PIL import Image
 CROPS = {
-  'static/work/sonde/cover.png':        (0.26, 0.22, 0.80, 0.76),
+  'static/work/sonde/cover.png':        (0.44, 0.30, 0.98, 0.84),
   'static/work/pocketwatch/cover.png':  (0.26, 0.22, 0.80, 0.76),
   'static/work/toolbox/cover.png':      (0.26, 0.22, 0.80, 0.76),
   'static/toolbox/lockup.png':          (0.72, 0.09, 1.00, 0.925),

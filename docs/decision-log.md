@@ -2684,6 +2684,7 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Reverses for now:** 0132's selected four. The assistant had argued Sonde's history is its strongest product story; the call to hide is Timothy's.
 - **Reverses:** 0132's index placement of Jade and First Ledger. The assistant had recommended keeping two cards.
 - **Open:** the résumé and LinkedIn still name both hidden products; Jade and First Ledger studies still lack process (next rewrite candidates).
+- **Superseded by** 0241 for Sonde, which is back in the index with a rewritten study. Pocketwatch stays hidden.
 
 ## 0220: Toolbox 1.2.0 on the site (2026-10-26)
 
@@ -2878,3 +2879,18 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Change:** `/gryphon/`, with Gryphon's four downloads linked straight to the v0.1.0 release on `tasyusef/gryphon`, and Tome at `#tome`. `/tome` redirects there. The details are in PX-137.
 - **Assistant's choices (proposed, kept in the build):** the route, the layout borrowed from the Toolbox landing, Tome as a section of Gryphon's page rather than a page of its own, and all of the copy.
 - **Status:** pushed on 2026-10-31, after the Gryphon and Tome 0.1.0 releases were public. He has not reviewed the page yet.
+
+## 0241: Sonde back, rebuilt, first in the index (2026-11-01)
+
+- **Timothy's direction:** "need to update the case study with the new screenshots, branding, and capabilities", meaning "the case study in my portfolio website". Asked how, he chose:
+  - the story leads with the new Sonde and keeps the first version as its history ("New first, v1 as history");
+  - "Unhide it", with new share images and the `/work/sonde/` redirect gone;
+  - "Index only": first in the Work list after the selected four, no Home card.
+  - He also had the public mirror `tasyusef/sonde_os` synced to Sonde 2 and made public again; the study's Source row points there.
+- **Change:** the Sonde entry in `work.ts` is rewritten and moved into the index tier, first; `/work/sonde` and `/work/sonde/` leave `_redirects`; new cover and share images. The details are in PX-138.
+- **Facts used:** the Sonde repo's README, `docs/ARCHITECTURE.md` and `docs/plans/revival-2026-10.md` (the stack, the relay sizes, the $0 plan, why the first version shut down and what was shelved); the Sonde brand package notes (193 logo files from Toolbox's lockup, PMS 7405 C and Neutral Black C, a social kit for eight platforms); the old study (the first version's stack, features, pricing and shutdown).
+- **Assistant's choices (proposed, kept in the build):** all of the copy and the section order; the data on screen (XRP Tip Bot, a MALLARD payment, ledger 108,052,570, Fuzzybear #703, RLUSD); which first-version screens stay (account overview, Smart Money detail, the balance card beside the new one); the cover (the home page under the horizontal lockup).
+- **Timothy's reason for bringing it back** (given after the first commit): "while i cant afford to keep all the databases and cool ai features etc, i can essentially offer a better explorer ui and host it for free. This is the foundation of what i wanted in teh first place anyway. and maybe one day i can add some of those features back". It opens "Starting again", lightly edited into the study's voice.
+- **Open:** the GitHub social preview for `sonde_os` can only be set in the repo's settings.
+- **Supersedes:** 0219 for Sonde.
+- **Status:** pushed on 2026-11-01 on his "yeah push".

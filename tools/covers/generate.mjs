@@ -19,8 +19,9 @@ const launch = process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIU
 // the logo is laid in at a height; `fit` crops an artboard's viewBox to its drawing first
 const covers = [
   {
-    out: 'static/work/sonde/cover.png', ground: '#0B0D10', glow: '232,133,108', screen: 'static/work/sonde/cut/portfolio.png',
-    logo: `<div class="lock" style="gap:22px"><span class="svg" style="height:60px;color:#E8856C">${mark('sonde-mark.svg')}</span><span class="svg" style="height:48px;color:#F4F4F0">${mark('sonde-wordmark.svg')}</span></div>`
+    // Sonde 2 (2026-11): the home page's globe on its own ground, the pixel lockup at 21 cells × 6 device px
+    out: 'static/work/sonde/cover.png', ground: '#11110E', glow: '242,214,0', screen: 'static/work/sonde/screens/home.png',
+    logo: `<div class="lock"><span class="svg" style="height:70px">${mark('sonde-horizontal-dark.svg')}</span></div>`
   },
   {
     out: 'static/work/pocketwatch/cover.png', ground: '#141613', glow: '207,244,40', screen: 'static/work/pocketwatch/app-dashboard.png',

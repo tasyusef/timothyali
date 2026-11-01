@@ -1,5 +1,5 @@
 import { pad } from './format.ts';
-// The whole work index: nine visible projects in two tiers plus one hidden entry (decisions 0077, 0132).
+// The whole work index: eight visible projects in two tiers plus two hidden entries (decisions 0077, 0132, 0219, 0241).
 // One source for Home (the selected four as cards), Work (all nine as cards, 0196) and /work/<slug>/.
 // Images live in static/work/<slug>/ at 1600px on the long side (plus `@2x.jpg` at 2800px where
 // the source allowed); `w`/`h` are the 1x file's pixel dimensions so every figure holds its aspect.
@@ -66,80 +66,21 @@ const media = (slug: string) => (f: string, w: number, h: number, alt: string): 
   return { src: `/work/${slug}/${f}`, w, h, alt, x2: X2.has(`${slug}/${base}`) ? `/work/${slug}/${base}@2x.jpg` : undefined };
 };
 const pa = media('parc'), xc = media('xrpcafe'), fl = media('firstledger'), dad = media('do-androids-dream');
-// Sonde's screens, cut from the 2560px captures (PX-53): `phone` is the tighter crop a phone shows.
+// Sonde's first version, cut from the 2560px captures (PX-53): `phone` is the tighter crop a phone shows.
 const sc = (f: string, w: number, h: number, alt: string, phone?: [number, number]): Media =>
   ({ src: `/work/sonde/cut/${f}.png`, w, h, alt, phone: phone && { src: `/work/sonde/cut/${f}-phone.png`, w: phone[0], h: phone[1] } });
+// Sonde 2, cut from 1440px captures at 2× (0241); the phone crop is `<name>-phone.png` unless named
+const sn = (f: string, w: number, h: number, alt: string, phone?: [number, number, string?]): Media =>
+  ({ src: `/work/sonde/screens/${f}.png`, w, h, alt, phone: phone && { src: `/work/sonde/screens/${phone[2] ?? `${f}-phone`}.png`, w: phone[0], h: phone[1] } });
 const fst = media('firststrike'), so = media('sonde'), ps = media('parc-site'), ja = media('jade-aesthetics'), pw = media('pocketwatch');
 // a phone crop beside the file, `<name>-phone.png`, cut by tools/images/phone-crops.py (0206)
 const desk = (m: Media): Media => ({ ...m, desk: true });
 const ph = (m: Media, w: number, h: number): Media => ({ ...m, phone: { src: m.src.replace(/(\.\w+)$/, '-phone$1'), w, h } });
 
-/** Every project in display order: the selected four (Toolbox, PARC, Jade Aesthetics, First Ledger, 0219; Sonde and Pocketwatch hidden for now), the index three, then the hidden one.
+/** Every project in display order: the selected four (Toolbox, PARC, Jade Aesthetics, First Ledger, 0219; Pocketwatch hidden for now), the index four (Sonde back first, 0241), then the hidden one.
  *  `n` is assigned from the position in the visible set at the bottom of this file. */
 type Source = Omit<Project, 'n'> | Omit<Entry, 'n'>;
 const source: Source[] = [
-  {
-    tier: 'selected',
-    // hidden for now on Timothy's word (0219); the study stays here to come back
-    hidden: true,
-    slug: 'sonde',
-    title: 'Sonde',
-    word: 'sonde',
-    year: '2025–2026',
-    scope: 'Product, code & art direction',
-    role: 'Designer & developer, sole creator',
-    tools: 'Figma, Next.js, TypeScript, Tailwind CSS, Recharts, PostgreSQL, ClickHouse, Neo4j, WebSockets, SSE',
-    source: { href: 'https://github.com/tasyusef/sonde_os', label: 'sonde_os on GitHub' },
-    description: 'An XRP Ledger explorer I designed, built, and ran by myself. It had portfolio tracking, wallet scoring, and fund tracing, and the code is open source now.',
-    // Covers for the three products are the app large on its own dark ground under its logo
-    // (direction B, 2026-09-29), rendered by tools/covers/generate.mjs.
-    cover: ph(so('cover.png', 2880, 1620, 'The Sonde logo over its portfolio page: total portfolio value, a performance chart, and allocation'), 1200, 675),
-    lead: [
-      "Sonde was an XRP Ledger explorer with network analytics, portfolio tracking, and tools for investigating account activity. I designed and built it myself and kept it running."
-    ],
-    // The account page's content, cut from the 2560px capture (PX-52, PX-53): the app fills only
-    // the middle of its frame, so the full capture showed its type at about 86%.
-    // on phones the hero is the cover, the logo over the portfolio (his correction to 0206); the account page is unreadable at that width
-    hero: [{ ...sc('account-overview', 1786, 1254, 'Sonde account page: balance, smart money score, risk profile, and counterparty graph'), phone: { src: '/work/sonde/cover.png', w: 2880, h: 1620 } }],
-    // Six points, each with the screens it talks about (PX-52, 0136). A gallery note is the caption
-    // under its screens; the crops keep each screen's type readable beside the text.
-    blocks: [
-      { type: 'text', title: 'The balance comes first', paras: [
-        "I put the balance, holdings, and recent activity at the top of the account page. You could check what an account held before getting into the ledger’s technical details."
-      ] },
-      { type: 'gallery', note: 'Balance, value, reserve, and account age sit above the tabs.', rows: [[sc('account-balance', 1248, 413, 'Sonde account balance card: 157.199903 XRP, total value, reserve, and age above the account tabs', [752, 309])]] },
-      { type: 'text', title: 'Different levels of detail', paras: [
-        "I organized the tabs by how much detail people wanted. Someone new to the ledger might only care about an account’s holdings. A trader wants profit and loss, cost basis, and allocation, and an analyst wants raw transactions or fund tracing."
-      ] },
-      { type: 'gallery', note: 'Traders could see portfolio value, performance over time, and allocation.', rows: [[sc('portfolio', 1786, 1168, 'Sonde portfolio: total value, performance chart, allocation, and watchlist', [797, 520])]] },
-      { type: 'gallery', note: 'Analysts could see a transaction’s balance changes and the ledger nodes it touched.', rows: [[sc('transaction', 1786, 704, 'Sonde transaction detail: balance changes and affected ledger nodes', [1021, 352])]] },
-      { type: 'text', title: 'Loading and live updates', paras: [
-        "You could search by address, transaction ID, ledger number, or token name. Account pages had twelve tabs, from transactions and holdings to NFTs, liquidity pools, offers, and escrows. Each section loaded on its own, so people could read the balance and holdings while the rest came in. During live updates, the old data stayed on screen until the new results arrived.",
-        "Outside the account pages, I built network metrics, price charts, trading views, a wallet-connected portfolio, and a token directory. The app, the analytics, and the fund-tracing tools each had their own database."
-      ] },
-      { type: 'gallery', note: 'Network insights, with the live price and market figures above the price chart.', rows: [[sc('network', 1786, 1024, 'Sonde network insights: live XRP price, market cap, and a candlestick chart', [989, 400])]] },
-      { type: 'gallery', note: 'The token page for Sologenic (SOLO) shows its price, market figures, price chart, order book, and top holders.', rows: [[sc('token', 1770, 1330, 'Sonde token page for Sologenic (SOLO): price, market cap, volume, holders, a price chart, the order book, and top holders', [870, 650])]] },
-      { type: 'text', title: 'Scoring wallets, tracing funds', paras: [
-        "The investigation tools scored wallets on profitability and consistency, traced funds through up to six transfers, and flagged possible wash trading."
-      ] },
-      { type: 'gallery', note: 'A wallet’s score out of 100, what went into it, and how it has changed.', rows: [[sc('smart-money-detail', 1786, 728, 'Sonde Smart Money detail: a score of 64 out of 100, its score factors, and score history', [887, 728])]] },
-      { type: 'gallery', note: 'The leaderboard ranks scored wallets by PnL, win rate, and Sharpe.', rows: [[sc('smart-money', 1786, 592, 'Sonde Smart Money leaderboard: scored wallets ranked by PnL, win rate, and Sharpe', [989, 592])]] },
-      { type: 'text', title: 'Questions in plain English', paras: [
-        "Ask the Ledger let people ask questions in plain English. The AI assistant could query the investigation tools as part of the conversation."
-      ] },
-      { type: 'gallery', note: 'Ask the Ledger opens on suggested questions.', rows: [[sc('ask', 1786, 432, 'Ask the Ledger, with suggested questions about the XRP Ledger to start from', [861, 432])]] },
-      { type: 'text', title: 'Name and visual identity', paras: [
-        "A sonde is a measuring probe, which felt like a good name for a ledger explorer. I used dark slate backgrounds with a salmon accent (#E8856C) for key metrics and live indicators.",
-        "Headings are in Satoshi and interface text in DM Sans. Addresses, hashes, and amounts are in IBM Plex Mono. Each transaction type gets a small colored tag, so payments, trades, NFTs, trust lines, and liquidity-pool activity are easy to tell apart."
-      ] },
-      { type: 'gallery', note: 'The landing page uses the same salmon accent as the app.', rows: [[sc('landing', 1344, 416, 'Sonde landing page: Decode the XRPL, with Ask the Ledger and Portfolio buttons', [768, 368])]] },
-      { type: 'gallery', note: 'A ledger’s 70 transactions, each with a small colored tag for its type.', rows: [[sc('ledger', 1770, 780, 'Sonde ledger page: ledger 105484434, its close time and 70 transactions, each tagged OfferCreate or Payment', [870, 780])]] },
-      { type: 'text', title: 'Outcome', paras: [
-        "Sonde launched with a public explorer and analytics, plus paid portfolio and investigation tools. People could pay in fiat or crypto. Later I made the whole explorer free and put the Claude-powered questions on a $5-a-month Pro plan. I did the design, the development, and the day-to-day running of it. When the infrastructure cost more than subscriptions brought in, I shut down the hosted app and put the code on GitHub under the MIT license."
-      ] },
-      { type: 'gallery', note: 'By July 2026 the explorer was free, and Claude-powered questions were on the $5-a-month Pro plan.', rows: [[sc('pricing', 990, 1030, 'Sonde pricing: Explorer free with the full explorer; Pro at $5 a month for natural-language queries powered by Claude')]] }
-    ]
-  },
   {
     tier: 'selected',
     // hidden for now on Timothy's word (0219); the study stays here to come back
@@ -429,6 +370,93 @@ const source: Source[] = [
       ] },
       { type: 'text', title: 'Outcome', paras: [
         "I handed over the logo, the lockups, the type system, and the guidelines, co-branding layouts included. By mid-2026, First Ledger had passed $1.2B in transaction volume, 165K peak users, and more than 2M wallets created."
+      ] }
+    ]
+  },
+  {
+    // Sonde 2 (0241): back in the index, first after the selected four. The study leads with the
+    // rebuilt explorer and keeps the first version as its history. Facts come from the Sonde repo
+    // (README, docs/ARCHITECTURE.md, docs/plans/revival-2026-10.md) and the old study; the wording
+    // is the assistant's.
+    tier: 'index',
+    slug: 'sonde',
+    title: 'Sonde',
+    word: 'sonde',
+    year: '2025–2026',
+    scope: 'Product, code & art direction',
+    role: 'Designer & developer, sole creator',
+    tools: 'React, React Router, TypeScript, Tailwind CSS, Motion, Rust, Cloudflare Workers, Toolbox',
+    live: { href: 'https://sondelab.com/', label: 'sondelab.com' },
+    source: { href: 'https://github.com/tasyusef/sonde_os', label: 'sonde_os on GitHub' },
+    description: 'A free, easy-to-read XRP Ledger explorer I designed and built. In 2026 I rebuilt it with a pixel identity, and it runs for $0 a month.',
+    // Covers for the three products are the app large on its own dark ground under its logo
+    // (direction B, 2026-09-29), rendered by tools/covers/generate.mjs.
+    cover: ph(so('cover.png', 2880, 1620, 'The Sonde logo over its home page: one search box on a pixel globe'), 1200, 675),
+    lead: [
+      "Sonde is a free explorer for the XRP Ledger. You can look up any account, transaction, ledger, token, or NFT and see what it holds or what it did. I designed and built it on my own.",
+      "The first version ran from 2025 until I shut it down in July 2026. I rebuilt it that October around one goal: make it the clearest explorer on the ledger."
+    ],
+    hero: [sn('home', 2880, 1800, 'Sonde home page: one search box over a pixel globe, with the latest ledger in the top bar', [1560, 1540])],
+    blocks: [
+      { type: 'text', title: 'One search box', paras: [
+        "There’s one search box for everything. It takes an address, a transaction hash, a ledger number, an NFT ID, or a token name and works out which one you meant.",
+        "On a phone, away from the home page, search is a yellow button in the bottom corner. The box opens at the bottom of the screen, within reach of a thumb, with matching tokens listed above it. Tables drop the columns that don’t fit, and an account’s tabs fold into a menu."
+      ] },
+      { type: 'gallery', note: 'On a phone: home, search with token suggestions, an account, and an NFT.', rows: [[
+        sn('mobile-home', 780, 1688, 'Sonde on a phone: the search box over the pixel globe'),
+        sn('mobile-search', 780, 1688, 'Sonde search on a phone: RLUSD typed in the box at the bottom, matching tokens listed above it'),
+        sn('mobile-account', 780, 1688, 'Sonde account page on a phone: XRP Tip Bot’s balance, details, and transactions'),
+        sn('mobile-nft', 780, 1688, 'Sonde NFT page on a phone: Fuzzybear #703 with a link to trade it on xrp.cafe')
+      ]] },
+      { type: 'text', title: 'The balance comes first', paras: [
+        "I kept one idea from the first version: an account page opens on its balance, with the reserve and what’s free to spend beside it. Transactions, positions, offers, NFTs, and the account’s profile sit in tabs underneath, so you can see what an account holds before reading its history."
+      ] },
+      { type: 'gallery', note: 'XRP Tip Bot’s account: the balance first, then tabs for everything else.', rows: [[sn('account', 2416, 1706, 'Sonde account page for XRP Tip Bot: a balance of 157.199903 XRP, its details, and its transactions', [1576, 656, 'account-balance'])]] },
+      { type: 'text', title: 'A transaction, explained', paras: [
+        "A transaction page leads with what happened: the type, whether it succeeded, and what was delivered. Below that is every balance it changed, credit and debit, account by account. A ledger page lists its transactions, each tagged with its type."
+      ] },
+      { type: 'gallery', note: 'A payment routed through the DEX, and the seven accounts whose balances it changed.', rows: [[sn('transaction', 2416, 2256, 'Sonde transaction page: a Payment that delivered 38773.908541713 MALLARD, with seven balance changes', [1536, 776])]] },
+      { type: 'gallery', note: 'Ledger 108,052,570 and its 234 transactions.', rows: [[sn('ledger', 2416, 1636, 'Sonde ledger page: ledger 108,052,570 with 234 transactions, each tagged by type', [1536, 1222])]] },
+      { type: 'text', title: 'Tokens and NFTs', paras: [
+        "Token pages show the issuer, supply, holders, and the token’s XRP pool, with the price taken from that pool. NFT pages put the media large beside the owner, issuer, transfer fee, and traits, with a link to trade it on xrp.cafe."
+      ] },
+      { type: 'gallery', note: 'Fuzzybear #703, its details, and its traits.', rows: [[sn('nft', 2416, 1560, 'Sonde NFT page: Fuzzybear #703 beside its owner, issuer, serial, transfer fee, and traits', [820, 980])]] },
+      { type: 'gallery', note: 'RLUSD: its price from its XRP pool, its supply and holders, and the pool itself.', rows: [[sn('token', 2416, 896, 'Sonde token page for RLUSD: price, supply, holders, transfer fee, and its XRP pool', [1456, 576])]] },
+      { type: 'text', title: 'Live, for $0 a month', paras: [
+        "There’s no server behind the pages. Your browser reads public XRP Ledger nodes directly, and switches to another node if one drops.",
+        "The live feed comes from a small relay I wrote in Rust on Cloudflare. It holds one connection to the ledger and sends each visitor a compact summary as every ledger closes: 20 to 65 KB instead of 0.3 to 0.8 MB. The site and the relay both fit in Cloudflare’s free plan."
+      ] },
+      { type: 'gallery', note: 'The network page: the XRP price on a pixel chart, the server’s status, and the latest ledgers as they close.', rows: [[sn('network', 2416, 1676, 'Sonde network page: the XRP price on a pixel line chart, market and server figures, and the latest ledgers', [1616, 960])]] },
+      { type: 'text', title: 'A pixel identity', paras: [
+        "The new Sonde is drawn on whole pixels, in the visual language of Toolbox, my design app. Sonde’s own headings and labels are set in PARC Pixel, a typeface I drew, and all ledger data and text in Departure Mono. Shapes are square with hard 1px edges, and dither fills stand in for boxes.",
+        "Yellow marks only the main action and where you are. Each transaction family has its own color, tuned in OKLCH and checked for contrast in the dark and light themes. Icons, the logo, and the globe sit on the same pixel grid."
+      ] },
+      { type: 'gallery', note: 'The account page in the light theme.', rows: [[sn('account-light', 2416, 1706, 'Sonde account page in the light theme: the same balance, details, and transactions on a light ground', [1576, 656])]] },
+      { type: 'text', title: 'Logo and brand kit', paras: [
+        "I built the logo files with Toolbox’s lockup tool: 193 files across the horizontal, stacked, mark, and wordmark versions, for print and web. The yellow is PMS 7405 C, the ink Neutral Black C. A social kit adds avatars and banners for eight platforms on dark, yellow, and light grounds."
+      ] },
+      { type: 'gallery', note: 'Banners and avatars from the social kit, on its three grounds.', rows: [
+        [so('brand/banner-dark.png', 3000, 1000, 'Sonde banner on the dark ground: the logo, “A free, easy-to-read explorer for the XRP Ledger,” and the pixel globe')],
+        [so('brand/banner-yellow.png', 3000, 1000, 'Sonde banner on the yellow ground'), so('brand/banner-light.png', 3000, 1000, 'Sonde banner on the light ground')],
+        [so('brand/avatar-dark.png', 1080, 1080, 'Sonde avatar: the yellow mark on ink'), so('brand/avatar-yellow.png', 1080, 1080, 'Sonde avatar: the ink mark on yellow'), so('brand/avatar-light.png', 1080, 1080, 'Sonde avatar: the ink mark on paper')]
+      ] },
+      { type: 'text', title: 'The first version', paras: [
+        "The first Sonde was a bigger product: Next.js in front of PostgreSQL, ClickHouse, and Neo4j. It had portfolio tracking, wallet scoring, fund tracing through up to six transfers, and Ask the Ledger, which answered questions in plain English with Claude. It launched with paid portfolio and investigation tools. Later the whole explorer went free, with the questions on a $5-a-month Pro plan.",
+        "It used a dark slate ground and a salmon accent, with Satoshi, DM Sans, and IBM Plex Mono. I shut it down in July 2026. It cost more to run than subscriptions brought in, and it had lost direction: too many features, no clear idea who they served, and little use."
+      ] },
+      { type: 'gallery', note: 'The first version’s account page, with a smart money score, a risk profile, and a counterparty graph.', rows: [[desk(sc('account-overview', 1786, 1254, 'The first Sonde’s account page: balance, smart money score, risk profile, and counterparty graph'))]] },
+      { type: 'gallery', note: 'A wallet’s score out of 100 and what went into it.', rows: [[sc('smart-money-detail', 1786, 728, 'The first Sonde’s Smart Money detail: a score of 64 out of 100, its score factors, and score history', [887, 728])]] },
+      // the first paragraph is Timothy's reason for bringing Sonde back, in his words (0241)
+      { type: 'text', title: 'Starting again', paras: [
+        "I couldn’t afford to keep the databases and the AI features running, but I could still offer a better explorer and host it for free. That was the foundation of what I wanted in the first place, and maybe one day some of those features come back.",
+        "So I kept the explorer and set the rest aside. Scoring, fund tracing, and the questions are shelved, and Sonde is free with no sign-in. The balance-first account page is the one layout that came through, redrawn in the new identity."
+      ] },
+      { type: 'gallery', note: 'The balance, in the first version and now.', rows: [[
+        sc('account-balance', 1248, 413, 'The first Sonde’s balance card: 157.199903 XRP in salmon, in a rounded card on dark slate', [752, 309]),
+        sn('account-balance', 1576, 656, 'The new Sonde’s balance: 157.199903 XRP in Departure Mono, on the page ground with no card')
+      ]] },
+      { type: 'text', title: 'Outcome', paras: [
+        "The new Sonde went live at sondelab.com on October 30, 2026, and runs for $0 a month. The code is open source under the MIT license, with both versions in the repository’s history."
       ] }
     ]
   },
