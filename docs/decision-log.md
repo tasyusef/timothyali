@@ -2894,3 +2894,10 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Open:** the GitHub social preview for `sonde_os` can only be set in the repo's settings.
 - **Supersedes:** 0219 for Sonde.
 - **Status:** pushed on 2026-11-01 on his "yeah push".
+
+## 0242: Sonde is AGPL-3.0 (2026-11-01)
+
+- **Timothy's direction:** "also can we make sonde gpl 3?" Told that GPL-3 would leave the relay, which runs only on a server, free to modify without sharing, and that the MIT commits already published stay MIT, he chose "agpl 3, and yeah push both".
+- **Change:** the Sonde study's Outcome says "open source under the GNU AGPL" (was "the MIT license"). The licence itself changed in the Sonde repo and the public `sonde_os` mirror (AGPL-3.0-only; the fonts keep their own licences).
+- **Status:** pushed on 2026-11-01.
+

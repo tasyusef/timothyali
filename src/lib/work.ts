@@ -456,7 +456,7 @@ const source: Source[] = [
         sn('account-balance', 1576, 656, 'The new Sonde’s balance: 157.199903 XRP in Departure Mono, on the page ground with no card')
       ]] },
       { type: 'text', title: 'Outcome', paras: [
-        "The new Sonde went live at sondelab.com on October 30, 2026, and runs for $0 a month. The code is open source under the MIT license, with both versions in the repository’s history."
+        "The new Sonde went live at sondelab.com on October 30, 2026, and runs for $0 a month. The code is open source under the GNU AGPL, with both versions in the repository’s history."
       ] }
     ]
   },
