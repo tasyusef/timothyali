@@ -1,5 +1,5 @@
 {
-  "generated": "Toolbox 1.2.7",
+  "generated": "Toolbox 1.2.8",
   "root": "Acme Logo Library",
   "source": {
     "name": "acme.svg",
@@ -335,6 +335,6 @@
   ],
   "zip": {
     "href": "/toolbox/samples/lockup/Acme-Logo-Library.zip",
-    "bytes": 277891
+    "bytes": 277892
   }
 }

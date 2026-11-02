@@ -1363,3 +1363,11 @@ Timothy: "the hero bg doesnt match the rest of the site. and idk it doesnt feel 
 - **Then (his direction, 0246):** uppercase T and G for Toolbox and Gryphon; Sonde's mark (logo library, 03 Mark) as an inline SVG at 42px, 2px a cell; every icon moved by whole pixels to centre its measured ink (T −1 x, G +1 y, t −2 y at 72; within half a pixel at 48). Icons live in `software.ts` (`icon`).
 - **Switch animation (assistant's proposal):** the picked window comes forward from the first stack slot (32px right and up; straight down on phones) on a 320ms spring, and its screen arrives through `--wipe-in`. The first window doesn't animate; motion off is a hard cut. The knockout re-measures on `animationend`. The closed windows' screens load 1.5s after mount so a switch never wipes in an empty frame.
 - **Evidence:** `glyphs.png`, `switch-frames.png` (30, 90, 160, 420ms).
+
+## PX-144: Toolbox 1.2.8 (2026-11-01, 0249)
+
+Pushed on 2026-11-01, after the v1.2.8 GitHub release was public.
+
+- **Downloads:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.8; `toolbox-options.ts` from the 1.2.8 binary (header only).
+- **Samples:** Lockup's zip and manifest remade with 1.2.8 (EPS creator lines only); the other three manifests change only their `generated` line.
+- **Checks:** `pnpm check` 0/0, 44 tests, build, `seo:check` (in a worktree holding only these changes).

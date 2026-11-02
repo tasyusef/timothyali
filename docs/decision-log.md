@@ -2939,3 +2939,10 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Then, his direction:** "tool box adn gryphon should be using uppercase for the icons. lets also make sonde use the sonde logo icon. and also make sure theyre all visually centered in their box. also want to add some kind of animation to previews on teh right when you switch between projects." Toolbox and Gryphon are now a blackletter T and G (Tome keeps its t), Sonde's icon is its mark from the logo library, and each icon is centred on its measured ink. The switch animation is the assistant's proposal: the picked window comes forward from the slot behind on a spring, and its screen arrives through the dither wipe (0100). Details in PX-142.
 - **Sonde's mark size:** asked whether to keep it at 42px (smaller than the letters) or grow the boxes to 80 with a 63px mark, he chose "1": keep 42px.
 - **Status:** built, not committed.
+
+## 0249: Toolbox 1.2.8 on the site (2026-11-01)
+
+- **Timothy's direction:** "push the update to the app as well", after the sidebar fix (Toolbox 67ade5f: the sidebar foot's Motion, Dark mode and Check updates line up with the section labels, as in Gryphon).
+- **Change:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.8, so all eight download links follow. `toolbox-options.ts` synced from the 1.2.8 CLI: only its header line changes.
+- **Samples:** `samples.mjs` rerun with 1.2.8. Lockup's zip changes only its EPS creator lines ("Toolbox 1.2.8"); Palette, Specimen and Convert are byte-identical.
+- **Status:** published on 2026-11-01 with the v1.2.8 GitHub release.
