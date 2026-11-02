@@ -2987,46 +2987,54 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Timothy's direction:** "this crosshair cursor on this page is nearly impossible to see when you hover over the software windows."
 - **Change:** the field's crosshair (0103) is one colour, the theme's foreground, and a panel is filled with that colour, so over the Software windows it vanished. A panel on a field now gives the browser's own pointer, arrow or I-beam, the way links and fields inside a band already do. The crosshair stays over the field itself.
 - **Assistant's choices (proposed, awaiting his review):** the browser's pointer rather than an inverted crosshair, since a window's screen can be dark in either theme and no one colour reads over all of it.
-- **Status:** local, not pushed.
+- **Status:** committed b60b21a, pushed on 2026-11-02 on his "Push and deploy".
 
 ## 0253: every product's icon in its own colours on the Software desktop (2026-11-02)
 
 - **Timothy's direction:** "why does gryphon have the only colored icon? sonde should have its new colors used, same with toolbox."
 - **Change:** each icon at rest is its product's real icon: Toolbox an ink T on yellow, Sonde its coral mark on ink, Gryphon a red G on vellum (0251). Sonde's window and its icon when open are coral, as on sondelab.com; Toolbox's colours are the site's, so only its icon at rest changes. Tome has no colours of its own yet.
 - **Assistant's choices (proposed, awaiting his review):** a `.coral` class in `tokens.css` beside `.illuminated`, and a `.yellow` one that only sets Toolbox's icon pair. Sonde has no coral for type on a light ground, so links in its window there take a deep coral, `#a54932`: the same coral at oklch lightness .52, 5.1:1 on the site's white.
-- **Status:** local, not pushed.
+- **Status:** committed b60b21a, pushed on 2026-11-02 on his "Push and deploy".
 
 ## 0254: Tome's own look, Ink (2026-11-02)
 
 - **Timothy's direction:** "we should make a bit of a brand and color pallete for tome." Of three first boards: "None of these" (the colours were wrong, and they felt generic). Of the second round (old leather, brass, ink; tabs as the mark): "Ink. Make sure the t in the logo is visually centered in it."
 - **Change:** Tome has no colour, only the site's ink and paper. Its mark is a row of three tabs over a page, the open tab joined to the page, with a t cut out of it. On the Software desktop its icon is that mark, paper on ink in both themes, and its window's bar is ruled round in the panel's colour, like the game's frames. The Tome section of the Gryphon page wears it too.
 - **Assistant's choices (proposed, awaiting his review):** the t is Jacquard 24's own, sampled from the font; its columns pair up exactly onto the mark's 2-unit cells. Its stem is on the page's centre line, and it sits a unit above the middle, where its ink balances (its foot is heavier than its point). The whole mark is centred in its 42-unit square. A `.ink` class in `tokens.css`: its accent is whichever of the two the ground isn't, so the open icon and its label invert on the page and the bar inverts on a panel. With no accent colour, its label's hover is an underline.
-- **Status:** local, not pushed.
+- **Status:** committed b60b21a, pushed on 2026-11-02 on his "Push and deploy".
 
 ## 0255: each product page gets its own scene (2026-11-02)
 
 - **Timothy's direction:** "make unique individual backgrounds, like what we have on the landing page for the software page, and then for each individual apps page." Of three ideas each: Software "Four moons", Toolbox "Prism", Gryphon "Keep on a crag".
 - **Change:** the landing's scene field now draws a picture of its own on each product page. Software: the giant planet with four moons on slow tilted orbits, one per product in its own colour (Toolbox yellow, Sonde coral, Gryphon vermilion, Tome ink and paper), passing in front of and behind it. Toolbox: a beam of light comes down into a prism and fans out into bands of colour that break into swatches, like a palette. Gryphon: a keep and its turret on a crag under a crescent moon, vermilion banners in the wind and lit windows, with a far range behind. Each prints in the light theme by its shadows, as the landing's mountains do, and holds still with motion off.
 - **Assistant's choices (proposed, awaiting his review):** the scenes live in `pageScenes.ts` and reuse the landing study's pieces (`studyScenes.ts`); a `page` prop on the band picks one. The scene colours gain Toolbox's, Sonde's and Gryphon's fills. Toolbox and Gryphon compose to the hero, with the picture right of the title and clear of the lead and buttons; Software composes to the window, so it holds still when another app's window comes up, and the moons' orbits fit around the open window. Light moves only where it would: the beam shimmers, the banners wave, the moons orbit. The pages' old field settings go.
-- **Status:** local, not pushed.
+- **Status:** committed b60b21a, pushed on 2026-11-02 on his "Push and deploy".
 
 ## 0256: the Software desktop is one screen (2026-11-02)
 
 - **Timothy's direction:** "software page should be full viewport with no scroll no?"
 - **Change:** from 701px wide, the Software page fills the window under the header and doesn't scroll. The open window takes the width the window's height leaves for it, between 528 and 880px, and the site footer's "(C) Timothy Ali" moves into the page's own foot, beside "Get in touch". Tome's tabs panel is 16:9 (was 3:2) and the links in a window sit 16px apart (were 24), so every app's window fits from 1440x790 up. Shorter windows, and phones, still scroll.
 - **Assistant's choices (proposed, awaiting his review):** a page that is one screen says so with `ownFoot` in its `load`, and the layout leaves out its footer; Software is the only one. The window's width is CSS alone (`round(down, (100svh - 440px) * 1.5, 8px)`), so the stack and the scene hold still as before.
-- **Status:** local, not pushed.
+- **Status:** committed b60b21a, pushed on 2026-11-02 on his "Push and deploy".
 
 ## 0257: Gryphon's scene redrawn: a small castle on a big peak (2026-11-02)
 
 - **Timothy's direction:** "gryphon hero needs refinement. this looks rough." and "the mountains are also too small for the castle."
 - **Change:** the keep from 0255 is drawn again, shaded like the landing's mountains instead of outlined. A small moonlit castle (keep, round tower, turret with a red spire, lit windows, one vermilion banner) stands on the summit of a big rocky peak with a snowy right flank, a hazed range behind it and a crescent moon above. On a laptop the castle moves right until it's clear of the title; on a phone it sits low at the right edge, beside the buttons.
 - **Assistant's choices (proposed, awaiting his review):** the rock is lit from the moon (up and to the right) through the landing's own luminance-to-glyph mapping, so it prints in the light theme by its shadows like the landing's mountains. The castle keeps 96px off the title, the distance over which the field fades around it. One banner instead of two, and only it moves.
-- **Status:** local, not pushed.
+- **Status:** committed b60b21a, pushed on 2026-11-02 on his "Push and deploy".
 
 ## 0258: the share images wear the new scenes; Toolbox's prism keeps off its title (2026-11-02)
 
 - **Timothy's direction:** "Yes, update them" (the share images for Software, Toolbox and Gryphon, after 0255 and 0257).
 - **Change:** the Software, Toolbox and Gryphon share images now show their pages' scenes: the planet and its four moons, the prism, and the castle on its peak. On the Toolbox page, from 701 to about 1400px wide, the prism and its beam ran into the end of the title. Now the glass keeps 34px off the title and gets smaller where there isn't room. 1440 and wider, and phones, look as before.
 - **Assistant's choices (proposed, awaiting his review):** Software's share image keeps the name and lead, so its scene has a second layout for it (`software-share`): the planet low on the right, past the name, with the moons' orbits under it. The desktop's layout is unchanged. Home, Work and Contact rendered about a hundred pixels differently, a few stray glyphs, so they stay as committed.
-- **Status:** local, not pushed.
+- **Status:** committed 4609fed, pushed on 2026-11-02 on his "Commit and push".
+
+## 0259: the Software giant's bands drift and its moons go round faster (2026-11-02)
+
+- **Timothy's direction:** "yeah lets do both", after asking "why isnt the planet animated?" and being offered the bands drifting at the home page's pace and faster moons, measured so the page wouldn't get heavier.
+- **Change:** the giant's bands on the Software desktop drift like the home page's planet, and the moons go round about three times faster: the inner one in about 75 seconds, the outer ones slower. With motion off, the scene holds still as before.
+- **Assistant's choices (proposed, awaiting his review):** the giant's turbulence reads the home planet's table per row (0247) instead of the noise itself, which differs on a few cells in thousands. The bands under the open window's title bar and screen are worked out once, since the window always covers them. The layout and the moons' places are worked out once a tick instead of once a cell. The share image's scene changes by about as much as the table does, so it isn't re-rendered.
+- **Result:** idle main thread at 1440x900, ms/s, still planet → drifting: dark about 32 → 22–31, light about 32 → 100–114. Home is 124–132 in light and about 35 in dark, so Software stays lighter than Home in both. The bands alone, before these cuts, took dark to about 50 and light to about 151.
+- **Status:** pushed on 2026-11-02 on his "Commit and push".

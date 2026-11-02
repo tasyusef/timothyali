@@ -315,6 +315,8 @@ function turbAt(r: TRow, a: number, seed: number) {
   }
   const p = r.buf[i & TM]; return p + (r.buf[(i + 1) & TM] - p) * f;
 }
+/** the turbulence on the row b = dy × 9 at a = lon × 2.4 + t × 0.012, from that row's table: the Software giant's bands read it too (0259) */
+export const turbTable = (b: number, a: number, seed: number) => turbAt(turbRow(b, seed), a, seed);
 // How many more ticks a planet cell's drawn output cannot change (0 = work it out next tick). The bands drift at
 // x += 0.012 a tick, and value noise moves at most 1.5 per unit (smoothstep's slope; the table read between
 // its points is no steeper), so the turbulence moves at most DTURB a tick and the band's angle 3.2 times that. `on` is whether the cell is drawn: its colour only matters then;

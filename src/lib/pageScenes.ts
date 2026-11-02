@@ -8,10 +8,10 @@
 // down, and `px` is one CSS pixel in those units, so a line keeps its weight in glyphs and in the
 // dither. Each scene places its subject apart for a desktop (right of the title, or round the open
 // window) and a phone (beside the title). A cell that never changes says so (`s: 1`), so the field
-// works it out once; only the moons, the light and the banners are worked out every tick.
+// works it out once; only the moons and the giant's bands, the light and the banners are worked out every tick.
 import { fbm } from '$lib/prng';
-import { MAT } from '$lib/scene';
-import { clamp, frac, ink, star, sphere, giant, seg, type Cell as StudyCell } from '$lib/studyScenes';
+import { MAT, turbTable } from '$lib/scene';
+import { clamp, frac, ink, star, sphere, seg, NONE, type Cell as StudyCell } from '$lib/studyScenes';
 
 type Cell = StudyCell & { s?: number };
 type Scene = (X: number, Y: number, A: number, t: number, seed: number, x: number, y: number, px: number) => Cell;
@@ -26,59 +26,90 @@ const stone = (v: number, c: number): Cell => ({ v: clamp(v), c, o: true, s: 1 }
 // little left of its middle, so its lit limb shows past the window's left edge. Its moons are the
 // apps, in the list's order and colours: Toolbox, Sonde, Gryphon, Tome. Each has its own orbit, wide
 // enough to clear the giant and come out past the window, and tipped its own way, so where they turn
-// they stand apart; at rest two wait on each side. The giant holds still; the moons go round.
+// they stand apart; at rest two wait on each side. The giant's bands drift at the landing's pace (0259);
+// the moons go round.
 const MOONS = [
   { c: MAT.yellow, r: 36, off: 64, b: 0.07, k: 0.03, at: 0 },
   { c: MAT.coral, r: 30, off: 92, b: 0.1, k: 0.13, at: Math.PI },
   { c: MAT.vermilion, r: 38, off: 120, b: 0.12, k: 0.22, at: -0.15 },
   { c: MAT.snow, r: 27, off: 148, b: 0.09, k: 0.05, at: Math.PI + 0.2 },
 ];
-// where the giant sits, in span units: its centre and radius, the moons' scale, and the furthest right an orbit may reach
-type Orbits = { cx: number; cy: number; R: number; rs: number; right: number };
+// where the giant sits, in span units: its centre and radius, the moons' scale, the furthest right an
+// orbit may reach, and the box the open window always hides (x0, y0, x1, y1), if there is one
+type Orbits = { cx: number; cy: number; R: number; rs: number; right: number; hid: number[] | null };
 const desk = (W: number, px: number): Orbits => {
   const phone = W < 700, mid = phone ? W / 2 : (W + 152) / 2, half = phone ? W / 2 - 16 : Math.min(440, mid - 184);
-  return { cx: (phone ? mid : mid - 40) * px, cy: phone ? 0.72 : 0.68, R: (phone ? half * 0.85 : half + 60) * px, rs: phone ? 0.7 : 1, right: (W - 34) * px };
+  // From 701px the window's width is the page's rule (0256) on the span, which is the window's height:
+  // its title bar and screen are always there (Tome's 16:9 tabs the shortest), 64px under the desk's
+  // top, so the giant's bands under them are worked out once and only the rest of it drifts (0259).
+  // 8px in from each side, for the window arriving from 32px right.
+  const H = 1 / px, ww = Math.min(W - 216, Math.max(528, Math.min(880, Math.floor(((H - 440) * 1.5) / 8) * 8)));
+  const hid = W > 700 ? [(mid - ww / 2 + 8) * px, 72 * px, (mid + ww / 2 - 8) * px, (64 + 32 + ((ww - 16) * 9) / 16) * px] : null;
+  return { cx: (phone ? mid : mid - 40) * px, cy: phone ? 0.72 : 0.68, R: (phone ? half * 0.85 : half + 60) * px, rs: phone ? 0.7 : 1, right: (W - 34) * px, hid };
+};
+// The giant's bands, as giant() draws them at the landing planet's pace (0.012 a tick), with the turbulence read
+// from the landing's table per row (0247) instead of the noise itself, which was most of the page's work in light (0259)
+const bands = (s: { dx: number; dy: number; nz: number; lam: number }, t: number, seed: number): Cell => {
+  const turb = turbTable(s.dy * 9, Math.atan2(s.dx, s.nz) * 2.4 + t * 0.012, seed), band = Math.sin(s.dy * 15 + turb * 3.2);
+  let c: number, weight: number;
+  if (band > 0.55) { c = MAT.cream; weight = 1; } else if (band > 0) { c = MAT.orange; weight = 0.86; } else if (band > -0.55) { c = MAT.rust; weight = 0.7; } else { c = MAT.brown; weight = 0.56; }
+  const v = (0.06 + 0.94 * s.lam) * weight * (0.9 + 0.2 * turb);
+  return v < 0.07 ? NONE : ink(v, c);
 };
 // the share image (0258): the giant low on the right, past the name, and its moons' orbits under the name
-const share = (W: number, px: number): Orbits => ({ cx: (W - 330) * px, cy: 0.78, R: 160 * px, rs: 0.9, right: (W - 34) * px });
-const orbits = (place: (W: number, px: number) => Orbits): Scene => (X, Y, A, t, seed, x, y, px) => {
-  const { cx, cy, R, rs, right } = place(A / px, px);
-  let live = false, orbit = 0;
-  const front: Cell[] = [], back: Cell[] = [];
-  for (let i = 0; i < MOONS.length; i++) {
-    const rm = MOONS[i].r * px * rs, m = MOONS[i], a = Math.max(R + rm + 20 * px, Math.min(R + m.off * px, right - cx));
-    // inner moons go round faster (Kepler's third law), the first in about four minutes
-    const ph = m.at + t * 0.0045 * Math.pow((R + 64 * px) / a, 1.5);
-    const mx = cx + a * Math.cos(ph), my = cy + m.b * Math.sin(ph) - m.k * Math.cos(ph);
-    const s = sphere(X, Y, mx, my, rm);
-    if (s) {
-      const sea = fbm(s.dx * 1.6 + i * 7, s.dy * 1.6, seed + i, 2);
-      const cell = ink((0.12 + 0.88 * s.lam) * (sea < 0.42 ? 0.72 : 1), m.c);
-      (Math.sin(ph) > 0 ? front : back).push(cell);
-    }
-    // the band each orbit sweeps: cells there change as a moon passes, so they stay live
-    const c = (X - cx) / a;
-    if (Math.abs(c) < 1 + rm / a + 2 * px) {
-      const cc = Math.max(-1, Math.min(1, c)), sn = Math.sqrt(1 - cc * cc), yF = cy + m.b * sn - m.k * cc, yB = cy - m.b * sn - m.k * cc;
-      const reach = rm * 1.6 + 4 * px;
-      if (Math.abs(Y - yF) < reach || Math.abs(Y - yB) < reach || (Math.abs(cc) > 0.85 && Y > Math.min(yF, yB) && Y < Math.max(yF, yB))) live = true;
-      // its path, dotted and faint, where the giant doesn't cover it
-      if (!orbit && Math.abs(c) <= 1) {
-        const onF = Math.abs(Y - yF) < 3 * px, onB = Math.abs(Y - yB) < 3 * px;
-        if ((onF || onB) && frac(((onF ? 1 : -1) * Math.acos(cc)) * 9 / Math.PI) < 0.3) orbit = 1;
+const share = (W: number, px: number): Orbits => ({ cx: (W - 330) * px, cy: 0.78, R: 160 * px, rs: 0.9, right: (W - 34) * px, hid: null });
+// The layout and where each moon is are the same for every cell, so they are worked out once a
+// size and once a tick, not once a cell: with the bands drifting, every cell of the giant comes
+// through here each tick (0259).
+const orbits = (place: (W: number, px: number) => Orbits): Scene => {
+  let kA = NaN, kP = NaN, kT = NaN, o = place(1, 1);
+  const at = MOONS.map(() => ({ rm: 0, a: 0, ph: 0, mx: 0, my: 0, up: false }));
+  return (X, Y, A, t, seed, x, y, px) => {
+    if (A !== kA || px !== kP) { kA = A; kP = px; kT = NaN; o = place(A / px, px); }
+    const { cx, cy, R, rs, right, hid } = o;
+    if (hid && X > hid[0] && X < hid[2] && Y > hid[1] && Y < hid[3]) { const p = sphere(X, Y, cx, cy, R); return p ? still(bands(p, t, seed)) : sky(x, y, seed); }
+    if (t !== kT) {
+      kT = t;
+      for (let i = 0; i < MOONS.length; i++) {
+        const m = MOONS[i], q = at[i], rm = m.r * px * rs, a = Math.max(R + rm + 20 * px, Math.min(R + m.off * px, right - cx));
+        // inner moons go round faster (Kepler's third law), the first in about 75 seconds (0259)
+        const ph = m.at + t * 0.0135 * Math.pow((R + 64 * px) / a, 1.5);
+        q.rm = rm; q.a = a; q.ph = ph; q.mx = cx + a * Math.cos(ph); q.my = cy + m.b * Math.sin(ph) - m.k * Math.cos(ph); q.up = Math.sin(ph) > 0;
       }
     }
-  }
-  if (front.length) return front[0];
-  const p = sphere(X, Y, cx, cy, R);
-  if (p) { const g = giant(p, 0, seed); return live ? g : still(g); }
-  if (back.length) return back[0];
-  const keep = (c: Cell) => (live ? c : still(c));
-  if (orbit) return keep(ink(0.2, MAT.shade));
-  // the haze just outside the lit limb, as on the landing
-  const dx = (X - cx) / R, dy = (Y - cy) / R, r2 = dx * dx + dy * dy;
-  if (r2 < 1.06 * 1.06) { const lam = Math.max(0, -0.55 * dx - 0.5 * dy); if (lam > 0.2) return keep({ v: 0.16 * lam, c: MAT.cream }); }
-  return live ? star(x, y, seed) : sky(x, y, seed);
+    let live = false, orbit = 0, front: Cell | null = null, back: Cell | null = null;
+    for (let i = 0; i < MOONS.length; i++) {
+      const m = MOONS[i], { rm, a, ph, mx, my, up } = at[i];
+      const s = (up ? !front : !back) ? sphere(X, Y, mx, my, rm) : null;
+      if (s) {
+        const sea = fbm(s.dx * 1.6 + i * 7, s.dy * 1.6, seed + i, 2);
+        const cell = ink((0.12 + 0.88 * s.lam) * (sea < 0.42 ? 0.72 : 1), m.c);
+        if (up) front = cell; else back = cell;
+      }
+      // the band each orbit sweeps: cells there change as a moon passes, so they stay live
+      const c = (X - cx) / a;
+      if (Math.abs(c) < 1 + rm / a + 2 * px) {
+        const cc = Math.max(-1, Math.min(1, c)), sn = Math.sqrt(1 - cc * cc), yF = cy + m.b * sn - m.k * cc, yB = cy - m.b * sn - m.k * cc;
+        const reach = rm * 1.6 + 4 * px;
+        if (Math.abs(Y - yF) < reach || Math.abs(Y - yB) < reach || (Math.abs(cc) > 0.85 && Y > Math.min(yF, yB) && Y < Math.max(yF, yB))) live = true;
+        // its path, dotted and faint, where the giant doesn't cover it
+        if (!orbit && Math.abs(c) <= 1) {
+          const onF = Math.abs(Y - yF) < 3 * px, onB = Math.abs(Y - yB) < 3 * px;
+          if ((onF || onB) && frac(((onF ? 1 : -1) * Math.acos(cc)) * 9 / Math.PI) < 0.3) orbit = 1;
+        }
+      }
+    }
+    if (front) return front;
+    const p = sphere(X, Y, cx, cy, R);
+    if (p) return bands(p, t, seed);
+    if (back) return back;
+    const keep = (c: Cell) => (live ? c : still(c));
+    if (orbit) return keep(ink(0.2, MAT.shade));
+    // the haze just outside the lit limb, as on the landing
+    const dx = (X - cx) / R, dy = (Y - cy) / R, r2 = dx * dx + dy * dy;
+    if (r2 < 1.06 * 1.06) { const lam = Math.max(0, -0.55 * dx - 0.5 * dy); if (lam > 0.2) return keep({ v: 0.16 * lam, c: MAT.cream }); }
+    return live ? star(x, y, seed) : sky(x, y, seed);
+  };
 };
 
 // Toolbox: white light comes down from above, crosses the prism and leaves it fanned into six bands,
