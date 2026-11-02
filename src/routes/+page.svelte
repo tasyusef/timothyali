@@ -15,7 +15,7 @@
   import { heroLab } from '$lib/heroLab.svelte';
   // the parallax and the pan (PX-139, 0244), at the values picked in the dev lab
   const parallax = $derived(heroLab.parallax ? { far: heroLab.far, mid: heroLab.mid, planet: heroLab.planet, stars: heroLab.stars } : null);
-  const pan = $derived(heroLab.pan ? { amount: heroLab.amount, period: heroLab.period } : null);
+  const pan = $derived(heroLab.pan ? { amount: heroLab.amount, period: heroLab.period, steps: heroLab.steps } : null);
   // the lab can try another grain; otherwise the Band's own (0243)
   const cell = $derived(heroLab.cell || undefined);
   let { data } = $props();

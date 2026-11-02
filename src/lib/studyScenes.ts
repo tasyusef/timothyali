@@ -149,17 +149,20 @@ const parc: Scene = (X, Y, A, t, seed) => {
   if (Y < H + 0.02 && Y > H - 0.07 * (1 - isl * isl)) return ink(0.85, MAT.cream);
   // the rowboat, bobbing, its oar dipping
   const bx = A * 0.56 + Math.sin(t * 0.02) * 0.02, by = H + 0.03 + Math.sin(t * 0.07) * 0.006;
-  if (Y > by - 0.03 && Y < by && Math.abs(X - bx) < 0.08 - (Y - by + 0.03) * 0.9) return ink(0.95, MAT.brown);
-  if (Math.hypot(X - bx, Y - (by - 0.055)) < 0.022) return ink(0.9, MAT.rust);
-  const oa = Math.sin(t * 0.07) * 0.25;
-  if (seg(X, Y, bx + 0.01, by - 0.04, bx + 0.11 * Math.cos(oa), by + 0.04 + 0.06 * Math.sin(oa)) < LINE * 0.6) return ink(0.85, MAT.brown);
+  // hull, head and oar all sit within 0.16 across and 0.12 up and down of it, so nothing further out tests them
+  if (Math.abs(X - bx) < 0.16 && Y > by - 0.12 && Y < by + 0.12) {
+    if (Y > by - 0.03 && Y < by && Math.abs(X - bx) < 0.08 - (Y - by + 0.03) * 0.9) return ink(0.95, MAT.brown);
+    if (Math.hypot(X - bx, Y - (by - 0.055)) < 0.022) return ink(0.9, MAT.rust);
+    const oa = Math.sin(t * 0.07) * 0.25;
+    if (seg(X, Y, bx + 0.01, by - 0.04, bx + 0.11 * Math.cos(oa), by + 0.04 + 0.06 * Math.sin(oa)) < LINE * 0.6) return ink(0.85, MAT.brown);
+  }
   // the sea: lines of swell under the horizon
   if (Y > H) { const ripple = frac((Y - H) * 28 + 0.35 * Math.sin(X * 5 + t * 0.06)); return ink(ripple < 0.3 ? 0.5 : 0.14, ripple < 0.3 ? MAT.rock : MAT.shade); }
   // a low sun and blocky pixel clouds in a day sky
   const sun = Math.hypot(X - A * 0.95, Y - 0.2);
   if (sun < 0.08) return ink(0.9, MAT.cream);
-  const cb = 0.045, n = fbm(Math.floor(X / cb) * 0.35 + t * 0.01, Math.floor(Y / cb) * 0.7, seed, 2);
-  if (Y < 0.45 && n > 0.6) return ink(0.5, MAT.rock);
+  const cb = 0.045;
+  if (Y < 0.45 && fbm(Math.floor(X / cb) * 0.35 + t * 0.01, Math.floor(Y / cb) * 0.7, seed, 2) > 0.6) return ink(0.5, MAT.rock);
   return NONE;
 };
 

@@ -1364,6 +1364,19 @@ Timothy: "the hero bg doesnt match the rest of the site. and idk it doesnt feel 
 - **Switch animation (assistant's proposal):** the picked window comes forward from the first stack slot (32px right and up; straight down on phones) on a 320ms spring, and its screen arrives through `--wipe-in`. The first window doesn't animate; motion off is a hard cut. The knockout re-measures on `animationend`. The closed windows' screens load 1.5s after mount so a switch never wipes in an empty frame.
 - **Evidence:** `glyphs.png`, `switch-frames.png` (30, 90, 160, 420ms).
 
+
+
+## PX-143: field performance, then a gliding pan (2026-11-01)
+
+Timothy: "1-6 and big fixes" from the merged review (0247), then "the pan left right for the mountains feel too stuttery i think" and "smooth" (0248).
+
+- **Built (0247):** the planet hold and lazy skip; PARC's boat bounds; one bolt lookup a tick; the pan clears only the rows each moved layer, the planet and (dark only) the stars can reach; rock at whole samples from a tone table; no stars in light; the planet's turbulence from a ring of rows per seed (64 × 1024, evicting the far end as it grows).
+- **Bugs fixed:** bolt landing with parallax and pan; the trench's edges (groove `i±1` in the wet test); alpha `> 128` in the still path; PARC's unused cloud noise; `hbLast` in the paint's wet test.
+- **The pan (0248):** the lab's Steps (Together, Each layer, Smooth); Home uses Smooth. `mount()` now blends the four pixels between samples itself, the same sums as `rock`, so the smooth pan and a scroll's parallax skip `sceneCell` for rock. `shift()` clears a moved layer only over its own runs of pixels (`layerRuns`, a sample spare, plus the mirrored strips at the sides) and the planet only over its box. The planet's pan goes by quarter samples.
+- **Checks:** per-frame pixel test (fake clock, 600 frames with scrolls, four sizes and themes). Every change is identical except two: the turbulence table (about 0.01%, accepted) and the planet's quarter samples (0.01–0.02%). The `mount()` blend and the column clears are identical to Smooth before them. `pnpm check` 0/0, `pnpm test` 44/44.
+- **Timings (idle, ms/s):** see 0247 and 0248. In light 1440, Smooth went 208 → 177 (blend) → 150 (columns) → 110 (planet), against 78 stepped.
+- **Evidence:** `docs/iterations/pixel-v2/143-field-performance/` (`bolt-landing-scrolled.png`, `planet-table-diff-light.png`).
+
 ## PX-144: Toolbox 1.2.8 (2026-11-01, 0249)
 
 Pushed on 2026-11-01, after the v1.2.8 GitHub release was public.

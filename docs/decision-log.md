@@ -2918,7 +2918,7 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Timothy's direction:** after the lightning (PX-140), he sent the hero lab set to grain 6px, parallax on (far range 0.80, massifs 0.90, planet 0.60, stars 0.50) and pan on (swing 0.015, loop 30 s), with "lightning more often and these settings." Then, on the knockout behind the name: "i also wonder if we can get ridof the knockout behind the hero text. just the display stuff that says hi im tim", then "maybe we keep the knockout but make it less strong". He gave no reasons.
 - **Change:** Home's parallax and pan use those values (no longer lab-only). A bolt comes about every five seconds instead of ten. The display name thins the field at depth 0.5 (other knockouts stay 0.85). The grain stays on 0243: asked whether the lab's 6px meant light too, he said "keep 4px in light". Details in PX-140.
 - **Cost:** idle main thread, production build, last commit → now: 1440 light 118 → 155 ms/s, dark 44 → 50; 390 light 62 → 76, dark 26 → 29.
-- **Status:** committed, not pushed (2026-11-01).
+- **Status:** pushed on 2026-11-01.
 
 
 ## 0245: a Software section in place of the Toolbox nav item (2026-11-01)
@@ -2928,7 +2928,7 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **His answers:** "software, keep designer, framework gets its own domain eventually but thats after its finished and i settle on a name for it etc. also forgot but we need to add sonde to the software section too now that its live again".
 - **Change:** nav 04 is **Software** (`/software/`), lit on `/software/`, `/toolbox/…` and `/gryphon/`. The page lists Toolbox, Sonde, Gryphon and Tome from `$lib/software.ts`, each with its kind, platforms, version and links (its page, its study, its source). Toolbox and Gryphon keep their pages and addresses; their breadcrumbs now run through Software. The role stays "Designer" (0229). The framework is not listed until it is finished and named. Details in PX-141.
 - **Assistant's choices (proposed, awaiting his review):** the panel layout, the order, the hero line "Apps and tools I make and ship.", each product's one line, and the share image.
-- **Status:** built, not committed.
+- **Status:** committed f4cb8b8 with 0246, pushed on 2026-11-01.
 
 
 ## 0246: the Software page is a desktop (2026-11-01)
@@ -2938,7 +2938,27 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Assistant's choices (proposed, awaiting his review):** everything in the layout beyond what the mock showed: the phone grid, the no-JavaScript fallback, Tome's tabs, the hash link, the share image.
 - **Then, his direction:** "tool box adn gryphon should be using uppercase for the icons. lets also make sonde use the sonde logo icon. and also make sure theyre all visually centered in their box. also want to add some kind of animation to previews on teh right when you switch between projects." Toolbox and Gryphon are now a blackletter T and G (Tome keeps its t), Sonde's icon is its mark from the logo library, and each icon is centred on its measured ink. The switch animation is the assistant's proposal: the picked window comes forward from the slot behind on a spring, and its screen arrives through the dither wipe (0100). Details in PX-142.
 - **Sonde's mark size:** asked whether to keep it at 42px (smaller than the letters) or grow the boxes to 80 with a 63px mark, he chose "1": keep 42px.
-- **Status:** built, not committed.
+- **Status:** committed f4cb8b8, pushed on 2026-11-01.
+
+
+## 0247: the hero field does less work a tick (2026-11-01)
+
+- **Timothy's direction:** from the merged field-performance review, "1-6 and big fixes" ("bug fixes*"). On the result: "0.01% difference is acceptable" and "the timing bein noisy is fine".
+- **Change:** the planet's cells are held until their dither square or glyph could change, and skipped until then; PARC's boat is tested only near the boat; a bolt is looked up once a tick; the pan clears only the rows of what moved, and rock at a whole sample reads its tone from a table; light mode works out no stars (it draws none); the planet's turbulence comes from a table per row. Bug fixes: a bolt lands on the ridge where the layers are now (after a scroll or the pan it could end in the sky), the trench's edges repaint, the mountains' alpha test matches (`> 128`), PARC's unused cloud noise is gone, and a swell's last frame clears. Details in PX-143.
+- **Result:** every change but the turbulence table is pixel-identical; the table differs on about 0.01% of pixels. Idle main thread, ms/s, before → after: Home light 1440 about 137 → 76–118, light 390 65 → 27; PARC light 1440 171 → 113, dark 38 → 24. Home dark is about flat (noisy).
+- **Status:** pushed on 2026-11-02, on his "Yeah".
+
+
+## 0248: the pan glides (2026-11-01)
+
+- **Timothy's direction:** "the pan left right for the mountains feel too stuttery i think". Shown three ways in the hero lab (the assistant's proposal: Together, the old half-cell steps every layer took at once; Each layer, whole samples on each layer's own clock; Smooth, every tick a little further along), he picked "smooth". He gave no other reason.
+- **Change:** Home's pan moves every layer a fraction of a sample every tick (`steps: 'smooth'`), so the mountains are drawn again between pixels each tick instead of jumping half a cell every second or two. The lab keeps all three (`/dev/hero/`, Steps).
+- **Cost:** gliding means the mountains are worked out every tick: at first about 208 ms/s in light 1440, against 78 stepped. Asked whether to keep it, cut it further or go back to steps, he chose "2", one more cut. Three cuts:
+  - Rock between samples reads the picture directly instead of going through the whole scene lookup. Pixel-identical.
+  - A moved layer clears only the columns its own pixels cover, not whole rows, so the sky between the peaks and the planet behind them keep their cells. Pixel-identical.
+  - The planet goes by quarter samples, half a pixel in light. This is the assistant's call. It swings only a sample or two either way, and every tick it moved, all its cells were worked out again. It differs on about 0.01–0.02% of pixels.
+- **Result:** idle main thread, ms/s, steps → smooth: 1440 light about 78 → 110, dark 25 → 36; 390 light 29 → 49–62, dark 15 → 20–29.
+- **Status:** pushed on 2026-11-02, on his "Yeah".
 
 ## 0249: Toolbox 1.2.8 on the site (2026-11-01)
 
@@ -2953,4 +2973,4 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Timothy's direction:** in the Sonde repo, "can you show me sonde but with the original sonde brand color instead of the yellow?" Shown the first Sonde's coral (`#E8856C`) in place of the yellow, with error moved to rose and escrow to lime so nothing else reads as coral, he chose "2": go coral, update the portfolio, swap the brand kits. He gave no other reason.
 - **Change:** the study's screens are recaptured from the coral build with the same cuts; the cover's mark and glow are coral; the brand images are the coral social kit (`banner-coral`, `avatar-coral` replace the yellow pair). Copy: the phone search button is coral; "A pixel identity" names coral as the first version's accent and says errors are rose; "Logo and brand kit" gives PMS 486 C, coral grounds, and 200 files (the library holds 200 and a README; the study said 193). The first version's accent is now called coral, not salmon: it is the same `#E8856C`.
 - **Assistant's choices (proposed, awaiting his review):** the copy lines; PMS 486 C, picked by ΔE2000 from pantonr's coated Lab data (3.42; next is 170 C at 5.66), not checked against a physical guide.
-- **Status:** committed, not pushed (2026-11-01). It should go out with Sonde's own push, so the study matches the live site.
+- **Status:** pushed on 2026-11-01 on Timothy's "yeah push all three", after Sonde's own push.

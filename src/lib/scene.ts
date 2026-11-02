@@ -57,8 +57,10 @@ export type Mountains = { x0: number; y0: number; w: number; h: number; data: Ui
 export type Par = { off: [number, number, number]; pan: [number, number, number]; planet: [number, number]; stars: [number, number] };
 /** how fast each layer moves as the page scrolls, as a share of the page's own speed: the near ridge moves with it (1) */
 export type Depth = { far: number; mid: number; planet: number; stars: number };
-/** the slow side-to-side drift: the near ridge's swing, in widths, and the seconds a round trip takes */
-export type Pan = { amount: number; period: number };
+/** the slow side-to-side drift: the near ridge's swing, in widths, and the seconds a round trip takes; `steps`: every layer
+ * on the tick in half cells of the near ridge ('together'), or each on the clock in whole samples of its own ('layer', lab), or
+ * every layer on every tick at its own place between samples ('smooth', lab) */
+export type Pan = { amount: number; period: number; steps?: 'together' | 'layer' | 'smooth' };
 
 // One world, several shots (0173): the hero's giant behind the peaks; the giant high over
 // Contact's “building.” ('rise'); one small moon in an empty sky for the 404. A body is placed in fractions of the window: landscape R × its height, portrait R × its width.
@@ -155,21 +157,22 @@ function rock(M: Mountains, fx: number, q: number, y: number, S: number, foot0?:
 const BOLT = { period: 32, glow: 8, chance: 0.85, from: 0.04, reach: 0.14, first: 24 };
 export type Bolt = { key: string; x: (w: number) => number; from: number; land: [number, number]; fork: [number, number, number]; flash: number; glow: number; boxes: [number, number, number, number][] };
 // it is asked for once a cell, so the last answer is kept and compared by its numbers first
-let boltMemo: { t: number; seed: number; cols: number; S: number; M: Mountains | null; b: Bolt | null } = { t: -1, seed: 0, cols: 0, S: 0, M: null, b: null };
-export function boltAt(t: number, seed: number, cols: number, S: number, M: Mountains | null): Bolt | null {
-  const m = boltMemo; if (t === m.t && seed === m.seed && cols === m.cols && S === m.S && M === m.M) return m.b;
-  const b = strikeAt(t, seed, cols, S, M); boltMemo = { t, seed, cols, S, M, b }; return b;
+let boltMemo: { t: number; seed: number; cols: number; S: number; M: Mountains | null; P: Par | null; b: Bolt | null } = { t: -1, seed: 0, cols: 0, S: 0, M: null, P: null, b: null };
+export function boltAt(t: number, seed: number, cols: number, S: number, M: Mountains | null, P: Par | null = null): Bolt | null {
+  const m = boltMemo; if (t === m.t && seed === m.seed && cols === m.cols && S === m.S && M === m.M && P === m.P) return m.b;
+  const b = strikeAt(t, seed, cols, S, M, P); boltMemo = { t, seed, cols, S, M, P, b }; return b;
 }
-function strikeAt(t: number, seed: number, cols: number, S: number, M: Mountains | null): Bolt | null {
+function strikeAt(t: number, seed: number, cols: number, S: number, M: Mountains | null, P: Par | null): Bolt | null {
   const tt = t - BOLT.first; if (tt < 0 || !M) return null;
   const phase = tt % BOLT.period, id = Math.floor(tt / BOLT.period);
   if (phase >= BOLT.glow || (id > 0 && hash2(id, 5, seed) > BOLT.chance)) return null;
   // anywhere from a third of the way across to the right edge
   const A = cols / S, x0 = A * (0.34 + 0.6 * hash2(id, 1, seed));
   const x = (w: number) => x0 + 0.1 * (noise2(w * 9, id * 7.3, seed) - 0.5) + 0.035 * (noise2(w * 31, id * 3.1, seed + 1) - 0.5);
-  // it lands on the ridge under its foot: the picture's first solid pixel in that column
+  // it lands on the ridge under its foot: the first rock in that column, where the layers are now
+  // (it landed on the picture as it lies at rest, so after a scroll or the pan it could end in the sky)
   let land = 1; const ix = Math.round(x(0.6) * S) - M.x0;
-  if (ix >= 0 && ix < M.w) for (let r = 0; r < M.h; r++) if (M.data[(r * M.w + ix) * 4 + 3] > 128) { land = (M.y0 + r) / S; break; }
+  if (ix >= 0 && ix < M.w) for (let r = 0; r < M.h; r++) if (P && M.layer ? sunk(M, ix, r, cols, S, P) : M.data[(r * M.w + ix) * 4 + 3] > 128) { land = (M.y0 + r) / S; break; }
   const fw = BOLT.from + (0.35 + 0.2 * hash2(id, 2, seed)) * (land - BOLT.from), dir = hash2(id, 3, seed) > 0.5 ? 1 : -1;
   const flash = phase === 0 || phase === 2 ? 1 : phase === 1 || phase === 3 ? 0.4 : 0, glow = 1 - phase / BOLT.glow;
   const fork: [number, number, number] = [fw, fw + 0.4 * (land - fw), dir * 0.6], hw = 2.5 / S;
@@ -180,7 +183,7 @@ function strikeAt(t: number, seed: number, cols: number, S: number, M: Mountains
     [Math.min(fx0, fx1) - hw, fw, Math.max(fx0, fx1) + hw, fork[1]],
     [lx - BOLT.reach, land - BOLT.reach, lx + BOLT.reach, land + BOLT.reach],
   ];
-  const b: Bolt = { key: `${id}|${phase}`, x, from: BOLT.from, land: [lx, land], fork, flash, glow, boxes };
+  const b: Bolt = { key: `${id}|${phase}|${land}`, x, from: BOLT.from, land: [lx, land], fork, flash, glow, boxes };
   return b;
 }
 // the rock near where it lands lights up with the flash and fades with the glow
@@ -203,14 +206,16 @@ function boltCell(x: number, y: number, S: number, B: Bolt) {
 // With parallax (`P`) the field works those cells out again whenever the layers move.
 // `sky: 1` marks a moving cell that no ridge covers (the planet); while the layers stay put the field
 // passes `open` for it, so the planet's cells skip the search through the picture's layers.
-export function sceneCell(x: number, y: number, t: number, cols: number, S: number, seed: number, shot: Shot = 'hero', M: Mountains | null = null, P: Par | null = null, open = false): { v: number; c: number; o?: boolean; fade?: number; tex?: boolean; s?: number; sky?: number } {
+export function sceneCell(x: number, y: number, t: number, cols: number, S: number, seed: number, shot: Shot = 'hero', M: Mountains | null = null, P: Par | null = null, open = false, g: PlanetCache | null = null, gi = -1, stars = true): { v: number; c: number; o?: boolean; fade?: number; tex?: boolean; s?: number; sky?: number } {
   const u = x / Math.max(1, cols), w = y / S, sh = SHOTS[shot];
-  const B = shot === 'hero' ? boltAt(t, seed, cols, S, M) : null;
+  const B = shot === 'hero' ? boltAt(t, seed, cols, S, M, P) : null;
+  // an open cell (0247) is a planet cell whose geometry is kept; only its bands' turbulence is worked out
+  if (open && g && gi >= 0) { if (B) { const b = boltCell(x, y, S, B); if (b) return b; } return planetAt(g, gi, y, t, seed); }
   if (open) { /* no ridge here */ } else if (sh.ridge && M) {
     const ix = x - M.x0, iy = y - M.y0;
     if (ix >= 0 && iy >= 0 && ix < M.w && iy < M.h) {
       if (P && M.layer) { const hit = sunk(M, ix, iy, cols, S, P); if (hit) { const r = rock(M, hit.fx, hit.q, y, S, sh.foot); return B ? litBy(r, x, y, S, B) : r; } }
-      else if (M.data[(iy * M.w + ix) * 4 + 3] >= 128) { const r = rock(M, ix, iy, y, S, sh.foot); return B ? litBy(r, x, y, S, B) : r; }
+      else if (M.data[(iy * M.w + ix) * 4 + 3] > 128) { const r = rock(M, ix, iy, y, S, sh.foot); return B ? litBy(r, x, y, S, B) : r; }
     } else if (iy >= M.h && sh.below) return below(x, y, t, cols, S, seed);
   } else if (sh.ridge) {
   // mountains, nearest first: the first range the cell is under is the one it shows
@@ -249,6 +254,7 @@ export function sceneCell(x: number, y: number, t: number, cols: number, S: numb
       return { v: v < 0.07 ? 0 : Math.min(1, v), c: sea < 0.47 ? MAT.brown : MAT.cream, o: true, s: 1 };
     }
     const lon = Math.atan2(dx, nz);
+    if (g && gi >= 0) { g.gx[gi] = lon * 2.4; g.ga[gi] = 0.06 + 0.94 * lam; g.gy[y] = dy * 9; g.gb[y] = dy * 15; g.tr[y] = turbRow(dy * 9, seed); return planetAt(g, gi, y, t, seed); }
     const turb = fbm(lon * 2.4 + t * 0.012, dy * 9, seed, 3);
     const band = Math.sin(dy * 15 + turb * 3.2);
     // the band picks the material and its weight; the light shapes the sphere
@@ -258,8 +264,70 @@ export function sceneCell(x: number, y: number, t: number, cols: number, S: numb
   }
   // a thin haze just outside the lit limb
   if (r2 < 1.06 * 1.06) { const lam = Math.max(0, -0.55 * dx - 0.5 * dy); if (lam > 0.2) return { v: 0.16 * lam, c: MAT.cream, s: 1 }; }
-  // the sky: a few stars, more of them higher up
-  const sx = P ? Math.round(x - P.stars[1] * cols) : x, sy = P ? Math.round(y - P.stars[0] * S) : y, s = hash2(sx, sy, seed + 99);
+  // the sky: a few stars, more of them higher up; light mode draws none, so it does not look for them
+  if (!stars) return { v: 0, c: MAT.star, s: 1 };
+  const sx = P ? x + Math.round(-P.stars[1] * cols) : x, sy = P ? y + Math.round(-P.stars[0] * S) : y, s = hash2(sx, sy, seed + 99);
   if (s > 0.992 - 0.01 * Math.max(0, 0.5 - sy / S)) return { v: 0.18 + 0.2 * hash2(sx, sy, seed + 7), c: MAT.star, s: 1 };
   return { v: 0, c: MAT.star, s: 1 };
+}
+
+/** the planet's centre and radius in samples, as sceneCell places it, for the field to clear only its rows when it moves */
+export function planetGeom(cols: number, S: number, shot: Shot, P: Par | null) {
+  const portrait = cols < S, b = portrait ? SHOTS[shot].port : SHOTS[shot].land;
+  return { R: b.R * (portrait ? cols : S), cx: (b.cx + (P ? P.planet[1] : 0)) * cols, cy: (b.cy + (P ? P.planet[0] : 0)) * S };
+}
+// The planet's geometry kept per cell (0247) ---------------------------------------------------
+/** What a planet cell works out that does not change with `t`, kept by the field per cell (`gx`, `ga`) and per
+ * row (`gy`, `gb`, `tr`) while the cell stays `open`. `turb`, `z`, `w`, `a` are the last cell's own numbers, for the
+ * field's test of how many ticks its drawn output cannot change. */
+export type PlanetCache = { gx: Float64Array; ga: Float64Array; gy: Float64Array; gb: Float64Array; tr: (TRow | undefined)[]; turb: number; z: number; w: number; a: number };
+// the planet's bands from the kept geometry: the same sums, in the same order, as the branch in sceneCell
+function planetAt(g: PlanetCache, i: number, y: number, t: number, seed: number) {
+  const turb = turbAt(g.tr[y]!, g.gx[i] + t * 0.012, seed);
+  const z = g.gb[y] + turb * 3.2, band = Math.sin(z);
+  let c: number, weight: number;
+  if (band > 0.55) { c = MAT.cream; weight = 1; } else if (band > 0) { c = MAT.orange; weight = 0.86; } else if (band > -0.55) { c = MAT.rust; weight = 0.7; } else { c = MAT.brown; weight = 0.56; }
+  const a = g.ga[i], v = a * weight * (0.9 + 0.2 * turb);
+  g.turb = turb; g.z = z; g.w = weight; g.a = a;
+  return { v: v < 0.07 ? 0 : Math.min(1, v), c, o: true, sky: 1 };
+}
+// The turbulence along one row of the planet (0247): for a fixed dy, fbm(a, dy × 9) is a function of
+// a = lon × 2.4 + t × 0.012 alone, so it is tabulated every 1/64 and read between the two nearest;
+// the table slides with t, working out only the new end. Rows are kept by dy × 9 to the 1/64.
+// About one cell in two thousand lands in another band than the noise itself would give.
+const TH = 64, TL = 1024, TM = TL - 1;
+type TRow = { lo: number; hi: number; buf: Float32Array; b: number };
+const tRows = new Map<number, Map<number, TRow>>();
+function turbRow(b: number, seed: number): TRow {
+  let m = tRows.get(seed); if (!m) tRows.set(seed, (m = new Map()));
+  const bi = Math.round(b * TH); let r = m.get(bi);
+  if (!r) m.set(bi, (r = { lo: 0, hi: -1, buf: new Float32Array(TL), b: bi / TH }));
+  return r;
+}
+function turbAt(r: TRow, a: number, seed: number) {
+  const fa = a * TH, i = Math.floor(fa), f = fa - i;
+  if (i < r.lo || i + 1 > r.hi) {
+    if (r.hi < r.lo || i + 1 < r.lo - TL / 2 || i > r.hi + TL / 2) { r.lo = i; r.hi = i - 1; }
+    // a ring: past TL entries the far end gives up its slot before the near end takes it
+    while (i < r.lo) { r.lo--; if (r.hi - r.lo >= TL) r.hi--; r.buf[r.lo & TM] = fbm(r.lo / TH, r.b, seed, 3); }
+    while (i + 1 > r.hi) { r.hi++; if (r.hi - r.lo >= TL) r.lo++; r.buf[r.hi & TM] = fbm(r.hi / TH, r.b, seed, 3); }
+  }
+  const p = r.buf[i & TM]; return p + (r.buf[(i + 1) & TM] - p) * f;
+}
+// How many more ticks a planet cell's drawn output cannot change (0 = work it out next tick). The bands drift at
+// x += 0.012 a tick, and value noise moves at most 1.5 per unit (smoothstep's slope; the table read between
+// its points is no steeper), so the turbulence moves at most DTURB a tick and the band's angle 3.2 times that. `on` is whether the cell is drawn: its colour only matters then;
+// [lo, hi) is the range of v that keeps what it draws, from the field's thresholds.
+const DTURB = (0.012 * 1.5 * (0.5 * 1 + 0.25 * 2 + 0.125 * 4)) / 0.875, DZ = 3.2 * DTURB;
+const ASIN = Math.asin(0.55), TAU = 2 * Math.PI, EDGES = [0, ASIN, Math.PI - ASIN, Math.PI, Math.PI + ASIN, TAU - ASIN, TAU];
+const GUARD = 1e-6;
+const steps = (room: number, rate: number) => (room <= GUARD ? 0 : Math.min(1e6, Math.max(0, Math.ceil((room - GUARD) / rate) - 1)));
+export function planetHold(g: PlanetCache, on: boolean, lo: number, hi: number) {
+  const v = g.a * g.w * (0.9 + 0.2 * g.turb), rate = g.a * 0.2 * DTURB;
+  const zm = ((g.z % TAU) + TAU) % TAU; let dz = Infinity; for (let k = 0; k < EDGES.length; k++) { const e = Math.abs(zm - EDGES[k]); if (e < dz) dz = e; }
+  // the band (colour and weight) holds, and v with that weight stays in [lo, hi)
+  let m = Math.min(steps(dz, DZ), steps(Math.min(v - lo, hi - v), g.w * rate));
+  // not drawn: its colour does not matter, but its weight may change to any band's, so v can rise as if the weight were 1
+  if (!on) { const mo = hi === Infinity ? 1e6 : steps(hi - g.a * (0.9 + 0.2 * g.turb), rate); if (mo > m) m = mo; }
+  return m;
 }

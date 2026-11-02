@@ -15,7 +15,7 @@
   import { knockout, measureBoxes, type Box } from '$lib/knockout';
   import { CELL_TEXTURE, TICK_SLOW } from '$lib/tokens';
   import { studyCell } from '$lib/studyScenes';
-  import { sceneCell, boltAt, PALETTES, MAT, MOUNTAIN_REFS, layoutMountains, shotHasRidge, type Palette, type Shot, type Mountains, type Par, type Depth, type Pan } from '$lib/scene';
+  import { sceneCell, boltAt, PALETTES, MAT, MOUNTAIN_REFS, layoutMountains, shotHasRidge, planetHold, planetGeom, type Palette, type Shot, type Mountains, type Par, type Depth, type Pan, type PlanetCache, type Bolt } from '$lib/scene';
   type Mode = 'noise' | 'fall' | 'scan' | 'sparse' | 'sky' | 'bands' | 'scene';
   let { mode = 'noise' as Mode, cell = CELL_TEXTURE, px = 2, seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad = 1, feather = 3, interactive = true, reach = 4.5, flip = false, shade = false, skySpan = 'box', skyRepeat = false, palette = 'scene' as Palette, lightAs = 'same' as 'same' | 'dither', mountains = '' as '' | 'a' | 'b', shot = 'hero' as Shot, hug = false, depth = 1, clear = '', clearFeather = undefined as number | undefined, sceneSpan = 'screen' as 'screen' | 'box', study = '', parallax = null as Depth | null, pan = null as Pan | null, soft = '', softDepth = 0.5 }: { mode?: Mode; cell?: number; px?: number; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; interactive?: boolean; reach?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; clearFeather?: number; sceneSpan?: 'screen' | 'box'; study?: string; parallax?: Depth | null; pan?: Pan | null; soft?: string; softDepth?: number } = $props();
   // `shade` colours by weight instead: the heaviest glyph is the accent and every lighter
@@ -385,6 +385,11 @@
   // cells and dither pixels whose scene value never changes, worked out once (`s` from sceneCell)
   // and the moving cells no ridge covers (`sky`), so they skip the ridge until the layers move
   let aff = new Uint8Array(0), bS = new Uint8Array(0), dS = new Uint8Array(0), bO = new Uint8Array(0), dO = new Uint8Array(0);
+  // The planet's geometry per cell (0247), the tick each planet cell must next be worked out (`holdT`), the cells
+  // whose values moved since their row was painted (`cm`, with the row's span), and wet cells per row (`affN`)
+  let pc: PlanetCache | null = null, pcN = 0, holdT = new Int32Array(0), cm = new Uint8Array(0), rowLo = new Int32Array(0), rowHi = new Int32Array(0), affN = new Int32Array(0), rowLazy = new Uint8Array(0), lastFrame = 0;
+  let live: Uint16Array[] = [], liveOk = new Uint8Array(0), liveTmp = new Uint16Array(0);
+  const THR = Float64Array.from(BAYER8.flat(), (b) => (b + 0.5) / 64);
   let last = 0;
   // Parallax and pan (PX-139, mock): as the page scrolls off the first screen, the far range, the
   // massifs, the planet and the stars sink behind the near ridge at their own speeds (`parallax`);
@@ -392,10 +397,35 @@
   // (`pan`: the near ridge's swing in widths, and the seconds a round trip takes). Still with motion
   // off. When the layers move, the cells the scene marked still are worked out again.
   const SWAY = { far: 0.35, mid: 0.6, planet: 0.15, stars: 0.06 };
-  let par: Par | null = null, parKey = '', parRows = 0;
+  let par: Par | null = null, parKey = '', parRows = 0, panT0 = 0;
+  // Each layer on its own (lab, `steps: 'layer'`): every layer moves by whole samples of the field (a dither square
+  // in light, a cell in dark), each when its own place comes to the next one on the clock, not on the tick; whole
+  // samples move a layer as it is, where a part of one draws it again between pixels. `panWait` is how long until
+  // the next of them, so the loop wakes for it.
+  const panLayers = () => [SWAY.far, SWAY.mid, 1, SWAY.planet, SWAY.stars];
+  function panWait(now: number) {
+    if (mode !== 'scene' || !motion.on || pan?.steps !== 'layer') return Infinity;
+    const n = cols * (dithering() ? 2 : 1), w = (2 * Math.PI) / (pan.period * 1000), t = now - panT0; let best = Infinity;
+    for (const s of panLayers()) {
+      const A = pan.amount * s * n, r = Math.round(A * Math.sin(w * t));
+      for (const b of [r - 0.5, r + 0.5]) {
+        if (Math.abs(b) >= A) continue; const a = Math.asin(b / A);
+        for (const base of [a, Math.PI - a]) { let u = (base + 2 * Math.PI * Math.ceil((w * t - base) / (2 * Math.PI))) / w; if (u <= t) u += (2 * Math.PI) / w; if (u - t < best) best = u - t; }
+      }
+    }
+    return best;
+  }
   function depthNow(): Par | null {
     if (mode !== 'scene' || !motion.on || (!parallax && !pan)) return null;
     const p = parallax, s = p ? Math.min(1.5, Math.max(0, window.scrollY / (screenRows * cell))) : 0;
+    if (pan?.steps === 'layer' || pan?.steps === 'smooth') {
+      // smooth (0248): not rounded at all, so every tick draws each layer again a little further along. The planet
+      // swings a sample or two either way, so it goes by quarter samples (half a pixel in light): every tick it
+      // moved, every one of its cells was worked out again in full, for a step no one could see
+      const n = cols * (dithering() ? 2 : 1), w = pan.amount * Math.sin((2 * Math.PI * (pan.steps === 'smooth' ? frame * tick : performance.now() - panT0)) / 1000 / pan.period), Q = pan.steps === 'smooth' ? (k: number) => w * k : (k: number) => Math.round(w * k * n) / n;
+      const QP = pan.steps === 'smooth' ? (k: number) => Math.round(w * k * n * 4) / (n * 4) : Q;
+      return { off: [p ? s * (1 - p.far) : 0, p ? s * (1 - p.mid) : 0, 0], pan: [Q(SWAY.far), Q(SWAY.mid), Q(1)], planet: [p ? s * (1 - p.planet) : 0, QP(SWAY.planet)], stars: [p ? s * (1 - p.stars) : 0, Q(SWAY.stars)] };
+    }
     // the pan moves in steps of half a cell of the near ridge (one dither square in light), not
     // every tick: at the live swing that is a few px a second, so the mountains are worked out
     // again every few ticks instead of every one
@@ -407,30 +437,104 @@
   let boltKey = '', boltBoxes: [number, number, number, number][] = [];
   function strike() {
     if (mode !== 'scene' || study || shot !== 'hero' || !mtn || bS.length !== cols * rows) return;
-    const d = dithering() ? 2 : 1, b = boltAt(frame, seed, cols * d, screenRows * d, mtn), key = b ? b.key : '';
+    const d = dithering() ? 2 : 1, b = boltAt(frame, seed, cols * d, screenRows * d, mtn, par), key = b ? b.key : '';
     if (key === boltKey) return;
     for (const box of [...boltBoxes, ...(b ? b.boxes : [])]) {
       const x0 = Math.max(0, Math.floor(box[0] * screenRows)), x1 = Math.min(cols, Math.ceil(box[2] * screenRows) + 1);
       const y0 = Math.max(0, Math.floor(box[1] * screenRows)), y1 = Math.min(rows, Math.ceil(box[3] * screenRows) + 1);
-      for (let y = y0; y < y1; y++) { bS.fill(0, y * cols + x0, y * cols + x1); dS.fill(0, (y * cols + x0) * 4, (y * cols + x1) * 4); rowFrame[y] = -1; }
+      for (let y = y0; y < y1; y++) { bS.fill(0, y * cols + x0, y * cols + x1); dS.fill(0, (y * cols + x0) * 4, (y * cols + x1) * 4); holdT.fill(0, (y * cols + x0) * 4, (y * cols + x1) * 4); holdT.fill(0, y * cols + x0, y * cols + x1); liveOk[y] = 0; rowFrame[y] = -1; }
     }
     boltKey = key; boltBoxes = b ? b.boxes : [];
   }
+  // the rows a layer of the picture can reach from the top of its own pixels down (far: any pixel)
+  let topsOf: Mountains | null = null, tops = [0, 0, 0];
+  function layerTops(M: Mountains) {
+    if (topsOf === M) return tops; topsOf = M; tops = [M.h, M.h, M.h];
+    for (let r = 0; r < M.h; r++) for (let x = 0; x < M.w; x++) { const k = r * M.w + x; if (M.data[k * 4 + 3] > 128) { const l = M.layer![k]; if (r < tops[0]) tops[0] = r; if (l >= 1 && r < tops[1]) tops[1] = r; if (l === 2 && r < tops[2]) tops[2] = r; } }
+    return tops;
+  }
+  // each layer's own pixels row by row, as runs of columns [a, b, a, b, …] (far: any pixel), as mount and sunk test them
+  let runsOf: Mountains | null = null, runs: number[][][] = [[], [], []];
+  function layerRuns(M: Mountains) {
+    if (runsOf === M) return runs; runsOf = M; runs = [[], [], []];
+    for (let j = 0; j < 3; j++) for (let r = 0; r < M.h; r++) {
+      const R: number[] = []; let a = -1;
+      for (let x = 0; x <= M.w; x++) { const k = r * M.w + x, on = x < M.w && M.data[k * 4 + 3] > 128 && (j === 0 || M.layer![k] === j); if (on && a < 0) a = x; else if (!on && a >= 0) { R.push(a, x - 1); a = -1; } }
+      runs[j][r] = R;
+    }
+    return runs;
+  }
   function shift() {
     const p = depthNow(), key = p ? `${p.off}|${p.pan}|${p.planet}|${p.stars}` : '';
-    if (key === parKey) return; parKey = key; par = p;
+    if (key === parKey) return; parKey = key; const old = par; par = p;
     if (bS.length !== cols * rows) return;
     // the picture's foot is on the first screen's foot, sunk by the parallax as the page scrolls;
     // the rows it reached before are cleared too, so a layer rising back leaves nothing behind
     const reach = Math.min(rows, Math.ceil(screenRows * (1 + Math.max(0, ...(p ? p.off : [0]))) + 2)), n = Math.max(reach, parRows); parRows = reach;
-    rowFrame.fill(-1, 0, n); bS.fill(0, 0, n * cols); dS.fill(0, 0, n * cols * 4); bO.fill(0, 0, n * cols); dO.fill(0, 0, n * cols * 4);
+    const clear = (y0: number, y1: number) => { y0 = Math.max(0, y0); y1 = Math.min(rows, y1); if (y1 <= y0) return; rowFrame.fill(-1, y0, y1); liveOk.fill(0, y0, y1); bS.fill(0, y0 * cols, y1 * cols); dS.fill(0, y0 * cols * 4, y1 * cols * 4); bO.fill(0, y0 * cols, y1 * cols); dO.fill(0, y0 * cols * 4, y1 * cols * 4); };
+    const M = mtn;
+    if (!old || !p || !M || !M.layer || shot !== 'hero' || study) { clear(0, n); return; }
+    // only the rows of what moved (0247): the pan steps every few ticks, and each step cleared the whole screen's
+    // still cells, so the mountains were worked out again cell by cell. A layer is cleared from the top of its own
+    // pixels, where it was and where it is, to the picture's foot; the planet over its disc and haze; the stars,
+    // in dark mode only (light draws none), wherever there is sky, when their whole-cell offset changes.
+    const d = dithering() ? 2 : 1, S2 = screenRows * d, C2 = cols * d, T = layerTops(M), rowOf = (a: number) => Math.floor(a / d);
+    // and only the columns it covers, where it was and where it is (0248): the smooth pan moves every layer every
+    // tick, and whole rows cleared the sky between the peaks and the planet behind them too. A sample a side
+    // spare, and the strips at the picture's sides where the pan reads it mirrored.
+    const span = (y: number, x0: number, x1: number) => { x0 = Math.max(0, x0); x1 = Math.min(cols, x1); if (y < 0 || y >= rows || x1 <= x0) return; rowFrame[y] = -1; liveOk[y] = 0; const i = y * cols; bS.fill(0, i + x0, i + x1); dS.fill(0, (i + x0) * 4, (i + x1) * 4); bO.fill(0, i + x0, i + x1); dO.fill(0, (i + x0) * 4, (i + x1) * 4); };
+    const U = layerRuns(M), cellOf = (X: number) => Math.floor(X / d);
+    for (let j = 0; j < 3; j++) if (old.off[j] !== p.off[j] || old.pan[j] !== p.pan[j]) for (const Q of [old, p]) {
+      const sh = Q.pan[j] * C2, edge = Math.ceil(Math.abs(sh)) + 2;
+      for (let y = Math.max(0, rowOf(M.y0 + T[j] + Q.off[j] * S2) - 1); y < Math.min(rows, rowOf(M.y0 + M.h) + 2); y++) for (let Y = y * d; Y < y * d + d; Y++) {
+        const r = Math.round(Y - M.y0 - Q.off[j] * S2); if (r < 0 || r >= M.h) continue; const R = U[j][r]; if (!R.length) continue;
+        span(y, cellOf(M.x0) - 1, cellOf(M.x0 + edge) + 2); span(y, cellOf(M.x0 + M.w - edge) - 1, cellOf(M.x0 + M.w) + 2);
+        for (let k = 0; k < R.length; k += 2) span(y, cellOf(M.x0 + sh + R[k] - 1.5), cellOf(M.x0 + sh + R[k + 1] + 1.5) + 1);
+      }
+    }
+    if (old.planet[0] !== p.planet[0] || old.planet[1] !== p.planet[1]) for (const Q of [old, p]) { const G = planetGeom(C2, S2, shot, Q), x0 = cellOf(G.cx - 1.07 * G.R) - 1, x1 = cellOf(G.cx + 1.07 * G.R) + 2; for (let y = rowOf(G.cy - 1.07 * G.R) - 1; y < rowOf(G.cy + 1.07 * G.R) + 2; y++) span(y, x0, x1); }
+    if (d === 1 && (Math.round(-old.stars[1] * C2) !== Math.round(-p.stars[1] * C2) || Math.round(-old.stars[0] * S2) !== Math.round(-p.stars[0] * S2))) clear(0, Math.min(n, rowOf(M.y0 + M.h) + 2));
+  }
+  // The mountains' tone per picture pixel (0247): where a layer sits at a whole-sample offset (at rest, and the
+  // near ridge through the pan in light mode) a cell reads it straight from here, the same numbers sceneCell's
+  // `rock` works out between pixels. `mv`, `mc` are the cell as the field keeps it (glyph or dither).
+  let toneOf: Mountains | null = null, toneV = new Float64Array(0), toneC = new Int8Array(0), mv = 0, mc = 0;
+  function tones(M: Mountains) {
+    if (toneOf === M) return; toneOf = M; const n = M.w * M.h; toneV = new Float64Array(n); toneC = new Int8Array(n);
+    for (let k = 0; k < n; k++) { const L = M.data[k * 4] / 255; toneV[k] = Math.max(0.14, Math.min(1, Math.max(0, (L - 0.12) / 0.66)) ** 1.1); toneC[k] = L > 0.66 ? MAT.snow : L > 0.4 ? MAT.rock : MAT.shade; }
+  }
+  // true when (X, Y) is rock (mv, mc set); false sends it through sceneCell
+  function mount(M: Mountains, X: number, Y: number, C: number, S: number, P: Par, dith: boolean, B: Bolt | null) {
+    const ix = X - M.x0, iy = Y - M.y0; if (ix < 0 || iy < 0 || ix >= M.w || iy >= M.h) return false;
+    if (B) { const u = (X + 0.5) / S, w = (Y + 0.5) / S; for (const b of B.boxes) if (u >= b[0] - 0.01 && u <= b[2] + 0.01 && w >= b[1] - 0.01 && w <= b[3] + 0.01) return false; }
+    for (let j = 2; j >= 0; j--) {
+      const q = iy - P.off[j] * S, r = Math.round(q); if (r < 0 || r >= M.h) continue;
+      const f0 = ix - P.pan[j] * C, fx = f0 < 0 ? -f0 : f0 > M.w - 1 ? 2 * (M.w - 1) - f0 : f0, rx = Math.round(fx), k = r * M.w + rx, l = M.layer![k];
+      if (M.data[k * 4 + 3] > 128 && (l === j || j === 0)) {
+        // between samples (the smooth pan, a scroll's parallax): the same blend of four pixels as sceneCell's `rock`
+        let V = toneV[k];
+        if (rx !== fx || r !== q) {
+          const c0 = Math.max(0, Math.min(M.w - 1, Math.floor(fx))), g = Math.max(0, fx - c0), c1 = Math.min(M.w - 1, c0 + 1);
+          const r0 = Math.max(0, Math.min(M.h - 1, Math.floor(q))), f = Math.max(0, q - r0), r1 = Math.min(M.h - 1, r0 + 1), D = M.data, w = M.w;
+          const L = ((D[(r0 * w + c0) * 4] * (1 - g) + D[(r0 * w + c1) * 4] * g) * (1 - f) + (D[(r1 * w + c0) * 4] * (1 - g) + D[(r1 * w + c1) * 4] * g) * f) / 255;
+          V = Math.max(0.14, Math.min(1, Math.max(0, (L - 0.12) / 0.66)) ** 1.1);
+          if (!dith) { mv = Math.fround(V); mc = L > 0.66 ? MAT.snow : L > 0.4 ? MAT.rock : MAT.shade; return true; }
+        }
+        if (dith) { mv = Math.fround(0.9 * (1 - V) * Math.min(1, (M.h - q) / (0.14 * M.h))); mc = V < 0.4 ? MAT.rock : MAT.shade; } else { mv = Math.fround(V); mc = toneC[k]; }
+        return true;
+      }
+    }
+    return false;
   }
   // rows are worked out as they are painted, so a tick costs only the rows on screen
-  function rebuild(y0: number, y1: number) {
+  function rebuild(y0: number, y1: number, wet = false) {
     const n = cols * rows;
     if (baseDirty || bK.length !== n) {
-      if (bK.length !== n) { bV = new Float32Array(n); bC = new Int8Array(n); bHot = new Uint8Array(n); bK = new Float32Array(n); bCh = new Array(n); dV = new Float32Array(n * 4); dC = new Int8Array(n * 4); rowFrame = new Int32Array(rows); rowK = new Int32Array(rows); rowDirty = new Uint8Array(rows); shown = new Int32Array(n); aff = new Uint8Array(n); bS = new Uint8Array(n); dS = new Uint8Array(n * 4); bO = new Uint8Array(n); dO = new Uint8Array(n * 4); }
-      rowFrame.fill(-1); rowDirty.fill(1); kVersion++; shown.fill(-1); bS.fill(0); dS.fill(0); bO.fill(0); dO.fill(0);
+      if (bK.length !== n) { bV = new Float32Array(n); bC = new Int8Array(n); bHot = new Uint8Array(n); bK = new Float32Array(n); bCh = new Array(n); dV = new Float32Array(n * 4); dC = new Int8Array(n * 4); rowFrame = new Int32Array(rows); rowK = new Int32Array(rows); rowDirty = new Uint8Array(rows); shown = new Int32Array(n); aff = new Uint8Array(n); bS = new Uint8Array(n); dS = new Uint8Array(n * 4); bO = new Uint8Array(n); dO = new Uint8Array(n * 4); cm = new Uint8Array(n); rowLo = new Int32Array(rows); rowHi = new Int32Array(rows); affN = new Int32Array(rows); rowLazy = new Uint8Array(rows); liveOk = new Uint8Array(rows); live = []; }
+      if (liveTmp.length < cols * 4) liveTmp = new Uint16Array(cols * 4);
+      // the planet's rows only (it sits in the first screen and sinks at most 1.5 × 0.4 of one): geometry is two Float64 a cell
+      if (mode === 'scene' && !study) { const cap = Math.min(rows, Math.ceil(screenRows * 2) + 4) * cols * 4; if (!pc || pc.gx.length !== cap) pc = { gx: new Float64Array(cap), ga: new Float64Array(cap), gy: new Float64Array(rows * 2), gb: new Float64Array(rows * 2), tr: [], turb: 0, z: 0, w: 0, a: 0 }; pcN = cap; if (holdT.length !== cap) holdT = new Int32Array(cap); } else { pc = null; pcN = 0; }
+      rowFrame.fill(-1); rowDirty.fill(1); kVersion++; shown.fill(-1); bS.fill(0); dS.fill(0); bO.fill(0); dO.fill(0); holdT.fill(0); cm.fill(0); rowLo.fill(cols); rowHi.fill(-1); affN.fill(0); aff.fill(0); rowLazy.fill(0); liveOk.fill(0);
       const cs = getComputedStyle(host); color = cs.color; accentColor = cs.getPropertyValue('--accent-text').trim(); paper = cs.getPropertyValue('--paper').trim(); resetTiles(); pal32 = null;
       baseDirty = false; measuredFrame = -1;
     }
@@ -451,31 +555,61 @@
     const dith = dithering(), P = pad, F = feather, H = hug, D = depth;
     // props read once here, not once a cell: each is a getter
     const md = mode, st = study, sd = seed, sh = shot, fl = flip, M = mtn, C = cols, SR = screenRows, PR = par;
-    const sc: (x: number, y: number, t: number, c: number, S: number, open?: boolean) => Cell = st ? (x, y, t, c, S) => studyCell(st, x, y, t, c, S, sd) : (x, y, t, c, S, open) => sceneCell(x, y, t, c, S, sd, sh, M, PR, open);
+    const MF = md === 'scene' && !st && sh === 'hero' && !fl && M && M.layer && PR ? M : null, BB = MF ? boltAt(frame, sd, C * (dith ? 2 : 1), SR * (dith ? 2 : 1), M, PR) : null; if (MF) tones(MF);
+    const G = pc, GN = pcN, dens = density, lazy = !wet && G !== null && motion.on; if (frame < lastFrame) holdT.fill(0); lastFrame = frame;
+    const sc: (x: number, y: number, t: number, c: number, S: number, open?: boolean, gi?: number) => Cell = st ? (x, y, t, c, S) => studyCell(st, x, y, t, c, S, sd) : (x, y, t, c, S, open, gi) => sceneCell(x, y, t, c, S, sd, sh, M, PR, open, G, gi, !dith);
     for (let y = y0; y < y1; y++) {
-      if (rowK[y] !== kVersion) { rowK[y] = kVersion; for (let x = 0; x < cols; x++) { const i = y * cols + x, k = Math.fround(knockout(x + 0.5, y + 0.5, boxes, P, F, H, D)); if (k !== bK[i]) { bK[i] = k; rowDirty[y] = 1; } } } // hugged knockouts are rounded too (0174)
-      if (rowFrame[y] === frame) continue; rowFrame[y] = frame; let moved = 0;
-      for (let x = 0; x < cols; x++) {
-        const i = y * cols + x;
+      if (rowK[y] !== kVersion) { rowK[y] = kVersion; for (let x = 0; x < cols; x++) { const i = y * cols + x, k = Math.fround(knockout(x + 0.5, y + 0.5, boxes, P, F, H, D)); if (k !== bK[i]) { bK[i] = k; rowDirty[y] = 1; if (dith) holdT.fill(0, i * 4, i * 4 + 4); else if (i < holdT.length) holdT[i] = 0; if (rowLazy[y]) rowFrame[y] = -1; } } } // hugged knockouts are rounded too (0174)
+      if (rowFrame[y] === frame && !(wet && rowLazy[y])) continue; rowFrame[y] = frame; rowLazy[y] = 0; let moved = 0, lo = cols, hi = -1;
+      // the row's cells that are not still (`s: 1`), listed the first time it is worked out after its stills were
+      // cleared; then only those are visited (0247): most of a screen is still, and the loop over every
+      // square cost more than the planet's maths once that was cut
+      const L = liveOk[y] ? live[y] : null, cnt = L ? L.length : dith ? cols * 4 : cols; let tn = 0;
+      for (let n = 0; n < cnt; n++) {
+        const r = L ? L[n] : n;
         if (dith) {
-          for (let j = 0; j < 2; j++) for (let q = 0; q < 2; q++) {
+          const x = r >> 2, j = (r >> 1) & 1, q = r & 1, i = y * cols + x;
+          {
             const o = i * 4 + j * 2 + q; if (dS[o]) continue;
-            const X = 2 * x + q, Y = 2 * y + j, f = sc(X, Y, frame, C * 2, SR * 2, dO[o] === 1); if (f.s) dS[o] = 1; else if (f.sky) dO[o] = 1;
+            const op = dO[o] === 1, gi = o < GN ? o : -1; if (op && lazy && gi >= 0 && holdT[o] > frame) { rowLazy[y] = 1; if (!L) liveTmp[tn++] = r; continue; }
+            const X = 2 * x + q, Y = 2 * y + j;
+            if (MF && !op && mount(MF, X, Y, C * 2, SR * 2, PR!, true, BB)) { dS[o] = 1; if (mv !== dV[o] || mc !== dC[o]) { dV[o] = mv; dC[o] = mc; moved = 1; cm[i] = 1; if (x < lo) lo = x; if (x > hi) hi = x; } continue; }
+            const f = sc(X, Y, frame, C * 2, SR * 2, op, gi); if (f.s) dS[o] = 1; else if (f.sky) dO[o] = 1;
+            if (!L && !f.s) liveTmp[tn++] = r;
+            if (f.sky && G && gi >= 0) {
+              // how long this cell's dither square must stay as it is drawn now (at rest: no swell, ring or trench)
+              const K = dens * bK[i], thr = THR[(Y % 8) * 8 + (X % 8)], vv = Math.fround(f.v);
+              let on = false, lo2 = -Infinity, hi2 = Infinity;
+              if (K > 0) { const vs = Math.max(0.07, thr / K); on = vv * dens * bK[i] > thr; if (on) lo2 = vs * (1 + 1e-6) + 1e-6; else if (thr / K < 1) hi2 = vs * (1 - 1e-6) - 1e-6; }
+              holdT[o] = frame + 1 + planetHold(G, on, lo2, hi2);
+            }
             // rock is drawn by its shadows, like ink: snow and lit faces stay paper; the planet keeps its colour; the sky is open paper;
             // the page texture below (`tex`) is drawn as it is, in the rock's colours
             const rock = !!f.o && !f.tex && (f.c === MAT.rock || f.c === MAT.shade || f.c === MAT.snow);
             const v = Math.fround(f.c === MAT.star && !f.o ? 0 : rock ? 0.9 * (1 - f.v) * (f.fade ?? 1) : f.v);
             const c = rock ? (f.v < 0.4 ? MAT.rock : MAT.shade) : f.o ? f.c! : -1;
-            if (v !== dV[o] || c !== dC[o]) { dV[o] = v; dC[o] = c; moved = 1; }
+            if (v !== dV[o] || c !== dC[o]) { dV[o] = v; dC[o] = c; moved = 1; cm[i] = 1; if (x < lo) lo = x; if (x > hi) hi = x; }
           }
         } else {
+          const x = r, i = y * cols + x;
           if (bS[i]) continue;
-          const f = md === 'scene' ? sc(fl ? C - 1 - x : x, y, frame, C, SR, bO[i] === 1) : field(fl ? C - 1 - x : x, y, frame), v = Math.fround(f.v), c = f.c ?? -1, hot = f.hot ? 1 : 0;
+          const op = bO[i] === 1, gi = i < GN && !fl ? i : -1; if (op && lazy && gi >= 0 && holdT[i] > frame) { rowLazy[y] = 1; if (!L) liveTmp[tn++] = r; continue; }
+          if (MF && !op && mount(MF, x, y, C, SR, PR!, false, BB)) { bS[i] = 1; if (mv !== bV[i] || mc !== bC[i] || bHot[i] || bCh[i] !== undefined) { bV[i] = mv; bC[i] = mc; bHot[i] = 0; bCh[i] = undefined; moved = 1; cm[i] = 1; if (x < lo) lo = x; if (x > hi) hi = x; } continue; }
+          const f = md === 'scene' ? sc(fl ? C - 1 - x : x, y, frame, C, SR, op, gi) : field(fl ? C - 1 - x : x, y, frame), v = Math.fround(f.v), c = f.c ?? -1, hot = f.hot ? 1 : 0;
           if (f.s) bS[i] = 1; else if (f.sky) bO[i] = 1;
-          if (v !== bV[i] || c !== bC[i] || hot !== bHot[i] || f.ch !== bCh[i]) { bV[i] = v; bC[i] = c; bHot[i] = hot; bCh[i] = f.ch; moved = 1; }
+          if (!L && !f.s) liveTmp[tn++] = r;
+          if (f.sky && G && gi >= 0) {
+            // how long this cell's glyph must stay as it is drawn now (at rest)
+            const K = dens * bK[i], L0 = K > 0 ? Math.min(RAMP.length - 1, Math.floor(v * dens * bK[i] * RAMP.length)) : 0, N = RAMP.length;
+            const lo2 = L0 >= 1 ? Math.max(0.07, L0 / (N * K)) * (1 + 1e-6) + 1e-6 : -Infinity, hi2 = K <= 0 || L0 >= N - 1 ? Infinity : Math.max(0.07, (L0 + 1) / (N * K)) * (1 - 1e-6) - 1e-6;
+            holdT[i] = frame + 1 + planetHold(G, L0 >= 1, lo2, hi2);
+          }
+          if (v !== bV[i] || c !== bC[i] || hot !== bHot[i] || f.ch !== bCh[i]) { bV[i] = v; bC[i] = c; bHot[i] = hot; bCh[i] = f.ch; moved = 1; cm[i] = 1; if (x < lo) lo = x; if (x > hi) hi = x; }
         }
       }
-      if (moved) rowDirty[y] = 1;
+      if (!L) { live[y] = liveTmp.slice(0, tn); liveOk[y] = 1; }
+      // a row whose knockout is unchanged is painted cell by cell: only the cells that moved (0247)
+      if (moved) { if (rowDirty[y] !== 1) rowDirty[y] = 2; if (lo < rowLo[y]) rowLo[y] = lo; if (hi > rowHi[y]) rowHi[y] = hi; }
     }
   }
   // Light mode's dither is written as pixels into one row's image and put down at once (0214):
@@ -488,7 +622,7 @@
   // light mode, the scene as pixel dither (PX-65): each cell is four square pixels at half the
   // cell, lit if they beat the Bayer threshold, in their material's colour; no glyphs and no
   // stars, so it reads as a print on the paper
-  function ditherRow(y: number, x0: number, x1: number, ry0: number, ry1: number, part = false) {
+  function ditherRow(y: number, x0: number, x1: number, ry0: number, ry1: number, part = false, only = false) {
     if (!ctx) return;
     const s = cell * dpr, hs = s / 2, W = cols * s, dens = density;
     if (!rowImg || rowImg.width !== W || rowImg.height !== s) { rowImg = ctx.createImageData(W, s); rowPx = new Uint32Array(rowImg.data.buffer); }
@@ -496,7 +630,8 @@
     let lo = Infinity, hi = -1;
     for (let x = x0; x < x1; x++) {
       const i = y * cols + x, k = bK[i]; let code = 1 << 20;
-      const wet = heat[i] || ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]) || groove[i] ? 1 : 0; if (part && !wet && !aff[i]) continue; aff[i] = wet;
+      if (only) { if (!cm[i]) continue; cm[i] = 0; }
+      const wet = heat[i] || ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]) || groove[i] || (x > 0 && groove[i - 1]) || (x < cols - 1 && groove[i + 1]) ? 1 : 0; if (part && !wet && !aff[i]) continue; if (wet !== aff[i]) { affN[y] += wet ? 1 : -1; aff[i] = wet; }
       if (k > 0) {
         const h = heat[i] || 0, rg = ring[i] || 0, src = bent(i, x, y, ry0, ry1);
         for (let j = 0; j < 2; j++) for (let q = 0; q < 2; q++) {
@@ -519,13 +654,14 @@
     }
     ctx.putImageData(rowImg, 0, y * s, lo * s, 0, (hi - lo + 1) * s, s);
   }
-  function glyphRow(y: number, x0: number, x1: number, ry0: number, ry1: number, part = false) {
+  function glyphRow(y: number, x0: number, x1: number, ry0: number, ry1: number, part = false, only = false) {
     if (!ctx) return;
     const s = cell * dpr, W = cols * s, scn = mode === 'scene', heatC = scn ? MAT.star : -1, dens = density, shd = shade;
     let lo = Infinity, hi = -1;
     for (let x = x0; x < x1; x++) {
       const i = y * cols + x;
-      const wet = heat[i] || ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]) || groove[i] ? 1 : 0; if (part && !wet && !aff[i]) continue; aff[i] = wet;
+      if (only) { if (!cm[i]) continue; cm[i] = 0; }
+      const wet = heat[i] || ring[i] || (x > 0 && ring[i - 1]) || (x < cols - 1 && ring[i + 1]) || groove[i] || (x > 0 && groove[i - 1]) || (x < cols - 1 && groove[i + 1]) ? 1 : 0; if (part && !wet && !aff[i]) continue; if (wet !== aff[i]) { affN[y] += wet ? 1 : -1; aff[i] = wet; }
       const h = heat[i] || 0, rg = ring[i] || 0, src = bent(i, x, y, ry0, ry1);
       let b = bV[src] * dens * (1 - (groove[i] || 0));
       if (scn) { if (rg > 0 && rg > (BAYER8[y % 8][x % 8] + 0.5) / 64) b = 0.75 * (1 - Math.min(1, b)); }
@@ -556,11 +692,14 @@
   function paintRows(y0: number, y1: number) {
     if (!ctx || !cols || !rows) return;
     shift(); strike();
-    const wet = rb[2] >= 0 || rbLast[2] >= 0 || hb[2] >= 0 || gb[2] >= 0, ry0 = wet ? Math.max(0, y0 - WAVE.most) : y0, ry1 = wet ? Math.min(rows, y1 + WAVE.most) : y1;
-    rebuild(ry0, ry1);
+    const wet = rb[2] >= 0 || rbLast[2] >= 0 || hb[2] >= 0 || hbLast[2] >= 0 || gb[2] >= 0, ry0 = wet ? Math.max(0, y0 - WAVE.most) : y0, ry1 = wet ? Math.min(rows, y1 + WAVE.most) : y1;
+    rebuild(ry0, ry1, wet);
     const row = dithering() ? ditherRow : glyphRow;
     for (let y = y0; y < y1; y++) {
-      if (rowDirty[y]) { rowDirty[y] = 0; row(y, 0, cols, ry0, ry1); }
+      const rd = rowDirty[y];
+      // cell by cell only where nothing wet can be: not near the swell, the rings or the trench, and no cell left wet
+      if (rd === 2 && !wet && !(y >= db[1] && y <= db[3]) && affN[y] === 0) { rowDirty[y] = 0; const lo = rowLo[y], hi = rowHi[y]; rowLo[y] = cols; rowHi[y] = -1; if (hi >= lo) row(y, lo, hi + 1, ry0, ry1, false, true); }
+      else if (rd) { rowDirty[y] = 0; cm.fill(0, y * cols, (y + 1) * cols); rowLo[y] = cols; rowHi[y] = -1; row(y, 0, cols, ry0, ry1); }
       else if (y >= db[1] && y <= db[3]) row(y, Math.max(0, db[0]), Math.min(cols, db[2] + 1), ry0, ry1, true);
     }
     drawn = true;
@@ -586,7 +725,7 @@
     if (motion.on) { repaint = true; wake(); } else paint();
   }
   function paint() { if (!paintQueued && alive && due) paintQueued = requestAnimationFrame(() => { paintQueued = 0; draw(); fillLater(); }); }
-  const stale = (y: number) => rowDirty[y] === 1 || rowK[y] !== kVersion || rowFrame[y] !== frame;
+  const stale = (y: number) => rowDirty[y] > 0 || rowK[y] !== kVersion || rowFrame[y] !== frame;
   function fillLater() {
     if (motion.on || !alive) return;
     idleStop();
@@ -663,17 +802,17 @@
     // repainting an unchanged field 60–120 times a second cost Home two thirds of a slow phone's main thread.
     // Between paints nothing runs (0207): the loop sleeps until the next tick, a scroll, the
     // pointer, or the field coming back on screen, and off screen or in a hidden tab it does not wake at all.
-    const start = performance.now(); let id = 0, timer = 0, paintedFrame = -1, paintedTop = NaN;
+    const start = performance.now(); let id = 0, timer = 0, paintedFrame = -1, paintedTop = NaN, panAt = Infinity; panT0 = start;
     const live = () => swell.s > 0 || hb[2] >= 0 || (pointer !== null && performance.now() - movedAt < SWELL.rest) || bursts.length > 0 || rb[2] >= 0 || dragLive();
     const schedule = () => { if (!id && visible && !document.hidden) { clearTimeout(timer); timer = 0; id = requestAnimationFrame(loop); } };
     const loop = (now: number) => {
       id = 0; if (!visible || document.hidden) return;
       frame = Math.floor((now - start) / tick);
       const r = canvas.getBoundingClientRect(), top = r.top;
-      if (frame !== paintedFrame || top !== paintedTop || remeasure || repaint || live()) { paintedFrame = frame; paintedTop = top; remeasure = repaint = false; draw(r); }
+      if (frame !== paintedFrame || top !== paintedTop || remeasure || repaint || live() || now >= panAt) { paintedFrame = frame; paintedTop = top; remeasure = repaint = false; draw(r); panAt = now + panWait(now); }
       else last = now;
       if (live()) schedule();
-      else timer = window.setTimeout(schedule, tick - ((now - start) % tick) + 1);
+      else timer = window.setTimeout(schedule, Math.min(tick - ((now - start) % tick), panAt - now) + 1);
     };
     wake = schedule;
     addEventListener('scroll', schedule, { passive: true }); document.addEventListener('visibilitychange', schedule);

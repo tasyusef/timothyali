@@ -22,6 +22,7 @@
   {/each}
   <label><input type="checkbox" bind:checked={heroLab.pan} /> Pan</label>
   <label class="row"><span>Swing</span><input type="range" min="0.005" max="0.08" step="0.005" bind:value={heroLab.amount} disabled={!heroLab.pan} /><output>{heroLab.amount.toFixed(3)}</output></label>
+  <div class="row"><span>Steps</span><span class="seg">{#each [['together', 'Together'], ['layer', 'Each layer'], ['smooth', 'Smooth']] as const as [v, l] (v)}<button type="button" aria-pressed={heroLab.steps === v} onclick={() => (heroLab.steps = v)} disabled={!heroLab.pan}>{l}</button>{/each}</span></div>
   <label class="row"><span>Loop (s)</span><input type="range" min="10" max="120" step="5" bind:value={heroLab.period} disabled={!heroLab.pan} /><output>{heroLab.period}</output></label>
 </aside>
 <style>
