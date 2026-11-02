@@ -5,7 +5,7 @@
 import type { Shot } from './toolbox.ts';
 
 /** The one version and the one place the downloads live: change them here and every link follows. */
-export const VERSION = '0.2.0';
+export const VERSION = '0.2.1';
 /** The public downloads repo, named as Toolbox's is (tasyusef/toolbox). */
 export const REPO = 'https://github.com/tasyusef/gryphon';
 export const RELEASES = `${REPO}/releases`;
