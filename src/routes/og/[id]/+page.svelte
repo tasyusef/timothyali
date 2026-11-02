@@ -71,22 +71,22 @@
       <BuildingHead level="h1" />
     </Band>
   {:else if data.id === 'toolbox'}
-    <!-- The Toolbox hero at share size: the same field, the name, the lead, the actions. -->
-    <Band class="og-toolbox" mode="bands" seed={7} density={0.7} flip shade hug pad={0} feather={12} depth={0.85} clearFeather={3} avoid=".og-toolbox h1 .decode > [aria-hidden]:not(.cursor)" clear=".og-toolbox .lead, .og-actions > *">
+    <!-- The Toolbox hero at share size: the same scene (the prism, 0255), the name, the lead, the actions. -->
+    <Band class="og-toolbox" mode="scene" page="toolbox" sceneSpan="box" seed={7} avoid=".og-toolbox h1 .decode > [aria-hidden]:not(.cursor)" clear=".og-toolbox .lead, .og-actions > *">
       <h1 class="blackletter display-xl" data-ink="toolbox."><Decode text="toolbox." /></h1>
       <p class="lead">Prepare your files<br />for handoff.</p>
       <div class="og-actions"><Cta href="/toolbox/#tools">Explore the tools <Arrow /></Cta></div>
     </Band>
   {:else if data.id === 'gryphon'}
-    <!-- Gryphon's hero at share size (PX-137): the Toolbox composition with Gryphon's field, name, lead and action. -->
-    <Band class="og-toolbox og-gryphon illuminated" mode="bands" seed={11} density={0.7} flip shade hug pad={0} feather={12} depth={0.85} clearFeather={3} avoid=".og-gryphon h1 .decode > [aria-hidden]:not(.cursor)" clear=".og-gryphon .lead, .og-actions > *">
+    <!-- Gryphon's hero at share size (PX-137): the Toolbox composition with Gryphon's scene (the castle, 0257), name, lead and action. -->
+    <Band class="og-toolbox og-gryphon illuminated" mode="scene" page="gryphon" sceneSpan="box" seed={11} avoid=".og-gryphon h1 .decode > [aria-hidden]:not(.cursor)" clear=".og-gryphon .lead, .og-actions > *">
       <h1 class="blackletter display-xl" data-ink="gryphon."><Decode text="gryphon." /></h1>
       <p class="lead">WoW Forever addons,<br />straight from GitHub.</p>
       <div class="og-actions"><Cta href="/gryphon/#download">Download <Arrow /></Cta></div>
     </Band>
   {:else if data.id === 'software'}
-    <!-- Software's share image (0246): the page's own scene, the desktop's, behind the name and lead. -->
-    <Band class="og-toolbox og-software" mode="scene" shot="hero" sceneSpan="box" mountains="a" seed={10} feather={3} depth={0.6} clearFeather={3} avoid=".og-software h1 .decode > [aria-hidden]:not(.cursor)" clear=".og-software .lead">
+    <!-- Software's share image (0246): the page's own scene, the four moons (0255), laid out for the name and lead (0258). -->
+    <Band class="og-toolbox og-software" mode="scene" page="software-share" sceneSpan="box" seed={10} avoid=".og-software h1 .decode > [aria-hidden]:not(.cursor)" clear=".og-software .lead">
       <h1 class="blackletter display-xl" data-ink="software."><Decode text="software." /></h1>
       <p class="lead">Apps and tools<br />I make and ship.</p>
     </Band>

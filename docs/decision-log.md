@@ -3023,3 +3023,10 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Change:** the keep from 0255 is drawn again, shaded like the landing's mountains instead of outlined. A small moonlit castle (keep, round tower, turret with a red spire, lit windows, one vermilion banner) stands on the summit of a big rocky peak with a snowy right flank, a hazed range behind it and a crescent moon above. On a laptop the castle moves right until it's clear of the title; on a phone it sits low at the right edge, beside the buttons.
 - **Assistant's choices (proposed, awaiting his review):** the rock is lit from the moon (up and to the right) through the landing's own luminance-to-glyph mapping, so it prints in the light theme by its shadows like the landing's mountains. The castle keeps 96px off the title, the distance over which the field fades around it. One banner instead of two, and only it moves.
 - **Status:** local, not pushed.
+
+## 0258: the share images wear the new scenes; Toolbox's prism keeps off its title (2026-11-02)
+
+- **Timothy's direction:** "Yes, update them" (the share images for Software, Toolbox and Gryphon, after 0255 and 0257).
+- **Change:** the Software, Toolbox and Gryphon share images now show their pages' scenes: the planet and its four moons, the prism, and the castle on its peak. On the Toolbox page, from 701 to about 1400px wide, the prism and its beam ran into the end of the title. Now the glass keeps 34px off the title and gets smaller where there isn't room. 1440 and wider, and phones, look as before.
+- **Assistant's choices (proposed, awaiting his review):** Software's share image keeps the name and lead, so its scene has a second layout for it (`software-share`): the planet low on the right, past the name, with the moons' orbits under it. The desktop's layout is unchanged. Home, Work and Contact rendered about a hundred pixels differently, a few stray glyphs, so they stay as committed.
+- **Status:** local, not pushed.

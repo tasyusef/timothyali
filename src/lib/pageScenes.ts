@@ -33,14 +33,20 @@ const MOONS = [
   { c: MAT.vermilion, r: 38, off: 120, b: 0.12, k: 0.22, at: -0.15 },
   { c: MAT.snow, r: 27, off: 148, b: 0.09, k: 0.05, at: Math.PI + 0.2 },
 ];
-const moons: Scene = (X, Y, A, t, seed, x, y, px) => {
-  const W = A / px, phone = W < 700;
-  const mid = phone ? W / 2 : (W + 152) / 2, half = phone ? W / 2 - 16 : Math.min(440, mid - 184);
-  const cx = (phone ? mid : mid - 40) * px, cy = phone ? 0.72 : 0.68, R = (phone ? half * 0.85 : half + 60) * px;
+// where the giant sits, in span units: its centre and radius, the moons' scale, and the furthest right an orbit may reach
+type Orbits = { cx: number; cy: number; R: number; rs: number; right: number };
+const desk = (W: number, px: number): Orbits => {
+  const phone = W < 700, mid = phone ? W / 2 : (W + 152) / 2, half = phone ? W / 2 - 16 : Math.min(440, mid - 184);
+  return { cx: (phone ? mid : mid - 40) * px, cy: phone ? 0.72 : 0.68, R: (phone ? half * 0.85 : half + 60) * px, rs: phone ? 0.7 : 1, right: (W - 34) * px };
+};
+// the share image (0258): the giant low on the right, past the name, and its moons' orbits under the name
+const share = (W: number, px: number): Orbits => ({ cx: (W - 330) * px, cy: 0.78, R: 160 * px, rs: 0.9, right: (W - 34) * px });
+const orbits = (place: (W: number, px: number) => Orbits): Scene => (X, Y, A, t, seed, x, y, px) => {
+  const { cx, cy, R, rs, right } = place(A / px, px);
   let live = false, orbit = 0;
   const front: Cell[] = [], back: Cell[] = [];
   for (let i = 0; i < MOONS.length; i++) {
-    const rm = MOONS[i].r * px * (phone ? 0.7 : 1), m = MOONS[i], a = Math.max(R + rm + 20 * px, Math.min(R + m.off * px, (W - 34) * px - cx));
+    const rm = MOONS[i].r * px * rs, m = MOONS[i], a = Math.max(R + rm + 20 * px, Math.min(R + m.off * px, right - cx));
     // inner moons go round faster (Kepler's third law), the first in about four minutes
     const ph = m.at + t * 0.0045 * Math.pow((R + 64 * px) / a, 1.5);
     const mx = cx + a * Math.cos(ph), my = cy + m.b * Math.sin(ph) - m.k * Math.cos(ph);
@@ -82,9 +88,12 @@ const SPECTRUM = [MAT.vermilion, MAT.orange, MAT.yellow, MAT.jade, MAT.rock, MAT
 const R3 = Math.sqrt(3);
 const IN = (() => { const l = Math.hypot(0.42, 1); return [0.42 / l, 1 / l]; })();
 const prism: Scene = (X, Y, A, t, seed, x, y, px) => {
-  const wide = A >= 1.9;
-  const L = wide ? Math.min(0.46, 0.2 * A) : Math.min(0.32, Math.max(0.24, 0.2 * A));
-  const cx = wide ? A - 2 * L : A - 1.05 * L, cy = wide ? 0.47 : 0.3;
+  const W = A / px, wide = A >= 1.9;
+  // clear of the title, which ends at 734px from 901 up and 500px down to 701 (a phone's sits beside
+  // it as it is): the glass keeps 34px off it and gets smaller before it would come closer (0258)
+  const room = W > 700 ? A - ((W > 900 ? 734 : 500) + 34) * px : Infinity;
+  const L = Math.min(wide ? Math.min(0.46, 0.2 * A) : Math.min(0.32, Math.max(0.24, 0.2 * A)), room / (wide ? 2.45 : 1.55));
+  const cx = wide ? Math.max(A - 2 * L, A - room + L / 2) : A - 1.05 * L, cy = wide ? 0.47 : 0.3;
   const ax = cx, ay = cy - L / R3, bx = cx - L / 2, by = cy + L / (2 * R3), qx = cx + L / 2; // apex, left foot, right foot
   const ex = ax + 0.42 * (bx - ax), ey = ay + 0.42 * (by - ay); // where the light goes in, on the left face
   const ox = ax + 0.55 * (qx - ax), oy = ay + 0.55 * (by - ay); // and where it comes out, on the right
@@ -229,7 +238,7 @@ const keepScene: Scene = (X, Y, A, t, seed, x, y, px) => {
   return sky(x, y, seed);
 };
 
-const PAGES: Record<string, Scene> = { software: moons, toolbox: prism, gryphon: keepScene };
+const PAGES: Record<string, Scene> = { software: orbits(desk), 'software-share': orbits(share), toolbox: prism, gryphon: keepScene };
 
 /** one cell of a page's scene; `foot` is the band's foot in the span's heights, where the scene fades
  * out over the last fifth into the page, and `H` the span's height in CSS pixels */

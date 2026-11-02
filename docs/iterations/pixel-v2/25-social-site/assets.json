@@ -21,13 +21,13 @@
     "image": "software",
     "width": 1200,
     "height": 630,
-    "bytes": 27263
+    "bytes": 12315
   },
   {
     "image": "toolbox",
     "width": 1200,
     "height": 630,
-    "bytes": 11640
+    "bytes": 12418
   },
   {
     "image": "toolbox-agents",
@@ -63,7 +63,7 @@
     "image": "gryphon",
     "width": 1200,
     "height": 630,
-    "bytes": 10596
+    "bytes": 15869
   },
   {
     "image": "work-toolbox",
