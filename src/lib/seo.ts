@@ -124,13 +124,16 @@ export function graphFor(path: string): object[] | undefined {
   const home: [string, string] = ['Timothy Ali', '/'];
   if (path === '/') return [person, website, webpage(meta, 'WebPage', { about: { '@id': person['@id'] }, mainEntity: { '@id': person['@id'] } })];
   const refs = [personRef, websiteRef];
+  // the products sit in the Software section (0245)
+  const sw: [string, string] = ['Software', '/software/'];
+  if (path === '/software/') return [...refs, crumbs(path, [home, sw]), webpage(meta, 'CollectionPage', { hasPart: [{ '@id': software['@id'] }, { '@type': 'WebApplication', name: 'Sonde', url: 'https://sondelab.com/' }, { '@id': gryphon['@id'] }, { '@id': tome['@id'] }] })];
   if (path === '/work/') return [...refs, crumbs(path, [home, ['Work', '/work/']]), webpage(meta, 'CollectionPage', { hasPart: studies.map((p) => ({ '@type': 'CreativeWork', '@id': id(`/work/${p.slug}/`, 'work'), name: p.title, url: `${SITE_URL}/work/${p.slug}/` })) })];
   if (path === '/contact/') return [...refs, crumbs(path, [home, ['Contact', '/contact/']]), webpage(meta, 'ContactPage', { mainEntity: { '@id': person['@id'] } })];
-  if (path === '/toolbox/') return [...refs, crumbs(path, [home, ['Toolbox', '/toolbox/']]), webpage(meta, 'WebPage', { mainEntity: { '@id': software['@id'] } }), software];
-  if (path === '/toolbox/agents/') return [...refs, softwareRef, crumbs(path, [home, ['Toolbox', '/toolbox/'], ['CLI & MCP', '/toolbox/agents/']]), webpage(meta, 'WebPage', { about: { '@id': software['@id'] } })];
-  if (path === '/gryphon/') return [...refs, crumbs(path, [home, ['Gryphon', '/gryphon/']]), webpage(meta, 'WebPage', { mainEntity: { '@id': gryphon['@id'] }, hasPart: { '@id': tome['@id'] } }), gryphon, tome];
+  if (path === '/toolbox/') return [...refs, crumbs(path, [home, sw, ['Toolbox', '/toolbox/']]), webpage(meta, 'WebPage', { mainEntity: { '@id': software['@id'] } }), software];
+  if (path === '/toolbox/agents/') return [...refs, softwareRef, crumbs(path, [home, sw, ['Toolbox', '/toolbox/'], ['CLI & MCP', '/toolbox/agents/']]), webpage(meta, 'WebPage', { about: { '@id': software['@id'] } })];
+  if (path === '/gryphon/') return [...refs, crumbs(path, [home, sw, ['Gryphon', '/gryphon/']]), webpage(meta, 'WebPage', { mainEntity: { '@id': gryphon['@id'] }, hasPart: { '@id': tome['@id'] } }), gryphon, tome];
   const t = tools.find((t) => path === `/toolbox/${t.slug}/`);
-  if (t) return [...refs, softwareRef, crumbs(path, [home, ['Toolbox', '/toolbox/'], [t.name, path]]), webpage(meta, 'WebPage', { about: { '@id': software['@id'] }, primaryImageOfPage: image(t.shot.src, t.shot.w, t.shot.h) })];
+  if (t) return [...refs, softwareRef, crumbs(path, [home, sw, ['Toolbox', '/toolbox/'], [t.name, path]]), webpage(meta, 'WebPage', { about: { '@id': software['@id'] }, primaryImageOfPage: image(t.shot.src, t.shot.w, t.shot.h) })];
   const p = studies.find((s) => path === `/work/${s.slug}/`);
   if (p) return [...refs, crumbs(path, [home, ['Work', '/work/'], [p.title, path]]), webpage(meta, 'WebPage', { mainEntity: { '@id': id(path, 'work') } }), work(p)];
 }

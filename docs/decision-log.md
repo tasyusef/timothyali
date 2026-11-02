@@ -2919,3 +2919,23 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Change:** Home's parallax and pan use those values (no longer lab-only). A bolt comes about every five seconds instead of ten. The display name thins the field at depth 0.5 (other knockouts stay 0.85). The grain stays on 0243: asked whether the lab's 6px meant light too, he said "keep 4px in light". Details in PX-140.
 - **Cost:** idle main thread, production build, last commit → now: 1440 light 118 → 155 ms/s, dark 44 → 50; 390 light 62 → 76, dark 26 → 29.
 - **Status:** committed, not pushed (2026-11-01).
+
+
+## 0245: a Software section in place of the Toolbox nav item (2026-11-01)
+
+- **Timothy's question:** with two public apps, a WoW addon and a web framework coming within about a month, "toolbox currently has its own page and its own nav item but idk if thats really scalable now to multiple apps? what do you think?"
+- **Assistant's proposal (not his reasoning):** turn nav 04 into a section for everything he ships, one row per product, each keeping its own page; keep Work for case studies; the framework gets a row and a short page and later its own docs; keep "Designer" as the title and let the section show the building.
+- **His answers:** "software, keep designer, framework gets its own domain eventually but thats after its finished and i settle on a name for it etc. also forgot but we need to add sonde to the software section too now that its live again".
+- **Change:** nav 04 is **Software** (`/software/`), lit on `/software/`, `/toolbox/…` and `/gryphon/`. The page lists Toolbox, Sonde, Gryphon and Tome from `$lib/software.ts`, each with its kind, platforms, version and links (its page, its study, its source). Toolbox and Gryphon keep their pages and addresses; their breadcrumbs now run through Software. The role stays "Designer" (0229). The framework is not listed until it is finished and named. Details in PX-141.
+- **Assistant's choices (proposed, awaiting his review):** the panel layout, the order, the hero line "Apps and tools I make and ship.", each product's one line, and the share image.
+- **Status:** built, not committed.
+
+
+## 0246: the Software page is a desktop (2026-11-01)
+
+- **Timothy's direction:** on the 0245 page, "the hero bg doesnt match the rest of the site. and idk it doesnt feel great just having cards. generate 10 different layouts for me to look at. be creative." From the ten (PX-142), he picked "6", the desktop. He gave no reasons.
+- **Change:** `/software/` is a desktop over the hero scene (the `hero` shot with mountains, like Home's), in place of the bands hero and the panels. The products are icons down the left (a 2×2 grid on phones); one is open in a window with a yellow title bar (name, version), its screen, its kind and platforms, its line and its links, and the next two are stacked behind it. Picking an icon swaps the window; `/software/#tome` opens Tome's. Without JavaScript every window shows, one under the other. Tome has no screen, so its window shows its tabs. The share image uses the same scene. The page title is visually hidden; the desktop is the head. Details in PX-142.
+- **Assistant's choices (proposed, awaiting his review):** everything in the layout beyond what the mock showed: the phone grid, the no-JavaScript fallback, Tome's tabs, the hash link, the share image.
+- **Then, his direction:** "tool box adn gryphon should be using uppercase for the icons. lets also make sonde use the sonde logo icon. and also make sure theyre all visually centered in their box. also want to add some kind of animation to previews on teh right when you switch between projects." Toolbox and Gryphon are now a blackletter T and G (Tome keeps its t), Sonde's icon is its mark from the logo library, and each icon is centred on its measured ink. The switch animation is the assistant's proposal: the picked window comes forward from the slot behind on a spring, and its screen arrives through the dither wipe (0100). Details in PX-142.
+- **Sonde's mark size:** asked whether to keep it at 42px (smaller than the letters) or grow the boxes to 80 with a 63px mark, he chose "1": keep 42px.
+- **Status:** built, not committed.

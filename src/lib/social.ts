@@ -1,6 +1,7 @@
 import { studies, projects } from './work.ts';
 import { tools, APP } from './toolbox.ts';
 import { PAGE_DESCRIPTION as GRYPHON_DESCRIPTION } from './gryphon.ts';
+import { SOFTWARE_DESCRIPTION, products } from './software.ts';
 export { SITE_URL, RESUME_URL } from './site.ts';
 // Descriptions the page and its share tags both carry (PX-59): Work names the selected
 // four, and a tool page says what the tool is part of, so neither stops at one short line.
@@ -24,6 +25,8 @@ export const socialPages: SocialPage[] = [
   { path: '/', image: 'home', title: 'Timothy Ali / Designer', description: 'Timothy Ali is a designer in Denver who designs interfaces, design systems, brands, and websites. Open to full-time and contract work.', alt: 'I’m tim. Designer. Pixel typography on a dark background.' },
   { path: '/work/', image: 'work', title: 'Work / Timothy Ali', description: WORK_DESCRIPTION, alt: `Work by Timothy Ali, with covers for ${projects.slice(0, -1).map((p) => p.title).join(', ')} and ${projects[projects.length - 1].title}.` },
   { path: '/contact/', image: 'contact', title: 'Get in touch / Timothy Ali', description: 'Hiring, or have a project in mind? Timothy Ali is open to full-time roles, remote or in Denver, and to contract work on interfaces, brands, and websites.', alt: 'Tell me what you’re building. Get in touch with Timothy Ali.' },
+  // Software (0245): the section nav 04 opens, before the products in it
+  { path: '/software/', image: 'software', title: 'Software / Timothy Ali', description: SOFTWARE_DESCRIPTION, alt: `Software by Timothy Ali: ${products.map((p) => p.name).join(', ')}.` },
   // Toolbox images are rendered by /og/[id] like the rest (0110): the hero, the agents head, a row per tool.
   { path: '/toolbox/', image: 'toolbox', title: 'Toolbox / Timothy Ali', description: APP.description, alt: 'Toolbox by Timothy Ali: four design tools in one app.' },
   { path: '/toolbox/agents/', image: 'toolbox-agents', title: 'CLI & MCP / Toolbox / Timothy Ali', description: 'Run Toolbox from a terminal, send it jobs as JSON, or connect an AI assistant over MCP. This page covers setup, commands, and options for all four tools.', alt: 'Toolbox from the command line and over MCP.' },

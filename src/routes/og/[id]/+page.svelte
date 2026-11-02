@@ -84,6 +84,12 @@
       <p class="lead">WoW Forever addons,<br />straight from GitHub.</p>
       <div class="og-actions"><Cta href="/gryphon/#download">Download <Arrow /></Cta></div>
     </Band>
+  {:else if data.id === 'software'}
+    <!-- Software's share image (0246): the page's own scene, the desktop's, behind the name and lead. -->
+    <Band class="og-toolbox og-software" mode="scene" shot="hero" sceneSpan="box" mountains="a" seed={10} feather={3} depth={0.6} clearFeather={3} avoid=".og-software h1 .decode > [aria-hidden]:not(.cursor)" clear=".og-software .lead">
+      <h1 class="blackletter display-xl" data-ink="software."><Decode text="software." /></h1>
+      <p class="lead">Apps and tools<br />I make and ship.</p>
+    </Band>
   {:else if data.id === 'toolbox-agents'}
     <!-- The agents page's head, then the landing's command plate: the one line that says it. -->
     <Band class="og-agents" mode="fall" seed={3} density={0.55} shade avoid=".og-agents h1, .og-agents .lead, .og-command">

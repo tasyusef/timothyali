@@ -21,6 +21,13 @@
     "pass": true
   },
   {
+    "path": "/software/",
+    "image": "/og/software.png",
+    "serverRendered": true,
+    "dimensions": "1200×630",
+    "pass": true
+  },
+  {
     "path": "/toolbox/",
     "image": "/og/toolbox.png",
     "serverRendered": true,

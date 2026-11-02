@@ -105,7 +105,8 @@
       <a href="/" aria-current={pathname === '/' ? 'page' : undefined}><b aria-hidden="true">01</b>Index</a>
       <a href="/work/" aria-current={pathname.startsWith('/work') ? 'page' : undefined}><b aria-hidden="true">02</b>Work</a>
       <a href="/contact/" aria-current={pathname.startsWith('/contact') ? 'page' : undefined}><b aria-hidden="true">03</b>Contact</a>
-      <a href="/toolbox/" aria-current={pathname.startsWith('/toolbox') ? 'page' : undefined}><b aria-hidden="true">04</b>Toolbox</a>
+      <!-- Software (0245; Toolbox until then): the section, and every product page inside it -->
+      <a href="/software/" aria-current={['/software', '/toolbox', '/gryphon'].some((p) => pathname.startsWith(p)) ? 'page' : undefined}><b aria-hidden="true">04</b>Software</a>
     </nav>
     <!-- hidden, not absent, until the saved choices are read: without JavaScript there is nothing to set -->
     <div class="settings lbl" class:ready={motion.ready} bind:this={settingsElement}>

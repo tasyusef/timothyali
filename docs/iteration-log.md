@@ -1334,3 +1334,32 @@ Timothy: "lets add some of the lighting strikes from the firststrike case study 
 - **Cost fixes:** the planet's cells change every tick, and with parallax on each one searched the picture's three layers first; now a cell that came out as planet is marked (`bO`/`dO`, cleared when the layers move) and skips that search. `boltAt` was building a string key once a cell; it now compares numbers. The pan steps by one dither square, so it re-works the screen about 1.4 times a second; that is most of what remains.
 - **Idle main thread, production build** (last commit → now): 1440 dark 44 → 50 ms/s, light 118 → 155; 390 dark 26 → 29, light 62 → 76.
 - **Evidence:** `live-bolt-dark.png`, `live-bolt-light.png` (a strike with the live values), `soft-knockout.png` (the name at depth 0.5, both themes).
+
+
+## PX-141: the Software section (2026-11-01)
+
+Timothy: "software, keep designer … also forgot but we need to add sonde to the software section too now that its live again" (0245).
+
+- **What:** `/software/`, nav 04. The Toolbox and Gryphon landings' hero with its own field (bands, seed 13) and "software.", then one panel per product in two columns (one from 900 down): the name linked to its page or site, a label line (kind / platforms / version), one line on what it does, and its links. Sonde links to sondelab.com, its study and its source; Tome to its section on Gryphon's page.
+- **Data:** `$lib/software.ts` reads versions, platforms and links from `toolbox.ts`, `gryphon.ts` and Sonde's entry in `work.ts`, so a release bump follows. A new product is one row.
+- **Wiring:** nav (`+layout.svelte`), share text and image (`social.ts`, `/og/software`), structured data (a CollectionPage; Software in the Toolbox, tool and Gryphon breadcrumbs), sitemap (from `socialPages`).
+- **Fixed in the pass:** the names were invisible at first (the link took the page's ink, not the panel's), and the label line's " / " lost its spaces.
+- **Checks:** `pnpm check` 0/0. 1440 and 390, both themes: no horizontal overflow, no console errors, nav 04 current.
+- **Still to do before a push:** `pnpm social:generate` for the new share image, then `pnpm build` and `pnpm social:verify`, `pnpm seo:check`.
+- **Evidence:** `docs/iterations/pixel-v2/141-software/`.
+
+
+
+## PX-142: ten Software layouts, then the desktop (2026-11-01)
+
+Timothy: "the hero bg doesnt match the rest of the site. and idk it doesnt feel great just having cards. generate 10 different layouts for me to look at." He picked 6 (0246).
+
+- **The lab:** `/dev/software/1/` to `/10/` (dev only, in `DEV_ONLY`): 1 Listing (`ls -l` rows), 2 Terminal (`ls` and `cat README` in one panel), 3 Marquee names (huge stacked names, the active one lit), 4 Datasheets, 5 Boxes (each product a "box" with its own field art and a version sticker), 6 Desktop, 7 Index and screens (pinned names, scrolling screens), 8 Strips (a study-style scene head per product), 9 Tree (`software/` as a folder tree), 10 Bento. Every one sits on a scene, not bands.
+- **Built:** layout 6 as `/software/`. Icons are links to `#slug` that swap the open window; windows are all in the page, and only `html.js` hides the closed ones, so the prerender and no-JavaScript show all four. The field re-measures its knockout when the window changes (`field-measure`). Screens moved into `$lib/software.ts` (`shot`).
+- **Fixed in the pass:** at 390 the four icons in a row clipped Tome; phones get a 2×2 grid with the name beside the glyph.
+- **Checks:** `pnpm check` 0/0. 1440 and 390, both themes: no overflow, no console errors; clicking Tome opens only Tome's window; `#sonde` opens Sonde's; no JavaScript shows four windows.
+- **Still to do before a push:** `pnpm social:generate`, `pnpm build`, `pnpm social:verify`, `pnpm seo:check`.
+- **Evidence:** `docs/iterations/pixel-v2/142-software-layouts/` (the three contact sheets, each layout at 1440 and 390, and `desk-*` for the built page).
+- **Then (his direction, 0246):** uppercase T and G for Toolbox and Gryphon; Sonde's mark (logo library, 03 Mark) as an inline SVG at 42px, 2px a cell; every icon moved by whole pixels to centre its measured ink (T −1 x, G +1 y, t −2 y at 72; within half a pixel at 48). Icons live in `software.ts` (`icon`).
+- **Switch animation (assistant's proposal):** the picked window comes forward from the first stack slot (32px right and up; straight down on phones) on a 320ms spring, and its screen arrives through `--wipe-in`. The first window doesn't animate; motion off is a hard cut. The knockout re-measures on `animationend`. The closed windows' screens load 1.5s after mount so a switch never wipes in an empty frame.
+- **Evidence:** `glyphs.png`, `switch-frames.png` (30, 90, 160, 420ms).
