@@ -11,28 +11,28 @@
 import { fbm, hash2, noise2 } from '$lib/prng';
 import { MAT } from '$lib/scene';
 
-type Cell = { v: number; c: number; o?: boolean; tex?: boolean; fade?: number };
-type Scene = (X: number, Y: number, A: number, t: number, seed: number, x: number, y: number) => Cell;
+export type Cell = { v: number; c: number; o?: boolean; tex?: boolean; fade?: number };
+export type Scene = (X: number, Y: number, A: number, t: number, seed: number, x: number, y: number) => Cell;
 
-const clamp = (v: number) => Math.max(0, Math.min(1, v));
-const NONE: Cell = { v: 0, c: MAT.star };
+export const clamp = (v: number) => Math.max(0, Math.min(1, v));
+export const NONE: Cell = { v: 0, c: MAT.star };
 // drawn as it is in both themes: no rock-by-its-shadows inversion in the dither
-const ink = (v: number, c: number): Cell => ({ v: clamp(v), c, o: true, tex: true });
+export const ink = (v: number, c: number): Cell => ({ v: clamp(v), c, o: true, tex: true });
 // stars: sparse, and like the hero's, left out of the light-mode print
-const star = (x: number, y: number, seed: number, rate = 0.988): Cell => {
+export const star = (x: number, y: number, seed: number, rate = 0.988): Cell => {
   const s = hash2(x, y, seed + 99);
   return s > rate ? { v: 0.18 + 0.2 * hash2(x, y, seed + 7), c: MAT.star } : NONE;
 };
-const frac = (v: number) => v - Math.floor(v);
+export const frac = (v: number) => v - Math.floor(v);
 // a lit sphere: null outside, else its offsets and the light on it (from the upper left)
-function sphere(X: number, Y: number, cx: number, cy: number, R: number) {
+export function sphere(X: number, Y: number, cx: number, cy: number, R: number) {
   const dx = (X - cx) / R, dy = (Y - cy) / R, r2 = dx * dx + dy * dy;
   if (r2 >= 1) return null;
   const nz = Math.sqrt(1 - r2);
   return { dx, dy, nz, r2, lam: Math.max(0, -0.55 * dx - 0.5 * dy + 0.67 * nz) };
 }
 // the giant's banded face, as on the landing
-function giant(s: { dx: number; dy: number; nz: number; lam: number }, t: number, seed: number): Cell {
+export function giant(s: { dx: number; dy: number; nz: number; lam: number }, t: number, seed: number): Cell {
   const lon = Math.atan2(s.dx, s.nz);
   const turb = fbm(lon * 2.4 + t * 0.008, s.dy * 9, seed, 3);
   const band = Math.sin(s.dy * 15 + turb * 3.2);
@@ -41,11 +41,11 @@ function giant(s: { dx: number; dy: number; nz: number; lam: number }, t: number
   return v < 0.07 ? NONE : ink(v, c);
 }
 // distance from a point to a segment, in strip heights
-function seg(X: number, Y: number, x0: number, y0: number, x1: number, y1: number) {
+export function seg(X: number, Y: number, x0: number, y0: number, x1: number, y1: number) {
   const vx = x1 - x0, vy = y1 - y0, k = clamp(((X - x0) * vx + (Y - y0) * vy) / (vx * vx + vy * vy || 1));
   return Math.hypot(X - x0 - k * vx, Y - y0 - k * vy);
 }
-const LINE = 0.016; // about one glyph cell on a desktop strip
+export const LINE = 0.016; // about one glyph cell on a desktop strip
 
 const sonde: Scene = (X, Y, A, t, seed, x, y) => {
   const bx = A * 0.74, sway = Math.sin(t * 0.05) * 0.035;

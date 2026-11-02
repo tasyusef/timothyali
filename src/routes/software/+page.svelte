@@ -27,7 +27,7 @@
 </script>
 <main class="software-landing" id="main" tabindex="-1">
   <h1 class="sr-only">Software</h1>
-  <Band class="desk" mode="scene" shot="hero" mountains="a" seed={10} avoid=".desk .icons a, .desk .win.open">
+  <Band class="desk" mode="scene" page="software" seed={10} avoid=".desk .icons a, .desk .win.open">
     <nav class="icons" aria-label="Apps and tools" bind:this={icons}>
       {#each products as p (p.slug)}
         <a href={`#${p.slug}`} class={p.palette} aria-current={open === p.slug ? 'true' : undefined} onclick={(e) => pick(e, p.slug)}><span class="glyph" aria-hidden="true">{#if 'mark' in p.icon}<svg viewBox="0 0 42 42" shape-rendering="crispEdges"><path d={p.icon.mark} fill="currentColor" /></svg>{:else}<span class="blackletter" data-ch={p.icon.letter}>{p.icon.letter}</span>{/if}</span><span class="lbl">{p.name}</span></a>
@@ -51,7 +51,7 @@
       {/each}
     </div>
   </Band>
-  <section class="end"><PageFoot note="" href="/contact/" label="Get in touch" /></section>
+  <section class="end"><PageFoot note={`(C) ${new Date().getFullYear()} Timothy Ali`} href="/contact/" label="Get in touch" /></section>
 </main>
 <style>
 .software-landing :global(.desk){min-height:calc(100svh - var(--s8));padding:var(--s4) var(--gutter) var(--s8);display:grid;grid-template-columns:120px minmax(0,1fr);gap:var(--s4);align-items:start}
@@ -62,10 +62,12 @@
 .glyph .blackletter{font-size:86px;line-height:72px;transform:translate(var(--dx,0),var(--dy,0))}
 .glyph svg{width:42px;height:42px}
 /* optical centring: each letter's ink measured in its 72 (phone 48) box, moved by whole pixels to the middle */
-.glyph [data-ch=T]{--dx:-1px}.glyph [data-ch=G]{--dy:1px}.glyph [data-ch=t]{--dy:-2px}
+.glyph [data-ch=T]{--dx:-1px}.glyph [data-ch=G]{--dy:1px}
 .icons a[aria-current] .glyph,.icons a:active .glyph{background:var(--accent);color:var(--on-accent)}
 .icons a[aria-current] .lbl{background:var(--accent);color:var(--on-accent);padding:0 var(--s1)}
 @media(hover:hover){.icons a:not([aria-current]):hover .lbl{color:var(--accent-text)}}
+/* Tome's accent on the page is the label's own colour, so its hover is the title links' underline (0254) */
+@media(hover:hover){.icons a.ink:not([aria-current]):hover .lbl{text-decoration:underline;text-underline-offset:4px}}
 .stack{position:relative;max-width:880px;width:100%;margin:var(--s4) auto 0;display:flex;flex-direction:column;gap:var(--s4)}
 .ghost{display:none}
 :global(html.js) .ghost{display:block;position:absolute;inset:0;transform:translate(calc(var(--i) * 32px),calc(var(--i) * -32px));opacity:calc(1 - var(--i) * .3);z-index:calc(3 - var(--i))}
@@ -81,13 +83,26 @@
 .title a{color:inherit}
 @media(hover:hover){.title a:hover{text-decoration:underline;text-underline-offset:4px}}
 .ghost .title{background:var(--paper);color:var(--fg)}
+/* Tome's bar is ruled round in its panel's colour, like the game's own frames (0254) */
+.win.ink .title{box-shadow:inset 0 0 0 2px var(--fg)}
 .screen{padding:var(--s1) var(--s1) 0}
-.tabs{list-style:none;margin:0;padding:var(--s6);aspect-ratio:3/2;display:flex;flex-wrap:wrap;align-content:center;justify-content:center;gap:var(--s1)}
+.tabs{list-style:none;margin:0;padding:var(--s6);aspect-ratio:16/9;display:flex;flex-wrap:wrap;align-content:center;justify-content:center;gap:var(--s1)}
 .tabs li{padding:var(--pad-s);background:var(--paper);color:var(--fg)}.tabs li:first-child{background:var(--accent);color:var(--on-accent)}
 .info{padding:var(--s3);display:flex;flex-direction:column;gap:var(--s1)}.info p{margin:0}
 .info .body{max-width:60ch}
-.links{display:flex;gap:var(--s1) var(--s3);flex-wrap:wrap;margin-top:var(--s1)}
+.links{display:flex;gap:var(--s1) var(--s2);flex-wrap:wrap;margin-top:var(--s1)} /* Sonde's three on one line in the narrowest window */
 .end :global(.page-foot){margin-top:var(--s4);margin-bottom:var(--s4)}
+/* One screen (0256): from 701px the desktop fills the window under the header, its foot is the
+   footer's own line and height, and the open window takes the width its height leaves (440 is the
+   header, the room the stack rises into, the bar, the words and the foot), down to 528 and up to 880.
+   Tome's tabs are 16:9, so no window is taller than Sonde's: every one fits from 790 up (1440x790,
+   a 13-inch MacBook's browser). Shorter than that, the page scrolls; phones always do, a window and its words being taller than one. */
+@media(min-width:701px){
+ .software-landing{display:flex;flex-direction:column;min-height:calc(100svh - var(--chrome-height))}
+ .software-landing :global(.desk){flex:1 0 auto;min-height:0;padding-bottom:var(--s1)}
+ .stack{max-width:clamp(528px,round(down,calc((100svh - 440px) * 1.5),8px),880px)}
+ .end :global(.page-foot){margin:0;padding:var(--s2) 0 var(--s3)}
+}
 @media(max-width:700px){
  .software-landing :global(.desk){grid-template-columns:minmax(0,1fr);padding-top:var(--s3);padding-bottom:var(--s6)}
  .icons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s1) var(--s2)} /* four across clips Tome at 390 */
@@ -96,7 +111,7 @@
  .stack{--rise-x:0px} /* no stack to rise from on phones: straight down */
  .glyph{width:48px;height:48px}
  .glyph .blackletter{font-size:43px;line-height:48px}
- .glyph [data-ch=T],.glyph [data-ch=t]{--dx:0px;--dy:0px} /* T and t sit within half a pixel at 43 */
+ .glyph [data-ch=T]{--dx:0px} /* T sits within half a pixel at 43 */
  .stack{margin-top:0}
  .tabs{padding:var(--s3)}
  .info{padding:var(--s2)}

@@ -8,18 +8,19 @@ import { fbm, hash2, noise2 } from '$lib/prng';
 import { INK, WHITE, YELLOW, YELLOW_FIELD } from '$lib/tokens';
 
 /** what a cell is made of; the palettes below give each one a colour per theme */
-export const MAT = { cream: 0, orange: 1, rust: 2, brown: 3, rock: 4, shade: 5, snow: 6, star: 7, jade: 8, night: 9 } as const; // night: the ink ground in both themes, for silhouettes
+export const MAT = { cream: 0, orange: 1, rust: 2, brown: 3, rock: 4, shade: 5, snow: 6, star: 7, jade: 8, night: 9, yellow: 10, coral: 11, vermilion: 12 } as const; // night: the ink ground in both themes, for silhouettes
+// yellow, coral and vermilion (0255): Toolbox's, Sonde's and Gryphon's own fills (tokens.css), for the page scenes
 export type Palette = 'scene' | 'accent';
 // 'scene': the scene's own colours, a handful of tones; 'accent': the site's yellow and three
 // tones around it. The light ground takes darker values of the same hues.
 export const PALETTES: Record<Palette, { dark: string[]; light: string[] }> = {
   scene: {
-    dark: ['#ecd9b0', '#e48a3a', '#b9502b', '#7d4a2a', '#a9b2d6', '#59628a', WHITE, '#9a9a90', '#8fc4a6', INK],
-    light: ['#9c7a3c', '#c2601c', '#93391b', '#5c3520', '#33406a', '#7c86aa', INK, '#6a6a62', '#3b7658', INK],
+    dark: ['#ecd9b0', '#e48a3a', '#b9502b', '#7d4a2a', '#a9b2d6', '#59628a', WHITE, '#9a9a90', '#8fc4a6', INK, YELLOW, '#e8856c', '#e2553a'],
+    light: ['#9c7a3c', '#c2601c', '#93391b', '#5c3520', '#33406a', '#7c86aa', INK, '#6a6a62', '#3b7658', INK, YELLOW_FIELD, '#a54932', '#b3301c'],
   },
   accent: {
-    dark: [YELLOW, '#e0902a', '#b8641c', '#7a6a3a', '#a8a8a0', '#5a5a53', WHITE, '#8c8c84', '#8fc4a6', INK],
-    light: [YELLOW_FIELD, '#b8641c', '#8f4a12', '#5e5230', '#3a3a35', '#8a8a82', INK, '#6a6a62', '#3b7658', INK],
+    dark: [YELLOW, '#e0902a', '#b8641c', '#7a6a3a', '#a8a8a0', '#5a5a53', WHITE, '#8c8c84', '#8fc4a6', INK, YELLOW, '#e8856c', '#e2553a'],
+    light: [YELLOW_FIELD, '#b8641c', '#8f4a12', '#5e5230', '#3a3a35', '#8a8a82', INK, '#6a6a62', '#3b7658', INK, YELLOW_FIELD, '#a54932', '#b3301c'],
   },
 };
 

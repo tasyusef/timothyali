@@ -32,7 +32,7 @@
   }
 </script>
 <main class="gryphon-landing illuminated" id="main" tabindex="-1">
-  <Band class="gryphon-hero" mode="bands" seed={11} density={0.7} flip shade hug pad={0} feather={12} depth={0.85} clearFeather={3} avoid=".hero-copy h1 .decode > [aria-hidden]:not(.cursor)" clear=".hero-copy .lead, .hero-actions > *">
+  <Band class="gryphon-hero" mode="scene" page="gryphon" sceneSpan="box" seed={11} avoid=".hero-copy h1 .decode > [aria-hidden]:not(.cursor)" clear=".hero-copy .lead, .hero-actions > *">
     <div class="hero-copy">
       <h1 class="blackletter display-xl" data-ink="gryphon."><Decode text="gryphon." step={STEP} /></h1>
       <p class="lead">WoW Forever addons,<br />straight from GitHub.</p>
@@ -67,7 +67,7 @@
     </div>
   </section>
 
-  <section class="tome panel" id="tome" aria-labelledby="tome-title">
+  <section class="tome panel ink" id="tome" aria-labelledby="tome-title">
     <div class="tome-heading"><span class="lbl dim">v{TOME.version}</span><h2 id="tome-title" class="blackletter">tome.</h2></div>
     <div class="tome-copy">
       <p class="body">Tome is an addon for WoW Forever. It puts one set of tabs on the windows you open most, so getting from one to another takes a click. It works in combat.</p>

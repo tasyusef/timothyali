@@ -35,7 +35,7 @@
   }
 </script>
 <main class="toolbox-landing" id="main" tabindex="-1">
-  <Band class="toolbox-hero" mode="bands" seed={7} density={0.7} flip shade hug pad={0} feather={12} depth={0.85} clearFeather={3} avoid=".hero-copy h1 .decode > [aria-hidden]:not(.cursor)" clear=".hero-copy .lead, .hero-actions > *">
+  <Band class="toolbox-hero" mode="scene" page="toolbox" sceneSpan="box" seed={7} avoid=".hero-copy h1 .decode > [aria-hidden]:not(.cursor)" clear=".hero-copy .lead, .hero-actions > *">
     <div class="hero-copy">
       <h1 class="blackletter display-xl" data-ink="toolbox."><Decode text="toolbox." step={STEP} /></h1>
       <p class="lead">Prepare your files<br />for handoff.</p>

@@ -29,6 +29,9 @@ section{position:relative;padding:0 var(--gutter)}
    inside a band keep the browser's hand and I-beam. */
 .band{cursor:url(/cursor/field-dark.png) 7 7,crosshair;cursor:-webkit-image-set(url(/cursor/field-dark.png) 1x,url(/cursor/field-dark@2x.png) 2x) 7 7,crosshair;cursor:image-set(url(/cursor/field-dark.png) 1x,url(/cursor/field-dark@2x.png) 2x) 7 7,crosshair}
 :root[data-theme=light] .band{cursor:url(/cursor/field-light.png) 7 7,crosshair;cursor:-webkit-image-set(url(/cursor/field-light.png) 1x,url(/cursor/field-light@2x.png) 2x) 7 7,crosshair;cursor:image-set(url(/cursor/field-light.png) 1x,url(/cursor/field-light@2x.png) 2x) 7 7,crosshair}
+/* a panel sits on the field but isn't it: it is filled with the crosshair's own colour, so over
+   one (the Software windows, a note) the pointer is the browser's again (0252) */
+.band .panel,:root[data-theme=light] .band .panel{cursor:auto}
 
 /* inner pages (Work, the studies, Contact — Home is not one) */
 .inner-page .page-head{padding:var(--s4) 0 0}

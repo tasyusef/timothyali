@@ -25,11 +25,16 @@ export interface Product {
   /** its icon on the Software desktop: a blackletter letter, or its own mark */
   icon: { letter: string } | { mark: string };
   /** its own colours on its icon and window, where it has them (a class in tokens.css) */
-  palette?: 'illuminated';
+  palette?: 'illuminated' | 'coral' | 'yellow' | 'ink';
 }
 
 /** Sonde's mark, from its logo library (03 Mark): 21 cells of 2 units on a 42-unit square */
 const SONDE_MARK = 'M4 0h34v2h-34zM2 2h38v2h-38zM0 4h42v2h-42zM0 6h8v2h-8zM34 6h8v2h-8zM0 8h6v2h-6zM36 8h6v2h-6zM0 10h6v2h-6zM14 10h14v2h-14zM36 10h6v2h-6zM0 12h6v2h-6zM12 12h18v2h-18zM36 12h6v2h-6zM0 14h6v2h-6zM10 14h22v2h-22zM36 14h6v2h-6zM0 16h6v2h-6zM10 16h8v2h-8zM24 16h8v2h-8zM36 16h6v2h-6zM0 18h6v2h-6zM10 18h6v2h-6zM26 18h6v2h-6zM36 18h6v2h-6zM0 20h6v2h-6zM10 20h6v2h-6zM26 20h6v2h-6zM36 20h6v2h-6zM0 22h6v2h-6zM10 22h6v2h-6zM26 22h6v2h-6zM36 22h6v2h-6zM0 24h6v2h-6zM10 24h8v2h-8zM24 24h8v2h-8zM36 24h6v2h-6zM0 26h6v2h-6zM10 26h22v2h-22zM36 26h6v2h-6zM0 28h6v2h-6zM12 28h18v2h-18zM36 28h6v2h-6zM0 30h6v2h-6zM14 30h14v2h-14zM36 30h6v2h-6zM0 32h6v2h-6zM18 32h6v2h-6zM36 32h6v2h-6zM0 34h8v2h-8zM18 34h6v2h-6zM34 34h8v2h-8zM0 36h42v2h-42zM2 38h38v2h-38zM4 40h34v2h-34z';
+
+/** Tome's mark (0254): its row of tabs over a page, the open tab joined to it, with Jacquard 24's t
+    cut out on the same 2-unit cells. The t's stem is on the page's centre line, and the t sits a unit
+    high of the middle, where its ink balances (its foot is heavier than its point). */
+const TOME_MARK = 'M4 2h12v10h-12zM18 4h10v6h-10zM30 4h8v6h-8zM4 12h34v2h-34zM4 14h17v2h-17zM23 14h15v6h-15zM4 16h15v4h-15zM4 20h13v2h-13zM27 20h11v2h-11zM4 22h15v10h-15zM23 22h15v10h-15zM4 32h13v2h-13zM27 32h11v2h-11zM4 34h17v2h-17zM25 34h13v2h-13zM4 36h34v4h-34z';
 
 const sonde = index.find((p) => p.slug === 'sonde');
 
@@ -38,7 +43,7 @@ export const products: Product[] = [
     slug: 'toolbox', name: TOOLBOX.name, kind: 'Desktop app', href: '/toolbox/', platforms: TOOLBOX.platforms, version: TOOLBOX.version,
     line: 'Packages logos, exports palettes, makes type sheets, and converts images. From the app, a terminal, or an AI assistant.',
     links: [{ label: 'Downloads and guides', href: '/toolbox/' }, { label: 'Case study', href: '/work/toolbox/' }],
-    icon: { letter: 'T' },
+    icon: { letter: 'T' }, palette: 'yellow',
     shot: { src: '/toolbox/home.png', w: 2880, h: 1744, alt: 'Toolbox’s projects home' }
   },
   {
@@ -49,7 +54,7 @@ export const products: Product[] = [
       { label: 'Case study', href: '/work/sonde/' },
       ...(sonde?.source ? [{ label: 'Source', href: sonde.source.href }] : [])
     ],
-    icon: { mark: SONDE_MARK },
+    icon: { mark: SONDE_MARK }, palette: 'coral',
     shot: { src: '/work/sonde/screens/home.png', w: 2880, h: 1800, alt: 'Sonde’s home page: one search box over a pixel globe' }
   },
   {
@@ -63,7 +68,7 @@ export const products: Product[] = [
     slug: 'tome', name: TOME.name, kind: 'WoW Forever addon', href: '/gryphon/#tome', platforms: [], version: TOME.version,
     line: 'One set of tabs on the character, spellbook, talents, guild, collections, and group finder windows, plus bags.',
     links: [{ label: 'Install with Gryphon', href: '/gryphon/#tome' }, { label: 'Source', href: TOME.source }],
-    icon: { letter: 't' }
+    icon: { mark: TOME_MARK }, palette: 'ink'
   }
 ];
 

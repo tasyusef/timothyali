@@ -15,9 +15,10 @@
   import { knockout, measureBoxes, type Box } from '$lib/knockout';
   import { CELL_TEXTURE, TICK_SLOW } from '$lib/tokens';
   import { studyCell } from '$lib/studyScenes';
+  import { pageCell } from '$lib/pageScenes';
   import { sceneCell, boltAt, PALETTES, MAT, MOUNTAIN_REFS, layoutMountains, shotHasRidge, planetHold, planetGeom, type Palette, type Shot, type Mountains, type Par, type Depth, type Pan, type PlanetCache, type Bolt } from '$lib/scene';
   type Mode = 'noise' | 'fall' | 'scan' | 'sparse' | 'sky' | 'bands' | 'scene';
-  let { mode = 'noise' as Mode, cell = CELL_TEXTURE, px = 2, seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad = 1, feather = 3, interactive = true, reach = 4.5, flip = false, shade = false, skySpan = 'box', skyRepeat = false, palette = 'scene' as Palette, lightAs = 'same' as 'same' | 'dither', mountains = '' as '' | 'a' | 'b', shot = 'hero' as Shot, hug = false, depth = 1, clear = '', clearFeather = undefined as number | undefined, sceneSpan = 'screen' as 'screen' | 'box', study = '', parallax = null as Depth | null, pan = null as Pan | null, soft = '', softDepth = 0.5 }: { mode?: Mode; cell?: number; px?: number; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; interactive?: boolean; reach?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; clearFeather?: number; sceneSpan?: 'screen' | 'box'; study?: string; parallax?: Depth | null; pan?: Pan | null; soft?: string; softDepth?: number } = $props();
+  let { mode = 'noise' as Mode, cell = CELL_TEXTURE, px = 2, seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad = 1, feather = 3, interactive = true, reach = 4.5, flip = false, shade = false, skySpan = 'box', skyRepeat = false, palette = 'scene' as Palette, lightAs = 'same' as 'same' | 'dither', mountains = '' as '' | 'a' | 'b', shot = 'hero' as Shot, hug = false, depth = 1, clear = '', clearFeather = undefined as number | undefined, sceneSpan = 'screen' as 'screen' | 'box', study = '', page = '', parallax = null as Depth | null, pan = null as Pan | null, soft = '', softDepth = 0.5 }: { mode?: Mode; cell?: number; px?: number; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; interactive?: boolean; reach?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; clearFeather?: number; sceneSpan?: 'screen' | 'box'; study?: string; page?: string; parallax?: Depth | null; pan?: Pan | null; soft?: string; softDepth?: number } = $props();
   // `shade` colours by weight instead: the heaviest glyph is the accent and every lighter
   // step sinks toward the ground, so a dense field reads as a few bright points on dark.
   // Each mode has one thing that draws in the accent: the rain's droplet, the scan's line,
@@ -101,8 +102,9 @@
   let bursts: Burst[] = [];
   let paper = '';
 
-  // a study's strip draws its own scene (0179); every other scene field draws a shot of the landing's world
-  const scene = (x: number, y: number, t: number, c: number, S: number) => (study ? studyCell(study, x, y, t, c, S, seed) : sceneCell(x, y, t, c, S, seed, shot, mtn, par));
+  // a study's strip draws its own scene (0179), and so does a page that has one (0255); every other
+  // scene field draws a shot of the landing's world
+  const scene = (x: number, y: number, t: number, c: number, S: number) => (page ? pageCell(page, x, y, t, c, S, seed, rows / screenRows, screenRows * cell) : study ? studyCell(study, x, y, t, c, S, seed) : sceneCell(x, y, t, c, S, seed, shot, mtn, par));
   type Cell = { v: number; ch?: string; hot?: boolean; c?: number; o?: boolean; fade?: number; tex?: boolean; s?: number; sky?: number };
   const field = (x: number, y: number, t: number): Cell => {
     if (mode === 'scene') return scene(x, y, t, cols, screenRows);
@@ -436,7 +438,7 @@
   // out again while it is up, and once more when it goes
   let boltKey = '', boltBoxes: [number, number, number, number][] = [];
   function strike() {
-    if (mode !== 'scene' || study || shot !== 'hero' || !mtn || bS.length !== cols * rows) return;
+    if (mode !== 'scene' || study || page || shot !== 'hero' || !mtn || bS.length !== cols * rows) return;
     const d = dithering() ? 2 : 1, b = boltAt(frame, seed, cols * d, screenRows * d, mtn, par), key = b ? b.key : '';
     if (key === boltKey) return;
     for (const box of [...boltBoxes, ...(b ? b.boxes : [])]) {
@@ -473,7 +475,7 @@
     const reach = Math.min(rows, Math.ceil(screenRows * (1 + Math.max(0, ...(p ? p.off : [0]))) + 2)), n = Math.max(reach, parRows); parRows = reach;
     const clear = (y0: number, y1: number) => { y0 = Math.max(0, y0); y1 = Math.min(rows, y1); if (y1 <= y0) return; rowFrame.fill(-1, y0, y1); liveOk.fill(0, y0, y1); bS.fill(0, y0 * cols, y1 * cols); dS.fill(0, y0 * cols * 4, y1 * cols * 4); bO.fill(0, y0 * cols, y1 * cols); dO.fill(0, y0 * cols * 4, y1 * cols * 4); };
     const M = mtn;
-    if (!old || !p || !M || !M.layer || shot !== 'hero' || study) { clear(0, n); return; }
+    if (!old || !p || !M || !M.layer || shot !== 'hero' || study || page) { clear(0, n); return; }
     // only the rows of what moved (0247): the pan steps every few ticks, and each step cleared the whole screen's
     // still cells, so the mountains were worked out again cell by cell. A layer is cleared from the top of its own
     // pixels, where it was and where it is, to the picture's foot; the planet over its disc and haze; the stars,
@@ -533,7 +535,7 @@
       if (bK.length !== n) { bV = new Float32Array(n); bC = new Int8Array(n); bHot = new Uint8Array(n); bK = new Float32Array(n); bCh = new Array(n); dV = new Float32Array(n * 4); dC = new Int8Array(n * 4); rowFrame = new Int32Array(rows); rowK = new Int32Array(rows); rowDirty = new Uint8Array(rows); shown = new Int32Array(n); aff = new Uint8Array(n); bS = new Uint8Array(n); dS = new Uint8Array(n * 4); bO = new Uint8Array(n); dO = new Uint8Array(n * 4); cm = new Uint8Array(n); rowLo = new Int32Array(rows); rowHi = new Int32Array(rows); affN = new Int32Array(rows); rowLazy = new Uint8Array(rows); liveOk = new Uint8Array(rows); live = []; }
       if (liveTmp.length < cols * 4) liveTmp = new Uint16Array(cols * 4);
       // the planet's rows only (it sits in the first screen and sinks at most 1.5 × 0.4 of one): geometry is two Float64 a cell
-      if (mode === 'scene' && !study) { const cap = Math.min(rows, Math.ceil(screenRows * 2) + 4) * cols * 4; if (!pc || pc.gx.length !== cap) pc = { gx: new Float64Array(cap), ga: new Float64Array(cap), gy: new Float64Array(rows * 2), gb: new Float64Array(rows * 2), tr: [], turb: 0, z: 0, w: 0, a: 0 }; pcN = cap; if (holdT.length !== cap) holdT = new Int32Array(cap); } else { pc = null; pcN = 0; }
+      if (mode === 'scene' && !study && !page) { const cap = Math.min(rows, Math.ceil(screenRows * 2) + 4) * cols * 4; if (!pc || pc.gx.length !== cap) pc = { gx: new Float64Array(cap), ga: new Float64Array(cap), gy: new Float64Array(rows * 2), gb: new Float64Array(rows * 2), tr: [], turb: 0, z: 0, w: 0, a: 0 }; pcN = cap; if (holdT.length !== cap) holdT = new Int32Array(cap); } else { pc = null; pcN = 0; }
       rowFrame.fill(-1); rowDirty.fill(1); kVersion++; shown.fill(-1); bS.fill(0); dS.fill(0); bO.fill(0); dO.fill(0); holdT.fill(0); cm.fill(0); rowLo.fill(cols); rowHi.fill(-1); affN.fill(0); aff.fill(0); rowLazy.fill(0); liveOk.fill(0);
       const cs = getComputedStyle(host); color = cs.color; accentColor = cs.getPropertyValue('--accent-text').trim(); paper = cs.getPropertyValue('--paper').trim(); resetTiles(); pal32 = null;
       baseDirty = false; measuredFrame = -1;
@@ -554,10 +556,10 @@
     }
     const dith = dithering(), P = pad, F = feather, H = hug, D = depth;
     // props read once here, not once a cell: each is a getter
-    const md = mode, st = study, sd = seed, sh = shot, fl = flip, M = mtn, C = cols, SR = screenRows, PR = par;
-    const MF = md === 'scene' && !st && sh === 'hero' && !fl && M && M.layer && PR ? M : null, BB = MF ? boltAt(frame, sd, C * (dith ? 2 : 1), SR * (dith ? 2 : 1), M, PR) : null; if (MF) tones(MF);
+    const md = mode, st = study, pg = page, sd = seed, sh = shot, fl = flip, M = mtn, C = cols, SR = screenRows, PR = par, foot = rows / SR, spanPx = SR * cell;
+    const MF = md === 'scene' && !st && !pg && sh === 'hero' && !fl && M && M.layer && PR ? M : null, BB = MF ? boltAt(frame, sd, C * (dith ? 2 : 1), SR * (dith ? 2 : 1), M, PR) : null; if (MF) tones(MF);
     const G = pc, GN = pcN, dens = density, lazy = !wet && G !== null && motion.on; if (frame < lastFrame) holdT.fill(0); lastFrame = frame;
-    const sc: (x: number, y: number, t: number, c: number, S: number, open?: boolean, gi?: number) => Cell = st ? (x, y, t, c, S) => studyCell(st, x, y, t, c, S, sd) : (x, y, t, c, S, open, gi) => sceneCell(x, y, t, c, S, sd, sh, M, PR, open, G, gi, !dith);
+    const sc: (x: number, y: number, t: number, c: number, S: number, open?: boolean, gi?: number) => Cell = pg ? (x, y, t, c, S) => pageCell(pg, x, y, t, c, S, sd, foot, spanPx) : st ? (x, y, t, c, S) => studyCell(st, x, y, t, c, S, sd) : (x, y, t, c, S, open, gi) => sceneCell(x, y, t, c, S, sd, sh, M, PR, open, G, gi, !dith);
     for (let y = y0; y < y1; y++) {
       if (rowK[y] !== kVersion) { rowK[y] = kVersion; for (let x = 0; x < cols; x++) { const i = y * cols + x, k = Math.fround(knockout(x + 0.5, y + 0.5, boxes, P, F, H, D)); if (k !== bK[i]) { bK[i] = k; rowDirty[y] = 1; if (dith) holdT.fill(0, i * 4, i * 4 + 4); else if (i < holdT.length) holdT[i] = 0; if (rowLazy[y]) rowFrame[y] = -1; } } } // hugged knockouts are rounded too (0174)
       if (rowFrame[y] === frame && !(wet && rowLazy[y])) continue; rowFrame[y] = frame; rowLazy[y] = 0; let moved = 0, lo = cols, hi = -1;

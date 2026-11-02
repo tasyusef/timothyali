@@ -62,8 +62,20 @@
    mark pair is its icon's, the same in both themes. */
 .illuminated{--paper:#17120e;--fg:#efe4cc;--accent:#e2553a;--accent-text:#e2553a;--accent-on-fg:#b3301c;--accent-field:#e2553a;--on-accent:#17120e;--mark-ground:#efe4cc;--mark-ink:#b3301c}
 :root[data-theme=light] .illuminated{--paper:#efe4cc;--fg:#1d1712;--accent:#b3301c;--accent-text:#b3301c;--accent-on-fg:#e2553a;--accent-field:#b3301c;--on-accent:#f6edd8}
-/* a panel that wears it keeps a panel's red, the one that reads on its ground */
-.illuminated.panel,:root[data-theme=light] .illuminated.panel{--accent-text:var(--accent-on-fg)}
+/* Sonde's coral (0250, 0253): one coral fill in both themes, as in Sonde's globals.css, on the
+   site's own ink and white. Sonde has no coral for type on a light ground, so the deep one here is
+   the same coral at oklch lightness .52 (5.1:1 on --white, like --yellow-deep). Its icon: coral on ink. */
+.coral{--accent:#e8856c;--accent-text:#e8856c;--accent-on-fg:#a54932;--on-accent:var(--ink);--mark-ground:#11110e;--mark-ink:#e8856c}
+:root[data-theme=light] .coral{--accent-text:#a54932;--accent-on-fg:#e8856c}
+/* Toolbox's colours are the site's; only its icon's pair, ink on yellow (0253) */
+.yellow{--mark-ground:var(--yellow);--mark-ink:var(--ink)}
+/* Tome's Ink (0254): no colour, only the site's own two. Its accent is whichever of them the ground
+   isn't: paper on the page, ink on a panel. Its icon: paper on ink in both themes. */
+.ink{--paper:var(--ink);--fg:var(--white);--accent:var(--white);--accent-text:var(--white);--accent-on-fg:var(--ink);--accent-field:var(--white);--on-accent:var(--ink);--mark-ground:var(--ink);--mark-ink:var(--white)}
+:root[data-theme=light] .ink{--paper:var(--white);--fg:var(--ink);--accent:var(--ink);--accent-text:var(--ink);--accent-on-fg:var(--white);--accent-field:var(--ink);--on-accent:var(--white)}
+.ink.panel,:root[data-theme=light] .ink.panel{--accent:var(--paper);--on-accent:var(--fg)}
+/* a panel that wears a product's colours keeps a panel's accent, the one that reads on its ground */
+:is(.illuminated,.coral,.ink).panel,:root[data-theme=light] :is(.illuminated,.coral,.ink).panel{--accent-text:var(--accent-on-fg)}
 @media(max-width:700px){:root{--gutter:16px;--chrome-height:104px}}
 /* asked for more contrast: dimming is the site's only low-contrast text, so it goes (PX-125) */
 @media(prefers-contrast:more){:root,:root[data-theme=light]{--dim:1;--dim-on-fg:1}}

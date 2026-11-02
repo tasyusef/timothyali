@@ -122,7 +122,8 @@
   </header>
   </div>
   {@render children()}
-  <footer class="global-footer lbl" class:home-footer={page.url.pathname === '/'}>
+  <!-- a page that is one screen carries this line in its own foot (`ownFoot`, Software's desktop, 0256) -->
+  {#if !page.data.ownFoot}<footer class="global-footer lbl" class:home-footer={page.url.pathname === '/'}>
     <span class="dim">(C) {new Date().getFullYear()} Timothy Ali</span>
-  </footer>
+  </footer>{/if}
 </div>
