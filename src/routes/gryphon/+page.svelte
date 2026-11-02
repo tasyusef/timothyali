@@ -31,7 +31,7 @@
     catch { failed = true; }
   }
 </script>
-<main class="gryphon-landing" id="main" tabindex="-1">
+<main class="gryphon-landing illuminated" id="main" tabindex="-1">
   <Band class="gryphon-hero" mode="bands" seed={11} density={0.7} flip shade hug pad={0} feather={12} depth={0.85} clearFeather={3} avoid=".hero-copy h1 .decode > [aria-hidden]:not(.cursor)" clear=".hero-copy .lead, .hero-actions > *">
     <div class="hero-copy">
       <h1 class="blackletter display-xl" data-ink="gryphon."><Decode text="gryphon." step={STEP} /></h1>
@@ -84,6 +84,8 @@
 <style>
 /* The hero, the section head, the release block and the panel are the Toolbox landing's (its
    +page.svelte); the points are its tool showcase with a screen in place of the diagram. */
+/* the page wears Gryphon's colours (.illuminated, 0251); the header and footer keep the site's */
+.gryphon-landing{background:var(--paper);color:var(--fg)}
 .gryphon-landing :global(.gryphon-hero){padding:var(--s4) var(--gutter) var(--s8)}
 .hero-copy{margin-top:var(--s2);width:fit-content;max-width:100%}.hero-copy .lead{margin-top:var(--s2)}
 .hero-actions{display:flex;align-items:center;gap:var(--s4);flex-wrap:wrap;margin-top:var(--s4)}

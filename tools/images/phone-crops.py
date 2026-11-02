@@ -30,10 +30,10 @@ CROPS = {
   'static/work/firstledger/guide-07.png': (0.12, 0.30, 0.88, 0.75),
   'static/work/firstledger/guide-08.png': (0.22, 0.30, 0.78, 0.75),
   # Gryphon's screens (PX-137): the rows of each main panel, cut where no line of text is cut
-  'static/gryphon/picks.png':    (0.235, 0.365, 0.815, 0.84),
+  'static/gryphon/picks.png':    (0.235, 0.365, 0.83, 0.84),
   'static/gryphon/github.png':   (0.235, 0.12, 0.93, 0.52),
-  'static/gryphon/folders.png':  (0.235, 0.12, 0.95, 0.52),
-  'static/gryphon/settings.png': (0.235, 0.30, 0.875, 0.69),
+  'static/gryphon/folders.png':  (0.235, 0.12, 0.975, 0.52),
+  'static/gryphon/settings.png': (0.235, 0.325, 0.875, 0.73),
 }
 only = sys.argv[1] if len(sys.argv) > 1 else ''
 for src, (x0, y0, x1, y1) in CROPS.items():

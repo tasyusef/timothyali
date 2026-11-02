@@ -21,7 +21,8 @@ colours and project covers come from this repository; no external service is use
   study or a tool automatically includes it in generation and metadata via the
   `studies` and `tools` exports.
 - Gryphon (PX-137): its hero at share size (`gryphon`), the Toolbox hero's composition
-  with Gryphon's field, name, lead and action. Tome shares the page, so it has no image.
+  with Gryphon's field, name, lead and action, in Gryphon's own colours (`.illuminated`,
+  0251). Tome shares the page, so it has no image.
 
 `src/lib/social.ts` owns the public origin and per-page preview copy. The origin is
 `https://www.timothyali.com`, retained from the previous site. `SocialMeta.svelte`

@@ -30,13 +30,13 @@
   <Band class="desk" mode="scene" shot="hero" mountains="a" seed={10} avoid=".desk .icons a, .desk .win.open">
     <nav class="icons" aria-label="Apps and tools" bind:this={icons}>
       {#each products as p (p.slug)}
-        <a href={`#${p.slug}`} aria-current={open === p.slug ? 'true' : undefined} onclick={(e) => pick(e, p.slug)}><span class="glyph" aria-hidden="true">{#if 'mark' in p.icon}<svg viewBox="0 0 42 42" shape-rendering="crispEdges"><path d={p.icon.mark} fill="currentColor" /></svg>{:else}<span class="blackletter" data-ch={p.icon.letter}>{p.icon.letter}</span>{/if}</span><span class="lbl">{p.name}</span></a>
+        <a href={`#${p.slug}`} class={p.palette} aria-current={open === p.slug ? 'true' : undefined} onclick={(e) => pick(e, p.slug)}><span class="glyph" aria-hidden="true">{#if 'mark' in p.icon}<svg viewBox="0 0 42 42" shape-rendering="crispEdges"><path d={p.icon.mark} fill="currentColor" /></svg>{:else}<span class="blackletter" data-ch={p.icon.letter}>{p.icon.letter}</span>{/if}</span><span class="lbl">{p.name}</span></a>
       {/each}
     </nav>
     <div class="stack" class:arrive={moved}>
       {#each behind as p, i (p.slug)}<div class="ghost panel" style:--i={i + 1} aria-hidden="true"><div class="title lbl"><span>{p.name}</span></div></div>{/each}
       {#each products as p (p.slug)}
-        <article class="win panel" class:open={open === p.slug} id={p.slug} aria-labelledby={`${p.slug}-name`} onanimationend={remeasure}>
+        <article class={['win panel', p.palette]} class:open={open === p.slug} id={p.slug} aria-labelledby={`${p.slug}-name`} onanimationend={remeasure}>
           <h2 class="title lbl"><a id={`${p.slug}-name`} href={p.href}>{p.name}</a><span>{p.version ? `v${p.version}` : 'Live'}</span></h2>
           <div class="screen">
             {#if p.shot}<Picture src={p.shot.src} alt={p.shot.alt} width={p.shot.w} height={p.shot.h} eager={warm || p.slug === products[0].slug} sizes="(max-width: 700px) 100vw, 880px" />
@@ -57,7 +57,8 @@
 .software-landing :global(.desk){min-height:calc(100svh - var(--s8));padding:var(--s4) var(--gutter) var(--s8);display:grid;grid-template-columns:120px minmax(0,1fr);gap:var(--s4);align-items:start}
 .icons{display:flex;flex-direction:column;gap:var(--s3)}
 .icons a{display:flex;flex-direction:column;align-items:center;gap:var(--s1);padding:var(--s1);color:inherit}
-.glyph{width:72px;height:72px;display:grid;place-items:center;background:var(--fg);color:var(--paper);overflow:hidden}
+/* a product with its own colours shows its real icon's pair at rest (Gryphon: red on vellum, 0251) */
+.glyph{width:72px;height:72px;display:grid;place-items:center;background:var(--mark-ground,var(--fg));color:var(--mark-ink,var(--paper));overflow:hidden}
 .glyph .blackletter{font-size:86px;line-height:72px;transform:translate(var(--dx,0),var(--dy,0))}
 .glyph svg{width:42px;height:42px}
 /* optical centring: each letter's ink measured in its 72 (phone 48) box, moved by whole pixels to the middle */

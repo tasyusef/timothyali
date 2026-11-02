@@ -79,7 +79,7 @@
     </Band>
   {:else if data.id === 'gryphon'}
     <!-- Gryphon's hero at share size (PX-137): the Toolbox composition with Gryphon's field, name, lead and action. -->
-    <Band class="og-toolbox og-gryphon" mode="bands" seed={11} density={0.7} flip shade hug pad={0} feather={12} depth={0.85} clearFeather={3} avoid=".og-gryphon h1 .decode > [aria-hidden]:not(.cursor)" clear=".og-gryphon .lead, .og-actions > *">
+    <Band class="og-toolbox og-gryphon illuminated" mode="bands" seed={11} density={0.7} flip shade hug pad={0} feather={12} depth={0.85} clearFeather={3} avoid=".og-gryphon h1 .decode > [aria-hidden]:not(.cursor)" clear=".og-gryphon .lead, .og-actions > *">
       <h1 class="blackletter display-xl" data-ink="gryphon."><Decode text="gryphon." /></h1>
       <p class="lead">WoW Forever addons,<br />straight from GitHub.</p>
       <div class="og-actions"><Cta href="/gryphon/#download">Download <Arrow /></Cta></div>
@@ -168,6 +168,7 @@
 /* Toolbox — the landing's hero at share size: top row, the name, the lead, the actions */
 .og :global(.og-toolbox){display:flex;flex-direction:column;align-items:flex-start}
 .og :global(.og-toolbox .lead){font-size:22px;line-height:32px;margin-top:var(--s2)}
+.og :global(.og-gryphon){background:var(--paper);color:var(--fg)} /* Gryphon's own colours, as on its page (0251) */
 .og-actions{display:flex;align-items:center;gap:var(--s4);margin-top:var(--s4)}
 
 /* Agents — the page head and the command plate */

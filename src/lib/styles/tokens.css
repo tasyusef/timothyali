@@ -57,6 +57,13 @@
   color-scheme:dark;
 }
 :root[data-theme=light]{--dim:.65;--dim-on-fg:.75;--paper:var(--white);--fg:var(--ink);color-scheme:light;--accent-text:var(--yellow-deep);--accent-on-fg:var(--yellow);--accent-field:var(--yellow-field)}
+/* Gryphon's own colours from 0.3.0 (0251), the app's brand.css: candlelit night and vellum, vermilion
+   for the action. Worn by its page, its share image and its window on the Software desktop. The
+   mark pair is its icon's, the same in both themes. */
+.illuminated{--paper:#17120e;--fg:#efe4cc;--accent:#e2553a;--accent-text:#e2553a;--accent-on-fg:#b3301c;--accent-field:#e2553a;--on-accent:#17120e;--mark-ground:#efe4cc;--mark-ink:#b3301c}
+:root[data-theme=light] .illuminated{--paper:#efe4cc;--fg:#1d1712;--accent:#b3301c;--accent-text:#b3301c;--accent-on-fg:#e2553a;--accent-field:#b3301c;--on-accent:#f6edd8}
+/* a panel that wears it keeps a panel's red, the one that reads on its ground */
+.illuminated.panel,:root[data-theme=light] .illuminated.panel{--accent-text:var(--accent-on-fg)}
 @media(max-width:700px){:root{--gutter:16px;--chrome-height:104px}}
 /* asked for more contrast: dimming is the site's only low-contrast text, so it goes (PX-125) */
 @media(prefers-contrast:more){:root,:root[data-theme=light]{--dim:1;--dim-on-fg:1}}

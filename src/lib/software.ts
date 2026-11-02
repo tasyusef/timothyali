@@ -24,6 +24,8 @@ export interface Product {
   shot?: Shot;
   /** its icon on the Software desktop: a blackletter letter, or its own mark */
   icon: { letter: string } | { mark: string };
+  /** its own colours on its icon and window, where it has them (a class in tokens.css) */
+  palette?: 'illuminated';
 }
 
 /** Sonde's mark, from its logo library (03 Mark): 21 cells of 2 units on a 42-unit square */
@@ -54,7 +56,7 @@ export const products: Product[] = [
     slug: 'gryphon', name: GRYPHON.name, kind: 'Desktop app', href: '/gryphon/', platforms: GRYPHON.platforms, version: GRYPHON.version,
     line: 'Installs and updates WoW Forever addons straight from their GitHub releases. No account, no ads.',
     links: [{ label: 'Download', href: '/gryphon/#download' }, { label: 'Source', href: GRYPHON_REPO }],
-    icon: { letter: 'G' },
+    icon: { letter: 'G' }, palette: 'illuminated',
     shot: { src: '/gryphon/picks.png', w: 2160, h: 1440, alt: 'Gryphon’s Picks screen' }
   },
   {

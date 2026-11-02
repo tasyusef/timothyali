@@ -5,7 +5,7 @@
 import type { Shot } from './toolbox.ts';
 
 /** The one version and the one place the downloads live: change them here and every link follows. */
-export const VERSION = '0.2.1';
+export const VERSION = '0.3.0';
 /** The public downloads repo, named as Toolbox's is (tasyusef/toolbox). */
 export const REPO = 'https://github.com/tasyusef/gryphon';
 export const RELEASES = `${REPO}/releases`;
@@ -30,7 +30,7 @@ export const builds = [
 ];
 
 // Each screen has a phone crop of its rows (tools/images/phone-crops.py), as Toolbox's do (0206).
-const PHONE: Record<string, [number, number]> = { picks: [1200, 656], github: [1200, 460], folders: [1200, 448], settings: [1200, 488] };
+const PHONE: Record<string, [number, number]> = { picks: [1200, 639], github: [1200, 460], folders: [1200, 433], settings: [1200, 506] };
 const shot = (name: string, alt: string): Shot => ({ src: `/gryphon/${name}.png`, w: 2160, h: 1440, alt, phone: { src: `/gryphon/${name}-phone.png`, w: PHONE[name][0], h: PHONE[name][1] } });
 
 export interface Point { title: string; text: string; shot: Shot }
@@ -38,7 +38,7 @@ export const points: Point[] = [
   {
     title: 'Picks I’ve checked.',
     text: 'It comes with a short list of addons I’ve checked have real Forever builds: OpenMap, Questie, DialogueUI, and Spoken, plus Spoken’s quest voices. It checks for updates and installs them when you say so.',
-    shot: shot('picks', 'Gryphon’s Picks screen: OpenMap, Questie, and DialogueUI with their versions, all five picks installed and up to date.')
+    shot: shot('picks', 'Gryphon’s Picks screen: OpenMap, Questie, and DialogueUI with their versions, all five picks installed and an update ready for Questie.')
   },
   {
     title: 'Any addon on GitHub.',
@@ -53,7 +53,7 @@ export const points: Point[] = [
   {
     title: 'A backup first.',
     text: 'Before an update or a removal touches an addon, its old folder goes to Interface/.gryphon-backup, so you can always get it back. If it can’t find the game, point it at the folder in Settings.',
-    shot: shot('settings', 'Gryphon’s Settings: the game folder it found, buttons to choose another or open the AddOns and backup folders, and the note on backups open: before an update or removal, the old copy moves to Interface/.gryphon-backup.')
+    shot: shot('settings', 'Gryphon’s Settings: the game folder it found, and buttons to choose another or open the AddOns and backup folders, with backups in Interface/.gryphon-backup.')
   }
 ];
 
