@@ -20,7 +20,7 @@ const launch = process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIU
 const covers = [
   {
     // Sonde 2 (2026-11): the home page's globe on its own ground, the pixel lockup at 21 cells × 6 device px
-    out: 'static/work/sonde/cover.png', ground: '#11110E', glow: '242,214,0', screen: 'static/work/sonde/screens/home.png',
+    out: 'static/work/sonde/cover.png', ground: '#11110E', glow: '232,133,108', screen: 'static/work/sonde/screens/home.png',
     logo: `<div class="lock"><span class="svg" style="height:70px">${mark('sonde-horizontal-dark.svg')}</span></div>`
   },
   {

@@ -400,7 +400,7 @@ const source: Source[] = [
     blocks: [
       { type: 'text', title: 'One search box', paras: [
         "There’s one search box for everything. It takes an address, a transaction hash, a ledger number, an NFT ID, or a token name and works out which one you meant.",
-        "On a phone, away from the home page, search is a yellow button in the bottom corner. The box opens at the bottom of the screen, within reach of a thumb, with matching tokens listed above it. Tables drop the columns that don’t fit, and an account’s tabs fold into a menu."
+        "On a phone, away from the home page, search is a coral button in the bottom corner. The box opens at the bottom of the screen, within reach of a thumb, with matching tokens listed above it. Tables drop the columns that don’t fit, and an account’s tabs fold into a menu."
       ] },
       { type: 'gallery', note: 'On a phone: home, search with token suggestions, an account, and an NFT.', rows: [[
         sn('mobile-home', 780, 1688, 'Sonde on a phone: the search box over the pixel globe'),
@@ -429,20 +429,20 @@ const source: Source[] = [
       { type: 'gallery', note: 'The network page: the XRP price on a pixel chart, the server’s status, and the latest ledgers as they close.', rows: [[sn('network', 2416, 1676, 'Sonde network page: the XRP price on a pixel line chart, market and server figures, and the latest ledgers', [1616, 960])]] },
       { type: 'text', title: 'A pixel identity', paras: [
         "The new Sonde is drawn on whole pixels, in the visual language of Toolbox, my design app. Sonde’s own headings and labels are set in PARC Pixel, a typeface I drew, and all ledger data and text in Departure Mono. Shapes are square with hard 1px edges, and dither fills stand in for boxes.",
-        "Yellow marks only the main action and where you are. Each transaction family has its own color, tuned in OKLCH and checked for contrast in the dark and light themes. Icons, the logo, and the globe sit on the same pixel grid."
+        "Coral, the first version’s accent, marks only the main action and where you are. Each transaction family has its own color, tuned in OKLCH and checked for contrast in the dark and light themes, and errors are rose so they never read as coral. Icons, the logo, and the globe sit on the same pixel grid."
       ] },
       { type: 'gallery', note: 'The account page in the light theme.', rows: [[sn('account-light', 2416, 1706, 'Sonde account page in the light theme: the same balance, details, and transactions on a light ground', [1576, 656])]] },
       { type: 'text', title: 'Logo and brand kit', paras: [
-        "I built the logo files with Toolbox’s lockup tool: 193 files across the horizontal, stacked, mark, and wordmark versions, for print and web. The yellow is PMS 7405 C, the ink Neutral Black C. A social kit adds avatars and banners for eight platforms on dark, yellow, and light grounds."
+        "I built the logo files with Toolbox’s lockup tool: 200 files across the horizontal, stacked, mark, and wordmark versions, for print and web. The coral is PMS 486 C, the ink Neutral Black C. A social kit adds avatars and banners for eight platforms on dark, coral, and light grounds."
       ] },
       { type: 'gallery', note: 'Banners and avatars from the social kit, on its three grounds.', rows: [
         [so('brand/banner-dark.png', 3000, 1000, 'Sonde banner on the dark ground: the logo, “A free, easy-to-read explorer for the XRP Ledger,” and the pixel globe')],
-        [so('brand/banner-yellow.png', 3000, 1000, 'Sonde banner on the yellow ground'), so('brand/banner-light.png', 3000, 1000, 'Sonde banner on the light ground')],
-        [so('brand/avatar-dark.png', 1080, 1080, 'Sonde avatar: the yellow mark on ink'), so('brand/avatar-yellow.png', 1080, 1080, 'Sonde avatar: the ink mark on yellow'), so('brand/avatar-light.png', 1080, 1080, 'Sonde avatar: the ink mark on paper')]
+        [so('brand/banner-coral.png', 3000, 1000, 'Sonde banner on the coral ground'), so('brand/banner-light.png', 3000, 1000, 'Sonde banner on the light ground')],
+        [so('brand/avatar-dark.png', 1080, 1080, 'Sonde avatar: the coral mark on ink'), so('brand/avatar-coral.png', 1080, 1080, 'Sonde avatar: the ink mark on coral'), so('brand/avatar-light.png', 1080, 1080, 'Sonde avatar: the ink mark on paper')]
       ] },
       { type: 'text', title: 'The first version', paras: [
         "The first Sonde was a bigger product: Next.js in front of PostgreSQL, ClickHouse, and Neo4j. It had portfolio tracking, wallet scoring, fund tracing through up to six transfers, and Ask the Ledger, which answered questions in plain English with Claude. It launched with paid portfolio and investigation tools. Later the whole explorer went free, with the questions on a $5-a-month Pro plan.",
-        "It used a dark slate ground and a salmon accent, with Satoshi, DM Sans, and IBM Plex Mono. I shut it down in July 2026. It cost more to run than subscriptions brought in, and it had lost direction: too many features, no clear idea who they served, and little use."
+        "It used a dark slate ground and a coral accent, with Satoshi, DM Sans, and IBM Plex Mono. I shut it down in July 2026. It cost more to run than subscriptions brought in, and it had lost direction: too many features, no clear idea who they served, and little use."
       ] },
       { type: 'gallery', note: 'The first version’s account page, with a smart money score, a risk profile, and a counterparty graph.', rows: [[desk(sc('account-overview', 1786, 1254, 'The first Sonde’s account page: balance, smart money score, risk profile, and counterparty graph'))]] },
       { type: 'gallery', note: 'A wallet’s score out of 100 and what went into it.', rows: [[sc('smart-money-detail', 1786, 728, 'The first Sonde’s Smart Money detail: a score of 64 out of 100, its score factors, and score history', [887, 728])]] },
@@ -452,7 +452,7 @@ const source: Source[] = [
         "So I kept the explorer and set the rest aside. Scoring, fund tracing, and the questions are shelved, and Sonde is free with no sign-in. The balance-first account page is the one layout that came through, redrawn in the new identity."
       ] },
       { type: 'gallery', note: 'The balance, in the first version and now.', rows: [[
-        sc('account-balance', 1248, 413, 'The first Sonde’s balance card: 157.199903 XRP in salmon, in a rounded card on dark slate', [752, 309]),
+        sc('account-balance', 1248, 413, 'The first Sonde’s balance card: 157.199903 XRP in coral, in a rounded card on dark slate', [752, 309]),
         sn('account-balance', 1576, 656, 'The new Sonde’s balance: 157.199903 XRP in Departure Mono, on the page ground with no card')
       ]] },
       { type: 'text', title: 'Outcome', paras: [

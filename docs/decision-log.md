@@ -2946,3 +2946,11 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Change:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.8, so all eight download links follow. `toolbox-options.ts` synced from the 1.2.8 CLI: only its header line changes.
 - **Samples:** `samples.mjs` rerun with 1.2.8. Lockup's zip changes only its EPS creator lines ("Toolbox 1.2.8"); Palette, Specimen and Convert are byte-identical.
 - **Status:** published on 2026-11-01 with the v1.2.8 GitHub release.
+
+
+## 0250: Sonde's coral is back (2026-11-01)
+
+- **Timothy's direction:** in the Sonde repo, "can you show me sonde but with the original sonde brand color instead of the yellow?" Shown the first Sonde's coral (`#E8856C`) in place of the yellow, with error moved to rose and escrow to lime so nothing else reads as coral, he chose "2": go coral, update the portfolio, swap the brand kits. He gave no other reason.
+- **Change:** the study's screens are recaptured from the coral build with the same cuts; the cover's mark and glow are coral; the brand images are the coral social kit (`banner-coral`, `avatar-coral` replace the yellow pair). Copy: the phone search button is coral; "A pixel identity" names coral as the first version's accent and says errors are rose; "Logo and brand kit" gives PMS 486 C, coral grounds, and 200 files (the library holds 200 and a README; the study said 193). The first version's accent is now called coral, not salmon: it is the same `#E8856C`.
+- **Assistant's choices (proposed, awaiting his review):** the copy lines; PMS 486 C, picked by ΔE2000 from pantonr's coated Lab data (3.42; next is 170 C at 5.66), not checked against a physical guide.
+- **Status:** committed, not pushed (2026-11-01). It should go out with Sonde's own push, so the study matches the live site.

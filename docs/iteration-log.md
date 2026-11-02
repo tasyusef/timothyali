@@ -1371,3 +1371,12 @@ Pushed on 2026-11-01, after the v1.2.8 GitHub release was public.
 - **Downloads:** `APP.version` and the Windows and Linux `VERSIONS` are 1.2.8; `toolbox-options.ts` from the 1.2.8 binary (header only).
 - **Samples:** Lockup's zip and manifest remade with 1.2.8 (EPS creator lines only); the other three manifests change only their `generated` line.
 - **Checks:** `pnpm check` 0/0, 44 tests, build, `seo:check` (in a worktree holding only these changes).
+
+
+## PX-145: Sonde in coral (2026-11-01, 0250)
+
+- **Screens:** recaptured at 1440 × 2 and 390 × 2 from a local build of Sonde's coral commit (`692229d6`) on the live relay, cut with PX-138's boxes, so every file keeps its size. Ledger, transaction and NFT show the same data as before; the rest is live. The ledger phone crop, the transaction phone crop and both NFT crops hold no accent and came out byte-identical.
+- **Brand:** `banner-coral.png` and `avatar-coral.png` replace the yellow pair; dark and light remade from the coral kit (Bluesky 3000px, Instagram 1080px).
+- **Cover:** `marks/sonde-horizontal-dark.svg` mark `#E8856C`, glow `232,133,108`; phone crop recut.
+- **Share:** only the Work collage's Sonde tile changes. `social:generate` ran with the uncommitted hero work (0247, 0248) in the tree, so the new tile was pasted into the committed `work.png` and the other share images were left as committed.
+- **Checks:** `pnpm check` 0/0, 44 tests, build, `social:verify` PASS. All 22 study images load, no horizontal overflow, both themes checked.
