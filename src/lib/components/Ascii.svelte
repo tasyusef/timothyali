@@ -15,9 +15,9 @@
   import { knockout, measureBoxes, type Box } from '$lib/knockout';
   import { CELL_TEXTURE, TICK_SLOW } from '$lib/tokens';
   import { studyCell } from '$lib/studyScenes';
-  import { sceneCell, PALETTES, MAT, MOUNTAIN_REFS, layoutMountains, shotHasRidge, type Palette, type Shot, type Mountains, type Par, type Depth, type Pan } from '$lib/scene';
+  import { sceneCell, boltAt, PALETTES, MAT, MOUNTAIN_REFS, layoutMountains, shotHasRidge, type Palette, type Shot, type Mountains, type Par, type Depth, type Pan } from '$lib/scene';
   type Mode = 'noise' | 'fall' | 'scan' | 'sparse' | 'sky' | 'bands' | 'scene';
-  let { mode = 'noise' as Mode, cell = CELL_TEXTURE, px = 2, seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad = 1, feather = 3, interactive = true, reach = 4.5, flip = false, shade = false, skySpan = 'box', skyRepeat = false, palette = 'scene' as Palette, lightAs = 'same' as 'same' | 'dither', mountains = '' as '' | 'a' | 'b', shot = 'hero' as Shot, hug = false, depth = 1, clear = '', clearFeather = undefined as number | undefined, sceneSpan = 'screen' as 'screen' | 'box', study = '', parallax = null as Depth | null, pan = null as Pan | null }: { mode?: Mode; cell?: number; px?: number; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; interactive?: boolean; reach?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; clearFeather?: number; sceneSpan?: 'screen' | 'box'; study?: string; parallax?: Depth | null; pan?: Pan | null } = $props();
+  let { mode = 'noise' as Mode, cell = CELL_TEXTURE, px = 2, seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad = 1, feather = 3, interactive = true, reach = 4.5, flip = false, shade = false, skySpan = 'box', skyRepeat = false, palette = 'scene' as Palette, lightAs = 'same' as 'same' | 'dither', mountains = '' as '' | 'a' | 'b', shot = 'hero' as Shot, hug = false, depth = 1, clear = '', clearFeather = undefined as number | undefined, sceneSpan = 'screen' as 'screen' | 'box', study = '', parallax = null as Depth | null, pan = null as Pan | null, soft = '', softDepth = 0.5 }: { mode?: Mode; cell?: number; px?: number; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; interactive?: boolean; reach?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; clearFeather?: number; sceneSpan?: 'screen' | 'box'; study?: string; parallax?: Depth | null; pan?: Pan | null; soft?: string; softDepth?: number } = $props();
   // `shade` colours by weight instead: the heaviest glyph is the accent and every lighter
   // step sinks toward the ground, so a dense field reads as a few bright points on dark.
   // Each mode has one thing that draws in the accent: the rain's droplet, the scan's line,
@@ -103,7 +103,7 @@
 
   // a study's strip draws its own scene (0179); every other scene field draws a shot of the landing's world
   const scene = (x: number, y: number, t: number, c: number, S: number) => (study ? studyCell(study, x, y, t, c, S, seed) : sceneCell(x, y, t, c, S, seed, shot, mtn, par));
-  type Cell = { v: number; ch?: string; hot?: boolean; c?: number; o?: boolean; fade?: number; tex?: boolean; s?: number };
+  type Cell = { v: number; ch?: string; hot?: boolean; c?: number; o?: boolean; fade?: number; tex?: boolean; s?: number; sky?: number };
   const field = (x: number, y: number, t: number): Cell => {
     if (mode === 'scene') return scene(x, y, t, cols, screenRows);
     if (mode === 'noise') { const v = fbm(x / 6 + t * 0.04, y / 4 - t * 0.015, seed, 2); return { v, hot: v > 0.9 }; }
@@ -121,7 +121,7 @@
   };
   const dithering = () => mode === 'scene' && lightAs === 'dither' && theme.light;
   // `clear` (0177): selectors knocked out in full whatever `depth` is, for small type over the picture
-  function measure() { const root = host.closest('.band') ?? document, r = canvas.getBoundingClientRect(); boxes = [...(avoid ? measureBoxes(root, avoid, r, cell, hug) : []), ...(clear ? measureBoxes(root, clear, r, cell, hug, 1, clearFeather) : [])]; } // `clearFeather` (0191): the cleared small type fades over its own, shorter distance
+  function measure() { const root = host.closest('.band') ?? document, r = canvas.getBoundingClientRect(); boxes = [...(avoid ? measureBoxes(root, avoid, r, cell, hug) : []), ...(clear ? measureBoxes(root, clear, r, cell, hug, 1, clearFeather) : []), ...(soft ? measureBoxes(root, soft, r, cell, hug, softDepth) : [])]; } // `clearFeather` (0191): the cleared small type fades over its own, shorter distance; `soft` (0244): type the field only thins under, by `softDepth`
 
   // --- the pointer's swell ------------------------------------------------
   const local = (e: PointerEvent) => { const r = canvas.getBoundingClientRect(); return { x: (e.clientX - r.left) / cell, y: (e.clientY - r.top) / cell }; };
@@ -383,7 +383,8 @@
   let shown = new Int32Array(0);
   // cells drawn wet last time (under the swell or a ring), so they are drawn once more when dry; and
   // cells and dither pixels whose scene value never changes, worked out once (`s` from sceneCell)
-  let aff = new Uint8Array(0), bS = new Uint8Array(0), dS = new Uint8Array(0);
+  // and the moving cells no ridge covers (`sky`), so they skip the ridge until the layers move
+  let aff = new Uint8Array(0), bS = new Uint8Array(0), dS = new Uint8Array(0), bO = new Uint8Array(0), dO = new Uint8Array(0);
   let last = 0;
   // Parallax and pan (PX-139, mock): as the page scrolls off the first screen, the far range, the
   // massifs, the planet and the stars sink behind the near ridge at their own speeds (`parallax`);
@@ -391,26 +392,45 @@
   // (`pan`: the near ridge's swing in widths, and the seconds a round trip takes). Still with motion
   // off. When the layers move, the cells the scene marked still are worked out again.
   const SWAY = { far: 0.35, mid: 0.6, planet: 0.15, stars: 0.06 };
-  let par: Par | null = null, parKey = '';
+  let par: Par | null = null, parKey = '', parRows = 0;
   function depthNow(): Par | null {
     if (mode !== 'scene' || !motion.on || (!parallax && !pan)) return null;
     const p = parallax, s = p ? Math.min(1.5, Math.max(0, window.scrollY / (screenRows * cell))) : 0;
-    const k = pan ? pan.amount * Math.sin((2 * Math.PI * frame * tick) / 1000 / pan.period) : 0;
+    // the pan moves in steps of half a cell of the near ridge (one dither square in light), not
+    // every tick: at the live swing that is a few px a second, so the mountains are worked out
+    // again every few ticks instead of every one
+    const q = 0.5 / Math.max(1, cols), k = pan ? Math.round((pan.amount * Math.sin((2 * Math.PI * frame * tick) / 1000 / pan.period)) / q) * q : 0;
     return { off: [p ? s * (1 - p.far) : 0, p ? s * (1 - p.mid) : 0, 0], pan: [k * SWAY.far, k * SWAY.mid, k], planet: [p ? s * (1 - p.planet) : 0, k * SWAY.planet], stars: [p ? s * (1 - p.stars) : 0, k * SWAY.stars] };
+  }
+  // Lightning (PX-140): the cells a bolt touches are static the rest of the time, so they are worked
+  // out again while it is up, and once more when it goes
+  let boltKey = '', boltBoxes: [number, number, number, number][] = [];
+  function strike() {
+    if (mode !== 'scene' || study || shot !== 'hero' || !mtn || bS.length !== cols * rows) return;
+    const d = dithering() ? 2 : 1, b = boltAt(frame, seed, cols * d, screenRows * d, mtn), key = b ? b.key : '';
+    if (key === boltKey) return;
+    for (const box of [...boltBoxes, ...(b ? b.boxes : [])]) {
+      const x0 = Math.max(0, Math.floor(box[0] * screenRows)), x1 = Math.min(cols, Math.ceil(box[2] * screenRows) + 1);
+      const y0 = Math.max(0, Math.floor(box[1] * screenRows)), y1 = Math.min(rows, Math.ceil(box[3] * screenRows) + 1);
+      for (let y = y0; y < y1; y++) { bS.fill(0, y * cols + x0, y * cols + x1); dS.fill(0, (y * cols + x0) * 4, (y * cols + x1) * 4); rowFrame[y] = -1; }
+    }
+    boltKey = key; boltBoxes = b ? b.boxes : [];
   }
   function shift() {
     const p = depthNow(), key = p ? `${p.off}|${p.pan}|${p.planet}|${p.stars}` : '';
     if (key === parKey) return; parKey = key; par = p;
     if (bS.length !== cols * rows) return;
-    const n = Math.min(rows, Math.ceil(screenRows * 1.6));
-    rowFrame.fill(-1, 0, n); bS.fill(0, 0, n * cols); dS.fill(0, 0, n * cols * 4);
+    // the picture's foot is on the first screen's foot, sunk by the parallax as the page scrolls;
+    // the rows it reached before are cleared too, so a layer rising back leaves nothing behind
+    const reach = Math.min(rows, Math.ceil(screenRows * (1 + Math.max(0, ...(p ? p.off : [0]))) + 2)), n = Math.max(reach, parRows); parRows = reach;
+    rowFrame.fill(-1, 0, n); bS.fill(0, 0, n * cols); dS.fill(0, 0, n * cols * 4); bO.fill(0, 0, n * cols); dO.fill(0, 0, n * cols * 4);
   }
   // rows are worked out as they are painted, so a tick costs only the rows on screen
   function rebuild(y0: number, y1: number) {
     const n = cols * rows;
     if (baseDirty || bK.length !== n) {
-      if (bK.length !== n) { bV = new Float32Array(n); bC = new Int8Array(n); bHot = new Uint8Array(n); bK = new Float32Array(n); bCh = new Array(n); dV = new Float32Array(n * 4); dC = new Int8Array(n * 4); rowFrame = new Int32Array(rows); rowK = new Int32Array(rows); rowDirty = new Uint8Array(rows); shown = new Int32Array(n); aff = new Uint8Array(n); bS = new Uint8Array(n); dS = new Uint8Array(n * 4); }
-      rowFrame.fill(-1); rowDirty.fill(1); kVersion++; shown.fill(-1); bS.fill(0); dS.fill(0);
+      if (bK.length !== n) { bV = new Float32Array(n); bC = new Int8Array(n); bHot = new Uint8Array(n); bK = new Float32Array(n); bCh = new Array(n); dV = new Float32Array(n * 4); dC = new Int8Array(n * 4); rowFrame = new Int32Array(rows); rowK = new Int32Array(rows); rowDirty = new Uint8Array(rows); shown = new Int32Array(n); aff = new Uint8Array(n); bS = new Uint8Array(n); dS = new Uint8Array(n * 4); bO = new Uint8Array(n); dO = new Uint8Array(n * 4); }
+      rowFrame.fill(-1); rowDirty.fill(1); kVersion++; shown.fill(-1); bS.fill(0); dS.fill(0); bO.fill(0); dO.fill(0);
       const cs = getComputedStyle(host); color = cs.color; accentColor = cs.getPropertyValue('--accent-text').trim(); paper = cs.getPropertyValue('--paper').trim(); resetTiles(); pal32 = null;
       baseDirty = false; measuredFrame = -1;
     }
@@ -431,7 +451,7 @@
     const dith = dithering(), P = pad, F = feather, H = hug, D = depth;
     // props read once here, not once a cell: each is a getter
     const md = mode, st = study, sd = seed, sh = shot, fl = flip, M = mtn, C = cols, SR = screenRows, PR = par;
-    const sc: (x: number, y: number, t: number, c: number, S: number) => Cell = st ? (x, y, t, c, S) => studyCell(st, x, y, t, c, S, sd) : (x, y, t, c, S) => sceneCell(x, y, t, c, S, sd, sh, M, PR);
+    const sc: (x: number, y: number, t: number, c: number, S: number, open?: boolean) => Cell = st ? (x, y, t, c, S) => studyCell(st, x, y, t, c, S, sd) : (x, y, t, c, S, open) => sceneCell(x, y, t, c, S, sd, sh, M, PR, open);
     for (let y = y0; y < y1; y++) {
       if (rowK[y] !== kVersion) { rowK[y] = kVersion; for (let x = 0; x < cols; x++) { const i = y * cols + x, k = Math.fround(knockout(x + 0.5, y + 0.5, boxes, P, F, H, D)); if (k !== bK[i]) { bK[i] = k; rowDirty[y] = 1; } } } // hugged knockouts are rounded too (0174)
       if (rowFrame[y] === frame) continue; rowFrame[y] = frame; let moved = 0;
@@ -440,7 +460,7 @@
         if (dith) {
           for (let j = 0; j < 2; j++) for (let q = 0; q < 2; q++) {
             const o = i * 4 + j * 2 + q; if (dS[o]) continue;
-            const X = 2 * x + q, Y = 2 * y + j, f = sc(X, Y, frame, C * 2, SR * 2); if (f.s) dS[o] = 1;
+            const X = 2 * x + q, Y = 2 * y + j, f = sc(X, Y, frame, C * 2, SR * 2, dO[o] === 1); if (f.s) dS[o] = 1; else if (f.sky) dO[o] = 1;
             // rock is drawn by its shadows, like ink: snow and lit faces stay paper; the planet keeps its colour; the sky is open paper;
             // the page texture below (`tex`) is drawn as it is, in the rock's colours
             const rock = !!f.o && !f.tex && (f.c === MAT.rock || f.c === MAT.shade || f.c === MAT.snow);
@@ -450,8 +470,8 @@
           }
         } else {
           if (bS[i]) continue;
-          const f = md === 'scene' ? sc(fl ? C - 1 - x : x, y, frame, C, SR) : field(fl ? C - 1 - x : x, y, frame), v = Math.fround(f.v), c = f.c ?? -1, hot = f.hot ? 1 : 0;
-          if (f.s) bS[i] = 1;
+          const f = md === 'scene' ? sc(fl ? C - 1 - x : x, y, frame, C, SR, bO[i] === 1) : field(fl ? C - 1 - x : x, y, frame), v = Math.fround(f.v), c = f.c ?? -1, hot = f.hot ? 1 : 0;
+          if (f.s) bS[i] = 1; else if (f.sky) bO[i] = 1;
           if (v !== bV[i] || c !== bC[i] || hot !== bHot[i] || f.ch !== bCh[i]) { bV[i] = v; bC[i] = c; bHot[i] = hot; bCh[i] = f.ch; moved = 1; }
         }
       }
@@ -535,7 +555,7 @@
   // looks up to WAVE.most rows away, so those rows are worked out too while either is up.
   function paintRows(y0: number, y1: number) {
     if (!ctx || !cols || !rows) return;
-    shift();
+    shift(); strike();
     const wet = rb[2] >= 0 || rbLast[2] >= 0 || hb[2] >= 0 || gb[2] >= 0, ry0 = wet ? Math.max(0, y0 - WAVE.most) : y0, ry1 = wet ? Math.min(rows, y1 + WAVE.most) : y1;
     rebuild(ry0, ry1);
     const row = dithering() ? ditherRow : glyphRow;

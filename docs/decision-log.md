@@ -2911,3 +2911,11 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Change:** every scene band switches cell size with the theme (`sceneGrain` in `tokens.ts`, applied in `Band.svelte`): Home, the study strips, Contact, 404 and the error page. Dark draws 5×5 glyphs (`GLYPHS5`), light dithers at 2px. The knockouts' fades keep their width in px (96 and 24px by default). The share images will pick it up the next time they are generated. Details in PX-139.
 - **Cost:** idle main thread at 1440 with no pan (dev build): Home dark 42 → 44 ms/s, light 62 → 105 ms/s; the strips (which tick faster) about double: Sonde 15 → 31 dark, 34 → 60 light; PARC 27 → 46 dark, 59 → 128 light.
 - **Status:** pushed on 2026-11-01. The PX-139 parallax and pan ship only as the dev lab (`/dev/hero/`, a 404 in production).
+
+
+## 0244: parallax and pan on Home, lightning more often, a softer name knockout (2026-11-01)
+
+- **Timothy's direction:** after the lightning (PX-140), he sent the hero lab set to grain 6px, parallax on (far range 0.80, massifs 0.90, planet 0.60, stars 0.50) and pan on (swing 0.015, loop 30 s), with "lightning more often and these settings." Then, on the knockout behind the name: "i also wonder if we can get ridof the knockout behind the hero text. just the display stuff that says hi im tim", then "maybe we keep the knockout but make it less strong". He gave no reasons.
+- **Change:** Home's parallax and pan use those values (no longer lab-only). A bolt comes about every five seconds instead of ten. The display name thins the field at depth 0.5 (other knockouts stay 0.85). The grain stays on 0243: asked whether the lab's 6px meant light too, he said "keep 4px in light". Details in PX-140.
+- **Cost:** idle main thread, production build, last commit → now: 1440 light 118 → 155 ms/s, dark 44 → 50; 390 light 62 → 76, dark 26 → 29.
+- **Status:** committed, not pushed (2026-11-01).

@@ -4,7 +4,7 @@
 // there (`v`, which picks the glyph) and what it is made of (`c`, which picks the colour), so
 // it stays on the grid, knocks out around text and answers the pointer like any field.
 // The scene is composed in one window height (`S` rows); the planet's bands drift slowly.
-import { fbm, hash2 } from '$lib/prng';
+import { fbm, hash2, noise2 } from '$lib/prng';
 import { INK, WHITE, YELLOW, YELLOW_FIELD } from '$lib/tokens';
 
 /** what a cell is made of; the palettes below give each one a colour per theme */
@@ -146,16 +146,71 @@ function rock(M: Mountains, fx: number, q: number, y: number, S: number, foot0?:
   return { v: Math.max(0.14, v) * foot, c: L > 0.66 ? MAT.snow : L > 0.4 ? MAT.rock : MAT.shade, o: true, fade: fade * foot, s: 1 };
 }
 
+// Lightning on the hero (PX-140), after FirstStrike's strip (0179): now and then a bolt from the
+// top of the sky down behind the peaks, a double flicker, and an afterglow on the rock where it
+// lands. Measured in screens like the rest; `t` counts the field's ticks (160 ms on Home), so a
+// period is about five seconds, most of them with a strike (more often on Timothy's word, 0244); the first comes about four seconds
+// in. None before then, so motion off (`t` stays 0) and the first paint stay still. `boxes` are what it touches, in screens (the
+// bolt, its fork, the glow), so the field works only those cells out again while it is up (and once more to clear it).
+const BOLT = { period: 32, glow: 8, chance: 0.85, from: 0.04, reach: 0.14, first: 24 };
+export type Bolt = { key: string; x: (w: number) => number; from: number; land: [number, number]; fork: [number, number, number]; flash: number; glow: number; boxes: [number, number, number, number][] };
+// it is asked for once a cell, so the last answer is kept and compared by its numbers first
+let boltMemo: { t: number; seed: number; cols: number; S: number; M: Mountains | null; b: Bolt | null } = { t: -1, seed: 0, cols: 0, S: 0, M: null, b: null };
+export function boltAt(t: number, seed: number, cols: number, S: number, M: Mountains | null): Bolt | null {
+  const m = boltMemo; if (t === m.t && seed === m.seed && cols === m.cols && S === m.S && M === m.M) return m.b;
+  const b = strikeAt(t, seed, cols, S, M); boltMemo = { t, seed, cols, S, M, b }; return b;
+}
+function strikeAt(t: number, seed: number, cols: number, S: number, M: Mountains | null): Bolt | null {
+  const tt = t - BOLT.first; if (tt < 0 || !M) return null;
+  const phase = tt % BOLT.period, id = Math.floor(tt / BOLT.period);
+  if (phase >= BOLT.glow || (id > 0 && hash2(id, 5, seed) > BOLT.chance)) return null;
+  // anywhere from a third of the way across to the right edge
+  const A = cols / S, x0 = A * (0.34 + 0.6 * hash2(id, 1, seed));
+  const x = (w: number) => x0 + 0.1 * (noise2(w * 9, id * 7.3, seed) - 0.5) + 0.035 * (noise2(w * 31, id * 3.1, seed + 1) - 0.5);
+  // it lands on the ridge under its foot: the picture's first solid pixel in that column
+  let land = 1; const ix = Math.round(x(0.6) * S) - M.x0;
+  if (ix >= 0 && ix < M.w) for (let r = 0; r < M.h; r++) if (M.data[(r * M.w + ix) * 4 + 3] > 128) { land = (M.y0 + r) / S; break; }
+  const fw = BOLT.from + (0.35 + 0.2 * hash2(id, 2, seed)) * (land - BOLT.from), dir = hash2(id, 3, seed) > 0.5 ? 1 : -1;
+  const flash = phase === 0 || phase === 2 ? 1 : phase === 1 || phase === 3 ? 0.4 : 0, glow = 1 - phase / BOLT.glow;
+  const fork: [number, number, number] = [fw, fw + 0.4 * (land - fw), dir * 0.6], hw = 2.5 / S;
+  let lo = Infinity, hi = -Infinity; for (let w = BOLT.from; w <= land + 0.02; w += 0.01) { const v = x(w); if (v < lo) lo = v; if (v > hi) hi = v; }
+  const fx0 = x(fw), fx1 = fx0 + (fork[1] - fw) * fork[2], lx = x(land);
+  const boxes: [number, number, number, number][] = [
+    [lo - hw, BOLT.from, hi + hw, land + 0.03],
+    [Math.min(fx0, fx1) - hw, fw, Math.max(fx0, fx1) + hw, fork[1]],
+    [lx - BOLT.reach, land - BOLT.reach, lx + BOLT.reach, land + BOLT.reach],
+  ];
+  const b: Bolt = { key: `${id}|${phase}`, x, from: BOLT.from, land: [lx, land], fork, flash, glow, boxes };
+  return b;
+}
+// the rock near where it lands lights up with the flash and fades with the glow
+function litBy(c: { v: number; c: number; o: boolean; fade?: number; s?: number }, x: number, y: number, S: number, B: Bolt) {
+  const d = Math.hypot((x + 0.5) / S - B.land[0], (y + 0.5) / S - B.land[1]) / BOLT.reach;
+  if (d >= 1) return c;
+  const k = (1 - d) * (1 - d);
+  return { ...c, v: Math.min(1, c.v + k * (0.35 * B.glow + 0.4 * B.flash)), s: undefined };
+}
+// the bolt itself: a line a cell or two wide, wider in the flash, with one fork
+function boltCell(x: number, y: number, S: number, B: Bolt) {
+  const X = (x + 0.5) / S, W = (y + 0.5) / S, hw = (0.6 + 0.6 * B.flash) / S;
+  if (W < B.from || W > B.land[1] + 0.02) return null;
+  const on = Math.abs(X - B.x(W)) < hw || (W > B.fork[0] && W < B.fork[1] && Math.abs(X - (B.x(B.fork[0]) + (W - B.fork[0]) * B.fork[2])) < hw * 0.7);
+  return on ? { v: 0.45 + 0.55 * Math.max(B.glow, B.flash), c: MAT.snow, o: true, tex: true } : null;
+}
+
 // `s: 1` marks a cell that never changes with `t` (the picture, the ridges, the moon, the haze, the stars and
 // the empty sky), so the field works it out once (0218). Anything that reads `t` must leave it unset.
 // With parallax (`P`) the field works those cells out again whenever the layers move.
-export function sceneCell(x: number, y: number, t: number, cols: number, S: number, seed: number, shot: Shot = 'hero', M: Mountains | null = null, P: Par | null = null): { v: number; c: number; o?: boolean; fade?: number; tex?: boolean; s?: number } {
+// `sky: 1` marks a moving cell that no ridge covers (the planet); while the layers stay put the field
+// passes `open` for it, so the planet's cells skip the search through the picture's layers.
+export function sceneCell(x: number, y: number, t: number, cols: number, S: number, seed: number, shot: Shot = 'hero', M: Mountains | null = null, P: Par | null = null, open = false): { v: number; c: number; o?: boolean; fade?: number; tex?: boolean; s?: number; sky?: number } {
   const u = x / Math.max(1, cols), w = y / S, sh = SHOTS[shot];
-  if (sh.ridge && M) {
+  const B = shot === 'hero' ? boltAt(t, seed, cols, S, M) : null;
+  if (open) { /* no ridge here */ } else if (sh.ridge && M) {
     const ix = x - M.x0, iy = y - M.y0;
     if (ix >= 0 && iy >= 0 && ix < M.w && iy < M.h) {
-      if (P && M.layer) { const hit = sunk(M, ix, iy, cols, S, P); if (hit) return rock(M, hit.fx, hit.q, y, S, sh.foot); }
-      else if (M.data[(iy * M.w + ix) * 4 + 3] >= 128) return rock(M, ix, iy, y, S, sh.foot);
+      if (P && M.layer) { const hit = sunk(M, ix, iy, cols, S, P); if (hit) { const r = rock(M, hit.fx, hit.q, y, S, sh.foot); return B ? litBy(r, x, y, S, B) : r; } }
+      else if (M.data[(iy * M.w + ix) * 4 + 3] >= 128) { const r = rock(M, ix, iy, y, S, sh.foot); return B ? litBy(r, x, y, S, B) : r; }
     } else if (iy >= M.h && sh.below) return below(x, y, t, cols, S, seed);
   } else if (sh.ridge) {
   // mountains, nearest first: the first range the cell is under is the one it shows
@@ -177,6 +232,8 @@ export function sceneCell(x: number, y: number, t: number, cols: number, S: numb
     return { v: Math.max(0, Math.min(1, v)) * fadeOut, c: lit ? MAT.rock : MAT.shade, o, s: 1 };
   }
   }
+  // the bolt is behind the peaks (they were drawn first) and in front of the planet
+  if (B) { const b = boltCell(x, y, S, B); if (b) return b; }
   // the planet: huge, low, to the right, lit from the upper left, its round edge in view
   // portrait: sized to the width and raised, so its round edge shows under the chrome
   const portrait = cols < S, b = portrait ? sh.port : sh.land;
@@ -197,7 +254,7 @@ export function sceneCell(x: number, y: number, t: number, cols: number, S: numb
     // the band picks the material and its weight; the light shapes the sphere
     const [c, weight] = band > 0.55 ? [MAT.cream, 1] : band > 0 ? [MAT.orange, 0.86] : band > -0.55 ? [MAT.rust, 0.7] : [MAT.brown, 0.56];
     const v = (0.06 + 0.94 * lam) * weight * (0.9 + 0.2 * turb);
-    return { v: v < 0.07 ? 0 : Math.min(1, v), c, o: true };
+    return { v: v < 0.07 ? 0 : Math.min(1, v), c, o: true, sky: 1 };
   }
   // a thin haze just outside the lit limb
   if (r2 < 1.06 * 1.06) { const lam = Math.max(0, -0.55 * dx - 0.5 * dy); if (lam > 0.2) return { v: 0.16 * lam, c: MAT.cream, s: 1 }; }

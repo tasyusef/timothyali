@@ -1,8 +1,8 @@
 <script lang="ts">
   // The hero's motion lab (PX-139): Home itself, with a panel that turns the parallax and the
-  // slow pan on and tunes them. Scroll to see the parallax; motion must be on.
+  // slow pan off and on and tunes them; leaving puts the live values back. Scroll to see the parallax; motion must be on.
   import Home from '../../+page.svelte';
-  import { heroLab } from '$lib/heroLab.svelte';
+  import { heroLab, resetHeroLab } from '$lib/heroLab.svelte';
   import { onMount } from 'svelte';
   import { projects, card } from '$lib/work';
   // no load file: a tiny route module gets merged into a shared chunk by the build
@@ -10,7 +10,7 @@
   // (svelte.config.js DEV_ONLY; hooks.server.ts answers 404 outside dev), so the catalog here costs nothing live.
   let { data } = $props();
   const home = $derived({ ...data, cards: projects.map(card) });
-  onMount(() => { heroLab.parallax = true; heroLab.pan = true; return () => { heroLab.parallax = false; heroLab.pan = false; heroLab.cell = 0; }; });
+  onMount(() => resetHeroLab);
   const sliders = [['far', 'Far range'], ['mid', 'Massifs'], ['planet', 'Planet'], ['stars', 'Stars']] as const;
 </script>
 {#key heroLab.cell}<Home data={home} />{/key}
