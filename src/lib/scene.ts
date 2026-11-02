@@ -43,7 +43,22 @@ const top = (k: number, u: number) => RANGES[k].base - RANGES[k].amp * ridged(u 
 // reads its own average of the rock under it.
 // grey WebP (0193): the field reads only brightness and alpha, so the colour went; 351 → 73 KB each
 export const MOUNTAIN_REFS = { a: '/hero/mountains-a.webp', b: '/hero/mountains-b.webp' } as const;
-export type Mountains = { x0: number; y0: number; w: number; h: number; data: Uint8ClampedArray };
+// Its depth (PX-139, mock): picture `a` traced by hand into three layers, the far range, the two
+// big massifs and the near ridge, as two lines in the picture's own 836 × 470 pixels: the top of
+// the massifs' layer and the top of the near ridge's. Everything above the first is the far range.
+const DEPTH_W = 836, DEPTH_H = 470;
+const MID_TOP = [[0,300],[40,305],[80,300],[140,300],[150,290],[165,270],[180,256],[190,246],[200,258],[215,240],[245,210],[270,200],[290,215],[295,222],[305,228],[312,240],[320,250],[338,240],[345,262],[360,280],[375,290],[400,305],[420,305],[440,320],[450,330],[500,340],[540,335],[570,330],[600,325],[610,310],[625,285],[640,270],[655,245],[675,232],[700,228],[715,235],[735,232],[745,250],[760,272],[770,290],[800,320],[836,330]];
+const NEAR_TOP = [[0,350],[30,345],[60,325],[80,320],[100,315],[130,308],[150,318],[170,330],[190,345],[220,355],[260,360],[300,365],[340,372],[380,375],[410,350],[420,340],[450,345],[480,350],[510,345],[540,345],[560,350],[600,355],[640,365],[680,385],[700,395],[720,385],[740,400],[760,400],[800,380],[836,390]];
+const lineAt = (L: number[][], x: number) => { for (let i = 1; i < L.length; i++) if (x <= L[i][0]) { const [a, ya] = L[i - 1], [b, yb] = L[i]; return ya + ((yb - ya) * (x - a)) / (b - a); } return L[L.length - 1][1]; };
+/** the picture laid out in cells, with each pixel's layer, 0 far to 2 near */
+export type Mountains = { x0: number; y0: number; w: number; h: number; data: Uint8ClampedArray; layer?: Uint8Array };
+/** Where each layer is (far, massifs, near ridge; the planet; the stars): how far it has sunk as
+ * the page scrolls, in screens (`off`), and how far the slow pan has carried it sideways, in widths (`pan`) */
+export type Par = { off: [number, number, number]; pan: [number, number, number]; planet: [number, number]; stars: [number, number] };
+/** how fast each layer moves as the page scrolls, as a share of the page's own speed: the near ridge moves with it (1) */
+export type Depth = { far: number; mid: number; planet: number; stars: number };
+/** the slow side-to-side drift: the near ridge's swing, in widths, and the seconds a round trip takes */
+export type Pan = { amount: number; period: number };
 
 // One world, several shots (0173): the hero's giant behind the peaks; the giant high over
 // Contact's “building.” ('rise'); one small moon in an empty sky for the 404. A body is placed in fractions of the window: landscape R × its height, portrait R × its width.
@@ -74,11 +89,17 @@ export function layoutMountains(img: HTMLImageElement, cols: number, S: number, 
   const g = c.getContext('2d', { willReadFrequently: true }); if (!g) return null;
   g.imageSmoothingEnabled = true; g.imageSmoothingQuality = 'high'; g.drawImage(img, 0, 0, w, h);
   const data = g.getImageData(0, 0, w, h).data;
-  if (top === undefined) return { x0, y0, w, h, data };
+  // each pixel's layer, 0 far to 2 near, from the traced lines
+  const layer = new Uint8Array(w * h);
+  for (let x = 0; x < w; x++) {
+    const px = ((x + 0.5) / w) * DEPTH_W, m = (lineAt(MID_TOP, px) / DEPTH_H) * h, n = (lineAt(NEAR_TOP, px) / DEPTH_H) * h;
+    for (let y = 0; y < h; y++) layer[y * w + x] = y + 0.5 >= n ? 2 : y + 0.5 >= m ? 1 : 0;
+  }
+  if (top === undefined) return { x0, y0, w, h, data, layer };
   // a strip puts the highest peak, not the picture's empty top, at `top`
   let first = 0;
   find: for (; first < h; first++) for (let x = 0; x < w; x++) if (data[(first * w + x) * 4 + 3] > 128) break find;
-  return { x0, y0: y0 - first, w, h, data };
+  return { x0, y0: y0 - first, w, h, data, layer };
 }
 
 // Below the scene (PX-68, 0169, 0170): the page keeps the hero's old sky texture (0162), in the
@@ -99,21 +120,42 @@ function below(x: number, y: number, t: number, cols: number, S: number, seed: n
   return { v, c: v > 0.45 ? MAT.rock : MAT.shade, o: true, tex: true };
 }
 
+// Which layer of the picture a cell shows once the layers have sunk and panned (PX-139): the
+// nearest whose own pixels are there. Past the picture's sides the pan reads it mirrored, a cell or
+// two at most. The far range takes any of the picture's pixels, so where a nearer layer moves away
+// from what it hid, the gap is filled in with rock, not sky.
+const mirror = (x: number, w: number) => (x < 0 ? -x : x > w - 1 ? 2 * (w - 1) - x : x);
+function sunk(M: Mountains, ix: number, iy: number, C: number, S: number, P: Par) {
+  for (let j = 2; j >= 0; j--) {
+    const q = iy - P.off[j] * S, r = Math.round(q);
+    if (r < 0 || r >= M.h) continue;
+    const fx = mirror(ix - P.pan[j] * C, M.w), k = r * M.w + Math.round(fx), l = M.layer![k];
+    if (M.data[k * 4 + 3] > 128 && (l === j || j === 0)) return { fx, q };
+  }
+  return null;
+}
+// the picture's brightness at a point between pixels, and the cell it makes
+function rock(M: Mountains, fx: number, q: number, y: number, S: number, foot0?: number) {
+  const c0 = Math.max(0, Math.min(M.w - 1, Math.floor(fx))), g = Math.max(0, fx - c0), c1 = Math.min(M.w - 1, c0 + 1);
+  const r0 = Math.max(0, Math.min(M.h - 1, Math.floor(q))), f = Math.max(0, q - r0), r1 = Math.min(M.h - 1, r0 + 1);
+  const at = (r: number, c: number) => M.data[(r * M.w + c) * 4];
+  const L = ((at(r0, c0) * (1 - g) + at(r0, c1) * g) * (1 - f) + (at(r1, c0) * (1 - g) + at(r1, c1) * g) * f) / 255;
+  const v = Math.min(1, Math.max(0, (L - 0.12) / 0.66)) ** 1.1; // stretched: shadows drop away, lit faces and snow carry the shape
+  const fade = Math.min(1, (M.h - q) / (0.14 * M.h)); // the foot of the picture eases out
+  const foot = foot0 ? Math.min(1, Math.max(0, (S - y) / (foot0 * S))) : 1; // a strip eases out at its own foot
+  return { v: Math.max(0.14, v) * foot, c: L > 0.66 ? MAT.snow : L > 0.4 ? MAT.rock : MAT.shade, o: true, fade: fade * foot, s: 1 };
+}
+
 // `s: 1` marks a cell that never changes with `t` (the picture, the ridges, the moon, the haze, the stars and
 // the empty sky), so the field works it out once (0218). Anything that reads `t` must leave it unset.
-export function sceneCell(x: number, y: number, t: number, cols: number, S: number, seed: number, shot: Shot = 'hero', M: Mountains | null = null): { v: number; c: number; o?: boolean; fade?: number; tex?: boolean; s?: number } {
+// With parallax (`P`) the field works those cells out again whenever the layers move.
+export function sceneCell(x: number, y: number, t: number, cols: number, S: number, seed: number, shot: Shot = 'hero', M: Mountains | null = null, P: Par | null = null): { v: number; c: number; o?: boolean; fade?: number; tex?: boolean; s?: number } {
   const u = x / Math.max(1, cols), w = y / S, sh = SHOTS[shot];
   if (sh.ridge && M) {
     const ix = x - M.x0, iy = y - M.y0;
     if (ix >= 0 && iy >= 0 && ix < M.w && iy < M.h) {
-      const i = (iy * M.w + ix) * 4, a = M.data[i + 3] / 255;
-      if (a > 0.5) {
-        const L = M.data[i] / 255;
-        const v = Math.min(1, Math.max(0, (L - 0.12) / 0.66)) ** 1.1; // stretched: shadows drop away, lit faces and snow carry the shape
-        const fade = Math.min(1, (M.h - iy) / (0.14 * M.h)); // the foot of the picture eases out
-        const foot = sh.foot ? Math.min(1, Math.max(0, (S - y) / (sh.foot * S))) : 1; // a strip eases out at its own foot
-        return { v: Math.max(0.14, v) * foot, c: L > 0.66 ? MAT.snow : L > 0.4 ? MAT.rock : MAT.shade, o: true, fade: fade * foot, s: 1 };
-      }
+      if (P && M.layer) { const hit = sunk(M, ix, iy, cols, S, P); if (hit) return rock(M, hit.fx, hit.q, y, S, sh.foot); }
+      else if (M.data[(iy * M.w + ix) * 4 + 3] >= 128) return rock(M, ix, iy, y, S, sh.foot);
     } else if (iy >= M.h && sh.below) return below(x, y, t, cols, S, seed);
   } else if (sh.ridge) {
   // mountains, nearest first: the first range the cell is under is the one it shows
@@ -138,7 +180,7 @@ export function sceneCell(x: number, y: number, t: number, cols: number, S: numb
   // the planet: huge, low, to the right, lit from the upper left, its round edge in view
   // portrait: sized to the width and raised, so its round edge shows under the chrome
   const portrait = cols < S, b = portrait ? sh.port : sh.land;
-  const R = b.R * (portrait ? cols : S), cx = b.cx * cols, cy = b.cy * S;
+  const R = b.R * (portrait ? cols : S), cx = (b.cx + (P ? P.planet[1] : 0)) * cols, cy = (b.cy + (P ? P.planet[0] : 0)) * S;
   const dx = (x + 0.5 - cx) / R, dy = (y + 0.5 - cy) / R, r2 = dx * dx + dy * dy;
   if (r2 < 1) {
     const nz = Math.sqrt(1 - r2);
@@ -160,7 +202,7 @@ export function sceneCell(x: number, y: number, t: number, cols: number, S: numb
   // a thin haze just outside the lit limb
   if (r2 < 1.06 * 1.06) { const lam = Math.max(0, -0.55 * dx - 0.5 * dy); if (lam > 0.2) return { v: 0.16 * lam, c: MAT.cream, s: 1 }; }
   // the sky: a few stars, more of them higher up
-  const s = hash2(x, y, seed + 99);
-  if (s > 0.992 - 0.01 * Math.max(0, 0.5 - w)) return { v: 0.18 + 0.2 * hash2(x, y, seed + 7), c: MAT.star, s: 1 };
+  const sx = P ? Math.round(x - P.stars[1] * cols) : x, sy = P ? Math.round(y - P.stars[0] * S) : y, s = hash2(sx, sy, seed + 99);
+  if (s > 0.992 - 0.01 * Math.max(0, 0.5 - sy / S)) return { v: 0.18 + 0.2 * hash2(sx, sy, seed + 7), c: MAT.star, s: 1 };
   return { v: 0, c: MAT.star, s: 1 };
 }

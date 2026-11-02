@@ -2901,3 +2901,13 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Change:** the Sonde study's Outcome says "open source under the GNU AGPL" (was "the MIT license"). The licence itself changed in the Sonde repo and the public `sonde_os` mirror (AGPL-3.0-only; the fonts keep their own licences).
 - **Status:** pushed on 2026-11-01.
 
+
+## 0243: the hero's grain is 6px in dark, 4px in light (2026-11-01)
+
+- **Timothy's direction:** "can we make the dither/ascii size smaller?" Shown 8px (live), 6px and 4px in the hero lab, with three options, he answered "1": 6px cells in dark, 4px in light. He gave no reason.
+- **Assistant's rationale for proposing it (not his):** at 6px the dark glyphs (5×5) still read as ASCII, where at 4px (3×3) they turn into a mosaic; at 4px the light dither squares are 2px and sit on the hero name's 4px pixels (0208), where 6px's 3px squares would not.
+- **Then the study strips:** offered next steps, he picked "3": the same grain on the case-study heads.
+- **Then Contact and 404:** he picked "2": the same grain there too, then push.
+- **Change:** every scene band switches cell size with the theme (`sceneGrain` in `tokens.ts`, applied in `Band.svelte`): Home, the study strips, Contact, 404 and the error page. Dark draws 5×5 glyphs (`GLYPHS5`), light dithers at 2px. The knockouts' fades keep their width in px (96 and 24px by default). The share images will pick it up the next time they are generated. Details in PX-139.
+- **Cost:** idle main thread at 1440 with no pan (dev build): Home dark 42 → 44 ms/s, light 62 → 105 ms/s; the strips (which tick faster) about double: Sonde 15 → 31 dark, 34 → 60 light; PARC 27 → 46 dark, 59 → 128 light.
+- **Status:** pushed on 2026-11-01. The PX-139 parallax and pan ship only as the dev lab (`/dev/hero/`, a 404 in production).

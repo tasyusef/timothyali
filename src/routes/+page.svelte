@@ -11,13 +11,19 @@
   import WorkList from '$lib/components/home/WorkList.svelte';
   import Invite from '$lib/components/home/Invite.svelte';
   import { MOUNTAIN_REFS } from '$lib/scene';
+  import { heroLab } from '$lib/heroLab.svelte';
+  // the parallax and pan are a mock (PX-139): off here unless the dev route turns them on
+  const parallax = $derived(heroLab.parallax ? { far: heroLab.far, mid: heroLab.mid, planet: heroLab.planet, stars: heroLab.stars } : null);
+  const pan = $derived(heroLab.pan ? { amount: heroLab.amount, period: heroLab.period } : null);
+  // the lab can try another grain; otherwise the Band's own (0243)
+  const cell = $derived(heroLab.cell || undefined);
   let { data } = $props();
 </script>
 <!-- the hero's peaks, asked for with the page rather than once the field's script has run, so the
      scene is drawn once with them and not first without (0214) -->
 <svelte:head><link rel="preload" as="image" type="image/webp" href={MOUNTAIN_REFS.a} /></svelte:head>
 <main id="main" tabindex="-1">
-  <Band as="div" class="page-sky" mode="scene" seed={3} mountains="a" avoid=".hero-name .ghost, .hero-name:not(:has(.decode)) > :not(.sr-only), .invitation h2 > span" clear=".hero-actions > *, .hero-role .ghost, .hero-role:not(:has(.decode)), .list .all, .invitation .cta-row">
+  <Band as="div" class="page-sky" mode="scene" seed={3} mountains="a" {parallax} {pan} {cell} avoid=".hero-name .ghost, .hero-name:not(:has(.decode)) > :not(.sr-only), .invitation h2 > span" clear=".hero-actions > *, .hero-role .ghost, .hero-role:not(:has(.decode)), .list .all, .invitation .cta-row">
     <Hero />
     <WorkList projects={data.cards} />
     <Invite />

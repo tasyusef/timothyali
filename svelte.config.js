@@ -6,7 +6,7 @@ import { SITE_URL } from './src/lib/shared.js';
 // /og/[id] is the dev-only share-image route (tools/social/generate.mjs screenshots it);
 // it declares no entries, so it is never crawled and must not ship. Any other unseen
 // prerenderable route is still a build failure.
-const DEV_ONLY = new Set(['/og/[id]']);
+const DEV_ONLY = new Set(['/og/[id]', '/dev/[lab]']); // and the labs (PX-139)
 // Content-Security-Policy (0207). SvelteKit hashes its own inline scripts and writes the policy
 // into each prerendered page; the one inline script it does not know is app.html's theme
 // script, hashed here from the file so the two cannot drift. Styles stay 'unsafe-inline' (Svelte

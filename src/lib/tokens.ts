@@ -28,6 +28,8 @@ export const GALLERY_GAP = 2 * U;
 /** The image and texture cells (decision 0054); text sits on the unit, U. */
 export const CELL_IMAGE = 2;
 export const CELL_TEXTURE = 16;
+/** The scene's grain on Home and the study strips (0243): 6px cells in dark, 4px in light; 8px elsewhere. */
+export const sceneGrain = (light: boolean) => (light ? 4 : 6);
 
 /** Ascii ambient cadence, ms per field step. */
 export const TICK_SLOW = 160;

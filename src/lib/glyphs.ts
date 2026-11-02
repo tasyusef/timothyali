@@ -25,5 +25,13 @@ const raw: Record<string, string[]> = {
 export const GLYPHS: Record<string, number[]> = Object.fromEntries(
   Object.entries(raw).map(([k, rows]) => [k, rows.map((r) => parseInt(r, 2))])
 );
+// Smaller cells (PX-139, mock): a 6px cell draws each glyph as 5×5, its rows 1 and 5 dropped;
+// a 4px cell draws the ramp as 3×3, anything else falls back to the 5×5's middle.
+export const GLYPHS5: Record<string, number[]> = Object.fromEntries(Object.entries(GLYPHS).map(([k, r]) => [k, [r[0], r[2], r[3], r[4], r[6]]]));
+const micro: Record<string, string[]> = {
+  ' ': ['000','000','000'], '.': ['000','000','010'], ':': ['010','000','010'], '-': ['000','111','000'], '=': ['111','000','111'],
+  '+': ['010','111','010'], '*': ['101','010','101'], '#': ['101','111','101'], '%': ['111','010','111'], '@': ['111','101','111']
+};
+export const GLYPHS3: Record<string, number[]> = Object.fromEntries(Object.entries(GLYPHS5).map(([k, r]) => [k, micro[k] ? micro[k].map((m) => parseInt(m, 2)) : r.slice(1, 4).map((b) => (b >> 1) & 7)]));
 // Density ramp, light to heavy.
 export const RAMP = ' .:-=+*#%@';

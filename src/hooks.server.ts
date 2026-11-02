@@ -23,7 +23,7 @@ function secure(response: Response) {
 
 const route = async ({ event, resolve }: Parameters<Handle>[0]) => {
   const path = event.url.pathname;
-  if (!dev && path.startsWith('/og/') && !path.endsWith('.png')) return new Response('Not found', { status: 404 });
+  if (!dev && ((path.startsWith('/og/') && !path.endsWith('.png')) || path.startsWith('/dev/'))) return new Response('Not found', { status: 404 });
   if (!isPrivatePath(path)) return resolve(event);
   const finish: typeof resolve = async (e, options) => {
     const login = e.url.pathname.replace(/\/$/, '') === '/admin/login';

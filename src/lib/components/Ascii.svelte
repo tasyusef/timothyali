@@ -11,13 +11,13 @@
   import { onMount } from 'svelte';
   import { motion, theme } from '$lib/motion.svelte';
   import { fbm, hash2, BAYER8 } from '$lib/prng';
-  import { GLYPHS, RAMP } from '$lib/glyphs';
+  import { GLYPHS, GLYPHS5, GLYPHS3, RAMP } from '$lib/glyphs';
   import { knockout, measureBoxes, type Box } from '$lib/knockout';
   import { CELL_TEXTURE, TICK_SLOW } from '$lib/tokens';
   import { studyCell } from '$lib/studyScenes';
-  import { sceneCell, PALETTES, MAT, MOUNTAIN_REFS, layoutMountains, shotHasRidge, type Palette, type Shot, type Mountains } from '$lib/scene';
+  import { sceneCell, PALETTES, MAT, MOUNTAIN_REFS, layoutMountains, shotHasRidge, type Palette, type Shot, type Mountains, type Par, type Depth, type Pan } from '$lib/scene';
   type Mode = 'noise' | 'fall' | 'scan' | 'sparse' | 'sky' | 'bands' | 'scene';
-  let { mode = 'noise' as Mode, cell = CELL_TEXTURE, px = 2, seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad = 1, feather = 3, interactive = true, reach = 4.5, flip = false, shade = false, skySpan = 'box', skyRepeat = false, palette = 'scene' as Palette, lightAs = 'same' as 'same' | 'dither', mountains = '' as '' | 'a' | 'b', shot = 'hero' as Shot, hug = false, depth = 1, clear = '', clearFeather = undefined as number | undefined, sceneSpan = 'screen' as 'screen' | 'box', study = '' }: { mode?: Mode; cell?: number; px?: number; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; interactive?: boolean; reach?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; clearFeather?: number; sceneSpan?: 'screen' | 'box'; study?: string } = $props();
+  let { mode = 'noise' as Mode, cell = CELL_TEXTURE, px = 2, seed = 7, tick = TICK_SLOW, density = 1, avoid = '', pad = 1, feather = 3, interactive = true, reach = 4.5, flip = false, shade = false, skySpan = 'box', skyRepeat = false, palette = 'scene' as Palette, lightAs = 'same' as 'same' | 'dither', mountains = '' as '' | 'a' | 'b', shot = 'hero' as Shot, hug = false, depth = 1, clear = '', clearFeather = undefined as number | undefined, sceneSpan = 'screen' as 'screen' | 'box', study = '', parallax = null as Depth | null, pan = null as Pan | null }: { mode?: Mode; cell?: number; px?: number; seed?: number; tick?: number; density?: number; avoid?: string; pad?: number; feather?: number; interactive?: boolean; reach?: number; flip?: boolean; shade?: boolean; skySpan?: 'box' | 'screen'; skyRepeat?: boolean; palette?: Palette; lightAs?: 'same' | 'dither'; mountains?: '' | 'a' | 'b'; shot?: Shot; hug?: boolean; depth?: number; clear?: string; clearFeather?: number; sceneSpan?: 'screen' | 'box'; study?: string; parallax?: Depth | null; pan?: Pan | null } = $props();
   // `shade` colours by weight instead: the heaviest glyph is the accent and every lighter
   // step sinks toward the ground, so a dense field reads as a few bright points on dark.
   // Each mode has one thing that draws in the accent: the rain's droplet, the scan's line,
@@ -81,7 +81,7 @@
   }
   let canvas: HTMLCanvasElement; let host: HTMLElement;
   let ctx: CanvasRenderingContext2D | null = null;
-  let cols = 0, rows = 0, screenRows = 1, lastW = 0, dpr = 1, frame = 0, color = '', accentColor = '', offX = 0, offY = 0;
+  let cols = 0, rows = 0, screenRows = 1, lastW = 0, lastCell = 0, dpr = 1, frame = 0, color = '', accentColor = '', offX = 0, offY = 0;
   let drawn = $state(false);
   // A field that mounts off screen waits for its first draw until it comes within 64px of
   // the viewport (PX-59): Home mounts three, and drawing them all at once was the page's
@@ -102,7 +102,7 @@
   let paper = '';
 
   // a study's strip draws its own scene (0179); every other scene field draws a shot of the landing's world
-  const scene = (x: number, y: number, t: number, c: number, S: number) => (study ? studyCell(study, x, y, t, c, S, seed) : sceneCell(x, y, t, c, S, seed, shot, mtn));
+  const scene = (x: number, y: number, t: number, c: number, S: number) => (study ? studyCell(study, x, y, t, c, S, seed) : sceneCell(x, y, t, c, S, seed, shot, mtn, par));
   type Cell = { v: number; ch?: string; hot?: boolean; c?: number; o?: boolean; fade?: number; tex?: boolean; s?: number };
   const field = (x: number, y: number, t: number): Cell => {
     if (mode === 'scene') return scene(x, y, t, cols, screenRows);
@@ -342,7 +342,7 @@
   const GKEYS = Object.keys(GLYPHS), GI = new Map(GKEYS.map((k, i) => [k, i])), RAMPGI = RAMP.split('').map((c) => GI.get(c) ?? 0), BLANK = GI.get(' ');
   let tiles: (Uint32Array | undefined)[] = [], setCols: (number | undefined)[] = [], palLen = 0, tileKey = '';
   function resetTiles() {
-    const key = color + '|' + accentColor + '|' + paper + '|' + shade + '|' + dpr + '|' + mode + palette + lightAs + theme.light; if (key === tileKey) return; tileKey = key;
+    const key = color + '|' + accentColor + '|' + paper + '|' + shade + '|' + dpr + '|' + cell + '|' + mode + palette + lightAs + theme.light; if (key === tileKey) return; tileKey = key;
     tiles = []; setCols = []; palLen = mode === 'scene' ? PALETTES[palette][theme.light ? 'light' : 'dark'].length : 0;
   }
   function setColour(id: number) {
@@ -356,10 +356,12 @@
   // a tile's code: set × 32 + glyph + 1; 0 is a blank cell
   function tileOf(code: number) {
     let t = tiles[code]; if (t) return t;
-    const col = setColour(code >> 5), bits = GLYPHS[GKEYS[(code & 31) - 1]];
-    const p = px * dpr, s = cell * dpr, ox = Math.floor((s - 5 * p) / 2 / p) * p, oy = Math.floor((s - 7 * p) / 2 / p) * p;
+    // the glyph's size follows the cell's: 5×7 from 7 glyph pixels a cell, 5×5 from 5, 3×3 below (PX-139, mock)
+    const n = cell / px, [set, gw, gh] = n >= 7 ? [GLYPHS, 5, 7] : n >= 5 ? [GLYPHS5, 5, 5] : [GLYPHS3, 3, 3];
+    const col = setColour(code >> 5), bits = set[GKEYS[(code & 31) - 1]];
+    const p = px * dpr, s = cell * dpr, ox = Math.floor((s - gw * p) / 2 / p) * p, oy = Math.floor((s - gh * p) / 2 / p) * p;
     t = new Uint32Array(s * s);
-    for (let r = 0; r < 7; r++) for (let k = 0; k < 5; k++) if (bits[r] & (16 >> k)) for (let a = 0; a < p; a++) for (let b = 0; b < p; b++) { const X = ox + k * p + b, Y = oy + r * p + a; if (X >= 0 && Y >= 0 && X < s && Y < s) t[Y * s + X] = col; }
+    for (let r = 0; r < gh; r++) for (let k = 0; k < gw; k++) if (bits[r] & ((1 << (gw - 1)) >> k)) for (let a = 0; a < p; a++) for (let b = 0; b < p; b++) { const X = ox + k * p + b, Y = oy + r * p + a; if (X >= 0 && Y >= 0 && X < s && Y < s) t[Y * s + X] = col; }
     tiles[code] = t; return t;
   }
   // --- drawing --------------------------------------------------------------
@@ -383,6 +385,26 @@
   // cells and dither pixels whose scene value never changes, worked out once (`s` from sceneCell)
   let aff = new Uint8Array(0), bS = new Uint8Array(0), dS = new Uint8Array(0);
   let last = 0;
+  // Parallax and pan (PX-139, mock): as the page scrolls off the first screen, the far range, the
+  // massifs, the planet and the stars sink behind the near ridge at their own speeds (`parallax`);
+  // and the view drifts slowly side to side and back, the near ridge furthest, the stars least
+  // (`pan`: the near ridge's swing in widths, and the seconds a round trip takes). Still with motion
+  // off. When the layers move, the cells the scene marked still are worked out again.
+  const SWAY = { far: 0.35, mid: 0.6, planet: 0.15, stars: 0.06 };
+  let par: Par | null = null, parKey = '';
+  function depthNow(): Par | null {
+    if (mode !== 'scene' || !motion.on || (!parallax && !pan)) return null;
+    const p = parallax, s = p ? Math.min(1.5, Math.max(0, window.scrollY / (screenRows * cell))) : 0;
+    const k = pan ? pan.amount * Math.sin((2 * Math.PI * frame * tick) / 1000 / pan.period) : 0;
+    return { off: [p ? s * (1 - p.far) : 0, p ? s * (1 - p.mid) : 0, 0], pan: [k * SWAY.far, k * SWAY.mid, k], planet: [p ? s * (1 - p.planet) : 0, k * SWAY.planet], stars: [p ? s * (1 - p.stars) : 0, k * SWAY.stars] };
+  }
+  function shift() {
+    const p = depthNow(), key = p ? `${p.off}|${p.pan}|${p.planet}|${p.stars}` : '';
+    if (key === parKey) return; parKey = key; par = p;
+    if (bS.length !== cols * rows) return;
+    const n = Math.min(rows, Math.ceil(screenRows * 1.6));
+    rowFrame.fill(-1, 0, n); bS.fill(0, 0, n * cols); dS.fill(0, 0, n * cols * 4);
+  }
   // rows are worked out as they are painted, so a tick costs only the rows on screen
   function rebuild(y0: number, y1: number) {
     const n = cols * rows;
@@ -408,8 +430,8 @@
     }
     const dith = dithering(), P = pad, F = feather, H = hug, D = depth;
     // props read once here, not once a cell: each is a getter
-    const md = mode, st = study, sd = seed, sh = shot, fl = flip, M = mtn, C = cols, SR = screenRows;
-    const sc: (x: number, y: number, t: number, c: number, S: number) => Cell = st ? (x, y, t, c, S) => studyCell(st, x, y, t, c, S, sd) : (x, y, t, c, S) => sceneCell(x, y, t, c, S, sd, sh, M);
+    const md = mode, st = study, sd = seed, sh = shot, fl = flip, M = mtn, C = cols, SR = screenRows, PR = par;
+    const sc: (x: number, y: number, t: number, c: number, S: number) => Cell = st ? (x, y, t, c, S) => studyCell(st, x, y, t, c, S, sd) : (x, y, t, c, S) => sceneCell(x, y, t, c, S, sd, sh, M, PR);
     for (let y = y0; y < y1; y++) {
       if (rowK[y] !== kVersion) { rowK[y] = kVersion; for (let x = 0; x < cols; x++) { const i = y * cols + x, k = Math.fround(knockout(x + 0.5, y + 0.5, boxes, P, F, H, D)); if (k !== bK[i]) { bK[i] = k; rowDirty[y] = 1; } } } // hugged knockouts are rounded too (0174)
       if (rowFrame[y] === frame) continue; rowFrame[y] = frame; let moved = 0;
@@ -513,6 +535,7 @@
   // looks up to WAVE.most rows away, so those rows are worked out too while either is up.
   function paintRows(y0: number, y1: number) {
     if (!ctx || !cols || !rows) return;
+    shift();
     const wet = rb[2] >= 0 || rbLast[2] >= 0 || hb[2] >= 0 || gb[2] >= 0, ry0 = wet ? Math.max(0, y0 - WAVE.most) : y0, ry1 = wet ? Math.min(rows, y1 + WAVE.most) : y1;
     rebuild(ry0, ry1);
     const row = dithering() ? ditherRow : glyphRow;
@@ -571,7 +594,7 @@
     offX = ((pageX % g) + g) % g; offY = ((pageY % g) + g) % g;
     cols = Math.ceil((r.width + offX) / cell); rows = Math.ceil((r.height + offY) / cell);
     // measured when the width changes, so a phone's toolbar showing and hiding does not move the sky
-    if ((skySpan === 'screen' || mode === 'scene') && window.innerWidth !== lastW) { screenRows = Math.max(1, window.innerHeight / cell); lastW = window.innerWidth; }
+    if ((skySpan === 'screen' || mode === 'scene') && (window.innerWidth !== lastW || cell !== lastCell)) { lastCell = cell; screenRows = Math.max(1, window.innerHeight / cell); lastW = window.innerWidth; }
     if (mode === 'scene' && sceneSpan === 'box') screenRows = Math.max(1, r.height / cell); // a strip composes on its own height (0178)
     let changed = false;
     if (`${cols}x${rows}` !== sizeKey) { sizeKey = `${cols}x${rows}`; canvas.width = cols * cell * dpr; canvas.height = rows * cell * dpr; canvas.style.width = cols * cell + 'px'; canvas.style.height = rows * cell + 'px'; baseDirty = changed = true; }

@@ -7,7 +7,8 @@
   import Band from '$lib/components/Band.svelte';
   import { rowColumns, rowTiles } from '$lib/rows';
   import type { Row } from '$lib/work';
-  import { STEP, TICK_FAST, U } from '$lib/tokens';
+  import { STEP, TICK_FAST, U, sceneGrain } from '$lib/tokens';
+  import { theme } from '$lib/motion.svelte';
   import { fitWord } from '$lib/fit';
   import { FRAME } from '$lib/figure';
   import { pad } from '$lib/format';
@@ -87,7 +88,7 @@
 <main class="inner-page study" id="main" tabindex="-1">
   <!-- the head is a strip of the landing's world (0178), a scene of its own for each study (0179);
        the reading below stays on the plain ground; the head is the title alone (0187) -->
-  <Band class="head" mode="scene" shot="strip" sceneSpan="box" mountains={hasStudyScene(p.slug) ? '' : 'a'} study={hasStudyScene(p.slug) ? p.slug : ''} seed={Number(p.n) || 3} tick={TICK_FAST} feather={1} avoid=".head .title .decode">
+  <Band class="head" mode="scene" shot="strip" sceneSpan="box" mountains={hasStudyScene(p.slug) ? '' : 'a'} study={hasStudyScene(p.slug) ? p.slug : ''} seed={Number(p.n) || 3} tick={TICK_FAST} feather={8 / sceneGrain(theme.light)} avoid=".head .title .decode">
     <h1 class="display-title title" use:fitWord={p.word}><Decode text={p.word} step={STEP} /></h1>
   </Band>
   <section class="head-intro">
