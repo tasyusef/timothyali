@@ -2772,6 +2772,7 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Supersedes:** 0172's sitewide "Product designer" wording. 0132's product positioning narrows to one of four listed areas.
 - **Assistant's choices, awaiting his eye:** "Designer." over "Design generalist." (the assistant's recommendation; he answered with the LinkedIn wording). Contact's description shortened to "contract work on interfaces, brands, and websites" to stay under the description limit. Contact's page-foot note reads “Interfaces / brands / websites” (was “Interface / motion / code”; his pick, “1”).
 - **Status:** approved by Timothy (“1”: change the Contact note, then commit and push both passes) and pushed on 2026-10-28. The résumé PDF is handled privately and is unchanged here.
+- **Résumé, 2026-11-05:** the hosted `static/resume/Timothy-Ali-Resume.pdf` is now the private builder's new Designer track (title "Designer", his four areas, no front-end claim; Sonde live again, Toolbox on three platforms). Pushed on his “1”.
 
 ## 0230: dragging the field (2026-10-28)
 
