@@ -3039,3 +3039,10 @@ Seeing it, Timothy asked for “slightly darker”. Five candidates were rendere
 - **Assistant's choices (proposed, awaiting his review):** the giant's turbulence reads the home planet's table per row (0247) instead of the noise itself, which differs on a few cells in thousands. The bands under the open window's title bar and screen are worked out once, since the window always covers them. The layout and the moons' places are worked out once a tick instead of once a cell. The share image's scene changes by about as much as the table does, so it isn't re-rendered.
 - **Result:** idle main thread at 1440x900, ms/s, still planet → drifting: dark about 32 → 22–31, light about 32 → 100–114. Home is 124–132 in light and about 35 in dark, so Software stays lighter than Home in both. The bands alone, before these cuts, took dark to about 50 and light to about 151.
 - **Status:** pushed on 2026-11-02 on his "Commit and push".
+
+## 0260: First Ledger's figures updated; no interface claim for xrp.cafe (2026-11-05)
+
+- **Timothy's direction:** "updated firstledger stats": $1.5B in volume, 30M transactions, 275K users. "also i didnt do the interface for cafe."
+- **Change:** the First Ledger study's last line reads "By November 2026, First Ledger had passed $1.5B in volume, 30M transactions, and 275K users." (was mid-2026: $1.2B, 165K peak users, 2M+ wallets). The hosted résumé carries the same figures and no longer says he designed xrp.cafe's interface. The site's xrp.cafe study never claimed it.
+- **Assistant's choices:** "November 2026" as the figures' date; the older wallet and audience counts dropped rather than shown under the new date. The figures stay the platform's scale, never his outcome (0118).
+- **Status:** pushed on 2026-11-05 on his "yeah push".

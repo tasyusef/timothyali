@@ -369,7 +369,7 @@ const source: Source[] = [
         [ph(fl('guide-07.png', 1600, 900, 'First Ledger and xrp.cafe co-branding guidelines, primary lockup'), 1200, 400), ph(fl('guide-08.png', 1600, 900, 'First Ledger and xrp.cafe co-branding guidelines, secondary lockup'), 1200, 543)]
       ] },
       { type: 'text', title: 'Outcome', paras: [
-        "I handed over the logo, the lockups, the type system, and the guidelines, co-branding layouts included. By mid-2026, First Ledger had passed $1.2B in transaction volume, 165K peak users, and more than 2M wallets created."
+        "I handed over the logo, the lockups, the type system, and the guidelines, co-branding layouts included. By November 2026, First Ledger had passed $1.5B in volume, 30M transactions, and 275K users."
       ] }
     ]
   },
