@@ -66,7 +66,7 @@ export const products: Product[] = [
   },
   {
     slug: 'tome', name: TOME.name, kind: 'WoW Forever addon', href: '/gryphon/#tome', platforms: [], version: TOME.version,
-    line: 'One set of tabs on the character, spellbook, talents, guild, collections, and group finder windows, plus bags.',
+    line: 'One set of tabs on every window the menu bar opens, plus bags.',
     links: [{ label: 'Install with Gryphon', href: '/gryphon/#tome' }, { label: 'Source', href: TOME.source }],
     icon: { mark: TOME_MARK }, palette: 'ink'
   }

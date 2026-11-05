@@ -70,7 +70,7 @@
   <section class="tome panel ink" id="tome" aria-labelledby="tome-title">
     <div class="tome-heading"><span class="lbl dim">v{TOME.version}</span><h2 id="tome-title" class="blackletter">tome.</h2></div>
     <div class="tome-copy">
-      <p class="body">Tome is an addon for WoW Forever. It puts one set of tabs on the windows you open most, so getting from one to another takes a click. It works in combat.</p>
+      <p class="body">Tome is an addon for WoW Forever. It puts one set of tabs on every window the menu bar opens, so getting from one to another takes a click. It works in combat.</p>
       <ul class="tabs lbl" aria-label="The windows Tome puts its tabs on">{#each TOME.tabs as tab (tab)}<li>{tab}</li>{/each}</ul>
       <p class="body">Type /tome for its settings, or set a key for it under Options, Keybindings.</p>
       <p class="body">To install it, paste this on Gryphon’s GitHub screen:</p>

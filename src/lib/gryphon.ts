@@ -63,11 +63,11 @@ export const home: Shot = points[0].shot;
 /** Tome, the addon: installed from Gryphon by its repo, or as a zip from its releases. */
 export const TOME = {
   name: 'Tome',
-  version: '0.1.0',
+  version: '0.2.1',
   repo: 'tasyusef/tome',
   source: 'https://github.com/tasyusef/tome',
   releases: 'https://github.com/tasyusef/tome/releases',
-  description: 'A World of Warcraft: Forever addon that puts one set of tabs on the character, spellbook, talents, guild, collections, and group finder windows, plus bags.',
+  description: 'A World of Warcraft: Forever addon that puts one set of tabs on every window the menu bar opens, plus bags.',
   /** the windows it puts its tabs on, in its own order (README) */
-  tabs: ['Character', 'Spellbook', 'Talents', 'Guild', 'Collections', 'Group Finder', 'Bags']
+  tabs: ['Character', 'Professions', 'Spellbook', 'Talents', 'Legacy', 'Quest Log', 'Housing', 'Guild', 'Group Finder', 'Collections', 'Adventure Guide', 'Bags']
 };
